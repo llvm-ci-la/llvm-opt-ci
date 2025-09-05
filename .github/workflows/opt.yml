@@ -1,0 +1,134 @@
+name: Show Opt Results
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  WORKSPACE:              ${{ github.workspace }}
+  LLVM_SRC_DIR:           ${{ github.workspace }}/repos/llvm-project
+  TS_SRC_DIR:             ${{ github.workspace }}/repos/llvm-test-suite
+  BUILD_DIRS:             ${{ github.workspace }}/build
+  BUILD_LLVM_DIR:         ${{ github.workspace }}/build/build-llvm
+  BUILD_TS_DIR:           ${{ github.workspace }}/build/build-test-suite
+  RESULTS_DIR:            ${{ github.workspace }}/results
+
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    outputs:
+      prid: ${{ steps.prid.outputs.match }}
+      flag: ${{ steps.flag.outputs.group_2 }}
+    steps:
+    - name: Extract PRID
+      id: prid
+      uses: actions-ecosystem/action-regex-match@v2
+      with:
+        text: ${{ github.event.issue.body }}
+        regex: 'pr=(\d+)'
+
+    - name: Extract FLAG
+      id: flag
+      uses: actions-ecosystem/action-regex-match@v2
+      with:
+        text: ${{ github.event.issue.body }}
+        regex: 'flag=(["\']?)(.*?)\1'
+
+  configure:
+    runs-on: [self-hosted, buildbot]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: false
+          fetch-depth: 0
+        
+      - name: Cleanup old builds
+        run: |
+          if [ -d "${BUILDS_DIR}" ]; then
+            rm -rf ${BUILDS_DIR}/*
+          else
+            mkdir -p ${BUILDS_DIR}
+          fi
+      
+      - name: Update repos
+        run: |
+          cd ${WORKSPACE}
+          sh scripts/fetch-upstream.sh
+          if [ ${PIPESTATUS[0]} -ne 0 ]; then
+            echo "Update repos failed!
+            exit 1
+          fi
+
+  without-pr:
+    needs: configure
+    runs-on: [self-hosted, buildbot]
+    steps:
+      - name: Checkout PR branch without pull commits.
+        run: |
+          cd ${LLVM_SRC_DIR}
+          git fetch origin pull/${{ pr_id }}/head:pr_branch
+          git checkout pr_branch
+
+          pr_commits=$(git rev-list main.. --count)
+          git checkout HEAD~${pr_commits}
+
+          cd ${WORKSPACE}
+          sh scripts/build-llvm.sh
+
+      - name: Generate Test Suite Asm files
+        run: |
+          cd ${WORKSPACE}
+          sh scripts/build-test-suite.sh
+          sh scripts/copy-asm.sh before
+
+  with-pr:
+    needs: without-pr
+    runs-on: [self-hosted, buildbot]
+    steps:
+      - name: Checkout PR branch with pull commits.
+        run: |
+          cd ${LLVM_SRC_DIR}
+          git switch -
+
+          cd ${WORKSPACE}
+          sh scripts/build-llvm.sh
+
+      - name: Generate Test Suite Asm files
+        run: |
+          cd ${WORKSPACE}
+          sh scripts/build-test-suite.sh
+          sh scripts/copy-asm.sh after
+
+  results:
+    needs: with-pr
+    runs-on: [self-hosted, buildbot]
+    steps:
+      - name: Diff before and after
+        run: |
+          cd ${WORKSPACE}
+          sh scripts/diff.sh
+      
+      - name: Create Diff PR
+        id: pr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: pr-{}-after
+          base: pr-{}-before
+      
+      - name: Create comment
+        uses: actions-cool/issue-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.CI_ISSUE_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            ${{ steps.pr.outputs.pull-request-url }}
+
+
+
+  

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+mkdir -p $BUILD_LLVM_DIR
+cd $BUILD_LLVM_DIR
+
+cmake $LLVM_SOURCE_DIR/llvm \
+  -DCMAKE_CXX_COMPILER=clang++ \
+  -DCMAKE_C_COMPILER=clang \
+  -DCMAKE_C_COMPILER_LAUNCHER=sccache \
+  -DCMAKE_CXX_COMPILER_LAUNCHER=sccache \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DLLVM_USE_LINKER=mold \
+  -DBUILD_SHARED_LIBS=true \
+  -DLLVM_TARGETS_TO_BUILD=LoongArch \
+  -DLLVM_ENABLE_PROJECTS=clang \
+  -G Ninja 
+
+ninja
