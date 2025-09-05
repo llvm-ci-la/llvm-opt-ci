@@ -1,0 +1,8 @@
+You are supposed to clone llvm-project & llvm-test-suite under this directory.
+
+After that make sure you have this below
+
+repos/
+├── important.txt
+├── llvm-project
+└── llvm-test-suite
