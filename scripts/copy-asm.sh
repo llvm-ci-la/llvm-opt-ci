@@ -5,10 +5,10 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-DST=$BUILD_DIRS/$1
+DST=$BUILDS_DIR/$1
 
 rm -rf $DST
 mkdir -p $DST
 
 cd $BUILD_TS_DIR
-fd -es -x cp --parents {} $DST
+fd -es -x rsync -R --ignore-existing {} $DST
