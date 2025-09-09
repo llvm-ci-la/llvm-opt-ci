@@ -1,8 +1,8 @@
 name: Show Opt Results
 
 on:
-  issue_comment:
-    types: [created]
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
@@ -12,35 +12,18 @@ env:
   WORKSPACE:              ${{ github.workspace }}
   LLVM_SRC_DIR:           ${{ github.workspace }}/repos/llvm-project
   TS_SRC_DIR:             ${{ github.workspace }}/repos/llvm-test-suite
-  BUILD_DIRS:             ${{ github.workspace }}/build
+  BUILDS_DIR:             ${{ github.workspace }}/build
   BUILD_LLVM_DIR:         ${{ github.workspace }}/build/build-llvm
   BUILD_TS_DIR:           ${{ github.workspace }}/build/build-test-suite
   RESULTS_DIR:            ${{ github.workspace }}/results
 
 
 jobs:
-  extract:
-    runs-on: ubuntu-latest
-    outputs:
-      prid: ${{ steps.prid.outputs.match }}
-      flag: ${{ steps.flag.outputs.group_2 }}
-    steps:
-    - name: Extract PRID
-      id: prid
-      uses: actions-ecosystem/action-regex-match@v2
-      with:
-        text: ${{ github.event.issue.body }}
-        regex: 'pr=(\d+)'
-
-    - name: Extract FLAG
-      id: flag
-      uses: actions-ecosystem/action-regex-match@v2
-      with:
-        text: ${{ github.event.issue.body }}
-        regex: 'flag=(["\']?)(.*?)\1'
-
   configure:
-    runs-on: [self-hosted, buildbot]
+    runs-on: [self-hosted, llvm-ci]
+    outputs:
+      PR_ID: ${{ steps.extract.outputs.PR_ID }}
+      FLAG:  ${{ steps.extract.outputs.FLAG }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -59,20 +42,22 @@ jobs:
         run: |
           cd ${WORKSPACE}
           sh scripts/fetch-upstream.sh
-          if [ ${PIPESTATUS[0]} -ne 0 ]; then
-            echo "Update repos failed!
-            exit 1
-          fi
+      
+      - name: Extract issue body
+        id: extract
+        env:
+          GH_ISSUE_BODY: ${{ github.event.issue.body }}
+        run: sh scripts/extract-issue-body.sh
 
   without-pr:
     needs: configure
-    runs-on: [self-hosted, buildbot]
+    runs-on: [self-hosted, llvm-ci]
     steps:
       - name: Checkout PR branch without pull commits.
         run: |
           cd ${LLVM_SRC_DIR}
-          git fetch origin pull/${{ pr_id }}/head:pr_branch
-          git checkout pr_branch
+          git fetch origin pull/${{ needs.configure.outputs.PR_ID }}/head:pr_${{ needs.configure.outputs.PR_ID }}
+          git checkout pr_${{ needs.configure.outputs.PR_ID }}
 
           pr_commits=$(git rev-list main.. --count)
           git checkout HEAD~${pr_commits}
@@ -81,14 +66,16 @@ jobs:
           sh scripts/build-llvm.sh
 
       - name: Generate Test Suite Asm files
+        env:
+          FLAG: ${{ needs.configure.outputs.FLAG }}
         run: |
           cd ${WORKSPACE}
           sh scripts/build-test-suite.sh
           sh scripts/copy-asm.sh before
 
   with-pr:
-    needs: without-pr
-    runs-on: [self-hosted, buildbot]
+    needs: [without-pr, configure]
+    runs-on: [self-hosted, llvm-ci]
     steps:
       - name: Checkout PR branch with pull commits.
         run: |
@@ -99,36 +86,52 @@ jobs:
           sh scripts/build-llvm.sh
 
       - name: Generate Test Suite Asm files
+        env:
+          FLAG: ${{ needs.configure.outputs.FLAG }}
         run: |
           cd ${WORKSPACE}
           sh scripts/build-test-suite.sh
           sh scripts/copy-asm.sh after
 
   results:
-    needs: with-pr
-    runs-on: [self-hosted, buildbot]
+    needs: [with-pr, configure]
+    runs-on: [self-hosted, llvm-ci]
     steps:
-      - name: Diff before and after
+      - name: Diff before branch
         run: |
           cd ${WORKSPACE}
-          sh scripts/diff.sh
+          sh scripts/diff-branch.sh ${{ needs.configure.outputs.PR_ID }} before
+      
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: pr-${{ needs.configure.outputs.PR_ID }}-before
+
+      - name: Diff after branch
+        run: |
+          cd ${WORKSPACE}
+          sh scripts/diff-branch.sh ${{ needs.configure.outputs.PR_ID }} after
+      
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: pr-${{ needs.configure.outputs.PR_ID }}-after
       
       - name: Create Diff PR
         id: pr
         uses: peter-evans/create-pull-request@v7
         with:
-          branch: pr-{}-after
-          base: pr-{}-before
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: pr-${{ needs.configure.outputs.PR_ID }}-after
+          base: pr-${{ needs.configure.outputs.PR_ID }}-before
       
       - name: Create comment
         uses: actions-cool/issue-helper@v3
         with:
           actions: 'create-comment'
-          token: ${{ secrets.CI_ISSUE_TOKEN }}
+          token: ${{ secrets.LLVM_CI_PR }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             ${{ steps.pr.outputs.pull-request-url }}
-
-
-
-  

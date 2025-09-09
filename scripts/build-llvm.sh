@@ -3,7 +3,7 @@
 mkdir -p $BUILD_LLVM_DIR
 cd $BUILD_LLVM_DIR
 
-cmake $LLVM_SOURCE_DIR/llvm \
+cmake $LLVM_SRC_DIR/llvm \
   -DCMAKE_CXX_COMPILER=clang++ \
   -DCMAKE_C_COMPILER=clang \
   -DCMAKE_C_COMPILER_LAUNCHER=sccache \
