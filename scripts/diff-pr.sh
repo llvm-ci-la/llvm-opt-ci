@@ -46,9 +46,13 @@ git push --set-upstream origin $AFTER_BRANCH
 
 git checkout main
 
+BODY="Link: https://github.com/llvm/llvm-project/pull/$1\n 
+Requested by: @$GH_ISSUE_AUTHOR\n
+Flag: $FLAG"
+
 PR_URL=$(gh pr create \
-    --title "LLVM LoongArch optimization on PR $1 [bot]" \
-    --body "None" \
+    --title "LLVM optimization on PR $1 [bot]" \
+    --body $BODY \
     --base $BEFORE_BRANCH \
     --head $AFTER_BRANCH)
 
