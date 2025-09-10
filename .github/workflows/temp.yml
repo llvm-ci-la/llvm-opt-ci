@@ -1,0 +1,56 @@
+name: Temp
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  WORKSPACE:              ${{ github.workspace }}
+  LLVM_SRC_DIR:           ${{ github.workspace }}/repos/llvm-project
+  TS_SRC_DIR:             ${{ github.workspace }}/repos/llvm-test-suite
+  BUILDS_DIR:             ${{ github.workspace }}/build
+  BUILD_LLVM_DIR:         ${{ github.workspace }}/build/build-llvm
+  BUILD_TS_DIR:           ${{ github.workspace }}/build/build-test-suite
+  RESULTS_DIR:            ${{ github.workspace }}/results
+
+
+jobs:
+  configure:
+    runs-on: [self-hosted, llvm-ci]
+    outputs:
+      PR_ID: ${{ steps.extract.outputs.PR_ID }}
+      FLAG:  ${{ steps.extract.outputs.FLAG }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: false
+          fetch-depth: 0
+        
+      - name: Extract issue body
+        id: extract
+        env:
+          GH_ISSUE_BODY: ${{ github.event.issue.body }}
+        run: sh scripts/extract-issue-body.sh
+
+  results:
+    needs: configure
+    runs-on: [self-hosted, llvm-ci]
+    steps:
+      - name: Diff PR
+        id: pr
+        run: |
+          cd ${WORKSPACE}
+          sh scripts/diff-pr.sh ${{ needs.configure.outputs.PR_ID }}
+      
+      - name: Create comment
+        uses: actions-cool/issue-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            ${{ steps.pr.outputs.PR_URL }}
