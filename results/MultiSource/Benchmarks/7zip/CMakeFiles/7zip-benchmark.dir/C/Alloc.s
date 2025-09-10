@@ -176,9 +176,10 @@ VirtualAlloc:                           # @VirtualAlloc
 	ori	$a1, $zero, 2
 	sub.d	$a0, $a1, $a0
 	andi	$a0, $a0, 255
-	vld	$vr0, $fp, -96                  # 16-byte Folded Reload
-	vreplve.d	$vr0, $vr0, $a0
-	movfr2gr.d	$a1, $fa0
+	movgr2fr.w	$fa0, $a0
+	vld	$vr1, $fp, -96                  # 16-byte Folded Reload
+	vshuf.d	$vr0, $vr1, $vr1
+	vpickve2gr.d	$a1, $vr0, 0
 	pcalau12i	$a2, %pc_hi20(g_HugePageLen)
 	addi.d	$a2, $a2, %pc_lo12(g_HugePageLen)
 	alsl.d	$a0, $a0, $a2, 3
@@ -319,8 +320,9 @@ MidFree:                                # @MidFree
 	addi.d	$a3, $a3, %pc_lo12(g_HugePageLen)
 	alsl.d	$a3, $a2, $a3, 3
 	ldx.d	$a1, $a3, $a1
-	vreplve.d	$vr0, $vr0, $a2
-	movfr2gr.d	$fp, $fa0
+	movgr2fr.w	$fa1, $a2
+	vshuf.d	$vr1, $vr0, $vr0
+	vpickve2gr.d	$fp, $vr1, 0
 	pcaddu18i	$ra, %call36(munmap)
 	jirl	$ra, $ra, 0
 	st.d	$zero, $fp, 0
@@ -585,8 +587,9 @@ BigFree:                                # @BigFree
 	addi.d	$a3, $a3, %pc_lo12(g_HugePageLen)
 	alsl.d	$a3, $a2, $a3, 3
 	ldx.d	$a1, $a3, $a1
-	vreplve.d	$vr0, $vr0, $a2
-	movfr2gr.d	$fp, $fa0
+	movgr2fr.w	$fa1, $a2
+	vshuf.d	$vr1, $vr0, $vr0
+	vpickve2gr.d	$fp, $vr1, 0
 	pcaddu18i	$ra, %call36(munmap)
 	jirl	$ra, $ra, 0
 	st.d	$zero, $fp, 0

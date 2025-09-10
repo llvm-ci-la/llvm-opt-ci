@@ -105,22 +105,22 @@ main:                                   # @main
 	.p2align	4, , 16
 .LBB1_1:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vmul.d	$vr16, $vr9, $vr10
-	vmul.d	$vr17, $vr8, $vr10
-	vmul.d	$vr18, $vr7, $vr10
-	vmul.d	$vr19, $vr6, $vr10
-	vmul.d	$vr20, $vr5, $vr10
-	vmul.d	$vr21, $vr4, $vr10
-	vmul.d	$vr15, $vr3, $vr10
-	vmul.d	$vr14, $vr2, $vr10
-	vsrli.d	$vr14, $vr14, 33
-	vsrli.d	$vr15, $vr15, 33
+	vmul.d	$vr14, $vr9, $vr10
+	vmul.d	$vr15, $vr8, $vr10
+	vmul.d	$vr16, $vr7, $vr10
+	vmul.d	$vr17, $vr6, $vr10
+	vmul.d	$vr18, $vr5, $vr10
+	vmul.d	$vr19, $vr4, $vr10
+	vmul.d	$vr20, $vr3, $vr10
+	vmul.d	$vr21, $vr2, $vr10
 	vsrli.d	$vr21, $vr21, 33
 	vsrli.d	$vr20, $vr20, 33
 	vsrli.d	$vr19, $vr19, 33
 	vsrli.d	$vr18, $vr18, 33
 	vsrli.d	$vr17, $vr17, 33
 	vsrli.d	$vr16, $vr16, 33
+	vsrli.d	$vr15, $vr15, 33
+	vsrli.d	$vr14, $vr14, 33
 	vdiv.hu	$vr22, $vr1, $vr11
 	vdiv.hu	$vr23, $vr0, $vr11
 	vilvh.h	$vr24, $vr12, $vr23
@@ -135,77 +135,78 @@ main:                                   # @main
 	vilvl.h	$vr22, $vr12, $vr22
 	vilvh.w	$vr29, $vr12, $vr22
 	vilvl.w	$vr22, $vr12, $vr22
-	vseq.d	$vr16, $vr16, $vr22
+	vseq.d	$vr14, $vr14, $vr22
+	vxor.v	$vr14, $vr14, $vr13
+	vseq.d	$vr15, $vr15, $vr29
+	vxor.v	$vr15, $vr15, $vr13
+	vpickev.w	$vr15, $vr15, $vr14
+	vseq.d	$vr16, $vr16, $vr27
 	vxor.v	$vr16, $vr16, $vr13
-	vseq.d	$vr17, $vr17, $vr29
+	vseq.d	$vr17, $vr17, $vr28
 	vxor.v	$vr17, $vr17, $vr13
-	vpickev.w	$vr17, $vr17, $vr16
-	vseq.d	$vr18, $vr18, $vr27
+	vpickev.w	$vr16, $vr17, $vr16
+	vpickev.h	$vr15, $vr16, $vr15
+	vseq.d	$vr16, $vr18, $vr23
+	vxor.v	$vr16, $vr16, $vr13
+	vseq.d	$vr17, $vr19, $vr26
+	vxor.v	$vr17, $vr17, $vr13
+	vpickev.w	$vr16, $vr17, $vr16
+	vseq.d	$vr17, $vr20, $vr24
+	vxor.v	$vr17, $vr17, $vr13
+	vseq.d	$vr18, $vr21, $vr25
 	vxor.v	$vr18, $vr18, $vr13
-	vseq.d	$vr19, $vr19, $vr28
-	vxor.v	$vr19, $vr19, $vr13
-	vpickev.w	$vr18, $vr19, $vr18
-	vpickev.h	$vr17, $vr18, $vr17
-	vpickve2gr.b	$a1, $vr17, 2
+	vpickev.w	$vr17, $vr18, $vr17
+	vpickev.h	$vr16, $vr17, $vr16
+	vpickev.b	$vr15, $vr16, $vr15
+	vpickve2gr.b	$a1, $vr15, 1
 	andi	$a1, $a1, 1
-	vpickve2gr.b	$a2, $vr16, 0
+	vpickve2gr.b	$a2, $vr14, 0
 	bstrins.d	$a2, $a1, 63, 1
-	vpickve2gr.b	$a1, $vr17, 4
+	vpickve2gr.b	$a1, $vr15, 2
 	bstrins.d	$a2, $a1, 2, 2
-	vpickve2gr.b	$a1, $vr17, 6
+	vpickve2gr.b	$a1, $vr15, 3
 	bstrins.d	$a2, $a1, 3, 3
-	vpickve2gr.b	$a1, $vr17, 8
+	vpickve2gr.b	$a1, $vr15, 4
 	bstrins.d	$a2, $a1, 4, 4
-	vpickve2gr.b	$a1, $vr17, 10
+	vpickve2gr.b	$a1, $vr15, 5
 	bstrins.d	$a2, $a1, 5, 5
-	vpickve2gr.b	$a1, $vr17, 12
+	vpickve2gr.b	$a1, $vr15, 6
 	andi	$a1, $a1, 1
 	slli.d	$a1, $a1, 6
 	or	$a1, $a2, $a1
-	vpickve2gr.b	$a2, $vr17, 14
+	vpickve2gr.b	$a2, $vr15, 7
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 7
 	or	$a1, $a1, $a2
-	vseq.d	$vr16, $vr20, $vr23
-	vxor.v	$vr16, $vr16, $vr13
-	vpickve2gr.b	$a2, $vr16, 0
+	vpickve2gr.b	$a2, $vr15, 8
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 8
 	or	$a1, $a1, $a2
-	vseq.d	$vr17, $vr21, $vr26
-	vxor.v	$vr17, $vr17, $vr13
-	vpickev.w	$vr16, $vr17, $vr16
-	vseq.d	$vr15, $vr15, $vr24
-	vxor.v	$vr15, $vr15, $vr13
-	vseq.d	$vr14, $vr14, $vr25
-	vxor.v	$vr14, $vr14, $vr13
-	vpickev.w	$vr14, $vr14, $vr15
-	vpickev.h	$vr14, $vr14, $vr16
-	vpickve2gr.b	$a2, $vr14, 2
+	vpickve2gr.b	$a2, $vr15, 9
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 9
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 4
+	vpickve2gr.b	$a2, $vr15, 10
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 10
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 6
+	vpickve2gr.b	$a2, $vr15, 11
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 11
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 8
+	vpickve2gr.b	$a2, $vr15, 12
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 12
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 10
+	vpickve2gr.b	$a2, $vr15, 13
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 13
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 12
+	vpickve2gr.b	$a2, $vr15, 14
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 14
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 14
+	vpickve2gr.b	$a2, $vr15, 15
 	slli.d	$a2, $a2, 15
 	or	$a1, $a1, $a2
 	bstrpick.d	$a1, $a1, 15, 0
