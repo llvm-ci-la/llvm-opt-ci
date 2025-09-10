@@ -32,19 +32,6 @@ jobs:
           clean: false
           fetch-depth: 0
         
-      - name: Cleanup old builds
-        run: |
-          if [ -d "${BUILDS_DIR}" ]; then
-            rm -rf ${BUILDS_DIR}/*
-          else
-            mkdir -p ${BUILDS_DIR}
-          fi
-      
-      - name: Update repos
-        run: |
-          cd ${WORKSPACE}
-          sh scripts/fetch-upstream.sh
-      
       - name: Extract issue body
         id: extract
         env:
@@ -57,9 +44,13 @@ jobs:
     steps:
       - name: Diff PR
         id: pr
+        env:
+          GH_ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          FLAG: ${{ needs.configure.outputs.FLAG }}
+          PR_ID: ${{ needs.configure.outputs.PR_ID }}
         run: |
           cd ${WORKSPACE}
-          sh scripts/diff-pr.sh ${{ needs.configure.outputs.PR_ID }}
+          sh scripts/diff-pr.sh
       
       - name: Create comment
         uses: actions-cool/issue-helper@v3
@@ -68,9 +59,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            > PR: https://github.com/llvm/llvm-project/pull/${{ needs.configure.outputs.PR_ID }}
-            > FLAG: ${{ needs.configure.outputs.FLAG }}
-
             Hello @${{ github.event.issue.user.login }}
             Optimization results can be found:  ${{ steps.pr.outputs.PR_URL }}
 
