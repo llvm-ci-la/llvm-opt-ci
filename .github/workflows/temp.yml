@@ -1,8 +1,9 @@
 name: Temp
 
 on:
-  issues:
-    types: [opened]
+  workflow_dispatch:
+  # issues:
+    # types: [opened]
 
 permissions:
   issues: write
