@@ -43,37 +43,38 @@ f:                                      # @f
 	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
 	vld	$vr5, $a0, %pc_lo12(.LCPI1_1)
 	vseq.d	$vr3, $vr3, $vr4
-	vrepli.b	$vr4, -1
-	vxor.v	$vr3, $vr3, $vr4
+	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
+	vld	$vr4, $a0, %pc_lo12(.LCPI1_2)
 	vseq.d	$vr2, $vr2, $vr5
-	vxor.v	$vr2, $vr2, $vr4
+	vrepli.b	$vr5, -1
+	vxor.v	$vr3, $vr3, $vr5
+	vseq.d	$vr1, $vr1, $vr4
+	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
+	vld	$vr4, $a0, %pc_lo12(.LCPI1_3)
+	vxor.v	$vr2, $vr2, $vr5
 	vpickev.w	$vr2, $vr2, $vr3
-	vpickve2gr.h	$a0, $vr2, 2
+	vxor.v	$vr1, $vr1, $vr5
+	vseq.d	$vr0, $vr0, $vr4
+	vxor.v	$vr0, $vr0, $vr5
+	vpickev.w	$vr0, $vr0, $vr1
+	vpickev.h	$vr0, $vr0, $vr2
+	vpickve2gr.h	$a0, $vr0, 1
 	andi	$a0, $a0, 1
 	vpickve2gr.h	$a1, $vr3, 0
 	bstrins.d	$a1, $a0, 63, 1
-	vpickve2gr.h	$a0, $vr2, 4
-	bstrins.d	$a1, $a0, 2, 2
-	vpickve2gr.h	$a0, $vr2, 6
-	pcalau12i	$a2, %pc_hi20(.LCPI1_2)
-	vld	$vr2, $a2, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a2, %pc_hi20(.LCPI1_3)
-	vld	$vr3, $a2, %pc_lo12(.LCPI1_3)
-	bstrins.d	$a1, $a0, 3, 3
-	vseq.d	$vr1, $vr1, $vr2
-	vxor.v	$vr1, $vr1, $vr4
-	vseq.d	$vr0, $vr0, $vr3
-	vxor.v	$vr0, $vr0, $vr4
-	vpickev.w	$vr0, $vr0, $vr1
-	vpickve2gr.h	$a0, $vr0, 0
-	bstrins.d	$a1, $a0, 4, 4
 	vpickve2gr.h	$a0, $vr0, 2
-	bstrins.d	$a1, $a0, 5, 5
+	bstrins.d	$a1, $a0, 2, 2
+	vpickve2gr.h	$a0, $vr0, 3
+	bstrins.d	$a1, $a0, 3, 3
 	vpickve2gr.h	$a0, $vr0, 4
+	bstrins.d	$a1, $a0, 4, 4
+	vpickve2gr.h	$a0, $vr0, 5
+	bstrins.d	$a1, $a0, 5, 5
+	vpickve2gr.h	$a0, $vr0, 6
 	andi	$a0, $a0, 1
 	slli.d	$a0, $a0, 6
 	or	$a0, $a1, $a0
-	vpickve2gr.h	$a1, $vr0, 6
+	vpickve2gr.h	$a1, $vr0, 7
 	slli.d	$a1, $a1, 7
 	or	$a0, $a0, $a1
 	andi	$a0, $a0, 255
