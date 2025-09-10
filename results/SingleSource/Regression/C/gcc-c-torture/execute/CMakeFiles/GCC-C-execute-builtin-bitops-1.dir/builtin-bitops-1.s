@@ -784,85 +784,86 @@ my_ffsl:                                # @my_ffsl
 	vsll.d	$vr16, $vr9, $vr5
 	vsll.d	$vr17, $vr9, $vr6
 	vsll.d	$vr18, $vr9, $vr7
-	vand.v	$vr19, $vr11, $vr8
+	vand.v	$vr11, $vr11, $vr8
 	vand.v	$vr12, $vr12, $vr8
 	vand.v	$vr13, $vr13, $vr8
 	vand.v	$vr14, $vr14, $vr8
-	vand.v	$vr11, $vr15, $vr8
-	vand.v	$vr15, $vr16, $vr8
-	vand.v	$vr16, $vr17, $vr8
-	vand.v	$vr17, $vr18, $vr8
+	vand.v	$vr15, $vr15, $vr8
+	vand.v	$vr16, $vr16, $vr8
+	vand.v	$vr17, $vr17, $vr8
+	vand.v	$vr18, $vr18, $vr8
+	vseqi.d	$vr18, $vr18, 0
+	vxor.v	$vr18, $vr18, $vr10
 	vseqi.d	$vr17, $vr17, 0
 	vxor.v	$vr17, $vr17, $vr10
+	vpickev.w	$vr17, $vr17, $vr18
 	vseqi.d	$vr16, $vr16, 0
 	vxor.v	$vr16, $vr16, $vr10
-	vpickev.w	$vr16, $vr16, $vr17
 	vseqi.d	$vr15, $vr15, 0
 	vxor.v	$vr15, $vr15, $vr10
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr10
-	vpickev.w	$vr11, $vr11, $vr15
-	vpickev.h	$vr11, $vr11, $vr16
-	vpickve2gr.b	$a2, $vr11, 2
-	andi	$a2, $a2, 1
-	vpickve2gr.b	$a3, $vr17, 0
-	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.b	$a2, $vr11, 4
-	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.b	$a2, $vr11, 6
-	bstrins.d	$a3, $a2, 3, 3
-	vpickve2gr.b	$a2, $vr11, 8
-	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.b	$a2, $vr11, 10
-	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.b	$a2, $vr11, 12
-	andi	$a2, $a2, 1
-	slli.d	$a2, $a2, 6
-	or	$a2, $a3, $a2
-	vpickve2gr.b	$a3, $vr11, 14
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 7
-	or	$a2, $a2, $a3
+	vpickev.w	$vr15, $vr15, $vr16
+	vpickev.h	$vr15, $vr15, $vr17
 	vseqi.d	$vr14, $vr14, 0
 	vxor.v	$vr14, $vr14, $vr10
-	vpickve2gr.b	$a3, $vr14, 0
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 8
-	or	$a2, $a2, $a3
 	vseqi.d	$vr13, $vr13, 0
 	vxor.v	$vr13, $vr13, $vr10
 	vpickev.w	$vr13, $vr13, $vr14
 	vseqi.d	$vr12, $vr12, 0
 	vxor.v	$vr12, $vr12, $vr10
-	vseqi.d	$vr14, $vr19, 0
-	vxor.v	$vr14, $vr14, $vr10
-	vpickev.w	$vr12, $vr14, $vr12
-	vpickev.h	$vr12, $vr12, $vr13
-	vpickve2gr.b	$a3, $vr12, 2
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr10
+	vpickev.w	$vr11, $vr11, $vr12
+	vpickev.h	$vr11, $vr11, $vr13
+	vpickev.b	$vr11, $vr11, $vr15
+	vpickve2gr.b	$a2, $vr11, 1
+	andi	$a2, $a2, 1
+	vpickve2gr.b	$a3, $vr18, 0
+	bstrins.d	$a3, $a2, 63, 1
+	vpickve2gr.b	$a2, $vr11, 2
+	bstrins.d	$a3, $a2, 2, 2
+	vpickve2gr.b	$a2, $vr11, 3
+	bstrins.d	$a3, $a2, 3, 3
+	vpickve2gr.b	$a2, $vr11, 4
+	bstrins.d	$a3, $a2, 4, 4
+	vpickve2gr.b	$a2, $vr11, 5
+	bstrins.d	$a3, $a2, 5, 5
+	vpickve2gr.b	$a2, $vr11, 6
+	andi	$a2, $a2, 1
+	slli.d	$a2, $a2, 6
+	or	$a2, $a3, $a2
+	vpickve2gr.b	$a3, $vr11, 7
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 7
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 8
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 8
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 9
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 9
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 4
+	vpickve2gr.b	$a3, $vr11, 10
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 10
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 6
+	vpickve2gr.b	$a3, $vr11, 11
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 11
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 8
+	vpickve2gr.b	$a3, $vr11, 12
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 12
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 10
+	vpickve2gr.b	$a3, $vr11, 13
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 13
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 12
+	vpickve2gr.b	$a3, $vr11, 14
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 14
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 14
+	vpickve2gr.b	$a3, $vr11, 15
 	slli.d	$a3, $a3, 15
 	or	$a2, $a2, $a3
 	bstrpick.d	$a3, $a2, 15, 0
@@ -887,8 +888,7 @@ my_ffsl:                                # @my_ffsl
 	addi.d	$sp, $sp, -16
 	pcalau12i	$a1, %pc_hi20(.LCPI6_8)
 	vld	$vr0, $a1, %pc_lo12(.LCPI6_8)
-	vpickev.b	$vr1, $vr12, $vr11
-	vand.v	$vr0, $vr1, $vr0
+	vand.v	$vr0, $vr11, $vr0
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4
@@ -995,85 +995,86 @@ my_ctzl:                                # @my_ctzl
 	vsll.d	$vr16, $vr9, $vr5
 	vsll.d	$vr17, $vr9, $vr6
 	vsll.d	$vr18, $vr9, $vr7
-	vand.v	$vr19, $vr11, $vr8
+	vand.v	$vr11, $vr11, $vr8
 	vand.v	$vr12, $vr12, $vr8
 	vand.v	$vr13, $vr13, $vr8
 	vand.v	$vr14, $vr14, $vr8
-	vand.v	$vr11, $vr15, $vr8
-	vand.v	$vr15, $vr16, $vr8
-	vand.v	$vr16, $vr17, $vr8
-	vand.v	$vr17, $vr18, $vr8
+	vand.v	$vr15, $vr15, $vr8
+	vand.v	$vr16, $vr16, $vr8
+	vand.v	$vr17, $vr17, $vr8
+	vand.v	$vr18, $vr18, $vr8
+	vseqi.d	$vr18, $vr18, 0
+	vxor.v	$vr18, $vr18, $vr10
 	vseqi.d	$vr17, $vr17, 0
 	vxor.v	$vr17, $vr17, $vr10
+	vpickev.w	$vr17, $vr17, $vr18
 	vseqi.d	$vr16, $vr16, 0
 	vxor.v	$vr16, $vr16, $vr10
-	vpickev.w	$vr16, $vr16, $vr17
 	vseqi.d	$vr15, $vr15, 0
 	vxor.v	$vr15, $vr15, $vr10
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr10
-	vpickev.w	$vr11, $vr11, $vr15
-	vpickev.h	$vr11, $vr11, $vr16
-	vpickve2gr.b	$a2, $vr11, 2
-	andi	$a2, $a2, 1
-	vpickve2gr.b	$a3, $vr17, 0
-	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.b	$a2, $vr11, 4
-	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.b	$a2, $vr11, 6
-	bstrins.d	$a3, $a2, 3, 3
-	vpickve2gr.b	$a2, $vr11, 8
-	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.b	$a2, $vr11, 10
-	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.b	$a2, $vr11, 12
-	andi	$a2, $a2, 1
-	slli.d	$a2, $a2, 6
-	or	$a2, $a3, $a2
-	vpickve2gr.b	$a3, $vr11, 14
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 7
-	or	$a2, $a2, $a3
+	vpickev.w	$vr15, $vr15, $vr16
+	vpickev.h	$vr15, $vr15, $vr17
 	vseqi.d	$vr14, $vr14, 0
 	vxor.v	$vr14, $vr14, $vr10
-	vpickve2gr.b	$a3, $vr14, 0
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 8
-	or	$a2, $a2, $a3
 	vseqi.d	$vr13, $vr13, 0
 	vxor.v	$vr13, $vr13, $vr10
 	vpickev.w	$vr13, $vr13, $vr14
 	vseqi.d	$vr12, $vr12, 0
 	vxor.v	$vr12, $vr12, $vr10
-	vseqi.d	$vr14, $vr19, 0
-	vxor.v	$vr14, $vr14, $vr10
-	vpickev.w	$vr12, $vr14, $vr12
-	vpickev.h	$vr12, $vr12, $vr13
-	vpickve2gr.b	$a3, $vr12, 2
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr10
+	vpickev.w	$vr11, $vr11, $vr12
+	vpickev.h	$vr11, $vr11, $vr13
+	vpickev.b	$vr11, $vr11, $vr15
+	vpickve2gr.b	$a2, $vr11, 1
+	andi	$a2, $a2, 1
+	vpickve2gr.b	$a3, $vr18, 0
+	bstrins.d	$a3, $a2, 63, 1
+	vpickve2gr.b	$a2, $vr11, 2
+	bstrins.d	$a3, $a2, 2, 2
+	vpickve2gr.b	$a2, $vr11, 3
+	bstrins.d	$a3, $a2, 3, 3
+	vpickve2gr.b	$a2, $vr11, 4
+	bstrins.d	$a3, $a2, 4, 4
+	vpickve2gr.b	$a2, $vr11, 5
+	bstrins.d	$a3, $a2, 5, 5
+	vpickve2gr.b	$a2, $vr11, 6
+	andi	$a2, $a2, 1
+	slli.d	$a2, $a2, 6
+	or	$a2, $a3, $a2
+	vpickve2gr.b	$a3, $vr11, 7
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 7
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 8
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 8
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 9
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 9
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 4
+	vpickve2gr.b	$a3, $vr11, 10
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 10
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 6
+	vpickve2gr.b	$a3, $vr11, 11
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 11
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 8
+	vpickve2gr.b	$a3, $vr11, 12
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 12
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 10
+	vpickve2gr.b	$a3, $vr11, 13
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 13
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 12
+	vpickve2gr.b	$a3, $vr11, 14
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 14
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 14
+	vpickve2gr.b	$a3, $vr11, 15
 	slli.d	$a3, $a3, 15
 	or	$a2, $a2, $a3
 	bstrpick.d	$a3, $a2, 15, 0
@@ -1098,8 +1099,7 @@ my_ctzl:                                # @my_ctzl
 	addi.d	$sp, $sp, -16
 	pcalau12i	$a1, %pc_hi20(.LCPI7_8)
 	vld	$vr0, $a1, %pc_lo12(.LCPI7_8)
-	vpickev.b	$vr1, $vr12, $vr11
-	vand.v	$vr0, $vr1, $vr0
+	vand.v	$vr0, $vr11, $vr0
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4
@@ -1204,85 +1204,86 @@ my_clzl:                                # @my_clzl
 	vsrl.d	$vr16, $vr9, $vr5
 	vsrl.d	$vr17, $vr9, $vr6
 	vsrl.d	$vr18, $vr9, $vr7
-	vand.v	$vr19, $vr11, $vr8
+	vand.v	$vr11, $vr11, $vr8
 	vand.v	$vr12, $vr12, $vr8
 	vand.v	$vr13, $vr13, $vr8
 	vand.v	$vr14, $vr14, $vr8
-	vand.v	$vr11, $vr15, $vr8
-	vand.v	$vr15, $vr16, $vr8
-	vand.v	$vr16, $vr17, $vr8
-	vand.v	$vr17, $vr18, $vr8
+	vand.v	$vr15, $vr15, $vr8
+	vand.v	$vr16, $vr16, $vr8
+	vand.v	$vr17, $vr17, $vr8
+	vand.v	$vr18, $vr18, $vr8
+	vseqi.d	$vr18, $vr18, 0
+	vxor.v	$vr18, $vr18, $vr10
 	vseqi.d	$vr17, $vr17, 0
 	vxor.v	$vr17, $vr17, $vr10
+	vpickev.w	$vr17, $vr17, $vr18
 	vseqi.d	$vr16, $vr16, 0
 	vxor.v	$vr16, $vr16, $vr10
-	vpickev.w	$vr16, $vr16, $vr17
 	vseqi.d	$vr15, $vr15, 0
 	vxor.v	$vr15, $vr15, $vr10
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr10
-	vpickev.w	$vr11, $vr11, $vr15
-	vpickev.h	$vr11, $vr11, $vr16
-	vpickve2gr.b	$a2, $vr11, 2
-	andi	$a2, $a2, 1
-	vpickve2gr.b	$a3, $vr17, 0
-	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.b	$a2, $vr11, 4
-	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.b	$a2, $vr11, 6
-	bstrins.d	$a3, $a2, 3, 3
-	vpickve2gr.b	$a2, $vr11, 8
-	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.b	$a2, $vr11, 10
-	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.b	$a2, $vr11, 12
-	andi	$a2, $a2, 1
-	slli.d	$a2, $a2, 6
-	or	$a2, $a3, $a2
-	vpickve2gr.b	$a3, $vr11, 14
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 7
-	or	$a2, $a2, $a3
+	vpickev.w	$vr15, $vr15, $vr16
+	vpickev.h	$vr15, $vr15, $vr17
 	vseqi.d	$vr14, $vr14, 0
 	vxor.v	$vr14, $vr14, $vr10
-	vpickve2gr.b	$a3, $vr14, 0
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 8
-	or	$a2, $a2, $a3
 	vseqi.d	$vr13, $vr13, 0
 	vxor.v	$vr13, $vr13, $vr10
 	vpickev.w	$vr13, $vr13, $vr14
 	vseqi.d	$vr12, $vr12, 0
 	vxor.v	$vr12, $vr12, $vr10
-	vseqi.d	$vr14, $vr19, 0
-	vxor.v	$vr14, $vr14, $vr10
-	vpickev.w	$vr12, $vr14, $vr12
-	vpickev.h	$vr12, $vr12, $vr13
-	vpickve2gr.b	$a3, $vr12, 2
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr10
+	vpickev.w	$vr11, $vr11, $vr12
+	vpickev.h	$vr11, $vr11, $vr13
+	vpickev.b	$vr11, $vr11, $vr15
+	vpickve2gr.b	$a2, $vr11, 1
+	andi	$a2, $a2, 1
+	vpickve2gr.b	$a3, $vr18, 0
+	bstrins.d	$a3, $a2, 63, 1
+	vpickve2gr.b	$a2, $vr11, 2
+	bstrins.d	$a3, $a2, 2, 2
+	vpickve2gr.b	$a2, $vr11, 3
+	bstrins.d	$a3, $a2, 3, 3
+	vpickve2gr.b	$a2, $vr11, 4
+	bstrins.d	$a3, $a2, 4, 4
+	vpickve2gr.b	$a2, $vr11, 5
+	bstrins.d	$a3, $a2, 5, 5
+	vpickve2gr.b	$a2, $vr11, 6
+	andi	$a2, $a2, 1
+	slli.d	$a2, $a2, 6
+	or	$a2, $a3, $a2
+	vpickve2gr.b	$a3, $vr11, 7
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 7
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 8
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 8
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 9
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 9
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 4
+	vpickve2gr.b	$a3, $vr11, 10
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 10
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 6
+	vpickve2gr.b	$a3, $vr11, 11
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 11
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 8
+	vpickve2gr.b	$a3, $vr11, 12
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 12
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 10
+	vpickve2gr.b	$a3, $vr11, 13
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 13
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 12
+	vpickve2gr.b	$a3, $vr11, 14
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 14
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 14
+	vpickve2gr.b	$a3, $vr11, 15
 	slli.d	$a3, $a3, 15
 	or	$a2, $a2, $a3
 	bstrpick.d	$a3, $a2, 15, 0
@@ -1307,8 +1308,7 @@ my_clzl:                                # @my_clzl
 	addi.d	$sp, $sp, -16
 	pcalau12i	$a1, %pc_hi20(.LCPI8_8)
 	vld	$vr0, $a1, %pc_lo12(.LCPI8_8)
-	vpickev.b	$vr1, $vr12, $vr11
-	vand.v	$vr0, $vr1, $vr0
+	vand.v	$vr0, $vr11, $vr0
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4
@@ -1362,15 +1362,15 @@ my_clrsbl:                              # @my_clrsbl
 	pcalau12i	$a1, %pc_hi20(.LCPI9_3)
 	vld	$vr4, $a1, %pc_lo12(.LCPI9_3)
 	vreplgr2vr.d	$vr5, $a0
-	addi.w	$a1, $zero, -7
+	addi.w	$a3, $zero, -7
 	vrepli.d	$vr6, 63
 	vrepli.d	$vr7, 1
 	vrepli.b	$vr8, -1
-	ori	$a3, $zero, 41
+	ori	$a1, $zero, 41
 	.p2align	4, , 16
 .LBB9_1:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	move	$a4, $a1
+	move	$a4, $a3
 	vsub.d	$vr9, $vr6, $vr4
 	vsub.d	$vr10, $vr6, $vr3
 	vsub.d	$vr11, $vr6, $vr2
@@ -1380,40 +1380,41 @@ my_clrsbl:                              # @my_clrsbl
 	vsrl.d	$vr10, $vr5, $vr10
 	vsrl.d	$vr9, $vr5, $vr9
 	vand.v	$vr13, $vr12, $vr7
-	vand.v	$vr11, $vr11, $vr7
-	vand.v	$vr12, $vr10, $vr7
+	vand.v	$vr14, $vr11, $vr7
+	vand.v	$vr10, $vr10, $vr7
 	vand.v	$vr9, $vr9, $vr7
 	vseq.d	$vr9, $vr9, $vr0
+	vxor.v	$vr12, $vr9, $vr8
+	vseq.d	$vr9, $vr10, $vr0
+	vxor.v	$vr11, $vr9, $vr8
+	vpickev.w	$vr15, $vr11, $vr12
+	vseq.d	$vr9, $vr14, $vr0
 	vxor.v	$vr10, $vr9, $vr8
-	vseq.d	$vr9, $vr12, $vr0
+	vseq.d	$vr9, $vr13, $vr0
 	vxor.v	$vr9, $vr9, $vr8
-	vpickev.w	$vr12, $vr9, $vr10
-	vpickve2gr.h	$a1, $vr12, 2
-	andi	$a1, $a1, 1
-	vpickve2gr.h	$a5, $vr10, 0
-	bstrins.d	$a5, $a1, 63, 1
-	vpickve2gr.h	$a1, $vr12, 4
-	bstrins.d	$a5, $a1, 2, 2
-	vpickve2gr.h	$a1, $vr12, 6
-	bstrins.d	$a5, $a1, 3, 3
-	vseq.d	$vr11, $vr11, $vr0
-	vxor.v	$vr12, $vr11, $vr8
-	vseq.d	$vr11, $vr13, $vr0
-	vxor.v	$vr11, $vr11, $vr8
-	vpickev.w	$vr13, $vr11, $vr12
-	vpickve2gr.h	$a1, $vr13, 0
-	bstrins.d	$a5, $a1, 4, 4
-	vpickve2gr.h	$a1, $vr13, 2
-	bstrins.d	$a5, $a1, 5, 5
-	vpickve2gr.h	$a1, $vr13, 4
-	andi	$a1, $a1, 1
-	slli.d	$a1, $a1, 6
-	or	$a1, $a5, $a1
-	vpickve2gr.h	$a5, $vr13, 6
+	vpickev.w	$vr13, $vr9, $vr10
+	vpickev.h	$vr13, $vr13, $vr15
+	vpickve2gr.h	$a3, $vr13, 1
+	andi	$a3, $a3, 1
+	vpickve2gr.h	$a5, $vr12, 0
+	bstrins.d	$a5, $a3, 63, 1
+	vpickve2gr.h	$a3, $vr13, 2
+	bstrins.d	$a5, $a3, 2, 2
+	vpickve2gr.h	$a3, $vr13, 3
+	bstrins.d	$a5, $a3, 3, 3
+	vpickve2gr.h	$a3, $vr13, 4
+	bstrins.d	$a5, $a3, 4, 4
+	vpickve2gr.h	$a3, $vr13, 5
+	bstrins.d	$a5, $a3, 5, 5
+	vpickve2gr.h	$a3, $vr13, 6
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 6
+	or	$a3, $a5, $a3
+	vpickve2gr.h	$a5, $vr13, 7
 	slli.d	$a5, $a5, 7
-	or	$a1, $a1, $a5
-	andi	$a5, $a1, 255
-	addi.d	$a1, $a4, 8
+	or	$a3, $a3, $a5
+	andi	$a5, $a3, 255
+	addi.d	$a3, $a4, 8
 	bnez	$a5, .LBB9_3
 # %bb.2:                                # %vector.body
                                         #   in Loop: Header=BB9_1 Depth=1
@@ -1421,25 +1422,25 @@ my_clrsbl:                              # @my_clrsbl
 	vaddi.du	$vr3, $vr3, 8
 	vaddi.du	$vr2, $vr2, 8
 	vaddi.du	$vr1, $vr1, 8
-	bne	$a4, $a3, .LBB9_1
+	bne	$a4, $a1, .LBB9_1
 .LBB9_3:                                # %middle.split
 	beqz	$a5, .LBB9_5
 # %bb.4:                                # %vector.early.exit
-	vpickve2gr.d	$a0, $vr10, 0
-	vinsgr2vr.b	$vr0, $a0, 0
-	vpickve2gr.d	$a0, $vr10, 1
-	vinsgr2vr.b	$vr0, $a0, 1
-	vpickve2gr.d	$a0, $vr9, 0
-	vinsgr2vr.b	$vr0, $a0, 2
-	vpickve2gr.d	$a0, $vr9, 1
-	vinsgr2vr.b	$vr0, $a0, 3
 	vpickve2gr.d	$a0, $vr12, 0
-	vinsgr2vr.b	$vr0, $a0, 4
+	vinsgr2vr.b	$vr0, $a0, 0
 	vpickve2gr.d	$a0, $vr12, 1
-	vinsgr2vr.b	$vr0, $a0, 5
+	vinsgr2vr.b	$vr0, $a0, 1
 	vpickve2gr.d	$a0, $vr11, 0
-	vinsgr2vr.b	$vr0, $a0, 6
+	vinsgr2vr.b	$vr0, $a0, 2
 	vpickve2gr.d	$a0, $vr11, 1
+	vinsgr2vr.b	$vr0, $a0, 3
+	vpickve2gr.d	$a0, $vr10, 0
+	vinsgr2vr.b	$vr0, $a0, 4
+	vpickve2gr.d	$a0, $vr10, 1
+	vinsgr2vr.b	$vr0, $a0, 5
+	vpickve2gr.d	$a0, $vr9, 0
+	vinsgr2vr.b	$vr0, $a0, 6
+	vpickve2gr.d	$a0, $vr9, 1
 	vinsgr2vr.b	$vr0, $a0, 7
 	lu12i.w	$a0, 20576
 	ori	$a0, $a0, 1800
@@ -1454,10 +1455,10 @@ my_clrsbl:                              # @my_clrsbl
 	vbsrl.v	$vr1, $vr0, 1
 	vmax.bu	$vr0, $vr1, $vr0
 	vpickve2gr.b	$a0, $vr0, 0
-	ori	$a2, $zero, 8
-	sub.d	$a0, $a2, $a0
+	ori	$a1, $zero, 8
+	sub.d	$a0, $a1, $a0
 	andi	$a0, $a0, 255
-	add.d	$a1, $a0, $a1
+	add.d	$a1, $a0, $a3
 	b	.LBB9_12
 .LBB9_5:                                # %scalar.ph
 	bstrpick.d	$a3, $a0, 6, 6
@@ -1852,85 +1853,86 @@ my_ffsll:                               # @my_ffsll
 	vsll.d	$vr16, $vr9, $vr5
 	vsll.d	$vr17, $vr9, $vr6
 	vsll.d	$vr18, $vr9, $vr7
-	vand.v	$vr19, $vr11, $vr8
+	vand.v	$vr11, $vr11, $vr8
 	vand.v	$vr12, $vr12, $vr8
 	vand.v	$vr13, $vr13, $vr8
 	vand.v	$vr14, $vr14, $vr8
-	vand.v	$vr11, $vr15, $vr8
-	vand.v	$vr15, $vr16, $vr8
-	vand.v	$vr16, $vr17, $vr8
-	vand.v	$vr17, $vr18, $vr8
+	vand.v	$vr15, $vr15, $vr8
+	vand.v	$vr16, $vr16, $vr8
+	vand.v	$vr17, $vr17, $vr8
+	vand.v	$vr18, $vr18, $vr8
+	vseqi.d	$vr18, $vr18, 0
+	vxor.v	$vr18, $vr18, $vr10
 	vseqi.d	$vr17, $vr17, 0
 	vxor.v	$vr17, $vr17, $vr10
+	vpickev.w	$vr17, $vr17, $vr18
 	vseqi.d	$vr16, $vr16, 0
 	vxor.v	$vr16, $vr16, $vr10
-	vpickev.w	$vr16, $vr16, $vr17
 	vseqi.d	$vr15, $vr15, 0
 	vxor.v	$vr15, $vr15, $vr10
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr10
-	vpickev.w	$vr11, $vr11, $vr15
-	vpickev.h	$vr11, $vr11, $vr16
-	vpickve2gr.b	$a2, $vr11, 2
-	andi	$a2, $a2, 1
-	vpickve2gr.b	$a3, $vr17, 0
-	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.b	$a2, $vr11, 4
-	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.b	$a2, $vr11, 6
-	bstrins.d	$a3, $a2, 3, 3
-	vpickve2gr.b	$a2, $vr11, 8
-	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.b	$a2, $vr11, 10
-	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.b	$a2, $vr11, 12
-	andi	$a2, $a2, 1
-	slli.d	$a2, $a2, 6
-	or	$a2, $a3, $a2
-	vpickve2gr.b	$a3, $vr11, 14
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 7
-	or	$a2, $a2, $a3
+	vpickev.w	$vr15, $vr15, $vr16
+	vpickev.h	$vr15, $vr15, $vr17
 	vseqi.d	$vr14, $vr14, 0
 	vxor.v	$vr14, $vr14, $vr10
-	vpickve2gr.b	$a3, $vr14, 0
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 8
-	or	$a2, $a2, $a3
 	vseqi.d	$vr13, $vr13, 0
 	vxor.v	$vr13, $vr13, $vr10
 	vpickev.w	$vr13, $vr13, $vr14
 	vseqi.d	$vr12, $vr12, 0
 	vxor.v	$vr12, $vr12, $vr10
-	vseqi.d	$vr14, $vr19, 0
-	vxor.v	$vr14, $vr14, $vr10
-	vpickev.w	$vr12, $vr14, $vr12
-	vpickev.h	$vr12, $vr12, $vr13
-	vpickve2gr.b	$a3, $vr12, 2
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr10
+	vpickev.w	$vr11, $vr11, $vr12
+	vpickev.h	$vr11, $vr11, $vr13
+	vpickev.b	$vr11, $vr11, $vr15
+	vpickve2gr.b	$a2, $vr11, 1
+	andi	$a2, $a2, 1
+	vpickve2gr.b	$a3, $vr18, 0
+	bstrins.d	$a3, $a2, 63, 1
+	vpickve2gr.b	$a2, $vr11, 2
+	bstrins.d	$a3, $a2, 2, 2
+	vpickve2gr.b	$a2, $vr11, 3
+	bstrins.d	$a3, $a2, 3, 3
+	vpickve2gr.b	$a2, $vr11, 4
+	bstrins.d	$a3, $a2, 4, 4
+	vpickve2gr.b	$a2, $vr11, 5
+	bstrins.d	$a3, $a2, 5, 5
+	vpickve2gr.b	$a2, $vr11, 6
+	andi	$a2, $a2, 1
+	slli.d	$a2, $a2, 6
+	or	$a2, $a3, $a2
+	vpickve2gr.b	$a3, $vr11, 7
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 7
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 8
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 8
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 9
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 9
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 4
+	vpickve2gr.b	$a3, $vr11, 10
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 10
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 6
+	vpickve2gr.b	$a3, $vr11, 11
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 11
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 8
+	vpickve2gr.b	$a3, $vr11, 12
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 12
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 10
+	vpickve2gr.b	$a3, $vr11, 13
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 13
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 12
+	vpickve2gr.b	$a3, $vr11, 14
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 14
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 14
+	vpickve2gr.b	$a3, $vr11, 15
 	slli.d	$a3, $a3, 15
 	or	$a2, $a2, $a3
 	bstrpick.d	$a3, $a2, 15, 0
@@ -1955,8 +1957,7 @@ my_ffsll:                               # @my_ffsll
 	addi.d	$sp, $sp, -16
 	pcalau12i	$a1, %pc_hi20(.LCPI12_8)
 	vld	$vr0, $a1, %pc_lo12(.LCPI12_8)
-	vpickev.b	$vr1, $vr12, $vr11
-	vand.v	$vr0, $vr1, $vr0
+	vand.v	$vr0, $vr11, $vr0
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4
@@ -2063,85 +2064,86 @@ my_ctzll:                               # @my_ctzll
 	vsll.d	$vr16, $vr9, $vr5
 	vsll.d	$vr17, $vr9, $vr6
 	vsll.d	$vr18, $vr9, $vr7
-	vand.v	$vr19, $vr11, $vr8
+	vand.v	$vr11, $vr11, $vr8
 	vand.v	$vr12, $vr12, $vr8
 	vand.v	$vr13, $vr13, $vr8
 	vand.v	$vr14, $vr14, $vr8
-	vand.v	$vr11, $vr15, $vr8
-	vand.v	$vr15, $vr16, $vr8
-	vand.v	$vr16, $vr17, $vr8
-	vand.v	$vr17, $vr18, $vr8
+	vand.v	$vr15, $vr15, $vr8
+	vand.v	$vr16, $vr16, $vr8
+	vand.v	$vr17, $vr17, $vr8
+	vand.v	$vr18, $vr18, $vr8
+	vseqi.d	$vr18, $vr18, 0
+	vxor.v	$vr18, $vr18, $vr10
 	vseqi.d	$vr17, $vr17, 0
 	vxor.v	$vr17, $vr17, $vr10
+	vpickev.w	$vr17, $vr17, $vr18
 	vseqi.d	$vr16, $vr16, 0
 	vxor.v	$vr16, $vr16, $vr10
-	vpickev.w	$vr16, $vr16, $vr17
 	vseqi.d	$vr15, $vr15, 0
 	vxor.v	$vr15, $vr15, $vr10
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr10
-	vpickev.w	$vr11, $vr11, $vr15
-	vpickev.h	$vr11, $vr11, $vr16
-	vpickve2gr.b	$a2, $vr11, 2
-	andi	$a2, $a2, 1
-	vpickve2gr.b	$a3, $vr17, 0
-	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.b	$a2, $vr11, 4
-	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.b	$a2, $vr11, 6
-	bstrins.d	$a3, $a2, 3, 3
-	vpickve2gr.b	$a2, $vr11, 8
-	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.b	$a2, $vr11, 10
-	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.b	$a2, $vr11, 12
-	andi	$a2, $a2, 1
-	slli.d	$a2, $a2, 6
-	or	$a2, $a3, $a2
-	vpickve2gr.b	$a3, $vr11, 14
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 7
-	or	$a2, $a2, $a3
+	vpickev.w	$vr15, $vr15, $vr16
+	vpickev.h	$vr15, $vr15, $vr17
 	vseqi.d	$vr14, $vr14, 0
 	vxor.v	$vr14, $vr14, $vr10
-	vpickve2gr.b	$a3, $vr14, 0
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 8
-	or	$a2, $a2, $a3
 	vseqi.d	$vr13, $vr13, 0
 	vxor.v	$vr13, $vr13, $vr10
 	vpickev.w	$vr13, $vr13, $vr14
 	vseqi.d	$vr12, $vr12, 0
 	vxor.v	$vr12, $vr12, $vr10
-	vseqi.d	$vr14, $vr19, 0
-	vxor.v	$vr14, $vr14, $vr10
-	vpickev.w	$vr12, $vr14, $vr12
-	vpickev.h	$vr12, $vr12, $vr13
-	vpickve2gr.b	$a3, $vr12, 2
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr10
+	vpickev.w	$vr11, $vr11, $vr12
+	vpickev.h	$vr11, $vr11, $vr13
+	vpickev.b	$vr11, $vr11, $vr15
+	vpickve2gr.b	$a2, $vr11, 1
+	andi	$a2, $a2, 1
+	vpickve2gr.b	$a3, $vr18, 0
+	bstrins.d	$a3, $a2, 63, 1
+	vpickve2gr.b	$a2, $vr11, 2
+	bstrins.d	$a3, $a2, 2, 2
+	vpickve2gr.b	$a2, $vr11, 3
+	bstrins.d	$a3, $a2, 3, 3
+	vpickve2gr.b	$a2, $vr11, 4
+	bstrins.d	$a3, $a2, 4, 4
+	vpickve2gr.b	$a2, $vr11, 5
+	bstrins.d	$a3, $a2, 5, 5
+	vpickve2gr.b	$a2, $vr11, 6
+	andi	$a2, $a2, 1
+	slli.d	$a2, $a2, 6
+	or	$a2, $a3, $a2
+	vpickve2gr.b	$a3, $vr11, 7
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 7
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 8
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 8
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 9
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 9
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 4
+	vpickve2gr.b	$a3, $vr11, 10
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 10
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 6
+	vpickve2gr.b	$a3, $vr11, 11
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 11
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 8
+	vpickve2gr.b	$a3, $vr11, 12
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 12
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 10
+	vpickve2gr.b	$a3, $vr11, 13
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 13
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 12
+	vpickve2gr.b	$a3, $vr11, 14
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 14
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 14
+	vpickve2gr.b	$a3, $vr11, 15
 	slli.d	$a3, $a3, 15
 	or	$a2, $a2, $a3
 	bstrpick.d	$a3, $a2, 15, 0
@@ -2166,8 +2168,7 @@ my_ctzll:                               # @my_ctzll
 	addi.d	$sp, $sp, -16
 	pcalau12i	$a1, %pc_hi20(.LCPI13_8)
 	vld	$vr0, $a1, %pc_lo12(.LCPI13_8)
-	vpickev.b	$vr1, $vr12, $vr11
-	vand.v	$vr0, $vr1, $vr0
+	vand.v	$vr0, $vr11, $vr0
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4
@@ -2272,85 +2273,86 @@ my_clzll:                               # @my_clzll
 	vsrl.d	$vr16, $vr9, $vr5
 	vsrl.d	$vr17, $vr9, $vr6
 	vsrl.d	$vr18, $vr9, $vr7
-	vand.v	$vr19, $vr11, $vr8
+	vand.v	$vr11, $vr11, $vr8
 	vand.v	$vr12, $vr12, $vr8
 	vand.v	$vr13, $vr13, $vr8
 	vand.v	$vr14, $vr14, $vr8
-	vand.v	$vr11, $vr15, $vr8
-	vand.v	$vr15, $vr16, $vr8
-	vand.v	$vr16, $vr17, $vr8
-	vand.v	$vr17, $vr18, $vr8
+	vand.v	$vr15, $vr15, $vr8
+	vand.v	$vr16, $vr16, $vr8
+	vand.v	$vr17, $vr17, $vr8
+	vand.v	$vr18, $vr18, $vr8
+	vseqi.d	$vr18, $vr18, 0
+	vxor.v	$vr18, $vr18, $vr10
 	vseqi.d	$vr17, $vr17, 0
 	vxor.v	$vr17, $vr17, $vr10
+	vpickev.w	$vr17, $vr17, $vr18
 	vseqi.d	$vr16, $vr16, 0
 	vxor.v	$vr16, $vr16, $vr10
-	vpickev.w	$vr16, $vr16, $vr17
 	vseqi.d	$vr15, $vr15, 0
 	vxor.v	$vr15, $vr15, $vr10
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr10
-	vpickev.w	$vr11, $vr11, $vr15
-	vpickev.h	$vr11, $vr11, $vr16
-	vpickve2gr.b	$a2, $vr11, 2
-	andi	$a2, $a2, 1
-	vpickve2gr.b	$a3, $vr17, 0
-	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.b	$a2, $vr11, 4
-	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.b	$a2, $vr11, 6
-	bstrins.d	$a3, $a2, 3, 3
-	vpickve2gr.b	$a2, $vr11, 8
-	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.b	$a2, $vr11, 10
-	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.b	$a2, $vr11, 12
-	andi	$a2, $a2, 1
-	slli.d	$a2, $a2, 6
-	or	$a2, $a3, $a2
-	vpickve2gr.b	$a3, $vr11, 14
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 7
-	or	$a2, $a2, $a3
+	vpickev.w	$vr15, $vr15, $vr16
+	vpickev.h	$vr15, $vr15, $vr17
 	vseqi.d	$vr14, $vr14, 0
 	vxor.v	$vr14, $vr14, $vr10
-	vpickve2gr.b	$a3, $vr14, 0
-	andi	$a3, $a3, 1
-	slli.d	$a3, $a3, 8
-	or	$a2, $a2, $a3
 	vseqi.d	$vr13, $vr13, 0
 	vxor.v	$vr13, $vr13, $vr10
 	vpickev.w	$vr13, $vr13, $vr14
 	vseqi.d	$vr12, $vr12, 0
 	vxor.v	$vr12, $vr12, $vr10
-	vseqi.d	$vr14, $vr19, 0
-	vxor.v	$vr14, $vr14, $vr10
-	vpickev.w	$vr12, $vr14, $vr12
-	vpickev.h	$vr12, $vr12, $vr13
-	vpickve2gr.b	$a3, $vr12, 2
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr10
+	vpickev.w	$vr11, $vr11, $vr12
+	vpickev.h	$vr11, $vr11, $vr13
+	vpickev.b	$vr11, $vr11, $vr15
+	vpickve2gr.b	$a2, $vr11, 1
+	andi	$a2, $a2, 1
+	vpickve2gr.b	$a3, $vr18, 0
+	bstrins.d	$a3, $a2, 63, 1
+	vpickve2gr.b	$a2, $vr11, 2
+	bstrins.d	$a3, $a2, 2, 2
+	vpickve2gr.b	$a2, $vr11, 3
+	bstrins.d	$a3, $a2, 3, 3
+	vpickve2gr.b	$a2, $vr11, 4
+	bstrins.d	$a3, $a2, 4, 4
+	vpickve2gr.b	$a2, $vr11, 5
+	bstrins.d	$a3, $a2, 5, 5
+	vpickve2gr.b	$a2, $vr11, 6
+	andi	$a2, $a2, 1
+	slli.d	$a2, $a2, 6
+	or	$a2, $a3, $a2
+	vpickve2gr.b	$a3, $vr11, 7
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 7
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 8
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 8
+	or	$a2, $a2, $a3
+	vpickve2gr.b	$a3, $vr11, 9
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 9
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 4
+	vpickve2gr.b	$a3, $vr11, 10
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 10
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 6
+	vpickve2gr.b	$a3, $vr11, 11
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 11
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 8
+	vpickve2gr.b	$a3, $vr11, 12
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 12
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 10
+	vpickve2gr.b	$a3, $vr11, 13
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 13
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 12
+	vpickve2gr.b	$a3, $vr11, 14
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 14
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr12, 14
+	vpickve2gr.b	$a3, $vr11, 15
 	slli.d	$a3, $a3, 15
 	or	$a2, $a2, $a3
 	bstrpick.d	$a3, $a2, 15, 0
@@ -2375,8 +2377,7 @@ my_clzll:                               # @my_clzll
 	addi.d	$sp, $sp, -16
 	pcalau12i	$a1, %pc_hi20(.LCPI14_8)
 	vld	$vr0, $a1, %pc_lo12(.LCPI14_8)
-	vpickev.b	$vr1, $vr12, $vr11
-	vand.v	$vr0, $vr1, $vr0
+	vand.v	$vr0, $vr11, $vr0
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4
@@ -2430,15 +2431,15 @@ my_clrsbll:                             # @my_clrsbll
 	pcalau12i	$a1, %pc_hi20(.LCPI15_3)
 	vld	$vr4, $a1, %pc_lo12(.LCPI15_3)
 	vreplgr2vr.d	$vr5, $a0
-	addi.w	$a1, $zero, -7
+	addi.w	$a3, $zero, -7
 	vrepli.d	$vr6, 63
 	vrepli.d	$vr7, 1
 	vrepli.b	$vr8, -1
-	ori	$a3, $zero, 41
+	ori	$a1, $zero, 41
 	.p2align	4, , 16
 .LBB15_1:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	move	$a4, $a1
+	move	$a4, $a3
 	vsub.d	$vr9, $vr6, $vr4
 	vsub.d	$vr10, $vr6, $vr3
 	vsub.d	$vr11, $vr6, $vr2
@@ -2448,40 +2449,41 @@ my_clrsbll:                             # @my_clrsbll
 	vsrl.d	$vr10, $vr5, $vr10
 	vsrl.d	$vr9, $vr5, $vr9
 	vand.v	$vr13, $vr12, $vr7
-	vand.v	$vr11, $vr11, $vr7
-	vand.v	$vr12, $vr10, $vr7
+	vand.v	$vr14, $vr11, $vr7
+	vand.v	$vr10, $vr10, $vr7
 	vand.v	$vr9, $vr9, $vr7
 	vseq.d	$vr9, $vr9, $vr0
+	vxor.v	$vr12, $vr9, $vr8
+	vseq.d	$vr9, $vr10, $vr0
+	vxor.v	$vr11, $vr9, $vr8
+	vpickev.w	$vr15, $vr11, $vr12
+	vseq.d	$vr9, $vr14, $vr0
 	vxor.v	$vr10, $vr9, $vr8
-	vseq.d	$vr9, $vr12, $vr0
+	vseq.d	$vr9, $vr13, $vr0
 	vxor.v	$vr9, $vr9, $vr8
-	vpickev.w	$vr12, $vr9, $vr10
-	vpickve2gr.h	$a1, $vr12, 2
-	andi	$a1, $a1, 1
-	vpickve2gr.h	$a5, $vr10, 0
-	bstrins.d	$a5, $a1, 63, 1
-	vpickve2gr.h	$a1, $vr12, 4
-	bstrins.d	$a5, $a1, 2, 2
-	vpickve2gr.h	$a1, $vr12, 6
-	bstrins.d	$a5, $a1, 3, 3
-	vseq.d	$vr11, $vr11, $vr0
-	vxor.v	$vr12, $vr11, $vr8
-	vseq.d	$vr11, $vr13, $vr0
-	vxor.v	$vr11, $vr11, $vr8
-	vpickev.w	$vr13, $vr11, $vr12
-	vpickve2gr.h	$a1, $vr13, 0
-	bstrins.d	$a5, $a1, 4, 4
-	vpickve2gr.h	$a1, $vr13, 2
-	bstrins.d	$a5, $a1, 5, 5
-	vpickve2gr.h	$a1, $vr13, 4
-	andi	$a1, $a1, 1
-	slli.d	$a1, $a1, 6
-	or	$a1, $a5, $a1
-	vpickve2gr.h	$a5, $vr13, 6
+	vpickev.w	$vr13, $vr9, $vr10
+	vpickev.h	$vr13, $vr13, $vr15
+	vpickve2gr.h	$a3, $vr13, 1
+	andi	$a3, $a3, 1
+	vpickve2gr.h	$a5, $vr12, 0
+	bstrins.d	$a5, $a3, 63, 1
+	vpickve2gr.h	$a3, $vr13, 2
+	bstrins.d	$a5, $a3, 2, 2
+	vpickve2gr.h	$a3, $vr13, 3
+	bstrins.d	$a5, $a3, 3, 3
+	vpickve2gr.h	$a3, $vr13, 4
+	bstrins.d	$a5, $a3, 4, 4
+	vpickve2gr.h	$a3, $vr13, 5
+	bstrins.d	$a5, $a3, 5, 5
+	vpickve2gr.h	$a3, $vr13, 6
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 6
+	or	$a3, $a5, $a3
+	vpickve2gr.h	$a5, $vr13, 7
 	slli.d	$a5, $a5, 7
-	or	$a1, $a1, $a5
-	andi	$a5, $a1, 255
-	addi.d	$a1, $a4, 8
+	or	$a3, $a3, $a5
+	andi	$a5, $a3, 255
+	addi.d	$a3, $a4, 8
 	bnez	$a5, .LBB15_3
 # %bb.2:                                # %vector.body
                                         #   in Loop: Header=BB15_1 Depth=1
@@ -2489,25 +2491,25 @@ my_clrsbll:                             # @my_clrsbll
 	vaddi.du	$vr3, $vr3, 8
 	vaddi.du	$vr2, $vr2, 8
 	vaddi.du	$vr1, $vr1, 8
-	bne	$a4, $a3, .LBB15_1
+	bne	$a4, $a1, .LBB15_1
 .LBB15_3:                               # %middle.split
 	beqz	$a5, .LBB15_5
 # %bb.4:                                # %vector.early.exit
-	vpickve2gr.d	$a0, $vr10, 0
-	vinsgr2vr.b	$vr0, $a0, 0
-	vpickve2gr.d	$a0, $vr10, 1
-	vinsgr2vr.b	$vr0, $a0, 1
-	vpickve2gr.d	$a0, $vr9, 0
-	vinsgr2vr.b	$vr0, $a0, 2
-	vpickve2gr.d	$a0, $vr9, 1
-	vinsgr2vr.b	$vr0, $a0, 3
 	vpickve2gr.d	$a0, $vr12, 0
-	vinsgr2vr.b	$vr0, $a0, 4
+	vinsgr2vr.b	$vr0, $a0, 0
 	vpickve2gr.d	$a0, $vr12, 1
-	vinsgr2vr.b	$vr0, $a0, 5
+	vinsgr2vr.b	$vr0, $a0, 1
 	vpickve2gr.d	$a0, $vr11, 0
-	vinsgr2vr.b	$vr0, $a0, 6
+	vinsgr2vr.b	$vr0, $a0, 2
 	vpickve2gr.d	$a0, $vr11, 1
+	vinsgr2vr.b	$vr0, $a0, 3
+	vpickve2gr.d	$a0, $vr10, 0
+	vinsgr2vr.b	$vr0, $a0, 4
+	vpickve2gr.d	$a0, $vr10, 1
+	vinsgr2vr.b	$vr0, $a0, 5
+	vpickve2gr.d	$a0, $vr9, 0
+	vinsgr2vr.b	$vr0, $a0, 6
+	vpickve2gr.d	$a0, $vr9, 1
 	vinsgr2vr.b	$vr0, $a0, 7
 	lu12i.w	$a0, 20576
 	ori	$a0, $a0, 1800
@@ -2522,10 +2524,10 @@ my_clrsbll:                             # @my_clrsbll
 	vbsrl.v	$vr1, $vr0, 1
 	vmax.bu	$vr0, $vr1, $vr0
 	vpickve2gr.b	$a0, $vr0, 0
-	ori	$a2, $zero, 8
-	sub.d	$a0, $a2, $a0
+	ori	$a1, $zero, 8
+	sub.d	$a0, $a1, $a0
 	andi	$a0, $a0, 255
-	add.d	$a1, $a0, $a1
+	add.d	$a1, $a0, $a3
 	b	.LBB15_12
 .LBB15_5:                               # %scalar.ph
 	bstrpick.d	$a3, $a0, 6, 6
@@ -3050,9 +3052,9 @@ main:                                   # @main
 	vst	$vr0, $sp, 80                   # 16-byte Folded Spill
 	addi.w	$a0, $zero, -7
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
-	vrepli.d	$vr19, 63
-	vrepli.d	$vr20, 1
-	vrepli.b	$vr21, -1
+	vrepli.d	$vr18, 63
+	vrepli.d	$vr19, 1
+	vrepli.b	$vr20, -1
 	lu12i.w	$a0, 20576
 	ori	$a0, $a0, 1800
 	lu32i.d	$a0, 131844
@@ -3073,9 +3075,9 @@ main:                                   # @main
 	pcalau12i	$s6, %pc_hi20(.LCPI18_6)
 	lu52i.d	$s7, $zero, -2048
 	ori	$s1, $zero, 32
-	vst	$vr19, $sp, 192                 # 16-byte Folded Spill
-	vst	$vr20, $sp, 176                 # 16-byte Folded Spill
-	vst	$vr21, $sp, 160                 # 16-byte Folded Spill
+	vst	$vr18, $sp, 192                 # 16-byte Folded Spill
+	vst	$vr19, $sp, 176                 # 16-byte Folded Spill
+	vst	$vr20, $sp, 160                 # 16-byte Folded Spill
 	.p2align	4, , 16
 .LBB18_10:                              # %.preheader956
                                         # =>This Loop Header: Depth=1
@@ -3112,93 +3114,94 @@ main:                                   # @main
                                         #   Parent Loop BB18_10 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	move	$a2, $a5
-	vsll.d	$vr9, $vr20, $vr1
-	vsll.d	$vr10, $vr20, $vr2
-	vsll.d	$vr11, $vr20, $vr3
-	vsll.d	$vr12, $vr20, $vr4
-	vsll.d	$vr13, $vr20, $vr5
-	vsll.d	$vr14, $vr20, $vr6
-	vsll.d	$vr15, $vr20, $vr7
-	vsll.d	$vr16, $vr20, $vr8
-	vand.v	$vr17, $vr9, $vr0
+	vsll.d	$vr9, $vr19, $vr1
+	vsll.d	$vr10, $vr19, $vr2
+	vsll.d	$vr11, $vr19, $vr3
+	vsll.d	$vr12, $vr19, $vr4
+	vsll.d	$vr13, $vr19, $vr5
+	vsll.d	$vr14, $vr19, $vr6
+	vsll.d	$vr15, $vr19, $vr7
+	vsll.d	$vr16, $vr19, $vr8
+	vand.v	$vr9, $vr9, $vr0
 	vand.v	$vr10, $vr10, $vr0
 	vand.v	$vr11, $vr11, $vr0
 	vand.v	$vr12, $vr12, $vr0
-	vand.v	$vr9, $vr13, $vr0
-	vand.v	$vr13, $vr14, $vr0
-	vand.v	$vr14, $vr15, $vr0
-	vand.v	$vr15, $vr16, $vr0
+	vand.v	$vr13, $vr13, $vr0
+	vand.v	$vr14, $vr14, $vr0
+	vand.v	$vr15, $vr15, $vr0
+	vand.v	$vr16, $vr16, $vr0
+	vseqi.d	$vr16, $vr16, 0
+	vxor.v	$vr16, $vr16, $vr20
 	vseqi.d	$vr15, $vr15, 0
-	vxor.v	$vr15, $vr15, $vr21
+	vxor.v	$vr15, $vr15, $vr20
+	vpickev.w	$vr15, $vr15, $vr16
 	vseqi.d	$vr14, $vr14, 0
-	vxor.v	$vr14, $vr14, $vr21
-	vpickev.w	$vr14, $vr14, $vr15
+	vxor.v	$vr14, $vr14, $vr20
 	vseqi.d	$vr13, $vr13, 0
-	vxor.v	$vr13, $vr13, $vr21
+	vxor.v	$vr13, $vr13, $vr20
+	vpickev.w	$vr13, $vr13, $vr14
+	vpickev.h	$vr13, $vr13, $vr15
+	vseqi.d	$vr12, $vr12, 0
+	vxor.v	$vr12, $vr12, $vr20
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr20
+	vpickev.w	$vr11, $vr11, $vr12
+	vseqi.d	$vr10, $vr10, 0
+	vxor.v	$vr10, $vr10, $vr20
 	vseqi.d	$vr9, $vr9, 0
-	vxor.v	$vr9, $vr9, $vr21
-	vpickev.w	$vr9, $vr9, $vr13
-	vpickev.h	$vr9, $vr9, $vr14
-	vpickve2gr.b	$a5, $vr9, 2
+	vxor.v	$vr9, $vr9, $vr20
+	vpickev.w	$vr9, $vr9, $vr10
+	vpickev.h	$vr9, $vr9, $vr11
+	vpickev.b	$vr9, $vr9, $vr13
+	vpickve2gr.b	$a5, $vr9, 1
 	andi	$a5, $a5, 1
-	vpickve2gr.b	$a6, $vr15, 0
+	vpickve2gr.b	$a6, $vr16, 0
 	bstrins.d	$a6, $a5, 63, 1
-	vpickve2gr.b	$a5, $vr9, 4
+	vpickve2gr.b	$a5, $vr9, 2
 	bstrins.d	$a6, $a5, 2, 2
-	vpickve2gr.b	$a5, $vr9, 6
+	vpickve2gr.b	$a5, $vr9, 3
 	bstrins.d	$a6, $a5, 3, 3
-	vpickve2gr.b	$a5, $vr9, 8
+	vpickve2gr.b	$a5, $vr9, 4
 	bstrins.d	$a6, $a5, 4, 4
-	vpickve2gr.b	$a5, $vr9, 10
+	vpickve2gr.b	$a5, $vr9, 5
 	bstrins.d	$a6, $a5, 5, 5
-	vpickve2gr.b	$a5, $vr9, 12
+	vpickve2gr.b	$a5, $vr9, 6
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 6
 	or	$a5, $a6, $a5
-	vpickve2gr.b	$a6, $vr9, 14
+	vpickve2gr.b	$a6, $vr9, 7
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 7
 	or	$a5, $a5, $a6
-	vseqi.d	$vr12, $vr12, 0
-	vxor.v	$vr12, $vr12, $vr21
-	vpickve2gr.b	$a6, $vr12, 0
+	vpickve2gr.b	$a6, $vr9, 8
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 8
 	or	$a5, $a5, $a6
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr21
-	vpickev.w	$vr11, $vr11, $vr12
-	vseqi.d	$vr10, $vr10, 0
-	vxor.v	$vr10, $vr10, $vr21
-	vseqi.d	$vr12, $vr17, 0
-	vxor.v	$vr12, $vr12, $vr21
-	vpickev.w	$vr10, $vr12, $vr10
-	vpickev.h	$vr10, $vr10, $vr11
-	vpickve2gr.b	$a6, $vr10, 2
+	vpickve2gr.b	$a6, $vr9, 9
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 9
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 4
+	vpickve2gr.b	$a6, $vr9, 10
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 10
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 6
+	vpickve2gr.b	$a6, $vr9, 11
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 11
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 8
+	vpickve2gr.b	$a6, $vr9, 12
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 12
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 10
+	vpickve2gr.b	$a6, $vr9, 13
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 13
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 12
+	vpickve2gr.b	$a6, $vr9, 14
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 14
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 14
+	vpickve2gr.b	$a6, $vr9, 15
 	slli.d	$a6, $a6, 15
 	or	$a5, $a5, $a6
 	bstrpick.d	$a6, $a5, 15, 0
@@ -3224,8 +3227,7 @@ main:                                   # @main
 # %bb.15:                               # %vector.early.exit1095
                                         #   in Loop: Header=BB18_10 Depth=1
 	vld	$vr1, $a2, %pc_lo12(.LCPI18_8)
-	vpickev.b	$vr2, $vr10, $vr9
-	vand.v	$vr1, $vr2, $vr1
+	vand.v	$vr1, $vr9, $vr1
 	vbsrl.v	$vr2, $vr1, 8
 	vmax.bu	$vr1, $vr2, $vr1
 	vbsrl.v	$vr2, $vr1, 4
@@ -3284,76 +3286,77 @@ main:                                   # @main
 	vand.v	$vr16, $vr16, $vr0
 	vand.v	$vr9, $vr9, $vr0
 	vseqi.d	$vr9, $vr9, 0
-	vxor.v	$vr17, $vr9, $vr21
+	vxor.v	$vr17, $vr9, $vr20
 	vseqi.d	$vr9, $vr16, 0
-	vxor.v	$vr9, $vr9, $vr21
+	vxor.v	$vr9, $vr9, $vr20
 	vpickev.w	$vr9, $vr9, $vr17
 	vseqi.d	$vr15, $vr15, 0
-	vxor.v	$vr15, $vr15, $vr21
+	vxor.v	$vr15, $vr15, $vr20
 	vseqi.d	$vr14, $vr14, 0
-	vxor.v	$vr14, $vr14, $vr21
+	vxor.v	$vr14, $vr14, $vr20
 	vpickev.w	$vr14, $vr14, $vr15
 	vpickev.h	$vr9, $vr14, $vr9
-	vpickve2gr.b	$a5, $vr9, 2
+	vseqi.d	$vr13, $vr13, 0
+	vxor.v	$vr13, $vr13, $vr20
+	vseqi.d	$vr12, $vr12, 0
+	vxor.v	$vr12, $vr12, $vr20
+	vpickev.w	$vr12, $vr12, $vr13
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr20
+	vseqi.d	$vr10, $vr10, 0
+	vxor.v	$vr10, $vr10, $vr20
+	vpickev.w	$vr10, $vr10, $vr11
+	vpickev.h	$vr10, $vr10, $vr12
+	vpickev.b	$vr9, $vr10, $vr9
+	vpickve2gr.b	$a5, $vr9, 1
 	andi	$a5, $a5, 1
 	vpickve2gr.b	$a6, $vr17, 0
 	bstrins.d	$a6, $a5, 63, 1
-	vpickve2gr.b	$a5, $vr9, 4
+	vpickve2gr.b	$a5, $vr9, 2
 	bstrins.d	$a6, $a5, 2, 2
-	vpickve2gr.b	$a5, $vr9, 6
+	vpickve2gr.b	$a5, $vr9, 3
 	bstrins.d	$a6, $a5, 3, 3
-	vpickve2gr.b	$a5, $vr9, 8
+	vpickve2gr.b	$a5, $vr9, 4
 	bstrins.d	$a6, $a5, 4, 4
-	vpickve2gr.b	$a5, $vr9, 10
+	vpickve2gr.b	$a5, $vr9, 5
 	bstrins.d	$a6, $a5, 5, 5
-	vpickve2gr.b	$a5, $vr9, 12
+	vpickve2gr.b	$a5, $vr9, 6
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 6
 	or	$a5, $a6, $a5
-	vpickve2gr.b	$a6, $vr9, 14
+	vpickve2gr.b	$a6, $vr9, 7
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 7
 	or	$a5, $a5, $a6
-	vseqi.d	$vr13, $vr13, 0
-	vxor.v	$vr13, $vr13, $vr21
-	vpickve2gr.b	$a6, $vr13, 0
+	vpickve2gr.b	$a6, $vr9, 8
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 8
 	or	$a5, $a5, $a6
-	vseqi.d	$vr12, $vr12, 0
-	vxor.v	$vr12, $vr12, $vr21
-	vpickev.w	$vr12, $vr12, $vr13
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr21
-	vseqi.d	$vr10, $vr10, 0
-	vxor.v	$vr10, $vr10, $vr21
-	vpickev.w	$vr10, $vr10, $vr11
-	vpickev.h	$vr10, $vr10, $vr12
-	vpickve2gr.b	$a6, $vr10, 2
+	vpickve2gr.b	$a6, $vr9, 9
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 9
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 4
+	vpickve2gr.b	$a6, $vr9, 10
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 10
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 6
+	vpickve2gr.b	$a6, $vr9, 11
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 11
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 8
+	vpickve2gr.b	$a6, $vr9, 12
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 12
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 10
+	vpickve2gr.b	$a6, $vr9, 13
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 13
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 12
+	vpickve2gr.b	$a6, $vr9, 14
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 14
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 14
+	vpickve2gr.b	$a6, $vr9, 15
 	slli.d	$a6, $a6, 15
 	or	$a5, $a5, $a6
 	bstrpick.d	$a6, $a5, 15, 0
@@ -3377,8 +3380,7 @@ main:                                   # @main
 # %bb.21:                               # %vector.early.exit1083
                                         #   in Loop: Header=BB18_10 Depth=1
 	vld	$vr1, $a2, %pc_lo12(.LCPI18_8)
-	vpickev.b	$vr2, $vr10, $vr9
-	vand.v	$vr2, $vr2, $vr1
+	vand.v	$vr2, $vr9, $vr1
 	vbsrl.v	$vr3, $vr2, 8
 	vmax.bu	$vr2, $vr3, $vr2
 	vbsrl.v	$vr3, $vr2, 4
@@ -3413,93 +3415,94 @@ main:                                   # @main
                                         #   Parent Loop BB18_10 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	move	$a1, $a2
-	vsll.d	$vr10, $vr20, $vr2
-	vsll.d	$vr11, $vr20, $vr3
-	vsll.d	$vr12, $vr20, $vr4
-	vsll.d	$vr13, $vr20, $vr5
-	vsll.d	$vr14, $vr20, $vr6
-	vsll.d	$vr15, $vr20, $vr7
-	vsll.d	$vr16, $vr20, $vr8
-	vsll.d	$vr17, $vr20, $vr9
-	vand.v	$vr18, $vr10, $vr0
+	vsll.d	$vr10, $vr19, $vr2
+	vsll.d	$vr11, $vr19, $vr3
+	vsll.d	$vr12, $vr19, $vr4
+	vsll.d	$vr13, $vr19, $vr5
+	vsll.d	$vr14, $vr19, $vr6
+	vsll.d	$vr15, $vr19, $vr7
+	vsll.d	$vr16, $vr19, $vr8
+	vsll.d	$vr17, $vr19, $vr9
+	vand.v	$vr10, $vr10, $vr0
 	vand.v	$vr11, $vr11, $vr0
 	vand.v	$vr12, $vr12, $vr0
 	vand.v	$vr13, $vr13, $vr0
-	vand.v	$vr10, $vr14, $vr0
-	vand.v	$vr14, $vr15, $vr0
-	vand.v	$vr15, $vr16, $vr0
-	vand.v	$vr16, $vr17, $vr0
+	vand.v	$vr14, $vr14, $vr0
+	vand.v	$vr15, $vr15, $vr0
+	vand.v	$vr16, $vr16, $vr0
+	vand.v	$vr17, $vr17, $vr0
+	vseqi.d	$vr17, $vr17, 0
+	vxor.v	$vr17, $vr17, $vr20
 	vseqi.d	$vr16, $vr16, 0
-	vxor.v	$vr16, $vr16, $vr21
+	vxor.v	$vr16, $vr16, $vr20
+	vpickev.w	$vr16, $vr16, $vr17
 	vseqi.d	$vr15, $vr15, 0
-	vxor.v	$vr15, $vr15, $vr21
-	vpickev.w	$vr15, $vr15, $vr16
+	vxor.v	$vr15, $vr15, $vr20
 	vseqi.d	$vr14, $vr14, 0
-	vxor.v	$vr14, $vr14, $vr21
+	vxor.v	$vr14, $vr14, $vr20
+	vpickev.w	$vr14, $vr14, $vr15
+	vpickev.h	$vr14, $vr14, $vr16
+	vseqi.d	$vr13, $vr13, 0
+	vxor.v	$vr13, $vr13, $vr20
+	vseqi.d	$vr12, $vr12, 0
+	vxor.v	$vr12, $vr12, $vr20
+	vpickev.w	$vr12, $vr12, $vr13
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr20
 	vseqi.d	$vr10, $vr10, 0
-	vxor.v	$vr10, $vr10, $vr21
-	vpickev.w	$vr10, $vr10, $vr14
-	vpickev.h	$vr10, $vr10, $vr15
-	vpickve2gr.b	$a2, $vr10, 2
+	vxor.v	$vr10, $vr10, $vr20
+	vpickev.w	$vr10, $vr10, $vr11
+	vpickev.h	$vr10, $vr10, $vr12
+	vpickev.b	$vr10, $vr10, $vr14
+	vpickve2gr.b	$a2, $vr10, 1
 	andi	$a2, $a2, 1
-	vpickve2gr.b	$a3, $vr16, 0
+	vpickve2gr.b	$a3, $vr17, 0
 	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.b	$a2, $vr10, 4
+	vpickve2gr.b	$a2, $vr10, 2
 	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.b	$a2, $vr10, 6
+	vpickve2gr.b	$a2, $vr10, 3
 	bstrins.d	$a3, $a2, 3, 3
-	vpickve2gr.b	$a2, $vr10, 8
+	vpickve2gr.b	$a2, $vr10, 4
 	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.b	$a2, $vr10, 10
+	vpickve2gr.b	$a2, $vr10, 5
 	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.b	$a2, $vr10, 12
+	vpickve2gr.b	$a2, $vr10, 6
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 6
 	or	$a2, $a3, $a2
-	vpickve2gr.b	$a3, $vr10, 14
+	vpickve2gr.b	$a3, $vr10, 7
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 7
 	or	$a2, $a2, $a3
-	vseqi.d	$vr13, $vr13, 0
-	vxor.v	$vr13, $vr13, $vr21
-	vpickve2gr.b	$a3, $vr13, 0
+	vpickve2gr.b	$a3, $vr10, 8
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 8
 	or	$a2, $a2, $a3
-	vseqi.d	$vr12, $vr12, 0
-	vxor.v	$vr12, $vr12, $vr21
-	vpickev.w	$vr12, $vr12, $vr13
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr21
-	vseqi.d	$vr13, $vr18, 0
-	vxor.v	$vr13, $vr13, $vr21
-	vpickev.w	$vr11, $vr13, $vr11
-	vpickev.h	$vr11, $vr11, $vr12
-	vpickve2gr.b	$a3, $vr11, 2
+	vpickve2gr.b	$a3, $vr10, 9
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 9
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 4
+	vpickve2gr.b	$a3, $vr10, 10
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 10
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 6
+	vpickve2gr.b	$a3, $vr10, 11
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 11
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 8
+	vpickve2gr.b	$a3, $vr10, 12
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 12
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 10
+	vpickve2gr.b	$a3, $vr10, 13
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 13
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 12
+	vpickve2gr.b	$a3, $vr10, 14
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 14
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 14
+	vpickve2gr.b	$a3, $vr10, 15
 	slli.d	$a3, $a3, 15
 	or	$a2, $a2, $a3
 	bstrpick.d	$a3, $a2, 15, 0
@@ -3522,8 +3525,7 @@ main:                                   # @main
 	beqz	$a1, .LBB18_80
 # %bb.26:                               # %vector.early.exit1071
                                         #   in Loop: Header=BB18_10 Depth=1
-	vpickev.b	$vr2, $vr11, $vr10
-	vand.v	$vr1, $vr2, $vr1
+	vand.v	$vr1, $vr10, $vr1
 	vbsrl.v	$vr2, $vr1, 8
 	vmax.bu	$vr1, $vr2, $vr1
 	vbsrl.v	$vr2, $vr1, 4
@@ -3546,7 +3548,7 @@ main:                                   # @main
 	addi.d	$a0, $a0, -1
 	srli.d	$s2, $fp, 63
 	vreplgr2vr.d	$vr1, $s2
-	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	vld	$vr2, $sp, 80                   # 16-byte Folded Reload
 	vld	$vr3, $sp, 96                   # 16-byte Folded Reload
 	vld	$vr4, $sp, 112                  # 16-byte Folded Reload
@@ -3555,50 +3557,51 @@ main:                                   # @main
 .LBB18_28:                              # %vector.body
                                         #   Parent Loop BB18_10 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a2, $a1
-	vsub.d	$vr6, $vr19, $vr5
-	vsub.d	$vr7, $vr19, $vr4
-	vsub.d	$vr8, $vr19, $vr3
-	vsub.d	$vr9, $vr19, $vr2
+	move	$a1, $a2
+	vsub.d	$vr6, $vr18, $vr5
+	vsub.d	$vr7, $vr18, $vr4
+	vsub.d	$vr8, $vr18, $vr3
+	vsub.d	$vr9, $vr18, $vr2
 	vsrl.d	$vr9, $vr0, $vr9
 	vsrl.d	$vr8, $vr0, $vr8
 	vsrl.d	$vr7, $vr0, $vr7
 	vsrl.d	$vr6, $vr0, $vr6
-	vand.v	$vr10, $vr6, $vr20
-	vand.v	$vr11, $vr7, $vr20
-	vand.v	$vr6, $vr8, $vr20
-	vand.v	$vr7, $vr9, $vr20
-	vseq.d	$vr7, $vr7, $vr1
-	vxor.v	$vr7, $vr7, $vr21
-	vseq.d	$vr6, $vr6, $vr1
-	vxor.v	$vr6, $vr6, $vr21
-	vpickev.w	$vr8, $vr6, $vr7
-	vpickve2gr.h	$a1, $vr8, 2
-	andi	$a1, $a1, 1
-	vpickve2gr.h	$a3, $vr7, 0
-	bstrins.d	$a3, $a1, 63, 1
-	vpickve2gr.h	$a1, $vr8, 4
-	bstrins.d	$a3, $a1, 2, 2
-	vpickve2gr.h	$a1, $vr8, 6
-	bstrins.d	$a3, $a1, 3, 3
-	vseq.d	$vr8, $vr11, $vr1
-	vxor.v	$vr9, $vr8, $vr21
-	vseq.d	$vr8, $vr10, $vr1
-	vxor.v	$vr8, $vr8, $vr21
+	vand.v	$vr6, $vr6, $vr19
+	vand.v	$vr7, $vr7, $vr19
+	vand.v	$vr8, $vr8, $vr19
+	vand.v	$vr9, $vr9, $vr19
+	vseq.d	$vr9, $vr9, $vr1
+	vxor.v	$vr9, $vr9, $vr20
+	vseq.d	$vr8, $vr8, $vr1
+	vxor.v	$vr8, $vr8, $vr20
 	vpickev.w	$vr10, $vr8, $vr9
-	vpickve2gr.h	$a1, $vr10, 0
-	bstrins.d	$a3, $a1, 4, 4
-	vpickve2gr.h	$a1, $vr10, 2
-	bstrins.d	$a3, $a1, 5, 5
-	vpickve2gr.h	$a1, $vr10, 4
-	andi	$a1, $a1, 1
-	slli.d	$a1, $a1, 6
-	or	$a1, $a3, $a1
-	vpickve2gr.h	$a3, $vr10, 6
+	vseq.d	$vr7, $vr7, $vr1
+	vxor.v	$vr7, $vr7, $vr20
+	vseq.d	$vr6, $vr6, $vr1
+	vxor.v	$vr6, $vr6, $vr20
+	vpickev.w	$vr11, $vr6, $vr7
+	vpickev.h	$vr10, $vr11, $vr10
+	vpickve2gr.h	$a2, $vr10, 1
+	andi	$a2, $a2, 1
+	vpickve2gr.h	$a3, $vr9, 0
+	bstrins.d	$a3, $a2, 63, 1
+	vpickve2gr.h	$a2, $vr10, 2
+	bstrins.d	$a3, $a2, 2, 2
+	vpickve2gr.h	$a2, $vr10, 3
+	bstrins.d	$a3, $a2, 3, 3
+	vpickve2gr.h	$a2, $vr10, 4
+	bstrins.d	$a3, $a2, 4, 4
+	vpickve2gr.h	$a2, $vr10, 5
+	bstrins.d	$a3, $a2, 5, 5
+	vpickve2gr.h	$a2, $vr10, 6
+	andi	$a2, $a2, 1
+	slli.d	$a2, $a2, 6
+	or	$a2, $a3, $a2
+	vpickve2gr.h	$a3, $vr10, 7
 	slli.d	$a3, $a3, 7
-	or	$a1, $a1, $a3
-	andi	$a3, $a1, 255
-	addi.d	$a1, $a2, 8
+	or	$a2, $a2, $a3
+	andi	$a3, $a2, 255
+	addi.d	$a2, $a1, 8
 	bnez	$a3, .LBB18_30
 # %bb.29:                               # %vector.body
                                         #   in Loop: Header=BB18_28 Depth=2
@@ -3606,28 +3609,28 @@ main:                                   # @main
 	vaddi.du	$vr3, $vr3, 8
 	vaddi.du	$vr4, $vr4, 8
 	vaddi.du	$vr5, $vr5, 8
-	bne	$a2, $s0, .LBB18_28
+	bne	$a1, $s0, .LBB18_28
 .LBB18_30:                              # %middle.split
                                         #   in Loop: Header=BB18_10 Depth=1
 	beqz	$a3, .LBB18_32
 # %bb.31:                               # %vector.early.exit
                                         #   in Loop: Header=BB18_10 Depth=1
-	vpickve2gr.d	$a2, $vr7, 0
-	vinsgr2vr.b	$vr0, $a2, 0
-	vpickve2gr.d	$a2, $vr7, 1
-	vinsgr2vr.b	$vr0, $a2, 1
-	vpickve2gr.d	$a2, $vr6, 0
-	vinsgr2vr.b	$vr0, $a2, 2
-	vpickve2gr.d	$a2, $vr6, 1
-	vinsgr2vr.b	$vr0, $a2, 3
-	vpickve2gr.d	$a2, $vr9, 0
-	vinsgr2vr.b	$vr0, $a2, 4
-	vpickve2gr.d	$a2, $vr9, 1
-	vinsgr2vr.b	$vr0, $a2, 5
-	vpickve2gr.d	$a2, $vr8, 0
-	vinsgr2vr.b	$vr0, $a2, 6
-	vpickve2gr.d	$a2, $vr8, 1
-	vinsgr2vr.b	$vr0, $a2, 7
+	vpickve2gr.d	$a1, $vr9, 0
+	vinsgr2vr.b	$vr0, $a1, 0
+	vpickve2gr.d	$a1, $vr9, 1
+	vinsgr2vr.b	$vr0, $a1, 1
+	vpickve2gr.d	$a1, $vr8, 0
+	vinsgr2vr.b	$vr0, $a1, 2
+	vpickve2gr.d	$a1, $vr8, 1
+	vinsgr2vr.b	$vr0, $a1, 3
+	vpickve2gr.d	$a1, $vr7, 0
+	vinsgr2vr.b	$vr0, $a1, 4
+	vpickve2gr.d	$a1, $vr7, 1
+	vinsgr2vr.b	$vr0, $a1, 5
+	vpickve2gr.d	$a1, $vr6, 0
+	vinsgr2vr.b	$vr0, $a1, 6
+	vpickve2gr.d	$a1, $vr6, 1
+	vinsgr2vr.b	$vr0, $a1, 7
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vand.v	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 4
@@ -3636,11 +3639,11 @@ main:                                   # @main
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 1
 	vmax.bu	$vr0, $vr1, $vr0
-	vpickve2gr.b	$a2, $vr0, 0
+	vpickve2gr.b	$a1, $vr0, 0
 	ori	$a3, $zero, 8
-	sub.d	$a2, $a3, $a2
-	andi	$a2, $a2, 255
-	add.d	$a1, $a2, $a1
+	sub.d	$a1, $a3, $a1
+	andi	$a1, $a1, 255
+	add.d	$a1, $a1, $a2
 	b	.LBB18_39
 	.p2align	4, , 16
 .LBB18_32:                              # %scalar.ph
@@ -3825,9 +3828,9 @@ main:                                   # @main
 	bnez	$a0, .LBB18_80
 # %bb.43:                               #   in Loop: Header=BB18_10 Depth=1
 	addi.d	$s8, $s8, 1
-	vld	$vr19, $sp, 192                 # 16-byte Folded Reload
-	vld	$vr20, $sp, 176                 # 16-byte Folded Reload
-	vld	$vr21, $sp, 160                 # 16-byte Folded Reload
+	vld	$vr18, $sp, 192                 # 16-byte Folded Reload
+	vld	$vr19, $sp, 176                 # 16-byte Folded Reload
+	vld	$vr20, $sp, 160                 # 16-byte Folded Reload
 	ori	$a0, $zero, 13
 	bne	$s8, $a0, .LBB18_10
 # %bb.44:                               # %.preheader952.preheader
@@ -3887,93 +3890,94 @@ main:                                   # @main
                                         #   Parent Loop BB18_45 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	move	$a4, $a5
-	vsll.d	$vr9, $vr20, $vr1
-	vsll.d	$vr10, $vr20, $vr2
-	vsll.d	$vr11, $vr20, $vr3
-	vsll.d	$vr12, $vr20, $vr4
-	vsll.d	$vr13, $vr20, $vr5
-	vsll.d	$vr14, $vr20, $vr6
-	vsll.d	$vr15, $vr20, $vr7
-	vsll.d	$vr16, $vr20, $vr8
-	vand.v	$vr17, $vr9, $vr0
+	vsll.d	$vr9, $vr19, $vr1
+	vsll.d	$vr10, $vr19, $vr2
+	vsll.d	$vr11, $vr19, $vr3
+	vsll.d	$vr12, $vr19, $vr4
+	vsll.d	$vr13, $vr19, $vr5
+	vsll.d	$vr14, $vr19, $vr6
+	vsll.d	$vr15, $vr19, $vr7
+	vsll.d	$vr16, $vr19, $vr8
+	vand.v	$vr9, $vr9, $vr0
 	vand.v	$vr10, $vr10, $vr0
 	vand.v	$vr11, $vr11, $vr0
 	vand.v	$vr12, $vr12, $vr0
-	vand.v	$vr9, $vr13, $vr0
-	vand.v	$vr13, $vr14, $vr0
-	vand.v	$vr14, $vr15, $vr0
-	vand.v	$vr15, $vr16, $vr0
+	vand.v	$vr13, $vr13, $vr0
+	vand.v	$vr14, $vr14, $vr0
+	vand.v	$vr15, $vr15, $vr0
+	vand.v	$vr16, $vr16, $vr0
+	vseqi.d	$vr16, $vr16, 0
+	vxor.v	$vr16, $vr16, $vr20
 	vseqi.d	$vr15, $vr15, 0
-	vxor.v	$vr15, $vr15, $vr21
+	vxor.v	$vr15, $vr15, $vr20
+	vpickev.w	$vr15, $vr15, $vr16
 	vseqi.d	$vr14, $vr14, 0
-	vxor.v	$vr14, $vr14, $vr21
-	vpickev.w	$vr14, $vr14, $vr15
+	vxor.v	$vr14, $vr14, $vr20
 	vseqi.d	$vr13, $vr13, 0
-	vxor.v	$vr13, $vr13, $vr21
+	vxor.v	$vr13, $vr13, $vr20
+	vpickev.w	$vr13, $vr13, $vr14
+	vpickev.h	$vr13, $vr13, $vr15
+	vseqi.d	$vr12, $vr12, 0
+	vxor.v	$vr12, $vr12, $vr20
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr20
+	vpickev.w	$vr11, $vr11, $vr12
+	vseqi.d	$vr10, $vr10, 0
+	vxor.v	$vr10, $vr10, $vr20
 	vseqi.d	$vr9, $vr9, 0
-	vxor.v	$vr9, $vr9, $vr21
-	vpickev.w	$vr9, $vr9, $vr13
-	vpickev.h	$vr9, $vr9, $vr14
-	vpickve2gr.b	$a5, $vr9, 2
+	vxor.v	$vr9, $vr9, $vr20
+	vpickev.w	$vr9, $vr9, $vr10
+	vpickev.h	$vr9, $vr9, $vr11
+	vpickev.b	$vr9, $vr9, $vr13
+	vpickve2gr.b	$a5, $vr9, 1
 	andi	$a5, $a5, 1
-	vpickve2gr.b	$a6, $vr15, 0
+	vpickve2gr.b	$a6, $vr16, 0
 	bstrins.d	$a6, $a5, 63, 1
-	vpickve2gr.b	$a5, $vr9, 4
+	vpickve2gr.b	$a5, $vr9, 2
 	bstrins.d	$a6, $a5, 2, 2
-	vpickve2gr.b	$a5, $vr9, 6
+	vpickve2gr.b	$a5, $vr9, 3
 	bstrins.d	$a6, $a5, 3, 3
-	vpickve2gr.b	$a5, $vr9, 8
+	vpickve2gr.b	$a5, $vr9, 4
 	bstrins.d	$a6, $a5, 4, 4
-	vpickve2gr.b	$a5, $vr9, 10
+	vpickve2gr.b	$a5, $vr9, 5
 	bstrins.d	$a6, $a5, 5, 5
-	vpickve2gr.b	$a5, $vr9, 12
+	vpickve2gr.b	$a5, $vr9, 6
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 6
 	or	$a5, $a6, $a5
-	vpickve2gr.b	$a6, $vr9, 14
+	vpickve2gr.b	$a6, $vr9, 7
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 7
 	or	$a5, $a5, $a6
-	vseqi.d	$vr12, $vr12, 0
-	vxor.v	$vr12, $vr12, $vr21
-	vpickve2gr.b	$a6, $vr12, 0
+	vpickve2gr.b	$a6, $vr9, 8
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 8
 	or	$a5, $a5, $a6
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr21
-	vpickev.w	$vr11, $vr11, $vr12
-	vseqi.d	$vr10, $vr10, 0
-	vxor.v	$vr10, $vr10, $vr21
-	vseqi.d	$vr12, $vr17, 0
-	vxor.v	$vr12, $vr12, $vr21
-	vpickev.w	$vr10, $vr12, $vr10
-	vpickev.h	$vr10, $vr10, $vr11
-	vpickve2gr.b	$a6, $vr10, 2
+	vpickve2gr.b	$a6, $vr9, 9
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 9
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 4
+	vpickve2gr.b	$a6, $vr9, 10
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 10
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 6
+	vpickve2gr.b	$a6, $vr9, 11
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 11
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 8
+	vpickve2gr.b	$a6, $vr9, 12
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 12
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 10
+	vpickve2gr.b	$a6, $vr9, 13
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 13
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 12
+	vpickve2gr.b	$a6, $vr9, 14
 	andi	$a6, $a6, 1
 	slli.d	$a6, $a6, 14
 	or	$a5, $a5, $a6
-	vpickve2gr.b	$a6, $vr10, 14
+	vpickve2gr.b	$a6, $vr9, 15
 	slli.d	$a6, $a6, 15
 	or	$a5, $a5, $a6
 	bstrpick.d	$a6, $a5, 15, 0
@@ -3999,8 +4003,7 @@ main:                                   # @main
                                         #   in Loop: Header=BB18_45 Depth=1
 	pcalau12i	$a4, %pc_hi20(.LCPI18_8)
 	vld	$vr1, $a4, %pc_lo12(.LCPI18_8)
-	vpickev.b	$vr2, $vr10, $vr9
-	vand.v	$vr1, $vr2, $vr1
+	vand.v	$vr1, $vr9, $vr1
 	vbsrl.v	$vr2, $vr1, 8
 	vmax.bu	$vr1, $vr2, $vr1
 	vbsrl.v	$vr2, $vr1, 4
@@ -4059,76 +4062,77 @@ main:                                   # @main
 	vand.v	$vr16, $vr16, $vr0
 	vand.v	$vr9, $vr9, $vr0
 	vseqi.d	$vr9, $vr9, 0
-	vxor.v	$vr17, $vr9, $vr21
+	vxor.v	$vr17, $vr9, $vr20
 	vseqi.d	$vr9, $vr16, 0
-	vxor.v	$vr9, $vr9, $vr21
+	vxor.v	$vr9, $vr9, $vr20
 	vpickev.w	$vr9, $vr9, $vr17
 	vseqi.d	$vr15, $vr15, 0
-	vxor.v	$vr15, $vr15, $vr21
+	vxor.v	$vr15, $vr15, $vr20
 	vseqi.d	$vr14, $vr14, 0
-	vxor.v	$vr14, $vr14, $vr21
+	vxor.v	$vr14, $vr14, $vr20
 	vpickev.w	$vr14, $vr14, $vr15
 	vpickev.h	$vr9, $vr14, $vr9
-	vpickve2gr.b	$a4, $vr9, 2
+	vseqi.d	$vr13, $vr13, 0
+	vxor.v	$vr13, $vr13, $vr20
+	vseqi.d	$vr12, $vr12, 0
+	vxor.v	$vr12, $vr12, $vr20
+	vpickev.w	$vr12, $vr12, $vr13
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr20
+	vseqi.d	$vr10, $vr10, 0
+	vxor.v	$vr10, $vr10, $vr20
+	vpickev.w	$vr10, $vr10, $vr11
+	vpickev.h	$vr10, $vr10, $vr12
+	vpickev.b	$vr9, $vr10, $vr9
+	vpickve2gr.b	$a4, $vr9, 1
 	andi	$a4, $a4, 1
 	vpickve2gr.b	$a5, $vr17, 0
 	bstrins.d	$a5, $a4, 63, 1
-	vpickve2gr.b	$a4, $vr9, 4
+	vpickve2gr.b	$a4, $vr9, 2
 	bstrins.d	$a5, $a4, 2, 2
-	vpickve2gr.b	$a4, $vr9, 6
+	vpickve2gr.b	$a4, $vr9, 3
 	bstrins.d	$a5, $a4, 3, 3
-	vpickve2gr.b	$a4, $vr9, 8
+	vpickve2gr.b	$a4, $vr9, 4
 	bstrins.d	$a5, $a4, 4, 4
-	vpickve2gr.b	$a4, $vr9, 10
+	vpickve2gr.b	$a4, $vr9, 5
 	bstrins.d	$a5, $a4, 5, 5
-	vpickve2gr.b	$a4, $vr9, 12
+	vpickve2gr.b	$a4, $vr9, 6
 	andi	$a4, $a4, 1
 	slli.d	$a4, $a4, 6
 	or	$a4, $a5, $a4
-	vpickve2gr.b	$a5, $vr9, 14
+	vpickve2gr.b	$a5, $vr9, 7
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 7
 	or	$a4, $a4, $a5
-	vseqi.d	$vr13, $vr13, 0
-	vxor.v	$vr13, $vr13, $vr21
-	vpickve2gr.b	$a5, $vr13, 0
+	vpickve2gr.b	$a5, $vr9, 8
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 8
 	or	$a4, $a4, $a5
-	vseqi.d	$vr12, $vr12, 0
-	vxor.v	$vr12, $vr12, $vr21
-	vpickev.w	$vr12, $vr12, $vr13
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr21
-	vseqi.d	$vr10, $vr10, 0
-	vxor.v	$vr10, $vr10, $vr21
-	vpickev.w	$vr10, $vr10, $vr11
-	vpickev.h	$vr10, $vr10, $vr12
-	vpickve2gr.b	$a5, $vr10, 2
+	vpickve2gr.b	$a5, $vr9, 9
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 9
 	or	$a4, $a4, $a5
-	vpickve2gr.b	$a5, $vr10, 4
+	vpickve2gr.b	$a5, $vr9, 10
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 10
 	or	$a4, $a4, $a5
-	vpickve2gr.b	$a5, $vr10, 6
+	vpickve2gr.b	$a5, $vr9, 11
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 11
 	or	$a4, $a4, $a5
-	vpickve2gr.b	$a5, $vr10, 8
+	vpickve2gr.b	$a5, $vr9, 12
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 12
 	or	$a4, $a4, $a5
-	vpickve2gr.b	$a5, $vr10, 10
+	vpickve2gr.b	$a5, $vr9, 13
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 13
 	or	$a4, $a4, $a5
-	vpickve2gr.b	$a5, $vr10, 12
+	vpickve2gr.b	$a5, $vr9, 14
 	andi	$a5, $a5, 1
 	slli.d	$a5, $a5, 14
 	or	$a4, $a4, $a5
-	vpickve2gr.b	$a5, $vr10, 14
+	vpickve2gr.b	$a5, $vr9, 15
 	slli.d	$a5, $a5, 15
 	or	$a4, $a4, $a5
 	bstrpick.d	$a5, $a4, 15, 0
@@ -4153,8 +4157,7 @@ main:                                   # @main
                                         #   in Loop: Header=BB18_45 Depth=1
 	pcalau12i	$a3, %pc_hi20(.LCPI18_8)
 	vld	$vr1, $a3, %pc_lo12(.LCPI18_8)
-	vpickev.b	$vr2, $vr10, $vr9
-	vand.v	$vr2, $vr2, $vr1
+	vand.v	$vr2, $vr9, $vr1
 	vbsrl.v	$vr3, $vr2, 8
 	vmax.bu	$vr2, $vr3, $vr2
 	vbsrl.v	$vr3, $vr2, 4
@@ -4189,93 +4192,94 @@ main:                                   # @main
                                         #   Parent Loop BB18_45 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	move	$a1, $a2
-	vsll.d	$vr10, $vr20, $vr2
-	vsll.d	$vr11, $vr20, $vr3
-	vsll.d	$vr12, $vr20, $vr4
-	vsll.d	$vr13, $vr20, $vr5
-	vsll.d	$vr14, $vr20, $vr6
-	vsll.d	$vr15, $vr20, $vr7
-	vsll.d	$vr16, $vr20, $vr8
-	vsll.d	$vr17, $vr20, $vr9
-	vand.v	$vr18, $vr10, $vr0
+	vsll.d	$vr10, $vr19, $vr2
+	vsll.d	$vr11, $vr19, $vr3
+	vsll.d	$vr12, $vr19, $vr4
+	vsll.d	$vr13, $vr19, $vr5
+	vsll.d	$vr14, $vr19, $vr6
+	vsll.d	$vr15, $vr19, $vr7
+	vsll.d	$vr16, $vr19, $vr8
+	vsll.d	$vr17, $vr19, $vr9
+	vand.v	$vr10, $vr10, $vr0
 	vand.v	$vr11, $vr11, $vr0
 	vand.v	$vr12, $vr12, $vr0
 	vand.v	$vr13, $vr13, $vr0
-	vand.v	$vr10, $vr14, $vr0
-	vand.v	$vr14, $vr15, $vr0
-	vand.v	$vr15, $vr16, $vr0
-	vand.v	$vr16, $vr17, $vr0
+	vand.v	$vr14, $vr14, $vr0
+	vand.v	$vr15, $vr15, $vr0
+	vand.v	$vr16, $vr16, $vr0
+	vand.v	$vr17, $vr17, $vr0
+	vseqi.d	$vr17, $vr17, 0
+	vxor.v	$vr17, $vr17, $vr20
 	vseqi.d	$vr16, $vr16, 0
-	vxor.v	$vr16, $vr16, $vr21
+	vxor.v	$vr16, $vr16, $vr20
+	vpickev.w	$vr16, $vr16, $vr17
 	vseqi.d	$vr15, $vr15, 0
-	vxor.v	$vr15, $vr15, $vr21
-	vpickev.w	$vr15, $vr15, $vr16
+	vxor.v	$vr15, $vr15, $vr20
 	vseqi.d	$vr14, $vr14, 0
-	vxor.v	$vr14, $vr14, $vr21
+	vxor.v	$vr14, $vr14, $vr20
+	vpickev.w	$vr14, $vr14, $vr15
+	vpickev.h	$vr14, $vr14, $vr16
+	vseqi.d	$vr13, $vr13, 0
+	vxor.v	$vr13, $vr13, $vr20
+	vseqi.d	$vr12, $vr12, 0
+	vxor.v	$vr12, $vr12, $vr20
+	vpickev.w	$vr12, $vr12, $vr13
+	vseqi.d	$vr11, $vr11, 0
+	vxor.v	$vr11, $vr11, $vr20
 	vseqi.d	$vr10, $vr10, 0
-	vxor.v	$vr10, $vr10, $vr21
-	vpickev.w	$vr10, $vr10, $vr14
-	vpickev.h	$vr10, $vr10, $vr15
-	vpickve2gr.b	$a2, $vr10, 2
+	vxor.v	$vr10, $vr10, $vr20
+	vpickev.w	$vr10, $vr10, $vr11
+	vpickev.h	$vr10, $vr10, $vr12
+	vpickev.b	$vr10, $vr10, $vr14
+	vpickve2gr.b	$a2, $vr10, 1
 	andi	$a2, $a2, 1
-	vpickve2gr.b	$a3, $vr16, 0
+	vpickve2gr.b	$a3, $vr17, 0
 	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.b	$a2, $vr10, 4
+	vpickve2gr.b	$a2, $vr10, 2
 	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.b	$a2, $vr10, 6
+	vpickve2gr.b	$a2, $vr10, 3
 	bstrins.d	$a3, $a2, 3, 3
-	vpickve2gr.b	$a2, $vr10, 8
+	vpickve2gr.b	$a2, $vr10, 4
 	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.b	$a2, $vr10, 10
+	vpickve2gr.b	$a2, $vr10, 5
 	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.b	$a2, $vr10, 12
+	vpickve2gr.b	$a2, $vr10, 6
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 6
 	or	$a2, $a3, $a2
-	vpickve2gr.b	$a3, $vr10, 14
+	vpickve2gr.b	$a3, $vr10, 7
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 7
 	or	$a2, $a2, $a3
-	vseqi.d	$vr13, $vr13, 0
-	vxor.v	$vr13, $vr13, $vr21
-	vpickve2gr.b	$a3, $vr13, 0
+	vpickve2gr.b	$a3, $vr10, 8
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 8
 	or	$a2, $a2, $a3
-	vseqi.d	$vr12, $vr12, 0
-	vxor.v	$vr12, $vr12, $vr21
-	vpickev.w	$vr12, $vr12, $vr13
-	vseqi.d	$vr11, $vr11, 0
-	vxor.v	$vr11, $vr11, $vr21
-	vseqi.d	$vr13, $vr18, 0
-	vxor.v	$vr13, $vr13, $vr21
-	vpickev.w	$vr11, $vr13, $vr11
-	vpickev.h	$vr11, $vr11, $vr12
-	vpickve2gr.b	$a3, $vr11, 2
+	vpickve2gr.b	$a3, $vr10, 9
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 9
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 4
+	vpickve2gr.b	$a3, $vr10, 10
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 10
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 6
+	vpickve2gr.b	$a3, $vr10, 11
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 11
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 8
+	vpickve2gr.b	$a3, $vr10, 12
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 12
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 10
+	vpickve2gr.b	$a3, $vr10, 13
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 13
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 12
+	vpickve2gr.b	$a3, $vr10, 14
 	andi	$a3, $a3, 1
 	slli.d	$a3, $a3, 14
 	or	$a2, $a2, $a3
-	vpickve2gr.b	$a3, $vr11, 14
+	vpickve2gr.b	$a3, $vr10, 15
 	slli.d	$a3, $a3, 15
 	or	$a2, $a2, $a3
 	bstrpick.d	$a3, $a2, 15, 0
@@ -4298,8 +4302,7 @@ main:                                   # @main
 	beqz	$a1, .LBB18_80
 # %bb.61:                               # %vector.early.exit1122
                                         #   in Loop: Header=BB18_45 Depth=1
-	vpickev.b	$vr2, $vr11, $vr10
-	vand.v	$vr1, $vr2, $vr1
+	vand.v	$vr1, $vr10, $vr1
 	vbsrl.v	$vr2, $vr1, 8
 	vmax.bu	$vr1, $vr2, $vr1
 	vbsrl.v	$vr2, $vr1, 4
@@ -4322,7 +4325,7 @@ main:                                   # @main
 	addi.d	$a0, $a0, -1
 	srli.d	$s2, $fp, 63
 	vreplgr2vr.d	$vr1, $s2
-	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	vld	$vr2, $sp, 80                   # 16-byte Folded Reload
 	vld	$vr3, $sp, 96                   # 16-byte Folded Reload
 	vld	$vr4, $sp, 112                  # 16-byte Folded Reload
@@ -4331,50 +4334,51 @@ main:                                   # @main
 .LBB18_63:                              # %vector.body1102
                                         #   Parent Loop BB18_45 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a2, $a1
-	vsub.d	$vr6, $vr19, $vr5
-	vsub.d	$vr7, $vr19, $vr4
-	vsub.d	$vr8, $vr19, $vr3
-	vsub.d	$vr9, $vr19, $vr2
+	move	$a1, $a2
+	vsub.d	$vr6, $vr18, $vr5
+	vsub.d	$vr7, $vr18, $vr4
+	vsub.d	$vr8, $vr18, $vr3
+	vsub.d	$vr9, $vr18, $vr2
 	vsrl.d	$vr9, $vr0, $vr9
 	vsrl.d	$vr8, $vr0, $vr8
 	vsrl.d	$vr7, $vr0, $vr7
 	vsrl.d	$vr6, $vr0, $vr6
-	vand.v	$vr10, $vr6, $vr20
-	vand.v	$vr11, $vr7, $vr20
-	vand.v	$vr6, $vr8, $vr20
-	vand.v	$vr7, $vr9, $vr20
-	vseq.d	$vr7, $vr7, $vr1
-	vxor.v	$vr7, $vr7, $vr21
-	vseq.d	$vr6, $vr6, $vr1
-	vxor.v	$vr6, $vr6, $vr21
-	vpickev.w	$vr8, $vr6, $vr7
-	vpickve2gr.h	$a1, $vr8, 2
-	andi	$a1, $a1, 1
-	vpickve2gr.h	$a3, $vr7, 0
-	bstrins.d	$a3, $a1, 63, 1
-	vpickve2gr.h	$a1, $vr8, 4
-	bstrins.d	$a3, $a1, 2, 2
-	vpickve2gr.h	$a1, $vr8, 6
-	bstrins.d	$a3, $a1, 3, 3
-	vseq.d	$vr8, $vr11, $vr1
-	vxor.v	$vr9, $vr8, $vr21
-	vseq.d	$vr8, $vr10, $vr1
-	vxor.v	$vr8, $vr8, $vr21
+	vand.v	$vr6, $vr6, $vr19
+	vand.v	$vr7, $vr7, $vr19
+	vand.v	$vr8, $vr8, $vr19
+	vand.v	$vr9, $vr9, $vr19
+	vseq.d	$vr9, $vr9, $vr1
+	vxor.v	$vr9, $vr9, $vr20
+	vseq.d	$vr8, $vr8, $vr1
+	vxor.v	$vr8, $vr8, $vr20
 	vpickev.w	$vr10, $vr8, $vr9
-	vpickve2gr.h	$a1, $vr10, 0
-	bstrins.d	$a3, $a1, 4, 4
-	vpickve2gr.h	$a1, $vr10, 2
-	bstrins.d	$a3, $a1, 5, 5
-	vpickve2gr.h	$a1, $vr10, 4
-	andi	$a1, $a1, 1
-	slli.d	$a1, $a1, 6
-	or	$a1, $a3, $a1
-	vpickve2gr.h	$a3, $vr10, 6
+	vseq.d	$vr7, $vr7, $vr1
+	vxor.v	$vr7, $vr7, $vr20
+	vseq.d	$vr6, $vr6, $vr1
+	vxor.v	$vr6, $vr6, $vr20
+	vpickev.w	$vr11, $vr6, $vr7
+	vpickev.h	$vr10, $vr11, $vr10
+	vpickve2gr.h	$a2, $vr10, 1
+	andi	$a2, $a2, 1
+	vpickve2gr.h	$a3, $vr9, 0
+	bstrins.d	$a3, $a2, 63, 1
+	vpickve2gr.h	$a2, $vr10, 2
+	bstrins.d	$a3, $a2, 2, 2
+	vpickve2gr.h	$a2, $vr10, 3
+	bstrins.d	$a3, $a2, 3, 3
+	vpickve2gr.h	$a2, $vr10, 4
+	bstrins.d	$a3, $a2, 4, 4
+	vpickve2gr.h	$a2, $vr10, 5
+	bstrins.d	$a3, $a2, 5, 5
+	vpickve2gr.h	$a2, $vr10, 6
+	andi	$a2, $a2, 1
+	slli.d	$a2, $a2, 6
+	or	$a2, $a3, $a2
+	vpickve2gr.h	$a3, $vr10, 7
 	slli.d	$a3, $a3, 7
-	or	$a1, $a1, $a3
-	andi	$a3, $a1, 255
-	addi.d	$a1, $a2, 8
+	or	$a2, $a2, $a3
+	andi	$a3, $a2, 255
+	addi.d	$a2, $a1, 8
 	bnez	$a3, .LBB18_65
 # %bb.64:                               # %vector.body1102
                                         #   in Loop: Header=BB18_63 Depth=2
@@ -4382,28 +4386,28 @@ main:                                   # @main
 	vaddi.du	$vr3, $vr3, 8
 	vaddi.du	$vr4, $vr4, 8
 	vaddi.du	$vr5, $vr5, 8
-	bne	$a2, $s0, .LBB18_63
+	bne	$a1, $s0, .LBB18_63
 .LBB18_65:                              # %middle.split1107
                                         #   in Loop: Header=BB18_45 Depth=1
 	beqz	$a3, .LBB18_67
 # %bb.66:                               # %vector.early.exit1109
                                         #   in Loop: Header=BB18_45 Depth=1
-	vpickve2gr.d	$a2, $vr7, 0
-	vinsgr2vr.b	$vr0, $a2, 0
-	vpickve2gr.d	$a2, $vr7, 1
-	vinsgr2vr.b	$vr0, $a2, 1
-	vpickve2gr.d	$a2, $vr6, 0
-	vinsgr2vr.b	$vr0, $a2, 2
-	vpickve2gr.d	$a2, $vr6, 1
-	vinsgr2vr.b	$vr0, $a2, 3
-	vpickve2gr.d	$a2, $vr9, 0
-	vinsgr2vr.b	$vr0, $a2, 4
-	vpickve2gr.d	$a2, $vr9, 1
-	vinsgr2vr.b	$vr0, $a2, 5
-	vpickve2gr.d	$a2, $vr8, 0
-	vinsgr2vr.b	$vr0, $a2, 6
-	vpickve2gr.d	$a2, $vr8, 1
-	vinsgr2vr.b	$vr0, $a2, 7
+	vpickve2gr.d	$a1, $vr9, 0
+	vinsgr2vr.b	$vr0, $a1, 0
+	vpickve2gr.d	$a1, $vr9, 1
+	vinsgr2vr.b	$vr0, $a1, 1
+	vpickve2gr.d	$a1, $vr8, 0
+	vinsgr2vr.b	$vr0, $a1, 2
+	vpickve2gr.d	$a1, $vr8, 1
+	vinsgr2vr.b	$vr0, $a1, 3
+	vpickve2gr.d	$a1, $vr7, 0
+	vinsgr2vr.b	$vr0, $a1, 4
+	vpickve2gr.d	$a1, $vr7, 1
+	vinsgr2vr.b	$vr0, $a1, 5
+	vpickve2gr.d	$a1, $vr6, 0
+	vinsgr2vr.b	$vr0, $a1, 6
+	vpickve2gr.d	$a1, $vr6, 1
+	vinsgr2vr.b	$vr0, $a1, 7
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vand.v	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 4
@@ -4412,11 +4416,11 @@ main:                                   # @main
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 1
 	vmax.bu	$vr0, $vr1, $vr0
-	vpickve2gr.b	$a2, $vr0, 0
+	vpickve2gr.b	$a1, $vr0, 0
 	ori	$a3, $zero, 8
-	sub.d	$a2, $a3, $a2
-	andi	$a2, $a2, 255
-	add.d	$a1, $a2, $a1
+	sub.d	$a1, $a3, $a1
+	andi	$a1, $a1, 255
+	add.d	$a1, $a1, $a2
 	b	.LBB18_74
 	.p2align	4, , 16
 .LBB18_67:                              # %scalar.ph1096
@@ -4601,9 +4605,9 @@ main:                                   # @main
 	bnez	$a0, .LBB18_80
 # %bb.78:                               #   in Loop: Header=BB18_45 Depth=1
 	addi.d	$s8, $s8, 1
-	vld	$vr19, $sp, 192                 # 16-byte Folded Reload
-	vld	$vr20, $sp, 176                 # 16-byte Folded Reload
-	vld	$vr21, $sp, 160                 # 16-byte Folded Reload
+	vld	$vr18, $sp, 192                 # 16-byte Folded Reload
+	vld	$vr19, $sp, 176                 # 16-byte Folded Reload
+	vld	$vr20, $sp, 160                 # 16-byte Folded Reload
 	ori	$a0, $zero, 13
 	bne	$s8, $a0, .LBB18_45
 # %bb.79:                               # %.preheader.preheader
