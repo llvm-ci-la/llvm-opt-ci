@@ -1,7 +1,7 @@
 #!/bin/bash
 
-BEFORE_BRANCH=pr-$1-before
-AFTER_BRANCH=pr-$1-after
+BEFORE_BRANCH=pr-$PR_ID-before
+AFTER_BRANCH=pr-$PR_ID-after
 
 rm -rf $RESULTS_DIR
 mkdir -p $RESULTS_DIR
@@ -22,7 +22,7 @@ done
 
 cd $RESULTS_DIR
 git add -A
-git commit -m "files before pr $1"
+git commit -m "files before pr $PR_ID"
 git push --set-upstream origin $BEFORE_BRANCH
 
 
@@ -38,20 +38,21 @@ done
 
 cd $RESULTS_DIR
 git add -A
-git commit -m "files after pr $1"
+git commit -m "files after pr $PR_ID"
 git push --set-upstream origin $AFTER_BRANCH
 
 
 # PR
-
 git checkout main
 
-BODY="Link: https://github.com/llvm/llvm-project/pull/$1\n 
+BODY="Link: https://github.com/llvm/llvm-project/pull/$PR_ID\n 
 Requested by: @$GH_ISSUE_AUTHOR\n
 Flag: $FLAG"
 
+echo $BODY
+
 PR_URL=$(gh pr create \
-    --title "LLVM optimization on PR $1 [bot]" \
+    --title "LLVM optimization on PR $PR_ID [bot]" \
     --body $BODY \
     --base $BEFORE_BRANCH \
     --head $AFTER_BRANCH)
