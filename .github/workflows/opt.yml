@@ -1,8 +1,9 @@
 name: Show Opt Results
 
 on:
-  issues:
-    types: [opened]
+  workflow_dispatch:
+  # issues:
+  #   types: [opened]
 
 permissions:
   contents: write
@@ -97,33 +98,16 @@ jobs:
     needs: [with-pr, configure]
     runs-on: [self-hosted, llvm-ci]
     steps:
-      - name: Diff before branch
+      - name: Diff branch
         run: |
           cd ${WORKSPACE}
-          sh scripts/diff-branch.sh ${{ needs.configure.outputs.PR_ID }} before
-      
-      - name: Push Changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: pr-${{ needs.configure.outputs.PR_ID }}-before
-
-      - name: Diff after branch
-        run: |
-          cd ${WORKSPACE}
-          sh scripts/diff-branch.sh ${{ needs.configure.outputs.PR_ID }} after
-      
-      - name: Push Changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: pr-${{ needs.configure.outputs.PR_ID }}-after
+          sh scripts/diff-pr.sh ${{ needs.configure.outputs.PR_ID }}
       
       - name: Create Diff PR
         id: pr
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.LLVM_CI_PR }}
           branch: pr-${{ needs.configure.outputs.PR_ID }}-after
           base: pr-${{ needs.configure.outputs.PR_ID }}-before
       
@@ -131,7 +115,7 @@ jobs:
         uses: actions-cool/issue-helper@v3
         with:
           actions: 'create-comment'
-          token: ${{ secrets.LLVM_CI_PR }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             ${{ steps.pr.outputs.pull-request-url }}
