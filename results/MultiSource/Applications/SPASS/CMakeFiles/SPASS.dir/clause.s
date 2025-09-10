@@ -732,85 +732,86 @@ clause_IsUnorderedClause:               # @clause_IsUnorderedClause
 	vsll.d	$vr17, $vr9, $vr6
 	vsll.d	$vr18, $vr9, $vr7
 	vsll.d	$vr19, $vr9, $vr8
-	vand.v	$vr20, $vr12, $vr0
+	vand.v	$vr12, $vr12, $vr0
 	vand.v	$vr13, $vr13, $vr0
 	vand.v	$vr14, $vr14, $vr0
 	vand.v	$vr15, $vr15, $vr0
-	vand.v	$vr12, $vr16, $vr0
-	vand.v	$vr16, $vr17, $vr0
-	vand.v	$vr17, $vr18, $vr0
-	vand.v	$vr18, $vr19, $vr0
+	vand.v	$vr16, $vr16, $vr0
+	vand.v	$vr17, $vr17, $vr0
+	vand.v	$vr18, $vr18, $vr0
+	vand.v	$vr19, $vr19, $vr0
+	vseqi.d	$vr19, $vr19, 0
+	vxor.v	$vr19, $vr19, $vr10
 	vseqi.d	$vr18, $vr18, 0
 	vxor.v	$vr18, $vr18, $vr10
+	vpickev.w	$vr18, $vr18, $vr19
 	vseqi.d	$vr17, $vr17, 0
 	vxor.v	$vr17, $vr17, $vr10
-	vpickev.w	$vr17, $vr17, $vr18
 	vseqi.d	$vr16, $vr16, 0
 	vxor.v	$vr16, $vr16, $vr10
-	vseqi.d	$vr12, $vr12, 0
-	vxor.v	$vr12, $vr12, $vr10
-	vpickev.w	$vr12, $vr12, $vr16
-	vpickev.h	$vr12, $vr12, $vr17
-	vpickve2gr.b	$t0, $vr12, 2
-	andi	$t0, $t0, 1
-	vpickve2gr.b	$t1, $vr18, 0
-	bstrins.d	$t1, $t0, 63, 1
-	vpickve2gr.b	$t0, $vr12, 4
-	bstrins.d	$t1, $t0, 2, 2
-	vpickve2gr.b	$t0, $vr12, 6
-	bstrins.d	$t1, $t0, 3, 3
-	vpickve2gr.b	$t0, $vr12, 8
-	bstrins.d	$t1, $t0, 4, 4
-	vpickve2gr.b	$t0, $vr12, 10
-	bstrins.d	$t1, $t0, 5, 5
-	vpickve2gr.b	$t0, $vr12, 12
-	andi	$t0, $t0, 1
-	slli.d	$t0, $t0, 6
-	or	$t0, $t1, $t0
-	vpickve2gr.b	$t1, $vr12, 14
-	andi	$t1, $t1, 1
-	slli.d	$t1, $t1, 7
-	or	$t0, $t0, $t1
+	vpickev.w	$vr16, $vr16, $vr17
+	vpickev.h	$vr16, $vr16, $vr18
 	vseqi.d	$vr15, $vr15, 0
 	vxor.v	$vr15, $vr15, $vr10
-	vpickve2gr.b	$t1, $vr15, 0
-	andi	$t1, $t1, 1
-	slli.d	$t1, $t1, 8
-	or	$t0, $t0, $t1
 	vseqi.d	$vr14, $vr14, 0
 	vxor.v	$vr14, $vr14, $vr10
 	vpickev.w	$vr14, $vr14, $vr15
 	vseqi.d	$vr13, $vr13, 0
 	vxor.v	$vr13, $vr13, $vr10
-	vseqi.d	$vr15, $vr20, 0
-	vxor.v	$vr15, $vr15, $vr10
-	vpickev.w	$vr13, $vr15, $vr13
-	vpickev.h	$vr13, $vr13, $vr14
-	vpickve2gr.b	$t1, $vr13, 2
+	vseqi.d	$vr12, $vr12, 0
+	vxor.v	$vr12, $vr12, $vr10
+	vpickev.w	$vr12, $vr12, $vr13
+	vpickev.h	$vr12, $vr12, $vr14
+	vpickev.b	$vr12, $vr12, $vr16
+	vpickve2gr.b	$t0, $vr12, 1
+	andi	$t0, $t0, 1
+	vpickve2gr.b	$t1, $vr19, 0
+	bstrins.d	$t1, $t0, 63, 1
+	vpickve2gr.b	$t0, $vr12, 2
+	bstrins.d	$t1, $t0, 2, 2
+	vpickve2gr.b	$t0, $vr12, 3
+	bstrins.d	$t1, $t0, 3, 3
+	vpickve2gr.b	$t0, $vr12, 4
+	bstrins.d	$t1, $t0, 4, 4
+	vpickve2gr.b	$t0, $vr12, 5
+	bstrins.d	$t1, $t0, 5, 5
+	vpickve2gr.b	$t0, $vr12, 6
+	andi	$t0, $t0, 1
+	slli.d	$t0, $t0, 6
+	or	$t0, $t1, $t0
+	vpickve2gr.b	$t1, $vr12, 7
+	andi	$t1, $t1, 1
+	slli.d	$t1, $t1, 7
+	or	$t0, $t0, $t1
+	vpickve2gr.b	$t1, $vr12, 8
+	andi	$t1, $t1, 1
+	slli.d	$t1, $t1, 8
+	or	$t0, $t0, $t1
+	vpickve2gr.b	$t1, $vr12, 9
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 9
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr13, 4
+	vpickve2gr.b	$t1, $vr12, 10
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 10
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr13, 6
+	vpickve2gr.b	$t1, $vr12, 11
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 11
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr13, 8
+	vpickve2gr.b	$t1, $vr12, 12
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 12
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr13, 10
+	vpickve2gr.b	$t1, $vr12, 13
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 13
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr13, 12
+	vpickve2gr.b	$t1, $vr12, 14
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 14
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr13, 14
+	vpickve2gr.b	$t1, $vr12, 15
 	slli.d	$t1, $t1, 15
 	or	$t0, $t0, $t1
 	bstrpick.d	$t1, $t0, 15, 0
@@ -833,8 +834,7 @@ clause_IsUnorderedClause:               # @clause_IsUnorderedClause
 # %bb.14:                               # %vector.early.exit
 	pcalau12i	$a5, %pc_hi20(.LCPI11_8)
 	vld	$vr0, $a5, %pc_lo12(.LCPI11_8)
-	vpickev.b	$vr1, $vr13, $vr12
-	vand.v	$vr0, $vr1, $vr0
+	vand.v	$vr0, $vr12, $vr0
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.bu	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4

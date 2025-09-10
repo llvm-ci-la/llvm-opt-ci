@@ -81,58 +81,59 @@ f:                                      # @f
 	vslti.w	$vr7, $vr8, 0
 	vslti.w	$vr8, $vr9, 0
 	vpickev.h	$vr8, $vr8, $vr7
-	vpickve2gr.b	$t0, $vr8, 2
+	vslti.w	$vr9, $vr10, 0
+	vslti.w	$vr10, $vr11, 0
+	vpickev.h	$vr9, $vr10, $vr9
+	vpickev.b	$vr8, $vr9, $vr8
+	vpickve2gr.b	$t0, $vr8, 1
 	andi	$t0, $t0, 1
 	vpickve2gr.b	$t1, $vr7, 0
 	bstrins.d	$t1, $t0, 63, 1
-	vpickve2gr.b	$t0, $vr8, 4
+	vpickve2gr.b	$t0, $vr8, 2
 	bstrins.d	$t1, $t0, 2, 2
-	vpickve2gr.b	$t0, $vr8, 6
+	vpickve2gr.b	$t0, $vr8, 3
 	bstrins.d	$t1, $t0, 3, 3
-	vpickve2gr.b	$t0, $vr8, 8
+	vpickve2gr.b	$t0, $vr8, 4
 	bstrins.d	$t1, $t0, 4, 4
-	vpickve2gr.b	$t0, $vr8, 10
+	vpickve2gr.b	$t0, $vr8, 5
 	bstrins.d	$t1, $t0, 5, 5
-	vpickve2gr.b	$t0, $vr8, 12
+	vpickve2gr.b	$t0, $vr8, 6
 	andi	$t0, $t0, 1
 	slli.d	$t0, $t0, 6
 	or	$t0, $t1, $t0
-	vpickve2gr.b	$t1, $vr8, 14
+	vpickve2gr.b	$t1, $vr8, 7
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 7
 	or	$t0, $t0, $t1
-	vslti.w	$vr7, $vr10, 0
-	vpickve2gr.b	$t1, $vr7, 0
+	vpickve2gr.b	$t1, $vr8, 8
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 8
 	or	$t0, $t0, $t1
-	vslti.w	$vr8, $vr11, 0
-	vpickev.h	$vr7, $vr8, $vr7
-	vpickve2gr.b	$t1, $vr7, 2
+	vpickve2gr.b	$t1, $vr8, 9
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 9
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr7, 4
+	vpickve2gr.b	$t1, $vr8, 10
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 10
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr7, 6
+	vpickve2gr.b	$t1, $vr8, 11
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 11
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr7, 8
+	vpickve2gr.b	$t1, $vr8, 12
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 12
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr7, 10
+	vpickve2gr.b	$t1, $vr8, 13
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 13
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr7, 12
+	vpickve2gr.b	$t1, $vr8, 14
 	andi	$t1, $t1, 1
 	slli.d	$t1, $t1, 14
 	or	$t0, $t0, $t1
-	vpickve2gr.b	$t1, $vr7, 14
+	vpickve2gr.b	$t1, $vr8, 15
 	slli.d	$t1, $t1, 15
 	or	$t0, $t0, $t1
 	bstrpick.d	$t0, $t0, 15, 0
