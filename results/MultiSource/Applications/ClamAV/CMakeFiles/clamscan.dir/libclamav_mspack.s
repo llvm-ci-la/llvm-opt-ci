@@ -8064,96 +8064,528 @@ lzx_free:                               # @lzx_free
 	.byte	0                               # 0x0
 	.byte	0                               # 0x0
 .LCPI12_3:
-	.half	0                               # 0x0
-	.half	24                              # 0x18
-	.half	1                               # 0x1
-	.half	23                              # 0x17
-	.half	2                               # 0x2
-	.half	22                              # 0x16
-	.half	3                               # 0x3
-	.half	21                              # 0x15
+	.half	64                              # 0x40
+	.half	64                              # 0x40
+	.half	65                              # 0x41
+	.half	63                              # 0x3f
+	.half	66                              # 0x42
+	.half	62                              # 0x3e
+	.half	67                              # 0x43
+	.half	61                              # 0x3d
 .LCPI12_4:
-	.half	4                               # 0x4
-	.half	20                              # 0x14
-	.half	5                               # 0x5
-	.half	19                              # 0x13
-	.half	6                               # 0x6
-	.half	18                              # 0x12
-	.half	7                               # 0x7
-	.half	17                              # 0x11
+	.half	68                              # 0x44
+	.half	60                              # 0x3c
+	.half	69                              # 0x45
+	.half	59                              # 0x3b
+	.half	70                              # 0x46
+	.half	58                              # 0x3a
+	.half	71                              # 0x47
+	.half	57                              # 0x39
 .LCPI12_5:
-	.half	8                               # 0x8
-	.half	16                              # 0x10
-	.half	9                               # 0x9
-	.half	15                              # 0xf
-	.half	10                              # 0xa
-	.half	14                              # 0xe
-	.half	11                              # 0xb
-	.half	13                              # 0xd
+	.half	72                              # 0x48
+	.half	56                              # 0x38
+	.half	73                              # 0x49
+	.half	55                              # 0x37
+	.half	74                              # 0x4a
+	.half	54                              # 0x36
+	.half	75                              # 0x4b
+	.half	53                              # 0x35
 .LCPI12_6:
-	.half	12                              # 0xc
-	.half	12                              # 0xc
-	.half	13                              # 0xd
-	.half	11                              # 0xb
-	.half	14                              # 0xe
-	.half	10                              # 0xa
-	.half	15                              # 0xf
-	.half	9                               # 0x9
+	.half	76                              # 0x4c
+	.half	52                              # 0x34
+	.half	77                              # 0x4d
+	.half	51                              # 0x33
+	.half	78                              # 0x4e
+	.half	50                              # 0x32
+	.half	79                              # 0x4f
+	.half	49                              # 0x31
 .LCPI12_7:
-	.half	16                              # 0x10
-	.half	8                               # 0x8
-	.half	17                              # 0x11
-	.half	7                               # 0x7
-	.half	18                              # 0x12
-	.half	6                               # 0x6
-	.half	19                              # 0x13
-	.half	5                               # 0x5
+	.half	80                              # 0x50
+	.half	48                              # 0x30
+	.half	81                              # 0x51
+	.half	47                              # 0x2f
+	.half	82                              # 0x52
+	.half	46                              # 0x2e
+	.half	83                              # 0x53
+	.half	45                              # 0x2d
 .LCPI12_8:
-	.half	20                              # 0x14
-	.half	4                               # 0x4
-	.half	21                              # 0x15
-	.half	3                               # 0x3
-	.half	22                              # 0x16
-	.half	2                               # 0x2
-	.half	23                              # 0x17
-	.half	1                               # 0x1
+	.half	84                              # 0x54
+	.half	44                              # 0x2c
+	.half	85                              # 0x55
+	.half	43                              # 0x2b
+	.half	86                              # 0x56
+	.half	42                              # 0x2a
+	.half	87                              # 0x57
+	.half	41                              # 0x29
 .LCPI12_9:
-	.half	0                               # 0x0
-	.half	27                              # 0x1b
-	.half	1                               # 0x1
-	.half	26                              # 0x1a
-	.half	2                               # 0x2
-	.half	25                              # 0x19
-	.half	3                               # 0x3
-	.half	24                              # 0x18
+	.half	88                              # 0x58
+	.half	40                              # 0x28
+	.half	89                              # 0x59
+	.half	39                              # 0x27
+	.half	90                              # 0x5a
+	.half	38                              # 0x26
+	.half	91                              # 0x5b
+	.half	37                              # 0x25
 .LCPI12_10:
-	.half	4                               # 0x4
-	.half	23                              # 0x17
-	.half	5                               # 0x5
-	.half	22                              # 0x16
-	.half	6                               # 0x6
-	.half	21                              # 0x15
-	.half	7                               # 0x7
-	.half	20                              # 0x14
+	.half	92                              # 0x5c
+	.half	36                              # 0x24
+	.half	93                              # 0x5d
+	.half	35                              # 0x23
+	.half	94                              # 0x5e
+	.half	34                              # 0x22
+	.half	95                              # 0x5f
+	.half	33                              # 0x21
 .LCPI12_11:
-	.half	8                               # 0x8
-	.half	19                              # 0x13
-	.half	9                               # 0x9
-	.half	18                              # 0x12
-	.half	10                              # 0xa
-	.half	17                              # 0x11
-	.half	11                              # 0xb
-	.half	16                              # 0x10
+	.half	96                              # 0x60
+	.half	32                              # 0x20
+	.half	97                              # 0x61
+	.half	31                              # 0x1f
+	.half	98                              # 0x62
+	.half	30                              # 0x1e
+	.half	99                              # 0x63
+	.half	29                              # 0x1d
 .LCPI12_12:
-	.half	12                              # 0xc
-	.half	15                              # 0xf
-	.half	13                              # 0xd
-	.half	14                              # 0xe
-	.half	14                              # 0xe
-	.half	13                              # 0xd
-	.half	15                              # 0xf
-	.half	12                              # 0xc
+	.half	100                             # 0x64
+	.half	28                              # 0x1c
+	.half	101                             # 0x65
+	.half	27                              # 0x1b
+	.half	102                             # 0x66
+	.half	26                              # 0x1a
+	.half	103                             # 0x67
+	.half	25                              # 0x19
 .LCPI12_13:
+	.half	104                             # 0x68
+	.half	24                              # 0x18
+	.half	105                             # 0x69
+	.half	23                              # 0x17
+	.half	106                             # 0x6a
+	.half	22                              # 0x16
+	.half	107                             # 0x6b
+	.half	21                              # 0x15
+.LCPI12_14:
+	.half	108                             # 0x6c
+	.half	20                              # 0x14
+	.half	109                             # 0x6d
+	.half	19                              # 0x13
+	.half	110                             # 0x6e
+	.half	18                              # 0x12
+	.half	111                             # 0x6f
+	.half	17                              # 0x11
+.LCPI12_15:
+	.half	112                             # 0x70
+	.half	16                              # 0x10
+	.half	113                             # 0x71
+	.half	15                              # 0xf
+	.half	114                             # 0x72
+	.half	14                              # 0xe
+	.half	115                             # 0x73
+	.half	13                              # 0xd
+.LCPI12_16:
+	.half	116                             # 0x74
+	.half	12                              # 0xc
+	.half	117                             # 0x75
+	.half	11                              # 0xb
+	.half	118                             # 0x76
+	.half	10                              # 0xa
+	.half	119                             # 0x77
+	.half	9                               # 0x9
+.LCPI12_17:
+	.half	120                             # 0x78
+	.half	8                               # 0x8
+	.half	121                             # 0x79
+	.half	7                               # 0x7
+	.half	122                             # 0x7a
+	.half	6                               # 0x6
+	.half	123                             # 0x7b
+	.half	5                               # 0x5
+.LCPI12_18:
+	.half	124                             # 0x7c
+	.half	4                               # 0x4
+	.half	125                             # 0x7d
+	.half	3                               # 0x3
+	.half	126                             # 0x7e
+	.half	2                               # 0x2
+	.half	127                             # 0x7f
+	.half	1                               # 0x1
+.LCPI12_19:
+	.half	128                             # 0x80
+	.half	64                              # 0x40
+	.half	129                             # 0x81
+	.half	63                              # 0x3f
+	.half	130                             # 0x82
+	.half	62                              # 0x3e
+	.half	131                             # 0x83
+	.half	61                              # 0x3d
+.LCPI12_20:
+	.half	132                             # 0x84
+	.half	60                              # 0x3c
+	.half	133                             # 0x85
+	.half	59                              # 0x3b
+	.half	134                             # 0x86
+	.half	58                              # 0x3a
+	.half	135                             # 0x87
+	.half	57                              # 0x39
+.LCPI12_21:
+	.half	136                             # 0x88
+	.half	56                              # 0x38
+	.half	137                             # 0x89
+	.half	55                              # 0x37
+	.half	138                             # 0x8a
+	.half	54                              # 0x36
+	.half	139                             # 0x8b
+	.half	53                              # 0x35
+.LCPI12_22:
+	.half	140                             # 0x8c
+	.half	52                              # 0x34
+	.half	141                             # 0x8d
+	.half	51                              # 0x33
+	.half	142                             # 0x8e
+	.half	50                              # 0x32
+	.half	143                             # 0x8f
+	.half	49                              # 0x31
+.LCPI12_23:
+	.half	144                             # 0x90
+	.half	48                              # 0x30
+	.half	145                             # 0x91
+	.half	47                              # 0x2f
+	.half	146                             # 0x92
+	.half	46                              # 0x2e
+	.half	147                             # 0x93
+	.half	45                              # 0x2d
+.LCPI12_24:
+	.half	148                             # 0x94
+	.half	44                              # 0x2c
+	.half	149                             # 0x95
+	.half	43                              # 0x2b
+	.half	150                             # 0x96
+	.half	42                              # 0x2a
+	.half	151                             # 0x97
+	.half	41                              # 0x29
+.LCPI12_25:
+	.half	152                             # 0x98
+	.half	40                              # 0x28
+	.half	153                             # 0x99
+	.half	39                              # 0x27
+	.half	154                             # 0x9a
+	.half	38                              # 0x26
+	.half	155                             # 0x9b
+	.half	37                              # 0x25
+.LCPI12_26:
+	.half	156                             # 0x9c
+	.half	36                              # 0x24
+	.half	157                             # 0x9d
+	.half	35                              # 0x23
+	.half	158                             # 0x9e
+	.half	34                              # 0x22
+	.half	159                             # 0x9f
+	.half	33                              # 0x21
+.LCPI12_27:
+	.half	160                             # 0xa0
+	.half	32                              # 0x20
+	.half	161                             # 0xa1
+	.half	31                              # 0x1f
+	.half	162                             # 0xa2
+	.half	30                              # 0x1e
+	.half	163                             # 0xa3
+	.half	29                              # 0x1d
+.LCPI12_28:
+	.half	164                             # 0xa4
+	.half	28                              # 0x1c
+	.half	165                             # 0xa5
+	.half	27                              # 0x1b
+	.half	166                             # 0xa6
+	.half	26                              # 0x1a
+	.half	167                             # 0xa7
+	.half	25                              # 0x19
+.LCPI12_29:
+	.half	168                             # 0xa8
+	.half	24                              # 0x18
+	.half	169                             # 0xa9
+	.half	23                              # 0x17
+	.half	170                             # 0xaa
+	.half	22                              # 0x16
+	.half	171                             # 0xab
+	.half	21                              # 0x15
+.LCPI12_30:
+	.half	172                             # 0xac
+	.half	20                              # 0x14
+	.half	173                             # 0xad
+	.half	19                              # 0x13
+	.half	174                             # 0xae
+	.half	18                              # 0x12
+	.half	175                             # 0xaf
+	.half	17                              # 0x11
+.LCPI12_31:
+	.half	176                             # 0xb0
+	.half	16                              # 0x10
+	.half	177                             # 0xb1
+	.half	15                              # 0xf
+	.half	178                             # 0xb2
+	.half	14                              # 0xe
+	.half	179                             # 0xb3
+	.half	13                              # 0xd
+.LCPI12_32:
+	.half	180                             # 0xb4
+	.half	12                              # 0xc
+	.half	181                             # 0xb5
+	.half	11                              # 0xb
+	.half	182                             # 0xb6
+	.half	10                              # 0xa
+	.half	183                             # 0xb7
+	.half	9                               # 0x9
+.LCPI12_33:
+	.half	184                             # 0xb8
+	.half	8                               # 0x8
+	.half	185                             # 0xb9
+	.half	7                               # 0x7
+	.half	186                             # 0xba
+	.half	6                               # 0x6
+	.half	187                             # 0xbb
+	.half	5                               # 0x5
+.LCPI12_34:
+	.half	188                             # 0xbc
+	.half	4                               # 0x4
+	.half	189                             # 0xbd
+	.half	3                               # 0x3
+	.half	190                             # 0xbe
+	.half	2                               # 0x2
+	.half	191                             # 0xbf
+	.half	1                               # 0x1
+.LCPI12_35:
+	.half	192                             # 0xc0
+	.half	64                              # 0x40
+	.half	193                             # 0xc1
+	.half	63                              # 0x3f
+	.half	194                             # 0xc2
+	.half	62                              # 0x3e
+	.half	195                             # 0xc3
+	.half	61                              # 0x3d
+.LCPI12_36:
+	.half	196                             # 0xc4
+	.half	60                              # 0x3c
+	.half	197                             # 0xc5
+	.half	59                              # 0x3b
+	.half	198                             # 0xc6
+	.half	58                              # 0x3a
+	.half	199                             # 0xc7
+	.half	57                              # 0x39
+.LCPI12_37:
+	.half	200                             # 0xc8
+	.half	56                              # 0x38
+	.half	201                             # 0xc9
+	.half	55                              # 0x37
+	.half	202                             # 0xca
+	.half	54                              # 0x36
+	.half	203                             # 0xcb
+	.half	53                              # 0x35
+.LCPI12_38:
+	.half	204                             # 0xcc
+	.half	52                              # 0x34
+	.half	205                             # 0xcd
+	.half	51                              # 0x33
+	.half	206                             # 0xce
+	.half	50                              # 0x32
+	.half	207                             # 0xcf
+	.half	49                              # 0x31
+.LCPI12_39:
+	.half	208                             # 0xd0
+	.half	48                              # 0x30
+	.half	209                             # 0xd1
+	.half	47                              # 0x2f
+	.half	210                             # 0xd2
+	.half	46                              # 0x2e
+	.half	211                             # 0xd3
+	.half	45                              # 0x2d
+.LCPI12_40:
+	.half	212                             # 0xd4
+	.half	44                              # 0x2c
+	.half	213                             # 0xd5
+	.half	43                              # 0x2b
+	.half	214                             # 0xd6
+	.half	42                              # 0x2a
+	.half	215                             # 0xd7
+	.half	41                              # 0x29
+.LCPI12_41:
+	.half	216                             # 0xd8
+	.half	40                              # 0x28
+	.half	217                             # 0xd9
+	.half	39                              # 0x27
+	.half	218                             # 0xda
+	.half	38                              # 0x26
+	.half	219                             # 0xdb
+	.half	37                              # 0x25
+.LCPI12_42:
+	.half	220                             # 0xdc
+	.half	36                              # 0x24
+	.half	221                             # 0xdd
+	.half	35                              # 0x23
+	.half	222                             # 0xde
+	.half	34                              # 0x22
+	.half	223                             # 0xdf
+	.half	33                              # 0x21
+.LCPI12_43:
+	.half	224                             # 0xe0
+	.half	32                              # 0x20
+	.half	225                             # 0xe1
+	.half	31                              # 0x1f
+	.half	226                             # 0xe2
+	.half	30                              # 0x1e
+	.half	227                             # 0xe3
+	.half	29                              # 0x1d
+.LCPI12_44:
+	.half	228                             # 0xe4
+	.half	28                              # 0x1c
+	.half	229                             # 0xe5
+	.half	27                              # 0x1b
+	.half	230                             # 0xe6
+	.half	26                              # 0x1a
+	.half	231                             # 0xe7
+	.half	25                              # 0x19
+.LCPI12_45:
+	.half	232                             # 0xe8
+	.half	24                              # 0x18
+	.half	233                             # 0xe9
+	.half	23                              # 0x17
+	.half	234                             # 0xea
+	.half	22                              # 0x16
+	.half	235                             # 0xeb
+	.half	21                              # 0x15
+.LCPI12_46:
+	.half	236                             # 0xec
+	.half	20                              # 0x14
+	.half	237                             # 0xed
+	.half	19                              # 0x13
+	.half	238                             # 0xee
+	.half	18                              # 0x12
+	.half	239                             # 0xef
+	.half	17                              # 0x11
+.LCPI12_47:
+	.half	240                             # 0xf0
+	.half	16                              # 0x10
+	.half	241                             # 0xf1
+	.half	15                              # 0xf
+	.half	242                             # 0xf2
+	.half	14                              # 0xe
+	.half	243                             # 0xf3
+	.half	13                              # 0xd
+.LCPI12_48:
+	.half	244                             # 0xf4
+	.half	12                              # 0xc
+	.half	245                             # 0xf5
+	.half	11                              # 0xb
+	.half	246                             # 0xf6
+	.half	10                              # 0xa
+	.half	247                             # 0xf7
+	.half	9                               # 0x9
+.LCPI12_49:
+	.half	248                             # 0xf8
+	.half	8                               # 0x8
+	.half	249                             # 0xf9
+	.half	7                               # 0x7
+	.half	250                             # 0xfa
+	.half	6                               # 0x6
+	.half	251                             # 0xfb
+	.half	5                               # 0x5
+.LCPI12_50:
+	.half	252                             # 0xfc
+	.half	4                               # 0x4
+	.half	253                             # 0xfd
+	.half	3                               # 0x3
+	.half	254                             # 0xfe
+	.half	2                               # 0x2
+	.half	255                             # 0xff
+	.half	1                               # 0x1
+.LCPI12_51:
+	.half	0                               # 0x0
+	.half	24                              # 0x18
+	.half	1                               # 0x1
+	.half	23                              # 0x17
+	.half	2                               # 0x2
+	.half	22                              # 0x16
+	.half	3                               # 0x3
+	.half	21                              # 0x15
+.LCPI12_52:
+	.half	4                               # 0x4
+	.half	20                              # 0x14
+	.half	5                               # 0x5
+	.half	19                              # 0x13
+	.half	6                               # 0x6
+	.half	18                              # 0x12
+	.half	7                               # 0x7
+	.half	17                              # 0x11
+.LCPI12_53:
+	.half	8                               # 0x8
+	.half	16                              # 0x10
+	.half	9                               # 0x9
+	.half	15                              # 0xf
+	.half	10                              # 0xa
+	.half	14                              # 0xe
+	.half	11                              # 0xb
+	.half	13                              # 0xd
+.LCPI12_54:
+	.half	12                              # 0xc
+	.half	12                              # 0xc
+	.half	13                              # 0xd
+	.half	11                              # 0xb
+	.half	14                              # 0xe
+	.half	10                              # 0xa
+	.half	15                              # 0xf
+	.half	9                               # 0x9
+.LCPI12_55:
+	.half	16                              # 0x10
+	.half	8                               # 0x8
+	.half	17                              # 0x11
+	.half	7                               # 0x7
+	.half	18                              # 0x12
+	.half	6                               # 0x6
+	.half	19                              # 0x13
+	.half	5                               # 0x5
+.LCPI12_56:
+	.half	20                              # 0x14
+	.half	4                               # 0x4
+	.half	21                              # 0x15
+	.half	3                               # 0x3
+	.half	22                              # 0x16
+	.half	2                               # 0x2
+	.half	23                              # 0x17
+	.half	1                               # 0x1
+.LCPI12_57:
+	.half	0                               # 0x0
+	.half	27                              # 0x1b
+	.half	1                               # 0x1
+	.half	26                              # 0x1a
+	.half	2                               # 0x2
+	.half	25                              # 0x19
+	.half	3                               # 0x3
+	.half	24                              # 0x18
+.LCPI12_58:
+	.half	4                               # 0x4
+	.half	23                              # 0x17
+	.half	5                               # 0x5
+	.half	22                              # 0x16
+	.half	6                               # 0x6
+	.half	21                              # 0x15
+	.half	7                               # 0x7
+	.half	20                              # 0x14
+.LCPI12_59:
+	.half	8                               # 0x8
+	.half	19                              # 0x13
+	.half	9                               # 0x9
+	.half	18                              # 0x12
+	.half	10                              # 0xa
+	.half	17                              # 0x11
+	.half	11                              # 0xb
+	.half	16                              # 0x10
+.LCPI12_60:
+	.half	12                              # 0xc
+	.half	15                              # 0xf
+	.half	13                              # 0xd
+	.half	14                              # 0xe
+	.half	14                              # 0xe
+	.half	13                              # 0xd
+	.half	15                              # 0xf
+	.half	12                              # 0xc
+.LCPI12_61:
 	.half	16                              # 0x10
 	.half	11                              # 0xb
 	.half	17                              # 0x11
@@ -8162,7 +8594,7 @@ lzx_free:                               # @lzx_free
 	.half	9                               # 0x9
 	.half	19                              # 0x13
 	.half	8                               # 0x8
-.LCPI12_14:
+.LCPI12_62:
 	.half	20                              # 0x14
 	.half	7                               # 0x7
 	.half	21                              # 0x15
@@ -8171,7 +8603,7 @@ lzx_free:                               # @lzx_free
 	.half	5                               # 0x5
 	.half	23                              # 0x17
 	.half	4                               # 0x4
-.LCPI12_15:
+.LCPI12_63:
 	.half	24                              # 0x18
 	.half	3                               # 0x3
 	.half	25                              # 0x19
@@ -8180,7 +8612,7 @@ lzx_free:                               # @lzx_free
 	.half	1                               # 0x1
 	.half	27                              # 0x1b
 	.half	0                               # 0x0
-.LCPI12_16:
+.LCPI12_64:
 	.half	0                               # 0x0
 	.half	7                               # 0x7
 	.half	1                               # 0x1
@@ -8189,7 +8621,7 @@ lzx_free:                               # @lzx_free
 	.half	5                               # 0x5
 	.half	3                               # 0x3
 	.half	4                               # 0x4
-.LCPI12_17:
+.LCPI12_65:
 	.half	4                               # 0x4
 	.half	3                               # 0x3
 	.half	5                               # 0x5
@@ -8324,690 +8756,226 @@ qtm_init:                               # @qtm_init
 	addi.d	$a1, $a1, 8
 	bne	$a2, $a3, .LBB12_8
 # %bb.9:                                # %scalar.ph
+	pcalau12i	$a1, %pc_hi20(.LCPI12_3)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_3)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_4)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_4)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_5)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_5)
+	vst	$vr0, $a0, 772
+	vst	$vr1, $a0, 788
+	vst	$vr2, $a0, 804
+	pcalau12i	$a1, %pc_hi20(.LCPI12_6)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_6)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_7)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_7)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_8)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_8)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_9)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_9)
+	vst	$vr0, $a0, 820
+	vst	$vr1, $a0, 836
+	vst	$vr2, $a0, 852
+	vst	$vr3, $a0, 868
+	pcalau12i	$a1, %pc_hi20(.LCPI12_10)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_10)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_11)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_11)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_12)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_12)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_13)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_13)
+	vst	$vr0, $a0, 884
+	vst	$vr1, $a0, 900
+	vst	$vr2, $a0, 916
+	vst	$vr3, $a0, 932
+	pcalau12i	$a1, %pc_hi20(.LCPI12_14)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_14)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_15)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_15)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_16)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_16)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_17)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_17)
+	vst	$vr0, $a0, 948
+	vst	$vr1, $a0, 964
+	vst	$vr2, $a0, 980
+	vst	$vr3, $a0, 996
+	pcalau12i	$a1, %pc_hi20(.LCPI12_18)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_18)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_19)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_19)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_20)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_20)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_21)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_21)
+	vst	$vr0, $a0, 1012
+	vst	$vr1, $a0, 1032
+	vst	$vr2, $a0, 1048
+	vst	$vr3, $a0, 1064
+	pcalau12i	$a1, %pc_hi20(.LCPI12_22)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_22)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_23)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_23)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_24)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_24)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_25)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_25)
+	vst	$vr0, $a0, 1080
+	vst	$vr1, $a0, 1096
+	vst	$vr2, $a0, 1112
+	vst	$vr3, $a0, 1128
+	pcalau12i	$a1, %pc_hi20(.LCPI12_26)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_26)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_27)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_27)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_28)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_28)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_29)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_29)
+	vst	$vr0, $a0, 1144
+	vst	$vr1, $a0, 1160
+	vst	$vr2, $a0, 1176
+	vst	$vr3, $a0, 1192
+	pcalau12i	$a1, %pc_hi20(.LCPI12_30)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_30)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_31)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_31)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_32)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_32)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_33)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_33)
+	vst	$vr0, $a0, 1208
+	vst	$vr1, $a0, 1224
+	vst	$vr2, $a0, 1240
+	vst	$vr3, $a0, 1256
+	pcalau12i	$a1, %pc_hi20(.LCPI12_34)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_34)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_35)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_35)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_36)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_36)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_37)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_37)
+	vst	$vr0, $a0, 1272
+	vst	$vr1, $a0, 1292
+	vst	$vr2, $a0, 1308
+	vst	$vr3, $a0, 1324
+	pcalau12i	$a1, %pc_hi20(.LCPI12_38)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_38)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_39)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_39)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_40)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_40)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_41)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_41)
+	vst	$vr0, $a0, 1340
+	vst	$vr1, $a0, 1356
+	vst	$vr2, $a0, 1372
+	vst	$vr3, $a0, 1388
+	pcalau12i	$a1, %pc_hi20(.LCPI12_42)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_42)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_43)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_43)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_44)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_44)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_45)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_45)
+	vst	$vr0, $a0, 1404
+	vst	$vr1, $a0, 1420
+	vst	$vr2, $a0, 1436
+	vst	$vr3, $a0, 1452
+	pcalau12i	$a1, %pc_hi20(.LCPI12_46)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_46)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_47)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_47)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_48)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_48)
+	vst	$vr0, $a0, 1468
+	vst	$vr1, $a0, 1484
 	ori	$a1, $zero, 64
+	vst	$vr2, $a0, 1500
+	pcalau12i	$a2, %pc_hi20(.LCPI12_49)
+	vld	$vr0, $a2, %pc_lo12(.LCPI12_49)
 	st.w	$a1, $a0, 768
-	addi.d	$a2, $a0, 772
-	ori	$a5, $zero, 4
-	lu32i.d	$a5, 64
-	st.d	$a5, $a0, 384
-	st.d	$a2, $a0, 392
-	lu12i.w	$a2, 1024
-	ori	$a2, $a2, 64
-	lu32i.d	$a2, -65471
-	lu52i.d	$a2, $a2, 3
-	st.d	$a2, $a0, 772
-	lu12i.w	$a2, 992
-	ori	$a2, $a2, 66
-	lu32i.d	$a2, -196541
-	lu52i.d	$a2, $a2, 3
-	st.d	$a2, $a0, 780
-	lu12i.w	$a2, 960
-	ori	$a2, $a2, 68
-	lu32i.d	$a2, -327611
-	lu52i.d	$a2, $a2, 3
-	st.d	$a2, $a0, 788
-	lu12i.w	$a2, 928
-	ori	$a2, $a2, 70
-	st.w	$a2, $a0, 796
-	ori	$a2, $zero, 71
-	st.h	$a2, $a0, 800
-	lu12i.w	$a2, 1152
-	ori	$a2, $a2, 57
-	st.w	$a2, $a0, 802
-	lu12i.w	$a2, 880
-	ori	$a2, $a2, 73
-	lu32i.d	$a2, 393290
-	lu52i.d	$a2, $a2, 3
-	st.d	$a2, $a0, 808
-	lu12i.w	$a2, 848
-	ori	$a2, $a2, 75
-	lu32i.d	$a2, 262220
-	lu52i.d	$a2, $a2, 3
-	st.d	$a2, $a0, 816
-	lu12i.w	$a2, 816
-	ori	$a2, $a2, 77
-	lu32i.d	$a2, 131150
-	lu52i.d	$a2, $a2, 3
-	st.d	$a2, $a0, 824
-	ori	$a2, $zero, 79
-	st.h	$a2, $a0, 832
-	ori	$a4, $zero, 56
-	st.h	$a4, $a0, 806
-	lu12i.w	$a2, 1280
-	ori	$a2, $a2, 49
-	st.w	$a2, $a0, 834
-	ori	$a2, $zero, 81
-	st.h	$a2, $a0, 840
-	ori	$a2, $zero, 82
-	st.h	$a2, $a0, 844
-	ori	$a2, $zero, 83
-	st.h	$a2, $a0, 848
-	ori	$a2, $zero, 84
-	st.h	$a2, $a0, 852
-	ori	$a2, $zero, 85
-	st.h	$a2, $a0, 856
-	ori	$a2, $zero, 86
-	st.h	$a2, $a0, 860
-	ori	$a2, $zero, 87
-	st.h	$a2, $a0, 864
-	ori	$a3, $zero, 48
-	st.h	$a3, $a0, 838
-	ori	$a2, $zero, 47
-	st.h	$a2, $a0, 842
-	lu12i.w	$a6, 1408
-	ori	$a6, $a6, 41
-	st.w	$a6, $a0, 866
-	lu12i.w	$a6, 624
-	ori	$a6, $a6, 89
-	lu32i.d	$a6, 393306
-	lu52i.d	$a6, $a6, 2
-	st.d	$a6, $a0, 872
-	lu12i.w	$a6, 592
-	ori	$a6, $a6, 91
-	lu32i.d	$a6, 262236
-	lu52i.d	$a6, $a6, 2
-	st.d	$a6, $a0, 880
-	lu12i.w	$a6, 560
-	ori	$a6, $a6, 93
-	lu32i.d	$a6, 131166
-	lu52i.d	$a6, $a6, 2
-	st.d	$a6, $a0, 888
-	ori	$a6, $zero, 95
-	st.h	$a6, $a0, 896
-	lu12i.w	$a6, 1536
-	ori	$a6, $a6, 33
-	st.w	$a6, $a0, 898
-	ori	$a6, $zero, 97
-	st.h	$a6, $a0, 904
-	ori	$a6, $zero, 98
-	st.h	$a6, $a0, 908
-	ori	$a6, $zero, 99
-	st.h	$a6, $a0, 912
-	ori	$a6, $zero, 100
-	st.h	$a6, $a0, 916
-	ori	$a6, $zero, 101
-	st.h	$a6, $a0, 920
-	ori	$a6, $zero, 102
-	st.h	$a6, $a0, 924
-	ori	$a6, $zero, 103
-	st.h	$a6, $a0, 928
-	lu12i.w	$a6, 1664
-	ori	$a6, $a6, 25
-	lu32i.d	$a6, -458728
-	lu52i.d	$a6, $a6, 6
-	st.d	$a6, $a0, 930
-	lu12i.w	$a6, 1696
-	ori	$a6, $a6, 23
-	lu32i.d	$a6, -327658
-	lu52i.d	$a6, $a6, 6
-	st.d	$a6, $a0, 938
-	lu12i.w	$a6, 1728
-	ori	$a6, $a6, 21
-	lu32i.d	$a6, -196588
-	lu52i.d	$a6, $a6, 6
-	st.d	$a6, $a0, 946
-	lu12i.w	$a6, 1760
-	ori	$a6, $a6, 19
-	lu32i.d	$a6, -65518
-	lu52i.d	$a6, $a6, 6
-	st.d	$a6, $a0, 954
-	lu12i.w	$a6, 1792
-	ori	$a6, $a6, 17
-	st.w	$a6, $a0, 962
-	ori	$a6, $zero, 113
-	st.h	$a6, $a0, 968
-	ori	$a6, $zero, 114
-	st.h	$a6, $a0, 972
-	ori	$a6, $zero, 115
-	st.h	$a6, $a0, 976
-	ori	$a6, $zero, 116
-	st.h	$a6, $a0, 980
-	ori	$a6, $zero, 117
-	st.h	$a6, $a0, 984
-	ori	$a6, $zero, 118
-	st.h	$a6, $a0, 988
-	ori	$a6, $zero, 119
-	st.h	$a6, $a0, 992
-	lu12i.w	$a6, 1920
-	ori	$a6, $a6, 9
-	lu32i.d	$a6, -458744
-	lu52i.d	$a6, $a6, 7
-	st.d	$a6, $a0, 994
-	lu12i.w	$a6, 1952
-	ori	$a6, $a6, 7
-	lu32i.d	$a6, -327674
-	lu52i.d	$a6, $a6, 7
-	st.d	$a6, $a0, 1002
-	lu12i.w	$a6, 1984
-	ori	$a6, $a6, 5
-	lu32i.d	$a6, -196604
-	lu52i.d	$a6, $a6, 7
-	st.d	$a6, $a0, 1010
-	lu12i.w	$a6, 2016
-	ori	$a6, $a6, 3
-	lu32i.d	$a6, -65534
-	lu52i.d	$a6, $a6, 7
-	st.d	$a6, $a0, 1018
-	lu12i.w	$a6, 2048
-	ori	$a6, $a6, 1
-	lu52i.d	$a6, $a6, 8
-	st.d	$a6, $a0, 1026
-	addi.d	$a6, $a0, 1032
-	st.d	$a6, $a0, 408
-	ori	$a6, $zero, 129
-	st.h	$a6, $a0, 1036
-	ori	$a6, $zero, 130
-	st.h	$a6, $a0, 1040
-	ori	$a6, $zero, 131
-	st.h	$a6, $a0, 1044
-	ori	$a6, $zero, 132
-	st.h	$a6, $a0, 1048
-	ori	$a6, $zero, 133
-	st.h	$a6, $a0, 1052
-	ori	$a6, $zero, 134
-	st.h	$a6, $a0, 1056
-	ori	$a6, $zero, 135
-	st.h	$a6, $a0, 1060
-	lu12i.w	$a6, 2176
-	ori	$a6, $a6, 57
-	lu32i.d	$a6, -458696
-	lu52i.d	$a6, $a6, 8
-	st.d	$a6, $a0, 1062
-	lu12i.w	$a6, 2208
-	ori	$a6, $a6, 55
-	lu32i.d	$a6, -327626
-	lu52i.d	$a6, $a6, 8
-	st.d	$a6, $a0, 1070
-	lu12i.w	$a6, 2240
-	ori	$a6, $a6, 53
-	lu32i.d	$a6, -196556
-	lu52i.d	$a6, $a6, 8
-	st.d	$a6, $a0, 1078
-	lu12i.w	$a6, 2272
-	ori	$a6, $a6, 51
-	lu32i.d	$a6, -65486
-	lu52i.d	$a6, $a6, 8
-	st.d	$a6, $a0, 1086
-	lu12i.w	$a6, 2304
-	ori	$a6, $a6, 49
-	st.w	$a6, $a0, 1094
-	ori	$a6, $zero, 145
-	st.h	$a6, $a0, 1100
-	ori	$a6, $zero, 146
-	st.h	$a6, $a0, 1104
-	ori	$a6, $zero, 147
-	st.h	$a6, $a0, 1108
-	ori	$a6, $zero, 148
-	st.h	$a6, $a0, 1112
-	ori	$a6, $zero, 149
-	st.h	$a6, $a0, 1116
-	ori	$a6, $zero, 150
-	st.h	$a6, $a0, 1120
-	ori	$a6, $zero, 151
-	st.h	$a6, $a0, 1124
-	lu12i.w	$a6, 2432
-	ori	$a6, $a6, 41
-	st.w	$a6, $a0, 1126
-	ori	$a6, $zero, 153
-	st.h	$a6, $a0, 1132
-	ori	$a6, $zero, 154
-	st.h	$a6, $a0, 1136
-	ori	$a6, $zero, 155
-	st.h	$a6, $a0, 1140
-	ori	$a6, $zero, 156
-	st.h	$a6, $a0, 1144
-	ori	$a6, $zero, 157
-	st.h	$a6, $a0, 1148
-	ori	$a6, $zero, 158
-	st.h	$a6, $a0, 1152
-	ori	$a6, $zero, 159
-	st.h	$a6, $a0, 1156
-	lu12i.w	$a6, 2560
-	ori	$a6, $a6, 33
-	st.w	$a6, $a0, 1158
-	ori	$a6, $zero, 161
-	st.h	$a6, $a0, 1164
-	ori	$a6, $zero, 162
-	st.h	$a6, $a0, 1168
-	ori	$a6, $zero, 163
-	st.h	$a6, $a0, 1172
-	ori	$a6, $zero, 164
-	st.h	$a6, $a0, 1176
-	ori	$a6, $zero, 165
-	st.h	$a6, $a0, 1180
-	ori	$a6, $zero, 166
-	st.h	$a6, $a0, 1184
-	ori	$a6, $zero, 167
-	st.h	$a6, $a0, 1188
-	lu12i.w	$a6, 2688
-	ori	$a6, $a6, 25
-	st.w	$a6, $a0, 1190
-	ori	$a6, $zero, 169
-	st.h	$a6, $a0, 1196
-	ori	$a6, $zero, 170
-	st.h	$a6, $a0, 1200
-	ori	$a6, $zero, 171
-	st.h	$a6, $a0, 1204
-	ori	$a6, $zero, 172
-	st.h	$a6, $a0, 1208
-	ori	$a6, $zero, 173
-	st.h	$a6, $a0, 1212
-	ori	$a6, $zero, 174
-	st.h	$a6, $a0, 1216
-	ori	$a6, $zero, 175
-	st.h	$a6, $a0, 1220
-	lu12i.w	$a6, 2816
-	ori	$a6, $a6, 17
-	st.w	$a6, $a0, 1222
-	ori	$a6, $zero, 177
-	st.h	$a6, $a0, 1228
-	ori	$a6, $zero, 178
-	st.h	$a6, $a0, 1232
-	ori	$a6, $zero, 179
-	st.h	$a6, $a0, 1236
-	ori	$a6, $zero, 180
-	st.h	$a6, $a0, 1240
-	ori	$a6, $zero, 181
-	st.h	$a6, $a0, 1244
-	ori	$a6, $zero, 182
-	st.h	$a6, $a0, 1248
-	ori	$a6, $zero, 183
-	st.h	$a6, $a0, 1252
-	lu12i.w	$a6, 2944
-	ori	$a6, $a6, 9
-	st.w	$a6, $a0, 1254
-	ori	$a6, $zero, 185
-	st.h	$a6, $a0, 1260
-	ori	$a6, $zero, 186
-	st.h	$a6, $a0, 1264
-	ori	$a6, $zero, 187
-	st.h	$a6, $a0, 1268
-	ori	$a6, $zero, 188
-	st.h	$a6, $a0, 1272
-	ori	$a6, $zero, 189
-	st.h	$a6, $a0, 1276
-	ori	$a6, $zero, 190
-	st.h	$a6, $a0, 1280
-	ori	$a6, $zero, 191
-	st.h	$a6, $a0, 1284
-	lu12i.w	$a6, 3072
-	ori	$a6, $a6, 1
-	st.w	$a6, $a0, 1286
-	ori	$a6, $zero, 46
-	st.h	$a6, $a0, 846
-	st.d	$a5, $a0, 400
-	st.d	$a5, $a0, 416
-	addi.d	$a5, $a0, 1292
-	st.d	$a5, $a0, 424
-	ori	$a5, $zero, 192
-	st.h	$a5, $a0, 1292
-	ori	$a5, $zero, 193
-	st.h	$a5, $a0, 1296
-	ori	$a5, $zero, 194
-	st.h	$a5, $a0, 1300
-	ori	$a5, $zero, 195
-	st.h	$a5, $a0, 1304
-	ori	$a5, $zero, 196
-	st.h	$a5, $a0, 1308
-	ori	$a5, $zero, 197
-	st.h	$a5, $a0, 1312
-	ori	$a5, $zero, 198
-	st.h	$a5, $a0, 1316
-	ori	$a5, $zero, 199
-	st.h	$a5, $a0, 1320
-	ori	$a5, $zero, 45
-	st.h	$a5, $a0, 850
-	st.h	$a1, $a0, 1034
-	st.h	$a1, $a0, 1294
-	ori	$a1, $zero, 63
-	st.h	$a1, $a0, 1038
-	st.h	$a1, $a0, 1298
-	ori	$a1, $zero, 62
-	st.h	$a1, $a0, 1042
-	st.h	$a1, $a0, 1302
-	ori	$a1, $zero, 61
-	st.h	$a1, $a0, 1046
-	st.h	$a1, $a0, 1306
-	ori	$a1, $zero, 60
-	st.h	$a1, $a0, 1050
-	st.h	$a1, $a0, 1310
-	ori	$a1, $zero, 59
-	st.h	$a1, $a0, 1054
-	st.h	$a1, $a0, 1314
-	ori	$a1, $zero, 58
-	st.h	$a1, $a0, 1058
-	st.h	$a1, $a0, 1318
-	lu12i.w	$a1, 3200
-	ori	$a1, $a1, 57
-	st.w	$a1, $a0, 1322
-	ori	$a1, $zero, 201
-	st.h	$a1, $a0, 1328
-	ori	$a1, $zero, 202
-	st.h	$a1, $a0, 1332
-	ori	$a1, $zero, 203
-	st.h	$a1, $a0, 1336
-	ori	$a1, $zero, 204
-	st.h	$a1, $a0, 1340
-	ori	$a1, $zero, 205
-	st.h	$a1, $a0, 1344
-	ori	$a1, $zero, 206
-	st.h	$a1, $a0, 1348
-	ori	$a1, $zero, 207
-	st.h	$a1, $a0, 1352
-	ori	$a7, $zero, 44
-	st.h	$a7, $a0, 854
-	st.h	$a4, $a0, 1326
-	ori	$a1, $zero, 55
-	st.h	$a1, $a0, 1330
-	ori	$a1, $zero, 54
-	st.h	$a1, $a0, 1334
-	ori	$a1, $zero, 53
-	st.h	$a1, $a0, 1338
-	ori	$a1, $zero, 52
-	st.h	$a1, $a0, 1342
-	ori	$a1, $zero, 51
-	st.h	$a1, $a0, 1346
-	ori	$a1, $zero, 50
-	st.h	$a1, $a0, 1350
-	lu12i.w	$a1, 3328
-	ori	$a1, $a1, 49
-	st.w	$a1, $a0, 1354
-	ori	$a1, $zero, 209
-	st.h	$a1, $a0, 1360
-	ori	$a1, $zero, 210
-	st.h	$a1, $a0, 1364
-	ori	$a1, $zero, 211
-	st.h	$a1, $a0, 1368
-	ori	$a1, $zero, 212
-	st.h	$a1, $a0, 1372
-	ori	$a1, $zero, 213
-	st.h	$a1, $a0, 1376
-	ori	$a1, $zero, 214
-	st.h	$a1, $a0, 1380
-	ori	$a1, $zero, 215
-	st.h	$a1, $a0, 1384
-	ori	$t0, $zero, 43
-	st.h	$t0, $a0, 858
-	st.h	$a3, $a0, 1098
-	st.h	$a3, $a0, 1358
-	ori	$a3, $zero, 42
-	st.h	$a3, $a0, 862
-	st.h	$a2, $a0, 1102
-	st.h	$a2, $a0, 1362
-	ori	$t1, $zero, 40
-	st.h	$t1, $a0, 870
-	st.h	$a6, $a0, 1106
-	st.h	$a6, $a0, 1366
-	ori	$a1, $zero, 32
-	st.h	$a1, $a0, 902
-	st.h	$a5, $a0, 1110
-	st.h	$a5, $a0, 1370
-	ori	$a2, $zero, 31
-	st.h	$a2, $a0, 906
-	st.h	$a7, $a0, 1114
-	st.h	$a7, $a0, 1374
-	ori	$a4, $zero, 30
-	st.h	$a4, $a0, 910
-	st.h	$t0, $a0, 1118
-	st.h	$t0, $a0, 1378
-	ori	$a5, $zero, 29
-	st.h	$a5, $a0, 914
-	st.h	$a3, $a0, 1122
-	st.h	$a3, $a0, 1382
-	lu12i.w	$a3, 3456
-	ori	$a3, $a3, 41
-	st.w	$a3, $a0, 1386
-	ori	$a3, $zero, 217
-	st.h	$a3, $a0, 1392
-	ori	$a3, $zero, 218
-	st.h	$a3, $a0, 1396
-	ori	$a3, $zero, 219
-	st.h	$a3, $a0, 1400
-	ori	$a3, $zero, 220
-	st.h	$a3, $a0, 1404
-	ori	$a3, $zero, 221
-	st.h	$a3, $a0, 1408
-	ori	$a3, $zero, 222
-	st.h	$a3, $a0, 1412
-	ori	$a3, $zero, 223
-	st.h	$a3, $a0, 1416
-	ori	$a6, $zero, 28
-	st.h	$a6, $a0, 918
-	st.h	$t1, $a0, 1130
-	st.h	$t1, $a0, 1390
-	ori	$a3, $zero, 39
-	st.h	$a3, $a0, 1134
-	st.h	$a3, $a0, 1394
-	ori	$a3, $zero, 38
-	st.h	$a3, $a0, 1138
-	st.h	$a3, $a0, 1398
-	ori	$a3, $zero, 37
-	st.h	$a3, $a0, 1142
-	st.h	$a3, $a0, 1402
-	ori	$a3, $zero, 35
-	st.h	$a3, $a0, 1150
-	st.h	$a3, $a0, 1410
-	ori	$a3, $zero, 34
-	st.h	$a3, $a0, 1154
-	st.h	$a3, $a0, 1414
-	lu12i.w	$a3, 3584
-	ori	$a3, $a3, 33
-	st.w	$a3, $a0, 1418
-	ori	$a3, $zero, 225
-	st.h	$a3, $a0, 1424
-	ori	$a3, $zero, 226
-	st.h	$a3, $a0, 1428
-	ori	$a3, $zero, 227
-	st.h	$a3, $a0, 1432
-	ori	$a3, $zero, 228
-	st.h	$a3, $a0, 1436
-	ori	$a3, $zero, 229
-	st.h	$a3, $a0, 1440
-	ori	$a3, $zero, 230
-	st.h	$a3, $a0, 1444
-	ori	$a3, $zero, 231
-	st.h	$a3, $a0, 1448
-	ori	$a7, $zero, 27
-	st.h	$a7, $a0, 922
-	st.h	$a1, $a0, 1162
-	st.h	$a1, $a0, 1422
-	ori	$t0, $zero, 26
-	st.h	$t0, $a0, 926
-	st.h	$a2, $a0, 1166
-	st.h	$a2, $a0, 1426
-	ori	$a3, $zero, 16
-	st.h	$a3, $a0, 966
-	st.h	$a4, $a0, 1170
-	st.h	$a4, $a0, 1430
-	ori	$a4, $zero, 15
-	st.h	$a4, $a0, 970
-	st.h	$a5, $a0, 1174
-	st.h	$a5, $a0, 1434
-	ori	$a5, $zero, 14
-	st.h	$a5, $a0, 974
-	st.h	$a6, $a0, 1178
-	st.h	$a6, $a0, 1438
-	ori	$a1, $zero, 13
-	st.h	$a1, $a0, 978
-	st.h	$a7, $a0, 1182
-	st.h	$a7, $a0, 1442
-	ori	$a2, $zero, 12
-	st.h	$a2, $a0, 982
-	st.h	$t0, $a0, 1186
-	st.h	$t0, $a0, 1446
-	lu12i.w	$a6, 3712
-	ori	$a6, $a6, 25
-	st.w	$a6, $a0, 1450
-	ori	$a6, $zero, 233
-	st.h	$a6, $a0, 1456
-	ori	$a6, $zero, 234
-	st.h	$a6, $a0, 1460
-	ori	$a6, $zero, 235
-	st.h	$a6, $a0, 1464
-	ori	$a6, $zero, 236
-	st.h	$a6, $a0, 1468
-	ori	$a6, $zero, 237
-	st.h	$a6, $a0, 1472
-	ori	$a6, $zero, 238
-	st.h	$a6, $a0, 1476
-	ori	$a6, $zero, 239
-	st.h	$a6, $a0, 1480
-	ori	$a6, $zero, 23
-	st.h	$a6, $a0, 1198
-	st.h	$a6, $a0, 1458
-	ori	$a6, $zero, 22
-	st.h	$a6, $a0, 1202
-	st.h	$a6, $a0, 1462
-	ori	$a6, $zero, 21
-	st.h	$a6, $a0, 1206
-	st.h	$a6, $a0, 1466
-	ori	$a6, $zero, 20
-	st.h	$a6, $a0, 1210
-	st.h	$a6, $a0, 1470
-	ori	$a6, $zero, 19
-	st.h	$a6, $a0, 1214
-	st.h	$a6, $a0, 1474
-	pcalau12i	$a6, %pc_hi20(.LCPI12_3)
-	vld	$vr0, $a6, %pc_lo12(.LCPI12_3)
-	pcalau12i	$a6, %pc_hi20(.LCPI12_5)
-	vld	$vr1, $a6, %pc_lo12(.LCPI12_5)
-	ori	$a6, $zero, 18
-	st.h	$a6, $a0, 1218
-	st.h	$a6, $a0, 1478
-	lu12i.w	$a6, 3840
-	ori	$a6, $a6, 17
-	st.w	$a6, $a0, 1482
-	ori	$a6, $zero, 241
-	st.h	$a6, $a0, 1488
-	ori	$a6, $zero, 242
-	st.h	$a6, $a0, 1492
-	ori	$a6, $zero, 243
-	st.h	$a6, $a0, 1496
-	ori	$a6, $zero, 244
-	st.h	$a6, $a0, 1500
-	ori	$a6, $zero, 245
-	st.h	$a6, $a0, 1504
-	ori	$a6, $zero, 246
-	st.h	$a6, $a0, 1508
-	ori	$a6, $zero, 247
-	st.h	$a6, $a0, 1512
-	ori	$a6, $zero, 11
-	st.h	$a6, $a0, 986
-	st.h	$a3, $a0, 1226
-	st.h	$a3, $a0, 1486
-	ori	$a7, $zero, 10
-	st.h	$a7, $a0, 990
-	st.h	$a4, $a0, 1230
-	st.h	$a4, $a0, 1490
-	ori	$a3, $zero, 36
-	st.h	$a5, $a0, 1234
-	st.h	$a5, $a0, 1494
-	ori	$a4, $zero, 24
-	st.h	$a4, $a0, 1194
-	st.h	$a1, $a0, 1238
-	st.h	$a2, $a0, 1242
-	st.h	$a6, $a0, 1246
-	st.h	$a7, $a0, 1250
-	st.h	$a1, $a0, 1498
-	ori	$a1, $zero, 8
-	st.h	$a1, $a0, 1258
-	st.h	$a2, $a0, 1502
-	ori	$a2, $zero, 7
-	st.h	$a2, $a0, 1262
-	st.h	$a6, $a0, 1506
-	ori	$a5, $zero, 6
-	st.h	$a5, $a0, 1266
-	st.h	$a7, $a0, 1510
-	lu12i.w	$a6, 3968
-	ori	$a6, $a6, 9
-	st.w	$a6, $a0, 1514
-	ori	$a6, $zero, 249
-	st.h	$a6, $a0, 1520
-	ori	$a6, $zero, 250
-	st.h	$a6, $a0, 1524
-	ori	$a6, $zero, 251
-	st.h	$a6, $a0, 1528
-	ori	$a6, $zero, 252
-	st.h	$a6, $a0, 1532
-	ori	$a6, $zero, 253
-	st.h	$a6, $a0, 1536
-	ori	$a6, $zero, 254
-	st.h	$a6, $a0, 1540
-	ori	$a6, $zero, 255
-	st.h	$a6, $a0, 1544
-	ori	$a6, $zero, 5
-	st.h	$a6, $a0, 1270
-	st.h	$a1, $a0, 1518
-	ori	$a1, $zero, 3
-	st.h	$a1, $a0, 1278
-	st.h	$a2, $a0, 1522
-	ori	$a2, $zero, 2
-	st.h	$a2, $a0, 1282
-	st.h	$a4, $a0, 1454
-	st.h	$a5, $a0, 1526
-	st.h	$a6, $a0, 1530
-	st.h	$a1, $a0, 1538
-	st.h	$a2, $a0, 1542
-	lu12i.w	$a1, 4096
-	ori	$a1, $a1, 1
-	st.w	$a1, $a0, 1546
+	addi.d	$a1, $a0, 772
+	ori	$a3, $zero, 4
+	vst	$vr0, $a0, 1516
+	pcalau12i	$a2, %pc_hi20(.LCPI12_50)
+	vld	$vr0, $a2, %pc_lo12(.LCPI12_50)
+	ori	$a2, $zero, 4
+	lu32i.d	$a2, 64
+	st.d	$a2, $a0, 384
+	vst	$vr0, $a0, 1532
+	pcalau12i	$a4, %pc_hi20(.LCPI12_51)
+	vld	$vr0, $a4, %pc_lo12(.LCPI12_51)
+	st.d	$a1, $a0, 392
+	ori	$a1, $zero, 128
+	st.w	$a1, $a0, 1028
+	vst	$vr0, $a0, 1552
+	pcalau12i	$a1, %pc_hi20(.LCPI12_52)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_52)
+	addi.d	$a1, $a0, 1032
+	st.d	$a2, $a0, 400
+	st.d	$a1, $a0, 408
+	vst	$vr0, $a0, 1568
+	pcalau12i	$a1, %pc_hi20(.LCPI12_53)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_53)
+	ori	$a1, $zero, 192
+	st.w	$a1, $a0, 1288
+	addi.d	$a1, $a0, 1292
+	vst	$vr0, $a0, 1584
+	pcalau12i	$a4, %pc_hi20(.LCPI12_54)
+	vld	$vr0, $a4, %pc_lo12(.LCPI12_54)
+	st.d	$a2, $a0, 416
+	st.d	$a1, $a0, 424
+	ori	$a1, $zero, 256
+	vst	$vr0, $a0, 1600
+	pcalau12i	$a2, %pc_hi20(.LCPI12_55)
+	vld	$vr0, $a2, %pc_lo12(.LCPI12_55)
+	st.w	$a1, $a0, 1548
 	addi.d	$a1, $a0, 1552
 	ori	$a2, $zero, 4
+	vst	$vr0, $a0, 1616
+	pcalau12i	$a4, %pc_hi20(.LCPI12_56)
+	vld	$vr0, $a4, %pc_lo12(.LCPI12_56)
 	lu32i.d	$a2, 24
 	st.d	$a2, $a0, 432
 	st.d	$a1, $a0, 440
-	pcalau12i	$a1, %pc_hi20(.LCPI12_4)
-	vld	$vr2, $a1, %pc_lo12(.LCPI12_4)
-	pcalau12i	$a1, %pc_hi20(.LCPI12_6)
-	vld	$vr3, $a1, %pc_lo12(.LCPI12_6)
-	pcalau12i	$a1, %pc_hi20(.LCPI12_7)
-	vld	$vr4, $a1, %pc_lo12(.LCPI12_7)
-	pcalau12i	$a1, %pc_hi20(.LCPI12_8)
-	vld	$vr5, $a1, %pc_lo12(.LCPI12_8)
+	vst	$vr0, $a0, 1632
+	ori	$a1, $zero, 24
+	st.w	$a1, $a0, 1648
 	slli.d	$a2, $fp, 1
 	addi.w	$a1, $a2, 0
-	sltui	$a5, $a1, 36
-	masknez	$a6, $a3, $a5
-	st.w	$a4, $a0, 1648
-	maskeqz	$a4, $a1, $a5
-	or	$a5, $a4, $a6
-	ori	$a4, $zero, 4
-	st.h	$a4, $a0, 1274
-	st.h	$a4, $a0, 1534
-	st.w	$a4, $a0, 448
-	addi.d	$a4, $a0, 1652
-	st.d	$a4, $a0, 456
-	vst	$vr0, $a0, 1552
-	vst	$vr2, $a0, 1568
-	vst	$vr1, $a0, 1584
-	vst	$vr3, $a0, 1600
-	vst	$vr4, $a0, 1616
-	st.h	$a3, $a0, 1146
-	st.h	$zero, $a0, 1290
-	st.h	$a3, $a0, 1406
-	st.h	$zero, $a0, 1550
-	vst	$vr5, $a0, 1632
-	st.w	$a5, $a0, 452
+	addi.d	$a6, $a0, 1652
+	sltui	$a4, $a1, 36
+	ori	$a5, $zero, 36
+	masknez	$a7, $a5, $a4
+	maskeqz	$a4, $a1, $a4
+	or	$a4, $a4, $a7
+	st.w	$a3, $a0, 448
+	st.w	$a4, $a0, 452
+	st.d	$a6, $a0, 456
 	beqz	$fp, .LBB12_18
 # %bb.10:                               # %vector.ph167
-	move	$a4, $zero
+	move	$a3, $zero
 	addi.d	$a6, $a0, 1658
-	move	$a7, $a5
+	move	$a7, $a4
 	.p2align	4, , 16
 .LBB12_11:                              # %vector.body168
                                         # =>This Inner Loop Header: Depth=1
-	ori	$t0, $a4, 1
-	st.h	$a4, $a6, -6
+	ori	$t0, $a3, 1
+	st.h	$a3, $a6, -6
 	st.h	$t0, $a6, -2
 	addi.d	$t0, $a7, -1
 	st.h	$a7, $a6, -4
 	st.h	$t0, $a6, 0
-	addi.d	$a4, $a4, 2
+	addi.d	$a3, $a3, 2
 	addi.d	$a7, $a7, -2
 	addi.d	$a6, $a6, 8
-	bne	$a5, $a4, .LBB12_11
+	bne	$a4, $a3, .LBB12_11
 # %bb.12:
-	move	$a6, $a5
+	move	$a6, $a4
 	b	.LBB12_19
 .LBB12_13:
 	move	$a0, $zero
@@ -9041,53 +9009,53 @@ qtm_init:                               # @qtm_init
 .LBB12_18:
 	move	$a6, $zero
 .LBB12_19:                              # %scalar.ph166.preheader
-	bstrpick.d	$a4, $a2, 31, 0
-	sltui	$a7, $a4, 36
-	masknez	$a3, $a3, $a7
-	maskeqz	$a7, $a4, $a7
-	or	$a3, $a7, $a3
-	addi.d	$a3, $a3, 1
+	bstrpick.d	$a3, $a2, 31, 0
+	sltui	$a7, $a3, 36
+	masknez	$a5, $a5, $a7
+	maskeqz	$a7, $a3, $a7
+	or	$a5, $a7, $a5
+	addi.d	$a5, $a5, 1
 	alsl.d	$a7, $a6, $a0, 2
 	addi.d	$a7, $a7, 1654
-	sub.d	$a5, $a5, $a6
+	sub.d	$a4, $a4, $a6
 	.p2align	4, , 16
 .LBB12_20:                              # %scalar.ph166
                                         # =>This Inner Loop Header: Depth=1
 	st.h	$a6, $a7, -2
-	st.h	$a5, $a7, 0
+	st.h	$a4, $a7, 0
 	addi.d	$a6, $a6, 1
 	addi.d	$a7, $a7, 4
-	addi.d	$a5, $a5, -1
-	bne	$a3, $a6, .LBB12_20
+	addi.d	$a4, $a4, -1
+	bne	$a5, $a6, .LBB12_20
 # %bb.21:                               # %qtm_init_model.exit118
-	addi.d	$a3, $a0, 1800
+	addi.d	$a4, $a0, 1800
 	ori	$a5, $zero, 4
 	st.w	$a5, $a0, 464
 	st.w	$a2, $a0, 468
-	st.d	$a3, $a0, 472
+	st.d	$a4, $a0, 472
 	beqz	$fp, .LBB12_24
 # %bb.22:                               # %vector.ph175
-	move	$a3, $zero
+	move	$a4, $zero
 	addi.d	$a5, $a0, 1806
 	move	$a6, $a2
 	.p2align	4, , 16
 .LBB12_23:                              # %vector.body178
                                         # =>This Inner Loop Header: Depth=1
-	ori	$a7, $a3, 1
-	st.h	$a3, $a5, -6
+	ori	$a7, $a4, 1
+	st.h	$a4, $a5, -6
 	st.h	$a7, $a5, -2
 	addi.d	$a7, $a6, -1
 	st.h	$a6, $a5, -4
 	st.h	$a7, $a5, 0
-	addi.d	$a3, $a3, 2
+	addi.d	$a4, $a4, 2
 	addi.d	$a5, $a5, 8
 	addi.d	$a6, $a6, -2
-	bne	$a1, $a3, .LBB12_23
+	bne	$a1, $a4, .LBB12_23
 	b	.LBB12_25
 .LBB12_24:
 	move	$a1, $zero
 .LBB12_25:                              # %scalar.ph173.preheader
-	addi.d	$a3, $a4, 1
+	addi.d	$a3, $a3, 1
 	alsl.d	$a4, $a1, $a0, 2
 	addi.d	$a4, $a4, 1802
 	sub.d	$a2, $a2, $a1
@@ -9101,43 +9069,43 @@ qtm_init:                               # @qtm_init
 	addi.d	$a2, $a2, -1
 	bne	$a3, $a1, .LBB12_26
 # %bb.27:                               # %qtm_init_model.exit123
-	pcalau12i	$a1, %pc_hi20(.LCPI12_9)
-	vld	$vr0, $a1, %pc_lo12(.LCPI12_9)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_57)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_57)
 	vst	$vr0, $a0, 1972
-	pcalau12i	$a1, %pc_hi20(.LCPI12_10)
-	vld	$vr0, $a1, %pc_lo12(.LCPI12_10)
-	pcalau12i	$a1, %pc_hi20(.LCPI12_11)
-	vld	$vr1, $a1, %pc_lo12(.LCPI12_11)
-	pcalau12i	$a1, %pc_hi20(.LCPI12_12)
-	vld	$vr2, $a1, %pc_lo12(.LCPI12_12)
-	pcalau12i	$a1, %pc_hi20(.LCPI12_13)
-	vld	$vr3, $a1, %pc_lo12(.LCPI12_13)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_58)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_58)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_59)
+	vld	$vr1, $a1, %pc_lo12(.LCPI12_59)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_60)
+	vld	$vr2, $a1, %pc_lo12(.LCPI12_60)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_61)
+	vld	$vr3, $a1, %pc_lo12(.LCPI12_61)
 	vst	$vr0, $a0, 1988
 	vst	$vr1, $a0, 2004
 	vst	$vr2, $a0, 2020
 	vst	$vr3, $a0, 2036
-	pcalau12i	$a1, %pc_hi20(.LCPI12_14)
-	vld	$vr0, $a1, %pc_lo12(.LCPI12_14)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_62)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_62)
 	addi.d	$a1, $a0, 1972
 	ori	$a2, $zero, 4
 	ori	$a3, $zero, 2052
 	vstx	$vr0, $a0, $a3
-	pcalau12i	$a3, %pc_hi20(.LCPI12_15)
-	vld	$vr0, $a3, %pc_lo12(.LCPI12_15)
+	pcalau12i	$a3, %pc_hi20(.LCPI12_63)
+	vld	$vr0, $a3, %pc_lo12(.LCPI12_63)
 	ori	$a3, $zero, 4
 	lu32i.d	$a3, 27
 	st.d	$a3, $a0, 480
 	st.d	$a1, $a0, 488
 	ori	$a1, $zero, 2068
 	vstx	$vr0, $a0, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI12_16)
-	vld	$vr0, $a1, %pc_lo12(.LCPI12_16)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_64)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_64)
 	ori	$a1, $zero, 2084
 	add.d	$a3, $a0, $a1
 	lu32i.d	$a2, 7
 	vstx	$vr0, $a0, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI12_17)
-	vld	$vr0, $a1, %pc_lo12(.LCPI12_17)
+	pcalau12i	$a1, %pc_hi20(.LCPI12_65)
+	vld	$vr0, $a1, %pc_lo12(.LCPI12_65)
 	st.d	$a2, $a0, 496
 	st.d	$a3, $a0, 504
 	ori	$a1, $zero, 2100

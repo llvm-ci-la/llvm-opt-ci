@@ -2730,44 +2730,27 @@ emit_dht:                               # @emit_dht
 	move	$a0, $fp
 	jirl	$ra, $a1, 0
 .LBB9_9:                                # %emit_marker.exit
-	ld.bu	$a0, $s0, 1
-	ld.bu	$a1, $s0, 2
-	ld.bu	$a2, $s0, 3
-	ld.bu	$a3, $s0, 4
-	ld.bu	$a4, $s0, 5
-	add.d	$a0, $a0, $a1
-	add.d	$a0, $a0, $a2
-	add.d	$a0, $a0, $a3
-	add.d	$a0, $a0, $a4
-	ld.bu	$a1, $s0, 6
-	ld.bu	$a2, $s0, 7
-	ld.bu	$a3, $s0, 8
-	ld.bu	$a4, $s0, 9
-	add.d	$a0, $a0, $a1
-	add.d	$a0, $a0, $a2
-	add.d	$a0, $a0, $a3
-	add.d	$a0, $a0, $a4
-	ld.bu	$a1, $s0, 10
-	ld.bu	$a2, $s0, 11
-	ld.bu	$a3, $s0, 12
-	ld.bu	$a4, $s0, 13
-	add.d	$a0, $a0, $a1
-	add.d	$a0, $a0, $a2
-	add.d	$a0, $a0, $a3
-	add.d	$a1, $a0, $a4
-	ld.bu	$a2, $s0, 14
-	ld.bu	$a3, $s0, 15
+	vld	$vr0, $s0, 1
+	vrepli.b	$vr1, 0
+	vilvh.b	$vr2, $vr1, $vr0
+	vilvl.h	$vr3, $vr1, $vr2
+	vilvl.b	$vr0, $vr1, $vr0
+	vilvl.h	$vr4, $vr1, $vr0
+	vilvh.h	$vr2, $vr1, $vr2
+	vilvh.h	$vr0, $vr1, $vr0
+	vadd.w	$vr0, $vr0, $vr2
+	vadd.w	$vr1, $vr4, $vr3
 	ld.d	$a0, $fp, 32
-	ld.bu	$a4, $s0, 16
-	add.d	$a1, $a1, $a2
-	add.d	$a1, $a1, $a3
-	ld.d	$a2, $a0, 0
-	add.w	$s2, $a1, $a4
+	vadd.w	$vr0, $vr1, $vr0
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	ld.d	$a1, $a0, 0
+	vpickve2gr.d	$s2, $vr0, 0
 	addi.d	$s3, $s2, 19
-	srli.d	$a1, $s3, 8
-	addi.d	$a3, $a2, 1
+	srli.d	$a2, $s3, 8
+	addi.d	$a3, $a1, 1
 	st.d	$a3, $a0, 0
-	st.b	$a1, $a2, 0
+	st.b	$a2, $a1, 0
 	ld.d	$a1, $a0, 8
 	addi.d	$a1, $a1, -1
 	st.d	$a1, $a0, 8
@@ -2864,21 +2847,22 @@ emit_dht:                               # @emit_dht
 	jirl	$ra, $a1, 0
 	b	.LBB9_19
 .LBB9_23:                               # %.preheader
-	beqz	$s2, .LBB9_29
+	addi.w	$s1, $s2, 0
+	beqz	$s1, .LBB9_29
 # %bb.24:                               # %.lr.ph
-	move	$s1, $zero
+	move	$s2, $zero
 	addi.d	$s3, $s0, 17
 	ori	$s4, $zero, 22
 	b	.LBB9_26
 	.p2align	4, , 16
 .LBB9_25:                               # %emit_byte.exit43
                                         #   in Loop: Header=BB9_26 Depth=1
-	addi.d	$s1, $s1, 1
-	bgeu	$s1, $s2, .LBB9_29
+	addi.d	$s2, $s2, 1
+	bgeu	$s2, $s1, .LBB9_29
 .LBB9_26:                               # =>This Inner Loop Header: Depth=1
 	ld.d	$a0, $fp, 32
 	ld.d	$a1, $a0, 0
-	ldx.b	$a2, $s3, $s1
+	ldx.b	$a2, $s3, $s2
 	addi.d	$a3, $a1, 1
 	st.d	$a3, $a0, 0
 	st.b	$a2, $a1, 0

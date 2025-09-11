@@ -2711,9 +2711,28 @@ edge_draw:                              # @edge_draw
 .Lfunc_end11:
 	.size	edge_draw, .Lfunc_end11-edge_draw
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function susan_thin
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function susan_thin
 .LCPI12_0:
+	.byte	1                               # 0x1
+	.byte	0                               # 0x0
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	16                              # 0x10
+	.byte	17                              # 0x11
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.section	.rodata.cst8,"aM",@progbits,8
+	.p2align	3, 0x0
+.LCPI12_1:
 	.dword	0x3fe6666666666666              # double 0.69999999999999996
 	.text
 	.globl	susan_thin
@@ -2741,6 +2760,8 @@ susan_thin:                             # @susan_thin
 	addi.w	$a3, $a3, -4
 	addi.w	$a4, $a2, -4
 	ori	$a6, $zero, 7
+	pcalau12i	$a5, %pc_hi20(.LCPI12_0)
+	vld	$vr0, $a5, %pc_lo12(.LCPI12_0)
 	ori	$s5, $zero, 100
 	ori	$t0, $zero, 2
 	ori	$fp, $zero, 8
@@ -2763,33 +2784,32 @@ susan_thin:                             # @susan_thin
 	addi.d	$s0, $t7, -1
 	mul.w	$s2, $s0, $a2
 	add.d	$a5, $a1, $s2
-	add.d	$a7, $a5, $t6
-	ld.bu	$t1, $a7, -1
-	ldx.bu	$a5, $a5, $t6
-	addi.d	$t2, $a7, -1
-	ld.bu	$a7, $a7, 1
-	sltui	$t1, $t1, 8
-	sltui	$a5, $a5, 8
-	add.d	$a5, $a5, $t1
-	sltui	$a7, $a7, 8
-	ldx.bu	$t1, $t2, $a2
+	add.d	$a5, $a5, $t6
+	addi.d	$a7, $a5, -1
+	ld.b	$t1, $a5, 1
+	add.d	$t2, $a7, $a2
+	ldx.b	$a7, $a7, $a2
+	ld.b	$t3, $t2, 2
+	ld.h	$a5, $a5, -1
+	ldx.h	$t4, $t2, $a2
 	add.d	$t2, $t2, $a2
-	ld.bu	$t3, $t2, 2
-	add.d	$a5, $a5, $a7
-	sltui	$a7, $t1, 8
-	add.d	$a5, $a5, $a7
-	sltui	$a7, $t3, 8
-	ldx.bu	$t1, $t2, $a2
-	add.d	$a5, $a5, $a7
-	add.d	$a7, $t2, $a2
-	ld.bu	$t2, $a7, 1
-	sltui	$t1, $t1, 8
-	ld.bu	$a7, $a7, 2
-	add.d	$a5, $a5, $t1
-	sltui	$t1, $t2, 8
-	add.d	$a5, $a5, $t1
-	sltui	$a7, $a7, 8
-	add.w	$a5, $a5, $a7
+	ld.b	$t2, $t2, 2
+	vinsgr2vr.h	$vr1, $a5, 0
+	vinsgr2vr.h	$vr2, $t4, 0
+	vshuf.b	$vr1, $vr2, $vr1, $vr0
+	vinsgr2vr.b	$vr1, $t1, 2
+	vinsgr2vr.b	$vr1, $a7, 3
+	vinsgr2vr.b	$vr1, $t3, 4
+	vinsgr2vr.b	$vr1, $t2, 7
+	vslti.bu	$vr1, $vr1, 8
+	vilvl.b	$vr1, $vr1, $vr1
+	vslli.h	$vr1, $vr1, 8
+	vmskltz.h	$vr1, $vr1
+	vpickve2gr.hu	$a5, $vr1, 0
+	vldi	$vr1, 0
+	vinsgr2vr.d	$vr1, $a5, 0
+	vpcnt.d	$vr1, $vr1
+	vpickve2gr.d	$a5, $vr1, 0
 	beqz	$a5, .LBB12_14
 # %bb.5:                                #   in Loop: Header=BB12_3 Depth=1
 	beq	$a5, $t0, .LBB12_10
@@ -3048,15 +3068,15 @@ susan_thin:                             # @susan_thin
 	ldx.w	$t1, $a0, $t1
 	slli.d	$t2, $s7, 2
 	ldx.w	$t2, $a0, $t2
-	movgr2fr.w	$fa0, $t1
-	ffint.s.w	$fa0, $fa0
-	movgr2fr.w	$fa1, $t2
-	pcalau12i	$t1, %pc_hi20(.LCPI12_0)
-	fld.d	$fa2, $t1, %pc_lo12(.LCPI12_0)
+	movgr2fr.w	$fa1, $t1
 	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa0, $fa0, $fa1
-	fcvt.d.s	$fa0, $fa0
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	movgr2fr.w	$fa2, $t2
+	pcalau12i	$t1, %pc_hi20(.LCPI12_1)
+	fld.d	$fa3, $t1, %pc_lo12(.LCPI12_1)
+	ffint.s.w	$fa2, $fa2
+	fdiv.s	$fa1, $fa1, $fa2
+	fcvt.d.s	$fa1, $fa1
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	bcnez	$fcc0, .LBB12_54
 # %bb.30:                               #   in Loop: Header=BB12_3 Depth=1
 	beqz	$a7, .LBB12_34

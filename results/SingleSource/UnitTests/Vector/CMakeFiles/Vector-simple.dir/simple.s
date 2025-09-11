@@ -1,12 +1,17 @@
 	.file	"simple.c"
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	3, 0x0                          # -- Begin function main
+	.p2align	4, 0x0                          # -- Begin function main
 .LCPI0_0:
 	.dword	0x408b49779a6b50b1              # double 873.18340000000001
 	.dword	0x4040693404ea4a8c              # double 32.821899999999999
 .LCPI0_1:
 	.dword	0x409ccb9c779a6b51              # double 1842.9028000000001
 	.dword	0x4053732fec56d5d0              # double 77.799800000000005
+.LCPI0_5:
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+	.word	6                               # 0x6
+	.word	7                               # 0x7
 	.section	.rodata.cst8,"aM",@progbits,8
 	.p2align	2, 0x0
 .LCPI0_2:
@@ -67,18 +72,20 @@ main:                                   # @main
 	pcalau12i	$a1, %pc_hi20(.LCPI0_4)
 	addi.d	$a1, $a1, %pc_lo12(.LCPI0_4)
 	fldx.s	$fa1, $a1, $a0
-	vfmul.s	$vr2, $vr1, $vr1
-	vextrins.w	$vr1, $vr1, 16
-	vori.b	$vr3, $vr1, 0
-	vextrins.w	$vr3, $vr0, 32
-	vextrins.w	$vr3, $vr0, 48
-	vfadd.s	$vr0, $vr3, $vr3
+	vori.b	$vr2, $vr1, 0
+	vextrins.w	$vr2, $vr1, 16
+	vextrins.w	$vr2, $vr0, 32
+	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_5)
+	vextrins.w	$vr2, $vr0, 48
+	vfadd.s	$vr0, $vr2, $vr2
 	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
 	vrepli.b	$vr0, 0
-	vshuf4i.d	$vr1, $vr0, 12
-	vfadd.s	$vr0, $vr1, $vr1
+	vshuf.w	$vr3, $vr0, $vr1
+	vfadd.s	$vr0, $vr3, $vr3
 	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
-	vreplvei.w	$vr0, $vr2, 0
+	vfmul.s	$vr0, $vr1, $vr1
+	vreplvei.w	$vr0, $vr0, 0
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)

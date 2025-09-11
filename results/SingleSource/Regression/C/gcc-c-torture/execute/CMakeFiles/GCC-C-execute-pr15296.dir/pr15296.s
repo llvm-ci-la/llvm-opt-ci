@@ -56,11 +56,11 @@ g:                                      # @g
 	.dword	999                             # 0x3e7
 	.dword	777                             # 0x309
 .LCPI2_1:
-	.dword	111                             # 0x6f
-	.dword	222                             # 0xde
-.LCPI2_2:
 	.dword	0                               # 0x0
 	.dword	444                             # 0x1bc
+.LCPI2_2:
+	.dword	111                             # 0x6f
+	.dword	222                             # 0xde
 	.text
 	.globl	main
 	.p2align	5
@@ -96,29 +96,46 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vld	$vr0, $sp, 48
 	vld	$vr1, $sp, 64
-	vrepli.b	$vr2, 0
-	vinsgr2vr.d	$vr2, $fp, 0
-	vseq.d	$vr0, $vr0, $vr2
-	vrepli.b	$vr2, -1
-	vxor.v	$vr0, $vr0, $vr2
-	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
-	vseq.d	$vr1, $vr1, $vr3
-	vxor.v	$vr1, $vr1, $vr2
-	vld	$vr3, $sp, 80
-	vld	$vr4, $sp, 96
+	vld	$vr2, $sp, 80
+	vld	$vr3, $sp, 96
+	vrepli.b	$vr4, 0
+	vinsgr2vr.d	$vr4, $fp, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
 	vld	$vr5, $a0, %pc_lo12(.LCPI2_1)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
 	vld	$vr6, $a0, %pc_lo12(.LCPI2_2)
-	vpickev.w	$vr0, $vr1, $vr0
+	vseq.d	$vr0, $vr0, $vr4
+	vrepli.b	$vr4, -1
+	vxor.v	$vr0, $vr0, $vr4
+	vld	$vr7, $sp, 16                   # 16-byte Folded Reload
+	vseq.d	$vr1, $vr1, $vr7
+	vxor.v	$vr1, $vr1, $vr4
+	vpickev.w	$vr1, $vr1, $vr0
+	vpickve2gr.h	$a0, $vr1, 2
+	andi	$a0, $a0, 1
+	vpickve2gr.h	$a1, $vr0, 0
+	bstrins.d	$a1, $a0, 63, 1
+	vpickve2gr.h	$a0, $vr1, 4
+	bstrins.d	$a1, $a0, 2, 2
+	vpickve2gr.h	$a0, $vr1, 6
+	bstrins.d	$a1, $a0, 3, 3
+	vseq.d	$vr0, $vr2, $vr6
+	vxor.v	$vr0, $vr0, $vr4
 	vseq.d	$vr1, $vr3, $vr5
-	vxor.v	$vr1, $vr1, $vr2
-	vseq.d	$vr3, $vr4, $vr6
-	vxor.v	$vr2, $vr3, $vr2
-	vpickev.w	$vr1, $vr2, $vr1
-	vor.v	$vr0, $vr0, $vr1
-	vmskltz.w	$vr0, $vr0
-	vpickve2gr.hu	$a0, $vr0, 0
+	vxor.v	$vr1, $vr1, $vr4
+	vpickev.w	$vr0, $vr1, $vr0
+	vpickve2gr.h	$a0, $vr0, 0
+	bstrins.d	$a1, $a0, 4, 4
+	vpickve2gr.h	$a0, $vr0, 2
+	bstrins.d	$a1, $a0, 5, 5
+	vpickve2gr.h	$a0, $vr0, 4
+	andi	$a0, $a0, 1
+	slli.d	$a0, $a0, 6
+	or	$a0, $a1, $a0
+	vpickve2gr.h	$a1, $vr0, 6
+	slli.d	$a1, $a1, 7
+	or	$a0, $a0, $a1
+	andi	$a0, $a0, 255
 	bnez	$a0, .LBB2_2
 # %bb.1:
 	move	$a0, $zero

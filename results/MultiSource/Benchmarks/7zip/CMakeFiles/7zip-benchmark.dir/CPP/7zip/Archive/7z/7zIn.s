@@ -1475,14 +1475,14 @@ _ZN8NArchive3N7z8CInByte210ReadStringER11CStringBaseIwE: # @_ZN8NArchive3N7z8CIn
 	.section	.rodata.cst16,"aM",@progbits,16
 	.p2align	4, 0x0                          # -- Begin function _ZN8NArchive3N7z10CInArchive20FindAndReadSignatureEP9IInStreamPKy
 .LCPI14_0:
+	.byte	255                             # 0xff
 	.byte	0                               # 0x0
+	.byte	1                               # 0x1
+	.byte	2                               # 0x2
+	.byte	3                               # 0x3
+	.byte	255                             # 0xff
 	.byte	16                              # 0x10
 	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	255                             # 0xff
-	.byte	255                             # 0xff
-	.byte	255                             # 0xff
 	.byte	255                             # 0xff
 	.byte	255                             # 0xff
 	.byte	255                             # 0xff
@@ -1492,15 +1492,6 @@ _ZN8NArchive3N7z8CInByte210ReadStringER11CStringBaseIwE: # @_ZN8NArchive3N7z8CIn
 	.byte	255                             # 0xff
 	.byte	255                             # 0xff
 .LCPI14_1:
-	.half	0                               # 0x0
-	.half	1                               # 0x1
-	.half	2                               # 0x2
-	.half	8                               # 0x8
-	.half	65535                           # 0xffff
-	.half	65535                           # 0xffff
-	.half	65535                           # 0xffff
-	.half	65535                           # 0xffff
-.LCPI14_2:
 	.word	0                               # 0x0
 	.word	5                               # 0x5
 	.word	6                               # 0x6
@@ -1580,38 +1571,38 @@ _ZN8NArchive3N7z10CInArchive20FindAndReadSignatureEP9IInStreamPKy: # @_ZN8NArchi
 	ori	$a1, $zero, 20
 	pcaddu18i	$ra, %call36(CrcCalc)
 	jirl	$ra, $ra, 0
-	ld.bu	$a1, $s0, 65
-	ld.bu	$a2, $s0, 64
-	ld.bu	$a3, $s0, 66
-	slli.w	$a5, $a1, 8
-	ld.bu	$a4, $s0, 67
-	or	$a5, $a5, $a2
-	slli.w	$a6, $a3, 16
-	or	$a5, $a5, $a6
-	slli.w	$a6, $a4, 24
-	or	$a5, $a5, $a6
+	ld.b	$a1, $s0, 64
+	ld.b	$a2, $s0, 65
+	ld.b	$a3, $s0, 66
+	ld.b	$a4, $s0, 67
+	andi	$a5, $a2, 255
+	move	$a6, $a1
+	bstrins.d	$a6, $a5, 63, 8
+	bstrins.d	$a6, $a3, 23, 16
+	slli.d	$a5, $a4, 24
+	or	$a5, $a6, $a5
+	addi.w	$a5, $a5, 0
 	bne	$a0, $a5, .LBB14_9
 .LBB14_8:
 	move	$a0, $zero
 	b	.LBB14_38
 .LBB14_9:                               # %.preheader.preheader.i
-	or	$a0, $a1, $a2
+	or	$a0, $a2, $a1
 	or	$a0, $a0, $a3
 	or	$a0, $a0, $a4
-	ld.b	$a1, $s0, 72
-	vld	$vr0, $s0, 68
-	vld	$vr1, $s0, 73
-	pcalau12i	$a2, %pc_hi20(.LCPI14_0)
-	vld	$vr2, $a2, %pc_lo12(.LCPI14_0)
-	pcalau12i	$a2, %pc_hi20(.LCPI14_1)
-	vld	$vr3, $a2, %pc_lo12(.LCPI14_1)
-	vinsgr2vr.b	$vr4, $a0, 0
-	vshuf.b	$vr0, $vr0, $vr4, $vr2
-	vld	$vr2, $s0, 75
-	vshuf.h	$vr3, $vr1, $vr0
+	ld.w	$a1, $s0, 68
+	ld.h	$a2, $s0, 73
+	pcalau12i	$a3, %pc_hi20(.LCPI14_0)
+	vld	$vr0, $a3, %pc_lo12(.LCPI14_0)
+	ld.b	$a3, $s0, 72
+	vinsgr2vr.w	$vr1, $a1, 0
+	vinsgr2vr.h	$vr2, $a2, 0
+	vld	$vr3, $s0, 75
+	vshuf.b	$vr0, $vr2, $vr1, $vr0
+	vinsgr2vr.b	$vr0, $a0, 0
 	ld.w	$a0, $s0, 83
-	vinsgr2vr.b	$vr3, $a1, 5
-	vpackev.d	$vr0, $vr2, $vr3
+	vinsgr2vr.b	$vr0, $a3, 5
+	vpackev.d	$vr0, $vr3, $vr0
 	vseqi.b	$vr0, $vr0, 0
 	vinsgr2vr.w	$vr1, $a0, 0
 	vseqi.b	$vr1, $vr1, 0
@@ -1633,8 +1624,8 @@ _ZN8NArchive3N7z10CInArchive20FindAndReadSignatureEP9IInStreamPKy: # @_ZN8NArchi
 	vpickve2gr.w	$a0, $vr1, 1
 	vinsgr2vr.b	$vr2, $a0, 1
 	vpickve2gr.w	$a0, $vr1, 2
-	pcalau12i	$a1, %pc_hi20(.LCPI14_2)
-	vld	$vr3, $a1, %pc_lo12(.LCPI14_2)
+	pcalau12i	$a1, %pc_hi20(.LCPI14_1)
+	vld	$vr3, $a1, %pc_lo12(.LCPI14_1)
 	vinsgr2vr.b	$vr2, $a0, 2
 	vpickve2gr.w	$a0, $vr1, 3
 	vinsgr2vr.b	$vr2, $a0, 3
@@ -1672,7 +1663,7 @@ _ZN8NArchive3N7z10CInArchive20FindAndReadSignatureEP9IInStreamPKy: # @_ZN8NArchi
 	ld.d	$a1, $s4, 0
 	sub.d	$a0, $s7, $a0
 	bltu	$a1, $a0, .LBB14_34
-.LBB14_14:                              # %.preheader227
+.LBB14_14:                              # %.preheader231
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB14_15 Depth 2
                                         #     Child Loop BB14_21 Depth 2

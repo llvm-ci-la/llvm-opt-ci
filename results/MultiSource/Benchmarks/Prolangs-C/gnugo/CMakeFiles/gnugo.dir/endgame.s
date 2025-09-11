@@ -220,16 +220,16 @@ endgame:                                # @endgame
 .LBB0_9:                                # %.critedge31.preheader
 	st.w	$zero, $sp, 24
 	pcalau12i	$a0, %got_pc_hi20(p)
-	ld.d	$s1, $a0, %got_pc_lo12(p)
+	ld.d	$fp, $a0, %got_pc_lo12(p)
 	move	$a0, $zero
-	ori	$fp, $zero, 18
+	ori	$s0, $zero, 18
 	b	.LBB0_11
 	.p2align	4, , 16
 .LBB0_10:                               # %.critedge31
                                         #   in Loop: Header=BB0_11 Depth=1
 	addi.w	$a0, $a2, 1
 	st.w	$a0, $sp, 24
-	bge	$a2, $fp, .LBB0_15
+	bge	$a2, $s0, .LBB0_15
 .LBB0_11:                               # %.preheader33
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_13 Depth 2
@@ -242,12 +242,12 @@ endgame:                                # @endgame
 	move	$a0, $a1
 	addi.w	$a1, $a1, 1
 	st.w	$a1, $sp, 20
-	bge	$a0, $fp, .LBB0_10
+	bge	$a0, $s0, .LBB0_10
 .LBB0_13:                               #   Parent Loop BB0_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	alsl.d	$a0, $a2, $a2, 3
 	alsl.d	$a0, $a0, $a2, 1
-	add.d	$a0, $s1, $a0
+	add.d	$a0, $fp, $a0
 	ldx.bu	$a0, $a0, $a1
 	bnez	$a0, .LBB0_12
 # %bb.14:                               #   in Loop: Header=BB0_13 Depth=2
@@ -258,7 +258,7 @@ endgame:                                # @endgame
 	ld.w	$a1, $sp, 20
 	alsl.d	$a3, $a2, $a2, 3
 	alsl.d	$a3, $a3, $a2, 1
-	add.d	$a3, $s1, $a3
+	add.d	$a3, $fp, $a3
 	stx.b	$a0, $a3, $a1
 	b	.LBB0_12
 .LBB0_15:                               # %.preheader32
@@ -269,20 +269,20 @@ endgame:                                # @endgame
 	ld.d	$a1, $a1, %got_pc_lo12(umove)
 	ld.w	$a1, $a1, 0
 	move	$a2, $zero
-	vreplgr2vr.w	$vr0, $a0
-	vreplgr2vr.w	$vr1, $a1
-	vrepli.b	$vr2, 0
-	vrepli.b	$vr3, -1
+	vreplgr2vr.w	$vr1, $a0
+	vreplgr2vr.w	$vr0, $a1
+	vrepli.b	$vr3, 0
+	vrepli.b	$vr2, -1
 	ori	$a3, $zero, 304
-	vori.b	$vr6, $vr2, 0
-	vori.b	$vr7, $vr2, 0
-	vori.b	$vr4, $vr2, 0
-	vori.b	$vr5, $vr2, 0
+	vori.b	$vr4, $vr3, 0
+	vori.b	$vr5, $vr3, 0
+	vori.b	$vr6, $vr3, 0
+	vori.b	$vr7, $vr3, 0
 	.p2align	4, , 16
 .LBB0_16:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$a4, $s1, $a2
-	ldx.b	$a5, $s1, $a2
+	add.d	$a4, $fp, $a2
+	ldx.b	$a5, $fp, $a2
 	ld.b	$a6, $a4, 19
 	ld.b	$a7, $a4, 38
 	ld.b	$t0, $a4, 57
@@ -298,22 +298,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 1
 	ld.b	$a6, $a4, 20
 	ld.b	$a7, $a4, 39
@@ -330,22 +330,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 2
 	ld.b	$a6, $a4, 21
 	ld.b	$a7, $a4, 40
@@ -362,22 +362,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 3
 	ld.b	$a6, $a4, 22
 	ld.b	$a7, $a4, 41
@@ -394,22 +394,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 4
 	ld.b	$a6, $a4, 23
 	ld.b	$a7, $a4, 42
@@ -426,22 +426,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 5
 	ld.b	$a6, $a4, 24
 	ld.b	$a7, $a4, 43
@@ -458,22 +458,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 6
 	ld.b	$a6, $a4, 25
 	ld.b	$a7, $a4, 44
@@ -490,22 +490,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 7
 	ld.b	$a6, $a4, 26
 	ld.b	$a7, $a4, 45
@@ -522,22 +522,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 8
 	ld.b	$a6, $a4, 27
 	ld.b	$a7, $a4, 46
@@ -554,22 +554,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 9
 	ld.b	$a6, $a4, 28
 	ld.b	$a7, $a4, 47
@@ -586,22 +586,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 10
 	ld.b	$a6, $a4, 29
 	ld.b	$a7, $a4, 48
@@ -618,22 +618,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 11
 	ld.b	$a6, $a4, 30
 	ld.b	$a7, $a4, 49
@@ -650,22 +650,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 12
 	ld.b	$a6, $a4, 31
 	ld.b	$a7, $a4, 50
@@ -682,22 +682,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 13
 	ld.b	$a6, $a4, 32
 	ld.b	$a7, $a4, 51
@@ -714,22 +714,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 14
 	ld.b	$a6, $a4, 33
 	ld.b	$a7, $a4, 52
@@ -746,22 +746,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 15
 	ld.b	$a6, $a4, 34
 	ld.b	$a7, $a4, 53
@@ -778,22 +778,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 16
 	ld.b	$a6, $a4, 35
 	ld.b	$a7, $a4, 54
@@ -810,22 +810,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 17
 	ld.b	$a6, $a4, 36
 	ld.b	$a7, $a4, 55
@@ -842,22 +842,22 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $t0, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr4, $vr4, $vr8
+	vsub.w	$vr5, $vr5, $vr9
 	ld.b	$a5, $a4, 18
 	ld.b	$a6, $a4, 37
 	ld.b	$a7, $a4, 56
@@ -874,232 +874,256 @@ endgame:                                # @endgame
 	vinsgr2vr.b	$vr9, $a6, 1
 	vinsgr2vr.b	$vr9, $a7, 2
 	vinsgr2vr.b	$vr9, $a4, 3
-	vilvl.b	$vr8, $vr2, $vr8
-	vilvl.h	$vr8, $vr2, $vr8
-	vilvl.b	$vr9, $vr2, $vr9
-	vilvl.h	$vr9, $vr2, $vr9
-	vseq.w	$vr10, $vr0, $vr8
-	vxor.v	$vr11, $vr10, $vr3
-	vseq.w	$vr12, $vr0, $vr9
-	vxor.v	$vr13, $vr12, $vr3
-	vseq.w	$vr8, $vr1, $vr8
-	vseq.w	$vr9, $vr1, $vr9
-	vsub.w	$vr4, $vr4, $vr10
-	vsub.w	$vr5, $vr5, $vr12
+	vilvl.b	$vr8, $vr3, $vr8
+	vilvl.h	$vr8, $vr3, $vr8
+	vilvl.b	$vr9, $vr3, $vr9
+	vilvl.h	$vr9, $vr3, $vr9
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vseq.w	$vr12, $vr1, $vr9
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr8, $vr0, $vr8
+	vseq.w	$vr9, $vr0, $vr9
+	vsub.w	$vr6, $vr6, $vr10
+	vsub.w	$vr7, $vr7, $vr12
 	vand.v	$vr8, $vr11, $vr8
 	vand.v	$vr9, $vr13, $vr9
-	vsub.w	$vr6, $vr6, $vr8
+	vsub.w	$vr4, $vr4, $vr8
 	addi.d	$a2, $a2, 152
-	vsub.w	$vr7, $vr7, $vr9
+	vsub.w	$vr5, $vr5, $vr9
 	bne	$a2, $a3, .LBB0_16
-# %bb.17:                               # %middle.block
-	move	$a2, $zero
-	vadd.w	$vr0, $vr7, $vr6
-	vhaddw.d.w	$vr0, $vr0, $vr0
-	vhaddw.q.d	$vr0, $vr0, $vr0
-	vpickve2gr.d	$s0, $vr0, 0
-	vadd.w	$vr0, $vr5, $vr4
-	vhaddw.d.w	$vr0, $vr0, $vr0
-	vhaddw.q.d	$vr0, $vr0, $vr0
-	vpickve2gr.d	$fp, $vr0, 0
-	ori	$a3, $zero, 57
-	.p2align	4, , 16
-.LBB0_18:                               # %.preheader
-                                        # =>This Inner Loop Header: Depth=1
-	add.d	$a4, $s1, $a2
-	ld.b	$a5, $a4, 304
-	andi	$a5, $a5, 255
-	xor	$a6, $a0, $a5
-	sltu	$a7, $zero, $a6
-	sltui	$a6, $a6, 1
-	xor	$a5, $a1, $a5
-	add.d	$a6, $fp, $a6
-	ld.b	$t0, $a4, 305
-	sltui	$a5, $a5, 1
-	and	$a5, $a7, $a5
-	add.d	$a5, $s0, $a5
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 306
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 307
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 308
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 309
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 310
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 311
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 312
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 313
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 314
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 315
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 316
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 317
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 318
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 319
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 320
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	add.d	$a6, $a6, $t0
-	ld.b	$t0, $a4, 321
-	sltui	$a7, $a7, 1
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
-	andi	$a7, $t0, 255
-	xor	$t0, $a0, $a7
-	sltu	$t1, $zero, $t0
-	sltui	$t0, $t0, 1
-	xor	$a7, $a1, $a7
-	sltui	$a7, $a7, 1
-	ld.b	$a4, $a4, 322
-	add.d	$a6, $a6, $t0
-	and	$a7, $t1, $a7
-	add.d	$a5, $a5, $a7
+# %bb.17:                               # %.preheader
+	vadd.w	$vr3, $vr7, $vr6
+	vhaddw.d.w	$vr3, $vr3, $vr3
+	vhaddw.q.d	$vr3, $vr3, $vr3
+	vpickve2gr.d	$a3, $vr3, 0
+	vadd.w	$vr3, $vr5, $vr4
+	vhaddw.d.w	$vr3, $vr3, $vr3
+	vld	$vr5, $fp, 304
+	vhaddw.q.d	$vr3, $vr3, $vr3
+	vpickve2gr.d	$a2, $vr3, 0
+	vrepli.b	$vr4, 0
+	vilvh.b	$vr3, $vr4, $vr5
+	vilvh.h	$vr6, $vr4, $vr3
+	vilvl.h	$vr3, $vr4, $vr3
+	vilvl.b	$vr5, $vr4, $vr5
+	vilvh.h	$vr7, $vr4, $vr5
+	vilvl.h	$vr5, $vr4, $vr5
+	vseq.w	$vr8, $vr1, $vr5
+	vxor.v	$vr9, $vr8, $vr2
+	vseq.w	$vr10, $vr1, $vr7
+	vxor.v	$vr11, $vr10, $vr2
+	vpickev.h	$vr9, $vr11, $vr9
+	vseq.w	$vr11, $vr1, $vr3
+	vxor.v	$vr12, $vr11, $vr2
+	vseq.w	$vr13, $vr1, $vr6
+	vxor.v	$vr14, $vr13, $vr2
+	vpickev.h	$vr12, $vr14, $vr12
+	vpickev.b	$vr9, $vr12, $vr9
+	vseq.w	$vr5, $vr0, $vr5
+	vseq.w	$vr7, $vr0, $vr7
+	vpickev.h	$vr5, $vr7, $vr5
+	vseq.w	$vr3, $vr0, $vr3
+	vseq.w	$vr6, $vr0, $vr6
+	ld.b	$a4, $fp, 320
+	vpickev.h	$vr3, $vr6, $vr3
+	vpickev.b	$vr3, $vr3, $vr5
+	vand.v	$vr5, $vr9, $vr3
 	andi	$a4, $a4, 255
-	xor	$a7, $a0, $a4
-	sltu	$t0, $zero, $a7
-	sltui	$a7, $a7, 1
+	xor	$a5, $a0, $a4
+	sltui	$a6, $a5, 1
+	sltu	$a5, $zero, $a5
+	ld.b	$a7, $fp, 321
 	xor	$a4, $a1, $a4
 	sltui	$a4, $a4, 1
-	add.w	$fp, $a6, $a7
-	and	$a4, $t0, $a4
-	addi.d	$a2, $a2, 19
-	add.w	$s0, $a5, $a4
-	bne	$a2, $a3, .LBB0_18
-# %bb.19:
+	and	$a4, $a5, $a4
+	andi	$a5, $a7, 255
+	xor	$a7, $a0, $a5
+	sltui	$t0, $a7, 1
+	sltu	$a7, $zero, $a7
+	ld.b	$t1, $fp, 322
+	xor	$a5, $a1, $a5
+	sltui	$a5, $a5, 1
+	and	$a5, $a7, $a5
+	andi	$a7, $t1, 255
+	xor	$t1, $a0, $a7
+	sltu	$t2, $zero, $t1
+	sltui	$t1, $t1, 1
+	xor	$a7, $a1, $a7
+	sltui	$a7, $a7, 1
+	vpickev.h	$vr3, $vr10, $vr8
+	vpickev.h	$vr6, $vr13, $vr11
+	vpickev.b	$vr3, $vr6, $vr3
+	vmskltz.b	$vr3, $vr3
+	vpickve2gr.hu	$t3, $vr3, 0
+	vldi	$vr3, 0
+	vldi	$vr6, 0
+	vinsgr2vr.d	$vr6, $t3, 0
+	vpcnt.d	$vr6, $vr6
+	vpickve2gr.d	$t3, $vr6, 0
+	add.d	$a6, $t3, $a6
+	add.d	$t0, $t0, $t1
+	add.d	$a6, $a6, $t0
+	add.d	$a3, $a6, $a3
+	and	$a6, $t2, $a7
+	vslli.b	$vr5, $vr5, 7
+	vmskltz.b	$vr5, $vr5
+	vpickve2gr.hu	$a7, $vr5, 0
+	vldi	$vr5, 0
+	vinsgr2vr.d	$vr5, $a7, 0
+	vpcnt.d	$vr5, $vr5
+	vpickve2gr.d	$a7, $vr5, 0
+	add.d	$a4, $a7, $a4
+	vld	$vr5, $fp, 323
+	add.d	$a5, $a5, $a6
+	add.d	$a4, $a4, $a5
+	add.d	$a2, $a4, $a2
+	vilvh.b	$vr6, $vr4, $vr5
+	vilvh.h	$vr7, $vr4, $vr6
+	vilvl.h	$vr6, $vr4, $vr6
+	vilvl.b	$vr5, $vr4, $vr5
+	vilvh.h	$vr8, $vr4, $vr5
+	vilvl.h	$vr5, $vr4, $vr5
+	vseq.w	$vr9, $vr1, $vr5
+	vxor.v	$vr10, $vr9, $vr2
+	vseq.w	$vr11, $vr1, $vr8
+	vxor.v	$vr12, $vr11, $vr2
+	vpickev.h	$vr10, $vr12, $vr10
+	vseq.w	$vr12, $vr1, $vr6
+	vxor.v	$vr13, $vr12, $vr2
+	vseq.w	$vr14, $vr1, $vr7
+	vxor.v	$vr15, $vr14, $vr2
+	vpickev.h	$vr13, $vr15, $vr13
+	vpickev.b	$vr10, $vr13, $vr10
+	vseq.w	$vr5, $vr0, $vr5
+	vseq.w	$vr8, $vr0, $vr8
+	vpickev.h	$vr5, $vr8, $vr5
+	vseq.w	$vr6, $vr0, $vr6
+	vseq.w	$vr7, $vr0, $vr7
+	ld.b	$a4, $fp, 339
+	vpickev.h	$vr6, $vr7, $vr6
+	vpickev.b	$vr5, $vr6, $vr5
+	vand.v	$vr5, $vr10, $vr5
+	andi	$a4, $a4, 255
+	xor	$a5, $a0, $a4
+	sltui	$a6, $a5, 1
+	sltu	$a5, $zero, $a5
+	ld.b	$a7, $fp, 340
+	xor	$a4, $a1, $a4
+	sltui	$a4, $a4, 1
+	and	$a4, $a5, $a4
+	andi	$a5, $a7, 255
+	xor	$a7, $a0, $a5
+	sltui	$t0, $a7, 1
+	sltu	$a7, $zero, $a7
+	ld.b	$t1, $fp, 341
+	xor	$a5, $a1, $a5
+	sltui	$a5, $a5, 1
+	and	$a5, $a7, $a5
+	andi	$a7, $t1, 255
+	xor	$t1, $a0, $a7
+	sltu	$t2, $zero, $t1
+	sltui	$t1, $t1, 1
+	xor	$a7, $a1, $a7
+	sltui	$a7, $a7, 1
+	vpickev.h	$vr6, $vr11, $vr9
+	vpickev.h	$vr7, $vr14, $vr12
+	vpickev.b	$vr6, $vr7, $vr6
+	vmskltz.b	$vr6, $vr6
+	vpickve2gr.hu	$t3, $vr6, 0
+	vldi	$vr6, 0
+	vinsgr2vr.d	$vr6, $t3, 0
+	vpcnt.d	$vr6, $vr6
+	vpickve2gr.d	$t3, $vr6, 0
+	add.d	$a6, $t3, $a6
+	add.d	$t0, $t0, $t1
+	add.d	$a6, $a6, $t0
+	add.d	$a3, $a6, $a3
+	and	$a6, $t2, $a7
+	vslli.b	$vr5, $vr5, 7
+	vmskltz.b	$vr5, $vr5
+	vpickve2gr.hu	$a7, $vr5, 0
+	vldi	$vr5, 0
+	vinsgr2vr.d	$vr5, $a7, 0
+	vpcnt.d	$vr5, $vr5
+	vpickve2gr.d	$a7, $vr5, 0
+	add.d	$a4, $a7, $a4
+	vld	$vr5, $fp, 342
+	add.d	$a5, $a5, $a6
+	add.d	$a4, $a4, $a5
+	add.d	$a2, $a4, $a2
+	vilvh.b	$vr6, $vr4, $vr5
+	vilvh.h	$vr7, $vr4, $vr6
+	vilvl.h	$vr6, $vr4, $vr6
+	vilvl.b	$vr5, $vr4, $vr5
+	vilvh.h	$vr8, $vr4, $vr5
+	vilvl.h	$vr4, $vr4, $vr5
+	vseq.w	$vr5, $vr1, $vr4
+	vxor.v	$vr9, $vr5, $vr2
+	vseq.w	$vr10, $vr1, $vr8
+	vxor.v	$vr11, $vr10, $vr2
+	vpickev.h	$vr9, $vr11, $vr9
+	vseq.w	$vr11, $vr1, $vr6
+	vxor.v	$vr12, $vr11, $vr2
+	vseq.w	$vr1, $vr1, $vr7
+	vxor.v	$vr2, $vr1, $vr2
+	vpickev.h	$vr2, $vr2, $vr12
+	vpickev.b	$vr2, $vr2, $vr9
+	vseq.w	$vr4, $vr0, $vr4
+	vseq.w	$vr8, $vr0, $vr8
+	vpickev.h	$vr4, $vr8, $vr4
+	vseq.w	$vr6, $vr0, $vr6
+	vseq.w	$vr0, $vr0, $vr7
+	ld.b	$a4, $fp, 358
+	vpickev.h	$vr0, $vr0, $vr6
+	vpickev.b	$vr0, $vr0, $vr4
+	vand.v	$vr0, $vr2, $vr0
+	andi	$a4, $a4, 255
+	xor	$a5, $a0, $a4
+	sltui	$a6, $a5, 1
+	sltu	$a5, $zero, $a5
+	ld.b	$a7, $fp, 359
+	xor	$a4, $a1, $a4
+	sltui	$a4, $a4, 1
+	and	$a4, $a5, $a4
+	andi	$a5, $a7, 255
+	xor	$a7, $a0, $a5
+	sltui	$t0, $a7, 1
+	sltu	$a7, $zero, $a7
+	ld.b	$t1, $fp, 360
+	xor	$a5, $a1, $a5
+	sltui	$a5, $a5, 1
+	and	$a5, $a7, $a5
+	andi	$a7, $t1, 255
+	xor	$a0, $a0, $a7
+	sltu	$t1, $zero, $a0
+	sltui	$a0, $a0, 1
+	xor	$a1, $a1, $a7
+	sltui	$a1, $a1, 1
+	vpickev.h	$vr2, $vr10, $vr5
+	vpickev.h	$vr1, $vr1, $vr11
+	vpickev.b	$vr1, $vr1, $vr2
+	vmskltz.b	$vr1, $vr1
+	vpickve2gr.hu	$a7, $vr1, 0
+	vldi	$vr1, 0
+	vinsgr2vr.d	$vr1, $a7, 0
+	vpcnt.d	$vr1, $vr1
+	vpickve2gr.d	$a7, $vr1, 0
+	add.d	$a6, $a7, $a6
+	add.d	$a0, $t0, $a0
+	add.d	$a0, $a6, $a0
+	add.w	$fp, $a0, $a3
+	and	$a0, $t1, $a1
+	vslli.b	$vr0, $vr0, 7
+	vmskltz.b	$vr0, $vr0
+	vpickve2gr.hu	$a1, $vr0, 0
+	vinsgr2vr.d	$vr3, $a1, 0
+	vpcnt.d	$vr0, $vr3
+	vpickve2gr.d	$a1, $vr0, 0
+	add.d	$a1, $a1, $a4
+	add.d	$a0, $a5, $a0
+	add.d	$a0, $a1, $a0
+	add.w	$s0, $a0, $a2
 	ori	$a0, $zero, 19
 	st.w	$a0, $sp, 24
 	st.w	$a0, $sp, 20

@@ -2272,14 +2272,11 @@ loadtree:                               # @loadtree
 	.type	hackcofm,@function
 hackcofm:                               # @hackcofm
 # %bb.0:
-	addi.d	$sp, $sp, -64
-	st.d	$ra, $sp, 56                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 40                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 32                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 24                   # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 16                   # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 8                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -80
+	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 48                   # 8-byte Folded Spill
 	move	$fp, $a0
 	ld.hu	$a0, $a0, 0
 	ori	$a1, $zero, 2
@@ -2291,162 +2288,178 @@ hackcofm:                               # @hackcofm
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(hackcofm)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s0, 16
-	fld.d	$fa2, $s0, 24
-	fld.d	$fa3, $s0, 32
-	fmul.d	$fa1, $fa0, $fa1
+	vld	$vr1, $s0, 16
+	fld.d	$fa2, $s0, 32
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vreplvei.d	$vr3, $vr0, 0
+	vfmul.d	$vr1, $vr3, $vr1
 	fmul.d	$fa2, $fa0, $fa2
-	fmul.d	$fa3, $fa0, $fa3
-	movgr2fr.d	$fa4, $zero
-	fadd.d	$fs1, $fa1, $fa4
-	fadd.d	$fs2, $fa2, $fa4
-	fadd.d	$fs3, $fa3, $fa4
-	fadd.d	$fs0, $fa0, $fa4
+	vrepli.b	$vr3, 0
+	vfadd.d	$vr3, $vr1, $vr3
+	movgr2fr.d	$fa1, $zero
+	fadd.d	$fs0, $fa2, $fa1
+	fadd.d	$fa1, $fa0, $fa1
 	ld.d	$s0, $fp, 56
 	beqz	$s0, .LBB22_4
 .LBB22_3:                               # %.preheader.preheader.1
 	move	$a0, $s0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(hackcofm)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s0, 16
-	fld.d	$fa2, $s0, 24
-	fld.d	$fa3, $s0, 32
-	fmul.d	$fa1, $fa0, $fa1
+	vld	$vr1, $s0, 16
+	fld.d	$fa2, $s0, 32
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vreplvei.d	$vr3, $vr0, 0
+	vfmul.d	$vr1, $vr3, $vr1
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
 	fmul.d	$fa2, $fa0, $fa2
-	fmul.d	$fa3, $fa0, $fa3
-	fadd.d	$fs1, $fs1, $fa1
-	fadd.d	$fs2, $fs2, $fa2
-	fadd.d	$fs3, $fs3, $fa3
-	fadd.d	$fs0, $fs0, $fa0
+	vfadd.d	$vr3, $vr3, $vr1
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	fadd.d	$fs0, $fs0, $fa2
+	fadd.d	$fa1, $fa1, $fa0
 .LBB22_4:                               # %.loopexit45.1
 	ld.d	$s0, $fp, 64
 	beqz	$s0, .LBB22_6
 # %bb.5:                                # %.preheader.preheader.2
 	move	$a0, $s0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(hackcofm)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s0, 16
-	fld.d	$fa2, $s0, 24
-	fld.d	$fa3, $s0, 32
+	fld.d	$fa1, $s0, 32
+	vld	$vr2, $s0, 16
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
 	fmul.d	$fa1, $fa0, $fa1
-	fmul.d	$fa2, $fa0, $fa2
-	fmul.d	$fa3, $fa0, $fa3
-	fadd.d	$fs1, $fs1, $fa1
-	fadd.d	$fs2, $fs2, $fa2
-	fadd.d	$fs3, $fs3, $fa3
-	fadd.d	$fs0, $fs0, $fa0
+	vreplvei.d	$vr3, $vr0, 0
+	vfmul.d	$vr2, $vr3, $vr2
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
+	vfadd.d	$vr3, $vr3, $vr2
+	fadd.d	$fs0, $fs0, $fa1
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	fadd.d	$fa1, $fa1, $fa0
 .LBB22_6:                               # %.loopexit45.2
 	ld.d	$s0, $fp, 72
 	beqz	$s0, .LBB22_8
 # %bb.7:                                # %.preheader.preheader.3
 	move	$a0, $s0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(hackcofm)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s0, 16
-	fld.d	$fa2, $s0, 24
-	fld.d	$fa3, $s0, 32
-	fmul.d	$fa1, $fa0, $fa1
+	vld	$vr1, $s0, 16
+	fld.d	$fa2, $s0, 32
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vreplvei.d	$vr3, $vr0, 0
+	vfmul.d	$vr1, $vr3, $vr1
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
 	fmul.d	$fa2, $fa0, $fa2
-	fmul.d	$fa3, $fa0, $fa3
-	fadd.d	$fs1, $fs1, $fa1
-	fadd.d	$fs2, $fs2, $fa2
-	fadd.d	$fs3, $fs3, $fa3
-	fadd.d	$fs0, $fs0, $fa0
+	vfadd.d	$vr3, $vr3, $vr1
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	fadd.d	$fs0, $fs0, $fa2
+	fadd.d	$fa1, $fa1, $fa0
 .LBB22_8:                               # %.loopexit45.3
 	ld.d	$s0, $fp, 80
 	beqz	$s0, .LBB22_10
 # %bb.9:                                # %.preheader.preheader.4
 	move	$a0, $s0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(hackcofm)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s0, 16
-	fld.d	$fa2, $s0, 24
-	fld.d	$fa3, $s0, 32
-	fmul.d	$fa1, $fa0, $fa1
+	vld	$vr1, $s0, 16
+	fld.d	$fa2, $s0, 32
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vreplvei.d	$vr3, $vr0, 0
+	vfmul.d	$vr1, $vr3, $vr1
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
 	fmul.d	$fa2, $fa0, $fa2
-	fmul.d	$fa3, $fa0, $fa3
-	fadd.d	$fs1, $fs1, $fa1
-	fadd.d	$fs2, $fs2, $fa2
-	fadd.d	$fs3, $fs3, $fa3
-	fadd.d	$fs0, $fs0, $fa0
+	vfadd.d	$vr3, $vr3, $vr1
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	fadd.d	$fs0, $fs0, $fa2
+	fadd.d	$fa1, $fa1, $fa0
 .LBB22_10:                              # %.loopexit45.4
 	ld.d	$s0, $fp, 88
 	beqz	$s0, .LBB22_12
 # %bb.11:                               # %.preheader.preheader.5
 	move	$a0, $s0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(hackcofm)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s0, 16
-	fld.d	$fa2, $s0, 24
-	fld.d	$fa3, $s0, 32
-	fmul.d	$fa1, $fa0, $fa1
+	vld	$vr1, $s0, 16
+	fld.d	$fa2, $s0, 32
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vreplvei.d	$vr3, $vr0, 0
+	vfmul.d	$vr1, $vr3, $vr1
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
 	fmul.d	$fa2, $fa0, $fa2
-	fmul.d	$fa3, $fa0, $fa3
-	fadd.d	$fs1, $fs1, $fa1
-	fadd.d	$fs2, $fs2, $fa2
-	fadd.d	$fs3, $fs3, $fa3
-	fadd.d	$fs0, $fs0, $fa0
+	vfadd.d	$vr3, $vr3, $vr1
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	fadd.d	$fs0, $fs0, $fa2
+	fadd.d	$fa1, $fa1, $fa0
 .LBB22_12:                              # %.loopexit45.5
 	ld.d	$s0, $fp, 96
 	beqz	$s0, .LBB22_14
 # %bb.13:                               # %.preheader.preheader.6
 	move	$a0, $s0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(hackcofm)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s0, 16
-	fld.d	$fa2, $s0, 24
-	fld.d	$fa3, $s0, 32
-	fmul.d	$fa1, $fa0, $fa1
+	vld	$vr1, $s0, 16
+	fld.d	$fa2, $s0, 32
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vreplvei.d	$vr3, $vr0, 0
+	vfmul.d	$vr1, $vr3, $vr1
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
 	fmul.d	$fa2, $fa0, $fa2
-	fmul.d	$fa3, $fa0, $fa3
-	fadd.d	$fs1, $fs1, $fa1
-	fadd.d	$fs2, $fs2, $fa2
-	fadd.d	$fs3, $fs3, $fa3
-	fadd.d	$fs0, $fs0, $fa0
+	vfadd.d	$vr3, $vr3, $vr1
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	fadd.d	$fs0, $fs0, $fa2
+	fadd.d	$fa1, $fa1, $fa0
 .LBB22_14:                              # %.loopexit45.6
 	ld.d	$s0, $fp, 104
 	beqz	$s0, .LBB22_16
 # %bb.15:                               # %.preheader.preheader.7
 	move	$a0, $s0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(hackcofm)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s0, 16
-	fld.d	$fa2, $s0, 24
-	fld.d	$fa3, $s0, 32
-	fmul.d	$fa1, $fa0, $fa1
+	vld	$vr1, $s0, 16
+	fld.d	$fa2, $s0, 32
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vreplvei.d	$vr3, $vr0, 0
+	vfmul.d	$vr1, $vr3, $vr1
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
 	fmul.d	$fa2, $fa0, $fa2
-	fmul.d	$fa3, $fa0, $fa3
-	fadd.d	$fs1, $fs1, $fa1
-	fadd.d	$fs2, $fs2, $fa2
-	fadd.d	$fs3, $fs3, $fa3
-	fadd.d	$fs0, $fs0, $fa0
+	vfadd.d	$vr3, $vr3, $vr1
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	fadd.d	$fs0, $fs0, $fa2
+	fadd.d	$fa1, $fa1, $fa0
 .LBB22_16:                              # %.loopexit45.7
-	fst.d	$fs0, $fp, 8
-	fdiv.d	$fa0, $fs1, $fs0
-	fst.d	$fa0, $fp, 16
-	fdiv.d	$fa0, $fs2, $fs0
-	fst.d	$fa0, $fp, 24
-	fdiv.d	$fa0, $fs3, $fs0
+	fst.d	$fa1, $fp, 8
+	vreplvei.d	$vr0, $vr1, 0
+	vfdiv.d	$vr0, $vr3, $vr0
+	vst	$vr0, $fp, 16
+	fdiv.d	$fa0, $fs0, $fa1
 	fst.d	$fa0, $fp, 32
 	b	.LBB22_18
 .LBB22_17:
-	fld.d	$fs0, $fp, 8
+	fld.d	$fa1, $fp, 8
 .LBB22_18:                              # %.loopexit
-	fmov.d	$fa0, $fs0
-	fld.d	$fs3, $sp, 8                    # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 16                   # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 24                   # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 32                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 64
+	fmov.d	$fa0, $fa1
+	fld.d	$fs0, $sp, 48                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 80
 	ret
 .LBB22_19:
-	movgr2fr.d	$fs1, $zero
-	fmov.d	$fs2, $fs1
-	fmov.d	$fs3, $fs1
-	fmov.d	$fs0, $fs1
+	movgr2fr.d	$fs0, $zero
+	vrepli.b	$vr3, 0
+	fmov.d	$fa1, $fs0
 	ld.d	$s0, $fp, 56
 	bnez	$s0, .LBB22_3
 	b	.LBB22_4

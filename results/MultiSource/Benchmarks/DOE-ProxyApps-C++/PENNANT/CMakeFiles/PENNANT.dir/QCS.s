@@ -431,19 +431,17 @@ _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii: # @_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_i
 # %bb.6:                                # %.lr.ph362.preheader
 	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	alsl.d	$a1, $t5, $a1, 2
-	addi.d	$a2, $a0, 8
+	move	$a2, $a0
 	.p2align	4, , 16
 .LBB3_7:                                # %.lr.ph362
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a3, $a1, 0
-	fld.d	$fa0, $a2, -8
+	vld	$vr0, $a2, 0
 	movgr2fr.w	$fa1, $a3
-	fld.d	$fa2, $a2, 0
 	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $a2, -8
-	fdiv.d	$fa0, $fa2, $fa1
-	fst.d	$fa0, $a2, 0
+	vreplvei.d	$vr1, $vr1, 0
+	vfdiv.d	$vr0, $vr0, $vr1
+	vst	$vr0, $a2, 0
 	addi.d	$a1, $a1, 4
 	addi.d	$s5, $s5, -1
 	addi.d	$a2, $a2, 16
@@ -458,8 +456,8 @@ _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii: # @_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_i
 	ld.d	$a2, $s4, 88
 	st.d	$a2, $sp, 104                   # 8-byte Folded Spill
 	alsl.d	$s4, $a6, $a1, 2
-	alsl.d	$s7, $a6, $t8, 2
-	alsl.d	$s5, $a6, $ra, 2
+	alsl.d	$s5, $a6, $t8, 2
+	alsl.d	$s7, $a6, $ra, 2
 	vldi	$vr23, -928
 	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
 	fld.d	$ft12, $a1, %pc_lo12(.LCPI3_0)
@@ -474,9 +472,9 @@ _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii: # @_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_i
 	ldx.w	$a4, $t8, $a1
 	ld.d	$a5, $sp, 104                   # 8-byte Folded Reload
 	ldx.w	$a5, $a5, $a1
-	ld.w	$a6, $s7, 0
+	ld.w	$a6, $s5, 0
 	ldx.w	$a1, $ra, $a1
-	ld.w	$a7, $s5, 0
+	ld.w	$a7, $s7, 0
 	alsl.d	$t0, $a4, $s8, 4
 	slli.d	$t1, $a4, 4
 	fldx.d	$fs2, $s8, $t1
@@ -653,9 +651,9 @@ _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii: # @_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_i
 	addi.d	$s1, $s1, 8
 	addi.d	$s0, $s0, 8
 	addi.d	$s4, $s4, 4
-	addi.d	$s7, $s7, 4
-	addi.d	$s6, $s6, -1
 	addi.d	$s5, $s5, 4
+	addi.d	$s6, $s6, -1
+	addi.d	$s7, $s7, 4
 	bnez	$s6, .LBB3_10
 	b	.LBB3_15
 .LBB3_14:                               # %call.sqrt

@@ -4194,127 +4194,36 @@ _ZN14btQuantizedBvh18deSerializeInPlaceEPvjb: # @_ZN14btQuantizedBvh18deSerializ
 # %bb.0:
 	beqz	$a0, .LBB27_3
 # %bb.1:
-	addi.d	$sp, $sp, -64
-	.cfi_def_cfa_offset 64
-	st.d	$ra, $sp, 56                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 8                     # 8-byte Folded Spill
+	addi.d	$sp, $sp, -48
+	.cfi_def_cfa_offset 48
+	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
 	.cfi_offset 25, -40
-	.cfi_offset 26, -48
-	.cfi_offset 27, -56
 	beqz	$a2, .LBB27_4
 # %bb.2:
+	vld	$vr0, $a0, 8
 	ld.w	$a3, $a0, 60
+	vshuf4i.b	$vr0, $vr0, 27
+	vst	$vr0, $a0, 8
+	vld	$vr0, $a0, 24
 	revb.2w	$a3, $a3
 	st.w	$a3, $a0, 60
-	ld.b	$a3, $a0, 11
-	ld.b	$a4, $a0, 10
-	ld.b	$a5, $a0, 9
-	ld.b	$a6, $a0, 8
-	ld.b	$a7, $a0, 15
-	ld.b	$t0, $a0, 14
-	ld.b	$t1, $a0, 13
-	ld.b	$t2, $a0, 12
-	ld.b	$t3, $a0, 19
-	ld.b	$t4, $a0, 18
-	ld.b	$t5, $a0, 17
-	ld.b	$t6, $a0, 16
-	ld.b	$t7, $a0, 23
-	ld.b	$t8, $a0, 22
-	ld.b	$fp, $a0, 21
-	ld.b	$s0, $a0, 20
-	st.b	$a3, $a0, 8
-	st.b	$a4, $a0, 9
-	st.b	$a5, $a0, 10
-	st.b	$a6, $a0, 11
-	st.b	$a7, $a0, 12
-	st.b	$t0, $a0, 13
-	st.b	$t1, $a0, 14
-	st.b	$t2, $a0, 15
-	st.b	$t3, $a0, 16
-	st.b	$t4, $a0, 17
-	st.b	$t5, $a0, 18
-	st.b	$t6, $a0, 19
-	st.b	$t7, $a0, 20
-	st.b	$t8, $a0, 21
-	st.b	$fp, $a0, 22
-	st.b	$s0, $a0, 23
-	ld.b	$a3, $a0, 27
-	ld.b	$a4, $a0, 26
-	ld.b	$a5, $a0, 25
-	ld.b	$a6, $a0, 24
-	ld.b	$a7, $a0, 31
-	ld.b	$t0, $a0, 30
-	ld.b	$t1, $a0, 29
-	ld.b	$t2, $a0, 28
-	ld.b	$t3, $a0, 35
-	ld.b	$t4, $a0, 34
-	ld.b	$t5, $a0, 33
-	ld.b	$t6, $a0, 32
-	ld.b	$t7, $a0, 39
-	ld.b	$t8, $a0, 38
-	ld.b	$fp, $a0, 37
-	ld.b	$s0, $a0, 36
-	st.b	$a3, $a0, 24
-	st.b	$a4, $a0, 25
-	st.b	$a5, $a0, 26
-	st.b	$a6, $a0, 27
-	st.b	$a7, $a0, 28
-	st.b	$t0, $a0, 29
-	st.b	$t1, $a0, 30
-	st.b	$t2, $a0, 31
-	st.b	$t3, $a0, 32
-	st.b	$t4, $a0, 33
-	st.b	$t5, $a0, 34
-	st.b	$t6, $a0, 35
-	st.b	$t7, $a0, 36
-	st.b	$t8, $a0, 37
-	st.b	$fp, $a0, 38
-	st.b	$s0, $a0, 39
-	ld.b	$a3, $a0, 43
-	ld.b	$a4, $a0, 42
-	ld.b	$a5, $a0, 41
-	ld.b	$a6, $a0, 40
-	ld.b	$a7, $a0, 47
-	ld.b	$t0, $a0, 46
-	ld.b	$t1, $a0, 45
-	ld.b	$t2, $a0, 44
-	ld.b	$t3, $a0, 51
-	ld.b	$t4, $a0, 50
-	ld.b	$t5, $a0, 49
-	ld.b	$t6, $a0, 48
-	ld.b	$t7, $a0, 55
-	ld.b	$t8, $a0, 54
-	ld.b	$fp, $a0, 53
-	ld.b	$s0, $a0, 52
-	st.b	$a3, $a0, 40
-	st.b	$a4, $a0, 41
-	st.b	$a5, $a0, 42
-	st.b	$a6, $a0, 43
-	st.b	$a7, $a0, 44
-	st.b	$t0, $a0, 45
-	st.b	$t1, $a0, 46
-	st.b	$t2, $a0, 47
-	st.b	$t3, $a0, 48
-	st.b	$t4, $a0, 49
-	st.b	$t5, $a0, 50
-	st.b	$t6, $a0, 51
-	st.b	$t7, $a0, 52
-	st.b	$t8, $a0, 53
 	ld.w	$a3, $a0, 200
-	st.b	$fp, $a0, 54
-	ld.w	$a4, $a0, 240
-	st.b	$s0, $a0, 55
+	vshuf4i.b	$vr0, $vr0, 27
+	vst	$vr0, $a0, 24
+	vld	$vr0, $a0, 40
 	revb.2w	$a3, $a3
+	ld.w	$a4, $a0, 240
 	st.w	$a3, $a0, 200
+	vshuf4i.b	$vr0, $vr0, 27
+	vst	$vr0, $a0, 40
 	revb.2w	$fp, $a4
 	st.w	$fp, $a0, 240
 	b	.LBB27_5
@@ -4417,73 +4326,14 @@ _ZN14btQuantizedBvh18deSerializeInPlaceEPvjb: # @_ZN14btQuantizedBvh18deSerializ
 	.p2align	4, , 16
 .LBB27_14:                              # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$a6, $a5, $a1
-	ld.b	$a7, $a6, 3
-	ld.b	$t0, $a6, 2
-	ld.b	$t1, $a6, 1
-	ldx.b	$t2, $a5, $a1
-	ld.b	$t3, $a6, 7
-	ld.b	$t4, $a6, 6
-	ld.b	$t5, $a6, 5
-	ld.b	$t6, $a6, 4
-	ld.b	$t7, $a6, 11
-	ld.b	$t8, $a6, 10
-	ld.b	$fp, $a6, 9
-	ld.b	$s0, $a6, 8
-	ld.b	$s1, $a6, 15
-	ld.b	$s2, $a6, 14
-	ld.b	$s3, $a6, 13
-	ld.b	$s4, $a6, 12
-	stx.b	$a7, $a5, $a1
-	st.b	$t0, $a6, 1
-	st.b	$t1, $a6, 2
-	st.b	$t2, $a6, 3
-	st.b	$t3, $a6, 4
-	st.b	$t4, $a6, 5
-	st.b	$t5, $a6, 6
-	st.b	$t6, $a6, 7
-	st.b	$t7, $a6, 8
-	st.b	$t8, $a6, 9
-	st.b	$fp, $a6, 10
-	st.b	$s0, $a6, 11
-	st.b	$s1, $a6, 12
-	st.b	$s2, $a6, 13
-	st.b	$s3, $a6, 14
-	st.b	$s4, $a6, 15
+	vldx	$vr0, $a5, $a1
+	vshuf4i.b	$vr0, $vr0, 27
+	vstx	$vr0, $a5, $a1
 	ld.d	$a5, $a0, 120
 	add.d	$a5, $a5, $a1
-	ld.b	$a6, $a5, 19
-	ld.b	$a7, $a5, 18
-	ld.b	$t0, $a5, 17
-	ld.b	$t1, $a5, 16
-	ld.b	$t2, $a5, 23
-	ld.b	$t3, $a5, 22
-	ld.b	$t4, $a5, 21
-	ld.b	$t5, $a5, 20
-	ld.b	$t6, $a5, 27
-	ld.b	$t7, $a5, 26
-	ld.b	$t8, $a5, 25
-	ld.b	$fp, $a5, 24
-	ld.b	$s0, $a5, 31
-	ld.b	$s1, $a5, 30
-	ld.b	$s2, $a5, 29
-	ld.b	$s3, $a5, 28
-	st.b	$a6, $a5, 16
-	st.b	$a7, $a5, 17
-	st.b	$t0, $a5, 18
-	st.b	$t1, $a5, 19
-	st.b	$t2, $a5, 20
-	st.b	$t3, $a5, 21
-	st.b	$t4, $a5, 22
-	st.b	$t5, $a5, 23
-	st.b	$t6, $a5, 24
-	st.b	$t7, $a5, 25
-	st.b	$t8, $a5, 26
-	st.b	$fp, $a5, 27
-	st.b	$s0, $a5, 28
-	st.b	$s1, $a5, 29
-	st.b	$s2, $a5, 30
-	st.b	$s3, $a5, 31
+	vld	$vr0, $a5, 16
+	vshuf4i.b	$vr0, $vr0, 27
+	vst	$vr0, $a5, 16
 	ld.d	$a5, $a0, 120
 	add.d	$a6, $a5, $a1
 	ld.w	$a7, $a6, 32
@@ -4560,14 +4410,12 @@ _ZN14btQuantizedBvh18deSerializeInPlaceEPvjb: # @_ZN14btQuantizedBvh18deSerializ
 	addi.d	$a2, $a2, 32
 	bnez	$a1, .LBB27_22
 .LBB27_23:
-	ld.d	$s4, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$s3, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 64
+	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 48
 	ret
 .Lfunc_end27:
 	.size	_ZN14btQuantizedBvh18deSerializeInPlaceEPvjb, .Lfunc_end27-_ZN14btQuantizedBvh18deSerializeInPlaceEPvjb

@@ -1,6 +1,13 @@
 	.file	"rebin.c"
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function rebin
+.LCPI0_0:
+	.word	0                               # 0x0
+	.word	5                               # 0x5
+	.word	2                               # 0x2
+	.word	7                               # 0x7
 	.text
-	.globl	rebin                           # -- Begin function rebin
+	.globl	rebin
 	.p2align	5
 	.type	rebin,@function
 rebin:                                  # @rebin
@@ -87,13 +94,13 @@ rebin:                                  # @rebin
 .LBB0_13:                               # %.preheader
 	pcalau12i	$a3, %got_pc_hi20(numcells)
 	ld.d	$a3, $a3, %got_pc_lo12(numcells)
-	ld.w	$t5, $a3, 0
+	ld.w	$t7, $a3, 0
 	pcalau12i	$a4, %got_pc_hi20(numpads)
 	ld.d	$a4, $a4, %got_pc_lo12(numpads)
-	ld.w	$t6, $a4, 0
-	add.w	$t7, $t6, $t5
+	ld.w	$t8, $a4, 0
+	add.w	$fp, $t8, $t7
 	addi.w	$a5, $zero, -3
-	bge	$t7, $a5, .LBB0_15
+	bge	$fp, $a5, .LBB0_15
 .LBB0_14:                               # %._crit_edge94
 	ld.d	$s3, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$s2, $sp, 16                    # 8-byte Folded Reload
@@ -117,92 +124,60 @@ rebin:                                  # @rebin
 	ld.d	$t1, $t1, %got_pc_lo12(binWidthX)
 	pcalau12i	$t2, %got_pc_hi20(bucket)
 	ld.d	$t2, $t2, %got_pc_lo12(bucket)
-	move	$t3, $zero
-	ori	$t4, $zero, 1
+	pcalau12i	$t3, %got_pc_hi20(binOffsetY)
+	ld.d	$t3, $t3, %got_pc_lo12(binOffsetY)
+	pcalau12i	$t4, %got_pc_hi20(binWidthY)
+	ld.d	$t4, $t4, %got_pc_lo12(binWidthY)
+	move	$t5, $zero
+	ori	$t6, $zero, 1
 	b	.LBB0_18
 	.p2align	4, , 16
 .LBB0_16:                               #   in Loop: Header=BB0_18 Depth=1
-	ld.d	$t5, $t8, 0
-	ld.w	$t6, $t5, 0
-	addi.w	$t6, $t6, 1
-	st.w	$t6, $t5, 0
-	slli.d	$t6, $t6, 2
-	stx.w	$t4, $t5, $t6
-	ld.w	$t5, $a3, 0
-	ld.w	$t6, $a4, 0
+	ld.d	$t7, $fp, 0
+	ld.w	$t8, $t7, 0
+	addi.w	$t8, $t8, 1
+	st.w	$t8, $t7, 0
+	slli.d	$t8, $t8, 2
+	stx.w	$t6, $t7, $t8
+	ld.w	$t7, $a3, 0
+	ld.w	$t8, $a4, 0
 .LBB0_17:                               #   in Loop: Header=BB0_18 Depth=1
-	add.w	$t7, $t6, $t5
-	addi.w	$t8, $t7, 4
-	addi.d	$t4, $t4, 1
+	add.w	$fp, $t8, $t7
+	addi.w	$s0, $fp, 4
+	addi.d	$t6, $t6, 1
 	addi.d	$a6, $a6, 8
-	bge	$t3, $t8, .LBB0_14
+	bge	$t5, $s0, .LBB0_14
 .LBB0_18:                               # =>This Inner Loop Header: Depth=1
-	addi.d	$t3, $t3, 1
-	bge	$t5, $t3, .LBB0_20
+	addi.d	$t5, $t5, 1
+	bge	$t7, $t5, .LBB0_20
 # %bb.19:                               #   in Loop: Header=BB0_18 Depth=1
-	bge	$t7, $t3, .LBB0_17
+	bge	$fp, $t5, .LBB0_17
 .LBB0_20:                               #   in Loop: Header=BB0_18 Depth=1
-	ld.d	$t6, $a6, 0
-	ld.w	$t7, $t6, 56
-	alsl.d	$t7, $t7, $t6, 3
-	ld.d	$s0, $t7, 152
-	ld.w	$t7, $t6, 12
-	ld.w	$t8, $s0, 56
-	ld.w	$s1, $s0, 60
-	ld.w	$t6, $t6, 16
-	ld.w	$s2, $s0, 64
-	ld.w	$s3, $s0, 68
-	add.d	$fp, $t8, $t7
-	add.d	$t8, $s1, $t7
-	add.d	$t7, $s2, $t6
-	add.d	$t6, $s3, $t6
+	ld.d	$fp, $a6, 0
+	ld.w	$t8, $fp, 56
+	alsl.d	$t8, $t8, $fp, 3
+	ld.d	$t8, $t8, 152
+	ld.d	$fp, $fp, 12
+	vld	$vr0, $t8, 56
+	vinsgr2vr.d	$vr1, $fp, 0
+	vshuf4i.w	$vr1, $vr1, 80
+	vadd.w	$vr0, $vr0, $vr1
 	bne	$a0, $a7, .LBB0_23
 # %bb.21:                               #   in Loop: Header=BB0_18 Depth=1
-	blt	$t5, $t3, .LBB0_23
+	blt	$t7, $t5, .LBB0_23
 # %bb.22:                               #   in Loop: Header=BB0_18 Depth=1
-	ld.w	$t5, $s0, 40
-	ld.w	$s1, $s0, 44
-	ld.w	$s2, $s0, 48
-	ld.w	$s0, $s0, 52
-	sub.d	$fp, $fp, $t5
-	add.d	$t8, $s1, $t8
-	sub.d	$t7, $t7, $s2
-	add.d	$t6, $s0, $t6
+	vld	$vr1, $t8, 40
+	vadd.w	$vr2, $vr0, $vr1
+	vsub.w	$vr1, $vr0, $vr1
+	pcalau12i	$t7, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $t7, %pc_lo12(.LCPI0_0)
+	vshuf.w	$vr0, $vr2, $vr1
 .LBB0_23:                               #   in Loop: Header=BB0_18 Depth=1
-	ld.w	$s0, $t0, 0
-	ld.w	$s1, $t1, 0
-	ld.w	$s2, $a1, 0
-	sub.w	$t5, $fp, $s0
-	div.w	$t5, $t5, $s1
-	slti	$fp, $t5, 1
-	slt	$s3, $t5, $s2
-	maskeqz	$t5, $t5, $s3
-	masknez	$s3, $s2, $s3
-	or	$t5, $t5, $s3
-	masknez	$t5, $t5, $fp
-	maskeqz	$fp, $a7, $fp
-	or	$t5, $fp, $t5
-	sub.w	$t8, $t8, $s0
-	div.w	$t8, $t8, $s1
-	slt	$fp, $s2, $t8
-	slt	$s0, $a7, $t8
-	maskeqz	$t8, $t8, $s0
-	masknez	$s0, $a7, $s0
-	or	$t8, $t8, $s0
-	masknez	$t8, $t8, $fp
-	maskeqz	$fp, $s2, $fp
-	or	$fp, $fp, $t8
-	move	$t8, $t2
-	bne	$t5, $fp, .LBB0_16
-# %bb.24:                               #   in Loop: Header=BB0_18 Depth=1
-	pcalau12i	$t8, %got_pc_hi20(binOffsetY)
-	ld.d	$t8, $t8, %got_pc_lo12(binOffsetY)
-	ld.w	$t8, $t8, 0
+	ld.w	$t8, $t0, 0
+	ld.w	$fp, $t1, 0
+	vpickve2gr.w	$t7, $vr0, 0
+	ld.w	$s0, $a1, 0
 	sub.w	$t7, $t7, $t8
-	pcalau12i	$fp, %got_pc_hi20(binWidthY)
-	ld.d	$fp, $fp, %got_pc_lo12(binWidthY)
-	ld.w	$fp, $fp, 0
-	ld.w	$s0, $a2, 0
 	div.w	$t7, $t7, $fp
 	slti	$s1, $t7, 1
 	slt	$s2, $t7, $s0
@@ -212,22 +187,51 @@ rebin:                                  # @rebin
 	masknez	$t7, $t7, $s1
 	maskeqz	$s1, $a7, $s1
 	or	$t7, $s1, $t7
-	sub.w	$t6, $t6, $t8
-	div.w	$t6, $t6, $fp
-	slt	$t8, $s0, $t6
-	slt	$fp, $a7, $t6
-	maskeqz	$t6, $t6, $fp
-	masknez	$fp, $a7, $fp
-	or	$t6, $t6, $fp
-	masknez	$t6, $t6, $t8
-	maskeqz	$t8, $s0, $t8
-	or	$t6, $t8, $t6
-	move	$t8, $t2
-	bne	$t7, $t6, .LBB0_16
+	vpickve2gr.w	$s1, $vr0, 1
+	sub.w	$t8, $s1, $t8
+	div.w	$t8, $t8, $fp
+	slt	$fp, $s0, $t8
+	slt	$s1, $a7, $t8
+	maskeqz	$t8, $t8, $s1
+	masknez	$s1, $a7, $s1
+	or	$t8, $t8, $s1
+	masknez	$t8, $t8, $fp
+	maskeqz	$fp, $s0, $fp
+	or	$t8, $fp, $t8
+	move	$fp, $t2
+	bne	$t7, $t8, .LBB0_16
+# %bb.24:                               #   in Loop: Header=BB0_18 Depth=1
+	ld.w	$fp, $t3, 0
+	ld.w	$s0, $t4, 0
+	vpickve2gr.w	$t8, $vr0, 2
+	ld.w	$s1, $a2, 0
+	sub.w	$t8, $t8, $fp
+	div.w	$t8, $t8, $s0
+	slti	$s2, $t8, 1
+	slt	$s3, $t8, $s1
+	maskeqz	$t8, $t8, $s3
+	masknez	$s3, $s1, $s3
+	or	$t8, $t8, $s3
+	masknez	$t8, $t8, $s2
+	maskeqz	$s2, $a7, $s2
+	or	$t8, $s2, $t8
+	vpickve2gr.w	$s2, $vr0, 3
+	sub.w	$fp, $s2, $fp
+	div.w	$fp, $fp, $s0
+	slt	$s0, $s1, $fp
+	slt	$s2, $a7, $fp
+	maskeqz	$fp, $fp, $s2
+	masknez	$s2, $a7, $s2
+	or	$fp, $fp, $s2
+	masknez	$fp, $fp, $s0
+	maskeqz	$s0, $s1, $s0
+	or	$s0, $s0, $fp
+	move	$fp, $t2
+	bne	$t8, $s0, .LBB0_16
 # %bb.25:                               #   in Loop: Header=BB0_18 Depth=1
-	slli.d	$t5, $t5, 3
-	ldx.d	$t5, $a5, $t5
-	alsl.d	$t8, $t7, $t5, 3
+	slli.d	$t7, $t7, 3
+	ldx.d	$t7, $a5, $t7
+	alsl.d	$fp, $t8, $t7, 3
 	b	.LBB0_16
 .Lfunc_end0:
 	.size	rebin, .Lfunc_end0-rebin

@@ -55,18 +55,14 @@ Bounds_AddBounds:                       # @Bounds_AddBounds
 	.type	Bounds_AddEpsilon,@function
 Bounds_AddEpsilon:                      # @Bounds_AddEpsilon
 # %bb.0:
-	fld.d	$fa1, $a0, 0
-	fld.d	$fa2, $a0, 8
-	fsub.d	$fa1, $fa1, $fa0
-	fst.d	$fa1, $a0, 0
-	fld.d	$fa1, $a0, 16
-	fsub.d	$fa2, $fa2, $fa0
-	fld.d	$fa3, $a0, 24
-	fst.d	$fa2, $a0, 8
-	fadd.d	$fa1, $fa0, $fa1
-	fst.d	$fa1, $a0, 16
-	fadd.d	$fa0, $fa0, $fa3
-	fst.d	$fa0, $a0, 24
+	vld	$vr1, $a0, 0
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vld	$vr2, $a0, 16
+	vreplvei.d	$vr0, $vr0, 0
+	vfsub.d	$vr1, $vr1, $vr0
+	vst	$vr1, $a0, 0
+	vfadd.d	$vr0, $vr0, $vr2
+	vst	$vr0, $a0, 16
 	ret
 .Lfunc_end3:
 	.size	Bounds_AddEpsilon, .Lfunc_end3-Bounds_AddEpsilon

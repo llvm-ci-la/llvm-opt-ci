@@ -964,192 +964,64 @@ scale_bitcount:                         # @scale_bitcount
 	ori	$a3, $zero, 2
 	bne	$a2, $a3, .LBB7_3
 # %bb.1:                                # %.preheader89
-	ld.w	$a2, $a0, 88
-	ld.w	$a3, $a0, 100
-	ld.w	$a4, $a0, 112
-	ld.w	$a5, $a0, 160
-	ld.w	$a6, $a0, 172
-	ld.w	$a7, $a0, 124
-	ld.w	$t0, $a0, 136
-	ld.w	$t1, $a0, 148
-	slt	$t2, $a6, $a5
-	ld.w	$t3, $a0, 184
-	masknez	$a6, $a6, $t2
-	maskeqz	$a5, $a5, $t2
-	or	$a5, $a5, $a6
-	slt	$a6, $t3, $a5
-	ld.w	$t2, $a0, 196
-	maskeqz	$a5, $a5, $a6
-	masknez	$a6, $t3, $a6
-	or	$a5, $a5, $a6
-	slt	$a6, $t2, $a5
-	ld.w	$t3, $a0, 208
-	maskeqz	$a5, $a5, $a6
-	masknez	$a6, $t2, $a6
-	or	$a5, $a5, $a6
-	slt	$a6, $t3, $a5
-	ld.w	$t2, $a0, 220
-	maskeqz	$a5, $a5, $a6
-	masknez	$a6, $t3, $a6
-	or	$a5, $a5, $a6
-	slt	$a6, $t2, $a5
-	maskeqz	$a5, $a5, $a6
-	masknez	$a6, $t2, $a6
-	or	$a6, $a5, $a6
-	slt	$a5, $a3, $a2
-	masknez	$a3, $a3, $a5
-	maskeqz	$a2, $a2, $a5
-	or	$a2, $a2, $a3
-	slt	$a3, $a4, $a2
-	maskeqz	$a2, $a2, $a3
-	masknez	$a3, $a4, $a3
-	or	$a2, $a2, $a3
-	slt	$a3, $a7, $a2
-	maskeqz	$a2, $a2, $a3
-	masknez	$a3, $a7, $a3
-	or	$a2, $a2, $a3
-	slt	$a3, $t0, $a2
-	maskeqz	$a2, $a2, $a3
-	masknez	$a3, $t0, $a3
-	or	$a2, $a2, $a3
-	slt	$a3, $t1, $a2
-	maskeqz	$a2, $a2, $a3
-	masknez	$a3, $t1, $a3
-	or	$a7, $a2, $a3
-	ld.w	$t0, $a0, 92
-	ld.w	$a4, $a0, 104
-	ld.w	$t1, $a0, 164
-	ld.w	$a5, $a0, 116
-	ld.w	$a3, $a0, 128
-	ld.w	$a2, $a0, 140
-	slt	$t2, $t1, $a6
-	ld.w	$t3, $a0, 176
-	maskeqz	$a6, $a6, $t2
-	masknez	$t1, $t1, $t2
-	or	$a6, $a6, $t1
-	slt	$t1, $t3, $a6
-	ld.w	$t2, $a0, 188
-	maskeqz	$a6, $a6, $t1
-	masknez	$t1, $t3, $t1
-	or	$a6, $a6, $t1
-	slt	$t1, $t2, $a6
-	ld.w	$t3, $a0, 200
-	maskeqz	$a6, $a6, $t1
-	masknez	$t1, $t2, $t1
-	or	$a6, $a6, $t1
-	slt	$t1, $t3, $a6
-	ld.w	$t2, $a0, 212
-	maskeqz	$a6, $a6, $t1
-	masknez	$t1, $t3, $t1
-	or	$a6, $a6, $t1
-	slt	$t1, $t2, $a6
-	maskeqz	$a6, $a6, $t1
-	ld.w	$t3, $a0, 224
-	masknez	$t1, $t2, $t1
-	ld.w	$t2, $a0, 152
-	or	$a6, $a6, $t1
-	slt	$t1, $t3, $a6
-	maskeqz	$a6, $a6, $t1
-	masknez	$t1, $t3, $t1
-	or	$t1, $a6, $t1
-	slt	$a6, $t0, $a7
-	maskeqz	$a7, $a7, $a6
-	masknez	$a6, $t0, $a6
-	or	$a6, $a7, $a6
-	slt	$a7, $a4, $a6
-	maskeqz	$a6, $a6, $a7
-	masknez	$a4, $a4, $a7
-	or	$a4, $a6, $a4
-	slt	$a6, $a5, $a4
-	maskeqz	$a4, $a4, $a6
-	masknez	$a5, $a5, $a6
-	or	$a4, $a4, $a5
-	slt	$a5, $a3, $a4
-	maskeqz	$a4, $a4, $a5
-	masknez	$a3, $a3, $a5
-	or	$a3, $a4, $a3
-	slt	$a4, $a2, $a3
-	maskeqz	$a3, $a3, $a4
-	masknez	$a2, $a2, $a4
-	or	$a2, $a3, $a2
-	slt	$a3, $t2, $a2
-	maskeqz	$a2, $a2, $a3
-	masknez	$a3, $t2, $a3
-	or	$a7, $a2, $a3
-	ld.w	$t0, $a0, 96
-	ld.w	$a5, $a0, 108
-	ld.w	$a3, $a0, 168
-	ld.w	$a6, $a0, 120
-	ld.w	$a4, $a0, 132
-	ld.w	$a2, $a0, 144
-	slt	$t2, $a3, $t1
-	ld.w	$t3, $a0, 180
-	maskeqz	$t1, $t1, $t2
-	masknez	$a3, $a3, $t2
-	or	$a3, $t1, $a3
-	slt	$t1, $t3, $a3
-	ld.w	$t2, $a0, 192
-	maskeqz	$a3, $a3, $t1
-	masknez	$t1, $t3, $t1
-	or	$a3, $a3, $t1
-	slt	$t1, $t2, $a3
-	ld.w	$t3, $a0, 204
-	maskeqz	$a3, $a3, $t1
-	masknez	$t1, $t2, $t1
-	or	$a3, $a3, $t1
-	slt	$t1, $t3, $a3
-	maskeqz	$a3, $a3, $t1
-	ld.w	$t2, $a0, 216
-	masknez	$t1, $t3, $t1
-	ld.w	$t3, $a0, 156
-	or	$a3, $a3, $t1
-	slt	$t1, $t2, $a3
+	ld.w	$a3, $a0, 88
+	ld.w	$a2, $a0, 160
+	vld	$vr0, $a0, 124
+	vld	$vr1, $a0, 92
+	vld	$vr2, $a0, 140
+	vld	$vr3, $a0, 108
+	vld	$vr4, $a0, 196
+	vld	$vr5, $a0, 212
+	vld	$vr6, $a0, 180
+	vld	$vr7, $a0, 164
+	ld.w	$a4, $a0, 156
 	ld.w	$a0, $a0, 228
-	maskeqz	$a3, $a3, $t1
-	masknez	$t1, $t2, $t1
-	or	$a3, $a3, $t1
-	slt	$t1, $a0, $a3
-	maskeqz	$a3, $a3, $t1
-	masknez	$a0, $a0, $t1
-	or	$a0, $a3, $a0
-	srai.d	$a3, $a0, 63
-	andn	$a3, $a0, $a3
-	slt	$a0, $t0, $a7
-	maskeqz	$a7, $a7, $a0
-	masknez	$a0, $t0, $a0
-	or	$a0, $a7, $a0
-	slt	$a7, $a5, $a0
-	maskeqz	$a0, $a0, $a7
-	masknez	$a5, $a5, $a7
-	or	$a0, $a0, $a5
-	slt	$a5, $a6, $a0
+	vmax.w	$vr5, $vr6, $vr5
+	vmax.w	$vr4, $vr7, $vr4
+	vmax.w	$vr4, $vr4, $vr5
+	vbsrl.v	$vr5, $vr4, 8
+	vmax.w	$vr4, $vr5, $vr4
+	vbsrl.v	$vr5, $vr4, 4
+	vmax.w	$vr4, $vr5, $vr4
+	vpickve2gr.w	$a5, $vr4, 0
+	slt	$a6, $a2, $a5
+	maskeqz	$a5, $a5, $a6
+	masknez	$a2, $a2, $a6
+	or	$a2, $a5, $a2
+	slt	$a5, $a2, $a0
+	masknez	$a2, $a2, $a5
 	maskeqz	$a0, $a0, $a5
-	masknez	$a5, $a6, $a5
-	or	$a0, $a0, $a5
-	slt	$a5, $a4, $a0
-	maskeqz	$a0, $a0, $a5
-	masknez	$a4, $a4, $a5
-	or	$a0, $a0, $a4
-	slt	$a4, $a2, $a0
-	maskeqz	$a0, $a0, $a4
-	masknez	$a2, $a2, $a4
-	or	$a0, $a0, $a2
-	slt	$a2, $t3, $a0
-	maskeqz	$a0, $a0, $a2
-	masknez	$a2, $t3, $a2
 	or	$a0, $a0, $a2
 	srai.d	$a2, $a0, 63
 	andn	$a2, $a0, $a2
+	vmax.w	$vr2, $vr3, $vr2
+	vmax.w	$vr0, $vr1, $vr0
+	vmax.w	$vr0, $vr0, $vr2
+	vbsrl.v	$vr1, $vr0, 8
+	vmax.w	$vr0, $vr1, $vr0
+	vbsrl.v	$vr1, $vr0, 4
+	vmax.w	$vr0, $vr1, $vr0
+	vpickve2gr.w	$a0, $vr0, 0
+	slt	$a5, $a3, $a0
+	maskeqz	$a0, $a0, $a5
+	masknez	$a3, $a3, $a5
+	or	$a0, $a0, $a3
+	slt	$a3, $a0, $a4
+	masknez	$a0, $a0, $a3
+	maskeqz	$a3, $a4, $a3
+	or	$a0, $a3, $a0
+	srai.d	$a3, $a0, 63
+	andn	$a4, $a0, $a3
 	pcalau12i	$a0, %pc_hi20(scale_bitcount.slen1_tab)
-	addi.d	$a4, $a0, %pc_lo12(scale_bitcount.slen1_tab)
+	addi.d	$a3, $a0, %pc_lo12(scale_bitcount.slen1_tab)
 	lu12i.w	$a6, 24
 	ori	$a5, $a6, 1696
 	st.w	$a5, $a1, 76
-	beqz	$a2, .LBB7_16
+	beqz	$a4, .LBB7_16
 .LBB7_2:
 	ori	$a6, $zero, 7
 	ori	$a0, $zero, 2
-	bgeu	$a6, $a2, .LBB7_26
+	bgeu	$a6, $a4, .LBB7_26
 	b	.LBB7_60
 .LBB7_3:                                # %.preheader93.preheader
 	ld.w	$a2, $a0, 0
@@ -1199,19 +1071,19 @@ scale_bitcount:                         # @scale_bitcount
 	maskeqz	$a2, $a2, $a3
 	masknez	$a3, $a4, $a3
 	or	$a2, $a2, $a3
-	slt	$a4, $a5, $a2
-	maskeqz	$a2, $a2, $a4
+	slt	$a3, $a5, $a2
+	maskeqz	$a4, $a2, $a3
 	ld.w	$a6, $a1, 64
-	ld.w	$a3, $a0, 44
-	masknez	$a4, $a5, $a4
-	or	$a2, $a2, $a4
-	srai.d	$a4, $a2, 63
+	ld.w	$a2, $a0, 44
+	masknez	$a3, $a5, $a3
+	or	$a3, $a4, $a3
+	srai.d	$a4, $a3, 63
 	bnez	$a6, .LBB7_15
 # %bb.4:                                # %.preheader91.preheader
 	pcalau12i	$a5, %pc_hi20(pretab)
 	addi.d	$a5, $a5, %pc_lo12(pretab)
 	ld.w	$a6, $a5, 44
-	blt	$a3, $a6, .LBB7_15
+	blt	$a2, $a6, .LBB7_15
 # %bb.5:                                # %.preheader91.1
 	ld.w	$a7, $a0, 48
 	ld.w	$t0, $a5, 48
@@ -1249,11 +1121,11 @@ scale_bitcount:                         # @scale_bitcount
 	ld.w	$t0, $a5, 80
 	blt	$a7, $t0, .LBB7_15
 # %bb.14:                               # %.thread.loopexit
-	ori	$a3, $zero, 1
-	st.w	$a3, $a1, 64
-	ld.w	$a3, $a0, 44
-	sub.w	$a3, $a3, $a6
-	st.w	$a3, $a0, 44
+	ori	$a2, $zero, 1
+	st.w	$a2, $a1, 64
+	ld.w	$a2, $a0, 44
+	sub.w	$a2, $a2, $a6
+	st.w	$a2, $a0, 44
 	ld.w	$a6, $a5, 48
 	ld.w	$a7, $a0, 48
 	sub.d	$a6, $a7, $a6
@@ -1291,69 +1163,41 @@ scale_bitcount:                         # @scale_bitcount
 	sub.d	$a5, $a6, $a5
 	st.w	$a5, $a0, 80
 .LBB7_15:                               # %.thread
-	ld.w	$a5, $a0, 48
-	andn	$a2, $a2, $a4
-	slt	$a4, $a5, $a3
-	ld.w	$a6, $a0, 52
-	masknez	$a5, $a5, $a4
-	maskeqz	$a3, $a3, $a4
-	or	$a3, $a3, $a5
-	slt	$a4, $a6, $a3
-	ld.w	$a5, $a0, 56
-	maskeqz	$a3, $a3, $a4
-	masknez	$a4, $a6, $a4
-	or	$a3, $a3, $a4
-	slt	$a4, $a5, $a3
-	ld.w	$a6, $a0, 60
-	maskeqz	$a3, $a3, $a4
-	masknez	$a4, $a5, $a4
-	or	$a3, $a3, $a4
-	slt	$a4, $a6, $a3
-	ld.w	$a5, $a0, 64
-	maskeqz	$a3, $a3, $a4
-	masknez	$a4, $a6, $a4
-	or	$a3, $a3, $a4
-	slt	$a4, $a5, $a3
-	ld.w	$a6, $a0, 68
-	maskeqz	$a3, $a3, $a4
-	masknez	$a4, $a5, $a4
-	or	$a3, $a3, $a4
-	slt	$a4, $a6, $a3
-	ld.w	$a5, $a0, 72
-	maskeqz	$a3, $a3, $a4
-	masknez	$a4, $a6, $a4
-	or	$a3, $a3, $a4
-	slt	$a4, $a5, $a3
-	ld.w	$a6, $a0, 76
-	maskeqz	$a3, $a3, $a4
-	masknez	$a4, $a5, $a4
-	or	$a3, $a3, $a4
-	slt	$a4, $a6, $a3
+	vld	$vr0, $a0, 64
+	vld	$vr1, $a0, 48
+	andn	$a4, $a3, $a4
 	ld.w	$a0, $a0, 80
-	maskeqz	$a3, $a3, $a4
-	masknez	$a4, $a6, $a4
-	or	$a3, $a3, $a4
-	slt	$a4, $a0, $a3
-	maskeqz	$a3, $a3, $a4
-	masknez	$a0, $a0, $a4
+	vmax.w	$vr0, $vr1, $vr0
+	vbsrl.v	$vr1, $vr0, 8
+	vmax.w	$vr0, $vr1, $vr0
+	vbsrl.v	$vr1, $vr0, 4
+	vmax.w	$vr0, $vr1, $vr0
+	vpickve2gr.w	$a3, $vr0, 0
+	slt	$a5, $a0, $a3
+	maskeqz	$a3, $a3, $a5
+	masknez	$a0, $a0, $a5
 	or	$a0, $a3, $a0
-	srai.d	$a3, $a0, 63
-	andn	$a3, $a0, $a3
+	slt	$a3, $a0, $a2
+	masknez	$a0, $a0, $a3
+	maskeqz	$a2, $a2, $a3
+	or	$a0, $a2, $a0
+	srai.d	$a2, $a0, 63
+	andn	$a2, $a0, $a2
 	pcalau12i	$a0, %pc_hi20(scale_bitcount.slen2_tab)
-	addi.d	$a4, $a0, %pc_lo12(scale_bitcount.slen2_tab)
+	addi.d	$a3, $a0, %pc_lo12(scale_bitcount.slen2_tab)
 	lu12i.w	$a6, 24
 	ori	$a5, $a6, 1696
 	st.w	$a5, $a1, 76
-	bnez	$a2, .LBB7_2
+	bnez	$a4, .LBB7_2
 .LBB7_16:
 	ori	$a0, $zero, 2
 	ori	$a7, $zero, 1
 	ori	$a5, $a6, 1696
-	beq	$a3, $a7, .LBB7_20
+	beq	$a2, $a7, .LBB7_20
 # %bb.17:
-	bnez	$a3, .LBB7_37
+	bnez	$a2, .LBB7_37
 # %bb.18:
-	ld.w	$a7, $a4, 0
+	ld.w	$a7, $a3, 0
 	ori	$a6, $a6, 1695
 	blt	$a6, $a7, .LBB7_20
 # %bb.19:
@@ -1362,7 +1206,7 @@ scale_bitcount:                         # @scale_bitcount
 	st.w	$zero, $a1, 16
 	move	$a5, $a7
 .LBB7_20:                               # %.thread156
-	ld.w	$a6, $a4, 4
+	ld.w	$a6, $a3, 4
 	bge	$a6, $a5, .LBB7_22
 # %bb.21:
 	move	$a0, $zero
@@ -1371,7 +1215,7 @@ scale_bitcount:                         # @scale_bitcount
 	st.w	$a5, $a1, 16
 	move	$a5, $a6
 .LBB7_22:                               # %.thread167
-	ld.w	$a6, $a4, 8
+	ld.w	$a6, $a3, 8
 	bge	$a6, $a5, .LBB7_24
 .LBB7_23:
 	move	$a0, $zero
@@ -1380,7 +1224,7 @@ scale_bitcount:                         # @scale_bitcount
 	st.w	$a5, $a1, 16
 	move	$a5, $a6
 .LBB7_24:                               # %.thread178
-	ld.w	$a6, $a4, 12
+	ld.w	$a6, $a3, 12
 	bge	$a6, $a5, .LBB7_26
 # %bb.25:
 	move	$a0, $zero
@@ -1389,9 +1233,9 @@ scale_bitcount:                         # @scale_bitcount
 	st.w	$a5, $a1, 16
 	move	$a5, $a6
 .LBB7_26:                               # %.thread185
-	bnez	$a3, .LBB7_29
+	bnez	$a2, .LBB7_29
 # %bb.27:
-	ld.w	$a6, $a4, 16
+	ld.w	$a6, $a3, 16
 	bge	$a6, $a5, .LBB7_29
 # %bb.28:
 	move	$a0, $zero
@@ -1401,11 +1245,11 @@ scale_bitcount:                         # @scale_bitcount
 	move	$a5, $a6
 .LBB7_29:
 	ori	$a6, $zero, 1
-	bltu	$a6, $a2, .LBB7_33
+	bltu	$a6, $a4, .LBB7_33
 # %bb.30:
-	bltu	$a6, $a3, .LBB7_34
+	bltu	$a6, $a2, .LBB7_34
 # %bb.31:
-	ld.w	$a6, $a4, 20
+	ld.w	$a6, $a3, 20
 	bge	$a6, $a5, .LBB7_35
 # %bb.32:
 	move	$a0, $zero
@@ -1416,13 +1260,13 @@ scale_bitcount:                         # @scale_bitcount
 	b	.LBB7_35
 .LBB7_33:
 	ori	$a6, $zero, 3
-	bgeu	$a6, $a2, .LBB7_42
+	bgeu	$a6, $a4, .LBB7_42
 	b	.LBB7_51
 .LBB7_34:
 	ori	$a6, $zero, 3
-	bltu	$a6, $a3, .LBB7_39
+	bltu	$a6, $a2, .LBB7_39
 .LBB7_35:                               # %.thread196
-	ld.w	$a6, $a4, 24
+	ld.w	$a6, $a3, 24
 	bge	$a6, $a5, .LBB7_40
 # %bb.36:
 	move	$a0, $zero
@@ -1433,18 +1277,18 @@ scale_bitcount:                         # @scale_bitcount
 	b	.LBB7_40
 .LBB7_37:
 	ori	$a0, $zero, 3
-	bltu	$a0, $a3, .LBB7_68
+	bltu	$a0, $a2, .LBB7_68
 # %bb.38:
 	ori	$a0, $zero, 2
 	ori	$a5, $a6, 1696
-	ld.w	$a6, $a4, 8
+	ld.w	$a6, $a3, 8
 	blt	$a6, $a5, .LBB7_23
 	b	.LBB7_24
 .LBB7_39:
 	ori	$a6, $zero, 7
-	bltu	$a6, $a3, .LBB7_42
+	bltu	$a6, $a2, .LBB7_42
 .LBB7_40:                               # %.thread207
-	ld.w	$a6, $a4, 28
+	ld.w	$a6, $a3, 28
 	bge	$a6, $a5, .LBB7_42
 # %bb.41:
 	move	$a0, $zero
@@ -1454,9 +1298,9 @@ scale_bitcount:                         # @scale_bitcount
 	move	$a5, $a6
 .LBB7_42:                               # %.thread214
 	ori	$a6, $zero, 1
-	bltu	$a6, $a3, .LBB7_45
+	bltu	$a6, $a2, .LBB7_45
 # %bb.43:
-	ld.w	$a6, $a4, 32
+	ld.w	$a6, $a3, 32
 	bge	$a6, $a5, .LBB7_45
 # %bb.44:
 	move	$a0, $zero
@@ -1464,15 +1308,15 @@ scale_bitcount:                         # @scale_bitcount
 	ori	$a5, $zero, 8
 	st.w	$a5, $a1, 16
 	move	$a5, $a6
-	ld.w	$a7, $a4, 36
+	ld.w	$a7, $a3, 36
 	blt	$a7, $a6, .LBB7_47
 	b	.LBB7_49
 .LBB7_45:
 	ori	$a6, $zero, 3
-	bltu	$a6, $a3, .LBB7_48
+	bltu	$a6, $a2, .LBB7_48
 # %bb.46:
 	move	$a6, $a5
-	ld.w	$a7, $a4, 36
+	ld.w	$a7, $a3, 36
 	bge	$a7, $a6, .LBB7_49
 .LBB7_47:
 	move	$a0, $zero
@@ -1483,9 +1327,9 @@ scale_bitcount:                         # @scale_bitcount
 	b	.LBB7_49
 .LBB7_48:
 	ori	$a6, $zero, 7
-	bltu	$a6, $a3, .LBB7_51
+	bltu	$a6, $a2, .LBB7_51
 .LBB7_49:                               # %.thread234
-	ld.w	$a6, $a4, 40
+	ld.w	$a6, $a3, 40
 	bge	$a6, $a5, .LBB7_51
 # %bb.50:
 	move	$a0, $zero
@@ -1495,9 +1339,9 @@ scale_bitcount:                         # @scale_bitcount
 	move	$a5, $a6
 .LBB7_51:                               # %.thread229
 	ori	$a6, $zero, 1
-	bltu	$a6, $a3, .LBB7_54
+	bltu	$a6, $a2, .LBB7_54
 # %bb.52:
-	ld.w	$a6, $a4, 44
+	ld.w	$a6, $a3, 44
 	bge	$a6, $a5, .LBB7_55
 # %bb.53:
 	move	$a0, $zero
@@ -1508,9 +1352,9 @@ scale_bitcount:                         # @scale_bitcount
 	b	.LBB7_55
 .LBB7_54:
 	ori	$a6, $zero, 3
-	bltu	$a6, $a3, .LBB7_57
+	bltu	$a6, $a2, .LBB7_57
 .LBB7_55:                               # %.thread244
-	ld.w	$a6, $a4, 48
+	ld.w	$a6, $a3, 48
 	bge	$a6, $a5, .LBB7_58
 # %bb.56:
 	move	$a0, $zero
@@ -1521,9 +1365,9 @@ scale_bitcount:                         # @scale_bitcount
 	b	.LBB7_58
 .LBB7_57:
 	ori	$a6, $zero, 7
-	bltu	$a6, $a3, .LBB7_60
+	bltu	$a6, $a2, .LBB7_60
 .LBB7_58:                               # %.thread255
-	ld.w	$a6, $a4, 52
+	ld.w	$a6, $a3, 52
 	bge	$a6, $a5, .LBB7_60
 # %bb.59:
 	move	$a0, $zero
@@ -1533,25 +1377,25 @@ scale_bitcount:                         # @scale_bitcount
 	move	$a5, $a6
 .LBB7_60:                               # %.thread229.thread
 	ori	$a6, $zero, 15
-	bltu	$a6, $a2, .LBB7_67
+	bltu	$a6, $a4, .LBB7_67
 # %bb.61:                               # %.thread262
-	ori	$a2, $zero, 3
-	bltu	$a2, $a3, .LBB7_64
+	ori	$a4, $zero, 3
+	bltu	$a4, $a2, .LBB7_64
 # %bb.62:
-	ld.w	$a2, $a4, 56
-	bge	$a2, $a5, .LBB7_64
+	ld.w	$a4, $a3, 56
+	bge	$a4, $a5, .LBB7_64
 # %bb.63:
 	move	$a0, $zero
-	st.w	$a2, $a1, 76
-	ori	$a3, $zero, 14
-	st.w	$a3, $a1, 16
-	move	$a5, $a2
+	st.w	$a4, $a1, 76
+	ori	$a2, $zero, 14
+	st.w	$a2, $a1, 16
+	move	$a5, $a4
 	b	.LBB7_65
 .LBB7_64:
-	ori	$a2, $zero, 7
-	bltu	$a2, $a3, .LBB7_67
+	ori	$a4, $zero, 7
+	bltu	$a4, $a2, .LBB7_67
 .LBB7_65:                               # %.thread268
-	ld.w	$a2, $a4, 60
+	ld.w	$a2, $a3, 60
 	bge	$a2, $a5, .LBB7_67
 # %bb.66:
 	move	$a0, $zero
@@ -1564,7 +1408,7 @@ scale_bitcount:                         # @scale_bitcount
 	ori	$a0, $zero, 2
 	ori	$a7, $zero, 7
 	ori	$a5, $a6, 1696
-	bgeu	$a7, $a3, .LBB7_24
+	bgeu	$a7, $a2, .LBB7_24
 	b	.LBB7_26
 .Lfunc_end7:
 	.size	scale_bitcount, .Lfunc_end7-scale_bitcount
@@ -2957,35 +2801,10 @@ quantize_xrpow:                         # @quantize_xrpow
 	ori	$a4, $zero, 1
 	.p2align	4, , 16
 .LBB12_1:                               # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a0, 0
-	vld	$vr1, $a0, 48
-	vld	$vr2, $a0, 32
-	vld	$vr4, $a0, 16
-	addi.d	$a0, $a0, 64
+	vld	$vr1, $a0, 16
+	vld	$vr2, $a0, 0
 	vfmul.d	$vr1, $vr0, $vr1
 	vfmul.d	$vr2, $vr0, $vr2
-	vfmul.d	$vr7, $vr0, $vr4
-	vfmul.d	$vr8, $vr0, $vr3
-	vreplvei.d	$vr3, $vr8, 1
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a5, $fa3
-	vreplvei.d	$vr3, $vr8, 0
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a6, $fa3
-	slli.d	$a6, $a6, 3
-	fldx.d	$ft1, $a3, $a6
-	slli.d	$a5, $a5, 3
-	fldx.d	$ft2, $a3, $a5
-	vreplvei.d	$vr3, $vr7, 1
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a5, $fa3
-	vreplvei.d	$vr3, $vr7, 0
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a6, $fa3
-	slli.d	$a6, $a6, 3
-	fldx.d	$ft3, $a3, $a6
-	slli.d	$a5, $a5, 3
-	fldx.d	$ft4, $a3, $a5
 	vreplvei.d	$vr3, $vr2, 1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a5, $fa3
@@ -3006,51 +2825,75 @@ quantize_xrpow:                         # @quantize_xrpow
 	fldx.d	$fa5, $a3, $a6
 	slli.d	$a5, $a5, 3
 	fldx.d	$fa6, $a3, $a5
-	vextrins.d	$vr9, $vr10, 16
-	vextrins.d	$vr11, $vr12, 16
-	vfadd.d	$vr7, $vr7, $vr11
-	vfadd.d	$vr8, $vr8, $vr9
-	vreplvei.d	$vr9, $vr8, 0
-	ftintrz.w.d	$ft1, $ft1
-	movfr2gr.s	$a5, $ft1
-	vinsgr2vr.w	$vr9, $a5, 0
-	vreplvei.d	$vr8, $vr8, 1
-	ftintrz.w.d	$ft0, $ft0
-	movfr2gr.s	$a5, $ft0
-	vinsgr2vr.w	$vr9, $a5, 1
-	vreplvei.d	$vr8, $vr7, 0
-	ftintrz.w.d	$ft0, $ft0
-	movfr2gr.s	$a5, $ft0
-	vinsgr2vr.w	$vr9, $a5, 2
-	vreplvei.d	$vr7, $vr7, 1
-	ftintrz.w.d	$fa7, $fa7
-	movfr2gr.s	$a5, $fa7
-	vinsgr2vr.w	$vr9, $a5, 3
-	vst	$vr9, $a1, 0
-	addi.d	$a5, $a1, 32
 	vextrins.d	$vr3, $vr4, 16
 	vextrins.d	$vr5, $vr6, 16
 	vfadd.d	$vr1, $vr1, $vr5
 	vfadd.d	$vr2, $vr2, $vr3
 	vreplvei.d	$vr3, $vr2, 0
 	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a6, $fa3
-	vinsgr2vr.w	$vr3, $a6, 0
+	movfr2gr.s	$a5, $fa3
+	vinsgr2vr.w	$vr3, $a5, 0
 	vreplvei.d	$vr2, $vr2, 1
 	ftintrz.w.d	$fa2, $fa2
-	movfr2gr.s	$a6, $fa2
-	vinsgr2vr.w	$vr3, $a6, 1
+	movfr2gr.s	$a5, $fa2
+	vinsgr2vr.w	$vr3, $a5, 1
 	vreplvei.d	$vr2, $vr1, 0
 	ftintrz.w.d	$fa2, $fa2
-	movfr2gr.s	$a6, $fa2
-	vinsgr2vr.w	$vr3, $a6, 2
+	movfr2gr.s	$a5, $fa2
+	vinsgr2vr.w	$vr3, $a5, 2
+	vreplvei.d	$vr1, $vr1, 1
+	vld	$vr2, $a0, 48
+	vld	$vr4, $a0, 32
+	ftintrz.w.d	$fa1, $fa1
+	movfr2gr.s	$a5, $fa1
+	vfmul.d	$vr1, $vr0, $vr2
+	vfmul.d	$vr2, $vr0, $vr4
+	vreplvei.d	$vr4, $vr2, 1
+	ftintrz.w.d	$fa4, $fa4
+	vreplvei.d	$vr5, $vr2, 0
+	ftintrz.w.d	$fa5, $fa5
+	movfr2gr.s	$a6, $fa5
+	slli.d	$a6, $a6, 3
+	fldx.d	$fa5, $a3, $a6
+	movfr2gr.s	$a6, $fa4
+	slli.d	$a6, $a6, 3
+	fldx.d	$fa4, $a3, $a6
+	vreplvei.d	$vr6, $vr1, 1
+	ftintrz.w.d	$fa6, $fa6
+	vreplvei.d	$vr7, $vr1, 0
+	ftintrz.w.d	$fa7, $fa7
+	movfr2gr.s	$a6, $fa7
+	slli.d	$a6, $a6, 3
+	fldx.d	$fa7, $a3, $a6
+	movfr2gr.s	$a6, $fa6
+	slli.d	$a6, $a6, 3
+	fldx.d	$fa6, $a3, $a6
+	vinsgr2vr.w	$vr3, $a5, 3
+	vst	$vr3, $a1, 0
+	vextrins.d	$vr5, $vr4, 16
+	vextrins.d	$vr7, $vr6, 16
+	vfadd.d	$vr1, $vr1, $vr7
+	vfadd.d	$vr2, $vr2, $vr5
+	vreplvei.d	$vr3, $vr2, 0
+	ftintrz.w.d	$fa3, $fa3
+	movfr2gr.s	$a5, $fa3
+	vinsgr2vr.w	$vr3, $a5, 0
+	vreplvei.d	$vr2, $vr2, 1
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$a5, $fa2
+	vinsgr2vr.w	$vr3, $a5, 1
+	vreplvei.d	$vr2, $vr1, 0
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$a5, $fa2
+	vinsgr2vr.w	$vr3, $a5, 2
 	vreplvei.d	$vr1, $vr1, 1
 	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a6, $fa1
-	vinsgr2vr.w	$vr3, $a6, 3
-	addi.w	$a2, $a2, -1
+	movfr2gr.s	$a5, $fa1
+	vinsgr2vr.w	$vr3, $a5, 3
 	vst	$vr3, $a1, 16
-	move	$a1, $a5
+	addi.w	$a2, $a2, -1
+	addi.d	$a0, $a0, 64
+	addi.d	$a1, $a1, 32
 	bltu	$a4, $a2, .LBB12_1
 # %bb.2:
 	ret

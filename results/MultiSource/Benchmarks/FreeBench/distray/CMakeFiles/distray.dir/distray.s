@@ -488,7 +488,7 @@ TraceLine:                              # @TraceLine
 	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
 	addi.d	$a2, $sp, 336
 	addi.d	$a3, $sp, 312
-	addi.d	$a4, $sp, 160
+	addi.d	$a4, $sp, 152
 	pcaddu18i	$ra, %call36(IntersectObjs)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
@@ -630,9 +630,9 @@ TraceLine:                              # @TraceLine
 	fst.d	$fa0, $sp, 280
 	addi.d	$a0, $sp, 336
 	addi.d	$a1, $sp, 264
-	addi.d	$a2, $sp, 192
-	addi.d	$a3, $sp, 168
-	addi.d	$a4, $sp, 152
+	addi.d	$a2, $sp, 184
+	addi.d	$a3, $sp, 160
+	addi.d	$a4, $sp, 144
 	pcaddu18i	$ra, %call36(IntersectObjs)
 	jirl	$ra, $ra, 0
 	fcmp.clt.d	$fcc0, $fa0, $fs4
@@ -663,29 +663,29 @@ TraceLine:                              # @TraceLine
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
 	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_1)
-	fmul.d	$fa2, $fa0, $fa1
+	fmul.d	$fa1, $fa0, $fa1
 	b	.LBB1_10
 .LBB1_9:
-	vldi	$vr2, -912
+	vldi	$vr1, -912
 .LBB1_10:
 	pcalau12i	$a0, %pc_hi20(Skycolor)
 	addi.d	$a0, $a0, %pc_lo12(Skycolor)
 	fld.d	$fa0, $a0, 0
-	fld.d	$fa1, $a0, 24
+	fld.d	$fa2, $a0, 24
 	vldi	$vr3, -912
-	fsub.d	$fa3, $fa3, $fa2
+	fsub.d	$fa3, $fa3, $fa1
 	fmul.d	$fa0, $fa3, $fa0
-	fmadd.d	$fa0, $fa1, $fa2, $fa0
+	fmadd.d	$fa0, $fa2, $fa1, $fa0
 	fst.d	$fa0, $fp, 0
-	fld.d	$fa1, $a0, 8
+	fld.d	$fa2, $a0, 8
 	fld.d	$fa4, $a0, 32
-	fmul.d	$fa1, $fa3, $fa1
-	fmadd.d	$fa1, $fa4, $fa2, $fa1
-	fst.d	$fa1, $fp, 8
+	fmul.d	$fa2, $fa3, $fa2
+	fmadd.d	$fa2, $fa4, $fa1, $fa2
+	fst.d	$fa2, $fp, 8
 	fld.d	$fa4, $a0, 16
 	fld.d	$fa5, $a0, 40
 	fmul.d	$fa3, $fa3, $fa4
-	fmadd.d	$fa2, $fa5, $fa2, $fa3
+	fmadd.d	$fa1, $fa5, $fa1, $fa3
 	b	.LBB1_33
 .LBB1_11:
 	vst	$vr4, $sp, 16                   # 16-byte Folded Spill
@@ -698,9 +698,9 @@ TraceLine:                              # @TraceLine
 	fst.d	$fs1, $sp, 104                  # 8-byte Folded Spill
 	addi.d	$a0, $sp, 336
 	addi.d	$a1, $sp, 288
-	addi.d	$a2, $sp, 192
-	addi.d	$a3, $sp, 168
-	addi.d	$a4, $sp, 152
+	addi.d	$a2, $sp, 184
+	addi.d	$a3, $sp, 160
+	addi.d	$a4, $sp, 144
 	pcaddu18i	$ra, %call36(IntersectObjs)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(DISTRIB)
@@ -738,7 +738,7 @@ TraceLine:                              # @TraceLine
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB1_36
 .LBB1_16:                               # %.split
-	ld.d	$a0, $sp, 160
+	ld.d	$a0, $sp, 152
 	fld.d	$fa1, $a0, 24
 	fld.d	$fa2, $sp, 72                   # 8-byte Folded Reload
 	fdiv.d	$fa0, $fa2, $fa0
@@ -753,7 +753,7 @@ TraceLine:                              # @TraceLine
 	ffint.d.w	$fa1, $fa1
 	fdiv.d	$fa3, $fa0, $fa1
 .LBB1_17:                               # %.thread
-	ld.d	$s2, $sp, 160
+	ld.d	$s2, $sp, 152
 	pcalau12i	$a0, %pc_hi20(Ambient)
 	fld.d	$fa0, $a0, %pc_lo12(Ambient)
 	fld.d	$fa1, $s2, 0
@@ -762,12 +762,12 @@ TraceLine:                              # @TraceLine
 	fst.d	$fa0, $fp, 0
 	fld.d	$fa1, $a0, %pc_lo12(Ambient)
 	fld.d	$fa2, $s2, 8
-	fadd.d	$fa3, $fa3, $fa1
-	fmul.d	$fa1, $fa2, $fa3
-	fst.d	$fa1, $fp, 8
-	fld.d	$fa2, $s2, 16
-	fmul.d	$fa2, $fa3, $fa2
-	fst.d	$fa2, $fp, 16
+	fadd.d	$fa1, $fa3, $fa1
+	fmul.d	$fa2, $fa2, $fa1
+	fst.d	$fa2, $fp, 8
+	fld.d	$fa3, $s2, 16
+	fmul.d	$fa1, $fa1, $fa3
+	fst.d	$fa1, $fp, 16
 	fld.d	$fa3, $s2, 32
 	fcmp.cule.d	$fcc0, $fa3, $fs4
 	bceqz	$fcc0, .LBB1_24
@@ -777,10 +777,10 @@ TraceLine:                              # @TraceLine
 	bceqz	$fcc0, .LBB1_34
 .LBB1_19:
 	vldi	$vr0, -912
-	fcmp.cule.d	$fcc0, $fa1, $fa0
+	fcmp.cule.d	$fcc0, $fa2, $fa0
 	bceqz	$fcc0, .LBB1_35
 .LBB1_20:
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	fcmp.cule.d	$fcc0, $fa1, $fa0
 	bcnez	$fcc0, .LBB1_22
 .LBB1_21:
 	lu52i.d	$a0, $zero, 1023
@@ -865,14 +865,14 @@ TraceLine:                              # @TraceLine
 	fst.d	$fa3, $sp, 112                  # 8-byte Folded Spill
 	fmadd.d	$fa0, $fa3, $fa3, $fa0
 	fsqrt.d	$fa0, $fa0
-	fdiv.d	$fs6, $fa1, $fa0
+	fdiv.d	$fs7, $fa1, $fa0
 	fmul.d	$fa0, $fs4, $fs4
 	fmadd.d	$fa0, $fs5, $fs5, $fa0
 	fmov.d	$fs2, $fa4
 	fmadd.d	$fa0, $fa4, $fa4, $fa0
 	fsqrt.d	$fa0, $fa0
 	fdiv.d	$fs0, $fa1, $fa0
-	vrepli.b	$vr3, 0
+	vrepli.b	$vr2, 0
 	pcalau12i	$s4, %pc_hi20(rnd)
 	lu12i.w	$a0, 269412
 	pcalau12i	$a1, %pc_hi20(.LCPI1_2)
@@ -880,14 +880,14 @@ TraceLine:                              # @TraceLine
 	ori	$s5, $a0, 3693
 	lu12i.w	$a0, 3
 	ori	$s6, $a0, 57
-	fmov.d	$fs7, $fs3
+	fmov.d	$fs6, $fs3
 	.p2align	4, , 16
 .LBB1_28:                               # %DistribVector.exit80
                                         # =>This Inner Loop Header: Depth=1
-	vst	$vr3, $sp, 128                  # 16-byte Folded Spill
+	vst	$vr2, $sp, 128                  # 16-byte Folded Spill
 	fld.d	$fa0, $s2, 40
 	ld.d	$a0, $s4, %pc_lo12(rnd)
-	fmul.d	$fa1, $fa0, $fs6
+	fmul.d	$fa1, $fa0, $fs7
 	mul.d	$a0, $a0, $s5
 	add.d	$a0, $a0, $s6
 	bstrpick.d	$a1, $a0, 30, 0
@@ -933,17 +933,17 @@ TraceLine:                              # @TraceLine
 	fst.d	$fa0, $sp, 256
 	addi.d	$a0, $sp, 336
 	addi.d	$a1, $sp, 240
-	addi.d	$a2, $sp, 216
+	addi.d	$a2, $sp, 208
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(TraceLine)
 	jirl	$ra, $ra, 0
-	vld	$vr3, $sp, 128                  # 16-byte Folded Reload
-	fld.d	$fa0, $sp, 216
-	vld	$vr1, $sp, 224
+	vld	$vr2, $sp, 128                  # 16-byte Folded Reload
+	vld	$vr0, $sp, 208
+	fld.d	$fa1, $sp, 224
 	ld.w	$a0, $s1, %pc_lo12(DISTRIB)
-	fadd.d	$fs7, $fa0, $fs7
+	vfadd.d	$vr2, $vr0, $vr2
 	addi.w	$s3, $s3, 1
-	vfadd.d	$vr3, $vr1, $vr3
+	fadd.d	$fs6, $fa1, $fs6
 	blt	$s3, $a0, .LBB1_28
 	b	.LBB1_31
 .LBB1_29:
@@ -953,34 +953,31 @@ TraceLine:                              # @TraceLine
 	addi.d	$a2, $sp, 240
 	pcaddu18i	$ra, %call36(TraceLine)
 	jirl	$ra, $ra, 0
-	fld.d	$fa0, $sp, 240
-	fld.d	$fa1, $sp, 248
-	fld.d	$fa2, $sp, 256
+	vld	$vr1, $sp, 240
+	fld.d	$fa0, $sp, 256
 	b	.LBB1_32
 .LBB1_30:
-	movgr2fr.d	$fs7, $zero
-	vld	$vr3, $sp, 128                  # 16-byte Folded Reload
+	movgr2fr.d	$fs6, $zero
+	vld	$vr2, $sp, 128                  # 16-byte Folded Reload
 .LBB1_31:                               # %._crit_edge
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
-	frecip.d	$fa2, $fa0
-	fmul.d	$fa0, $fa2, $fs7
-	vreplvei.d	$vr1, $vr3, 0
-	fmul.d	$fa1, $fa2, $fa1
-	vreplvei.d	$vr3, $vr3, 1
-	fmul.d	$fa2, $fa2, $fa3
+	frecip.d	$fa0, $fa0
+	vreplvei.d	$vr1, $vr0, 0
+	vfmul.d	$vr1, $vr1, $vr2
+	fmul.d	$fa0, $fa0, $fs6
 .LBB1_32:
-	fld.d	$fa3, $s2, 32
-	fld.d	$fa4, $fp, 0
-	fld.d	$fa5, $fp, 8
-	fmadd.d	$fa0, $fa0, $fa3, $fa4
+	fld.d	$fa2, $s2, 32
+	vld	$vr3, $fp, 0
 	fld.d	$fa4, $fp, 16
-	fst.d	$fa0, $fp, 0
-	fmadd.d	$fa1, $fa1, $fa3, $fa5
-	fst.d	$fa1, $fp, 8
-	fmadd.d	$fa2, $fa2, $fa3, $fa4
+	vreplvei.d	$vr5, $vr2, 0
+	vfmadd.d	$vr3, $vr1, $vr5, $vr3
+	vst	$vr3, $fp, 0
+	fmadd.d	$fa1, $fa0, $fa2, $fa4
+	vreplvei.d	$vr0, $vr3, 0
+	vreplvei.d	$vr2, $vr3, 1
 .LBB1_33:                               # %.sink.split
-	fst.d	$fa2, $fp, 16
+	fst.d	$fa1, $fp, 16
 	vldi	$vr3, -912
 	fcmp.cule.d	$fcc0, $fa0, $fa3
 	bcnez	$fcc0, .LBB1_19
@@ -988,12 +985,12 @@ TraceLine:                              # @TraceLine
 	lu52i.d	$a0, $zero, 1023
 	st.d	$a0, $fp, 0
 	vldi	$vr0, -912
-	fcmp.cule.d	$fcc0, $fa1, $fa0
+	fcmp.cule.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB1_20
 .LBB1_35:
 	lu52i.d	$a0, $zero, 1023
 	st.d	$a0, $fp, 8
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	fcmp.cule.d	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB1_21
 	b	.LBB1_22
 .LBB1_36:                               # %call.sqrt
@@ -1033,9 +1030,9 @@ IntersectObjs:                          # @IntersectObjs
 	fst.d	$fs7, $sp, 72                   # 8-byte Folded Spill
 	fld.d	$fs1, $a1, 16
 	pcalau12i	$a5, %pc_hi20(.LCPI2_0)
-	fld.d	$fa5, $a5, %pc_lo12(.LCPI2_0)
+	fld.d	$fa4, $a5, %pc_lo12(.LCPI2_0)
 	fabs.d	$fa0, $fs1
-	fcmp.cule.d	$fcc0, $fa0, $fa5
+	fcmp.cule.d	$fcc0, $fa0, $fa4
 	bcnez	$fcc0, .LBB2_4
 # %bb.1:
 	pcalau12i	$a5, %pc_hi20(Groundpos)
@@ -1043,7 +1040,7 @@ IntersectObjs:                          # @IntersectObjs
 	fld.d	$fa0, $a0, 16
 	fsub.d	$fa1, $fa1, $fa0
 	fdiv.d	$ft2, $fa1, $fs1
-	fcmp.cule.d	$fcc0, $ft2, $fa5
+	fcmp.cule.d	$fcc0, $ft2, $fa4
 	bcnez	$fcc0, .LBB2_4
 # %bb.2:
 	pcalau12i	$a5, %pc_hi20(.LCPI2_1)
@@ -1051,14 +1048,11 @@ IntersectObjs:                          # @IntersectObjs
 	fcmp.cule.d	$fcc0, $fa1, $ft2
 	bcnez	$fcc0, .LBB2_4
 # %bb.3:
-	fld.d	$fa1, $a0, 0
-	fld.d	$fa2, $a1, 0
-	fld.d	$fa3, $a0, 8
-	fld.d	$fa4, $a1, 8
-	fmadd.d	$fa1, $fa2, $ft2, $fa1
-	fst.d	$fa1, $a2, 0
-	fmadd.d	$fa1, $fa4, $ft2, $fa3
-	fst.d	$fa1, $a2, 8
+	vld	$vr1, $a0, 0
+	vld	$vr2, $a1, 0
+	vreplvei.d	$vr3, $vr10, 0
+	vfmadd.d	$vr1, $vr2, $vr3, $vr1
+	vst	$vr1, $a2, 0
 	fmadd.d	$fa0, $fs1, $ft2, $fa0
 	fst.d	$fa0, $a2, 16
 	vrepli.b	$vr0, 0
@@ -1121,8 +1115,8 @@ IntersectObjs:                          # @IntersectObjs
 	fmadd.d	$fa0, $fa1, $fs6, $fa0
 	fmul.d	$fa0, $fs0, $fa0
 	fmadd.d	$fa0, $fs2, $fs2, $fa0
-	movgr2fr.d	$fa4, $zero
-	fcmp.cule.d	$fcc0, $fa0, $fa4
+	movgr2fr.d	$fa5, $zero
+	fcmp.cule.d	$fcc0, $fa0, $fa5
 	bcnez	$fcc0, .LBB2_10
 # %bb.6:
 	fsqrt.d	$fa1, $fa0
@@ -1131,12 +1125,12 @@ IntersectObjs:                          # @IntersectObjs
 .LBB2_7:                                # %.split
 	fsub.d	$fa0, $fs2, $fa1
 	fadd.d	$fa1, $fs2, $fa1
-	fcmp.clt.d	$fcc0, $fa0, $fa5
+	fcmp.clt.d	$fcc0, $fa0, $fa4
 	fsel	$fs2, $fa0, $fa1, $fcc0
-	fcmp.cule.d	$fcc0, $fs2, $fa5
+	fcmp.cule.d	$fcc0, $fs2, $fa4
 	bcnez	$fcc0, .LBB2_10
 # %bb.8:
-	fcmp.clt.d	$fcc0, $ft2, $fa4
+	fcmp.clt.d	$fcc0, $ft2, $fa5
 	bcnez	$fcc0, .LBB2_30
 # %bb.9:
 	fcmp.cule.d	$fcc0, $ft2, $fs2
@@ -1164,7 +1158,7 @@ IntersectObjs:                          # @IntersectObjs
 	fmadd.d	$fa0, $fa1, $fs6, $fa0
 	fmul.d	$fa0, $fs0, $fa0
 	fmadd.d	$fa0, $fs5, $fs5, $fa0
-	fcmp.cule.d	$fcc0, $fa0, $fa4
+	fcmp.cule.d	$fcc0, $fa0, $fa5
 	bcnez	$fcc0, .LBB2_16
 # %bb.12:
 	fsqrt.d	$fa1, $fa0
@@ -1173,12 +1167,12 @@ IntersectObjs:                          # @IntersectObjs
 .LBB2_13:                               # %.split147
 	fsub.d	$fa0, $fs5, $fa1
 	fadd.d	$fa1, $fs5, $fa1
-	fcmp.clt.d	$fcc0, $fa0, $fa5
+	fcmp.clt.d	$fcc0, $fa0, $fa4
 	fsel	$fs5, $fa0, $fa1, $fcc0
-	fcmp.cule.d	$fcc0, $fs5, $fa5
+	fcmp.cule.d	$fcc0, $fs5, $fa4
 	bcnez	$fcc0, .LBB2_16
 # %bb.14:
-	fcmp.clt.d	$fcc0, $fs2, $fa4
+	fcmp.clt.d	$fcc0, $fs2, $fa5
 	bcnez	$fcc0, .LBB2_31
 # %bb.15:
 	fcmp.cule.d	$fcc0, $fs2, $fs5
@@ -1206,7 +1200,7 @@ IntersectObjs:                          # @IntersectObjs
 	fmadd.d	$fa0, $fa1, $fs2, $fa0
 	fmul.d	$fa0, $fs0, $fa0
 	fmadd.d	$fa0, $fs7, $fs7, $fa0
-	fcmp.cule.d	$fcc0, $fa0, $fa4
+	fcmp.cule.d	$fcc0, $fa0, $fa5
 	bcnez	$fcc0, .LBB2_22
 # %bb.18:
 	fsqrt.d	$fa1, $fa0
@@ -1215,12 +1209,12 @@ IntersectObjs:                          # @IntersectObjs
 .LBB2_19:                               # %.split149
 	fsub.d	$fa0, $fs7, $fa1
 	fadd.d	$fa1, $fs7, $fa1
-	fcmp.clt.d	$fcc0, $fa0, $fa5
+	fcmp.clt.d	$fcc0, $fa0, $fa4
 	fsel	$fa0, $fa0, $fa1, $fcc0
-	fcmp.cule.d	$fcc0, $fa0, $fa5
+	fcmp.cule.d	$fcc0, $fa0, $fa4
 	bcnez	$fcc0, .LBB2_22
 # %bb.20:
-	fcmp.clt.d	$fcc0, $fs5, $fa4
+	fcmp.clt.d	$fcc0, $fs5, $fa5
 	bcnez	$fcc0, .LBB2_32
 # %bb.21:
 	fcmp.cule.d	$fcc0, $fs5, $fa0
@@ -1248,7 +1242,7 @@ IntersectObjs:                          # @IntersectObjs
 	fmadd.d	$fa1, $fa2, $fs2, $fa1
 	fmul.d	$fa1, $fs0, $fa1
 	fmadd.d	$fa1, $fs3, $fs3, $fa1
-	fcmp.cule.d	$fcc0, $fa1, $fa4
+	fcmp.cule.d	$fcc0, $fa1, $fa5
 	bcnez	$fcc0, .LBB2_29
 # %bb.24:
 	fsqrt.d	$fa2, $fa1
@@ -1257,12 +1251,12 @@ IntersectObjs:                          # @IntersectObjs
 .LBB2_25:                               # %.split151
 	fsub.d	$fa1, $fs3, $fa2
 	fadd.d	$fa2, $fs3, $fa2
-	fcmp.clt.d	$fcc0, $fa1, $fa5
+	fcmp.clt.d	$fcc0, $fa1, $fa4
 	fsel	$fa1, $fa1, $fa2, $fcc0
-	fcmp.cule.d	$fcc0, $fa1, $fa5
+	fcmp.cule.d	$fcc0, $fa1, $fa4
 	bcnez	$fcc0, .LBB2_29
 # %bb.26:
-	fcmp.clt.d	$fcc0, $fa0, $fa4
+	fcmp.clt.d	$fcc0, $fa0, $fa5
 	bcnez	$fcc0, .LBB2_28
 # %bb.27:
 	fcmp.cule.d	$fcc0, $fa0, $fa1
@@ -1417,8 +1411,8 @@ IntersectObjs:                          # @IntersectObjs
 	move	$s1, $a0
 	move	$s4, $a3
 	move	$s2, $a1
-	fmov.d	$fs3, $fa5
-	fst.d	$fa4, $sp, 56                   # 8-byte Folded Spill
+	fmov.d	$fs3, $fa4
+	fst.d	$fa5, $sp, 56                   # 8-byte Folded Spill
 	fst.d	$fa6, $sp, 64                   # 8-byte Folded Spill
 	fst.d	$fa7, $sp, 48                   # 8-byte Folded Spill
 	fst.d	$ft0, $sp, 40                   # 8-byte Folded Spill
@@ -1431,8 +1425,8 @@ IntersectObjs:                          # @IntersectObjs
 	fld.d	$ft0, $sp, 40                   # 8-byte Folded Reload
 	fld.d	$fa7, $sp, 48                   # 8-byte Folded Reload
 	fld.d	$fa6, $sp, 64                   # 8-byte Folded Reload
-	fld.d	$fa4, $sp, 56                   # 8-byte Folded Reload
-	fmov.d	$fa5, $fs3
+	fld.d	$fa5, $sp, 56                   # 8-byte Folded Reload
+	fmov.d	$fa4, $fs3
 	move	$a1, $s2
 	move	$a3, $s4
 	move	$a0, $s1
@@ -1446,8 +1440,8 @@ IntersectObjs:                          # @IntersectObjs
 	move	$s1, $a0
 	move	$s4, $a3
 	move	$s2, $a1
-	fst.d	$fa5, $sp, 16                   # 8-byte Folded Spill
-	fst.d	$fa4, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fa4, $sp, 16                   # 8-byte Folded Spill
+	fst.d	$fa5, $sp, 56                   # 8-byte Folded Spill
 	fst.d	$fa6, $sp, 64                   # 8-byte Folded Spill
 	fst.d	$fa7, $sp, 48                   # 8-byte Folded Spill
 	fst.d	$ft0, $sp, 40                   # 8-byte Folded Spill
@@ -1458,8 +1452,8 @@ IntersectObjs:                          # @IntersectObjs
 	fld.d	$ft0, $sp, 40                   # 8-byte Folded Reload
 	fld.d	$fa7, $sp, 48                   # 8-byte Folded Reload
 	fld.d	$fa6, $sp, 64                   # 8-byte Folded Reload
-	fld.d	$fa4, $sp, 56                   # 8-byte Folded Reload
-	fld.d	$fa5, $sp, 16                   # 8-byte Folded Reload
+	fld.d	$fa5, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fa4, $sp, 16                   # 8-byte Folded Reload
 	move	$a1, $s2
 	move	$a3, $s4
 	move	$a0, $s1
@@ -1473,8 +1467,8 @@ IntersectObjs:                          # @IntersectObjs
 	move	$s1, $a0
 	move	$s4, $a3
 	move	$s2, $a1
-	fst.d	$fa5, $sp, 16                   # 8-byte Folded Spill
-	fst.d	$fa4, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fa4, $sp, 16                   # 8-byte Folded Spill
+	fst.d	$fa5, $sp, 56                   # 8-byte Folded Spill
 	fst.d	$fa6, $sp, 64                   # 8-byte Folded Spill
 	fst.d	$fa7, $sp, 48                   # 8-byte Folded Spill
 	fst.d	$ft0, $sp, 40                   # 8-byte Folded Spill
@@ -1485,8 +1479,8 @@ IntersectObjs:                          # @IntersectObjs
 	fld.d	$ft0, $sp, 40                   # 8-byte Folded Reload
 	fld.d	$fa7, $sp, 48                   # 8-byte Folded Reload
 	fld.d	$fa6, $sp, 64                   # 8-byte Folded Reload
-	fld.d	$fa4, $sp, 56                   # 8-byte Folded Reload
-	fld.d	$fa5, $sp, 16                   # 8-byte Folded Reload
+	fld.d	$fa5, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fa4, $sp, 16                   # 8-byte Folded Reload
 	move	$a1, $s2
 	move	$a3, $s4
 	move	$a0, $s1
@@ -1501,14 +1495,14 @@ IntersectObjs:                          # @IntersectObjs
 	move	$s2, $a2
 	move	$s1, $a0
 	move	$s3, $a3
-	fmov.d	$fs7, $fa5
-	fmov.d	$fs0, $fa4
+	fmov.d	$fs7, $fa4
+	fmov.d	$fs0, $fa5
 	fst.d	$fa6, $sp, 64                   # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
 	fld.d	$fa6, $sp, 64                   # 8-byte Folded Reload
-	fmov.d	$fa4, $fs0
-	fmov.d	$fa5, $fs7
+	fmov.d	$fa5, $fs0
+	fmov.d	$fa4, $fs7
 	move	$a3, $s3
 	move	$a0, $s1
 	move	$a2, $s2

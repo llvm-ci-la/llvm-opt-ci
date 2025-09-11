@@ -9,26 +9,18 @@
 _ZL12BM_INIT3_RAWRN9benchmark5StateE:   # @_ZL12BM_INIT3_RAWRN9benchmark5StateE
 	.cfi_startproc
 # %bb.0:                                # %_ZN9benchmark5State13StateIteratorC2EPS0_.exit
-	addi.d	$sp, $sp, -80
-	.cfi_def_cfa_offset 80
-	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 8                     # 8-byte Folded Spill
+	addi.d	$sp, $sp, -96
+	.cfi_def_cfa_offset 96
+	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 56                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
 	.cfi_offset 25, -40
-	.cfi_offset 26, -48
-	.cfi_offset 27, -56
-	.cfi_offset 28, -64
-	.cfi_offset 29, -72
 	move	$fp, $a0
 	pcaddu18i	$ra, %call36(_Z11getLoopDatav)
 	jirl	$ra, $ra, 0
@@ -37,139 +29,160 @@ _ZL12BM_INIT3_RAWRN9benchmark5StateE:   # @_ZL12BM_INIT3_RAWRN9benchmark5StateE
 	pcaddu18i	$ra, %call36(_Z8loopInitj)
 	jirl	$ra, $ra, 0
 	ld.d	$s1, $s0, 8
-	ld.d	$s2, $s0, 16
-	ld.d	$s3, $s0, 24
-	ld.d	$s4, $s0, 32
-	ld.d	$s0, $s0, 40
-	ld.w	$s6, $fp, 28
-	ld.d	$s5, $fp, 16
+	vld	$vr0, $s0, 16
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	vld	$vr0, $s0, 32
+	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	ld.w	$s2, $fp, 28
+	ld.d	$s0, $fp, 16
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16StartKeepRunningEv)
 	jirl	$ra, $ra, 0
-	bnez	$s6, .LBB0_12
+	bnez	$s2, .LBB0_12
 # %bb.1:                                # %_ZN9benchmark5State13StateIteratorC2EPS0_.exit
-	beqz	$s5, .LBB0_12
+	beqz	$s0, .LBB0_12
 # %bb.2:                                # %.preheader.lr.ph
 	ld.d	$a0, $fp, 32
 	ld.d	$a0, $a0, 0
 	blez	$a0, .LBB0_12
 # %bb.3:                                # %.preheader.us.preheader
-	sub.d	$a1, $s2, $s3
-	sub.d	$a2, $s1, $s3
-	sub.d	$a3, $s3, $s4
-	sub.d	$a4, $s3, $s0
-	sub.d	$a5, $s1, $s2
-	sub.d	$a6, $s2, $s4
-	sub.d	$a7, $s2, $s0
-	sub.d	$t0, $s1, $s4
-	sub.d	$t1, $s1, $s0
-	sltui	$a1, $a1, 16
+	vld	$vr6, $sp, 32                   # 16-byte Folded Reload
+	vpickve2gr.d	$a1, $vr6, 1
+	vld	$vr7, $sp, 16                   # 16-byte Folded Reload
+	vreplvei.d	$vr0, $vr7, 0
+	vori.b	$vr1, $vr7, 0
+	vinsgr2vr.d	$vr1, $s1, 0
+	vori.b	$vr2, $vr0, 0
+	vshuf4i.d	$vr2, $vr1, 9
+	vshuf4i.d	$vr0, $vr1, 6
+	vreplvei.d	$vr1, $vr1, 1
+	vori.b	$vr3, $vr6, 0
+	vshuf4i.d	$vr3, $vr0, 1
+	vpackev.d	$vr4, $vr6, $vr7
+	vreplvei.d	$vr5, $vr7, 1
+	vsub.d	$vr3, $vr2, $vr3
+	vsub.d	$vr0, $vr0, $vr4
+	vsub.d	$vr1, $vr1, $vr6
+	vsub.d	$vr2, $vr2, $vr5
+	sub.d	$a2, $s1, $a1
+	vslti.du	$vr2, $vr2, 16
+	vslti.du	$vr1, $vr1, 16
+	vpickev.w	$vr1, $vr1, $vr2
+	vpickve2gr.h	$a3, $vr1, 2
+	andi	$a3, $a3, 1
+	vpickve2gr.h	$a4, $vr2, 0
+	bstrins.d	$a4, $a3, 63, 1
+	vpickve2gr.h	$a3, $vr1, 4
+	bstrins.d	$a4, $a3, 2, 2
+	vpickve2gr.h	$a3, $vr1, 6
+	bstrins.d	$a4, $a3, 3, 3
+	vslti.du	$vr0, $vr0, 16
+	vslti.du	$vr1, $vr3, 16
+	vpickev.w	$vr0, $vr1, $vr0
+	vpickve2gr.h	$a3, $vr0, 0
+	bstrins.d	$a4, $a3, 4, 4
+	vpickve2gr.h	$a3, $vr0, 2
+	bstrins.d	$a4, $a3, 5, 5
+	vpickve2gr.h	$a3, $vr0, 4
+	andi	$a3, $a3, 1
+	slli.d	$a3, $a3, 6
+	or	$a3, $a4, $a3
+	vpickve2gr.h	$a4, $vr0, 6
+	slli.d	$a4, $a4, 7
+	or	$a3, $a3, $a4
+	andi	$a3, $a3, 255
 	sltui	$a2, $a2, 16
-	or	$a1, $a1, $a2
-	sltui	$a2, $a3, 16
-	or	$a1, $a1, $a2
-	sltui	$a2, $a4, 16
-	or	$a1, $a1, $a2
-	sltui	$a2, $a5, 16
-	or	$a1, $a1, $a2
-	sltui	$a2, $a6, 16
-	or	$a1, $a1, $a2
-	sltui	$a2, $a7, 16
-	or	$a1, $a1, $a2
-	sltui	$a2, $t0, 16
-	or	$a1, $a1, $a2
-	sltui	$a2, $t1, 16
-	or	$a2, $a1, $a2
-	bstrpick.d	$a1, $a0, 62, 1
-	slli.d	$a1, $a1, 1
-	addi.d	$a3, $a0, -1
-	sltui	$a3, $a3, 1
-	or	$a2, $a3, $a2
-	andi	$a2, $a2, 1
+	sltu	$a3, $zero, $a3
+	or	$a6, $a3, $a2
+	bstrpick.d	$a2, $a0, 62, 1
+	slli.d	$a2, $a2, 1
+	vpickve2gr.d	$a3, $vr7, 0
+	vpickve2gr.d	$a4, $vr7, 1
+	vpickve2gr.d	$a5, $vr6, 0
+	addi.d	$a7, $a0, -1
+	sltui	$a7, $a7, 1
+	or	$a6, $a7, $a6
+	andi	$a6, $a6, 1
 	b	.LBB0_5
 	.p2align	4, , 16
 .LBB0_4:                                # %._crit_edge.us
                                         #   in Loop: Header=BB0_5 Depth=1
-	addi.d	$s5, $s5, -1
-	beqz	$s5, .LBB0_12
+	addi.d	$s0, $s0, -1
+	beqz	$s0, .LBB0_12
 .LBB0_5:                                # %.preheader.us
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_8 Depth 2
                                         #     Child Loop BB0_11 Depth 2
-	beqz	$a2, .LBB0_7
+	beqz	$a6, .LBB0_7
 # %bb.6:                                #   in Loop: Header=BB0_5 Depth=1
-	move	$t0, $zero
+	move	$t4, $zero
 	b	.LBB0_10
 	.p2align	4, , 16
 .LBB0_7:                                # %vector.body.preheader
                                         #   in Loop: Header=BB0_5 Depth=1
-	move	$a3, $s4
-	move	$a4, $s0
-	move	$a5, $s3
-	move	$a6, $s2
-	move	$a7, $s1
+	move	$a7, $a5
 	move	$t0, $a1
+	move	$t1, $a4
+	move	$t2, $a3
+	move	$t3, $s1
+	move	$t4, $a2
 	.p2align	4, , 16
 .LBB0_8:                                # %vector.body
                                         #   Parent Loop BB0_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr0, $a3, 0
-	vld	$vr1, $a4, 0
+	vld	$vr0, $a7, 0
+	vld	$vr1, $t0, 0
 	vbitrevi.d	$vr0, $vr0, 63
 	vfsub.d	$vr0, $vr0, $vr1
-	vst	$vr0, $a5, 0
-	vst	$vr0, $a6, 0
-	vst	$vr0, $a7, 0
-	addi.d	$t0, $t0, -2
+	vst	$vr0, $t1, 0
+	vst	$vr0, $t2, 0
+	vst	$vr0, $t3, 0
+	addi.d	$t4, $t4, -2
+	addi.d	$t3, $t3, 16
+	addi.d	$t2, $t2, 16
+	addi.d	$t1, $t1, 16
+	addi.d	$t0, $t0, 16
 	addi.d	$a7, $a7, 16
-	addi.d	$a6, $a6, 16
-	addi.d	$a5, $a5, 16
-	addi.d	$a4, $a4, 16
-	addi.d	$a3, $a3, 16
-	bnez	$t0, .LBB0_8
+	bnez	$t4, .LBB0_8
 # %bb.9:                                # %middle.block
                                         #   in Loop: Header=BB0_5 Depth=1
-	move	$t0, $a1
-	beq	$a0, $a1, .LBB0_4
+	move	$t4, $a2
+	beq	$a0, $a2, .LBB0_4
 .LBB0_10:                               # %scalar.ph.preheader
                                         #   in Loop: Header=BB0_5 Depth=1
-	alsl.d	$a3, $t0, $s4, 3
-	alsl.d	$a4, $t0, $s0, 3
-	alsl.d	$a5, $t0, $s3, 3
-	alsl.d	$a6, $t0, $s2, 3
-	alsl.d	$a7, $t0, $s1, 3
-	sub.d	$t0, $a0, $t0
+	alsl.d	$a7, $t4, $a5, 3
+	alsl.d	$t0, $t4, $a1, 3
+	alsl.d	$t1, $t4, $a4, 3
+	alsl.d	$t2, $t4, $a3, 3
+	alsl.d	$t3, $t4, $s1, 3
+	sub.d	$t4, $a0, $t4
 	.p2align	4, , 16
 .LBB0_11:                               # %scalar.ph
                                         #   Parent Loop BB0_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	fld.d	$fa0, $a3, 0
-	fld.d	$fa1, $a4, 0
+	fld.d	$fa0, $a7, 0
+	fld.d	$fa1, $t0, 0
 	fneg.d	$fa0, $fa0
 	fsub.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $a5, 0
-	fst.d	$fa0, $a6, 0
-	fst.d	$fa0, $a7, 0
-	addi.d	$a3, $a3, 8
-	addi.d	$a4, $a4, 8
-	addi.d	$a5, $a5, 8
-	addi.d	$a6, $a6, 8
-	addi.d	$t0, $t0, -1
+	fst.d	$fa0, $t1, 0
+	fst.d	$fa0, $t2, 0
+	fst.d	$fa0, $t3, 0
 	addi.d	$a7, $a7, 8
-	bnez	$t0, .LBB0_11
+	addi.d	$t0, $t0, 8
+	addi.d	$t1, $t1, 8
+	addi.d	$t2, $t2, 8
+	addi.d	$t4, $t4, -1
+	addi.d	$t3, $t3, 8
+	bnez	$t4, .LBB0_11
 	b	.LBB0_4
 .LBB0_12:                               # %._crit_edge38
 	move	$a0, $fp
-	ld.d	$s6, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$s5, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 80
+	ld.d	$s2, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 88                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 96
 	pcaddu18i	$t8, %call36(_ZN9benchmark5State17FinishKeepRunningEv)
 	jr	$t8
 .Lfunc_end0:

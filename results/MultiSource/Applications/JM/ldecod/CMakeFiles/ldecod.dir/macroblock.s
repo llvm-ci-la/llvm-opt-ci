@@ -13143,42 +13143,18 @@ decode_ipcm_mb:                         # @decode_ipcm_mb
 	slli.d	$t3, $t3, 8
 	add.d	$t3, $a5, $t3
 	andi	$t4, $a7, 3
-	slli.d	$t5, $t4, 4
-	ld.d	$t6, $t0, 0
-	ldx.h	$t5, $t3, $t5
-	alsl.d	$t3, $t4, $t3, 4
-	stx.h	$t5, $t6, $t1
-	ld.h	$t4, $t3, 4
-	ld.h	$t5, $t3, 8
-	ld.h	$t7, $t3, 12
-	alsl.d	$t6, $a6, $t6, 1
-	st.h	$t4, $t6, 2
-	st.h	$t5, $t6, 4
-	st.h	$t7, $t6, 6
-	ld.h	$t4, $t3, 64
-	ld.h	$t5, $t3, 68
-	ld.h	$t7, $t3, 72
-	ld.h	$t8, $t3, 76
-	st.h	$t4, $t6, 8
-	st.h	$t5, $t6, 10
-	st.h	$t7, $t6, 12
-	st.h	$t8, $t6, 14
-	ld.h	$t4, $t3, 128
-	ld.h	$t5, $t3, 132
-	ld.h	$t7, $t3, 136
-	ld.h	$t8, $t3, 140
-	st.h	$t4, $t6, 16
-	st.h	$t5, $t6, 18
-	st.h	$t7, $t6, 20
-	st.h	$t8, $t6, 22
-	ld.h	$t4, $t3, 192
-	ld.h	$t5, $t3, 196
-	ld.h	$t7, $t3, 200
-	ld.h	$t3, $t3, 204
-	st.h	$t4, $t6, 24
-	st.h	$t5, $t6, 26
-	st.h	$t7, $t6, 28
-	st.h	$t3, $t6, 30
+	alsl.d	$t5, $t4, $t3, 4
+	slli.d	$t4, $t4, 4
+	vldx	$vr0, $t3, $t4
+	vld	$vr1, $t5, 64
+	ld.d	$t3, $t0, 0
+	vld	$vr2, $t5, 128
+	vld	$vr3, $t5, 192
+	vpickev.h	$vr0, $vr1, $vr0
+	vstx	$vr0, $t3, $t1
+	alsl.d	$t3, $a6, $t3, 1
+	vpickev.h	$vr0, $vr3, $vr2
+	vst	$vr0, $t3, 16
 	addi.d	$a7, $a7, 1
 	addi.d	$t0, $t0, 8
 	bne	$a7, $t2, .LBB24_1

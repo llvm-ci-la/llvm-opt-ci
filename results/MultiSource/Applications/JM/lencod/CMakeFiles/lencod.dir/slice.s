@@ -1257,49 +1257,37 @@ encode_one_slice:                       # @encode_one_slice
 	ld.d	$a0, $a0, %got_pc_lo12(writeB8_typeInfo)
 	pcalau12i	$a1, %got_pc_hi20(writeB8_typeInfo_CABAC)
 	ld.d	$a1, $a1, %got_pc_lo12(writeB8_typeInfo_CABAC)
-	ld.w	$a2, $s3, 0
+	vld	$vr0, $s3, 0
 	st.d	$a1, $a0, 0
-	sltui	$a0, $a2, 2
+	vslti.wu	$vr0, $vr0, 2
+	vshuf4i.w	$vr1, $vr0, 50
+	vslli.d	$vr1, $vr1, 32
+	vsrai.d	$vr1, $vr1, 32
+	vshuf4i.w	$vr0, $vr0, 16
+	vslli.d	$vr0, $vr0, 32
+	vsrai.d	$vr0, $vr0, 32
+	pcalau12i	$a0, %got_pc_hi20(writeSE_Dummy)
+	ld.d	$a0, $a0, %got_pc_lo12(writeSE_Dummy)
+	vreplgr2vr.d	$vr2, $a0
 	pcalau12i	$a1, %got_pc_hi20(writeRefFrame_CABAC)
 	ld.d	$a1, $a1, %got_pc_lo12(writeRefFrame_CABAC)
-	masknez	$a2, $a1, $a0
-	pcalau12i	$a3, %got_pc_hi20(writeSE_Dummy)
-	ld.d	$a3, $a3, %got_pc_lo12(writeSE_Dummy)
-	maskeqz	$a0, $a3, $a0
-	or	$a0, $a0, $a2
+	vreplgr2vr.d	$vr3, $a1
+	vbitsel.v	$vr0, $vr3, $vr2, $vr0
+	vbitsel.v	$vr1, $vr3, $vr2, $vr1
 	pcalau12i	$a2, %got_pc_hi20(writeRefFrame)
 	ld.d	$a2, $a2, %got_pc_lo12(writeRefFrame)
-	ld.w	$a4, $s3, 4
-	st.d	$a0, $a2, 0
-	sltui	$a0, $a4, 2
-	masknez	$a4, $a1, $a0
-	vld	$vr0, $s3, 8
-	maskeqz	$a0, $a3, $a0
-	or	$a0, $a0, $a4
-	st.d	$a0, $a2, 8
-	vslti.wu	$vr0, $vr0, 2
-	vpickve2gr.w	$a0, $vr0, 0
-	andi	$a0, $a0, 1
-	masknez	$a4, $a1, $a0
-	maskeqz	$a0, $a3, $a0
-	or	$a0, $a0, $a4
-	st.d	$a0, $a2, 16
-	vpickve2gr.w	$a0, $vr0, 1
-	andi	$a0, $a0, 1
-	masknez	$a4, $a1, $a0
-	maskeqz	$a0, $a3, $a0
-	or	$a0, $a0, $a4
-	st.d	$a0, $a2, 24
-	vpickve2gr.w	$a0, $vr0, 2
-	andi	$a0, $a0, 1
-	masknez	$a4, $a1, $a0
-	maskeqz	$a0, $a3, $a0
-	or	$a0, $a0, $a4
-	st.d	$a0, $a2, 32
-	vpickve2gr.w	$a0, $vr0, 3
-	andi	$a0, $a0, 1
-	masknez	$a1, $a1, $a0
-	maskeqz	$a0, $a3, $a0
+	ld.w	$a3, $s3, 16
+	vst	$vr1, $a2, 16
+	vst	$vr0, $a2, 0
+	sltui	$a3, $a3, 2
+	masknez	$a4, $a1, $a3
+	ld.w	$a5, $s3, 20
+	maskeqz	$a3, $a0, $a3
+	or	$a3, $a3, $a4
+	st.d	$a3, $a2, 32
+	sltui	$a2, $a5, 2
+	masknez	$a1, $a1, $a2
+	maskeqz	$a0, $a0, $a2
 	or	$a4, $a0, $a1
 	pcalau12i	$a0, %got_pc_hi20(writeMB_transform_size_CABAC)
 	ld.d	$a1, $a0, %got_pc_lo12(writeMB_transform_size_CABAC)

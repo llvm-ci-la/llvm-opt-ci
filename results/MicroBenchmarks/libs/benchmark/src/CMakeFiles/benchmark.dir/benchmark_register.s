@@ -45330,19 +45330,19 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	ld.b	$a4, $s0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	move	$fp, $a0
 	dbar	20
-	beqz	$a4, .LBB273_15
+	beqz	$a4, .LBB273_22
 .LBB273_1:                              # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit
 	ld.b	$a0, $s0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	dbar	20
-	beqz	$a0, .LBB273_17
+	beqz	$a0, .LBB273_24
 .LBB273_2:                              # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit13
 	ld.b	$a0, $s0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	dbar	20
-	beqz	$a0, .LBB273_19
+	beqz	$a0, .LBB273_26
 .LBB273_3:                              # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit15
 	ld.b	$a0, $s0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	dbar	20
-	beqz	$a0, .LBB273_21
+	beqz	$a0, .LBB273_28
 .LBB273_4:                              # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit17
 	sub.d	$a4, $zero, $a1
 	sub.d	$a1, $zero, $a2
@@ -45350,21 +45350,21 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	move	$a2, $a4
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal9AddPowersIlEENSt6vectorIT_SaIS3_EE8iteratorEPS5_S3_S3_i)
 	jirl	$ra, $ra, 0
-	ld.d	$a1, $fp, 8
-	beq	$a0, $a1, .LBB273_10
+	ld.d	$a2, $fp, 8
+	beq	$a0, $a2, .LBB273_10
 # %bb.5:                                # %.lr.ph.i.preheader
-	sub.d	$a2, $a1, $a0
-	addi.d	$a3, $a2, -8
+	sub.d	$a1, $a2, $a0
+	addi.d	$a3, $a1, -8
 	ori	$a4, $zero, 24
-	move	$a2, $a0
+	move	$a1, $a0
 	bltu	$a3, $a4, .LBB273_9
 # %bb.6:                                # %vector.ph
-	srli.d	$a2, $a3, 3
-	addi.d	$a3, $a2, 1
-	bstrpick.d	$a2, $a3, 61, 2
-	slli.d	$a4, $a2, 2
-	slli.d	$a2, $a2, 5
-	add.d	$a2, $a0, $a2
+	srli.d	$a1, $a3, 3
+	addi.d	$a3, $a1, 1
+	bstrpick.d	$a1, $a3, 61, 2
+	slli.d	$a4, $a1, 2
+	slli.d	$a1, $a1, 5
+	add.d	$a1, $a0, $a1
 	addi.d	$a5, $a0, 16
 	move	$a6, $a4
 	.p2align	4, , 16
@@ -45384,20 +45384,46 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	.p2align	4, , 16
 .LBB273_9:                              # %.lr.ph.i
                                         # =>This Inner Loop Header: Depth=1
-	ld.d	$a3, $a2, 0
+	ld.d	$a3, $a1, 0
 	sub.d	$a3, $zero, $a3
-	st.d	$a3, $a2, 0
-	addi.d	$a2, $a2, 8
-	bne	$a2, $a1, .LBB273_9
+	st.d	$a3, $a1, 0
+	addi.d	$a1, $a1, 8
+	bne	$a1, $a2, .LBB273_9
 .LBB273_10:                             # %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN9benchmark8internal16AddNegatedPowersIlEEvPS3_IT_SaISA_EESA_SA_iEUlRlE_ET0_SA_SA_SG_.exit
-	beq	$a0, $a1, .LBB273_14
+	beq	$a0, $a2, .LBB273_18
 # %bb.11:                               # %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEZN9benchmark8internal16AddNegatedPowersIlEEvPS3_IT_SaISA_EESA_SA_iEUlRlE_ET0_SA_SA_SG_.exit
-	addi.d	$a1, $a1, -8
-	bgeu	$a0, $a1, .LBB273_14
+	addi.d	$a1, $a2, -8
+	bgeu	$a0, $a1, .LBB273_18
 # %bb.12:                               # %.lr.ph.i.i.preheader
-	addi.d	$a0, $a0, 8
+	addi.d	$a3, $a2, -16
+	addi.d	$a4, $a0, 8
+	sltu	$a5, $a4, $a3
+	masknez	$a6, $a4, $a5
+	maskeqz	$a5, $a3, $a5
+	or	$a5, $a5, $a6
+	addi.d	$a5, $a5, -8
+	xor	$a6, $a5, $a0
+	sltu	$a6, $zero, $a6
+	add.d	$a7, $a0, $a6
+	sub.d	$a5, $a5, $a7
+	srli.d	$a5, $a5, 4
+	add.d	$a5, $a5, $a6
+	ori	$a6, $zero, 21
+	bltu	$a5, $a6, .LBB273_15
+# %bb.13:                               # %vector.memcheck
+	bgeu	$a0, $a2, .LBB273_19
+# %bb.14:                               # %vector.memcheck
+	slli.d	$a6, $a5, 3
+	alsl.d	$a4, $a5, $a4, 3
+	sub.d	$a2, $a2, $a6
+	addi.d	$a2, $a2, -8
+	bgeu	$a2, $a4, .LBB273_19
+.LBB273_15:
+	move	$a2, $a0
+.LBB273_16:                             # %.lr.ph.i.i.preheader42
+	addi.d	$a0, $a2, 8
 	.p2align	4, , 16
-.LBB273_13:                             # %.lr.ph.i.i
+.LBB273_17:                             # %.lr.ph.i.i
                                         # =>This Inner Loop Header: Depth=1
 	move	$a2, $a0
 	ld.d	$a0, $a1, 0
@@ -45406,8 +45432,8 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	st.d	$a3, $a1, 0
 	addi.d	$a1, $a1, -8
 	addi.d	$a0, $a2, 8
-	bltu	$a2, $a1, .LBB273_13
-.LBB273_14:                             # %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_.exit
+	bltu	$a2, $a1, .LBB273_17
+.LBB273_18:                             # %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_.exit
 	ld.d	$s3, $sp, 0                     # 8-byte Folded Reload
 	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
@@ -45416,7 +45442,31 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 48
 	ret
-.LBB273_15:
+.LBB273_19:                             # %vector.ph25
+	addi.d	$a4, $a5, 1
+	bstrpick.d	$a2, $a4, 61, 1
+	slli.d	$a5, $a2, 1
+	slli.d	$a6, $a2, 4
+	sub.d	$a1, $a1, $a6
+	alsl.d	$a2, $a2, $a0, 4
+	move	$a6, $a5
+	.p2align	4, , 16
+.LBB273_20:                             # %vector.body28
+                                        # =>This Inner Loop Header: Depth=1
+	vld	$vr0, $a3, 0
+	vld	$vr1, $a0, 0
+	vshuf4i.d	$vr0, $vr0, 1
+	vst	$vr0, $a0, 0
+	vshuf4i.d	$vr1, $vr0, 1
+	vst	$vr1, $a3, 0
+	addi.d	$a0, $a0, 16
+	addi.d	$a6, $a6, -2
+	addi.d	$a3, $a3, -16
+	bnez	$a6, .LBB273_20
+# %bb.21:                               # %middle.block38
+	beq	$a4, $a5, .LBB273_18
+	b	.LBB273_16
+.LBB273_22:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	move	$s2, $a3
@@ -45429,7 +45479,7 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	move	$a3, $s2
 	addi.w	$a0, $a0, 0
 	beqz	$a0, .LBB273_1
-# %bb.16:
+# %bb.23:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	st.d	$zero, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
@@ -45440,7 +45490,7 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	move	$a2, $s3
 	move	$a3, $s2
 	b	.LBB273_1
-.LBB273_17:
+.LBB273_24:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	move	$s2, $a3
@@ -45453,7 +45503,7 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	move	$a3, $s2
 	addi.w	$a0, $a0, 0
 	beqz	$a0, .LBB273_2
-# %bb.18:
+# %bb.25:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	st.d	$zero, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
@@ -45464,7 +45514,7 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	move	$a2, $s3
 	move	$a3, $s2
 	b	.LBB273_2
-.LBB273_19:
+.LBB273_26:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	move	$s2, $a3
@@ -45477,7 +45527,7 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	move	$a3, $s2
 	addi.w	$a0, $a0, 0
 	beqz	$a0, .LBB273_3
-# %bb.20:
+# %bb.27:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	st.d	$zero, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
@@ -45488,7 +45538,7 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	move	$a2, $s3
 	move	$a3, $s2
 	b	.LBB273_3
-.LBB273_21:
+.LBB273_28:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	move	$s1, $a3
@@ -45501,7 +45551,7 @@ _ZN9benchmark8internal16AddNegatedPowersIlEEvPSt6vectorIT_SaIS3_EES3_S3_i: # @_Z
 	move	$a3, $s1
 	addi.w	$a0, $a0, 0
 	beqz	$a0, .LBB273_4
-# %bb.22:
+# %bb.29:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	st.d	$zero, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
