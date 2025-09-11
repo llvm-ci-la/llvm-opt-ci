@@ -71,8 +71,8 @@ calculate_macro_xs:                     # @calculate_macro_xs
 	srli.d	$t3, $t3, 1
 	add.d	$t3, $t3, $a1
 	slli.d	$t4, $t3, 4
-	fldx.d	$fa1, $a5, $t4
-	fcmp.clt.d	$fcc0, $fa0, $fa1
+	fldx.d	$fa2, $a5, $t4
+	fcmp.clt.d	$fcc0, $fa0, $fa2
 	movcf2gr	$t4, $fcc0
 	maskeqz	$t5, $t3, $t4
 	masknez	$t2, $t2, $t4
@@ -96,12 +96,9 @@ calculate_macro_xs:                     # @calculate_macro_xs
 	add.d	$a4, $a5, $t1
 	ld.d	$a4, $a4, 8
 	addi.d	$a2, $a2, -1
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa2, $zero
 	addi.w	$a5, $zero, -48
-	fmov.d	$fa2, $fa1
-	fmov.d	$fa3, $fa1
-	fmov.d	$fa4, $fa1
-	fmov.d	$fa5, $fa1
+	vori.b	$vr3, $vr1, 0
 	.p2align	4, , 16
 .LBB1_6:                                # =>This Inner Loop Header: Depth=1
 	ld.w	$a7, $a0, 0
@@ -116,48 +113,38 @@ calculate_macro_xs:                     # @calculate_macro_xs
 	add.d	$a7, $a7, $t1
 	maskeqz	$t1, $a5, $t2
 	add.d	$t2, $a7, $t1
-	fld.d	$fa6, $t2, 48
-	fldx.d	$fa7, $a7, $t1
-	fld.d	$ft0, $t2, 56
-	fld.d	$ft1, $t2, 8
-	fsub.d	$ft2, $fa6, $fa0
-	fsub.d	$fa6, $fa6, $fa7
-	fsub.d	$fa7, $ft0, $ft1
-	fneg.d	$ft1, $ft2
-	fdiv.d	$fa6, $ft1, $fa6
-	fld.d	$ft1, $t2, 64
-	fld.d	$ft2, $t2, 16
-	fld.d	$ft3, $t2, 72
-	fld.d	$ft4, $t2, 24
-	fmadd.d	$fa7, $fa6, $fa7, $ft0
-	fsub.d	$ft0, $ft1, $ft2
-	fmadd.d	$ft0, $fa6, $ft0, $ft1
-	fsub.d	$ft1, $ft3, $ft4
-	fmadd.d	$ft1, $fa6, $ft1, $ft3
-	fld.d	$ft2, $t2, 80
-	fld.d	$ft3, $t2, 32
-	fld.d	$ft4, $t2, 88
-	fld.d	$ft5, $t2, 40
-	fld.d	$ft6, $a3, 0
-	fsub.d	$ft3, $ft2, $ft3
-	fmadd.d	$ft2, $fa6, $ft3, $ft2
-	fsub.d	$ft3, $ft4, $ft5
-	fmadd.d	$fa6, $fa6, $ft3, $ft4
-	fmadd.d	$fa5, $fa7, $ft6, $fa5
-	fmadd.d	$fa4, $ft0, $ft6, $fa4
-	fmadd.d	$fa3, $ft1, $ft6, $fa3
-	fmadd.d	$fa2, $ft2, $ft6, $fa2
-	fmadd.d	$fa1, $fa6, $ft6, $fa1
+	fld.d	$fa4, $t2, 48
+	fldx.d	$fa5, $a7, $t1
+	fsub.d	$fa6, $fa4, $fa0
+	vld	$vr7, $t2, 56
+	vld	$vr8, $t2, 8
+	fsub.d	$fa4, $fa4, $fa5
+	fneg.d	$fa5, $fa6
+	fdiv.d	$fa4, $fa5, $fa4
+	vfsub.d	$vr5, $vr7, $vr8
+	vreplvei.d	$vr6, $vr4, 0
+	vfmadd.d	$vr5, $vr6, $vr5, $vr7
+	vld	$vr7, $t2, 72
+	vld	$vr8, $t2, 24
+	fld.d	$ft1, $t2, 88
+	fld.d	$ft2, $t2, 40
+	fld.d	$ft3, $a3, 0
+	vfsub.d	$vr8, $vr7, $vr8
+	vfmadd.d	$vr6, $vr6, $vr8, $vr7
+	fsub.d	$fa7, $ft1, $ft2
+	fmadd.d	$fa4, $fa4, $fa7, $ft1
+	vreplvei.d	$vr7, $vr11, 0
+	vfmadd.d	$vr1, $vr5, $vr7, $vr1
+	vfmadd.d	$vr3, $vr6, $vr7, $vr3
+	fmadd.d	$fa2, $fa4, $ft3, $fa2
 	addi.d	$a3, $a3, 8
 	addi.d	$a1, $a1, -1
 	addi.d	$a0, $a0, 4
 	bnez	$a1, .LBB1_6
 # %bb.7:                                # %._crit_edge.loopexit
-	fst.d	$fa5, $t0, 0
-	fst.d	$fa4, $t0, 8
-	fst.d	$fa3, $t0, 16
-	fst.d	$fa2, $t0, 24
-	fst.d	$fa1, $t0, 32
+	vst	$vr1, $t0, 0
+	vst	$vr3, $t0, 16
+	fst.d	$fa2, $t0, 32
 .LBB1_8:                                # %._crit_edge
 	ret
 .Lfunc_end1:

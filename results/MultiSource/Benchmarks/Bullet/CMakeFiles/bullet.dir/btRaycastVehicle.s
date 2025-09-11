@@ -516,25 +516,21 @@ GCC_except_table7:
 _ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb: # @_ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb
 	.cfi_startproc
 # %bb.0:
-	addi.d	$sp, $sp, -352
-	.cfi_def_cfa_offset 352
-	st.d	$ra, $sp, 344                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 336                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 328                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 320                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 312                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 304                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 296                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 288                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 280                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 272                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 264                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 256                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 248                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 240                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 232                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 224                  # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 216                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -400
+	.cfi_def_cfa_offset 400
+	st.d	$ra, $sp, 392                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 384                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 376                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 368                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 360                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 352                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 344                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 336                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 328                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 320                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 312                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 304                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 296                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -548,25 +544,22 @@ _ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb: # @
 	.cfi_offset 56, -88
 	.cfi_offset 57, -96
 	.cfi_offset 58, -104
-	.cfi_offset 59, -112
-	.cfi_offset 60, -120
-	.cfi_offset 61, -128
-	.cfi_offset 62, -136
 	move	$fp, $a0
-	fld.s	$fs0, $a4, 0
-	vld	$vr2, $a1, 0
-	fld.s	$fs1, $a4, 4
-	fld.s	$fs2, $a4, 8
-	fld.s	$fs3, $a4, 16
-	vst	$vr2, $sp, 168
-	vld	$vr2, $a2, 0
+	vld	$vr2, $a4, 0
+	fld.s	$fa6, $a4, 16
+	vld	$vr3, $a1, 0
+	vld	$vr4, $a2, 0
+	vreplvei.w	$vr7, $vr2, 2
+	vreplvei.w	$vr8, $vr2, 1
+	vst	$vr3, $sp, 248
+	vst	$vr4, $sp, 264
 	vld	$vr3, $a3, 0
 	ld.w	$a1, $a0, 196
 	ld.w	$a0, $a0, 200
-	fld.s	$fs4, $a4, 12
-	vst	$vr2, $sp, 184
-	addi.d	$s3, $sp, 168
-	vst	$vr3, $sp, 200
+	fld.s	$fs0, $a4, 12
+	vreplvei.w	$vr5, $vr2, 0
+	addi.d	$s3, $sp, 248
+	vst	$vr3, $sp, 280
 	bne	$a1, $a0, .LBB8_11
 # %bb.1:
 	sltui	$a0, $a1, 1
@@ -577,8 +570,12 @@ _ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb: # @
 	or	$s4, $a0, $a2
 	bge	$a1, $s4, .LBB8_11
 # %bb.2:
-	fmov.s	$fs5, $fa0
-	fmov.s	$fs6, $fa1
+	vst	$vr8, $sp, 16                   # 16-byte Folded Spill
+	vst	$vr7, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr6, $sp, 48                   # 16-byte Folded Spill
+	vst	$vr5, $sp, 64                   # 16-byte Folded Spill
+	fmov.s	$fs1, $fa0
+	fmov.s	$fs2, $fa1
 	move	$s5, $a5
 	beqz	$s4, .LBB8_4
 # %bb.3:
@@ -640,9 +637,16 @@ _ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb: # @
 	st.d	$s0, $fp, 208
 	st.w	$s4, $fp, 200
 	move	$a5, $s5
-	fmov.s	$fa1, $fs6
-	fmov.s	$fa0, $fs5
+	fmov.s	$fa1, $fs2
+	fmov.s	$fa0, $fs1
+	vld	$vr5, $sp, 64                   # 16-byte Folded Reload
+	vld	$vr6, $sp, 48                   # 16-byte Folded Reload
+	vld	$vr7, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr8, $sp, 16                   # 16-byte Folded Reload
 .LBB8_11:                               # %_ZN20btAlignedObjectArrayI11btWheelInfoE9push_backERKS0_.exit
+	vextrins.w	$vr5, $vr8, 16
+	vextrins.w	$vr5, $vr7, 32
+	vextrins.w	$vr5, $vr6, 48
 	ld.d	$a0, $fp, 208
 	ori	$a2, $zero, 288
 	mul.d	$a1, $a1, $a2
@@ -654,14 +658,11 @@ _ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb: # @
 	vst	$vr3, $a0, 176
 	vst	$vr4, $a0, 160
 	fst.s	$fa0, $a0, 208
-	fst.s	$fs4, $a0, 212
-	fst.s	$fa1, $a0, 216
-	fst.s	$fs0, $a0, 220
 	pcalau12i	$a1, %pc_hi20(.LCPI8_0)
 	vld	$vr0, $a1, %pc_lo12(.LCPI8_0)
-	fst.s	$fs1, $a0, 224
-	fst.s	$fs2, $a0, 228
-	fst.s	$fs3, $a0, 232
+	fst.s	$fs0, $a0, 212
+	fst.s	$fa1, $a0, 216
+	vst	$vr5, $a0, 220
 	vst	$vr0, $a0, 236
 	st.d	$zero, $a0, 252
 	st.b	$a5, $a0, 260
@@ -752,24 +753,20 @@ _ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb: # @
 	pcaddu18i	$ra, %call36(_ZN16btRaycastVehicle20updateWheelTransformEib)
 	jirl	$ra, $ra, 0
 	move	$a0, $s0
-	fld.d	$fs6, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 240                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 248                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 256                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 264                  # 8-byte Folded Reload
-	ld.d	$s7, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 328                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 336                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 344                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 352
+	fld.d	$fs2, $sp, 296                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 304                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 312                  # 8-byte Folded Reload
+	ld.d	$s7, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 360                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 368                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 376                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 384                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 392                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 400
 	ret
 .Lfunc_end8:
 	.size	_ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb, .Lfunc_end8-_ZN16btRaycastVehicle8addWheelERK9btVector3S2_S2_ffRKNS_15btVehicleTuningEb

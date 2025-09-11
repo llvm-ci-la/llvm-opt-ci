@@ -1406,17 +1406,17 @@ augment_automaton:                      # @augment_automaton
 	ext.w.h	$a2, $a1
 	st.h	$s4, $a0, 8
 	blez	$a2, .LBB9_20
-# %bb.15:                               # %.lr.ph113.preheader
+# %bb.15:                               # %iter.check144
 	ori	$a2, $zero, 8
 	bltu	$a1, $a2, .LBB9_17
 # %bb.16:                               # %vector.memcheck139
 	sub.d	$a2, $fp, $a0
 	addi.d	$a2, $a2, -2
-	ori	$a3, $zero, 16
+	ori	$a3, $zero, 32
 	bgeu	$a2, $a3, .LBB9_43
 .LBB9_17:
 	move	$a2, $a1
-.LBB9_18:                               # %.lr.ph113.preheader154
+.LBB9_18:                               # %.lr.ph113.preheader
 	addi.d	$a1, $a2, 1
 	alsl.d	$a3, $a2, $fp, 1
 	addi.d	$a3, $a3, 10
@@ -1588,26 +1588,59 @@ augment_automaton:                      # @augment_automaton
 	st.h	$a2, $a0, 12
 	st.d	$a0, $a1, 0
 	b	.LBB9_5
-.LBB9_43:                               # %vector.ph143
+.LBB9_43:                               # %vector.main.loop.iter.check146
+	ori	$a2, $zero, 16
+	bgeu	$a1, $a2, .LBB9_48
+# %bb.44:
+	move	$a3, $zero
+.LBB9_45:                               # %vec.epilog.ph162
 	bstrpick.d	$a2, $a1, 14, 3
-	slli.d	$a3, $a2, 3
+	slli.d	$a4, $a2, 3
 	andi	$a2, $a1, 7
+	sub.d	$a5, $a3, $a4
+	slli.d	$a6, $a1, 1
+	slli.d	$a3, $a3, 1
+	sub.d	$a6, $a6, $a3
+	add.d	$a3, $a6, $a0
+	addi.d	$a3, $a3, -2
+	add.d	$a6, $a6, $fp
+	addi.d	$a6, $a6, -4
+.LBB9_46:                               # %vec.epilog.vector.body168
+                                        # =>This Inner Loop Header: Depth=1
+	vld	$vr0, $a6, 0
+	vst	$vr0, $a3, 0
+	addi.d	$a5, $a5, 8
+	addi.d	$a3, $a3, -16
+	addi.d	$a6, $a6, -16
+	bnez	$a5, .LBB9_46
+# %bb.47:                               # %vec.epilog.middle.block174
+	bne	$a4, $a1, .LBB9_18
+	b	.LBB9_20
+.LBB9_48:                               # %vector.ph147
+	bstrpick.d	$a2, $a1, 14, 4
+	slli.d	$a3, $a2, 4
+	alsl.d	$a2, $a1, $fp, 1
+	addi.d	$a2, $a2, -4
 	alsl.d	$a4, $a1, $a0, 1
 	addi.d	$a4, $a4, -2
-	alsl.d	$a5, $a1, $fp, 1
-	addi.d	$a5, $a5, -4
-	move	$a6, $a3
-	.p2align	4, , 16
-.LBB9_44:                               # %vector.body146
+	move	$a5, $a3
+.LBB9_49:                               # %vector.body150
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr0, $a5, 0
+	vld	$vr0, $a2, 0
+	vld	$vr1, $a2, -16
 	vst	$vr0, $a4, 0
-	addi.d	$a6, $a6, -8
-	addi.d	$a4, $a4, -16
+	vst	$vr1, $a4, -16
 	addi.d	$a5, $a5, -16
-	bnez	$a6, .LBB9_44
-# %bb.45:                               # %middle.block151
+	addi.d	$a2, $a2, -32
+	addi.d	$a4, $a4, -32
+	bnez	$a5, .LBB9_49
+# %bb.50:                               # %middle.block158
 	beq	$a3, $a1, .LBB9_20
+# %bb.51:                               # %vec.epilog.iter.check163
+	andi	$a2, $a1, 8
+	bnez	$a2, .LBB9_45
+# %bb.52:
+	andi	$a2, $a1, 15
 	b	.LBB9_18
 .Lfunc_end9:
 	.size	augment_automaton, .Lfunc_end9-augment_automaton

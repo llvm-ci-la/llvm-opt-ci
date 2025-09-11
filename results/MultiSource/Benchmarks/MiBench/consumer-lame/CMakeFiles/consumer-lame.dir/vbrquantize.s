@@ -1678,168 +1678,168 @@ VBR_iteration_loop_new:                 # @VBR_iteration_loop_new
 # %bb.20:                               # %.preheader.preheader
                                         #   in Loop: Header=BB4_10 Depth=2
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 912
+	ori	$a1, $a1, 896
 	add.d	$a1, $sp, $a1
 	vld	$vr1, $a1, 0
+	vreplvei.d	$vr0, $vr4, 0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 912
+	add.d	$a1, $sp, $a1
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 896
 	add.d	$a1, $sp, $a1
-	vld	$vr2, $a1, 0
-	vreplvei.d	$vr0, $vr4, 0
-	vfsub.d	$vr1, $vr1, $vr0
+	vst	$vr1, $a1, 0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 928
+	add.d	$a1, $sp, $a1
+	vld	$vr1, $a1, 0
 	vfsub.d	$vr2, $vr2, $vr0
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 928
-	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 896
-	add.d	$a1, $sp, $a1
-	vst	$vr2, $a1, 0
-	lu12i.w	$a1, 1
 	ori	$a1, $a1, 912
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
+	vst	$vr2, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 944
 	add.d	$a1, $sp, $a1
-	vld	$vr1, $a1, 0
-	vfsub.d	$vr2, $vr3, $vr0
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 928
 	add.d	$a1, $sp, $a1
-	vst	$vr2, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 976
-	add.d	$a1, $sp, $a1
-	vld	$vr2, $a1, 0
+	vst	$vr1, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 960
 	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	vfsub.d	$vr1, $vr1, $vr0
+	vld	$vr1, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 944
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
-	vfsub.d	$vr1, $vr2, $vr0
-	vfsub.d	$vr2, $vr3, $vr0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 992
-	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 960
-	add.d	$a1, $sp, $a1
 	vst	$vr2, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 976
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1008
+	ori	$a1, $a1, 960
 	add.d	$a1, $sp, $a1
-	vld	$vr1, $a1, 0
-	vfsub.d	$vr2, $vr3, $vr0
+	vst	$vr1, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 992
 	add.d	$a1, $sp, $a1
+	vld	$vr1, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 976
+	add.d	$a1, $sp, $a1
 	vst	$vr2, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1040
-	add.d	$a1, $sp, $a1
-	vld	$vr2, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1024
-	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1008
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
-	vfsub.d	$vr1, $vr2, $vr0
-	vfsub.d	$vr2, $vr3, $vr0
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1056
+	ori	$a1, $a1, 992
 	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
+	vst	$vr1, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1024
+	add.d	$a1, $sp, $a1
+	vld	$vr1, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 1008
 	add.d	$a1, $sp, $a1
 	vst	$vr2, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1040
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1072
+	ori	$a1, $a1, 1024
 	add.d	$a1, $sp, $a1
-	vld	$vr1, $a1, 0
-	vfsub.d	$vr2, $vr3, $vr0
+	vst	$vr1, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1056
 	add.d	$a1, $sp, $a1
+	vld	$vr1, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 1040
+	add.d	$a1, $sp, $a1
 	vst	$vr2, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1104
-	add.d	$a1, $sp, $a1
-	vld	$vr2, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1088
-	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1072
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
-	vfsub.d	$vr1, $vr2, $vr0
-	vfsub.d	$vr2, $vr3, $vr0
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1120
+	ori	$a1, $a1, 1056
 	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
+	vst	$vr1, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1088
+	add.d	$a1, $sp, $a1
+	vld	$vr1, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 1072
 	add.d	$a1, $sp, $a1
 	vst	$vr2, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1104
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1136
+	ori	$a1, $a1, 1088
 	add.d	$a1, $sp, $a1
-	vld	$vr1, $a1, 0
-	vfsub.d	$vr2, $vr3, $vr0
+	vst	$vr1, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1120
 	add.d	$a1, $sp, $a1
+	vld	$vr1, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 1104
+	add.d	$a1, $sp, $a1
 	vst	$vr2, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1168
-	add.d	$a1, $sp, $a1
-	vld	$vr2, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1152
-	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	vfsub.d	$vr1, $vr1, $vr0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1136
 	add.d	$a1, $sp, $a1
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 1120
+	add.d	$a1, $sp, $a1
 	vst	$vr1, $a1, 0
-	vfsub.d	$vr1, $vr2, $vr0
-	vfsub.d	$vr0, $vr3, $vr0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1152
 	add.d	$a1, $sp, $a1
-	vst	$vr0, $a1, 0
+	vld	$vr1, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1168
 	add.d	$a1, $sp, $a1
+	vld	$vr3, $a1, 0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 1136
+	add.d	$a1, $sp, $a1
+	vst	$vr2, $a1, 0
+	vfsub.d	$vr1, $vr1, $vr0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 1152
+	add.d	$a1, $sp, $a1
 	vst	$vr1, $a1, 0
+	vfsub.d	$vr0, $vr3, $vr0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 1168
+	add.d	$a1, $sp, $a1
+	vst	$vr0, $a1, 0
 	st.w	$zero, $s1, 68
 	ld.d	$a1, $sp, 120                   # 8-byte Folded Reload
 	add.d	$a0, $a1, $a0
@@ -1873,93 +1873,93 @@ VBR_iteration_loop_new:                 # @VBR_iteration_loop_new
 	ori	$a1, $a1, 720
 	add.d	$a1, $sp, $a1
 	vld	$vr0, $a1, 0
+	vreplvei.d	$vr1, $vr4, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 736
 	add.d	$a1, $sp, $a1
-	vld	$vr1, $a1, 0
-	vreplvei.d	$vr2, $vr4, 0
-	vfsub.d	$vr0, $vr0, $vr2
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr0, $vr0, $vr1
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 720
 	add.d	$a1, $sp, $a1
 	vst	$vr0, $a1, 0
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 768
-	add.d	$a1, $sp, $a1
-	vld	$vr0, $a1, 0
-	lu12i.w	$a1, 1
 	ori	$a1, $a1, 752
 	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	vfsub.d	$vr1, $vr1, $vr2
+	vld	$vr0, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr1
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 736
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
-	vfsub.d	$vr0, $vr0, $vr2
-	vfsub.d	$vr1, $vr3, $vr2
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 784
-	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 752
-	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
+	vst	$vr2, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 768
 	add.d	$a1, $sp, $a1
-	vst	$vr0, $a1, 0
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr0, $vr0, $vr1
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 800
+	ori	$a1, $a1, 752
 	add.d	$a1, $sp, $a1
-	vld	$vr0, $a1, 0
-	vfsub.d	$vr1, $vr3, $vr2
+	vst	$vr0, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 784
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
+	vld	$vr0, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr1
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 832
+	ori	$a1, $a1, 768
 	add.d	$a1, $sp, $a1
-	vld	$vr1, $a1, 0
-	lu12i.w	$a1, 1
-	ori	$a1, $a1, 816
-	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
-	vfsub.d	$vr0, $vr0, $vr2
+	vst	$vr2, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 800
 	add.d	$a1, $sp, $a1
-	vst	$vr0, $a1, 0
-	vfsub.d	$vr0, $vr1, $vr2
-	vfsub.d	$vr1, $vr3, $vr2
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr0, $vr0, $vr1
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 864
+	ori	$a1, $a1, 784
 	add.d	$a1, $sp, $a1
-	vld	$vr3, $a1, 0
+	vst	$vr0, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 816
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
+	vld	$vr0, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr1
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 848
+	ori	$a1, $a1, 800
 	add.d	$a1, $sp, $a1
-	vld	$vr1, $a1, 0
+	vst	$vr2, $a1, 0
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 832
 	add.d	$a1, $sp, $a1
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr0, $vr0, $vr1
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 816
+	add.d	$a1, $sp, $a1
 	vst	$vr0, $a1, 0
-	vfsub.d	$vr0, $vr3, $vr2
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 848
+	add.d	$a1, $sp, $a1
+	vld	$vr0, $a1, 0
+	vfsub.d	$vr2, $vr2, $vr1
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 832
+	add.d	$a1, $sp, $a1
+	vst	$vr2, $a1, 0
+	lu12i.w	$a1, 1
+	ori	$a1, $a1, 864
+	add.d	$a1, $sp, $a1
+	vld	$vr2, $a1, 0
+	vfsub.d	$vr0, $vr0, $vr1
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 880
 	add.d	$a1, $sp, $a1
 	fld.d	$fa3, $a1, 0
-	vfsub.d	$vr1, $vr1, $vr2
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 848
 	add.d	$a1, $sp, $a1
-	vst	$vr1, $a1, 0
+	vst	$vr0, $a1, 0
+	vfsub.d	$vr0, $vr2, $vr1
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 864
 	add.d	$a1, $sp, $a1

@@ -446,25 +446,27 @@ _ZN5Array6InsertEP6Objecti:             # @_ZN5Array6InsertEP6Objecti
 	maskeqz	$a5, $a5, $a7
 	or	$a5, $a5, $t0
 	sub.d	$a7, $a6, $a5
-	ori	$a5, $zero, 2
+	ori	$a5, $zero, 4
 	bgeu	$a7, $a5, .LBB7_6
 # %bb.5:
 	move	$a5, $a6
 	b	.LBB7_9
 .LBB7_6:                                # %vector.ph
 	move	$t0, $a7
-	bstrins.d	$t0, $zero, 0, 0
+	bstrins.d	$t0, $zero, 1, 0
 	sub.d	$a5, $a6, $t0
 	alsl.d	$a6, $a6, $a3, 3
-	addi.d	$a6, $a6, -8
+	addi.d	$a6, $a6, -16
 	move	$t1, $t0
 	.p2align	4, , 16
 .LBB7_7:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr0, $a6, -8
-	vst	$vr0, $a6, 0
-	addi.d	$t1, $t1, -2
-	addi.d	$a6, $a6, -16
+	vld	$vr0, $a6, 0
+	vld	$vr1, $a6, -16
+	vst	$vr0, $a6, 8
+	vst	$vr1, $a6, -8
+	addi.d	$t1, $t1, -4
+	addi.d	$a6, $a6, -32
 	bnez	$t1, .LBB7_7
 # %bb.8:                                # %middle.block
 	beq	$a7, $t0, .LBB7_11

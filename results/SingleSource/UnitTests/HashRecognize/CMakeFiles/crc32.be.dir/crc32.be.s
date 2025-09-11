@@ -2,96 +2,97 @@
 	.section	.rodata.cst16,"aM",@progbits,16
 	.p2align	4, 0x0                          # -- Begin function main
 .LCPI0_0:
-	.word	169000                          # 0x29428
-	.word	202800                          # 0x31830
-	.word	236600                          # 0x39c38
-	.word	270400                          # 0x42040
-.LCPI0_1:
 	.word	33800                           # 0x8408
 	.word	67600                           # 0x10810
 	.word	101400                          # 0x18c18
 	.word	135200                          # 0x21020
+.LCPI0_1:
+	.word	169000                          # 0x29428
+	.word	202800                          # 0x31830
+	.word	236600                          # 0x39c38
+	.word	270400                          # 0x42040
 .LCPI0_2:
-	.word	439400                          # 0x6b468
-	.word	473200                          # 0x73870
-	.word	507000                          # 0x7bc78
-	.word	540800                          # 0x84080
-.LCPI0_3:
 	.word	304200                          # 0x4a448
 	.word	338000                          # 0x52850
 	.word	371800                          # 0x5ac58
 	.word	405600                          # 0x63060
+.LCPI0_3:
+	.word	439400                          # 0x6b468
+	.word	473200                          # 0x73870
+	.word	507000                          # 0x7bc78
+	.word	540800                          # 0x84080
 .LCPI0_4:
-	.word	709800                          # 0xad4a8
-	.word	743600                          # 0xb58b0
-	.word	777400                          # 0xbdcb8
-	.word	811200                          # 0xc60c0
-.LCPI0_5:
 	.word	574600                          # 0x8c488
 	.word	608400                          # 0x94890
 	.word	642200                          # 0x9cc98
 	.word	676000                          # 0xa50a0
+.LCPI0_5:
+	.word	709800                          # 0xad4a8
+	.word	743600                          # 0xb58b0
+	.word	777400                          # 0xbdcb8
+	.word	811200                          # 0xc60c0
 .LCPI0_6:
-	.word	980200                          # 0xef4e8
-	.word	1014000                         # 0xf78f0
-	.word	1047800                         # 0xffcf8
-	.word	1081600                         # 0x108100
-.LCPI0_7:
 	.word	845000                          # 0xce4c8
 	.word	878800                          # 0xd68d0
 	.word	912600                          # 0xdecd8
 	.word	946400                          # 0xe70e0
+.LCPI0_7:
+	.word	980200                          # 0xef4e8
+	.word	1014000                         # 0xf78f0
+	.word	1047800                         # 0xffcf8
+	.word	1081600                         # 0x108100
 .LCPI0_8:
-	.word	1185064                         # 0x121528
-	.word	1284400                         # 0x139930
-	.word	1252664                         # 0x131d38
-	.word	1352000                         # 0x14a140
-.LCPI0_9:
 	.word	1049864                         # 0x100508
 	.word	1149200                         # 0x118910
 	.word	1117464                         # 0x110d18
 	.word	1216800                         # 0x129120
+.LCPI0_9:
+	.word	1185064                         # 0x121528
+	.word	1284400                         # 0x139930
+	.word	1252664                         # 0x131d38
+	.word	1352000                         # 0x14a140
 .LCPI0_10:
-	.word	1455464                         # 0x163568
-	.word	1554800                         # 0x17b970
-	.word	1523064                         # 0x173d78
-	.word	1622400                         # 0x18c180
-.LCPI0_11:
 	.word	1320264                         # 0x142548
 	.word	1419600                         # 0x15a950
 	.word	1387864                         # 0x152d58
 	.word	1487200                         # 0x16b160
+.LCPI0_11:
+	.word	1455464                         # 0x163568
+	.word	1554800                         # 0x17b970
+	.word	1523064                         # 0x173d78
+	.word	1622400                         # 0x18c180
 .LCPI0_12:
-	.word	1725864                         # 0x1a55a8
-	.word	1825200                         # 0x1bd9b0
-	.word	1793464                         # 0x1b5db8
-	.word	1892800                         # 0x1ce1c0
-.LCPI0_13:
 	.word	1590664                         # 0x184588
 	.word	1690000                         # 0x19c990
 	.word	1658264                         # 0x194d98
 	.word	1757600                         # 0x1ad1a0
+.LCPI0_13:
+	.word	1725864                         # 0x1a55a8
+	.word	1825200                         # 0x1bd9b0
+	.word	1793464                         # 0x1b5db8
+	.word	1892800                         # 0x1ce1c0
+.LCPI0_14:
+	.word	1861064                         # 0x1c65c8
+	.word	1960400                         # 0x1de9d0
+	.word	1928664                         # 0x1d6dd8
+	.word	2028000                         # 0x1ef1e0
 	.text
 	.globl	main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -192
-	st.d	$fp, $sp, 184                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 144                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 136                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 128                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 120                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 112                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 104                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 96                   # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 88                   # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 80                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -176
+	st.d	$fp, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 160                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 152                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 144                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 136                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 128                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 120                  # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 112                  # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 104                  # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 96                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(CRCTable)
 	addi.d	$a1, $a0, %pc_lo12(CRCTable)
 	ld.w	$a0, $a1, 0
@@ -99,326 +100,312 @@ main:                                   # @main
 	vld	$vr0, $a2, %pc_lo12(.LCPI0_0)
 	pcalau12i	$a2, %pc_hi20(.LCPI0_1)
 	vld	$vr1, $a2, %pc_lo12(.LCPI0_1)
-	vreplgr2vr.w	$vr13, $a0
-	vxor.v	$vr0, $vr13, $vr0
-	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
-	vxor.v	$vr0, $vr13, $vr1
-	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
 	pcalau12i	$a2, %pc_hi20(.LCPI0_2)
-	vld	$vr0, $a2, %pc_lo12(.LCPI0_2)
+	vld	$vr2, $a2, %pc_lo12(.LCPI0_2)
+	vreplgr2vr.w	$vr14, $a0
+	vxor.v	$vr0, $vr14, $vr0
+	vst	$vr0, $sp, 80                   # 16-byte Folded Spill
+	vxor.v	$vr0, $vr14, $vr1
+	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
+	vxor.v	$vr0, $vr14, $vr2
+	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
 	pcalau12i	$a2, %pc_hi20(.LCPI0_3)
-	vld	$vr3, $a2, %pc_lo12(.LCPI0_3)
+	vld	$vr0, $a2, %pc_lo12(.LCPI0_3)
 	pcalau12i	$a2, %pc_hi20(.LCPI0_4)
-	vld	$vr4, $a2, %pc_lo12(.LCPI0_4)
+	vld	$vr1, $a2, %pc_lo12(.LCPI0_4)
 	pcalau12i	$a2, %pc_hi20(.LCPI0_5)
 	vld	$vr5, $a2, %pc_lo12(.LCPI0_5)
-	vxor.v	$vr0, $vr13, $vr0
-	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
-	vxor.v	$vr0, $vr13, $vr3
-	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
-	vxor.v	$vr4, $vr13, $vr4
-	vxor.v	$vr5, $vr13, $vr5
 	pcalau12i	$a2, %pc_hi20(.LCPI0_6)
-	vld	$vr0, $a2, %pc_lo12(.LCPI0_6)
+	vld	$vr6, $a2, %pc_lo12(.LCPI0_6)
+	vxor.v	$vr0, $vr14, $vr0
+	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	vxor.v	$vr0, $vr14, $vr1
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	vxor.v	$vr5, $vr14, $vr5
+	vxor.v	$vr6, $vr14, $vr6
 	pcalau12i	$a2, %pc_hi20(.LCPI0_7)
-	vld	$vr7, $a2, %pc_lo12(.LCPI0_7)
+	vld	$vr0, $a2, %pc_lo12(.LCPI0_7)
 	pcalau12i	$a2, %pc_hi20(.LCPI0_8)
-	vld	$vr8, $a2, %pc_lo12(.LCPI0_8)
+	vld	$vr1, $a2, %pc_lo12(.LCPI0_8)
 	pcalau12i	$a2, %pc_hi20(.LCPI0_9)
 	vld	$vr9, $a2, %pc_lo12(.LCPI0_9)
-	vxor.v	$vr6, $vr13, $vr0
-	vxor.v	$vr7, $vr13, $vr7
-	vxor.v	$vr8, $vr13, $vr8
-	vxor.v	$vr9, $vr13, $vr9
 	pcalau12i	$a2, %pc_hi20(.LCPI0_10)
-	vld	$vr0, $a2, %pc_lo12(.LCPI0_10)
+	vld	$vr10, $a2, %pc_lo12(.LCPI0_10)
+	vxor.v	$vr7, $vr14, $vr0
+	vxor.v	$vr8, $vr14, $vr1
+	vxor.v	$vr9, $vr14, $vr9
+	vxor.v	$vr10, $vr14, $vr10
 	pcalau12i	$a2, %pc_hi20(.LCPI0_11)
-	vld	$vr11, $a2, %pc_lo12(.LCPI0_11)
+	vld	$vr0, $a2, %pc_lo12(.LCPI0_11)
 	pcalau12i	$a2, %pc_hi20(.LCPI0_12)
-	vld	$vr12, $a2, %pc_lo12(.LCPI0_12)
+	vld	$vr1, $a2, %pc_lo12(.LCPI0_12)
 	pcalau12i	$a2, %pc_hi20(.LCPI0_13)
-	vld	$vr14, $a2, %pc_lo12(.LCPI0_13)
-	vxor.v	$vr10, $vr13, $vr0
-	vxor.v	$vr11, $vr13, $vr11
-	vxor.v	$vr12, $vr13, $vr12
-	vxor.v	$vr13, $vr13, $vr14
-	lu12i.w	$a2, 454
-	ori	$a2, $a2, 1480
+	vld	$vr13, $a2, %pc_lo12(.LCPI0_13)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_14)
+	vld	$vr15, $a2, %pc_lo12(.LCPI0_14)
+	vxor.v	$vr11, $vr14, $vr0
+	vxor.v	$vr12, $vr14, $vr1
+	vxor.v	$vr13, $vr14, $vr13
+	vxor.v	$vr14, $vr14, $vr15
+	lu12i.w	$a2, 487
+	ori	$a2, $a2, 1512
 	xor	$a2, $a0, $a2
-	lu12i.w	$a3, 478
-	ori	$a3, $a3, 2512
+	lu12i.w	$a3, 511
+	ori	$a3, $a3, 2544
 	xor	$a3, $a0, $a3
-	lu12i.w	$a4, 470
-	ori	$a4, $a4, 3544
+	lu12i.w	$a4, 503
+	ori	$a4, $a4, 3576
 	xor	$a4, $a0, $a4
-	lu12i.w	$a5, 495
-	ori	$a5, $a5, 480
-	xor	$a5, $a0, $a5
-	lu12i.w	$a6, 487
-	ori	$a6, $a6, 1512
-	xor	$a6, $a0, $a6
-	lu12i.w	$a7, 511
-	ori	$a7, $a7, 2544
-	xor	$a7, $a0, $a7
-	lu12i.w	$t0, 503
-	ori	$t0, $t0, 3576
-	xor	$t0, $a0, $t0
-	ori	$t1, $zero, 28
+	ori	$a5, $zero, 28
 	pcalau12i	$a0, %pc_hi20(main.sample)
-	addi.d	$t2, $a0, %pc_lo12(main.sample)
+	addi.d	$a6, $a0, %pc_lo12(main.sample)
 	lu12i.w	$a0, 528
 	ori	$a0, $a0, 512
-	vreplgr2vr.w	$vr14, $a0
+	vreplgr2vr.w	$vr15, $a0
 	lu12i.w	$a0, 1056
 	ori	$a0, $a0, 1024
-	vreplgr2vr.w	$vr15, $a0
+	vreplgr2vr.w	$vr16, $a0
 	lu12i.w	$a0, 1584
 	ori	$a0, $a0, 1536
-	vreplgr2vr.w	$vr16, $a0
-	lu12i.w	$t3, -4096
-	lu32i.d	$t3, 0
+	vreplgr2vr.w	$vr17, $a0
+	lu12i.w	$a7, -4096
+	lu32i.d	$a7, 0
 	pcalau12i	$a0, %pc_hi20(.L.crctable)
-	addi.d	$t4, $a0, %pc_lo12(.L.crctable)
-	move	$t5, $zero
+	addi.d	$t0, $a0, %pc_lo12(.L.crctable)
+	move	$t1, $zero
 	move	$a0, $zero
-	ori	$t6, $zero, 1
-	addi.w	$t7, $zero, -4
+	ori	$t2, $zero, 1
+	addi.w	$t3, $zero, -4
 	b	.LBB0_2
 	.p2align	4, , 16
 .LBB0_1:                                # %crc_table.exit
                                         #   in Loop: Header=BB0_2 Depth=1
-	ldx.w	$t8, $t2, $t5
-	ldx.w	$fp, $t2, $t1
-	xor	$s0, $fp, $t8
-	and	$s1, $s0, $t3
-	srli.d	$s1, $s1, 22
-	ldx.w	$s2, $a1, $s1
-	slli.d	$s0, $s0, 8
-	xor	$s3, $s2, $s0
-	and	$s3, $s3, $t3
-	srli.d	$s3, $s3, 22
-	ldx.w	$s3, $a1, $s3
-	slli.d	$t8, $t8, 16
-	slli.d	$s2, $s2, 8
-	xor	$s2, $s3, $s2
-	xor	$s2, $s2, $t8
-	slli.d	$s3, $fp, 16
-	xor	$s4, $s2, $s3
-	and	$s4, $s4, $t3
-	srli.d	$s4, $s4, 22
-	ldx.w	$s4, $a1, $s4
-	ldx.w	$s1, $t4, $s1
-	slli.d	$s2, $s2, 8
-	xor	$s2, $s2, $s4
-	slli.d	$fp, $fp, 24
-	xor	$s0, $s1, $s0
-	and	$s0, $s0, $t3
+	ldx.w	$t4, $a6, $t1
+	ldx.w	$t5, $a6, $a5
+	xor	$t6, $t5, $t4
+	and	$t7, $t6, $a7
+	srli.d	$t7, $t7, 22
+	ldx.w	$t8, $a1, $t7
+	slli.d	$t6, $t6, 8
+	xor	$fp, $t8, $t6
+	and	$fp, $fp, $a7
+	srli.d	$fp, $fp, 22
+	ldx.w	$fp, $a1, $fp
+	slli.d	$t4, $t4, 16
+	slli.d	$t8, $t8, 8
+	xor	$t8, $fp, $t8
+	xor	$t8, $t8, $t4
+	slli.d	$fp, $t5, 16
+	xor	$s0, $t8, $fp
+	and	$s0, $s0, $a7
 	srli.d	$s0, $s0, 22
-	ldx.w	$s0, $t4, $s0
-	xor	$s4, $s2, $fp
-	and	$s4, $s4, $t3
-	slli.d	$s1, $s1, 8
-	xor	$s0, $s0, $s1
-	xor	$t8, $s0, $t8
-	xor	$s0, $t8, $s3
-	and	$s0, $s0, $t3
-	srli.d	$s0, $s0, 22
-	ldx.w	$s0, $t4, $s0
-	srli.d	$s1, $s4, 22
-	ldx.w	$s1, $a1, $s1
+	ldx.w	$s0, $a1, $s0
+	ldx.w	$t7, $t0, $t7
 	slli.d	$t8, $t8, 8
 	xor	$t8, $t8, $s0
-	xor	$fp, $t8, $fp
-	and	$fp, $fp, $t3
-	srli.d	$fp, $fp, 22
-	ldx.w	$fp, $t4, $fp
-	slli.w	$s0, $s2, 8
-	xor	$s0, $s0, $s1
-	slli.w	$t8, $t8, 8
-	xor	$t8, $t8, $fp
-	xor	$t8, $s0, $t8
-	sltui	$t8, $t8, 1
-	masknez	$fp, $t6, $t8
-	maskeqz	$a0, $a0, $t8
-	or	$a0, $a0, $fp
-	addi.d	$t1, $t1, -4
-	addi.d	$t5, $t5, 4
-	beq	$t1, $t7, .LBB0_4
+	slli.d	$t5, $t5, 24
+	xor	$t6, $t7, $t6
+	and	$t6, $t6, $a7
+	srli.d	$t6, $t6, 22
+	ldx.w	$t6, $t0, $t6
+	xor	$s0, $t8, $t5
+	and	$s0, $s0, $a7
+	slli.d	$t7, $t7, 8
+	xor	$t6, $t6, $t7
+	xor	$t4, $t6, $t4
+	xor	$t6, $t4, $fp
+	and	$t6, $t6, $a7
+	srli.d	$t6, $t6, 22
+	ldx.w	$t6, $t0, $t6
+	srli.d	$t7, $s0, 22
+	ldx.w	$t7, $a1, $t7
+	slli.d	$t4, $t4, 8
+	xor	$t4, $t4, $t6
+	xor	$t5, $t4, $t5
+	and	$t5, $t5, $a7
+	srli.d	$t5, $t5, 22
+	ldx.w	$t5, $t0, $t5
+	slli.w	$t6, $t8, 8
+	xor	$t6, $t6, $t7
+	slli.w	$t4, $t4, 8
+	xor	$t4, $t4, $t5
+	xor	$t4, $t6, $t4
+	sltui	$t4, $t4, 1
+	masknez	$t5, $t2, $t4
+	maskeqz	$a0, $a0, $t4
+	or	$a0, $a0, $t5
+	addi.d	$a5, $a5, -4
+	addi.d	$t1, $t1, 4
+	beq	$a5, $t3, .LBB0_4
 .LBB0_2:                                # =>This Inner Loop Header: Depth=1
-	ld.w	$t8, $a1, 1020
-	bnez	$t8, .LBB0_1
+	ld.w	$t4, $a1, 1020
+	bnez	$t4, .LBB0_1
 # %bb.3:                                # %vector.ph12
                                         #   in Loop: Header=BB0_2 Depth=1
-	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
+	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
 	vst	$vr0, $a1, 4
 	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vst	$vr0, $a1, 20
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
 	vst	$vr0, $a1, 36
 	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
 	vst	$vr0, $a1, 52
-	vst	$vr5, $a1, 68
-	vst	$vr4, $a1, 84
-	vst	$vr7, $a1, 100
-	vst	$vr6, $a1, 116
-	vst	$vr9, $a1, 132
-	vst	$vr8, $a1, 148
-	vst	$vr11, $a1, 164
-	vst	$vr10, $a1, 180
-	vst	$vr13, $a1, 196
-	vst	$vr12, $a1, 212
-	st.w	$a2, $a1, 228
-	st.w	$a3, $a1, 232
-	st.w	$a4, $a1, 236
-	st.w	$a5, $a1, 240
-	st.w	$a6, $a1, 244
-	vld	$vr18, $a1, 0
-	vld	$vr17, $a1, 16
-	st.w	$a7, $a1, 248
-	st.w	$t0, $a1, 252
-	vxor.v	$vr0, $vr18, $vr14
-	vxor.v	$vr21, $vr17, $vr14
-	vld	$vr20, $a1, 32
-	vld	$vr19, $a1, 48
+	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vst	$vr0, $a1, 68
+	vst	$vr5, $a1, 84
+	vst	$vr6, $a1, 100
+	vst	$vr7, $a1, 116
+	vst	$vr8, $a1, 132
+	vst	$vr9, $a1, 148
+	vst	$vr10, $a1, 164
+	vst	$vr11, $a1, 180
+	vst	$vr12, $a1, 196
+	vst	$vr13, $a1, 212
+	vst	$vr14, $a1, 228
+	st.w	$a2, $a1, 244
+	vld	$vr19, $a1, 0
+	vld	$vr18, $a1, 16
+	st.w	$a3, $a1, 248
+	st.w	$a4, $a1, 252
+	vxor.v	$vr0, $vr19, $vr15
+	vxor.v	$vr1, $vr18, $vr15
+	vld	$vr21, $a1, 32
+	vld	$vr20, $a1, 48
 	vst	$vr0, $a1, 256
-	vst	$vr21, $a1, 272
-	vxor.v	$vr0, $vr20, $vr14
-	vxor.v	$vr23, $vr19, $vr14
-	vld	$vr22, $a1, 64
-	vld	$vr21, $a1, 80
+	vst	$vr1, $a1, 272
+	vxor.v	$vr0, $vr21, $vr15
+	vxor.v	$vr1, $vr20, $vr15
+	vld	$vr23, $a1, 64
+	vld	$vr22, $a1, 80
 	vst	$vr0, $a1, 288
-	vst	$vr23, $a1, 304
-	vxor.v	$vr0, $vr22, $vr14
-	vxor.v	$vr25, $vr21, $vr14
-	vld	$vr24, $a1, 96
-	vld	$vr23, $a1, 112
+	vst	$vr1, $a1, 304
+	vxor.v	$vr0, $vr23, $vr15
+	vxor.v	$vr1, $vr22, $vr15
+	vld	$vr25, $a1, 96
+	vld	$vr24, $a1, 112
 	vst	$vr0, $a1, 320
-	vst	$vr25, $a1, 336
-	vxor.v	$vr0, $vr24, $vr14
-	vxor.v	$vr27, $vr23, $vr14
-	vld	$vr26, $a1, 128
-	vld	$vr25, $a1, 144
+	vst	$vr1, $a1, 336
+	vxor.v	$vr0, $vr25, $vr15
+	vxor.v	$vr1, $vr24, $vr15
+	vld	$vr27, $a1, 128
+	vld	$vr26, $a1, 144
 	vst	$vr0, $a1, 352
-	vst	$vr27, $a1, 368
-	vxor.v	$vr0, $vr26, $vr14
-	vxor.v	$vr29, $vr25, $vr14
-	vld	$vr28, $a1, 160
-	vld	$vr27, $a1, 176
+	vst	$vr1, $a1, 368
+	vxor.v	$vr0, $vr27, $vr15
+	vxor.v	$vr1, $vr26, $vr15
+	vld	$vr29, $a1, 160
+	vld	$vr28, $a1, 176
 	vst	$vr0, $a1, 384
-	vst	$vr29, $a1, 400
-	vxor.v	$vr0, $vr28, $vr14
-	vxor.v	$vr31, $vr27, $vr14
-	vld	$vr30, $a1, 192
-	vld	$vr29, $a1, 208
+	vst	$vr1, $a1, 400
+	vxor.v	$vr0, $vr29, $vr15
+	vxor.v	$vr1, $vr28, $vr15
+	vld	$vr31, $a1, 192
+	vld	$vr30, $a1, 208
 	vst	$vr0, $a1, 416
-	vst	$vr31, $a1, 432
-	vxor.v	$vr0, $vr30, $vr14
-	vxor.v	$vr1, $vr29, $vr14
-	vld	$vr31, $a1, 224
-	vst	$vr0, $a1, 448
-	vst	$vr1, $a1, 464
-	vld	$vr0, $a1, 240
-	vxor.v	$vr1, $vr31, $vr14
-	vst	$vr1, $a1, 480
-	vld	$vr1, $a1, 0
-	vld	$vr2, $a1, 16
-	vxor.v	$vr3, $vr0, $vr14
-	vst	$vr3, $a1, 496
-	vxor.v	$vr1, $vr1, $vr15
-	vxor.v	$vr2, $vr2, $vr15
-	vld	$vr3, $a1, 32
-	vst	$vr1, $a1, 512
-	vst	$vr2, $a1, 528
-	vld	$vr1, $a1, 48
-	vxor.v	$vr2, $vr3, $vr15
-	vst	$vr2, $a1, 544
-	vld	$vr2, $a1, 64
-	vld	$vr3, $a1, 80
-	vxor.v	$vr1, $vr1, $vr15
-	vst	$vr1, $a1, 560
-	vxor.v	$vr1, $vr2, $vr15
-	vxor.v	$vr2, $vr3, $vr15
-	vld	$vr3, $a1, 96
-	vst	$vr1, $a1, 576
-	vst	$vr2, $a1, 592
-	vld	$vr1, $a1, 112
-	vxor.v	$vr2, $vr3, $vr15
-	vst	$vr2, $a1, 608
-	vld	$vr2, $a1, 128
-	vld	$vr3, $a1, 144
-	vxor.v	$vr1, $vr1, $vr15
-	vst	$vr1, $a1, 624
-	vxor.v	$vr1, $vr2, $vr15
-	vxor.v	$vr2, $vr3, $vr15
-	vld	$vr3, $a1, 160
-	vst	$vr1, $a1, 640
-	vst	$vr2, $a1, 656
-	vld	$vr1, $a1, 176
-	vxor.v	$vr2, $vr3, $vr15
-	vst	$vr2, $a1, 672
-	vld	$vr2, $a1, 192
-	vld	$vr3, $a1, 208
-	vxor.v	$vr1, $vr1, $vr15
-	vst	$vr1, $a1, 688
-	vxor.v	$vr1, $vr2, $vr15
-	vxor.v	$vr2, $vr3, $vr15
-	vld	$vr3, $a1, 224
-	vst	$vr1, $a1, 704
+	vst	$vr1, $a1, 432
+	vxor.v	$vr1, $vr31, $vr15
+	vxor.v	$vr2, $vr30, $vr15
+	vld	$vr0, $a1, 224
+	vst	$vr1, $a1, 448
+	vst	$vr2, $a1, 464
 	vld	$vr1, $a1, 240
-	vst	$vr2, $a1, 720
-	vxor.v	$vr2, $vr3, $vr15
-	vst	$vr2, $a1, 736
-	vxor.v	$vr1, $vr1, $vr15
-	vst	$vr1, $a1, 752
-	vxor.v	$vr1, $vr18, $vr16
-	vst	$vr1, $a1, 768
-	vxor.v	$vr1, $vr17, $vr16
-	vst	$vr1, $a1, 784
-	vxor.v	$vr1, $vr20, $vr16
-	vst	$vr1, $a1, 800
-	vxor.v	$vr1, $vr19, $vr16
-	vst	$vr1, $a1, 816
-	vxor.v	$vr1, $vr22, $vr16
-	vst	$vr1, $a1, 832
-	vxor.v	$vr1, $vr21, $vr16
-	vst	$vr1, $a1, 848
-	vxor.v	$vr1, $vr24, $vr16
-	vst	$vr1, $a1, 864
-	vxor.v	$vr1, $vr23, $vr16
-	vst	$vr1, $a1, 880
-	vxor.v	$vr1, $vr26, $vr16
-	vst	$vr1, $a1, 896
-	vxor.v	$vr1, $vr25, $vr16
-	vst	$vr1, $a1, 912
-	vxor.v	$vr1, $vr28, $vr16
-	vst	$vr1, $a1, 928
-	vxor.v	$vr1, $vr27, $vr16
-	vst	$vr1, $a1, 944
-	vxor.v	$vr1, $vr30, $vr16
-	vst	$vr1, $a1, 960
-	vxor.v	$vr1, $vr29, $vr16
-	vst	$vr1, $a1, 976
-	vxor.v	$vr1, $vr31, $vr16
-	vst	$vr1, $a1, 992
-	vxor.v	$vr0, $vr0, $vr16
+	vxor.v	$vr2, $vr0, $vr15
+	vst	$vr2, $a1, 480
+	vld	$vr2, $a1, 0
+	vld	$vr3, $a1, 16
+	vxor.v	$vr4, $vr1, $vr15
+	vst	$vr4, $a1, 496
+	vxor.v	$vr2, $vr2, $vr16
+	vxor.v	$vr3, $vr3, $vr16
+	vld	$vr4, $a1, 32
+	vst	$vr2, $a1, 512
+	vst	$vr3, $a1, 528
+	vld	$vr2, $a1, 48
+	vxor.v	$vr3, $vr4, $vr16
+	vst	$vr3, $a1, 544
+	vld	$vr3, $a1, 64
+	vld	$vr4, $a1, 80
+	vxor.v	$vr2, $vr2, $vr16
+	vst	$vr2, $a1, 560
+	vxor.v	$vr2, $vr3, $vr16
+	vxor.v	$vr3, $vr4, $vr16
+	vld	$vr4, $a1, 96
+	vst	$vr2, $a1, 576
+	vst	$vr3, $a1, 592
+	vld	$vr2, $a1, 112
+	vxor.v	$vr3, $vr4, $vr16
+	vst	$vr3, $a1, 608
+	vld	$vr3, $a1, 128
+	vld	$vr4, $a1, 144
+	vxor.v	$vr2, $vr2, $vr16
+	vst	$vr2, $a1, 624
+	vxor.v	$vr2, $vr3, $vr16
+	vxor.v	$vr3, $vr4, $vr16
+	vld	$vr4, $a1, 160
+	vst	$vr2, $a1, 640
+	vst	$vr3, $a1, 656
+	vld	$vr2, $a1, 176
+	vxor.v	$vr3, $vr4, $vr16
+	vst	$vr3, $a1, 672
+	vld	$vr3, $a1, 192
+	vld	$vr4, $a1, 208
+	vxor.v	$vr2, $vr2, $vr16
+	vst	$vr2, $a1, 688
+	vxor.v	$vr2, $vr3, $vr16
+	vxor.v	$vr3, $vr4, $vr16
+	vld	$vr4, $a1, 224
+	vst	$vr2, $a1, 704
+	vld	$vr2, $a1, 240
+	vst	$vr3, $a1, 720
+	vxor.v	$vr3, $vr4, $vr16
+	vst	$vr3, $a1, 736
+	vxor.v	$vr2, $vr2, $vr16
+	vst	$vr2, $a1, 752
+	vxor.v	$vr2, $vr19, $vr17
+	vst	$vr2, $a1, 768
+	vxor.v	$vr2, $vr18, $vr17
+	vst	$vr2, $a1, 784
+	vxor.v	$vr2, $vr21, $vr17
+	vst	$vr2, $a1, 800
+	vxor.v	$vr2, $vr20, $vr17
+	vst	$vr2, $a1, 816
+	vxor.v	$vr2, $vr23, $vr17
+	vst	$vr2, $a1, 832
+	vxor.v	$vr2, $vr22, $vr17
+	vst	$vr2, $a1, 848
+	vxor.v	$vr2, $vr25, $vr17
+	vst	$vr2, $a1, 864
+	vxor.v	$vr2, $vr24, $vr17
+	vst	$vr2, $a1, 880
+	vxor.v	$vr2, $vr27, $vr17
+	vst	$vr2, $a1, 896
+	vxor.v	$vr2, $vr26, $vr17
+	vst	$vr2, $a1, 912
+	vxor.v	$vr2, $vr29, $vr17
+	vst	$vr2, $a1, 928
+	vxor.v	$vr2, $vr28, $vr17
+	vst	$vr2, $a1, 944
+	vxor.v	$vr2, $vr31, $vr17
+	vst	$vr2, $a1, 960
+	vxor.v	$vr2, $vr30, $vr17
+	vst	$vr2, $a1, 976
+	vxor.v	$vr0, $vr0, $vr17
+	vst	$vr0, $a1, 992
+	vxor.v	$vr0, $vr1, $vr17
 	vst	$vr0, $a1, 1008
 	b	.LBB0_1
 .LBB0_4:
-	fld.d	$fs7, $sp, 80                   # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 88                   # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 96                   # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 104                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 112                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 120                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 128                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 136                  # 8-byte Folded Reload
-	ld.d	$s4, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 184                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 192
+	fld.d	$fs7, $sp, 96                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 104                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 112                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 120                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 128                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 136                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 144                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 152                  # 8-byte Folded Reload
+	ld.d	$s0, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 168                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 176
 	ret
 .Lfunc_end0:
 	.size	main, .Lfunc_end0-main

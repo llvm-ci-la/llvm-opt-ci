@@ -482,11 +482,10 @@ _ZNK17IteratorBenchmark5checkEiRdS0_:   # @_ZNK17IteratorBenchmark5checkEiRdS0_
 .Lfunc_end11:
 	.size	_ZNK17IteratorBenchmark5checkEiRdS0_, .Lfunc_end11-_ZNK17IteratorBenchmark5checkEiRdS0_
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZNK16ComplexBenchmark7c_styleEv
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function _ZNK16ComplexBenchmark7c_styleEv
 .LCPI12_0:
 	.dword	0xbfebb67ae8584caa              # double -0.8660254037844386
-.LCPI12_1:
 	.dword	0x3febb67ae8584caa              # double 0.8660254037844386
 	.text
 	.globl	_ZNK16ComplexBenchmark7c_styleEv
@@ -498,31 +497,25 @@ _ZNK16ComplexBenchmark7c_styleEv:       # @_ZNK16ComplexBenchmark7c_styleEv
 	ori	$a0, $a0, 384
 	pcalau12i	$a1, %pc_hi20(Y)
 	addi.d	$a1, $a1, %pc_lo12(Y)
-	lu12i.w	$a4, 3
-	ori	$a2, $a4, 3712
-	pcalau12i	$a3, %pc_hi20(X)
-	addi.d	$a3, $a3, %pc_lo12(X)
-	pcalau12i	$a5, %pc_hi20(.LCPI12_0)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI12_0)
-	pcalau12i	$a5, %pc_hi20(.LCPI12_1)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI12_1)
-	vldi	$vr2, -928
-	ori	$a4, $a4, 3720
+	pcalau12i	$a2, %pc_hi20(X)
+	addi.d	$a2, $a2, %pc_lo12(X)
+	lu12i.w	$a3, 3
+	pcalau12i	$a4, %pc_hi20(.LCPI12_0)
+	vld	$vr0, $a4, %pc_lo12(.LCPI12_0)
+	ori	$a3, $a3, 3712
+	lu52i.d	$a4, $zero, 1022
+	vreplgr2vr.d	$vr1, $a4
 	.p2align	4, , 16
 .LBB12_1:                               # =>This Inner Loop Header: Depth=1
-	add.d	$a5, $a1, $a0
-	fldx.d	$fa3, $a5, $a2
-	add.d	$a6, $a3, $a0
-	fldx.d	$fa4, $a6, $a2
-	fldx.d	$fa5, $a6, $a4
-	fldx.d	$fa6, $a5, $a4
-	fmadd.d	$fa3, $fa4, $fa2, $fa3
-	fmadd.d	$fa3, $fa5, $fa0, $fa3
-	fstx.d	$fa3, $a5, $a2
-	fmadd.d	$fa3, $fa5, $fa2, $fa6
-	fmadd.d	$fa3, $fa4, $fa1, $fa3
+	add.d	$a4, $a1, $a0
+	add.d	$a5, $a2, $a0
+	vldx	$vr2, $a5, $a3
+	vldx	$vr3, $a4, $a3
+	vfmadd.d	$vr3, $vr2, $vr1, $vr3
+	vshuf4i.d	$vr2, $vr0, 1
+	vfmadd.d	$vr2, $vr2, $vr0, $vr3
 	addi.d	$a0, $a0, 16
-	fstx.d	$fa3, $a5, $a4
+	vstx	$vr2, $a4, $a3
 	bnez	$a0, .LBB12_1
 # %bb.2:
 	ret

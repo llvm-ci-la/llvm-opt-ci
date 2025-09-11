@@ -379,11 +379,26 @@ EPZSWindowPredictorInit:                # @EPZSWindowPredictorInit
 	.section	.rodata.cst16,"aM",@progbits,16
 	.p2align	4, 0x0                          # -- Begin function EPZSInit
 .LCPI6_0:
+	.word	8                               # 0x8
+	.word	7                               # 0x7
+	.word	7                               # 0x7
+	.word	6                               # 0x6
+.LCPI6_1:
+	.word	768                             # 0x300
+	.word	384                             # 0x180
+	.word	384                             # 0x180
+	.word	192                             # 0xc0
+.LCPI6_2:
+	.word	6                               # 0x6
+	.word	5                               # 0x5
+	.word	5                               # 0x5
+	.word	4                               # 0x4
+.LCPI6_3:
 	.word	0                               # 0x0
 	.word	0                               # 0x0
 	.word	3                               # 0x3
 	.word	0                               # 0x0
-.LCPI6_1:
+.LCPI6_4:
 	.word	0                               # 0x0
 	.word	0                               # 0x0
 	.word	12                              # 0xc
@@ -472,62 +487,45 @@ EPZSInit:                               # @EPZSInit
 	st.w	$zero, $a7, 0
 	pcalau12i	$t0, %pc_hi20(subthres)
 	addi.d	$t0, $t0, %pc_lo12(subthres)
+	pcalau12i	$t1, %pc_hi20(.LCPI6_0)
+	vld	$vr0, $t1, %pc_lo12(.LCPI6_0)
 	st.w	$zero, $t0, 0
-	slli.d	$t1, $a4, 8
+	vreplgr2vr.w	$vr1, $a4
+	vsll.w	$vr1, $vr1, $vr0
+	vreplgr2vr.w	$vr2, $a0
+	pcalau12i	$t1, %pc_hi20(.LCPI6_1)
+	vld	$vr3, $t1, %pc_lo12(.LCPI6_1)
+	vsll.w	$vr1, $vr1, $vr2
+	vst	$vr1, $a5, 4
+	vreplgr2vr.w	$vr1, $a3
+	vmul.w	$vr1, $vr1, $vr3
+	pcalau12i	$t1, %pc_hi20(.LCPI6_2)
+	vld	$vr3, $t1, %pc_lo12(.LCPI6_2)
+	vsll.w	$vr1, $vr1, $vr2
+	vst	$vr1, $a6, 4
+	vreplgr2vr.w	$vr1, $a2
+	vsll.w	$vr1, $vr1, $vr3
+	vsll.w	$vr1, $vr1, $vr2
+	vst	$vr1, $a7, 4
+	vreplgr2vr.w	$vr1, $a1
+	vsll.w	$vr0, $vr1, $vr0
+	vsll.w	$vr0, $vr0, $vr2
+	vst	$vr0, $t0, 4
+	slli.d	$t1, $a4, 5
 	sll.w	$t1, $t1, $a0
-	st.w	$t1, $a5, 4
-	alsl.d	$t1, $a3, $a3, 1
-	slli.d	$t2, $t1, 8
+	st.w	$t1, $a5, 20
+	alsl.d	$t2, $a3, $a3, 1
+	slli.d	$t2, $t2, 5
 	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a6, 4
-	slli.d	$t2, $a2, 6
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a7, 4
-	slli.d	$t2, $a1, 8
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $t0, 4
-	slli.d	$t2, $a4, 7
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a5, 8
-	slli.d	$t3, $t1, 7
-	sll.w	$t3, $t3, $a0
-	st.w	$t3, $a6, 8
-	slli.d	$t4, $a2, 5
-	sll.w	$t4, $t4, $a0
-	st.w	$t4, $a7, 8
-	slli.d	$t5, $a1, 7
-	sll.w	$t5, $t5, $a0
-	st.w	$t5, $t0, 8
-	st.w	$t2, $a5, 12
-	st.w	$t3, $a6, 12
-	st.w	$t4, $a7, 12
-	st.w	$t5, $t0, 12
-	slli.d	$t2, $a4, 6
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a5, 16
-	slli.d	$t2, $t1, 6
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a6, 16
-	slli.d	$t2, $a2, 4
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a7, 16
-	slli.d	$t2, $a1, 6
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $t0, 16
-	slli.d	$t2, $a4, 5
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a5, 20
-	slli.d	$t1, $t1, 5
-	sll.w	$t1, $t1, $a0
-	st.w	$t1, $a6, 20
+	st.w	$t2, $a6, 20
 	slli.d	$t3, $a2, 3
 	sll.w	$t3, $t3, $a0
 	st.w	$t3, $a7, 20
 	slli.d	$t4, $a1, 5
 	sll.w	$t4, $t4, $a0
 	st.w	$t4, $t0, 20
-	st.w	$t2, $a5, 24
-	st.w	$t1, $a6, 24
+	st.w	$t1, $a5, 24
+	st.w	$t2, $a6, 24
 	st.w	$t3, $a7, 24
 	st.w	$t4, $t0, 24
 	slli.d	$a4, $a4, 4
@@ -574,8 +572,8 @@ EPZSInit:                               # @EPZSInit
 	st.w	$s5, $a0, 4
 	ori	$s1, $zero, 3
 	ori	$s0, $zero, 3
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	vld	$vr0, $a1, %pc_lo12(.LCPI6_0)
+	pcalau12i	$a1, %pc_hi20(.LCPI6_3)
+	vld	$vr0, $a1, %pc_lo12(.LCPI6_3)
 	lu32i.d	$s0, 3
 	st.d	$s0, $a0, 8
 	st.w	$s5, $a0, 16
@@ -895,8 +893,8 @@ EPZSInit:                               # @EPZSInit
 	st.w	$zero, $a0, 128
 	ori	$a3, $zero, 2
 	srl.w	$a3, $a3, $s2
-	pcalau12i	$a4, %pc_hi20(.LCPI6_1)
-	vld	$vr0, $a4, %pc_lo12(.LCPI6_1)
+	pcalau12i	$a4, %pc_hi20(.LCPI6_4)
+	vld	$vr0, $a4, %pc_lo12(.LCPI6_4)
 	st.w	$a3, $a0, 132
 	st.d	$s6, $a0, 136
 	st.w	$a3, $a0, 144

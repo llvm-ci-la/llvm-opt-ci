@@ -16,55 +16,52 @@ newOrient:                              # @newOrient
 	ori	$a1, $zero, 3
 	bge	$a1, $a2, .LBB0_12
 # %bb.2:                                # %.preheader71
-	ld.w	$a2, $a0, 20
-	ld.w	$a1, $a0, 24
-	addi.d	$a3, $a2, -1
-	sltui	$a3, $a3, 1
-	addi.d	$a4, $a1, -1
-	ld.w	$a5, $a0, 28
-	sltui	$a4, $a4, 1
-	add.d	$a3, $a3, $a4
-	ld.w	$a4, $a0, 32
-	addi.d	$a0, $a5, -1
-	sltui	$a0, $a0, 1
-	add.d	$a3, $a3, $a0
-	addi.d	$a4, $a4, -1
-	sltui	$a4, $a4, 1
-	add.d	$a4, $a3, $a4
-	beqz	$a4, .LBB0_32
+	vld	$vr0, $a0, 20
+	vseqi.w	$vr0, $vr0, 1
+	vmskltz.w	$vr1, $vr0
+	vpickve2gr.hu	$a0, $vr1, 0
+	beqz	$a0, .LBB0_32
 # %bb.3:                                # %.preheader70
-	movgr2fr.w	$fa0, $a4
-	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a3, %got_pc_hi20(randVar)
-	ld.d	$a5, $a3, %got_pc_lo12(randVar)
-	ld.w	$a6, $a5, 0
-	lu12i.w	$a3, 269412
-	pcalau12i	$a7, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI0_0)
-	ori	$a7, $a3, 3693
-	lu12i.w	$a3, 3
-	ori	$t0, $a3, 57
+	vldi	$vr1, 0
+	vinsgr2vr.d	$vr1, $a0, 0
+	vpcnt.d	$vr1, $vr1
+	vpickve2gr.d	$a1, $vr1, 0
+	andi	$a0, $a1, 15
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	pcalau12i	$a0, %got_pc_hi20(randVar)
+	ld.d	$a2, $a0, %got_pc_lo12(randVar)
+	ld.w	$a3, $a2, 0
+	lu12i.w	$a0, 269412
+	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
+	fld.d	$fa2, $a4, %pc_lo12(.LCPI0_0)
+	ori	$a4, $a0, 3693
+	lu12i.w	$a0, 3
+	ori	$a5, $a0, 57
 	.p2align	4, , 16
 .LBB0_4:                                # =>This Inner Loop Header: Depth=1
-	mul.d	$a3, $a6, $a7
-	add.w	$a6, $a3, $t0
-	bstrpick.d	$a3, $a6, 30, 0
-	movgr2fr.w	$fa2, $a3
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa2, $fa2, $fa1
-	fmul.d	$fa2, $fa2, $fa0
-	ftintrz.w.d	$fa2, $fa2
-	movfr2gr.s	$a3, $fa2
-	beq	$a4, $a3, .LBB0_4
+	mul.d	$a0, $a3, $a4
+	add.w	$a3, $a0, $a5
+	bstrpick.d	$a0, $a3, 30, 0
+	movgr2fr.w	$fa3, $a0
+	ffint.d.w	$fa3, $fa3
+	fdiv.d	$fa3, $fa3, $fa2
+	fmul.d	$fa3, $fa3, $fa1
+	ftintrz.w.d	$fa3, $fa3
+	movfr2gr.s	$a0, $fa3
+	beq	$a1, $a0, .LBB0_4
 # %bb.5:                                # %.preheader
-	ori	$a4, $zero, 1
-	st.w	$a6, $a5, 0
-	bne	$a2, $a4, .LBB0_55
+	vpickve2gr.w	$a1, $vr0, 0
+	andi	$a1, $a1, 1
+	st.w	$a3, $a2, 0
+	beqz	$a1, .LBB0_55
 # %bb.6:
-	ori	$a2, $zero, 1
-	beqz	$a3, .LBB0_69
+	ori	$a1, $zero, 1
+	beqz	$a0, .LBB0_69
 # %bb.7:
-	bne	$a1, $a4, .LBB0_58
+	vpickve2gr.w	$a2, $vr0, 1
+	andi	$a2, $a2, 1
+	beqz	$a2, .LBB0_58
 	b	.LBB0_56
 .LBB0_8:                                # %.preheader81
 	beqz	$a2, .LBB0_18
@@ -85,53 +82,48 @@ newOrient:                              # @newOrient
 	move	$a6, $zero
 	b	.LBB0_20
 .LBB0_12:                               # %.preheader76
-	ld.w	$a2, $a0, 36
-	ld.w	$a1, $a0, 40
-	addi.d	$a3, $a2, -1
-	sltui	$a3, $a3, 1
-	addi.d	$a4, $a1, -1
-	ld.w	$a5, $a0, 44
-	sltui	$a4, $a4, 1
-	add.d	$a3, $a3, $a4
-	ld.w	$a4, $a0, 48
-	addi.d	$a0, $a5, -1
-	sltui	$a0, $a0, 1
-	add.d	$a3, $a3, $a0
-	addi.d	$a4, $a4, -1
-	sltui	$a4, $a4, 1
-	add.d	$a4, $a3, $a4
-	beqz	$a4, .LBB0_32
+	vld	$vr0, $a0, 36
+	vseqi.w	$vr0, $vr0, 1
+	vmskltz.w	$vr1, $vr0
+	vpickve2gr.hu	$a0, $vr1, 0
+	beqz	$a0, .LBB0_32
 # %bb.13:                               # %.preheader75
-	movgr2fr.w	$fa0, $a4
-	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a3, %got_pc_hi20(randVar)
-	ld.d	$a5, $a3, %got_pc_lo12(randVar)
-	ld.w	$a6, $a5, 0
-	lu12i.w	$a3, 269412
-	pcalau12i	$a7, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI0_0)
-	ori	$a7, $a3, 3693
-	lu12i.w	$a3, 3
-	ori	$t0, $a3, 57
+	vldi	$vr1, 0
+	vinsgr2vr.d	$vr1, $a0, 0
+	vpcnt.d	$vr1, $vr1
+	vpickve2gr.d	$a1, $vr1, 0
+	andi	$a0, $a1, 15
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	pcalau12i	$a0, %got_pc_hi20(randVar)
+	ld.d	$a2, $a0, %got_pc_lo12(randVar)
+	ld.w	$a3, $a2, 0
+	lu12i.w	$a0, 269412
+	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
+	fld.d	$fa2, $a4, %pc_lo12(.LCPI0_0)
+	ori	$a4, $a0, 3693
+	lu12i.w	$a0, 3
+	ori	$a5, $a0, 57
 	.p2align	4, , 16
 .LBB0_14:                               # =>This Inner Loop Header: Depth=1
-	mul.d	$a3, $a6, $a7
-	add.w	$a6, $a3, $t0
-	bstrpick.d	$a3, $a6, 30, 0
-	movgr2fr.w	$fa2, $a3
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa2, $fa2, $fa1
-	fmul.d	$fa2, $fa2, $fa0
-	ftintrz.w.d	$fa2, $fa2
-	movfr2gr.s	$a3, $fa2
-	beq	$a4, $a3, .LBB0_14
+	mul.d	$a0, $a3, $a4
+	add.w	$a3, $a0, $a5
+	bstrpick.d	$a0, $a3, 30, 0
+	movgr2fr.w	$fa3, $a0
+	ffint.d.w	$fa3, $fa3
+	fdiv.d	$fa3, $fa3, $fa2
+	fmul.d	$fa3, $fa3, $fa1
+	ftintrz.w.d	$fa3, $fa3
+	movfr2gr.s	$a0, $fa3
+	beq	$a1, $a0, .LBB0_14
 # %bb.15:                               # %.preheader72
-	ori	$a4, $zero, 1
-	st.w	$a6, $a5, 0
-	bne	$a2, $a4, .LBB0_61
+	vpickve2gr.w	$a1, $vr0, 0
+	andi	$a1, $a1, 1
+	st.w	$a3, $a2, 0
+	beqz	$a1, .LBB0_61
 # %bb.16:
-	ori	$a2, $zero, 1
-	bnez	$a3, .LBB0_62
+	ori	$a1, $zero, 1
+	bnez	$a0, .LBB0_62
 # %bb.17:
 	ori	$a6, $zero, 4
 	addi.w	$a0, $a6, 0
@@ -281,17 +273,20 @@ newOrient:                              # @newOrient
 	beqz	$t0, .LBB0_68
 	b	.LBB0_67
 .LBB0_55:
-	move	$a2, $zero
-	bne	$a1, $a4, .LBB0_58
+	move	$a1, $zero
+	vpickve2gr.w	$a2, $vr0, 1
+	andi	$a2, $a2, 1
+	beqz	$a2, .LBB0_58
 .LBB0_56:
 	ori	$a6, $zero, 1
-	beq	$a2, $a3, .LBB0_67
+	beq	$a1, $a0, .LBB0_67
 # %bb.57:
-	addi.w	$a2, $a2, 1
+	addi.w	$a1, $a1, 1
 .LBB0_58:
-	xor	$a1, $a2, $a3
-	sltui	$a1, $a1, 1
-	and	$a0, $a0, $a1
+	xor	$a0, $a1, $a0
+	sltui	$a0, $a0, 1
+	vpickve2gr.w	$a1, $vr0, 2
+	and	$a0, $a1, $a0
 	xori	$a6, $a0, 3
 	addi.w	$a0, $a6, 0
 	ret
@@ -308,18 +303,21 @@ newOrient:                              # @newOrient
 	ori	$a3, $zero, 1
 	b	.LBB0_21
 .LBB0_61:
-	move	$a2, $zero
+	move	$a1, $zero
 .LBB0_62:
-	bne	$a1, $a4, .LBB0_65
+	vpickve2gr.w	$a2, $vr0, 1
+	andi	$a2, $a2, 1
+	beqz	$a2, .LBB0_65
 # %bb.63:
 	ori	$a6, $zero, 5
-	beq	$a2, $a3, .LBB0_67
+	beq	$a1, $a0, .LBB0_67
 # %bb.64:
-	addi.w	$a2, $a2, 1
+	addi.w	$a1, $a1, 1
 .LBB0_65:
-	xor	$a1, $a2, $a3
-	sltui	$a1, $a1, 1
-	and	$a0, $a0, $a1
+	xor	$a0, $a1, $a0
+	sltui	$a0, $a0, 1
+	vpickve2gr.w	$a1, $vr0, 2
+	and	$a0, $a1, $a0
 	xori	$a6, $a0, 7
 	addi.w	$a0, $a6, 0
 	ret

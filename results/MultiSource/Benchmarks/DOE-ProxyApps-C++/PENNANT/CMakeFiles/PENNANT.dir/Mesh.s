@@ -3670,40 +3670,41 @@ _ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii:  # @_ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
-	move	$fp, $a0
-	ld.d	$s0, $a0, 104
+	move	$s0, $a0
+	ld.d	$s8, $a0, 104
 	ld.w	$a0, $a0, 72
 	move	$s4, $a5
 	move	$s5, $a4
 	slli.d	$a4, $a4, 2
-	ldx.w	$s7, $s0, $a4
+	ldx.w	$s7, $s8, $a4
 	slt	$a0, $a5, $a0
-	alsl.d	$a4, $a5, $s0, 2
-	addi.d	$a5, $fp, 68
+	alsl.d	$a4, $a5, $s8, 2
+	addi.d	$a5, $s0, 68
 	maskeqz	$a4, $a4, $a0
 	masknez	$a0, $a5, $a0
 	or	$a0, $a4, $a0
-	ld.w	$s8, $a0, 0
+	ld.w	$t0, $a0, 0
 	move	$s1, $a3
 	move	$s2, $a2
 	move	$s3, $a1
-	alsl.d	$a0, $s7, $a3, 4
-	sub.d	$s6, $s8, $s7
-	beq	$s7, $s8, .LBB9_2
+	alsl.d	$fp, $s7, $a3, 4
+	sub.d	$s6, $t0, $s7
+	beq	$s7, $t0, .LBB9_2
 # %bb.1:                                # %.lr.ph.i.i.i.preheader
 	slli.d	$a2, $s6, 4
+	move	$a0, $fp
 	move	$a1, $zero
-	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
+	st.d	$t0, $sp, 16                    # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$t0, $sp, 16                    # 8-byte Folded Reload
 .LBB9_2:                                # %_ZSt4fillIP7double2S0_EvT_S2_RKT0_.exit
 	bge	$s5, $s4, .LBB9_5
 # %bb.3:                                # %.lr.ph
-	ld.d	$a1, $fp, 88
-	ld.d	$a2, $fp, 96
-	ld.d	$a3, $fp, 112
-	alsl.d	$t0, $s5, $s0, 2
+	ld.d	$a1, $s0, 88
+	ld.d	$a2, $s0, 96
+	ld.d	$a3, $s0, 112
+	alsl.d	$a0, $s5, $s8, 2
 	alsl.d	$a1, $s5, $a1, 2
 	alsl.d	$a2, $s5, $a2, 2
 	alsl.d	$a3, $s5, $a3, 2
@@ -3719,7 +3720,7 @@ _ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii:  # @_ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii
 	slli.d	$a6, $a6, 4
 	vldx	$vr1, $s3, $a5
 	vldx	$vr2, $s3, $a6
-	ld.w	$a6, $t0, 0
+	ld.w	$a6, $a0, 0
 	slli.d	$a7, $a7, 4
 	vfadd.d	$vr1, $vr1, $vr2
 	vfmul.d	$vr1, $vr1, $vr0
@@ -3733,28 +3734,25 @@ _ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii:  # @_ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii
 	addi.d	$a2, $a2, 4
 	addi.d	$a3, $a3, 4
 	addi.d	$a4, $a4, -1
-	addi.d	$t0, $t0, 4
+	addi.d	$a0, $a0, 4
 	bnez	$a4, .LBB9_4
 .LBB9_5:                                # %.preheader
-	bge	$s7, $s8, .LBB9_8
+	bge	$s7, $t0, .LBB9_8
 # %bb.6:                                # %.lr.ph49
-	ld.d	$a1, $fp, 232
-	alsl.d	$a3, $s7, $a1, 2
-	addi.d	$a1, $a0, 8
+	ld.d	$a0, $s0, 232
+	alsl.d	$a0, $s7, $a0, 2
 	.p2align	4, , 16
 .LBB9_7:                                # =>This Inner Loop Header: Depth=1
-	ld.w	$a2, $a3, 0
-	fld.d	$fa0, $a1, -8
-	movgr2fr.w	$fa1, $a2
-	fld.d	$fa2, $a1, 0
+	ld.w	$a1, $a0, 0
+	vld	$vr0, $fp, 0
+	movgr2fr.w	$fa1, $a1
 	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $a1, -8
-	fdiv.d	$fa0, $fa2, $fa1
-	fst.d	$fa0, $a1, 0
-	addi.d	$a3, $a3, 4
+	vreplvei.d	$vr1, $vr1, 0
+	vfdiv.d	$vr0, $vr0, $vr1
+	vst	$vr0, $fp, 0
+	addi.d	$a0, $a0, 4
 	addi.d	$s6, $s6, -1
-	addi.d	$a1, $a1, 16
+	addi.d	$fp, $fp, 16
 	bnez	$s6, .LBB9_7
 .LBB9_8:                                # %._crit_edge
 	ld.d	$s8, $sp, 24                    # 8-byte Folded Reload

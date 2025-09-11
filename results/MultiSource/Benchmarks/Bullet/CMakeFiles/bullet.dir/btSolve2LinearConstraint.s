@@ -10,23 +10,21 @@
 _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_: # @_ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
 	.cfi_startproc
 # %bb.0:
-	addi.d	$sp, $sp, -336
-	.cfi_def_cfa_offset 336
-	st.d	$ra, $sp, 328                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 320                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 312                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 304                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 296                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 288                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 280                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 272                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 264                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 256                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 248                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 240                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 232                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 224                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 216                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -368
+	.cfi_def_cfa_offset 368
+	st.d	$ra, $sp, 360                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 352                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 344                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 336                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 328                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 320                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 312                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 304                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 296                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 288                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 280                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 272                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 264                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -40,11 +38,9 @@ _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_
 	.cfi_offset 31, -88
 	.cfi_offset 56, -96
 	.cfi_offset 57, -104
-	.cfi_offset 58, -112
-	.cfi_offset 59, -120
-	ld.d	$t0, $sp, 408
-	ld.d	$a7, $sp, 416
-	ld.d	$s1, $sp, 376
+	ld.d	$t0, $sp, 440
+	ld.d	$a7, $sp, 448
+	ld.d	$s1, $sp, 408
 	st.w	$zero, $t0, 0
 	st.w	$zero, $a7, 0
 	fld.s	$fa4, $s1, 4
@@ -61,37 +57,41 @@ _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_
 	fadd.s	$fa4, $fa4, $fa6
 	fabs.s	$fa4, $fa4
 	fcmp.cle.s	$fcc0, $fa5, $fa4
+                                        # kill: def $f1 killed $f1 def $vr1
+                                        # kill: def $f0 killed $f0 def $vr0
 	bcnez	$fcc0, .LBB0_2
 # %bb.1:
-	fmov.s	$fs2, $fa3
-	fmov.s	$fs3, $fa2
+	fmov.s	$fs0, $fa3
+	fmov.s	$fs1, $fa2
 	move	$s5, $a5
 	move	$s6, $a4
 	move	$s7, $a3
 	move	$s3, $a2
 	move	$s4, $a1
-	ld.d	$a1, $sp, 400
+	ld.d	$a1, $sp, 432
 	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
-	ld.d	$s8, $sp, 392
-	ld.d	$s2, $sp, 384
-	ld.d	$a4, $sp, 368
-	ld.d	$fp, $sp, 344
-	ld.d	$s0, $sp, 336
+	ld.d	$s8, $sp, 424
+	ld.d	$s2, $sp, 416
+	ld.d	$a4, $sp, 400
+	ld.d	$fp, $sp, 376
+	ld.d	$s0, $sp, 368
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
-	addi.d	$a0, $sp, 132
+	addi.d	$a0, $sp, 176
 	move	$a1, $a3
 	move	$a2, $s6
 	move	$a3, $s0
 	move	$a5, $s1
 	move	$a6, $s5
-	fmov.s	$fs1, $fa0
+	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
+                                        # kill: def $f0 killed $f0 killed $vr0
 	st.d	$a7, $sp, 40                    # 8-byte Folded Spill
 	move	$a7, $fp
-	fmov.s	$fs0, $fa1
+	vst	$vr1, $sp, 48                   # 16-byte Folded Spill
+                                        # kill: def $f1 killed $f1 killed $vr1
 	st.d	$t0, $sp, 32                    # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(_ZN15btJacobianEntryC2ERK11btMatrix3x3S2_RK9btVector3S5_S5_S5_fS5_f)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 48
+	addi.d	$a0, $sp, 88
 	move	$a1, $s7
 	move	$a2, $s6
 	move	$a3, $s2
@@ -99,9 +99,11 @@ _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_
 	ld.d	$s6, $sp, 16                    # 8-byte Folded Reload
 	move	$a5, $s6
 	move	$a6, $s5
-	fmov.s	$fa0, $fs1
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+                                        # kill: def $f0 killed $f0 killed $vr0
 	move	$a7, $fp
-	fmov.s	$fa1, $fs0
+	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
+                                        # kill: def $f1 killed $f1 killed $vr1
 	pcaddu18i	$ra, %call36(_ZN15btJacobianEntryC2ERK11btMatrix3x3S2_RK9btVector3S5_S5_S5_fS5_f)
 	jirl	$ra, $ra, 0
 	fld.s	$fa3, $s0, 4
@@ -185,94 +187,91 @@ _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	fld.s	$fa2, $a0, 0
 	fld.s	$fa0, $a0, 4
-	fadd.s	$fa4, $fs1, $fs0
+	vld	$vr10, $sp, 48                  # 16-byte Folded Reload
+	vld	$vr11, $sp, 64                  # 16-byte Folded Reload
+	fadd.s	$fa4, $ft3, $ft2
 	frecip.s	$fa4, $fa4
-	fmul.s	$fa5, $fs3, $fa2
+	fmul.s	$fa5, $fs1, $fa2
 	fneg.s	$fa6, $fa0
 	fmul.s	$fa0, $fa3, $fa6
 	fmadd.s	$fa0, $fa5, $fa4, $fa0
-	fld.s	$fa3, $sp, 132
-	fld.s	$fa5, $sp, 48
-	fmul.s	$fa2, $fs2, $fa2
+	fmul.s	$fa2, $fs0, $fa2
 	fmul.s	$fa1, $fa1, $fa6
+	fld.s	$fa3, $sp, 184
+	fld.s	$fa5, $sp, 96
+	fld.s	$fa6, $sp, 232
+	fld.s	$fa7, $sp, 112
+	fld.s	$ft0, $sp, 248
+	fld.s	$ft1, $sp, 128
 	fmadd.s	$fa1, $fa2, $fa4, $fa1
 	fmul.s	$fa2, $fa3, $fa5
-	fld.s	$fa3, $sp, 136
-	fld.s	$fa4, $sp, 52
-	fld.s	$fa5, $sp, 140
-	fld.s	$fa6, $sp, 56
-	fld.s	$fa7, $sp, 180
-	fld.s	$ft0, $sp, 64
-	fld.s	$ft1, $sp, 184
-	fld.s	$ft2, $sp, 68
-	fmul.s	$fa3, $fa3, $fa4
-	fmul.s	$fa4, $fa5, $fa6
-	fmul.s	$fa5, $fa7, $ft0
-	fmul.s	$fa6, $ft1, $ft2
-	fld.s	$fa7, $sp, 188
-	fld.s	$ft0, $sp, 72
-	fld.s	$ft1, $sp, 196
-	fld.s	$ft2, $sp, 80
-	fld.s	$ft3, $sp, 200
-	fld.s	$ft4, $sp, 84
-	fld.s	$ft5, $sp, 204
-	fld.s	$ft6, $sp, 88
-	fmul.s	$fa7, $fa7, $ft0
-	fmul.s	$ft0, $ft1, $ft2
-	fmul.s	$ft1, $ft3, $ft4
-	fmul.s	$ft2, $ft5, $ft6
-	fmul.s	$ft3, $fs1, $fa2
-	fmul.s	$ft4, $fs1, $fa3
-	fmul.s	$ft5, $fs1, $fa4
-	fmul.s	$fa2, $fs0, $fa2
-	fmul.s	$fa3, $fs0, $fa3
-	fmul.s	$fa4, $fs0, $fa4
-	fadd.s	$fa5, $fa5, $ft0
-	fadd.s	$fa6, $fa6, $ft1
-	fadd.s	$fa7, $fa7, $ft2
-	fadd.s	$fa5, $ft3, $fa5
-	fadd.s	$fa6, $ft4, $fa6
-	fadd.s	$fa7, $ft5, $fa7
-	fadd.s	$fa2, $fa2, $fa5
-	fadd.s	$fa3, $fa3, $fa6
-	fadd.s	$fa4, $fa4, $fa7
+	fmul.s	$fa3, $fa6, $fa7
+	fmul.s	$fa4, $ft0, $ft1
+	fmul.s	$fa5, $ft3, $fa2
+	fmul.s	$fa2, $ft2, $fa2
+	ld.d	$a0, $sp, 176
+	fadd.s	$fa3, $fa3, $fa4
+	ld.d	$a1, $sp, 88
+	fadd.s	$fa3, $fa5, $fa3
+	vinsgr2vr.d	$vr4, $a0, 0
+	ld.d	$a0, $sp, 224
+	vinsgr2vr.d	$vr5, $a1, 0
+	vfmul.s	$vr4, $vr4, $vr5
+	ld.d	$a1, $sp, 104
+	vinsgr2vr.d	$vr5, $a0, 0
+	ld.d	$a0, $sp, 240
+	ld.d	$a2, $sp, 120
+	vinsgr2vr.d	$vr6, $a1, 0
+	vfmul.s	$vr5, $vr5, $vr6
+	vinsgr2vr.d	$vr6, $a0, 0
+	vinsgr2vr.d	$vr7, $a2, 0
+	vfmul.s	$vr6, $vr6, $vr7
+	vori.b	$vr7, $vr11, 0
+	vextrins.w	$vr7, $vr11, 16
+	vfmul.s	$vr7, $vr7, $vr4
+	vextrins.w	$vr10, $vr10, 16
+	vfmul.s	$vr4, $vr10, $vr4
+	vfadd.s	$vr5, $vr5, $vr6
+	vfadd.s	$vr5, $vr7, $vr5
+	vfadd.s	$vr4, $vr4, $vr5
 	fadd.s	$fa2, $fa2, $fa3
-	fld.s	$fa3, $sp, 212
-	fld.s	$fa5, $sp, 128
-	fadd.s	$fa2, $fa2, $fa4
-	fneg.s	$fa4, $fa2
-	fmul.s	$fa2, $fa2, $fa4
-	fmadd.s	$fa2, $fa3, $fa5, $fa2
+	vreplvei.w	$vr3, $vr4, 0
+	vreplvei.w	$vr4, $vr4, 1
+	fadd.s	$fa3, $fa3, $fa4
+	fld.s	$fa4, $sp, 256
+	fld.s	$fa5, $sp, 168
+	fadd.s	$fa2, $fa3, $fa2
+	fneg.s	$fa3, $fa2
+	fmul.s	$fa2, $fa2, $fa3
+	fmadd.s	$fa2, $fa4, $fa5, $fa2
 	frecip.s	$fa2, $fa2
-	fmul.s	$fa3, $fa0, $fa3
-	fmul.s	$fa6, $fa1, $fa4
+	fmul.s	$fa4, $fa0, $fa4
+	fmul.s	$fa6, $fa1, $fa3
 	fmul.s	$fa6, $fa6, $fa2
-	fmadd.s	$fa3, $fa3, $fa2, $fa6
+	fmadd.s	$fa4, $fa4, $fa2, $fa6
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
-	fst.s	$fa3, $a0, 0
+	fst.s	$fa4, $a0, 0
 	fmul.s	$fa1, $fa1, $fa5
-	fmul.s	$fa0, $fa0, $fa4
+	fmul.s	$fa0, $fa0, $fa3
 	fmul.s	$fa0, $fa0, $fa2
 	fmadd.s	$fa0, $fa1, $fa2, $fa0
 	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	fst.s	$fa0, $a0, 0
 .LBB0_2:
-	fld.d	$fs3, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 240                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 248                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 256                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 264                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 328                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 336
+	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 288                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 368
 	ret
 .Lfunc_end0:
 	.size	_ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_, .Lfunc_end0-_ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
@@ -413,23 +412,21 @@ _ZN15btJacobianEntryC2ERK11btMatrix3x3S2_RK9btVector3S5_S5_S5_fS5_f: # @_ZN15btJ
 _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_: # @_ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
 	.cfi_startproc
 # %bb.0:
-	addi.d	$sp, $sp, -336
-	.cfi_def_cfa_offset 336
-	st.d	$ra, $sp, 328                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 320                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 312                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 304                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 296                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 288                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 280                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 272                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 264                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 256                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 248                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 240                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 232                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 224                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 216                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -368
+	.cfi_def_cfa_offset 368
+	st.d	$ra, $sp, 360                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 352                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 344                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 336                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 328                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 320                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 312                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 304                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 296                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 288                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 280                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 272                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 264                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -443,11 +440,9 @@ _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_R
 	.cfi_offset 31, -88
 	.cfi_offset 56, -96
 	.cfi_offset 57, -104
-	.cfi_offset 58, -112
-	.cfi_offset 59, -120
-	ld.d	$s2, $sp, 408
-	ld.d	$s8, $sp, 416
-	ld.d	$s1, $sp, 376
+	ld.d	$s2, $sp, 440
+	ld.d	$s8, $sp, 448
+	ld.d	$s1, $sp, 408
 	st.w	$zero, $s2, 0
 	st.w	$zero, $s8, 0
 	fld.s	$fa4, $s1, 4
@@ -464,37 +459,41 @@ _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_R
 	fadd.s	$fa4, $fa4, $fa6
 	fabs.s	$fa4, $fa4
 	fcmp.cle.s	$fcc0, $fa5, $fa4
+                                        # kill: def $f1 killed $f1 def $vr1
+                                        # kill: def $f0 killed $f0 def $vr0
 	bcnez	$fcc0, .LBB2_6
 # %bb.1:
-	fmov.s	$fs2, $fa3
-	fmov.s	$fs3, $fa2
+	fmov.s	$fs0, $fa3
+	fmov.s	$fs1, $fa2
 	move	$s5, $a5
 	move	$s6, $a4
 	move	$s7, $a3
 	move	$s3, $a2
 	move	$s4, $a1
-	ld.d	$a1, $sp, 400
+	ld.d	$a1, $sp, 432
 	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
-	ld.d	$a1, $sp, 392
+	ld.d	$a1, $sp, 424
 	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
-	ld.d	$a1, $sp, 384
+	ld.d	$a1, $sp, 416
 	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
-	ld.d	$a4, $sp, 368
-	ld.d	$fp, $sp, 344
-	ld.d	$s0, $sp, 336
+	ld.d	$a4, $sp, 400
+	ld.d	$fp, $sp, 376
+	ld.d	$s0, $sp, 368
 	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
-	addi.d	$a0, $sp, 132
+	addi.d	$a0, $sp, 176
 	move	$a1, $a3
 	move	$a2, $s6
 	move	$a3, $s0
 	move	$a5, $s1
 	move	$a6, $s5
-	fmov.s	$fs1, $fa0
+	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
+                                        # kill: def $f0 killed $f0 killed $vr0
 	move	$a7, $fp
-	fmov.s	$fs0, $fa1
+	vst	$vr1, $sp, 48                   # 16-byte Folded Spill
+                                        # kill: def $f1 killed $f1 killed $vr1
 	pcaddu18i	$ra, %call36(_ZN15btJacobianEntryC2ERK11btMatrix3x3S2_RK9btVector3S5_S5_S5_fS5_f)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 48
+	addi.d	$a0, $sp, 88
 	move	$a1, $s7
 	move	$a2, $s6
 	ld.d	$s7, $sp, 16                    # 8-byte Folded Reload
@@ -503,9 +502,11 @@ _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_R
 	ld.d	$s6, $sp, 32                    # 8-byte Folded Reload
 	move	$a5, $s6
 	move	$a6, $s5
-	fmov.s	$fa0, $fs1
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+                                        # kill: def $f0 killed $f0 killed $vr0
 	move	$a7, $fp
-	fmov.s	$fa1, $fs0
+	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
+                                        # kill: def $f1 killed $f1 killed $vr1
 	pcaddu18i	$ra, %call36(_ZN15btJacobianEntryC2ERK11btMatrix3x3S2_RK9btVector3S5_S5_S5_fS5_f)
 	jirl	$ra, $ra, 0
 	fld.s	$fa3, $s0, 4
@@ -578,68 +579,67 @@ _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_R
 	fadd.s	$fa5, $ft2, $fa5
 	fadd.s	$fa6, $ft10, $fa6
 	fsub.s	$fa2, $fa2, $fa4
-	fsub.s	$fa1, $fa1, $fa5
 	fld.s	$fa4, $s6, 4
+	fsub.s	$fa1, $fa1, $fa5
 	fsub.s	$fa0, $fa0, $fa6
 	fld.s	$fa5, $s6, 0
-	fld.s	$fa6, $s6, 8
 	fmul.s	$fa1, $fa4, $fa1
-	ld.d	$a2, $sp, 40                    # 8-byte Folded Reload
-	fld.s	$fa4, $a2, 4
+	fld.s	$fa4, $s6, 8
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
+	fld.s	$fa6, $a0, 4
 	fmadd.s	$fa1, $fa5, $fa2, $fa1
-	fmadd.s	$fa1, $fa6, $fa0, $fa1
-	fld.s	$fa2, $a2, 0
-	fneg.s	$fa4, $fa4
+	fld.s	$fa2, $a0, 0
+	fmadd.s	$fa1, $fa4, $fa0, $fa1
+	fneg.s	$fa4, $fa6
 	fmul.s	$fa0, $fa3, $fa4
-	fld.s	$fa3, $sp, 132
-	fld.s	$fa5, $sp, 48
-	fmadd.s	$fa0, $fs3, $fa2, $fa0
+	fmadd.s	$fa0, $fs1, $fa2, $fa0
 	fmul.s	$fa1, $fa1, $fa4
-	fmadd.s	$fa1, $fs2, $fa2, $fa1
-	fmul.s	$fa2, $fa3, $fa5
-	fld.s	$fa3, $sp, 136
-	fld.s	$fa4, $sp, 52
-	fld.s	$fa5, $sp, 140
-	fld.s	$fa6, $sp, 56
-	fld.s	$fa7, $sp, 180
-	fld.s	$ft0, $sp, 64
-	fld.s	$ft1, $sp, 184
-	fld.s	$ft2, $sp, 68
-	fmul.s	$fa3, $fa3, $fa4
-	fmul.s	$fa4, $fa5, $fa6
-	fmul.s	$fa5, $fa7, $ft0
-	fmul.s	$fa6, $ft1, $ft2
-	fld.s	$fa7, $sp, 188
-	fld.s	$ft0, $sp, 72
-	fld.s	$ft1, $sp, 196
-	fld.s	$ft2, $sp, 80
-	fld.s	$ft3, $sp, 200
-	fld.s	$ft4, $sp, 84
-	fld.s	$ft5, $sp, 204
-	fld.s	$ft6, $sp, 88
-	fmul.s	$fa7, $fa7, $ft0
-	fmul.s	$ft0, $ft1, $ft2
-	fmul.s	$ft1, $ft3, $ft4
-	fmul.s	$ft2, $ft5, $ft6
-	fmul.s	$ft3, $fs1, $fa2
-	fmul.s	$ft4, $fs1, $fa3
-	fmul.s	$ft5, $fs1, $fa4
-	fmul.s	$fa2, $fs0, $fa2
-	fmul.s	$fa3, $fs0, $fa3
-	fmul.s	$fa4, $fs0, $fa4
-	fadd.s	$fa5, $fa5, $ft0
-	fadd.s	$fa6, $fa6, $ft1
-	fadd.s	$fa7, $fa7, $ft2
-	fadd.s	$fa5, $ft3, $fa5
-	fadd.s	$fa6, $ft4, $fa6
-	fadd.s	$fa7, $ft5, $fa7
-	fadd.s	$fa2, $fa2, $fa5
-	fadd.s	$fa3, $fa3, $fa6
-	fadd.s	$fa5, $fa4, $fa7
+	fld.s	$fa3, $sp, 184
+	fld.s	$fa4, $sp, 96
+	fld.s	$fa5, $sp, 232
+	fld.s	$fa6, $sp, 112
+	fld.s	$fa7, $sp, 248
+	fld.s	$ft0, $sp, 128
+	fmadd.s	$fa1, $fs0, $fa2, $fa1
+	fmul.s	$fa2, $fa3, $fa4
+	fmul.s	$fa3, $fa5, $fa6
+	fmul.s	$fa4, $fa7, $ft0
+	vld	$vr9, $sp, 64                   # 16-byte Folded Reload
+	fmul.s	$fa5, $ft1, $fa2
+	vld	$vr8, $sp, 48                   # 16-byte Folded Reload
+	fmul.s	$fa2, $ft0, $fa2
+	ld.d	$a0, $sp, 176
+	fadd.s	$fa3, $fa3, $fa4
+	ld.d	$a1, $sp, 88
+	fadd.s	$fa3, $fa5, $fa3
+	vinsgr2vr.d	$vr4, $a0, 0
+	ld.d	$a0, $sp, 224
+	vinsgr2vr.d	$vr5, $a1, 0
+	vfmul.s	$vr4, $vr4, $vr5
+	ld.d	$a1, $sp, 104
+	vinsgr2vr.d	$vr5, $a0, 0
+	ld.d	$a0, $sp, 240
+	ld.d	$a2, $sp, 120
+	vinsgr2vr.d	$vr6, $a1, 0
+	vfmul.s	$vr5, $vr5, $vr6
+	vinsgr2vr.d	$vr6, $a0, 0
+	vinsgr2vr.d	$vr7, $a2, 0
+	vfmul.s	$vr6, $vr6, $vr7
+	vori.b	$vr7, $vr9, 0
+	vextrins.w	$vr7, $vr9, 16
+	vfmul.s	$vr7, $vr7, $vr4
+	vextrins.w	$vr8, $vr8, 16
+	vfmul.s	$vr4, $vr8, $vr4
+	vfadd.s	$vr5, $vr5, $vr6
+	vfadd.s	$vr5, $vr7, $vr5
+	vfadd.s	$vr4, $vr4, $vr5
 	fadd.s	$fa3, $fa2, $fa3
-	fld.s	$fa2, $sp, 212
-	fld.s	$fa4, $sp, 128
-	fadd.s	$fa3, $fa3, $fa5
+	vreplvei.w	$vr2, $vr4, 0
+	vreplvei.w	$vr4, $vr4, 1
+	fadd.s	$fa5, $fa2, $fa4
+	fld.s	$fa2, $sp, 256
+	fld.s	$fa4, $sp, 168
+	fadd.s	$fa3, $fa5, $fa3
 	fneg.s	$fa5, $fa3
 	fmul.s	$fa3, $fa3, $fa5
 	fmadd.s	$fa3, $fa2, $fa4, $fa3
@@ -677,22 +677,20 @@ _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_R
 # %bb.5:                                # %.sink.split
 	st.w	$zero, $s2, 0
 .LBB2_6:
-	fld.d	$fs3, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 240                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 248                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 256                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 264                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 328                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 336
+	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 288                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 368
 	ret
 .Lfunc_end2:
 	.size	_ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_, .Lfunc_end2-_ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_

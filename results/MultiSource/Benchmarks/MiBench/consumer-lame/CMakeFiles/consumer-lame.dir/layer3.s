@@ -2639,62 +2639,62 @@ init_layer3:                            # @init_layer3
                                         # =>This Inner Loop Header: Depth=1
 	pcalau12i	$a5, %pc_hi20(.LCPI0_95)
 	vld	$vr0, $a5, %pc_lo12(.LCPI0_95)
+	vreplgr2vr.w	$vr1, $a2
 	pcalau12i	$a5, %pc_hi20(.LCPI0_96)
-	vld	$vr1, $a5, %pc_lo12(.LCPI0_96)
-	vreplgr2vr.w	$vr2, $a2
-	vadd.w	$vr3, $vr2, $vr0
-	vadd.w	$vr2, $vr2, $vr1
-	vst	$vr2, $a0, -144
+	vld	$vr2, $a5, %pc_lo12(.LCPI0_96)
+	vadd.w	$vr1, $vr1, $vr0
+	vst	$vr1, $a0, -160
+	vreplgr2vr.w	$vr1, $a3
+	vadd.w	$vr3, $vr1, $vr2
 	pcalau12i	$a5, %pc_hi20(.LCPI0_97)
-	vld	$vr2, $a5, %pc_lo12(.LCPI0_97)
+	vld	$vr4, $a5, %pc_lo12(.LCPI0_97)
 	pcalau12i	$a5, %pc_hi20(.LCPI0_98)
-	vld	$vr4, $a5, %pc_lo12(.LCPI0_98)
-	vst	$vr3, $a0, -160
-	vreplgr2vr.w	$vr3, $a3
-	vadd.w	$vr5, $vr3, $vr2
-	vadd.w	$vr3, $vr3, $vr4
-	vst	$vr3, $a0, -112
-	vst	$vr5, $a0, -128
+	vld	$vr5, $a5, %pc_lo12(.LCPI0_98)
+	vst	$vr3, $a0, -144
+	vadd.w	$vr3, $vr1, $vr4
+	vst	$vr3, $a0, -128
+	vadd.w	$vr1, $vr1, $vr5
+	vst	$vr1, $a0, -112
 	addi.d	$a5, $a3, 8
-	vreplgr2vr.w	$vr3, $a5
-	vadd.w	$vr5, $vr3, $vr0
-	vadd.w	$vr6, $vr3, $vr1
-	vst	$vr6, $a0, -80
-	vst	$vr5, $a0, -96
-	vadd.w	$vr5, $vr3, $vr2
-	vadd.w	$vr3, $vr3, $vr4
-	vst	$vr3, $a0, -48
-	vst	$vr5, $a0, -64
+	vreplgr2vr.w	$vr1, $a5
+	vadd.w	$vr3, $vr1, $vr0
+	vst	$vr3, $a0, -96
+	vadd.w	$vr3, $vr1, $vr2
+	vst	$vr3, $a0, -80
+	vadd.w	$vr3, $vr1, $vr4
+	vst	$vr3, $a0, -64
+	vadd.w	$vr1, $vr1, $vr5
+	vst	$vr1, $a0, -48
 	addi.d	$a5, $a3, 16
-	vreplgr2vr.w	$vr3, $a5
-	vadd.w	$vr5, $vr3, $vr0
-	vadd.w	$vr6, $vr3, $vr1
-	vst	$vr6, $a0, -16
-	vst	$vr5, $a0, -32
-	vadd.w	$vr5, $vr3, $vr2
-	vadd.w	$vr3, $vr3, $vr4
-	vst	$vr3, $a0, 16
-	vst	$vr5, $a0, 0
+	vreplgr2vr.w	$vr1, $a5
+	vadd.w	$vr3, $vr1, $vr0
+	vst	$vr3, $a0, -32
+	vadd.w	$vr3, $vr1, $vr2
+	vst	$vr3, $a0, -16
+	vadd.w	$vr3, $vr1, $vr4
+	vst	$vr3, $a0, 0
+	vadd.w	$vr1, $vr1, $vr5
+	vst	$vr1, $a0, 16
 	addi.d	$a5, $a3, 24
-	vreplgr2vr.w	$vr3, $a5
-	vadd.w	$vr5, $vr3, $vr0
-	vadd.w	$vr6, $vr3, $vr1
-	vst	$vr6, $a0, 48
-	vst	$vr5, $a0, 32
-	vadd.w	$vr5, $vr3, $vr2
-	vadd.w	$vr3, $vr3, $vr4
-	vst	$vr3, $a0, 80
-	vst	$vr5, $a0, 64
+	vreplgr2vr.w	$vr1, $a5
+	vadd.w	$vr3, $vr1, $vr0
+	vst	$vr3, $a0, 32
+	vadd.w	$vr3, $vr1, $vr2
+	vst	$vr3, $a0, 48
+	vadd.w	$vr3, $vr1, $vr4
+	vst	$vr3, $a0, 64
+	vadd.w	$vr1, $vr1, $vr5
+	vst	$vr1, $a0, 80
 	addi.d	$a5, $a3, 32
-	vreplgr2vr.w	$vr3, $a5
-	vadd.w	$vr0, $vr3, $vr0
-	vadd.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a0, 112
+	vreplgr2vr.w	$vr1, $a5
+	vadd.w	$vr0, $vr1, $vr0
 	vst	$vr0, $a0, 96
-	vadd.w	$vr0, $vr3, $vr2
-	vadd.w	$vr1, $vr3, $vr4
-	vst	$vr1, $a0, 144
+	vadd.w	$vr0, $vr1, $vr2
+	vst	$vr0, $a0, 112
+	vadd.w	$vr0, $vr1, $vr4
 	vst	$vr0, $a0, 128
+	vadd.w	$vr0, $vr1, $vr5
+	vst	$vr0, $a0, 144
 	addi.d	$a3, $a3, 1
 	addi.d	$a2, $a2, 1
 	addi.d	$a0, $a0, 320

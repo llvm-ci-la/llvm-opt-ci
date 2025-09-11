@@ -1147,40 +1147,42 @@ ab:                                     # @ab
                                         #   in Loop: Header=BB19_56 Depth=1
 	st.d	$t6, $sp, 112                   # 8-byte Folded Spill
 	st.d	$t4, $sp, 128                   # 8-byte Folded Spill
-	addi.w	$a7, $a6, 0
-	slli.d	$a4, $a7, 2
+	addi.w	$t0, $a6, 0
+	slli.d	$a4, $t0, 2
 	ldx.w	$s3, $a4, $t5
-	bge	$s4, $a7, .LBB19_67
+	bge	$s4, $t0, .LBB19_67
 # %bb.60:                               # %.lr.ph167.preheader
                                         #   in Loop: Header=BB19_56 Depth=1
-	sub.d	$a5, $a7, $s4
-	ori	$a4, $zero, 4
+	sub.d	$a5, $t0, $s4
+	ori	$a4, $zero, 8
 	bgeu	$a5, $a4, .LBB19_62
 # %bb.61:                               #   in Loop: Header=BB19_56 Depth=1
-	move	$a4, $a7
+	move	$a4, $t0
 	b	.LBB19_65
 .LBB19_62:                              # %vector.ph
                                         #   in Loop: Header=BB19_56 Depth=1
-	addi.w	$t0, $zero, -4
-	and	$a6, $a5, $t0
-	sub.d	$a4, $a7, $a6
-	add.d	$t1, $t3, $a7
-	and	$t0, $t1, $t0
+	addi.w	$a7, $zero, -8
+	and	$a6, $a5, $a7
+	sub.d	$a4, $t0, $a6
+	add.d	$t1, $t3, $t0
+	and	$a7, $t1, $a7
 	addi.d	$t1, $sp, 140
-	alsl.d	$a7, $a7, $t1, 2
+	alsl.d	$t0, $t0, $t1, 2
 	.p2align	4, , 16
 .LBB19_63:                              # %vector.body
                                         #   Parent Loop BB19_56 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr0, $a7, 0
-	vst	$vr0, $a7, 4
-	addi.d	$t0, $t0, -4
-	addi.d	$a7, $a7, -16
-	bnez	$t0, .LBB19_63
+	vld	$vr0, $t0, 0
+	vld	$vr1, $t0, -16
+	vst	$vr0, $t0, 4
+	vst	$vr1, $t0, -12
+	addi.d	$a7, $a7, -8
+	addi.d	$t0, $t0, -32
+	bnez	$a7, .LBB19_63
 # %bb.64:                               # %middle.block
                                         #   in Loop: Header=BB19_56 Depth=1
 	beq	$a5, $a6, .LBB19_67
-.LBB19_65:                              # %.lr.ph167.preheader258
+.LBB19_65:                              # %.lr.ph167.preheader261
                                         #   in Loop: Header=BB19_56 Depth=1
 	alsl.d	$a5, $a4, $t5, 2
 	.p2align	4, , 16

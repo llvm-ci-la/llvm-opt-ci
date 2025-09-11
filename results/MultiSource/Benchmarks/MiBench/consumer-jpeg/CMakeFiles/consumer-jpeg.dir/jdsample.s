@@ -728,7 +728,7 @@ h2v1_upsample:                          # @h2v1_upsample
 	bstrins.d	$t4, $zero, 3, 0
 	add.d	$t0, $a7, $t4
 	alsl.d	$t1, $t4, $t2, 1
-	addi.d	$t2, $t2, 15
+	addi.d	$t2, $t2, 16
 	move	$t5, $t4
 	.p2align	4, , 16
 .LBB6_11:                               # %vector.body
@@ -736,12 +736,12 @@ h2v1_upsample:                          # @h2v1_upsample
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr0, $a7, 0
 	vilvl.b	$vr1, $vr0, $vr0
-	vst	$vr1, $t2, -15
+	vst	$vr1, $t2, -16
 	vilvh.b	$vr0, $vr0, $vr0
-	vst	$vr0, $t2, 1
-	addi.d	$a7, $a7, 16
-	addi.d	$t5, $t5, -16
+	vst	$vr0, $t2, 0
 	addi.d	$t2, $t2, 32
+	addi.d	$t5, $t5, -16
+	addi.d	$a7, $a7, 16
 	bnez	$t5, .LBB6_11
 # %bb.12:                               # %middle.block
                                         #   in Loop: Header=BB6_4 Depth=1
@@ -1549,7 +1549,7 @@ h2v2_upsample:                          # @h2v2_upsample
 	bstrins.d	$a6, $zero, 3, 0
 	add.d	$a2, $a1, $a6
 	alsl.d	$a3, $a6, $a4, 1
-	addi.d	$a4, $a4, 15
+	addi.d	$a4, $a4, 16
 	move	$a7, $a6
 	.p2align	4, , 16
 .LBB8_12:                               # %vector.body
@@ -1557,12 +1557,12 @@ h2v2_upsample:                          # @h2v2_upsample
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr0, $a1, 0
 	vilvl.b	$vr1, $vr0, $vr0
-	vst	$vr1, $a4, -15
+	vst	$vr1, $a4, -16
 	vilvh.b	$vr0, $vr0, $vr0
-	vst	$vr0, $a4, 1
-	addi.d	$a1, $a1, 16
-	addi.d	$a7, $a7, -16
+	vst	$vr0, $a4, 0
 	addi.d	$a4, $a4, 32
+	addi.d	$a7, $a7, -16
+	addi.d	$a1, $a1, 16
 	bnez	$a7, .LBB8_12
 # %bb.13:                               # %middle.block
                                         #   in Loop: Header=BB8_4 Depth=1

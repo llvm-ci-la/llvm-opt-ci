@@ -1590,7 +1590,7 @@ _ZL27loopWithReductionWithVW1IC4i:      # @_ZL27loopWithReductionWithVW1IC4i
 	b	.LBB21_7
 .LBB21_3:
 	move	$a1, $zero
-	move	$a0, $a1
+	addi.w	$a0, $a1, 0
 	ret
 .LBB21_4:                               # %vector.ph
 	pcalau12i	$a1, %pc_hi20(A)
@@ -1608,13 +1608,9 @@ _ZL27loopWithReductionWithVW1IC4i:      # @_ZL27loopWithReductionWithVW1IC4i
 	addi.d	$a1, $a1, 16
 	bnez	$a3, .LBB21_5
 # %bb.6:                                # %middle.block
-	vpickve2gr.w	$a1, $vr0, 0
-	vpickve2gr.w	$a3, $vr0, 1
-	add.d	$a1, $a3, $a1
-	vpickve2gr.w	$a3, $vr0, 2
-	add.d	$a1, $a3, $a1
-	vpickve2gr.w	$a3, $vr0, 3
-	add.w	$a1, $a3, $a1
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a1, $vr0, 0
 	beq	$a2, $a0, .LBB21_9
 .LBB21_7:                               # %.lr.ph.preheader14
 	pcalau12i	$a3, %pc_hi20(A)
@@ -1625,12 +1621,12 @@ _ZL27loopWithReductionWithVW1IC4i:      # @_ZL27loopWithReductionWithVW1IC4i
 .LBB21_8:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a2, $a3, 0
-	add.w	$a1, $a2, $a1
+	add.d	$a1, $a2, $a1
 	addi.d	$a0, $a0, -1
 	addi.d	$a3, $a3, 4
 	bnez	$a0, .LBB21_8
 .LBB21_9:                               # %._crit_edge
-	move	$a0, $a1
+	addi.w	$a0, $a1, 0
 	ret
 .Lfunc_end21:
 	.size	_ZL27loopWithReductionWithVW1IC4i, .Lfunc_end21-_ZL27loopWithReductionWithVW1IC4i
@@ -3659,20 +3655,20 @@ _ZL30bigLoopWithReductionWithVW1IC4i:   # @_ZL30bigLoopWithReductionWithVW1IC4i
 # %bb.0:
 	blez	$a0, .LBB42_3
 # %bb.1:                                # %.lr.ph.preheader
-	ori	$a1, $zero, 4
-	lu12i.w	$a2, 419430
-	bgeu	$a0, $a1, .LBB42_4
+	ori	$a2, $zero, 4
+	lu12i.w	$a1, 419430
+	bgeu	$a0, $a2, .LBB42_4
 # %bb.2:
 	move	$a3, $zero
-	move	$a1, $zero
+	move	$a2, $zero
 	b	.LBB42_7
 .LBB42_3:
-	move	$a1, $zero
-	move	$a0, $a1
+	move	$a2, $zero
+	addi.w	$a0, $a2, 0
 	ret
 .LBB42_4:                               # %vector.ph
-	pcalau12i	$a1, %pc_hi20(A)
-	addi.d	$a1, $a1, %pc_lo12(A)
+	pcalau12i	$a2, %pc_hi20(A)
+	addi.d	$a2, $a2, %pc_lo12(A)
 	pcalau12i	$a3, %pc_hi20(D)
 	addi.d	$a4, $a3, %pc_lo12(D)
 	pcalau12i	$a3, %pc_hi20(E)
@@ -3682,13 +3678,13 @@ _ZL30bigLoopWithReductionWithVW1IC4i:   # @_ZL30bigLoopWithReductionWithVW1IC4i
 	bstrpick.d	$a3, $a0, 30, 2
 	slli.d	$a3, $a3, 2
 	vrepli.b	$vr0, 0
-	ori	$a7, $a2, 1639
+	ori	$a7, $a1, 1639
 	vreplgr2vr.w	$vr1, $a7
 	move	$a7, $a3
 	.p2align	4, , 16
 .LBB42_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr2, $a1, 0
+	vld	$vr2, $a2, 0
 	vld	$vr3, $a4, 0
 	vadd.w	$vr0, $vr2, $vr0
 	vld	$vr2, $a5, 0
@@ -3706,16 +3702,12 @@ _ZL30bigLoopWithReductionWithVW1IC4i:   # @_ZL30bigLoopWithReductionWithVW1IC4i
 	addi.d	$a6, $a6, 16
 	addi.d	$a5, $a5, 16
 	addi.d	$a4, $a4, 16
-	addi.d	$a1, $a1, 16
+	addi.d	$a2, $a2, 16
 	bnez	$a7, .LBB42_5
 # %bb.6:                                # %middle.block
-	vpickve2gr.w	$a1, $vr0, 0
-	vpickve2gr.w	$a4, $vr0, 1
-	add.d	$a1, $a4, $a1
-	vpickve2gr.w	$a4, $vr0, 2
-	add.d	$a1, $a4, $a1
-	vpickve2gr.w	$a4, $vr0, 3
-	add.w	$a1, $a4, $a1
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a2, $vr0, 0
 	beq	$a3, $a0, .LBB42_9
 .LBB42_7:                               # %.lr.ph.preheader17
 	pcalau12i	$a4, %pc_hi20(A)
@@ -3731,20 +3723,20 @@ _ZL30bigLoopWithReductionWithVW1IC4i:   # @_ZL30bigLoopWithReductionWithVW1IC4i
 	addi.d	$a7, $a7, %pc_lo12(F)
 	alsl.d	$a7, $a3, $a7, 2
 	sub.d	$a0, $a0, $a3
-	ori	$a2, $a2, 1639
+	ori	$a1, $a1, 1639
 	.p2align	4, , 16
 .LBB42_8:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a3, $a4, 0
 	ld.w	$t0, $a5, 0
-	add.w	$a1, $a3, $a1
+	add.d	$a2, $a3, $a2
 	ld.w	$a3, $a6, 0
 	addi.d	$t0, $t0, 1
 	ld.w	$t1, $a7, 0
 	st.w	$t0, $a5, 0
 	slli.d	$a3, $a3, 1
 	st.w	$a3, $a6, 0
-	mul.d	$a3, $t1, $a2
+	mul.d	$a3, $t1, $a1
 	srli.d	$t0, $a3, 63
 	srai.d	$a3, $a3, 33
 	add.d	$a3, $a3, $t0
@@ -3756,7 +3748,7 @@ _ZL30bigLoopWithReductionWithVW1IC4i:   # @_ZL30bigLoopWithReductionWithVW1IC4i
 	addi.d	$a7, $a7, 4
 	bnez	$a0, .LBB42_8
 .LBB42_9:                               # %._crit_edge
-	move	$a0, $a1
+	addi.w	$a0, $a2, 0
 	ret
 .Lfunc_end42:
 	.size	_ZL30bigLoopWithReductionWithVW1IC4i, .Lfunc_end42-_ZL30bigLoopWithReductionWithVW1IC4i
@@ -29722,57 +29714,93 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 	bltu	$a2, $a1, .LBB331_6
 # %bb.1:                                # %vector.ph
 	ld.d	$a1, $a0, 0
-	move	$a2, $zero
+	move	$a3, $zero
 	vinsgr2vr.d	$vr5, $a1, 1
 	lu12i.w	$a1, -524288
 	vreplgr2vr.d	$vr0, $a1
 	lu12i.w	$a1, 524287
-	ori	$a1, $a1, 4094
-	vreplgr2vr.d	$vr1, $a1
-	ori	$a3, $zero, 3176
+	ori	$a2, $a1, 4094
+	vreplgr2vr.d	$vr1, $a2
+	ori	$a4, $zero, 3176
+	ori	$a5, $zero, 3192
 	vrepli.d	$vr2, 1
 	vrepli.b	$vr3, -1
 	lu12i.w	$a1, -421749
 	ori	$a1, $a1, 223
 	lu32i.d	$a1, 0
 	vreplgr2vr.d	$vr4, $a1
-	ori	$a4, $zero, 1808
+	ori	$a6, $zero, 1792
 	.p2align	4, , 16
 .LBB331_2:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vori.b	$vr6, $vr5, 0
-	add.d	$a5, $a0, $a2
-	vld	$vr5, $a5, 8
+	add.d	$a7, $a0, $a3
+	vld	$vr6, $a7, 8
+	vori.b	$vr7, $vr5, 0
+	vld	$vr5, $a7, 24
+	vshuf4i.d	$vr7, $vr6, 9
+	vand.v	$vr7, $vr7, $vr0
+	vand.v	$vr8, $vr6, $vr1
+	vand.v	$vr9, $vr6, $vr2
 	vshuf4i.d	$vr6, $vr5, 9
 	vand.v	$vr6, $vr6, $vr0
-	vldx	$vr7, $a5, $a3
-	vand.v	$vr8, $vr5, $vr1
-	vor.v	$vr6, $vr8, $vr6
+	vand.v	$vr10, $vr5, $vr1
+	vor.v	$vr7, $vr8, $vr7
+	vor.v	$vr6, $vr10, $vr6
+	vldx	$vr8, $a7, $a4
+	vldx	$vr10, $a7, $a5
+	vsrli.d	$vr7, $vr7, 1
 	vsrli.d	$vr6, $vr6, 1
-	vxor.v	$vr6, $vr6, $vr7
-	vand.v	$vr7, $vr5, $vr2
-	vseqi.d	$vr7, $vr7, 0
-	vxor.v	$vr7, $vr7, $vr3
-	vand.v	$vr7, $vr7, $vr4
-	vxor.v	$vr6, $vr6, $vr7
-	vstx	$vr6, $a0, $a2
-	addi.d	$a2, $a2, 16
-	bne	$a2, $a4, .LBB331_2
-# %bb.3:                                # %vector.ph11
-	ld.d	$a2, $a0, 1816
-	vpickve2gr.d	$a3, $vr5, 1
-	bstrpick.d	$a4, $a2, 30, 1
-	ldptr.d	$a5, $a0, 4984
-	slli.d	$a4, $a4, 1
-	bstrins.d	$a3, $a4, 30, 0
+	vxor.v	$vr7, $vr7, $vr8
+	vxor.v	$vr6, $vr6, $vr10
+	vand.v	$vr8, $vr5, $vr2
+	vseqi.d	$vr9, $vr9, 0
+	vxor.v	$vr9, $vr9, $vr3
+	vand.v	$vr9, $vr9, $vr4
+	vseqi.d	$vr8, $vr8, 0
+	vxor.v	$vr8, $vr8, $vr3
+	vand.v	$vr8, $vr8, $vr4
+	vxor.v	$vr7, $vr7, $vr9
+	vxor.v	$vr6, $vr6, $vr8
+	vstx	$vr7, $a0, $a3
+	addi.d	$a3, $a3, 32
+	vst	$vr6, $a7, 16
+	bne	$a3, $a6, .LBB331_2
+# %bb.3:                                # %vector.ph13
+	ld.d	$a3, $a0, 1800
+	vpickve2gr.d	$a4, $vr5, 1
+	ldptr.d	$a5, $a0, 4968
+	and	$a6, $a3, $a2
+	bstrins.d	$a4, $a6, 30, 0
+	srli.d	$a4, $a4, 1
+	xor	$a4, $a4, $a5
+	andi	$a5, $a3, 1
+	sub.d	$a5, $zero, $a5
+	and	$a5, $a5, $a1
+	ld.d	$a6, $a0, 1808
+	xor	$a4, $a4, $a5
+	st.d	$a4, $a0, 1792
+	ldptr.d	$a4, $a0, 4976
+	and	$a5, $a6, $a2
+	bstrins.d	$a3, $a5, 30, 0
 	srli.d	$a3, $a3, 1
-	xor	$a3, $a3, $a5
-	andi	$a4, $a2, 1
+	xor	$a3, $a3, $a4
+	andi	$a4, $a6, 1
 	sub.d	$a4, $zero, $a4
 	and	$a4, $a4, $a1
+	ld.d	$a5, $a0, 1816
 	xor	$a3, $a3, $a4
-	st.d	$a3, $a0, 1808
-	vinsgr2vr.d	$vr5, $a2, 1
+	st.d	$a3, $a0, 1800
+	ldptr.d	$a3, $a0, 4984
+	and	$a2, $a5, $a2
+	bstrins.d	$a6, $a2, 30, 0
+	srli.d	$a2, $a6, 1
+	xor	$a2, $a2, $a3
+	andi	$a3, $a5, 1
+	sub.d	$a3, $zero, $a3
+	and	$a3, $a3, $a1
+	xor	$a2, $a2, $a3
+	st.d	$a2, $a0, 1808
+	vinsgr2vr.d	$vr5, $a5, 1
 	lu12i.w	$a2, -1
 	ori	$a2, $a2, 928
 	lu12i.w	$a5, 1
@@ -29780,7 +29808,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 	ori	$a4, $zero, 3168
 	ori	$a5, $a5, 888
 	.p2align	4, , 16
-.LBB331_4:                              # %vector.body12
+.LBB331_4:                              # %vector.body14
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a6, $a0, $a2
 	vldx	$vr6, $a6, $a3

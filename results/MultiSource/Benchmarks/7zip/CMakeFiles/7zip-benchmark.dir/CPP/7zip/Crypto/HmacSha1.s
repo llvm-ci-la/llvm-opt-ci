@@ -299,26 +299,20 @@ _ZN7NCrypto5NSha17CHmac326SetKeyEPKhm:  # @_ZN7NCrypto5NSha17CHmac326SetKeyEPKhm
 .LBB2_6:                                # %.loopexit
 	vrepli.b	$vr1, 54
 	vxor.v	$vr0, $vr0, $vr1
+	ld.w	$a1, $sp, 164
+	vld	$vr2, $sp, 168
 	vst	$vr0, $sp, 144
-	lu12i.w	$a1, 222051
-	vld	$vr0, $sp, 164
-	ori	$a1, $a1, 1590
-	xor	$a0, $a0, $a1
-	st.w	$a0, $sp, 160
+	vinsgr2vr.w	$vr0, $a0, 0
+	vinsgr2vr.w	$vr0, $a1, 1
+	vpackev.d	$vr0, $vr2, $vr0
+	vld	$vr2, $sp, 176
 	vxor.v	$vr0, $vr0, $vr1
-	ld.w	$a0, $sp, 196
-	vst	$vr0, $sp, 164
-	ld.w	$a2, $sp, 200
-	vld	$vr0, $sp, 180
-	xor	$a0, $a0, $a1
-	st.w	$a0, $sp, 196
-	xor	$a0, $a2, $a1
-	ld.w	$a2, $sp, 204
-	st.w	$a0, $sp, 200
-	vxor.v	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 180
-	xor	$a0, $a2, $a1
-	st.w	$a0, $sp, 204
+	vld	$vr3, $sp, 192
+	vst	$vr0, $sp, 160
+	vxor.v	$vr0, $vr2, $vr1
+	vst	$vr0, $sp, 176
+	vxor.v	$vr0, $vr3, $vr1
+	vst	$vr0, $sp, 192
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN7NCrypto5NSha112CContextBase4InitEv)
 	jirl	$ra, $ra, 0

@@ -18,7 +18,15 @@ foo:                                    # @foo
 .Lfunc_end0:
 	.size	foo, .Lfunc_end0-foo
                                         # -- End function
-	.globl	main                            # -- Begin function main
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI1_0:
+	.word	16                              # 0x10
+	.word	32                              # 0x20
+	.word	66                              # 0x42
+	.word	129                             # 0x81
+	.text
+	.globl	main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -38,36 +46,29 @@ main:                                   # @main
 	addi.d	$a1, $sp, 8
 	#APP
 	#NO_APP
-	ld.w	$a3, $sp, 32
-	ld.w	$a0, $sp, 36
-	xori	$a1, $a3, 1
-	st.w	$a1, $sp, 32
-	xori	$a1, $a0, 2
-	ld.w	$a2, $sp, 40
-	ld.w	$a4, $sp, 24
-	ld.w	$a5, $sp, 44
-	ld.w	$a6, $sp, 28
-	st.w	$a1, $sp, 36
-	xor	$a2, $a4, $a2
-	st.w	$a2, $sp, 40
-	xor	$a1, $a6, $a5
-	ori	$a4, $zero, 16
-	st.w	$a1, $sp, 44
-	bne	$a3, $a4, .LBB1_5
+	ld.d	$a0, $sp, 24
+	vld	$vr0, $sp, 32
+	vinsgr2vr.d	$vr1, $a0, 0
+	ori	$a0, $zero, 1
+	lu32i.d	$a0, 2
+	vreplgr2vr.d	$vr2, $a0
+	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
+	vld	$vr3, $a0, %pc_lo12(.LCPI1_0)
+	vpackev.d	$vr1, $vr1, $vr2
+	vxor.v	$vr1, $vr0, $vr1
+	vshuf4i.d	$vr0, $vr1, 12
+	vseq.w	$vr0, $vr0, $vr3
+	vrepli.b	$vr2, -1
+	vxor.v	$vr0, $vr0, $vr2
+	vmskltz.w	$vr0, $vr0
+	vpickve2gr.hu	$a0, $vr0, 0
+	vst	$vr1, $sp, 32
+	bnez	$a0, .LBB1_2
 # %bb.1:
-	ori	$a3, $zero, 32
-	bne	$a0, $a3, .LBB1_5
-# %bb.2:
-	ori	$a0, $zero, 66
-	bne	$a2, $a0, .LBB1_5
-# %bb.3:
-	ori	$a0, $zero, 129
-	bne	$a1, $a0, .LBB1_5
-# %bb.4:
 	move	$a0, $zero
 	addi.d	$sp, $sp, 48
 	ret
-.LBB1_5:
+.LBB1_2:
 	pcaddu18i	$ra, %call36(abort)
 	jirl	$ra, $ra, 0
 .Lfunc_end1:

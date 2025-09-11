@@ -119,6 +119,18 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .LCPI7_2:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
+.LCPI7_4:
+	.dword	48                              # 0x30
+	.dword	56                              # 0x38
+.LCPI7_5:
+	.dword	32                              # 0x20
+	.dword	40                              # 0x28
+.LCPI7_6:
+	.dword	16                              # 0x10
+	.dword	24                              # 0x18
+.LCPI7_7:
+	.dword	0                               # 0x0
+	.dword	8                               # 0x8
 	.text
 	.globl	main
 	.p2align	5
@@ -365,49 +377,50 @@ main:                                   # @main
 	ori	$a0, $zero, 1441
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
+	pcalau12i	$a1, %pc_hi20(.LCPI7_4)
+	vld	$vr0, $a1, %pc_lo12(.LCPI7_4)
+	pcalau12i	$a1, %pc_hi20(.LCPI7_5)
+	vld	$vr1, $a1, %pc_lo12(.LCPI7_5)
+	pcalau12i	$a1, %pc_hi20(.LCPI7_6)
+	vld	$vr2, $a1, %pc_lo12(.LCPI7_6)
+	pcalau12i	$a1, %pc_hi20(.LCPI7_7)
+	vld	$vr3, $a1, %pc_lo12(.LCPI7_7)
 	move	$s4, $a0
 	move	$a1, $zero
 	st.b	$zero, $a0, 1440
-	addi.d	$a2, $a0, 7
-	ori	$a3, $zero, 3
-	ori	$a4, $zero, 720
+	ori	$a2, $zero, 720
+	move	$a3, $a0
 	.p2align	4, , 16
 .LBB7_22:                               # =>This Inner Loop Header: Depth=1
-	ldx.d	$a5, $s3, $a1
-	srli.d	$a6, $a5, 8
-	srli.d	$a7, $a5, 16
-	srli.d	$t0, $a5, 24
-	srli.d	$t1, $a5, 32
-	srli.d	$t2, $a5, 40
-	srli.d	$t3, $a5, 48
-	srli.d	$t4, $a5, 56
-	bstrins.d	$a5, $a3, 63, 4
-	st.b	$a5, $a2, -7
-	st.b	$a5, $a2, -6
-	bstrins.d	$a6, $a3, 63, 4
-	st.b	$a6, $a2, -5
-	st.b	$a6, $a2, -4
-	bstrins.d	$a7, $a3, 63, 4
-	st.b	$a7, $a2, -3
-	st.b	$a7, $a2, -2
-	bstrins.d	$t0, $a3, 63, 4
-	st.b	$t0, $a2, -1
-	st.b	$t0, $a2, 0
-	bstrins.d	$t1, $a3, 63, 4
-	st.b	$t1, $a2, 1
-	st.b	$t1, $a2, 2
-	bstrins.d	$t2, $a3, 63, 4
-	st.b	$t2, $a2, 3
-	st.b	$t2, $a2, 4
-	bstrins.d	$t3, $a3, 63, 4
-	st.b	$t3, $a2, 5
-	st.b	$t3, $a2, 6
-	bstrins.d	$t4, $a3, 63, 4
-	st.b	$t4, $a2, 7
-	st.b	$t4, $a2, 8
+	ldx.d	$a4, $s3, $a1
+	vreplgr2vr.d	$vr4, $a4
+	vsrl.d	$vr5, $vr4, $vr0
+	vsrl.d	$vr6, $vr4, $vr1
+	vsrl.d	$vr7, $vr4, $vr2
+	vsrl.d	$vr4, $vr4, $vr3
+	vpickve2gr.d	$a4, $vr4, 0
+	vinsgr2vr.b	$vr8, $a4, 0
+	vpickve2gr.d	$a4, $vr4, 1
+	vinsgr2vr.b	$vr8, $a4, 1
+	vpickve2gr.d	$a4, $vr7, 0
+	vinsgr2vr.b	$vr8, $a4, 2
+	vpickve2gr.d	$a4, $vr7, 1
+	vinsgr2vr.b	$vr8, $a4, 3
+	vpickve2gr.d	$a4, $vr6, 0
+	vinsgr2vr.b	$vr8, $a4, 4
+	vpickve2gr.d	$a4, $vr6, 1
+	vinsgr2vr.b	$vr8, $a4, 5
+	vpickve2gr.d	$a4, $vr5, 0
+	vinsgr2vr.b	$vr8, $a4, 6
+	vpickve2gr.d	$a4, $vr5, 1
+	vinsgr2vr.b	$vr8, $a4, 7
+	vandi.b	$vr4, $vr8, 15
+	vori.b	$vr4, $vr4, 48
+	vilvl.b	$vr4, $vr4, $vr4
+	vst	$vr4, $a3, 0
 	addi.d	$a1, $a1, 8
-	addi.d	$a2, $a2, 16
-	bne	$a1, $a4, .LBB7_22
+	addi.d	$a3, $a3, 16
+	bne	$a1, $a2, .LBB7_22
 # %bb.23:                               # %print_array.exit
 	pcalau12i	$a1, %got_pc_hi20(stderr)
 	ld.d	$a1, $a1, %got_pc_lo12(stderr)

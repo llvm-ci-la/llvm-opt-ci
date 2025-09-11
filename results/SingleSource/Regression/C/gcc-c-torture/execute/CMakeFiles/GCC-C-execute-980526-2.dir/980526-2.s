@@ -20,37 +20,51 @@ do_mknod:                               # @do_mknod
 .Lfunc_end0:
 	.size	do_mknod, .Lfunc_end0-do_mknod
                                         # -- End function
-	.globl	getname                         # -- Begin function getname
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function getname
+.LCPI1_0:
+	.word	7                               # 0x7
+	.word	5                               # 0x5
+	.word	9                               # 0x9
+	.word	11                              # 0xb
+.LCPI1_1:
+	.word	3                               # 0x3
+	.word	1                               # 0x1
+	.word	5                               # 0x5
+	.word	5                               # 0x5
+.LCPI1_2:
+	.word	8                               # 0x8
+	.word	6                               # 0x6
+	.word	10                              # 0xa
+	.word	12                              # 0xc
+.LCPI1_3:
+	.word	4                               # 0x4
+	.word	2                               # 0x2
+	.word	5                               # 0x5
+	.word	5                               # 0x5
+	.text
+	.globl	getname
 	.p2align	5
 	.type	getname,@function
 getname:                                # @getname
 # %bb.0:
-	alsl.d	$a1, $a0, $a0, 2
-	addi.d	$a2, $a1, 1
-	slli.d	$a3, $a0, 2
-	alsl.d	$a3, $a0, $a3, 1
-	addi.d	$a3, $a3, 2
-	slli.d	$a4, $a0, 3
-	sub.d	$a5, $a4, $a0
-	addi.d	$a5, $a5, 3
-	addi.d	$a6, $a4, 4
-	alsl.d	$a7, $a0, $a0, 3
-	addi.d	$a7, $a7, 5
-	alsl.d	$t0, $a0, $a4, 1
-	addi.d	$t0, $t0, 5
-	alsl.d	$a1, $a1, $a0, 1
-	addi.d	$a1, $a1, 5
-	alsl.d	$a4, $a0, $a4, 2
-	addi.d	$a4, $a4, 5
-	alsl.d	$t1, $a0, $a0, 1
-	alsl.d	$a0, $t1, $a0, 2
-	mul.d	$a2, $a2, $a3
-	mul.d	$a3, $a5, $a6
-	mul.d	$a5, $a7, $t0
-	mul.d	$a1, $a1, $a4
-	add.d	$a0, $a0, $a3
-	add.d	$a0, $a0, $a2
-	add.d	$a0, $a0, $a5
+	vreplgr2vr.w	$vr0, $a0
+	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
+	vld	$vr1, $a1, %pc_lo12(.LCPI1_0)
+	pcalau12i	$a1, %pc_hi20(.LCPI1_1)
+	vld	$vr2, $a1, %pc_lo12(.LCPI1_1)
+	pcalau12i	$a1, %pc_hi20(.LCPI1_2)
+	vld	$vr3, $a1, %pc_lo12(.LCPI1_2)
+	pcalau12i	$a1, %pc_hi20(.LCPI1_3)
+	vld	$vr4, $a1, %pc_lo12(.LCPI1_3)
+	vmadd.w	$vr2, $vr0, $vr1
+	alsl.d	$a1, $a0, $a0, 1
+	alsl.d	$a0, $a1, $a0, 2
+	vmadd.w	$vr4, $vr0, $vr3
+	vmul.w	$vr0, $vr2, $vr4
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a1, $vr0, 0
 	add.d	$a0, $a0, $a1
 	addi.d	$a0, $a0, 5
 	bstrpick.d	$a0, $a0, 31, 0

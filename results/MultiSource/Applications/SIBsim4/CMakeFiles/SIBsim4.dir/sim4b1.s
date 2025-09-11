@@ -306,12 +306,9 @@ SIM4:                                   # @SIM4
                                         #   Parent Loop BB0_6 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a4, $a3, 0
-	ld.d	$a5, $a4, 0
-	ld.d	$a6, $a4, 8
-	rotri.d	$a5, $a5, 32
-	st.d	$a5, $a4, 0
-	rotri.d	$a5, $a6, 32
-	st.d	$a5, $a4, 8
+	vld	$vr0, $a4, 0
+	vshuf4i.w	$vr0, $vr0, 177
+	vst	$vr0, $a4, 0
 	addi.d	$a2, $a2, -1
 	addi.d	$a3, $a3, 8
 	bnez	$a2, .LBB0_15
@@ -1213,7 +1210,7 @@ SIM4:                                   # @SIM4
 	beqz	$a2, .LBB0_203
 # %bb.122:                              # %.lr.ph.preheader.i374
                                         #   in Loop: Header=BB0_6 Depth=1
-	ld.d	$a6, $sp, 472
+	ld.d	$a4, $sp, 472
 	move	$a1, $zero
 	slli.d	$a2, $a2, 3
 	ld.d	$a0, $sp, 400                   # 8-byte Folded Reload
@@ -1221,18 +1218,15 @@ SIM4:                                   # @SIM4
 .LBB0_123:                              # %.lr.ph.i376
                                         #   Parent Loop BB0_6 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	ldx.d	$a3, $a6, $a1
-	ld.d	$a4, $a3, 0
-	ld.d	$a5, $a3, 8
-	rotri.d	$a4, $a4, 32
-	st.d	$a4, $a3, 0
-	rotri.d	$a4, $a5, 32
+	ldx.d	$a3, $a4, $a1
+	vld	$vr0, $a3, 0
+	vshuf4i.w	$vr0, $vr0, 177
 	addi.d	$a1, $a1, 8
-	st.d	$a4, $a3, 8
+	vst	$vr0, $a3, 0
 	bne	$a2, $a1, .LBB0_123
 # %bb.124:                              # %swap_seqs.exit381
                                         #   in Loop: Header=BB0_6 Depth=1
-	ld.d	$t5, $a6, 0
+	ld.d	$t5, $a4, 0
 	ld.w	$a7, $t5, 0
 	ld.d	$t4, $sp, 152                   # 8-byte Folded Reload
 	bltu	$a7, $s8, .LBB0_130

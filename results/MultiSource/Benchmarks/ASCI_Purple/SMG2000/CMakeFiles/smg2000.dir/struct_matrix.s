@@ -268,20 +268,20 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	vinsgr2vr.d	$vr1, $a4, 0
 	sub.d	$a4, $zero, $a5
 	sub.d	$a5, $zero, $a6
-	vinsgr2vr.w	$vr2, $a4, 0
-	ld.w	$a4, $a3, 8
-	vilvl.w	$vr1, $vr1, $vr2
+	vshuf4i.w	$vr1, $vr1, 64
+	ld.w	$a6, $a3, 8
+	vinsgr2vr.w	$vr1, $a4, 0
 	vinsgr2vr.w	$vr1, $a5, 2
 	vmax.w	$vr0, $vr0, $vr1
-	sub.w	$a5, $zero, $a4
-	slt	$a6, $a5, $a0
-	masknez	$a5, $a5, $a6
-	maskeqz	$a0, $a0, $a6
-	or	$a0, $a0, $a5
-	slt	$a5, $a4, $a1
+	sub.w	$a4, $zero, $a6
+	slt	$a5, $a4, $a0
 	masknez	$a4, $a4, $a5
-	maskeqz	$a1, $a1, $a5
-	or	$a1, $a1, $a4
+	maskeqz	$a0, $a0, $a5
+	or	$a0, $a0, $a4
+	slt	$a4, $a6, $a1
+	masknez	$a5, $a6, $a4
+	maskeqz	$a1, $a1, $a4
+	or	$a1, $a1, $a5
 	b	.LBB4_9
 .LBB4_12:                               # %.preheader170
 	vld	$vr1, $fp, 88

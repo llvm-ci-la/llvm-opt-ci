@@ -332,18 +332,18 @@ SpannerAvailableSpace:                  # @SpannerAvailableSpace
 	.type	MinSize,@function
 MinSize:                                # @MinSize
 # %bb.0:
-	addi.d	$sp, $sp, -752
-	st.d	$ra, $sp, 744                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 736                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 728                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 720                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 712                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 704                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 696                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 688                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 680                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 672                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 664                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -768
+	st.d	$ra, $sp, 760                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 752                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 744                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 736                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 728                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 720                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 712                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 704                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 696                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 688                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 680                   # 8-byte Folded Spill
 	move	$s6, $a0
 	ld.bu	$a5, $a0, 32
 	addi.d	$a0, $a5, -2
@@ -377,7 +377,7 @@ MinSize:                                # @MinSize
 .LBB1_6:
 	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
 	st.d	$a2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 128                   # 8-byte Folded Spill
 	bnez	$s0, .LBB1_375
 # %bb.7:
 	ori	$a0, $zero, 43
@@ -411,7 +411,7 @@ MinSize:                                # @MinSize
 # %bb.13:
 	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
 	st.d	$s0, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 128                   # 8-byte Folded Spill
 	ld.d	$fp, $s6, 8
 	.p2align	4, , 16
 .LBB1_14:                               # =>This Inner Loop Header: Depth=1
@@ -421,8 +421,8 @@ MinSize:                                # @MinSize
 # %bb.15:
 	addi.d	$a3, $fp, 32
 	addi.d	$a0, $fp, 64
-	addi.d	$a2, $sp, 656
-	addi.d	$a4, $sp, 632
+	addi.d	$a2, $sp, 672
+	addi.d	$a4, $sp, 648
 	move	$a1, $a5
 	pcaddu18i	$ra, %call36(OpenIncGraphicFile)
 	jirl	$ra, $ra, 0
@@ -430,8 +430,8 @@ MinSize:                                # @MinSize
 	sltui	$a1, $a0, 1
 	pcalau12i	$a0, %pc_hi20(.L.str.30)
 	addi.d	$s3, $a0, %pc_lo12(.L.str.30)
-	ori	$s8, $zero, 2
-	ori	$s0, $zero, 37
+	ori	$s0, $zero, 2
+	ori	$s2, $zero, 37
 	pcalau12i	$a0, %pc_hi20(.L.str.32)
 	addi.d	$s4, $a0, %pc_lo12(.L.str.32)
 	pcalau12i	$a0, %pc_hi20(.L.str.33)
@@ -440,62 +440,58 @@ MinSize:                                # @MinSize
 	addi.d	$s6, $a0, %pc_lo12(.L.str.34)
 	pcalau12i	$a0, %pc_hi20(.L.str.31)
 	addi.d	$s7, $a0, %pc_lo12(.L.str.31)
-	move	$s2, $zero
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
+	move	$s8, $zero
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
 .LBB1_16:                               # %select.unfold
                                         # =>This Inner Loop Header: Depth=1
 	bnez	$a1, .LBB1_176
 # %bb.17:                               #   in Loop: Header=BB1_16 Depth=1
-	addi.d	$a2, $sp, 120
+	addi.d	$a2, $sp, 136
 	move	$a0, $s1
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(__isoc99_fscanf)
 	jirl	$ra, $ra, 0
 	addi.w	$a0, $a0, 1
-	bltu	$a0, $s8, .LBB1_317
+	bltu	$a0, $s0, .LBB1_317
 # %bb.18:                               #   in Loop: Header=BB1_16 Depth=1
-	andi	$a0, $s2, 1
+	andi	$a0, $s8, 1
 	bnez	$a0, .LBB1_20
 # %bb.19:                               #   in Loop: Header=BB1_16 Depth=1
-	addi.d	$a0, $sp, 120
+	addi.d	$a0, $sp, 136
 	move	$a1, $s7
 	pcaddu18i	$ra, %call36(StringBeginsWith)
 	jirl	$ra, $ra, 0
-	move	$s2, $zero
+	move	$s8, $zero
 	ori	$a1, $zero, 2
 	beqz	$a0, .LBB1_16
 .LBB1_20:                               #   in Loop: Header=BB1_16 Depth=1
-	ld.bu	$a0, $sp, 120
+	ld.bu	$a0, $sp, 136
 	move	$a1, $zero
-	ori	$s2, $zero, 1
-	bne	$a0, $s0, .LBB1_16
+	ori	$s8, $zero, 1
+	bne	$a0, $s2, .LBB1_16
 # %bb.21:                               #   in Loop: Header=BB1_16 Depth=1
-	addi.d	$a0, $sp, 120
+	addi.d	$a0, $sp, 136
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(StringBeginsWith)
 	jirl	$ra, $ra, 0
 	move	$a1, $zero
 	beqz	$a0, .LBB1_16
 # %bb.22:                               #   in Loop: Header=BB1_16 Depth=1
-	addi.d	$a0, $sp, 120
+	addi.d	$a0, $sp, 136
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(StringContains)
 	jirl	$ra, $ra, 0
 	move	$a1, $zero
 	bnez	$a0, .LBB1_16
 # %bb.23:                               #   in Loop: Header=BB1_16 Depth=1
-	addi.d	$a0, $sp, 120
-	addi.d	$a2, $sp, 648
-	addi.d	$a3, $sp, 644
-	addi.d	$a4, $sp, 640
-	addi.d	$a5, $sp, 636
+	addi.d	$a0, $sp, 136
+	addi.d	$a2, $sp, 664
+	addi.d	$a3, $sp, 660
+	addi.d	$a4, $sp, 656
+	addi.d	$a5, $sp, 652
 	move	$a1, $s6
 	pcaddu18i	$ra, %call36(__isoc99_sscanf)
 	jirl	$ra, $ra, 0
@@ -503,24 +499,18 @@ MinSize:                                # @MinSize
 	ori	$a2, $zero, 4
 	bne	$a0, $a2, .LBB1_16
 # %bb.24:                               #   in Loop: Header=BB1_16 Depth=1
-	fld.s	$fa0, $sp, 648
-	fld.s	$fa1, $sp, 644
-	ftintrz.w.s	$fa0, $fa0
-	movfr2gr.s	$a0, $fa0
-	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
-	fld.s	$fa0, $sp, 640
-	ftintrz.w.s	$fa1, $fa1
-	fld.s	$fa2, $sp, 636
-	movfr2gr.s	$a0, $fa1
-	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
-	ftintrz.w.s	$fa0, $fa0
-	movfr2gr.s	$a0, $fa0
-	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
-	ftintrz.w.s	$fa0, $fa2
-	movfr2gr.s	$a0, $fa0
-	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
+	fld.s	$fa0, $sp, 664
+	fld.s	$fa1, $sp, 660
+	fld.s	$fa2, $sp, 656
+	fld.s	$fa3, $sp, 652
+	vextrins.w	$vr0, $vr1, 16
+	vftintrz.w.s	$vr0, $vr0
+	vst	$vr0, $sp, 112                  # 16-byte Folded Spill
+	vextrins.w	$vr2, $vr3, 16
+	vftintrz.w.s	$vr0, $vr2
+	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
 	ori	$a1, $zero, 4
-	ori	$s2, $zero, 1
+	ori	$s8, $zero, 1
 	b	.LBB1_16
 .LBB1_25:
 	alsl.d	$a0, $s0, $s6, 2
@@ -604,10 +594,10 @@ MinSize:                                # @MinSize
 .LBB1_38:
 	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
 	st.d	$a2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 128                   # 8-byte Folded Spill
 	bnez	$s0, .LBB1_375
 .LBB1_39:
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$s5, $fp, 8
 	.p2align	4, , 16
 .LBB1_40:                               # =>This Inner Loop Header: Depth=1
@@ -633,7 +623,7 @@ MinSize:                                # @MinSize
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s5, 24
 .LBB1_43:
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
 	pcalau12i	$a1, %got_pc_hi20(xx_link)
 	ld.d	$a2, $a1, %got_pc_lo12(xx_link)
 	ld.d	$a1, $a0, 24
@@ -678,7 +668,7 @@ MinSize:                                # @MinSize
 	addi.d	$a3, $a0, 33
 	pcalau12i	$a4, %got_pc_hi20(zz_lengths)
 	ld.d	$a4, $a4, %got_pc_lo12(zz_lengths)
-	st.d	$a4, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a4, $sp, 112                   # 8-byte Folded Spill
 	add.d	$a1, $a4, $a1
 	masknez	$a1, $a1, $a2
 	maskeqz	$a2, $a3, $a2
@@ -705,7 +695,7 @@ MinSize:                                # @MinSize
 	ori	$a1, $zero, 42
 	bne	$a0, $a1, .LBB1_179
 .LBB1_49:
-	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $a1, 24
 	.p2align	4, , 16
 .LBB1_50:                               # =>This Inner Loop Header: Depth=1
@@ -716,7 +706,7 @@ MinSize:                                # @MinSize
 	ori	$a1, $zero, 16
 	bne	$a2, $a1, .LBB1_178
 # %bb.52:
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a0, $a0, 13
 	slli.d	$a1, $a0, 3
 	ldx.d	$s3, $s1, $a1
@@ -807,7 +797,7 @@ MinSize:                                # @MinSize
 	move	$a2, $s0
 	pcaddu18i	$ra, %call36(FindShift)
 	jirl	$ra, $ra, 0
-	st.w	$a0, $sp, 656
+	st.w	$a0, $sp, 672
 	alsl.d	$a1, $s0, $s1, 2
 	ld.w	$a2, $a1, 48
 	add.w	$a2, $a2, $a0
@@ -1028,7 +1018,7 @@ MinSize:                                # @MinSize
 	ld.d	$s5, $a0, %got_pc_lo12(zz_hold)
 	pcalau12i	$a0, %got_pc_hi20(zz_lengths)
 	ld.d	$a0, $a0, %got_pc_lo12(zz_lengths)
-	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(zz_size)
 	ld.d	$s7, $a0, %got_pc_lo12(zz_size)
 	pcalau12i	$a0, %got_pc_hi20(zz_free)
@@ -1048,7 +1038,7 @@ MinSize:                                # @MinSize
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
 	move	$s4, $a1
 	move	$s0, $a1
-	st.d	$a5, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a5, $sp, 112                   # 8-byte Folded Spill
 	st.d	$a6, $sp, 96                    # 8-byte Folded Spill
 	b	.LBB1_90
 .LBB1_88:                               #   in Loop: Header=BB1_90 Depth=1
@@ -1087,7 +1077,7 @@ MinSize:                                # @MinSize
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
 	ld.d	$a6, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$a5, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a5, $sp, 112                   # 8-byte Folded Reload
 	ori	$a4, $zero, 17
 .LBB1_96:                               #   in Loop: Header=BB1_90 Depth=1
 	st.d	$s1, $s2, 0
@@ -1152,7 +1142,7 @@ MinSize:                                # @MinSize
 	addi.d	$a2, $a1, -11
 	sltui	$a2, $a2, 2
 	addi.d	$a3, $a0, 33
-	ld.d	$a7, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a7, $sp, 128                   # 8-byte Folded Reload
 	add.d	$a1, $a7, $a1
 	masknez	$a1, $a1, $a2
 	maskeqz	$a2, $a3, $a2
@@ -1174,7 +1164,7 @@ MinSize:                                # @MinSize
 	pcaddu18i	$ra, %call36(DisposeObject)
 	jirl	$ra, $ra, 0
 	ld.d	$a6, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$a5, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a5, $sp, 112                   # 8-byte Folded Reload
 	ori	$a4, $zero, 17
 	b	.LBB1_88
 .LBB1_103:                              #   in Loop: Header=BB1_90 Depth=1
@@ -1388,7 +1378,7 @@ MinSize:                                # @MinSize
 	ori	$s5, $zero, 1
 	pcalau12i	$a0, %got_pc_hi20(no_fpos)
 	ld.d	$a0, $a0, %got_pc_lo12(no_fpos)
-	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.L.str)
 	addi.d	$s6, $a0, %pc_lo12(.L.str)
 	pcalau12i	$a0, %pc_hi20(.L.str.26)
@@ -1433,7 +1423,7 @@ MinSize:                                # @MinSize
 # %bb.139:                              #   in Loop: Header=BB1_137 Depth=1
 	bne	$a0, $s5, .LBB1_141
 # %bb.140:                              #   in Loop: Header=BB1_137 Depth=1
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a4, $a0, 0
 	ori	$a0, $zero, 1
 	ori	$a1, $zero, 2
@@ -1675,7 +1665,7 @@ MinSize:                                # @MinSize
 	add.d	$a0, $a1, $a0
 	jr	$a0
 .LBB1_177:
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	ld.bu	$a0, $s6, 32
 	addi.d	$a0, $a0, -94
 	sltui	$a0, $a0, 1
@@ -1684,7 +1674,7 @@ MinSize:                                # @MinSize
 	masknez	$a1, $a1, $a0
 	pcalau12i	$a2, %pc_hi20(.L.str.36)
 	addi.d	$a2, $a2, %pc_lo12(.L.str.36)
-	ld.d	$a3, $sp, 656
+	ld.d	$a3, $sp, 672
 	maskeqz	$a0, $a2, $a0
 	or	$a5, $a0, $a1
 	addi.d	$a6, $a3, 64
@@ -1711,7 +1701,7 @@ MinSize:                                # @MinSize
 	ori	$a1, $zero, 10
 	b	.LBB1_297
 .LBB1_179:
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a0, 0
 	slli.d	$a0, $a2, 3
 	ldx.d	$a0, $s1, $a0
@@ -2081,7 +2071,7 @@ MinSize:                                # @MinSize
 	ld.d	$s0, $sp, 80                    # 8-byte Folded Reload
 	ld.d	$a2, $sp, 88                    # 8-byte Folded Reload
 .LBB1_221:                              # %._crit_edge
-	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 128                   # 8-byte Folded Spill
 	beq	$s6, $a1, .LBB1_322
 # %bb.222:                              # %.preheader1791.preheader
 	ori	$fp, $zero, 1
@@ -2094,7 +2084,7 @@ MinSize:                                # @MinSize
 .LBB1_224:                              # %.critedge
                                         #   in Loop: Header=BB1_225 Depth=1
 	ld.d	$s6, $s6, 8
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	beq	$s6, $a0, .LBB1_333
 .LBB1_225:                              # %.preheader1791
                                         # =>This Loop Header: Depth=1
@@ -2118,7 +2108,7 @@ MinSize:                                # @MinSize
 	beqz	$a0, .LBB1_224
 .LBB1_230:
 	ld.d	$s1, $s6, 8
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	st.d	$a2, $sp, 88                    # 8-byte Folded Spill
 	beq	$s1, $s6, .LBB1_496
 # %bb.231:                              # %.preheader1789.preheader
@@ -2181,7 +2171,7 @@ MinSize:                                # @MinSize
 	st.d	$s3, $s3, 16
 	st.d	$s3, $s3, 8
 	st.d	$s3, $s3, 0
-	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 128                   # 8-byte Folded Reload
 	ld.h	$a0, $a3, 34
 	st.h	$a0, $s3, 34
 	ld.wu	$a0, $a3, 36
@@ -2197,7 +2187,7 @@ MinSize:                                # @MinSize
 	ld.wu	$a0, $s3, 40
 	lu12i.w	$a1, -1025
 	ori	$a1, $a1, 4095
-	ld.d	$a2, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a2, 0
 	lu32i.d	$a1, 0
 	and	$a0, $a0, $a1
@@ -2231,7 +2221,7 @@ MinSize:                                # @MinSize
 	pcalau12i	$a1, %got_pc_hi20(zz_res)
 	ld.d	$fp, $a1, %got_pc_lo12(zz_res)
 	st.d	$a0, $fp, 0
-	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 128                   # 8-byte Folded Reload
 	st.d	$a3, $s6, 0
 	ld.d	$a1, $a3, 0
 	pcalau12i	$a2, %got_pc_hi20(zz_tmp)
@@ -2260,7 +2250,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $a0, 16
 	st.d	$a0, $a1, 24
 .LBB1_249:
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a0, 0
 	slli.d	$a0, $a2, 3
 	ldx.d	$a0, $s1, $a0
@@ -2316,7 +2306,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $a0, 16
 	st.d	$a0, $a1, 24
 .LBB1_254:
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$s0, $a0, 16
 	.p2align	4, , 16
 .LBB1_255:                              # =>This Inner Loop Header: Depth=1
@@ -2361,7 +2351,7 @@ MinSize:                                # @MinSize
 	and	$a0, $a0, $a1
 	addi.d	$a0, $a0, 1
 	st.w	$a0, $s3, 40
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 16
 	ld.d	$s8, $a0, 8
 	beq	$s8, $s0, .LBB1_268
@@ -2431,7 +2421,7 @@ MinSize:                                # @MinSize
 	ld.bu	$a1, $a0, 32
 	beqz	$a1, .LBB1_273
 # %bb.274:                              #   in Loop: Header=BB1_272 Depth=1
-	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a1, 45
 	slli.d	$a1, $a2, 3
 	ldx.d	$s4, $s1, $a1
@@ -2498,7 +2488,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $s6, 0
 	pcaddu18i	$ra, %call36(DisposeObject)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a0, 0
 	slli.d	$a0, $a2, 3
 	ldx.d	$a0, $s1, $a0
@@ -2570,7 +2560,7 @@ MinSize:                                # @MinSize
 	pcalau12i	$a1, %got_pc_hi20(zz_res)
 	ld.d	$a2, $a1, %got_pc_lo12(zz_res)
 	st.d	$a0, $a2, 0
-	ld.d	$a4, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 128                   # 8-byte Folded Reload
 	st.d	$a4, $s6, 0
 	ld.d	$a3, $a4, 0
 	pcalau12i	$a1, %got_pc_hi20(zz_tmp)
@@ -2605,7 +2595,7 @@ MinSize:                                # @MinSize
 	ori	$a2, $zero, 1
 	bltu	$a2, $a1, .LBB1_294
 # %bb.289:
-	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $a1, 16
 	.p2align	4, , 16
 .LBB1_290:                              # =>This Inner Loop Header: Depth=1
@@ -2616,7 +2606,7 @@ MinSize:                                # @MinSize
 	ori	$a1, $zero, 15
 	bne	$a2, $a1, .LBB1_296
 # %bb.292:
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a0, $a0, 14
 	slli.d	$a1, $a0, 3
 	ldx.d	$s3, $s1, $a1
@@ -2630,7 +2620,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $a0, 0
 	b	.LBB1_335
 .LBB1_294:
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a0, 0
 	slli.d	$a0, $a2, 3
 	ldx.d	$a0, $s1, $a0
@@ -2662,7 +2652,7 @@ MinSize:                                # @MinSize
 	move	$a2, $s4
 	pcaddu18i	$ra, %call36(MakeWord)
 	jirl	$ra, $ra, 0
-	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $a3, 24
 	beq	$a1, $a3, .LBB1_300
 # %bb.298:
@@ -2721,7 +2711,7 @@ MinSize:                                # @MinSize
 	pcalau12i	$a1, %got_pc_hi20(zz_res)
 	ld.d	$a2, $a1, %got_pc_lo12(zz_res)
 	st.d	$a0, $a2, 0
-	ld.d	$a4, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 128                   # 8-byte Folded Reload
 	st.d	$a4, $s6, 0
 	ld.d	$a3, $a4, 0
 	pcalau12i	$a1, %got_pc_hi20(zz_tmp)
@@ -2823,7 +2813,7 @@ MinSize:                                # @MinSize
 	jirl	$ra, $ra, 0
 	b	.LBB1_477
 .LBB1_312:
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	ld.bu	$a0, $s6, 32
 	addi.d	$a0, $a0, -94
 	sltui	$a0, $a0, 1
@@ -2832,7 +2822,7 @@ MinSize:                                # @MinSize
 	masknez	$a1, $a1, $a0
 	pcalau12i	$a2, %pc_hi20(.L.str.36)
 	addi.d	$a2, $a2, %pc_lo12(.L.str.36)
-	ld.d	$a3, $sp, 656
+	ld.d	$a3, $sp, 672
 	maskeqz	$a0, $a2, $a0
 	or	$a5, $a0, $a1
 	addi.d	$a6, $a3, 64
@@ -2842,7 +2832,7 @@ MinSize:                                # @MinSize
 	ori	$a1, $zero, 8
 	b	.LBB1_318
 .LBB1_313:
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a0, $s6, 8
 	ld.d	$s0, $sp, 80                    # 8-byte Folded Reload
 .LBB1_314:                              # =>This Inner Loop Header: Depth=1
@@ -2850,50 +2840,33 @@ MinSize:                                # @MinSize
 	ld.bu	$a1, $a0, 32
 	beqz	$a1, .LBB1_314
 # %bb.315:
-	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
-	st.w	$a1, $a0, 48
-	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
-	st.w	$a2, $a0, 56
-	ld.d	$a4, $sp, 104                   # 8-byte Folded Reload
-	st.w	$a4, $a0, 52
-	ld.d	$a5, $sp, 96                    # 8-byte Folded Reload
-	st.w	$a5, $a0, 60
-	sub.d	$a0, $a2, $a1
-	ori	$a1, $zero, 20
-	mul.w	$a0, $a0, $a1
-	srai.d	$a2, $a0, 63
-	andn	$a0, $a0, $a2
-	lu12i.w	$a2, 2047
-	ori	$a2, $a2, 4095
-	slt	$a3, $a0, $a2
-	maskeqz	$a0, $a0, $a3
-	masknez	$a3, $a2, $a3
-	or	$a0, $a0, $a3
-	srli.d	$a0, $a0, 1
-	st.w	$a0, $s6, 56
-	st.w	$a0, $s6, 48
-	sub.d	$a0, $a5, $a4
-	mul.w	$a0, $a0, $a1
-	srai.d	$a1, $a0, 63
-	andn	$a0, $a0, $a1
-	slt	$a1, $a0, $a2
-	maskeqz	$a0, $a0, $a1
-	masknez	$a1, $a2, $a1
-	or	$a0, $a0, $a1
-	st.w	$a0, $sp, 652
-	srli.d	$a0, $a0, 1
-	st.w	$a0, $s6, 60
-	st.w	$a0, $s6, 52
+	vld	$vr1, $sp, 112                  # 16-byte Folded Reload
+	vld	$vr2, $sp, 96                   # 16-byte Folded Reload
+	vpackev.d	$vr0, $vr2, $vr1
+	vst	$vr0, $a0, 48
+	vsub.w	$vr0, $vr2, $vr1
+	vrepli.w	$vr1, 20
+	vmul.w	$vr0, $vr0, $vr1
+	vmaxi.w	$vr0, $vr0, 0
+	lu12i.w	$a0, 2047
+	ori	$a0, $a0, 4095
+	vreplgr2vr.w	$vr1, $a0
+	vmin.w	$vr0, $vr0, $vr1
+	addi.d	$a0, $sp, 668
+	vstelm.w	$vr0, $a0, 0, 1
+	vsrli.w	$vr0, $vr0, 1
+	vshuf4i.w	$vr0, $vr0, 68
+	vst	$vr0, $s6, 48
 	ori	$a0, $zero, 1
 	st.b	$a0, $s6, 41
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(fclose)
 	jirl	$ra, $ra, 0
-	ld.w	$a0, $sp, 632
+	ld.w	$a0, $sp, 648
 	bnez	$a0, .LBB1_320
 	b	.LBB1_321
 .LBB1_316:
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	ld.bu	$a0, $s6, 32
 	addi.d	$a0, $a0, -94
 	sltui	$a0, $a0, 1
@@ -2902,7 +2875,7 @@ MinSize:                                # @MinSize
 	masknez	$a1, $a1, $a0
 	pcalau12i	$a2, %pc_hi20(.L.str.36)
 	addi.d	$a2, $a2, %pc_lo12(.L.str.36)
-	ld.d	$a3, $sp, 656
+	ld.d	$a3, $sp, 672
 	maskeqz	$a0, $a2, $a0
 	or	$a5, $a0, $a1
 	addi.d	$a6, $a3, 64
@@ -2919,7 +2892,7 @@ MinSize:                                # @MinSize
 	vst	$vr0, $s6, 48
 	b	.LBB1_319
 .LBB1_317:
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	ld.bu	$a0, $s6, 32
 	addi.d	$a0, $a0, -94
 	sltui	$a0, $a0, 1
@@ -2928,7 +2901,7 @@ MinSize:                                # @MinSize
 	masknez	$a1, $a1, $a0
 	pcalau12i	$a2, %pc_hi20(.L.str.36)
 	addi.d	$a2, $a2, %pc_lo12(.L.str.36)
-	ld.d	$a3, $sp, 656
+	ld.d	$a3, $sp, 672
 	maskeqz	$a0, $a2, $a0
 	or	$a5, $a0, $a1
 	addi.d	$a6, $a3, 64
@@ -2950,7 +2923,7 @@ MinSize:                                # @MinSize
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(fclose)
 	jirl	$ra, $ra, 0
-	ld.w	$a0, $sp, 632
+	ld.w	$a0, $sp, 648
 	ld.d	$s0, $sp, 80                    # 8-byte Folded Reload
 	beqz	$a0, .LBB1_321
 .LBB1_320:
@@ -2959,12 +2932,12 @@ MinSize:                                # @MinSize
 	pcaddu18i	$ra, %call36(remove)
 	jirl	$ra, $ra, 0
 .LBB1_321:
-	ld.d	$a0, $sp, 656
+	ld.d	$a0, $sp, 672
 	pcaddu18i	$ra, %call36(DisposeObject)
 	jirl	$ra, $ra, 0
 	b	.LBB1_477
 .LBB1_322:
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	b	.LBB1_573
 .LBB1_323:
 	pcalau12i	$a1, %got_pc_hi20(no_fpos)
@@ -3078,7 +3051,7 @@ MinSize:                                # @MinSize
 	b	.LBB1_194
 .LBB1_333:
 	ld.d	$s0, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	b	.LBB1_573
 .LBB1_334:
 	pcalau12i	$a1, %got_pc_hi20(no_fpos)
@@ -3095,7 +3068,7 @@ MinSize:                                # @MinSize
 	st.d	$s3, $s3, 16
 	st.d	$s3, $s3, 8
 	st.d	$s3, $s3, 0
-	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 128                   # 8-byte Folded Reload
 	ld.h	$a0, $a3, 34
 	st.h	$a0, $s3, 34
 	ld.wu	$a0, $a3, 36
@@ -3111,7 +3084,7 @@ MinSize:                                # @MinSize
 	ld.wu	$a0, $s3, 40
 	lu12i.w	$a1, -1025
 	ori	$a1, $a1, 4095
-	ld.d	$a2, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a2, 0
 	lu32i.d	$a1, 0
 	and	$a0, $a0, $a1
@@ -3145,7 +3118,7 @@ MinSize:                                # @MinSize
 	pcalau12i	$a1, %got_pc_hi20(zz_res)
 	ld.d	$fp, $a1, %got_pc_lo12(zz_res)
 	st.d	$a0, $fp, 0
-	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 128                   # 8-byte Folded Reload
 	st.d	$a3, $s6, 0
 	ld.d	$a1, $a3, 0
 	pcalau12i	$a2, %got_pc_hi20(zz_tmp)
@@ -3174,7 +3147,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $a0, 16
 	st.d	$a0, $a1, 24
 .LBB1_340:
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a0, 0
 	slli.d	$a0, $a2, 3
 	ldx.d	$a0, $s1, $a0
@@ -3232,7 +3205,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $a0, 16
 	st.d	$a0, $a1, 24
 .LBB1_346:
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$s0, $a0, 24
 .LBB1_347:                              # =>This Inner Loop Header: Depth=1
 	ld.d	$s0, $s0, 0
@@ -3261,7 +3234,7 @@ MinSize:                                # @MinSize
 	and	$a0, $a0, $a1
 	addi.d	$a0, $a0, 1
 	st.w	$a0, $s3, 40
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 24
 	ld.d	$s8, $a0, 8
 	beq	$s8, $s0, .LBB1_358
@@ -3327,7 +3300,7 @@ MinSize:                                # @MinSize
 	ld.bu	$a0, $s5, 32
 	beqz	$a0, .LBB1_363
 # %bb.364:                              #   in Loop: Header=BB1_362 Depth=1
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a0, $a0, 46
 	slli.d	$a1, $a0, 3
 	ldx.d	$s4, $s1, $a1
@@ -3391,7 +3364,7 @@ MinSize:                                # @MinSize
 	move	$a0, $s5
 	pcaddu18i	$ra, %call36(DisposeObject)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a2, $a0, 0
 	slli.d	$a0, $a2, 3
 	ldx.d	$a0, $s1, $a0
@@ -3452,12 +3425,12 @@ MinSize:                                # @MinSize
 	bne	$a0, $a1, .LBB1_377
 # %bb.376:
 	ori	$a0, $zero, 1
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	beq	$s0, $a0, .LBB1_379
 	b	.LBB1_384
 .LBB1_377:
 	ori	$a1, $zero, 1
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	bne	$s0, $a1, .LBB1_384
 # %bb.378:
 	ori	$a1, $zero, 42
@@ -3486,21 +3459,21 @@ MinSize:                                # @MinSize
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
 .LBB1_383:                              # %.loopexit1795
-	addi.d	$a2, $sp, 652
-	addi.d	$a3, $sp, 656
+	addi.d	$a2, $sp, 668
+	addi.d	$a3, $sp, 672
 	move	$a0, $s3
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(SpannerAvailableSpace)
 	jirl	$ra, $ra, 0
-	ld.w	$a0, $sp, 652
-	ld.w	$a1, $sp, 656
+	ld.w	$a0, $sp, 668
+	ld.w	$a1, $sp, 672
 	lu12i.w	$a2, 2047
 	ori	$a2, $a2, 4095
-	st.w	$a2, $sp, 120
+	st.w	$a2, $sp, 136
 	add.d	$a0, $a1, $a0
-	st.w	$a0, $sp, 124
-	st.w	$a2, $sp, 128
-	addi.d	$a1, $sp, 120
+	st.w	$a0, $sp, 140
+	st.w	$a2, $sp, 144
+	addi.d	$a1, $sp, 136
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(BreakObject)
 	jirl	$ra, $ra, 0
@@ -3580,8 +3553,8 @@ MinSize:                                # @MinSize
 	move	$a1, $s0
 	pcaddu18i	$ra, %call36(MinSize)
 	jirl	$ra, $ra, 0
-	addi.d	$a2, $sp, 652
-	addi.d	$a3, $sp, 656
+	addi.d	$a2, $sp, 668
+	addi.d	$a3, $sp, 672
 	move	$a0, $s3
 	move	$a1, $s0
 	pcaddu18i	$ra, %call36(SpannerAvailableSpace)
@@ -3591,7 +3564,7 @@ MinSize:                                # @MinSize
 	alsl.d	$a1, $s0, $s3, 2
 	ld.w	$a2, $a1, 48
 	ld.w	$a1, $a1, 56
-	ld.w	$a3, $sp, 652
+	ld.w	$a3, $sp, 668
 	add.d	$a1, $a1, $a2
 	sub.d	$a1, $a1, $a3
 	slli.d	$a2, $a1, 32
@@ -3649,8 +3622,8 @@ MinSize:                                # @MinSize
 	st.w	$s1, $a0, 48
 	st.w	$s0, $a0, 56
 	ld.d	$fp, $s8, 8
-	st.w	$s1, $sp, 652
-	st.w	$s0, $sp, 656
+	st.w	$s1, $sp, 668
+	st.w	$s0, $sp, 672
 	ori	$s0, $zero, 1
 	st.b	$s0, $s8, 41
 	beq	$fp, $s8, .LBB1_411
@@ -3738,7 +3711,7 @@ MinSize:                                # @MinSize
 	st.w	$fp, $a0, 56
 	ld.d	$s6, $s2, 8
 	addi.d	$a2, $a0, 48
-	st.d	$a2, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a2, $sp, 112                   # 8-byte Folded Spill
 	addi.d	$a0, $a0, 56
 	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
 	ori	$s7, $zero, 1
@@ -3747,7 +3720,7 @@ MinSize:                                # @MinSize
 # %bb.414:                              # %.preheader1774.preheader
 	pcalau12i	$a0, %got_pc_hi20(no_fpos)
 	ld.d	$a0, $a0, %got_pc_lo12(no_fpos)
-	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.L.str)
 	addi.d	$s8, $a0, %pc_lo12(.L.str)
 	pcalau12i	$a0, %pc_hi20(.L.str.26)
@@ -3772,7 +3745,7 @@ MinSize:                                # @MinSize
 # %bb.418:                              #   in Loop: Header=BB1_416 Depth=1
 	bne	$a0, $s7, .LBB1_420
 # %bb.419:                              #   in Loop: Header=BB1_416 Depth=1
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a4, $a0, 0
 	ori	$a0, $zero, 1
 	ori	$a1, $zero, 2
@@ -3810,9 +3783,9 @@ MinSize:                                # @MinSize
 	or	$fp, $a1, $a0
 	b	.LBB1_415
 .LBB1_423:                              # %._crit_edge1954
-	st.w	$s1, $sp, 652
-	st.w	$fp, $sp, 656
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	st.w	$s1, $sp, 668
+	st.w	$fp, $sp, 672
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	st.w	$s1, $a0, 0
 	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
 	st.w	$fp, $a0, 0
@@ -3888,7 +3861,7 @@ MinSize:                                # @MinSize
 	jirl	$ra, $ra, 0
 	add.d	$a0, $a0, $fp
 	st.w	$a0, $s6, 56
-.LBB1_437:                              # %.thread1745.loopexit2698
+.LBB1_437:                              # %.thread1745.loopexit2680
 	move	$s0, $s3
 	b	.LBB1_477
 .LBB1_438:
@@ -4263,18 +4236,18 @@ MinSize:                                # @MinSize
 	bltz	$a0, .LBB1_481
 .LBB1_479:
 	move	$a0, $s6
-	ld.d	$s8, $sp, 664                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 672                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 680                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 688                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 696                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 704                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 712                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 720                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 728                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 736                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 744                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 752
+	ld.d	$s8, $sp, 680                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 688                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 696                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 704                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 712                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 720                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 728                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 736                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 744                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 752                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 760                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 768
 	ret
 .LBB1_480:
 	pcalau12i	$a0, %got_pc_hi20(no_fpos)
@@ -4462,7 +4435,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $sp, 96                    # 8-byte Folded Spill
 	pcalau12i	$a1, %got_pc_hi20(zz_size)
 	ld.d	$a1, $a1, %got_pc_lo12(zz_size)
-	st.d	$a1, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
 	pcalau12i	$a1, %got_pc_hi20(zz_free)
 	ld.d	$a1, $a1, %got_pc_lo12(zz_free)
 	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
@@ -4513,7 +4486,7 @@ MinSize:                                # @MinSize
 	ld.bu	$a2, $a1, 19
 	slli.d	$a1, $a2, 3
 	ldx.d	$s2, $fp, $a1
-	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
 	st.w	$a2, $a1, 0
 	beqz	$s2, .LBB1_509
 # %bb.506:                              #   in Loop: Header=BB1_502 Depth=1
@@ -4595,7 +4568,7 @@ MinSize:                                # @MinSize
 	ld.bu	$a2, $a1, 17
 	slli.d	$a1, $a2, 3
 	ldx.d	$s5, $fp, $a1
-	ld.d	$a3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
 	st.w	$a2, $a3, 0
 	beqz	$s5, .LBB1_515
 # %bb.514:                              #   in Loop: Header=BB1_502 Depth=1
@@ -4808,7 +4781,7 @@ MinSize:                                # @MinSize
 	slli.d	$a3, $a2, 3
 	ld.d	$s0, $sp, 64                    # 8-byte Folded Reload
 	ldx.d	$a1, $s0, $a3
-	ld.d	$a4, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 112                   # 8-byte Folded Reload
 	st.w	$a2, $a4, 0
 	beqz	$a1, .LBB1_524
 # %bb.523:                              #   in Loop: Header=BB1_502 Depth=1
@@ -4878,7 +4851,7 @@ MinSize:                                # @MinSize
 	pcaddu18i	$ra, %call36(MakeWord)
 	jirl	$ra, $ra, 0
 	move	$s5, $a0
-	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 128                   # 8-byte Folded Reload
 	ld.wu	$a0, $a2, 76
 	ld.w	$a1, $s5, 40
 	andi	$a0, $a0, 4095
@@ -4911,7 +4884,7 @@ MinSize:                                # @MinSize
 	st.w	$zero, $s5, 48
 	slli.d	$a2, $a0, 3
 	ldx.d	$a1, $s0, $a2
-	ld.d	$a3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
 	st.w	$a0, $a3, 0
 	beqz	$a1, .LBB1_530
 # %bb.529:                              #   in Loop: Header=BB1_502 Depth=1
@@ -4931,7 +4904,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $a1, 16
 	st.d	$a1, $a1, 8
 	st.d	$a1, $a1, 0
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a2, $a0, 8
 	st.d	$a1, $s8, 0
 	st.d	$a1, $fp, 0
@@ -4972,7 +4945,7 @@ MinSize:                                # @MinSize
 	ld.bu	$a2, $a1, 1
 	slli.d	$a1, $a2, 3
 	ldx.d	$s5, $s0, $a1
-	ld.d	$a3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
 	st.w	$a2, $a3, 0
 	beqz	$s5, .LBB1_537
 # %bb.536:                              #   in Loop: Header=BB1_502 Depth=1
@@ -5004,7 +4977,7 @@ MinSize:                                # @MinSize
 	lu12i.w	$a3, 131072
 	or	$a2, $a2, $a3
 	st.w	$a2, $s5, 40
-	ld.d	$a4, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 128                   # 8-byte Folded Reload
 	ld.hu	$a2, $a4, 68
 	ld.h	$a3, $s5, 44
 	bstrpick.d	$a2, $a2, 7, 7
@@ -5034,7 +5007,7 @@ MinSize:                                # @MinSize
 	st.h	$a1, $s5, 46
 	slli.d	$a3, $a2, 3
 	ldx.d	$a1, $s0, $a3
-	ld.d	$a4, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 112                   # 8-byte Folded Reload
 	st.w	$a2, $a4, 0
 	beqz	$a1, .LBB1_540
 # %bb.539:                              #   in Loop: Header=BB1_502 Depth=1
@@ -5056,7 +5029,7 @@ MinSize:                                # @MinSize
 	st.d	$a1, $a1, 16
 	st.d	$a1, $a1, 8
 	st.d	$a1, $a1, 0
-	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a2, $a2, 8
 	ld.d	$a2, $a2, 8
 	st.d	$a1, $s8, 0
@@ -5126,7 +5099,7 @@ MinSize:                                # @MinSize
 	ld.d	$a1, $fp, 0
 	st.d	$a1, $a4, 8
 .LBB1_548:                              #   in Loop: Header=BB1_502 Depth=1
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	ld.hu	$a1, $s6, 64
 	ld.h	$a2, $a0, 44
 	bstrpick.d	$a1, $a1, 7, 7
@@ -5220,7 +5193,7 @@ MinSize:                                # @MinSize
 	slli.d	$a0, $a2, 3
 	ld.d	$a1, $sp, 64                    # 8-byte Folded Reload
 	ldx.d	$a0, $a1, $a0
-	ld.d	$a3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
 	st.w	$a2, $a3, 0
 	beqz	$a0, .LBB1_568
 # %bb.566:
@@ -5294,7 +5267,7 @@ MinSize:                                # @MinSize
 	addi.d	$a0, $a0, -19
 	sltu	$a0, $zero, $a0
 	xor	$a0, $a1, $a0
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 128                   # 8-byte Folded Spill
 	beqz	$a0, .LBB1_670
 # %bb.574:
 	st.d	$a2, $sp, 88                    # 8-byte Folded Spill
@@ -5316,7 +5289,7 @@ MinSize:                                # @MinSize
 	pcalau12i	$a0, %got_pc_hi20(zz_tmp)
 	ld.d	$s8, $a0, %got_pc_lo12(zz_tmp)
 	move	$s3, $zero
-	st.d	$zero, $sp, 104                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 112                 # 8-byte Folded Spill
 	st.d	$zero, $sp, 96                  # 8-byte Folded Spill
 	ori	$a0, $a2, 3328
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
@@ -5338,12 +5311,12 @@ MinSize:                                # @MinSize
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
 	b	.LBB1_578
 .LBB1_576:                              #   in Loop: Header=BB1_578 Depth=1
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 112                   # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB1_577:                              # %.critedge1595
                                         #   in Loop: Header=BB1_578 Depth=1
 	ld.d	$s7, $s7, 8
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	beq	$s7, $a0, .LBB1_709
 .LBB1_578:                              # %.preheader1778
                                         # =>This Loop Header: Depth=1
@@ -5403,7 +5376,7 @@ MinSize:                                # @MinSize
 	b	.LBB1_577
 	.p2align	4, , 16
 .LBB1_587:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 128                   # 8-byte Folded Reload
 	ld.bu	$a1, $a1, 32
 	bne	$a0, $a1, .LBB1_595
 # %bb.588:                              #   in Loop: Header=BB1_578 Depth=1
@@ -5481,7 +5454,7 @@ MinSize:                                # @MinSize
 # %bb.597:                              #   in Loop: Header=BB1_578 Depth=1
 	beqz	$s3, .LBB1_599
 # %bb.598:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.hu	$a0, $a0, 46
 	beqz	$a0, .LBB1_630
 .LBB1_599:                              #   in Loop: Header=BB1_578 Depth=1
@@ -5494,7 +5467,7 @@ MinSize:                                # @MinSize
 	ori	$a1, $zero, 6
 	bltu	$a1, $a0, .LBB1_608
 .LBB1_601:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	beqz	$a0, .LBB1_618
 # %bb.602:                              #   in Loop: Header=BB1_578 Depth=1
 	ld.hu	$a0, $a0, 44
@@ -5510,7 +5483,7 @@ MinSize:                                # @MinSize
 	move	$a4, $s2
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
-	ld.d	$a2, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
 	ld.hu	$a0, $a2, 44
 	lu12i.w	$a1, 15
 	ori	$a1, $a1, 3839
@@ -5531,7 +5504,7 @@ MinSize:                                # @MinSize
 	move	$a4, $s2
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
-	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
 	ld.hu	$a0, $a1, 44
 	ld.d	$a2, $sp, 56                    # 8-byte Folded Reload
 	and	$a0, $a0, $a2
@@ -5561,7 +5534,7 @@ MinSize:                                # @MinSize
 	alsl.d	$fp, $s0, $s2, 2
 	ld.w	$a1, $fp, 48
 	ld.w	$a2, $fp, 56
-	ld.d	$s3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
 	addi.d	$s4, $s3, 44
 	move	$a3, $s4
 	pcaddu18i	$ra, %call36(MinGap)
@@ -5591,10 +5564,10 @@ MinSize:                                # @MinSize
 	bne	$a0, $a2, .LBB1_620
 # %bb.612:                              #   in Loop: Header=BB1_578 Depth=1
 	addi.d	$a0, $fp, 48
-	ld.d	$a2, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
 	ld.h	$a2, $a2, 46
 	ld.w	$a0, $a0, 0
-	ld.w	$a3, $sp, 656
+	ld.w	$a3, $sp, 672
 	add.w	$a0, $a0, $a2
 	add.w	$a2, $a3, $s3
 	slt	$a3, $a2, $a0
@@ -5657,25 +5630,25 @@ MinSize:                                # @MinSize
 	jirl	$ra, $ra, 0
 	b	.LBB1_577
 .LBB1_618:                              #   in Loop: Header=BB1_578 Depth=1
-	st.d	$zero, $sp, 104                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 112                 # 8-byte Folded Spill
 	b	.LBB1_577
 .LBB1_619:                              #   in Loop: Header=BB1_578 Depth=1
 	alsl.d	$a0, $s0, $s2, 2
 	ld.w	$a0, $a0, 48
 	b	.LBB1_628
 .LBB1_620:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.w	$a0, $sp, 656
+	ld.w	$a0, $sp, 672
 	add.d	$fp, $a0, $s3
 .LBB1_621:                              #   in Loop: Header=BB1_578 Depth=1
 	ori	$s4, $zero, 19
 	bstrpick.d	$a0, $a1, 12, 10
 	slli.d	$a0, $a0, 10
-	st.w	$fp, $sp, 656
+	st.w	$fp, $sp, 672
 	ori	$a2, $zero, 2048
 	bne	$a0, $a2, .LBB1_623
 # %bb.622:                              # %.thread1751
                                         #   in Loop: Header=BB1_578 Depth=1
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.h	$a0, $a0, 46
 	lu12i.w	$a2, 1
 	slt	$a0, $a2, $a0
@@ -5693,7 +5666,7 @@ MinSize:                                # @MinSize
 	ori	$a2, $zero, 3328
 	bne	$a0, $a2, .LBB1_626
 # %bb.624:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.d	$s3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
 	ld.h	$a0, $s3, 46
 	blez	$a0, .LBB1_626
 # %bb.625:                              #   in Loop: Header=BB1_578 Depth=1
@@ -5710,12 +5683,12 @@ MinSize:                                # @MinSize
 	andi	$a0, $a1, 256
 	beqz	$a0, .LBB1_629
 # %bb.627:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.w	$a0, $sp, 652
+	ld.w	$a0, $sp, 668
 	add.d	$a0, $a0, $fp
 .LBB1_628:                              # %.critedge1595
                                         #   in Loop: Header=BB1_578 Depth=1
-	st.w	$a0, $sp, 652
-	st.w	$zero, $sp, 656
+	st.w	$a0, $sp, 668
+	st.w	$zero, $sp, 672
 .LBB1_629:                              # %.critedge1595
                                         #   in Loop: Header=BB1_578 Depth=1
 	move	$s3, $s2
@@ -5724,7 +5697,7 @@ MinSize:                                # @MinSize
 	ori	$a0, $zero, 17
 	bne	$a1, $a0, .LBB1_599
 # %bb.631:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.hu	$a0, $a0, 44
 	andi	$a1, $a0, 128
 	beqz	$a1, .LBB1_599
@@ -5739,7 +5712,7 @@ MinSize:                                # @MinSize
 	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	bne	$a0, $a1, .LBB1_599
 # %bb.634:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
 	ld.bu	$a0, $a1, 42
 	ld.bu	$a1, $a1, 41
 	or	$a0, $a1, $a0
@@ -5949,7 +5922,7 @@ MinSize:                                # @MinSize
 	pcaddu18i	$ra, %call36(DisposeObject)
 	jirl	$ra, $ra, 0
 .LBB1_655:                              #   in Loop: Header=BB1_578 Depth=1
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 24
 	ld.d	$a1, $a0, 24
 	st.d	$a0, $s5, 0
@@ -6071,8 +6044,8 @@ MinSize:                                # @MinSize
 	beq	$s3, $s6, .LBB1_716
 # %bb.671:                              # %.preheader1779.lr.ph
 	st.d	$a2, $sp, 88                    # 8-byte Folded Spill
-	ld.w	$s5, $sp, 656
-	ld.w	$a0, $sp, 652
+	ld.w	$s5, $sp, 672
+	ld.w	$a0, $sp, 668
 	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
 	ori	$fp, $zero, 1
 	ori	$a6, $zero, 19
@@ -6091,14 +6064,14 @@ MinSize:                                # @MinSize
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB1_675 Depth 2
                                         #       Child Loop BB1_676 Depth 3
-	st.d	$zero, $sp, 104                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 112                 # 8-byte Folded Spill
 	b	.LBB1_675
 .LBB1_673:                              #   in Loop: Header=BB1_675 Depth=2
 	ld.w	$s5, $a1, 56
-	st.w	$a0, $sp, 652
-	st.w	$s5, $sp, 656
+	st.w	$a0, $sp, 668
+	st.w	$s5, $sp, 672
 	ori	$a1, $zero, 1
-	st.d	$a1, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
 	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB1_674:                              #   in Loop: Header=BB1_675 Depth=2
@@ -6247,7 +6220,7 @@ MinSize:                                # @MinSize
 .LBB1_695:                              #   in Loop: Header=BB1_675 Depth=2
 	bne	$a0, $fp, .LBB1_704
 # %bb.696:                              #   in Loop: Header=BB1_675 Depth=2
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	bnez	$a0, .LBB1_698
 # %bb.697:                              #   in Loop: Header=BB1_675 Depth=2
 	pcalau12i	$a0, %got_pc_hi20(no_fpos)
@@ -6277,7 +6250,7 @@ MinSize:                                # @MinSize
 	ld.d	$a3, $a0, 8
 	st.d	$a2, $a1, 0
 	st.d	$a0, $s1, 0
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	beq	$a3, $a0, .LBB1_702
 # %bb.701:                              #   in Loop: Header=BB1_675 Depth=2
 	st.d	$a3, $s4, 0
@@ -6335,7 +6308,7 @@ MinSize:                                # @MinSize
 .LBB1_705:                              #   in Loop: Header=BB1_675 Depth=2
 	alsl.d	$a1, $s0, $s2, 2
 	ld.w	$a0, $a1, 48
-	ld.d	$a2, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
 	beqz	$a2, .LBB1_673
 # %bb.706:                              #   in Loop: Header=BB1_675 Depth=2
 	ld.d	$a3, $sp, 96                    # 8-byte Folded Reload
@@ -6345,14 +6318,14 @@ MinSize:                                # @MinSize
 	maskeqz	$a2, $a3, $a2
 	or	$a0, $a2, $a0
 	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
-	st.w	$a0, $sp, 652
+	st.w	$a0, $sp, 668
 	slt	$a0, $a1, $s5
 	masknez	$a1, $a1, $a0
 	maskeqz	$a0, $s5, $a0
 	or	$s5, $a0, $a1
-	st.w	$s5, $sp, 656
+	st.w	$s5, $sp, 672
 	ori	$a0, $zero, 1
-	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
 	b	.LBB1_674
 .LBB1_707:                              # %.thread2309
                                         #   in Loop: Header=BB1_672 Depth=1
@@ -6388,8 +6361,8 @@ MinSize:                                # @MinSize
 # %bb.710:
 	alsl.d	$a1, $s0, $s3, 2
 	ld.w	$a1, $a1, 56
-	ld.w	$a2, $sp, 656
-	ld.w	$a3, $sp, 652
+	ld.w	$a2, $sp, 672
+	ld.w	$a3, $sp, 668
 	add.d	$a1, $a2, $a1
 	lu12i.w	$a2, 2047
 	ori	$a2, $a2, 4095
@@ -6397,10 +6370,10 @@ MinSize:                                # @MinSize
 	masknez	$a2, $a2, $a4
 	maskeqz	$a3, $a3, $a4
 	or	$a2, $a3, $a2
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 	b	.LBB1_720
 .LBB1_711:                              # %._crit_edge1916
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	bnez	$a0, .LBB1_713
 # %bb.712:                              # %._crit_edge1916.thread
 	pcalau12i	$a0, %got_pc_hi20(no_fpos)
@@ -6422,8 +6395,8 @@ MinSize:                                # @MinSize
 .LBB1_714:
 	alsl.d	$a0, $s0, $s6, 2
 	st.w	$zero, $a0, 48
-	ld.w	$a1, $sp, 652
-	ld.w	$a2, $sp, 656
+	ld.w	$a1, $sp, 668
+	ld.w	$a2, $sp, 672
 	add.w	$a1, $a2, $a1
 	ld.d	$a3, $sp, 64                    # 8-byte Folded Reload
 	slt	$a2, $a1, $a3
@@ -6455,23 +6428,23 @@ MinSize:                                # @MinSize
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
 .LBB1_717:
-	ld.w	$a0, $sp, 652
+	ld.w	$a0, $sp, 668
 	alsl.d	$a1, $s0, $s6, 2
 	st.w	$a0, $a1, 48
-	ld.w	$a0, $sp, 656
+	ld.w	$a0, $sp, 672
 	st.w	$a0, $a1, 56
 	b	.LBB1_477
 .LBB1_718:
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
 .LBB1_719:                              # %._crit_edge1928.thread
 	move	$a2, $zero
 	move	$a1, $zero
-	st.w	$zero, $sp, 652
+	st.w	$zero, $sp, 668
 .LBB1_720:
-	st.w	$a1, $sp, 656
+	st.w	$a1, $sp, 672
 	alsl.d	$a1, $s0, $s6, 2
 	st.w	$a2, $a1, 48
-	ld.w	$a2, $sp, 656
+	ld.w	$a2, $sp, 672
 	slli.d	$a3, $s0, 2
 	lu12i.w	$a1, 2047
 	ori	$a1, $a1, 4095

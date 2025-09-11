@@ -4372,26 +4372,23 @@ _ZN10btSoftBody17pointersToIndicesEv:   # @_ZN10btSoftBody17pointersToIndicesEv
 	b	.LBB32_2
 .LBB32_5:                               # %._crit_edge
 	ld.w	$a3, $a0, 852
+	vreplgr2vr.d	$vr0, $a1
 	lu12i.w	$a2, -69906
 	blez	$a3, .LBB32_8
 # %bb.6:                                # %.lr.ph51
 	ld.d	$a4, $a0, 864
-	addi.d	$a4, $a4, 24
+	addi.d	$a4, $a4, 16
 	ori	$a5, $a2, 3823
 	lu32i.d	$a5, -69906
 	lu52i.d	$a5, $a5, -274
+	vreplgr2vr.d	$vr1, $a5
 	.p2align	4, , 16
 .LBB32_7:                               # =>This Inner Loop Header: Depth=1
-	ld.d	$a6, $a4, -8
-	sub.d	$a6, $a6, $a1
-	ld.d	$a7, $a4, 0
-	srai.d	$a6, $a6, 3
-	mul.d	$a6, $a6, $a5
-	st.d	$a6, $a4, -8
-	sub.d	$a6, $a7, $a1
-	srai.d	$a6, $a6, 3
-	mul.d	$a6, $a6, $a5
-	st.d	$a6, $a4, 0
+	vld	$vr2, $a4, 0
+	vsub.d	$vr2, $vr2, $vr0
+	vsrai.d	$vr2, $vr2, 3
+	vmul.d	$vr2, $vr2, $vr1
+	vst	$vr2, $a4, 0
 	addi.d	$a3, $a3, -1
 	addi.d	$a4, $a4, 72
 	bnez	$a3, .LBB32_7
@@ -4407,6 +4404,7 @@ _ZN10btSoftBody17pointersToIndicesEv:   # @_ZN10btSoftBody17pointersToIndicesEv
 	ori	$a6, $a2, 3823
 	lu32i.d	$a6, -69906
 	lu52i.d	$a6, $a6, -274
+	vreplgr2vr.d	$vr1, $a6
 	b	.LBB32_11
 	.p2align	4, , 16
 .LBB32_10:                              #   in Loop: Header=BB32_11 Depth=1
@@ -4417,23 +4415,18 @@ _ZN10btSoftBody17pointersToIndicesEv:   # @_ZN10btSoftBody17pointersToIndicesEv
 .LBB32_11:                              # =>This Inner Loop Header: Depth=1
 	ld.d	$a7, $a0, 896
 	add.d	$t0, $a7, $a3
-	ld.d	$t1, $t0, 16
+	vld	$vr2, $t0, 16
+	vsub.d	$vr2, $vr2, $vr0
+	vsrai.d	$vr2, $vr2, 3
+	ld.d	$t1, $t0, 32
+	vmul.d	$vr2, $vr2, $vr1
+	vst	$vr2, $t0, 16
+	ld.d	$t2, $t0, 64
 	sub.d	$t1, $t1, $a1
-	ld.d	$t2, $t0, 24
 	srai.d	$t1, $t1, 3
 	mul.d	$t1, $t1, $a6
-	st.d	$t1, $t0, 16
-	sub.d	$t1, $t2, $a1
-	srai.d	$t1, $t1, 3
-	ld.d	$t2, $t0, 32
-	mul.d	$t1, $t1, $a6
-	st.d	$t1, $t0, 24
-	ld.d	$t1, $t0, 64
-	sub.d	$t2, $t2, $a1
-	srai.d	$t2, $t2, 3
-	mul.d	$t2, $t2, $a6
-	st.d	$t2, $t0, 32
-	beqz	$t1, .LBB32_10
+	st.d	$t1, $t0, 32
+	beqz	$t2, .LBB32_10
 # %bb.12:                               #   in Loop: Header=BB32_11 Depth=1
 	ld.d	$t0, $sp, 8
 	addi.w	$t1, $t0, 0
@@ -4504,7 +4497,6 @@ _ZN10btSoftBody17pointersToIndicesEv:   # @_ZN10btSoftBody17pointersToIndicesEv
 # %bb.22:                               # %.preheader.lr.ph
 	ld.d	$a0, $a0, 800
 	move	$a4, $zero
-	vreplgr2vr.d	$vr0, $a1
 	addi.d	$a5, $a0, 56
 	addi.d	$a6, $a0, 40
 	ori	$a7, $zero, 88

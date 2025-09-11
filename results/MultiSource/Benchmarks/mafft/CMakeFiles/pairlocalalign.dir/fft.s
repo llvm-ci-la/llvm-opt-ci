@@ -407,17 +407,14 @@ fft:                                    # @fft
 # %bb.50:                               # %.lr.ph130
 	movgr2fr.d	$fa0, $s4
 	ffint.d.l	$fa0, $fa0
-	addi.d	$a0, $fp, 8
+	vreplvei.d	$vr0, $vr0, 0
 	.p2align	4, , 16
 .LBB0_51:                               # =>This Inner Loop Header: Depth=1
-	fld.d	$fa1, $a0, -8
-	fld.d	$fa2, $a0, 0
-	fdiv.d	$fa1, $fa1, $fa0
-	fst.d	$fa1, $a0, -8
-	fdiv.d	$fa1, $fa2, $fa0
-	fst.d	$fa1, $a0, 0
+	vld	$vr1, $fp, 0
+	vfdiv.d	$vr1, $vr1, $vr0
+	vst	$vr1, $fp, 0
 	addi.d	$s3, $s3, -1
-	addi.d	$a0, $a0, 16
+	addi.d	$fp, $fp, 16
 	bnez	$s3, .LBB0_51
 .LBB0_52:
 	move	$a0, $zero

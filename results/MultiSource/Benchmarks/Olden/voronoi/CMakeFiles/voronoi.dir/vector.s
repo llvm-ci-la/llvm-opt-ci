@@ -36,12 +36,11 @@ V2_dot:                                 # @V2_dot
 	.type	V2_times,@function
 V2_times:                               # @V2_times
 # %bb.0:
-	fld.d	$fa1, $a1, 0
-	fld.d	$fa2, $a1, 8
-	fmul.d	$fa1, $fa0, $fa1
-	fst.d	$fa1, $a0, 0
-	fmul.d	$fa0, $fa0, $fa2
-	fst.d	$fa0, $a0, 8
+	vld	$vr1, $a1, 0
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vreplvei.d	$vr0, $vr0, 0
+	vfmul.d	$vr0, $vr0, $vr1
+	vst	$vr0, $a0, 0
 	ret
 .Lfunc_end2:
 	.size	V2_times, .Lfunc_end2-V2_times

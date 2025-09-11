@@ -1511,20 +1511,18 @@ gs_type1_interpret:                     # @gs_type1_interpret
 	jirl	$ra, $ra, 0
 	movgr2fr.w	$fa1, $zero
 	fcmp.ceq.s	$fcc0, $fa0, $fa1
-	fld.s	$fa1, $sp, 160
+	vld	$vr1, $sp, 160
 	vldi	$vr2, -1168
 	fsel	$fa0, $fa0, $fa2, $fcc0
-	fld.s	$fa3, $sp, 164
-	fsub.s	$fa2, $fa1, $fa0
-	fst.s	$fa2, $sp, 160
-	fld.s	$fa1, $sp, 168
-	fsub.s	$fa3, $fa3, $fa0
-	fld.s	$fa5, $sp, 172
-	fst.s	$fa3, $sp, 164
-	fadd.s	$fa4, $fa0, $fa1
-	fst.s	$fa4, $sp, 168
-	fadd.s	$fa5, $fa0, $fa5
-	fst.s	$fa5, $sp, 172
+	vreplvei.w	$vr0, $vr0, 0
+	vfsub.s	$vr4, $vr1, $vr0
+	vfadd.s	$vr0, $vr1, $vr0
+	vreplvei.w	$vr2, $vr4, 0
+	vreplvei.w	$vr3, $vr4, 1
+	vshuf4i.d	$vr4, $vr0, 12
+	vst	$vr4, $sp, 160
+	vreplvei.w	$vr4, $vr0, 2
+	vreplvei.w	$vr5, $vr0, 3
 	b	.LBB4_145
 .LBB4_137:
 	ld.w	$a0, $sp, 200

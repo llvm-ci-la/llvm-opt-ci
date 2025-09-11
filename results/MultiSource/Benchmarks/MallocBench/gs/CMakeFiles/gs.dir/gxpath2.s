@@ -49,12 +49,9 @@ gx_path_bbox:                           # @gx_path_bbox
 	ld.bu	$a2, $a0, 136
 	beqz	$a2, .LBB1_13
 # %bb.6:
-	ld.d	$a3, $a0, 120
-	ld.d	$a0, $a0, 128
-	st.d	$a3, $a1, 0
-	st.d	$a0, $a1, 8
-	st.d	$a3, $a1, 16
-	st.d	$a0, $a1, 24
+	vld	$vr0, $a0, 120
+	vst	$vr0, $a1, 16
+	vst	$vr0, $a1, 0
 	move	$a0, $zero
 	ret
 .LBB1_7:

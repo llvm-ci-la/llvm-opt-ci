@@ -236,6 +236,7 @@ foo:                                    # @foo
 	move	$a4, $zero
 	addi.d	$a1, $a0, 12
 	vinsgr2vr.w	$vr0, $a2, 3
+	addi.d	$a5, $a0, 1616
 	lu12i.w	$a2, 524287
 	ori	$a2, $a2, 4094
 	vreplgr2vr.w	$vr1, $a2
@@ -246,30 +247,45 @@ foo:                                    # @foo
 	lu12i.w	$a2, -421749
 	ori	$a2, $a2, 223
 	vreplgr2vr.w	$vr5, $a2
-	ori	$a5, $zero, 896
+	ori	$a6, $zero, 896
 	.p2align	4, , 16
 .LBB2_3:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vori.b	$vr6, $vr0, 0
-	add.d	$a6, $a0, $a4
-	vld	$vr0, $a6, 16
-	vbsrl.v	$vr6, $vr6, 12
-	vbsll.v	$vr7, $vr0, 4
-	vor.v	$vr6, $vr7, $vr6
-	vand.v	$vr7, $vr0, $vr1
-	vand.v	$vr6, $vr6, $vr2
-	vor.v	$vr6, $vr7, $vr6
-	vsrli.w	$vr6, $vr6, 1
-	vand.v	$vr7, $vr0, $vr3
-	vld	$vr8, $a6, 1600
-	vseqi.w	$vr7, $vr7, 0
-	vxor.v	$vr7, $vr7, $vr4
-	vand.v	$vr7, $vr7, $vr5
-	vxor.v	$vr7, $vr7, $vr8
-	vxor.v	$vr6, $vr7, $vr6
-	addi.d	$a4, $a4, 16
-	vst	$vr6, $a6, 12
-	bne	$a4, $a5, .LBB2_3
+	add.d	$a7, $a5, $a4
+	vld	$vr6, $a7, -1600
+	vbsrl.v	$vr7, $vr0, 12
+	vld	$vr0, $a7, -1584
+	vbsll.v	$vr8, $vr6, 4
+	vor.v	$vr7, $vr8, $vr7
+	vbsrl.v	$vr8, $vr6, 12
+	vbsll.v	$vr9, $vr0, 4
+	vor.v	$vr8, $vr9, $vr8
+	vand.v	$vr9, $vr6, $vr1
+	vand.v	$vr10, $vr0, $vr1
+	vand.v	$vr7, $vr7, $vr2
+	vand.v	$vr8, $vr8, $vr2
+	vor.v	$vr7, $vr9, $vr7
+	vor.v	$vr8, $vr10, $vr8
+	vsrli.w	$vr7, $vr7, 1
+	vsrli.w	$vr8, $vr8, 1
+	vand.v	$vr6, $vr6, $vr3
+	vand.v	$vr9, $vr0, $vr3
+	vseqi.w	$vr6, $vr6, 0
+	vxor.v	$vr6, $vr6, $vr4
+	vand.v	$vr6, $vr6, $vr5
+	vseqi.w	$vr9, $vr9, 0
+	vld	$vr10, $a7, -16
+	vldx	$vr11, $a5, $a4
+	vxor.v	$vr9, $vr9, $vr4
+	vand.v	$vr9, $vr9, $vr5
+	vxor.v	$vr6, $vr6, $vr10
+	vxor.v	$vr9, $vr9, $vr11
+	vxor.v	$vr6, $vr6, $vr7
+	vxor.v	$vr7, $vr9, $vr8
+	vst	$vr6, $a7, -1604
+	addi.d	$a4, $a4, 32
+	vst	$vr7, $a7, -1588
+	bne	$a4, $a6, .LBB2_3
 # %bb.4:                                # %.loopexit.loopexit
 	ld.wu	$a4, $a0, 912
 	vpickve2gr.w	$a5, $vr0, 3

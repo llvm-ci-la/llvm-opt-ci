@@ -157,11 +157,9 @@ _ZN3TTS9calcForceEPKdS1_S1_S1_S1_PK7double2PS2_ii: # @_ZN3TTS9calcForceEPKdS1_S1
 	alsl.d	$t0, $t2, $t0, 2
 	alsl.d	$a4, $t2, $a4, 3
 	alsl.d	$a5, $t2, $a5, 3
+	alsl.d	$a6, $t2, $a6, 4
+	alsl.d	$a7, $t2, $a7, 4
 	sub.d	$t1, $t1, $t2
-	slli.d	$t2, $t2, 4
-	addi.d	$t2, $t2, 8
-	add.d	$a6, $a6, $t2
-	add.d	$a7, $a7, $t2
 	.p2align	4, , 16
 .LBB2_2:                                # =>This Inner Loop Header: Depth=1
 	ld.w	$t2, $t0, 0
@@ -180,19 +178,17 @@ _ZN3TTS9calcForceEPKdS1_S1_S1_S1_PK7double2PS2_ii: # @_ZN3TTS9calcForceEPKdS1_S1
 	fmul.d	$fa4, $fa0, $fa2
 	fmul.d	$fa2, $fa2, $fa4
 	fsub.d	$fa1, $fa1, $fa3
-	fld.d	$fa3, $a6, -8
-	fld.d	$fa4, $a6, 0
+	vld	$vr3, $a6, 0
 	fneg.d	$fa1, $fa1
 	fmul.d	$fa1, $fa2, $fa1
-	fmul.d	$fa2, $fa3, $fa1
-	fmul.d	$fa1, $fa4, $fa1
-	fst.d	$fa2, $a7, -8
-	fst.d	$fa1, $a7, 0
+	vreplvei.d	$vr1, $vr1, 0
+	vfmul.d	$vr1, $vr3, $vr1
+	vst	$vr1, $a7, 0
 	addi.d	$t0, $t0, 4
 	addi.d	$a4, $a4, 8
 	addi.d	$a5, $a5, 8
-	addi.d	$t1, $t1, -1
 	addi.d	$a6, $a6, 16
+	addi.d	$t1, $t1, -1
 	addi.d	$a7, $a7, 16
 	bnez	$t1, .LBB2_2
 .LBB2_3:                                # %._crit_edge

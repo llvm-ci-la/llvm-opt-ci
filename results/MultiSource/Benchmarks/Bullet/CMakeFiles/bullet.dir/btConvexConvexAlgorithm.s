@@ -1413,190 +1413,165 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	.size	_ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult, .Lfunc_end8-_ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
 	.cfi_endproc
                                         # -- End function
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function _ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_
+.LCPI9_0:
+	.dword	32                              # 0x20
+	.dword	0                               # 0x0
 	.section	.text._ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_,"axG",@progbits,_ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_,comdat
-	.weak	_ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_ # -- Begin function _ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_
+	.weak	_ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_
 	.p2align	5
 	.type	_ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_,@function
 _ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_: # @_ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_
 	.cfi_startproc
 # %bb.0:
-	addi.d	$sp, $sp, -224
-	.cfi_def_cfa_offset 224
-	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 184                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 144                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 136                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 128                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 120                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 112                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 104                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 96                   # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 88                   # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 80                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -208
+	.cfi_def_cfa_offset 208
+	st.d	$ra, $sp, 200                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 160                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 152                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 144                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 136                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 128                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 120                  # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 112                  # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 104                  # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 96                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
 	.cfi_offset 25, -40
 	.cfi_offset 26, -48
-	.cfi_offset 27, -56
-	.cfi_offset 28, -64
-	.cfi_offset 29, -72
-	.cfi_offset 30, -80
-	.cfi_offset 56, -88
-	.cfi_offset 57, -96
-	.cfi_offset 58, -104
-	.cfi_offset 59, -112
-	.cfi_offset 60, -120
-	.cfi_offset 61, -128
-	.cfi_offset 62, -136
-	.cfi_offset 63, -144
+	.cfi_offset 56, -56
+	.cfi_offset 57, -64
+	.cfi_offset 58, -72
+	.cfi_offset 59, -80
+	.cfi_offset 60, -88
+	.cfi_offset 61, -96
+	.cfi_offset 62, -104
+	.cfi_offset 63, -112
 	move	$s0, $a2
 	move	$s1, $a1
 	move	$fp, $a0
 	addi.d	$s3, $a1, 48
 	addi.d	$s2, $a2, 48
-	addi.d	$a1, $sp, 64
+	addi.d	$a1, $sp, 80
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(_ZNK11btMatrix3x311getRotationER12btQuaternion)
 	jirl	$ra, $ra, 0
-	ld.d	$s6, $sp, 64
-	ld.d	$s7, $sp, 72
-	st.d	$s6, $sp, 40
-	st.d	$s7, $sp, 48
-	addi.d	$a1, $sp, 64
+	vld	$vr0, $sp, 80
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	vst	$vr0, $sp, 48
+	addi.d	$a1, $sp, 80
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZNK11btMatrix3x311getRotationER12btQuaternion)
 	jirl	$ra, $ra, 0
-	ld.d	$s4, $sp, 64
-	fld.s	$fa0, $fp, 88
-	ld.d	$s5, $sp, 72
-	st.d	$s4, $sp, 24
+	fld.s	$fa1, $fp, 88
+	vld	$vr0, $sp, 80
 	movgr2fr.w	$fs0, $zero
-	fcmp.cule.s	$fcc0, $fa0, $fs0
-	st.d	$s5, $sp, 32
-	bcnez	$fcc0, .LBB9_12
-# %bb.1:
-	srli.d	$a0, $s5, 32
-	srli.d	$a1, $s7, 32
-	fld.s	$fs1, $s1, 48
-	fld.s	$fs2, $fp, 32
-	fld.s	$fs3, $s1, 52
-	fld.s	$fs4, $fp, 36
-	fld.s	$fa0, $fp, 12
-	fld.s	$fs5, $s1, 56
-	fld.s	$fs6, $fp, 40
-	movgr2fr.w	$fa1, $a1
-	fcmp.cune.s	$fcc0, $fa0, $fa1
-	movgr2fr.w	$fs7, $a0
-	bcnez	$fcc0, .LBB9_5
-# %bb.2:
-	fld.s	$fa0, $fp, 8
-	movgr2fr.w	$fa1, $s7
-	fcmp.cune.s	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB9_5
-# %bb.3:
-	fld.s	$fa0, $fp, 4
-	srli.d	$a0, $s6, 32
-	movgr2fr.w	$fa1, $a0
-	fcmp.cune.s	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB9_5
-# %bb.4:
-	fld.s	$fa0, $fp, 0
-	movgr2fr.w	$fa1, $s6
-	fcmp.ceq.s	$fcc0, $fa0, $fa1
-	fmov.s	$ft0, $fs0
-	fmov.s	$ft4, $fs0
-	fmov.s	$ft1, $fs0
+	fcmp.cule.s	$fcc0, $fa1, $fs0
+	vst	$vr0, $sp, 32
 	bcnez	$fcc0, .LBB9_6
-.LBB9_5:                                # %_ZNK10btQuadWordneERKS_.exit.thread.i
-	addi.d	$a1, $sp, 40
-	addi.d	$a2, $sp, 64
-	addi.d	$a3, $sp, 60
+# %bb.1:
+	pcalau12i	$a0, %pc_hi20(.LCPI9_0)
+	vld	$vr1, $a0, %pc_lo12(.LCPI9_0)
+	vreplvei.d	$vr2, $vr0, 0
+	vreplvei.d	$vr0, $vr0, 1
+	vsrl.d	$vr0, $vr0, $vr1
+	vsrl.d	$vr2, $vr2, $vr1
+	vld	$vr4, $sp, 16                   # 16-byte Folded Reload
+	vreplvei.d	$vr3, $vr4, 0
+	vreplvei.d	$vr4, $vr4, 1
+	fld.s	$fs4, $s1, 48
+	fld.s	$fs5, $fp, 32
+	fld.s	$fs3, $s1, 52
+	fld.s	$fs7, $fp, 36
+	vsrl.d	$vr4, $vr4, $vr1
+	vsrl.d	$vr1, $vr3, $vr1
+	vld	$vr3, $fp, 0
+	fld.s	$fs1, $s1, 56
+	vpickev.w	$vr1, $vr1, $vr4
+	fld.s	$fs2, $fp, 40
+	vshuf4i.w	$vr3, $vr3, 27
+	vfcmp.cune.s	$vr1, $vr3, $vr1
+	vmskltz.w	$vr1, $vr1
+	vpickve2gr.hu	$a0, $vr1, 0
+	vpickev.w	$vr10, $vr2, $vr0
+	fmov.s	$fa4, $fs0
+	fmov.s	$ft3, $fs0
+	fmov.s	$fs6, $fs0
+	beqz	$a0, .LBB9_3
+# %bb.2:                                # %_ZNK10btQuadWordneERKS_.exit.thread.i
+	addi.d	$a1, $sp, 48
+	addi.d	$a2, $sp, 80
+	addi.d	$a3, $sp, 76
 	move	$a0, $fp
+	vst	$vr10, $sp, 16                  # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(_ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf)
 	jirl	$ra, $ra, 0
-	fld.s	$fa0, $sp, 64
-	fld.s	$fa1, $sp, 60
-	fld.s	$fa2, $sp, 68
-	fld.s	$fa3, $sp, 72
-	fmul.s	$ft1, $fa0, $fa1
-	fmul.s	$ft4, $fa1, $fa2
-	fmul.s	$ft0, $fa1, $fa3
-.LBB9_6:                                # %_ZN15btTransformUtil27calculateVelocityQuaternionERK9btVector3S2_RK12btQuaternionS5_fRS0_S6_.exit
-	fsub.s	$fa7, $fs1, $fs2
-	fsub.s	$ft3, $fs3, $fs4
-	fsub.s	$fs3, $fs5, $fs6
+	vld	$vr10, $sp, 16                  # 16-byte Folded Reload
+	fld.s	$fa0, $sp, 80
+	fld.s	$fa1, $sp, 76
+	fld.s	$fa2, $sp, 84
+	fld.s	$fa3, $sp, 88
+	fmul.s	$fs6, $fa0, $fa1
+	fmul.s	$ft3, $fa1, $fa2
+	fmul.s	$fa4, $fa1, $fa3
+.LBB9_3:                                # %_ZN15btTransformUtil27calculateVelocityQuaternionERK9btVector3S2_RK12btQuaternionS5_fRS0_S6_.exit
+	fsub.s	$fa7, $fs4, $fs5
+	fsub.s	$ft0, $fs3, $fs7
 	fld.s	$fa0, $s0, 48
 	fld.s	$fa1, $fp, 48
 	fld.s	$fa2, $s0, 52
 	fld.s	$fa3, $fp, 52
-	fld.s	$fa4, $s0, 56
-	fld.s	$fa5, $fp, 28
-	fld.s	$fa6, $fp, 56
+	fsub.s	$fs3, $fs1, $fs2
 	fsub.s	$fs2, $fa0, $fa1
-	fsub.s	$ft6, $fa2, $fa3
-	fcmp.cune.s	$fcc0, $fa5, $fs7
-	fsub.s	$fa6, $fa4, $fa6
-	bcnez	$fcc0, .LBB9_10
-# %bb.7:                                # %_ZN15btTransformUtil27calculateVelocityQuaternionERK9btVector3S2_RK12btQuaternionS5_fRS0_S6_.exit
-	fld.s	$fa0, $fp, 24
-	movgr2fr.w	$fa1, $s5
-	fcmp.cune.s	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB9_10
-# %bb.8:                                # %_ZN15btTransformUtil27calculateVelocityQuaternionERK9btVector3S2_RK12btQuaternionS5_fRS0_S6_.exit
-	fld.s	$fa0, $fp, 20
-	srli.d	$a0, $s4, 32
-	movgr2fr.w	$fa1, $a0
-	fcmp.cune.s	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB9_10
-# %bb.9:                                # %_ZN15btTransformUtil27calculateVelocityQuaternionERK9btVector3S2_RK12btQuaternionS5_fRS0_S6_.exit
-	fld.s	$fa0, $fp, 16
-	movgr2fr.w	$fa1, $s4
-	fcmp.ceq.s	$fcc0, $fa0, $fa1
+	vld	$vr0, $fp, 16
+	fsub.s	$ft4, $fa2, $fa3
+	fld.s	$fa1, $s0, 56
+	fld.s	$fa2, $fp, 56
+	vshuf4i.w	$vr0, $vr0, 27
+	vfcmp.cune.s	$vr0, $vr0, $vr10
+	vmskltz.w	$vr0, $vr0
+	vpickve2gr.hu	$a0, $vr0, 0
+	fsub.s	$fs4, $fa1, $fa2
 	fmov.s	$fa0, $fs0
 	fmov.s	$fa2, $fs0
 	fmov.s	$fa1, $fs0
-	bcnez	$fcc0, .LBB9_11
-.LBB9_10:                               # %_ZNK10btQuadWordneERKS_.exit.thread.i37
+	beqz	$a0, .LBB9_5
+# %bb.4:                                # %_ZNK10btQuadWordneERKS_.exit.thread.i37
 	addi.d	$a0, $fp, 16
-	addi.d	$a1, $sp, 24
-	addi.d	$a2, $sp, 64
-	addi.d	$a3, $sp, 60
-	fmov.s	$fs5, $fa7
-	fmov.s	$fs6, $ft0
-	fmov.s	$fs4, $ft1
-	fmov.s	$fs7, $ft3
-	fmov.s	$fs1, $ft4
-	fst.s	$fa6, $sp, 20                   # 4-byte Folded Spill
-	fst.s	$ft6, $sp, 16                   # 4-byte Folded Spill
+	addi.d	$a1, $sp, 32
+	addi.d	$a2, $sp, 80
+	addi.d	$a3, $sp, 76
+	fmov.s	$fs7, $fa7
+	fst.s	$ft0, $sp, 16                   # 4-byte Folded Spill
+	fmov.s	$fs5, $fa4
+	fmov.s	$fs1, $ft3
+	fst.s	$ft4, $sp, 12                   # 4-byte Folded Spill
 	pcaddu18i	$ra, %call36(_ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf)
 	jirl	$ra, $ra, 0
-	fld.s	$ft6, $sp, 16                   # 4-byte Folded Reload
-	fld.s	$fa6, $sp, 20                   # 4-byte Folded Reload
-	fmov.s	$ft4, $fs1
-	fmov.s	$ft3, $fs7
-	fmov.s	$ft1, $fs4
-	fmov.s	$ft0, $fs6
-	fmov.s	$fa7, $fs5
-	fld.s	$fa0, $sp, 64
-	fld.s	$fa1, $sp, 60
-	fld.s	$fa2, $sp, 68
-	fld.s	$fa3, $sp, 72
+	fld.s	$ft4, $sp, 12                   # 4-byte Folded Reload
+	fmov.s	$ft3, $fs1
+	fmov.s	$fa4, $fs5
+	fld.s	$ft0, $sp, 16                   # 4-byte Folded Reload
+	fmov.s	$fa7, $fs7
+	fld.s	$fa0, $sp, 80
+	fld.s	$fa1, $sp, 76
+	fld.s	$fa2, $sp, 84
+	fld.s	$fa3, $sp, 88
 	fmul.s	$fa0, $fa0, $fa1
 	fmul.s	$fa2, $fa1, $fa2
 	fmul.s	$fa1, $fa1, $fa3
-.LBB9_11:                               # %_ZN15btTransformUtil27calculateVelocityQuaternionERK9btVector3S2_RK12btQuaternionS5_fRS0_S6_.exit45
-	fmul.s	$fa3, $ft4, $ft4
-	fmadd.s	$fa3, $ft1, $ft1, $fa3
-	fmadd.s	$fa3, $ft0, $ft0, $fa3
+.LBB9_5:                                # %_ZN15btTransformUtil27calculateVelocityQuaternionERK9btVector3S2_RK12btQuaternionS5_fRS0_S6_.exit45
+	fmul.s	$fa3, $ft3, $ft3
+	fmadd.s	$fa3, $fs6, $fs6, $fa3
+	fmadd.s	$fa3, $fa4, $fa4, $fa3
 	fsqrt.s	$fa3, $fa3
 	fld.s	$fa4, $fp, 80
 	fmul.s	$fa2, $fa2, $fa2
@@ -1607,11 +1582,11 @@ _ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_
 	fmul.s	$fa0, $fa0, $fa5
 	fmadd.s	$fa0, $fa3, $fa4, $fa0
 	fsub.s	$fa1, $fs2, $fa7
-	fsub.s	$fa2, $ft6, $ft3
+	fsub.s	$fa2, $ft4, $ft0
 	fld.s	$fa3, $fp, 68
 	fld.s	$fa4, $fp, 64
 	fld.s	$fa5, $fp, 72
-	fsub.s	$fa6, $fa6, $fs3
+	fsub.s	$fa6, $fs4, $fs3
 	fmul.s	$fa2, $fa2, $fa3
 	fmadd.s	$fa1, $fa1, $fa4, $fa2
 	fmadd.s	$fa1, $fa6, $fa5, $fa1
@@ -1621,34 +1596,30 @@ _ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_
 	fadd.s	$fa0, $fa0, $fa1
 	fsub.s	$fa0, $fa2, $fa0
 	fst.s	$fa0, $fp, 88
-.LBB9_12:
+.LBB9_6:
 	vld	$vr0, $s3, 0
 	vst	$vr0, $fp, 32
 	vld	$vr0, $s2, 0
-	vld	$vr1, $sp, 40
-	vld	$vr2, $sp, 24
+	vld	$vr1, $sp, 48
+	vld	$vr2, $sp, 32
 	vst	$vr0, $fp, 48
 	vst	$vr1, $fp, 0
 	vst	$vr2, $fp, 16
-	fld.d	$fs7, $sp, 80                   # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 88                   # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 96                   # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 104                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 112                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 120                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 128                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 136                  # 8-byte Folded Reload
-	ld.d	$s7, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 224
+	fld.d	$fs7, $sp, 96                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 104                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 112                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 120                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 128                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 136                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 144                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 152                  # 8-byte Folded Reload
+	ld.d	$s3, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 200                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 208
 	ret
 .Lfunc_end9:
 	.size	_ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_, .Lfunc_end9-_ZN30btConvexSeparatingDistanceUtil24updateSeparatingDistanceERK11btTransformS2_

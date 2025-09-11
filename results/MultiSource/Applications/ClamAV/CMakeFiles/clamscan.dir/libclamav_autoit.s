@@ -4786,7 +4786,7 @@ MT_decrypt:                             # @MT_decrypt
 	lu12i.w	$a7, -421749
 	ori	$a7, $a7, 223
 	vreplgr2vr.w	$vr4, $a7
-	ori	$t0, $zero, 896
+	ori	$t0, $zero, 2500
 	lu32i.d	$a6, 0
 	lu32i.d	$a7, 0
 	ori	$t1, $zero, 2484
@@ -4832,35 +4832,50 @@ MT_decrypt:                             # @MT_decrypt
 	bnez	$t8, .LBB1_4
 # %bb.7:                                # %vector.ph24
                                         #   in Loop: Header=BB1_6 Depth=1
-	move	$t7, $zero
-	ori	$t8, $zero, 2512
-	add.d	$t8, $sp, $t8
-	stptr.w	$a5, $t8, 0
+	ori	$t7, $zero, 2512
+	add.d	$t7, $sp, $t7
+	stptr.w	$a5, $t7, 0
 	vinsgr2vr.w	$vr5, $a2, 3
+	ori	$a2, $zero, 1604
 	.p2align	4, , 16
 .LBB1_8:                                # %vector.body25
                                         #   Parent Loop BB1_6 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vori.b	$vr6, $vr5, 0
-	add.d	$a2, $a3, $t7
-	vld	$vr5, $a2, 4
-	vbsrl.v	$vr6, $vr6, 12
-	vbsll.v	$vr7, $vr5, 4
-	vor.v	$vr6, $vr7, $vr6
-	vand.v	$vr7, $vr5, $vr0
-	vand.v	$vr6, $vr6, $vr1
-	vor.v	$vr6, $vr7, $vr6
-	vsrli.w	$vr6, $vr6, 1
-	vand.v	$vr7, $vr5, $vr2
-	vld	$vr8, $a2, 1588
-	vseqi.w	$vr7, $vr7, 0
-	vxor.v	$vr7, $vr7, $vr3
-	vand.v	$vr7, $vr7, $vr4
-	vxor.v	$vr7, $vr7, $vr8
-	vxor.v	$vr6, $vr7, $vr6
-	vstx	$vr6, $t7, $a3
-	addi.d	$t7, $t7, 16
-	bne	$t7, $t0, .LBB1_8
+	add.d	$t7, $a3, $a2
+	vld	$vr6, $t7, -1600
+	vbsrl.v	$vr7, $vr5, 12
+	vld	$vr5, $t7, -1584
+	vbsll.v	$vr8, $vr6, 4
+	vor.v	$vr7, $vr8, $vr7
+	vbsrl.v	$vr8, $vr6, 12
+	vbsll.v	$vr9, $vr5, 4
+	vor.v	$vr8, $vr9, $vr8
+	vand.v	$vr9, $vr6, $vr0
+	vand.v	$vr10, $vr5, $vr0
+	vand.v	$vr7, $vr7, $vr1
+	vand.v	$vr8, $vr8, $vr1
+	vor.v	$vr7, $vr9, $vr7
+	vor.v	$vr8, $vr10, $vr8
+	vsrli.w	$vr7, $vr7, 1
+	vsrli.w	$vr8, $vr8, 1
+	vand.v	$vr6, $vr6, $vr2
+	vand.v	$vr9, $vr5, $vr2
+	vseqi.w	$vr6, $vr6, 0
+	vxor.v	$vr6, $vr6, $vr3
+	vand.v	$vr6, $vr6, $vr4
+	vseqi.w	$vr9, $vr9, 0
+	vld	$vr10, $t7, -16
+	vldx	$vr11, $a2, $a3
+	vxor.v	$vr9, $vr9, $vr3
+	vand.v	$vr9, $vr9, $vr4
+	vxor.v	$vr6, $vr6, $vr10
+	vxor.v	$vr9, $vr9, $vr11
+	vxor.v	$vr6, $vr6, $vr7
+	vxor.v	$vr7, $vr9, $vr8
+	vst	$vr6, $t7, -1604
+	addi.d	$a2, $a2, 32
+	vst	$vr7, $t7, -1588
+	bne	$a2, $t0, .LBB1_8
 # %bb.9:                                # %vector.ph
                                         #   in Loop: Header=BB1_6 Depth=1
 	ld.wu	$t7, $sp, 916
