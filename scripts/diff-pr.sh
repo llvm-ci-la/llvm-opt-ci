@@ -1,7 +1,7 @@
 #!/bin/bash
 
-BEFORE_BRANCH=pr-$PR_ID-before
-AFTER_BRANCH=pr-$PR_ID-after
+BEFORE_BRANCH=pr-$PR_ID-before-$(date +%s)
+AFTER_BRANCH=pr-$PR_ID-after-$(date +%s)
 
 rm -rf $RESULTS_DIR
 mkdir -p $RESULTS_DIR

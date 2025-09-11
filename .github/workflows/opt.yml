@@ -57,9 +57,11 @@ jobs:
     steps:
       - name: Checkout PR branch without pull commits.
         run: |
+          PR_BRANCH=pr-${{ needs.configure.outputs.PR_ID }}-$(date +%s)
           cd ${LLVM_SRC_DIR}
-          git fetch origin pull/${{ needs.configure.outputs.PR_ID }}/head:pr_${{ needs.configure.outputs.PR_ID }}
-          git checkout pr_${{ needs.configure.outputs.PR_ID }}
+
+          git fetch origin pull/${{ needs.configure.outputs.PR_ID }}/head:${PR_BRANCH}
+          git checkout ${PR_BRANCH}
 
           pr_commits=$(git rev-list main.. --count)
           git checkout HEAD~${pr_commits}
