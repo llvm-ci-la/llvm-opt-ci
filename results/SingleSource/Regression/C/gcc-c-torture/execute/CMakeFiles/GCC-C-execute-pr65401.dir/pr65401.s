@@ -209,28 +209,29 @@ main:                                   # @main
 	vseq.d	$vr9, $vr9, $vr13
 	vxor.v	$vr9, $vr9, $vr15
 	vpickev.w	$vr9, $vr9, $vr6
-	vpickve2gr.h	$a2, $vr9, 2
+	vseq.d	$vr8, $vr8, $vr11
+	vxor.v	$vr8, $vr8, $vr15
+	vseq.d	$vr7, $vr7, $vr12
+	vxor.v	$vr7, $vr7, $vr15
+	vpickev.w	$vr7, $vr7, $vr8
+	vpickev.h	$vr7, $vr7, $vr9
+	vpickve2gr.h	$a2, $vr7, 1
 	andi	$a2, $a2, 1
 	vpickve2gr.h	$a3, $vr6, 0
 	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.h	$a2, $vr9, 4
+	vpickve2gr.h	$a2, $vr7, 2
 	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.h	$a2, $vr9, 6
+	vpickve2gr.h	$a2, $vr7, 3
 	bstrins.d	$a3, $a2, 3, 3
-	vseq.d	$vr6, $vr8, $vr11
-	vxor.v	$vr6, $vr6, $vr15
-	vseq.d	$vr7, $vr7, $vr12
-	vxor.v	$vr7, $vr7, $vr15
-	vpickev.w	$vr6, $vr7, $vr6
-	vpickve2gr.h	$a2, $vr6, 0
+	vpickve2gr.h	$a2, $vr7, 4
 	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.h	$a2, $vr6, 2
+	vpickve2gr.h	$a2, $vr7, 5
 	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.h	$a2, $vr6, 4
+	vpickve2gr.h	$a2, $vr7, 6
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 6
 	or	$a2, $a3, $a2
-	vpickve2gr.h	$a3, $vr6, 6
+	vpickve2gr.h	$a3, $vr7, 7
 	slli.d	$a3, $a3, 7
 	or	$a2, $a2, $a3
 	andi	$a3, $a2, 255
@@ -302,28 +303,29 @@ main:                                   # @main
 	vseq.d	$vr9, $vr9, $vr13
 	vxor.v	$vr9, $vr9, $vr15
 	vpickev.w	$vr9, $vr9, $vr6
-	vpickve2gr.h	$a2, $vr9, 2
+	vseq.d	$vr8, $vr8, $vr11
+	vxor.v	$vr8, $vr8, $vr15
+	vseq.d	$vr7, $vr7, $vr12
+	vxor.v	$vr7, $vr7, $vr15
+	vpickev.w	$vr7, $vr7, $vr8
+	vpickev.h	$vr7, $vr7, $vr9
+	vpickve2gr.h	$a2, $vr7, 1
 	andi	$a2, $a2, 1
 	vpickve2gr.h	$a3, $vr6, 0
 	bstrins.d	$a3, $a2, 63, 1
-	vpickve2gr.h	$a2, $vr9, 4
+	vpickve2gr.h	$a2, $vr7, 2
 	bstrins.d	$a3, $a2, 2, 2
-	vpickve2gr.h	$a2, $vr9, 6
+	vpickve2gr.h	$a2, $vr7, 3
 	bstrins.d	$a3, $a2, 3, 3
-	vseq.d	$vr6, $vr8, $vr11
-	vxor.v	$vr6, $vr6, $vr15
-	vseq.d	$vr7, $vr7, $vr12
-	vxor.v	$vr7, $vr7, $vr15
-	vpickev.w	$vr6, $vr7, $vr6
-	vpickve2gr.h	$a2, $vr6, 0
+	vpickve2gr.h	$a2, $vr7, 4
 	bstrins.d	$a3, $a2, 4, 4
-	vpickve2gr.h	$a2, $vr6, 2
+	vpickve2gr.h	$a2, $vr7, 5
 	bstrins.d	$a3, $a2, 5, 5
-	vpickve2gr.h	$a2, $vr6, 4
+	vpickve2gr.h	$a2, $vr7, 6
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 6
 	or	$a2, $a3, $a2
-	vpickve2gr.h	$a3, $vr6, 6
+	vpickve2gr.h	$a3, $vr7, 7
 	slli.d	$a3, $a3, 7
 	or	$a2, $a2, $a3
 	andi	$a3, $a2, 255
