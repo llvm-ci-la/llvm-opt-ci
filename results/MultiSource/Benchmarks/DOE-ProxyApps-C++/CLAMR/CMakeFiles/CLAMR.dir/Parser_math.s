@@ -13,12 +13,7 @@ _ZN2PP11Parser_mathC2Ev:                # @_ZN2PP11Parser_mathC2Ev
 .Lfunc_end0:
 	.size	_ZN2PP11Parser_mathC2Ev, .Lfunc_end0-_ZN2PP11Parser_mathC2Ev
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN2PP11Parser_math5do_opEiiiRSt5dequeINS_4WordESaIS2_EERS2_RNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERi
-.LCPI1_0:
-	.dword	0x46293e5939a08cea              # double 1.0E+30
-	.text
-	.globl	_ZN2PP11Parser_math5do_opEiiiRSt5dequeINS_4WordESaIS2_EERS2_RNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERi
+	.globl	_ZN2PP11Parser_math5do_opEiiiRSt5dequeINS_4WordESaIS2_EERS2_RNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERi # -- Begin function _ZN2PP11Parser_math5do_opEiiiRSt5dequeINS_4WordESaIS2_EERS2_RNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERi
 	.p2align	5
 	.type	_ZN2PP11Parser_math5do_opEiiiRSt5dequeINS_4WordESaIS2_EERS2_RNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERi,@function
 _ZN2PP11Parser_math5do_opEiiiRSt5dequeINS_4WordESaIS2_EERS2_RNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERi: # @_ZN2PP11Parser_math5do_opEiiiRSt5dequeINS_4WordESaIS2_EERS2_RNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERi
@@ -980,9 +975,12 @@ _ZN2PP11Parser_math5do_opEiiiRSt5dequeINS_4WordESaIS2_EERS2_RNSt7__cxx1118basic_
 	jirl	$ra, $ra, 0
 .Ltmp114:                               # EH_LABEL
 # %bb.168:                              # %_ZNSolsEPFRSoS_E.exit223
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, 236040
+	ori	$a0, $a0, 3306
+	lu32i.d	$a0, -442791
+	lu52i.d	$a0, $a0, 1122
 	fcmp.ceq.d	$fcc0, $fs0, $fs2
+	movgr2fr.d	$fa0, $a0
 	fsel	$fs2, $fa0, $fs2, $fcc0
 	b	.LBB1_196
 .LBB1_169:

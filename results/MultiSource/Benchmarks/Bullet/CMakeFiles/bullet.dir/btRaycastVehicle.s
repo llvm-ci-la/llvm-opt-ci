@@ -1277,14 +1277,7 @@ _ZNK16btRaycastVehicle24getChassisWorldTransformEv: # @_ZNK16btRaycastVehicle24g
 .Lfunc_end13:
 	.size	_ZNK16btRaycastVehicle24getChassisWorldTransformEv, .Lfunc_end13-_ZNK16btRaycastVehicle24getChassisWorldTransformEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN16btRaycastVehicle7rayCastER11btWheelInfo
-.LCPI14_0:
-	.word	0x3c23d70a                      # float 0.00999999977
-.LCPI14_1:
-	.word	0xbdcccccd                      # float -0.100000001
-	.text
-	.globl	_ZN16btRaycastVehicle7rayCastER11btWheelInfo
+	.globl	_ZN16btRaycastVehicle7rayCastER11btWheelInfo # -- Begin function _ZN16btRaycastVehicle7rayCastER11btWheelInfo
 	.p2align	5
 	.type	_ZN16btRaycastVehicle7rayCastER11btWheelInfo,@function
 _ZN16btRaycastVehicle7rayCastER11btWheelInfo: # @_ZN16btRaycastVehicle7rayCastER11btWheelInfo
@@ -1438,9 +1431,10 @@ _ZN16btRaycastVehicle7rayCastER11btWheelInfo: # @_ZN16btRaycastVehicle7rayCastER
 	pcaddu18i	$ra, %call36(_ZNK11btWheelInfo23getSuspensionRestLengthEv)
 	jirl	$ra, $ra, 0
 	fld.s	$fa1, $fp, 212
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI14_0)
 	fneg.s	$fa1, $fa1
+	lu12i.w	$a0, 246333
+	ori	$a0, $a0, 1802
+	movgr2fr.w	$fs0, $a0
 	fmadd.s	$fs1, $fa1, $fs0, $fa0
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK11btWheelInfo23getSuspensionRestLengthEv)
@@ -1459,19 +1453,21 @@ _ZN16btRaycastVehicle7rayCastER11btWheelInfo: # @_ZN16btRaycastVehicle7rayCastER
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fst.s	$fa0, $fp, 32
 .LBB14_4:
-	vld	$vr4, $sp, 32
 	fld.s	$fa0, $fp, 0
-	fld.s	$fa3, $fp, 52
 	fld.s	$fa1, $fp, 4
-	fld.s	$fa5, $fp, 56
+	fld.s	$fa3, $fp, 56
+	fld.s	$fa4, $fp, 52
 	fld.s	$fa2, $fp, 8
-	fld.s	$fa6, $fp, 60
-	pcalau12i	$a0, %pc_hi20(.LCPI14_1)
-	fld.s	$fa7, $a0, %pc_lo12(.LCPI14_1)
-	fmul.s	$fa5, $fa1, $fa5
-	fmadd.s	$fa3, $fa0, $fa3, $fa5
-	fmadd.s	$fa3, $fa2, $fa6, $fa3
-	fcmp.cult.s	$fcc0, $fa3, $fa7
+	fld.s	$fa5, $fp, 60
+	fmul.s	$fa3, $fa1, $fa3
+	fmadd.s	$fa3, $fa0, $fa4, $fa3
+	vld	$vr4, $sp, 32
+	fmadd.s	$fa3, $fa2, $fa5, $fa3
+	lu12i.w	$a0, -271156
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa5, $a0
+	fcmp.cult.s	$fcc0, $fa3, $fa5
 	vst	$vr4, $s2, 0
 	bceqz	$fcc0, .LBB14_7
 # %bb.5:
@@ -1553,16 +1549,7 @@ _ZN16btRaycastVehicle7rayCastER11btWheelInfo: # @_ZN16btRaycastVehicle7rayCastER
 	.size	_ZN16btRaycastVehicle7rayCastER11btWheelInfo, .Lfunc_end14-_ZN16btRaycastVehicle7rayCastER11btWheelInfo
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN16btRaycastVehicle13updateVehicleEf
-.LCPI15_0:
-	.word	0x40666666                      # float 3.5999999
-.LCPI15_1:
-	.word	0x45bb8000                      # float 6000
-.LCPI15_2:
-	.word	0x3f7d70a4                      # float 0.990000009
-	.text
-	.globl	_ZN16btRaycastVehicle13updateVehicleEf
+	.globl	_ZN16btRaycastVehicle13updateVehicleEf # -- Begin function _ZN16btRaycastVehicle13updateVehicleEf
 	.p2align	5
 	.type	_ZN16btRaycastVehicle13updateVehicleEf,@function
 _ZN16btRaycastVehicle13updateVehicleEf: # @_ZN16btRaycastVehicle13updateVehicleEf
@@ -1616,12 +1603,13 @@ _ZN16btRaycastVehicle13updateVehicleEf: # @_ZN16btRaycastVehicle13updateVehicleE
 	ld.d	$a1, $fp, 168
 	fld.s	$fa0, $a1, 332
 	fld.s	$fa1, $a1, 328
-	fmul.s	$fa0, $fa0, $fa0
 	fld.s	$fa2, $a1, 336
+	fmul.s	$fa0, $fa0, $fa0
 	fmadd.s	$fa0, $fa1, $fa1, $fa0
-	pcalau12i	$a2, %pc_hi20(.LCPI15_0)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI15_0)
 	fmadd.s	$fa0, $fa2, $fa2, $fa0
+	lu12i.w	$a2, 263782
+	ori	$a2, $a2, 1638
+	movgr2fr.w	$fa1, $a2
 	ld.w	$a2, $fp, 184
 	fsqrt.s	$fa0, $fa0
 	fmul.s	$fa0, $fa0, $fa1
@@ -1708,10 +1696,10 @@ _ZN16btRaycastVehicle13updateVehicleEf: # @_ZN16btRaycastVehicle13updateVehicleE
 .LBB15_15:                              # %_ZN16btRaycastVehicle16updateSuspensionEf.exit
 	blez	$a0, .LBB15_18
 # %bb.16:                               # %.lr.ph112
-	pcalau12i	$a0, %pc_hi20(.LCPI15_1)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI15_1)
 	move	$s0, $zero
 	move	$s1, $zero
+	lu12i.w	$a0, 285624
+	movgr2fr.w	$fs1, $a0
 	.p2align	4, , 16
 .LBB15_17:                              # =>This Inner Loop Header: Depth=1
 	ld.d	$a0, $fp, 208
@@ -1774,11 +1762,12 @@ _ZN16btRaycastVehicle13updateVehicleEf: # @_ZN16btRaycastVehicle13updateVehicleE
 	ld.d	$a5, $fp, 208
 	alsl.d	$a4, $a2, $a1, 2
 	addi.d	$a2, $a4, 8
-	pcalau12i	$a3, %pc_hi20(.LCPI15_2)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI15_2)
 	addi.d	$a3, $a4, 24
 	addi.d	$a4, $a4, 40
 	addi.d	$a5, $a5, 244
+	lu12i.w	$a6, 260055
+	ori	$a6, $a6, 164
+	movgr2fr.w	$fa0, $a6
 	b	.LBB15_22
 	.p2align	4, , 16
 .LBB15_20:                              #   in Loop: Header=BB15_22 Depth=1
@@ -3124,12 +3113,8 @@ _ZN19btWheelContactPointC2EP11btRigidBodyS1_RK9btVector3S4_f: # @_ZN19btWheelCon
 	.size	_ZN19btWheelContactPointC2EP11btRigidBodyS1_RK9btVector3S4_f, .Lfunc_end26-_ZN19btWheelContactPointC2EP11btRigidBodyS1_RK9btVector3S4_f
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN16btRaycastVehicle9debugDrawEP12btIDebugDraw
-.LCPI27_0:
-	.word	0x437f0000                      # float 255
 	.text
-	.globl	_ZN16btRaycastVehicle9debugDrawEP12btIDebugDraw
+	.globl	_ZN16btRaycastVehicle9debugDrawEP12btIDebugDraw # -- Begin function _ZN16btRaycastVehicle9debugDrawEP12btIDebugDraw
 	.p2align	5
 	.type	_ZN16btRaycastVehicle9debugDrawEP12btIDebugDraw,@function
 _ZN16btRaycastVehicle9debugDrawEP12btIDebugDraw: # @_ZN16btRaycastVehicle9debugDrawEP12btIDebugDraw
@@ -3160,8 +3145,8 @@ _ZN16btRaycastVehicle9debugDrawEP12btIDebugDraw: # @_ZN16btRaycastVehicle9debugD
 	move	$s0, $a1
 	move	$s1, $zero
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI27_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI27_0)
+	lu12i.w	$a0, 276464
+	movgr2fr.w	$fs0, $a0
 	movgr2fr.w	$fs1, $zero
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -65536

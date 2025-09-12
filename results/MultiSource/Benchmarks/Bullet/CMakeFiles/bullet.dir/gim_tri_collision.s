@@ -30,18 +30,8 @@ _ZNK12GIM_TRIANGLE26collide_triangle_hard_testERKS_R25GIM_TRIANGLE_CONTACT_DATA:
 	.size	_ZNK12GIM_TRIANGLE26collide_triangle_hard_testERKS_R25GIM_TRIANGLE_CONTACT_DATA, .Lfunc_end0-_ZNK12GIM_TRIANGLE26collide_triangle_hard_testERKS_R25GIM_TRIANGLE_CONTACT_DATA
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA
-.LCPI1_0:
-	.word	0x33d6bf95                      # float 1.00000001E-7
-.LCPI1_1:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-.LCPI1_2:
-	.word	0xc47a0000                      # float -1000
-.LCPI1_3:
-	.word	0x34000000                      # float 1.1920929E-7
 	.section	.text._ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA,"axG",@progbits,_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA,comdat
-	.weak	_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA
+	.weak	_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA # -- Begin function _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA
 	.p2align	5
 	.type	_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA,@function
 _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA: # @_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA
@@ -113,11 +103,12 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2
 	fneg.s	$ft4, $ft5
 	fmul.s	$ft3, $ft3, $ft4
 	fmadd.s	$ft11, $ft2, $ft6, $ft3
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$ft9, $a0, %pc_lo12(.LCPI1_0)
 	fmul.s	$ft2, $ft12, $ft12
 	fmadd.s	$ft2, $ft10, $ft10, $ft2
 	fmadd.s	$ft2, $ft11, $ft11, $ft2
+	lu12i.w	$a0, 212331
+	ori	$a0, $a0, 3989
+	movgr2fr.w	$ft9, $a0
 	fcmp.cle.s	$fcc0, $ft2, $ft9
 	fst.s	$ft11, $s0, 124
 	bcnez	$fcc0, .LBB1_3
@@ -131,12 +122,13 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2
 	sub.w	$a0, $a1, $a0
 	movgr2fr.w	$ft2, $a0
 	fmul.s	$ft3, $ft3, $ft2
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.s	$ft4, $a0, %pc_lo12(.LCPI1_1)
-	vldi	$vr13, -1160
-	fmadd.s	$ft3, $ft3, $ft2, $ft5
+	vldi	$vr12, -1160
+	fmadd.s	$ft3, $ft3, $ft2, $ft4
 	fmul.s	$ft2, $ft3, $ft2
-	fcmp.cule.s	$fcc0, $ft4, $ft2
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	movgr2fr.w	$ft3, $a0
+	fcmp.cule.s	$fcc0, $ft3, $ft2
 	bcnez	$fcc0, .LBB1_3
 # %bb.2:
 	fmul.s	$ft10, $ft10, $ft2
@@ -293,12 +285,13 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2
 	sub.w	$a0, $a1, $a0
 	movgr2fr.w	$ft13, $a0
 	fmul.s	$ft9, $ft9, $ft13
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.s	$ft14, $a0, %pc_lo12(.LCPI1_1)
-	vldi	$vr23, -1160
-	fmadd.s	$ft9, $ft9, $ft13, $ft15
+	vldi	$vr22, -1160
+	fmadd.s	$ft9, $ft9, $ft13, $ft14
 	fmul.s	$ft9, $ft9, $ft13
-	fcmp.cule.s	$fcc0, $ft14, $ft9
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	movgr2fr.w	$ft13, $a0
+	fcmp.cule.s	$fcc0, $ft13, $ft9
 	bcnez	$fcc0, .LBB1_15
 # %bb.14:
 	fmul.s	$ft10, $ft10, $ft9
@@ -441,15 +434,14 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2
 	move	$a1, $zero
 	fld.s	$fa0, $s0, 0
 	vst	$vr1, $fp, 8
-	lu12i.w	$a3, -243808
-	lu32i.d	$a3, 0
-	st.d	$a3, $fp, 0
-	pcalau12i	$a3, %pc_hi20(.LCPI1_2)
-	fld.s	$fa2, $a3, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_3)
-	fld.s	$fa1, $a3, %pc_lo12(.LCPI1_3)
+	lu12i.w	$a4, -243808
+	lu32i.d	$a4, 0
+	st.d	$a4, $fp, 0
 	bstrpick.d	$a0, $a0, 31, 0
 	addi.d	$a3, $s0, 764
+	movgr2fr.w	$fa2, $a4
+	lu12i.w	$a4, 212992
+	movgr2fr.w	$fa1, $a4
 	addi.d	$a4, $sp, 8
 	b	.LBB1_31
 	.p2align	4, , 16
@@ -510,15 +502,14 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2
 	move	$a1, $zero
 	fld.s	$fa0, $s0, 0
 	vst	$vr1, $fp, 8
-	lu12i.w	$a3, -243808
-	lu32i.d	$a3, 0
-	st.d	$a3, $fp, 0
-	pcalau12i	$a3, %pc_hi20(.LCPI1_2)
-	fld.s	$fa2, $a3, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_3)
-	fld.s	$fa1, $a3, %pc_lo12(.LCPI1_3)
+	lu12i.w	$a4, -243808
+	lu32i.d	$a4, 0
+	st.d	$a4, $fp, 0
 	bstrpick.d	$a0, $a0, 31, 0
 	addi.d	$a3, $s0, 764
+	movgr2fr.w	$fa2, $a4
+	lu12i.w	$a4, 212992
+	movgr2fr.w	$fa1, $a4
 	addi.d	$a4, $sp, 8
 	b	.LBB1_40
 	.p2align	4, , 16
@@ -637,14 +628,8 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2
 	.size	_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA, .Lfunc_end1-_ZN30GIM_TRIANGLE_CALCULATION_CACHE18triangle_collisionERK9btVector3S2_S2_fS2_S2_S2_fR25GIM_TRIANGLE_CONTACT_DATA
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_
-.LCPI2_0:
-	.word	0x33d6bf95                      # float 1.00000001E-7
-.LCPI2_1:
-	.word	0x7f7fffff                      # float 3.40282347E+38
 	.section	.text._ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_,"axG",@progbits,_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_,comdat
-	.weak	_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_
+	.weak	_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_ # -- Begin function _ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_
 	.p2align	5
 	.type	_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_,@function
 _ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_: # @_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_
@@ -694,11 +679,12 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS
 	fneg.s	$ft0, $ft1
 	fmul.s	$fa7, $fa7, $ft0
 	fmadd.s	$fa5, $fa5, $fa6, $fa7
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI2_0)
 	fmul.s	$fa6, $fa4, $fa4
 	fmadd.s	$fa6, $fa3, $fa3, $fa6
 	fmadd.s	$fa6, $fa5, $fa5, $fa6
+	lu12i.w	$a0, 212331
+	ori	$a0, $a0, 3989
+	movgr2fr.w	$fs0, $a0
 	fcmp.cle.s	$fcc0, $fa6, $fs0
 	fst.s	$fa5, $sp, 16
 	bcnez	$fcc0, .LBB2_3
@@ -712,12 +698,13 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS
 	sub.w	$a0, $a1, $a0
 	movgr2fr.w	$fa6, $a0
 	fmul.s	$fa7, $fa7, $fa6
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.s	$ft0, $a0, %pc_lo12(.LCPI2_1)
-	vldi	$vr9, -1160
-	fmadd.s	$fa7, $fa7, $fa6, $ft1
+	vldi	$vr8, -1160
+	fmadd.s	$fa7, $fa7, $fa6, $ft0
 	fmul.s	$fa6, $fa7, $fa6
-	fcmp.cule.s	$fcc0, $ft0, $fa6
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	movgr2fr.w	$fa7, $a0
+	fcmp.cule.s	$fcc0, $fa7, $fa6
 	bcnez	$fcc0, .LBB2_3
 # %bb.2:
 	fmul.s	$fa3, $fa3, $fa6
@@ -782,12 +769,13 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS
 	sub.w	$a0, $a1, $a0
 	movgr2fr.w	$fa6, $a0
 	fmul.s	$fa7, $fa7, $fa6
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.s	$ft0, $a0, %pc_lo12(.LCPI2_1)
-	vldi	$vr9, -1160
-	fmadd.s	$fa7, $fa7, $fa6, $ft1
+	vldi	$vr8, -1160
+	fmadd.s	$fa7, $fa7, $fa6, $ft0
 	fmul.s	$fa6, $fa7, $fa6
-	fcmp.cule.s	$fcc0, $ft0, $fa6
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	movgr2fr.w	$fa7, $a0
+	fcmp.cule.s	$fcc0, $fa7, $fa6
 	bcnez	$fcc0, .LBB2_7
 # %bb.6:
 	fmul.s	$fa3, $fa3, $fa6
@@ -850,12 +838,13 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS
 	sub.w	$a0, $a1, $a0
 	movgr2fr.w	$fa6, $a0
 	fmul.s	$fa7, $fa7, $fa6
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.s	$ft0, $a0, %pc_lo12(.LCPI2_1)
-	vldi	$vr9, -1160
-	fmadd.s	$fa7, $fa7, $fa6, $ft1
+	vldi	$vr8, -1160
+	fmadd.s	$fa7, $fa7, $fa6, $ft0
 	fmul.s	$fa6, $fa7, $fa6
-	fcmp.cule.s	$fcc0, $ft0, $fa6
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	movgr2fr.w	$fa7, $a0
+	fcmp.cule.s	$fcc0, $fa7, $fa6
 	bcnez	$fcc0, .LBB2_11
 # %bb.10:
 	fmul.s	$fa3, $fa3, $fa6
@@ -892,31 +881,27 @@ _ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS
 	.size	_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_, .Lfunc_end2-_ZN30GIM_TRIANGLE_CALCULATION_CACHE13clip_triangleERK9btVector4PK9btVector3S5_PS3_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_
-.LCPI3_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.section	.text._Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_,"axG",@progbits,_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_,comdat
-	.weak	_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_
+	.weak	_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_ # -- Begin function _Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_
 	.p2align	5
 	.type	_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_,@function
 _Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_: # @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_
 	.cfi_startproc
 # %bb.0:
 	move	$a5, $a0
-	fld.s	$fa2, $a0, 4
-	fld.s	$fa0, $a1, 4
-	fld.s	$fa3, $a0, 0
+	fld.s	$fa2, $a0, 0
 	fld.s	$fa6, $a1, 0
-	fmul.s	$fa0, $fa2, $fa0
+	fld.s	$fa3, $a0, 4
+	fld.s	$fa0, $a1, 4
 	fld.s	$fa4, $a0, 8
-	fld.s	$fa7, $a1, 8
+	fld.s	$fa1, $a1, 8
 	fld.s	$fa5, $a0, 12
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI3_0)
-	fmadd.s	$fa0, $fa3, $fa6, $fa0
-	fmadd.s	$fa0, $fa4, $fa7, $fa0
+	fmul.s	$fa0, $fa3, $fa0
+	fmadd.s	$fa0, $fa2, $fa6, $fa0
+	fmadd.s	$fa0, $fa4, $fa1, $fa0
 	fsub.s	$fa0, $fa0, $fa5
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB3_2
 # %bb.1:
@@ -928,8 +913,8 @@ _Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRK
 	fst.s	$fa2, $a4, 4
 	fld.s	$fa2, $a1, 8
 	fst.s	$fa2, $a4, 8
-	fld.s	$fa3, $a5, 0
-	fld.s	$fa2, $a5, 4
+	fld.s	$fa2, $a5, 0
+	fld.s	$fa3, $a5, 4
 	fld.s	$fa4, $a5, 8
 	fld.s	$fa5, $a5, 12
 	ori	$a0, $zero, 1
@@ -937,8 +922,8 @@ _Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRK
 	fld.s	$fa7, $a2, 4
 	fld.s	$fa6, $a2, 0
 	fld.s	$ft0, $a2, 8
-	fmul.s	$fa2, $fa2, $fa7
-	fmadd.s	$fa2, $fa3, $fa6, $fa2
+	fmul.s	$fa3, $fa3, $fa7
+	fmadd.s	$fa2, $fa2, $fa6, $fa3
 	fmadd.s	$fa2, $fa4, $ft0, $fa2
 	fsub.s	$fa2, $fa2, $fa5
 	fcmp.clt.s	$fcc1, $fa1, $fa2
@@ -1085,30 +1070,26 @@ _Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRK
 	.size	_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_, .Lfunc_end3-_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_RKT_S8_S8_PS6_T1_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_
-.LCPI4_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.section	.text._Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_,"axG",@progbits,_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_,comdat
-	.weak	_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_
+	.weak	_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_ # -- Begin function _Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_
 	.p2align	5
 	.type	_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_,@function
 _Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_: # @_Z26PLANE_CLIP_POLYGON_GENERICI9btVector39btVector422DISTANCE_PLANE_3D_FUNCEjRKT0_PKT_jPS6_T1_
 # %bb.0:
 	move	$a4, $a0
-	fld.s	$fa0, $a0, 4
-	fld.s	$fa1, $a1, 4
-	fld.s	$fa3, $a0, 0
+	fld.s	$fa0, $a0, 0
 	fld.s	$fa2, $a1, 0
-	fmul.s	$fa0, $fa0, $fa1
+	fld.s	$fa1, $a0, 4
+	fld.s	$fa3, $a1, 4
 	fld.s	$fa4, $a0, 8
 	fld.s	$fa5, $a1, 8
 	fld.s	$fa6, $a0, 12
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI4_0)
-	fmadd.s	$fa0, $fa3, $fa2, $fa0
+	fmul.s	$fa1, $fa1, $fa3
+	fmadd.s	$fa0, $fa0, $fa2, $fa1
 	fmadd.s	$fa0, $fa4, $fa5, $fa0
 	fsub.s	$fa0, $fa0, $fa6
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB4_6
 # %bb.1:

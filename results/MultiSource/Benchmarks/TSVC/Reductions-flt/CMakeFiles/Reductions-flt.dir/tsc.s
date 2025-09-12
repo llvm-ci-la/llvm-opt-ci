@@ -12895,12 +12895,7 @@ s316:                                   # @s316
 .Lfunc_end13:
 	.size	s316, .Lfunc_end13-s316
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function s317
-.LCPI14_0:
-	.word	0x3f7d70a4                      # float 0.990000009
-	.text
-	.globl	s317
+	.globl	s317                            # -- Begin function s317
 	.p2align	5
 	.type	s317,@function
 s317:                                   # @s317
@@ -12927,10 +12922,11 @@ s317:                                   # @s317
 	ld.w	$a0, $a0, %pc_lo12(ntimes)
 	blez	$a0, .LBB14_5
 # %bb.1:                                # %.preheader.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI14_0)
 	lu12i.w	$a0, 3
 	ori	$s8, $a0, 3712
+	lu12i.w	$a0, 260055
+	ori	$a0, $a0, 164
+	movgr2fr.w	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(global_data)
 	addi.d	$fp, $a0, %pc_lo12(global_data)
 	move	$s7, $zero
@@ -13475,12 +13471,7 @@ s3110:                                  # @s3110
 .Lfunc_end17:
 	.size	s3110, .Lfunc_end17-s3110
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function s13110
-.LCPI18_0:
-	.word	0x7fc00000                      # float NaN
-	.text
-	.globl	s13110
+	.globl	s13110                          # -- Begin function s13110
 	.p2align	5
 	.type	s13110,@function
 s13110:                                 # @s13110
@@ -13593,8 +13584,8 @@ s13110:                                 # @s13110
 	fadd.s	$fs0, $fa1, $fa0
 	b	.LBB18_9
 .LBB18_8:
-	pcalau12i	$a0, %pc_hi20(.LCPI18_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI18_0)
+	lu12i.w	$a0, 523264
+	movgr2fr.w	$fs0, $a0
 .LBB18_9:                               # %._crit_edge
 	pcalau12i	$a0, %pc_hi20(.L.str.148)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.148)
@@ -14451,12 +14442,7 @@ set:                                    # @set
 .Lfunc_end23:
 	.size	set, .Lfunc_end23-set
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI24_0:
-	.word	0x3f7d70a4                      # float 0.990000009
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -14547,10 +14533,11 @@ main:                                   # @main
 	blez	$a0, .LBB24_9
 # %bb.5:                                # %.preheader.i.preheader
 	st.d	$s3, $sp, 24                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI24_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI24_0)
 	lu12i.w	$a0, 3
 	ori	$s7, $a0, 3712
+	lu12i.w	$a0, 260055
+	ori	$a0, $a0, 164
+	movgr2fr.w	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(global_data)
 	addi.d	$fp, $a0, %pc_lo12(global_data)
 	move	$s8, $zero

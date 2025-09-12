@@ -1,12 +1,6 @@
 	.file	"zorder.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function calc_zorder
-.LCPI0_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI0_1:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
 	.text
-	.globl	calc_zorder
+	.globl	calc_zorder                     # -- Begin function calc_zorder
 	.p2align	5
 	.type	calc_zorder,@function
 calc_zorder:                            # @calc_zorder
@@ -36,10 +30,11 @@ calc_zorder:                            # @calc_zorder
 	move	$s5, $a2
 	move	$s6, $a1
 	move	$s7, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs0, $a0
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$a0, 4080
 	ori	$a0, $a0, 255
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
@@ -199,14 +194,7 @@ calc_zorder:                            # @calc_zorder
 .Lfunc_end0:
 	.size	calc_zorder, .Lfunc_end0-calc_zorder
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function index_to_bit
-.LCPI1_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI1_1:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-	.text
-	.globl	index_to_bit
+	.globl	index_to_bit                    # -- Begin function index_to_bit
 	.p2align	5
 	.type	index_to_bit,@function
 index_to_bit:                           # @index_to_bit
@@ -218,12 +206,13 @@ index_to_bit:                           # @index_to_bit
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 0                    # 8-byte Folded Spill
 	srli.d	$a3, $a0, 32
-	pcalau12i	$a4, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI1_0)
 	lu52i.d	$a4, $zero, 1107
 	or	$a3, $a3, $a4
+	movgr2fr.d	$fa0, $a3
+	lu12i.w	$a3, 256
+	lu52i.d	$a3, $a3, 1107
 	movgr2fr.d	$fa1, $a3
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a3, 275200
 	bstrins.d	$a0, $a3, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -232,9 +221,9 @@ index_to_bit:                           # @index_to_bit
 	vldi	$vr0, -912
 	pcaddu18i	$ra, %call36(ldexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_1)
 	fmul.d	$fa0, $fa0, $fs0
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	ftintrz.l.d	$fa2, $fa0
 	movfr2gr.d	$a0, $fa2

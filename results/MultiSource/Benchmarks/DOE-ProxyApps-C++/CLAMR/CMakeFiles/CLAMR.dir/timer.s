@@ -11,12 +11,7 @@ cpu_timer_start:                        # @cpu_timer_start
 .Lfunc_end0:
 	.size	cpu_timer_start, .Lfunc_end0-cpu_timer_start
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function cpu_timer_stop
-.LCPI1_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	cpu_timer_stop
+	.globl	cpu_timer_stop                  # -- Begin function cpu_timer_stop
 	.p2align	5
 	.type	cpu_timer_stop,@function
 cpu_timer_stop:                         # @cpu_timer_stop
@@ -36,12 +31,15 @@ cpu_timer_stop:                         # @cpu_timer_stop
 	sub.d	$a0, $a0, $s0
 	sub.d	$a1, $a1, $fp
 	movgr2fr.d	$fa0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
 	ffint.d.l	$fa0, $fa0
-	movgr2fr.d	$fa2, $a1
-	ffint.d.l	$fa2, $fa2
-	fmul.d	$fa1, $fa2, $fa1
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa1, $fa1, $fa2
 	fadd.d	$fa0, $fa1, $fa0
 	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
 	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload

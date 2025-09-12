@@ -4,14 +4,6 @@
 .LCPI0_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x4202a05f20000000              # double 1.0E+10
-.LCPI0_2:
-	.dword	0xc202a05f20000000              # double -1.0E+10
-.LCPI0_3:
-	.dword	0x406fe00000000000              # double 255
 	.text
 	.globl	main
 	.p2align	5
@@ -176,11 +168,13 @@ main:                                   # @main
 	addi.w	$s1, $s1, -1
 	bnez	$s1, .LBB0_17
 # %bb.18:                               # %.preheader95.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_2)
 	addi.d	$a0, $fp, 8
+	lu12i.w	$a1, 131072
+	lu32i.d	$a1, 172127
+	lu52i.d	$a2, $a1, 1056
+	movgr2fr.d	$fs0, $a2
+	lu52i.d	$a1, $a1, -992
+	movgr2fr.d	$fa0, $a1
 	lu12i.w	$a1, 15
 	ori	$a1, $a1, 4095
 	.p2align	4, , 16
@@ -195,9 +189,11 @@ main:                                   # @main
 	addi.d	$a0, $a0, 16
 	bltu	$s0, $a1, .LBB0_19
 # %bb.20:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_3)
 	fsub.d	$fa0, $fa0, $fs0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -8192
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fs1, $fa1, $fa0
 	addi.d	$s3, $fp, 8
 	lu12i.w	$s6, 1
@@ -330,12 +326,7 @@ main:                                   # @main
 .Lfunc_end0:
 	.size	main, .Lfunc_end0-main
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fourn
-.LCPI1_0:
-	.dword	0x401921fb54442d1c              # double 6.2831853071795898
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function fourn
 	.type	fourn,@function
 fourn:                                  # @fourn
 # %bb.0:                                # %.preheader6
@@ -355,20 +346,23 @@ fourn:                                  # @fourn
 	fst.d	$fs1, $sp, 24                   # 8-byte Folded Spill
 	fst.d	$fs2, $sp, 16                   # 8-byte Folded Spill
 	fst.d	$fs3, $sp, 8                    # 8-byte Folded Spill
-	pcalau12i	$s2, %pc_hi20(main.nsize.0)
-	ld.bu	$a3, $s2, %pc_lo12(main.nsize.0)
+	pcalau12i	$s3, %pc_hi20(main.nsize.0)
+	ld.bu	$a3, $s3, %pc_lo12(main.nsize.0)
 	pcalau12i	$a2, %pc_hi20(main.nsize.1)
 	ld.bu	$a2, $a2, %pc_lo12(main.nsize.1)
 	move	$fp, $a0
 	slli.d	$a0, $a3, 8
 	slli.d	$s1, $a2, 8
-	pcalau12i	$a3, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI1_0)
 	mul.d	$a3, $a2, $a0
-	slli.d	$s3, $a3, 8
-	movgr2fr.w	$fa1, $a1
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fs2, $fa1, $fa0
+	slli.d	$s2, $a3, 8
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a1, 345154
+	ori	$a1, $a1, 3356
+	lu32i.d	$a1, -450053
+	lu52i.d	$a1, $a1, 1025
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fs2, $fa0, $fa1
 	slli.d	$s0, $s1, 4
 	beqz	$a2, .LBB1_10
 # %bb.1:                                # %.lr.ph19
@@ -435,7 +429,7 @@ fourn:                                  # @fourn
 	blt	$a7, $a6, .LBB1_8
 	b	.LBB1_2
 .LBB1_10:
-	move	$a1, $s3
+	move	$a1, $s2
 	b	.LBB1_20
 .LBB1_11:                               # %.lr.ph32.preheader
 	addi.d	$s6, $fp, 8
@@ -531,12 +525,12 @@ fourn:                                  # @fourn
 	bge	$s5, $a6, .LBB1_18
 	b	.LBB1_15
 .LBB1_19:                               # %._crit_edge33.loopexit
-	ld.bu	$a1, $s2, %pc_lo12(main.nsize.0)
+	ld.bu	$a1, $s3, %pc_lo12(main.nsize.0)
 	slli.d	$a0, $a1, 8
 	mul.d	$a1, $a1, $s1
 	slli.d	$a1, $a1, 8
 .LBB1_20:                               # %._crit_edge33
-	div.wu	$a1, $s3, $a1
+	div.wu	$a1, $s2, $a1
 	slli.d	$s1, $s1, 1
 	mul.d	$s2, $a0, $s1
 	mul.w	$s3, $s2, $a1

@@ -1995,16 +1995,8 @@ GCC_except_table7:
 .Lttbase2:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZNK9benchmark8internal15BenchmarkRunner21PredictNumItersNeededERKNS1_16IterationResultsE
-.LCPI8_0:
-	.dword	0x3ff6666666666666              # double 1.3999999999999999
-.LCPI8_1:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
-.LCPI8_2:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.text
-	.hidden	_ZNK9benchmark8internal15BenchmarkRunner21PredictNumItersNeededERKNS1_16IterationResultsE
+	.hidden	_ZNK9benchmark8internal15BenchmarkRunner21PredictNumItersNeededERKNS1_16IterationResultsE # -- Begin function _ZNK9benchmark8internal15BenchmarkRunner21PredictNumItersNeededERKNS1_16IterationResultsE
 	.globl	_ZNK9benchmark8internal15BenchmarkRunner21PredictNumItersNeededERKNS1_16IterationResultsE
 	.p2align	5
 	.type	_ZNK9benchmark8internal15BenchmarkRunner21PredictNumItersNeededERKNS1_16IterationResultsE,@function
@@ -2032,20 +2024,29 @@ _ZNK9benchmark8internal15BenchmarkRunner21PredictNumItersNeededERKNS1_16Iteratio
 	maskeqz	$a2, $a4, $a2
 	or	$a2, $a2, $a3
 	fldx.d	$fa0, $a0, $a2
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI8_0)
-	fld.d	$fa2, $a1, 168
-	pcalau12i	$a0, %pc_hi20(.LCPI8_1)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI8_1)
+	lu12i.w	$a0, 419430
+	ori	$a0, $a0, 1638
+	lu32i.d	$a0, 419430
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa1, $fa0, $fa1
+	fld.d	$fa2, $a1, 168
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fa3, $a0
 	fcmp.clt.d	$fcc0, $fa2, $fa3
 	fsel	$fa3, $fa2, $fa3, $fcc0
-	pcalau12i	$a0, %pc_hi20(.LCPI8_2)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI8_2)
 	fdiv.d	$fa1, $fa1, $fa3
 	fdiv.d	$fa0, $fa2, $fa0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fa2, $a0
 	ld.d	$a0, $a1, 160
-	fcmp.clt.d	$fcc0, $fa4, $fa0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
 	vldi	$vr0, -988
 	fsel	$fs0, $fa0, $fa1, $fcc0
 	movgr2fr.d	$fa0, $a0

@@ -1,26 +1,22 @@
 	.file	"routenet.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function routenet
-.LCPI0_0:
-	.dword	0x4054000000000000              # double 80
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_1:
+	.p2align	4, 0x0                          # -- Begin function routenet
+.LCPI0_0:
 	.word	5                               # 0x5
 	.word	6                               # 0x6
 	.word	7                               # 0x7
 	.word	8                               # 0x8
-.LCPI0_2:
+.LCPI0_1:
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
 	.word	4                               # 0x4
-.LCPI0_3:
+.LCPI0_2:
 	.word	4                               # 0x4
 	.word	5                               # 0x5
 	.word	6                               # 0x6
 	.word	7                               # 0x7
-.LCPI0_4:
+.LCPI0_3:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -64,8 +60,10 @@ routenet:                               # @routenet
 	ffint.d.l	$fs0, $fa0
 	pcalau12i	$a0, %got_pc_hi20(Mpaths)
 	ld.d	$s3, $a0, %got_pc_lo12(Mpaths)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 262144
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fs1, $a0
 	.p2align	4, , 16
 .LBB0_2:                                # =>This Inner Loop Header: Depth=1
 	st.w	$a1, $s3, 0
@@ -162,10 +160,10 @@ routenet:                               # @routenet
 .LBB0_17:                               # %vec.epilog.ph
 	bstrpick.d	$a6, $fp, 30, 3
 	slli.d	$a6, $a6, 3
+	pcalau12i	$a7, %pc_hi20(.LCPI0_2)
+	vld	$vr2, $a7, %pc_lo12(.LCPI0_2)
 	pcalau12i	$a7, %pc_hi20(.LCPI0_3)
-	vld	$vr2, $a7, %pc_lo12(.LCPI0_3)
-	pcalau12i	$a7, %pc_hi20(.LCPI0_4)
-	vld	$vr3, $a7, %pc_lo12(.LCPI0_4)
+	vld	$vr3, $a7, %pc_lo12(.LCPI0_3)
 	srli.d	$a7, $fp, 3
 	bstrins.d	$a3, $a7, 30, 3
 	vreplgr2vr.w	$vr4, $a5
@@ -199,10 +197,10 @@ routenet:                               # @routenet
 	srli.d	$a6, $fp, 4
 	ori	$a5, $zero, 1
 	bstrins.d	$a5, $a6, 30, 4
+	pcalau12i	$a6, %pc_hi20(.LCPI0_0)
+	vld	$vr2, $a6, %pc_lo12(.LCPI0_0)
 	pcalau12i	$a6, %pc_hi20(.LCPI0_1)
-	vld	$vr2, $a6, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a6, %pc_hi20(.LCPI0_2)
-	vld	$vr3, $a6, %pc_lo12(.LCPI0_2)
+	vld	$vr3, $a6, %pc_lo12(.LCPI0_1)
 	vaddi.wu	$vr4, $vr0, 8
 	addi.d	$a6, $a1, 18
 	addi.d	$a7, $a2, 18

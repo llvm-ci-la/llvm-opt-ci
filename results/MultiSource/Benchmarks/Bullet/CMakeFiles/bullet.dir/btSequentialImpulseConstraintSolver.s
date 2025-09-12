@@ -1703,14 +1703,7 @@ _ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObje
 	.size	_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObject, .Lfunc_end19-_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObject
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifoldRK19btContactSolverInfo
-.LCPI20_0:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI20_1:
-	.word	0x3f3504f3                      # float 0.707106769
-	.text
-	.globl	_ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifoldRK19btContactSolverInfo
+	.globl	_ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifoldRK19btContactSolverInfo # -- Begin function _ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifoldRK19btContactSolverInfo
 	.p2align	5
 	.type	_ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifoldRK19btContactSolverInfo,@function
 _ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifoldRK19btContactSolverInfo: # @_ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifoldRK19btContactSolverInfo
@@ -1797,7 +1790,8 @@ _ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifold
 	lu12i.w	$a0, 328016
 	ori	$a0, $a0, 761
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI20_0)
+	lu12i.w	$a0, 258896
+	ori	$a0, $a0, 1267
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	ori	$a0, $zero, 112
 	mul.d	$a0, $a4, $a0
@@ -2474,11 +2468,11 @@ _ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifold
 	andi	$a0, $a0, 16
 	bnez	$a2, .LBB20_55
 # %bb.52:                               #   in Loop: Header=BB20_7 Depth=1
-	ld.d	$a2, $sp, 48                    # 8-byte Folded Reload
-	fld.s	$fa7, $a2, %pc_lo12(.LCPI20_0)
 	fmul.s	$fa2, $fa1, $fa1
 	fmadd.s	$fa2, $fa3, $fa3, $fa2
 	fmadd.s	$fa2, $fa0, $fa0, $fa2
+	lu12i.w	$a2, 212992
+	movgr2fr.w	$fa7, $a2
 	fcmp.cule.s	$fcc0, $fa2, $fa7
 	bcnez	$fcc0, .LBB20_55
 # %bb.53:                               #   in Loop: Header=BB20_7 Depth=1
@@ -2517,10 +2511,10 @@ _ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifold
 	bnez	$a0, .LBB20_60
 	b	.LBB20_61
 .LBB20_55:                              #   in Loop: Header=BB20_7 Depth=1
-	pcalau12i	$a2, %pc_hi20(.LCPI20_1)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI20_1)
-	fabs.s	$fa1, $fa6
-	fcmp.cule.s	$fcc0, $fa1, $fa0
+	fabs.s	$fa0, $fa6
+	ld.d	$a2, $sp, 48                    # 8-byte Folded Reload
+	movgr2fr.w	$fa1, $a2
+	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB20_57
 # %bb.56:                               #   in Loop: Header=BB20_7 Depth=1
 	fmul.s	$fa0, $fa6, $fa6
@@ -6480,16 +6474,8 @@ _ZN18btConstraintSolver9allSolvedERK19btContactSolverInfoP12btIDebugDrawP12btSta
 .Lfunc_end26:
 	.size	_ZN18btConstraintSolver9allSolvedERK19btContactSolverInfoP12btIDebugDrawP12btStackAlloc, .Lfunc_end26-_ZN18btConstraintSolver9allSolvedERK19btContactSolverInfoP12btIDebugDrawP12btStackAlloc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
-.LCPI27_0:
-	.word	0x3f490fdb                      # float 0.785398185
-.LCPI27_1:
-	.word	0x3a83126f                      # float 0.00100000005
-.LCPI27_2:
-	.word	0xbcaaaaab                      # float -0.020833334
 	.section	.text._ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,"axG",@progbits,_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,comdat
-	.weak	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
+	.weak	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_ # -- Begin function _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
 	.p2align	5
 	.type	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,@function
 _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_: # @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
@@ -6542,22 +6528,26 @@ _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_: # 
 	fmadd.s	$fa0, $fs1, $fs1, $fa0
 	fmadd.s	$fa0, $fs3, $fs3, $fa0
 	fsqrt.s	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI27_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI27_0)
-	fmul.s	$fa2, $fs0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI27_1)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI27_1)
-	fcmp.clt.s	$fcc0, $fa1, $fa2
-	fdiv.s	$fa1, $fa1, $fs0
-	fsel	$fs4, $fa0, $fa1, $fcc0
-	fcmp.cule.s	$fcc0, $fa3, $fs4
+	fmul.s	$fa1, $fs0, $fa0
+	lu12i.w	$a0, 259216
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa2, $a0
+	fdiv.s	$fa3, $fa2, $fs0
+	fcmp.clt.s	$fcc0, $fa2, $fa1
+	fsel	$fs4, $fa0, $fa3, $fcc0
+	lu12i.w	$a0, 239665
+	ori	$a0, $a0, 623
+	movgr2fr.w	$fa0, $a0
+	fcmp.cule.s	$fcc0, $fa0, $fs4
 	bcnez	$fcc0, .LBB27_2
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI27_2)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI27_2)
-	fmul.s	$fa1, $fs0, $fs0
-	fmul.s	$fa1, $fs0, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fmul.s	$fa0, $fs0, $fs0
+	fmul.s	$fa0, $fs0, $fa0
+	lu12i.w	$a0, -275798
+	ori	$a0, $a0, 2731
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	fmul.s	$fa0, $fa0, $fs4
 	fmul.s	$fa0, $fa0, $fs4
 	vldi	$vr1, -1184

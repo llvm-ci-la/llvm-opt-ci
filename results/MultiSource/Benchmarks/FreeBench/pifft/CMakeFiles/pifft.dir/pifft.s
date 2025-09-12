@@ -1,16 +1,6 @@
 	.file	"pifft.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-.LCPI0_1:
-	.dword	0x4059000000000000              # double 100
-.LCPI0_2:
-	.dword	0x3fd3333333333333              # double 0.29999999999999999
-.LCPI0_3:
-	.dword	0x4049000000000000              # double 50
 	.section	.text.unlikely.,"ax",@progbits
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -163,17 +153,22 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	alsl.d	$a0, $s6, $s6, 1
 	alsl.d	$a0, $a0, $s6, 3
-	movgr2fr.w	$fa3, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_2)
-	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa0, $fa3, $fa4, $fa0
-	fmul.d	$fa0, $fa0, $fa1
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	lu52i.d	$a0, $zero, 971
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa2, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
+	fmul.d	$fa1, $fa1, $fa0
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, 209715
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fcmp.cule.d	$fcc0, $fa2, $fa1
 	ori	$s3, $zero, 1
 	move	$s5, $s7
 	move	$fp, $s2
@@ -190,8 +185,8 @@ main:                                   # @main
 	move	$a1, $s0
 	addi.w	$s3, $s3, 1
 	slli.d	$a2, $s0, 3
-	fmul.d	$fa0, $fa0, $fa1
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	fmul.d	$fa1, $fa1, $fa0
+	fcmp.cule.d	$fcc0, $fa2, $fa1
 	alsl.w	$s0, $s0, $a2, 1
 	bcnez	$fcc0, .LBB0_10
 # %bb.9:                                # %.lr.ph
@@ -904,11 +899,13 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(free)
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $sp, 236
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_3)
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	bstrpick.d	$a0, $a0, 31, 0
 	movgr2fr.d	$fa1, $a0
@@ -1419,12 +1416,7 @@ mp_sscanf:                              # @mp_sscanf
 .Lfunc_end2:
 	.size	mp_sscanf, .Lfunc_end2-mp_sscanf
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function mp_sqrt
-.LCPI3_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-	.text
-	.globl	mp_sqrt
+	.globl	mp_sqrt                         # -- Begin function mp_sqrt
 	.p2align	5
 	.type	mp_sqrt,@function
 mp_sqrt:                                # @mp_sqrt
@@ -1455,16 +1447,16 @@ mp_sqrt:                                # @mp_sqrt
 	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 	ld.d	$s1, $sp, 184
 	ld.d	$s0, $sp, 176
-	movgr2fr.w	$fa1, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_0)
-	ffint.d.w	$fa1, $fa1
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
 	ori	$s7, $zero, 1
+	lu52i.d	$a0, $zero, 971
+	movgr2fr.d	$fa1, $a0
 	vldi	$vr2, -912
 	.p2align	4, , 16
 .LBB3_3:                                # =>This Inner Loop Header: Depth=1
-	fmul.d	$fa1, $fa1, $fa1
-	fmul.d	$fa3, $fa1, $fa0
+	fmul.d	$fa0, $fa0, $fa0
+	fmul.d	$fa3, $fa0, $fa1
 	fcmp.cule.d	$fcc0, $fa2, $fa3
 	slli.w	$s7, $s7, 1
 	bcnez	$fcc0, .LBB3_5
@@ -2727,12 +2719,7 @@ mp_squh:                                # @mp_squh
 .Lfunc_end9:
 	.size	mp_squh, .Lfunc_end9-mp_squh
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function mp_inv
-.LCPI10_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-	.text
-	.globl	mp_inv
+	.globl	mp_inv                          # -- Begin function mp_inv
 	.p2align	5
 	.type	mp_inv,@function
 mp_inv:                                 # @mp_inv
@@ -2762,10 +2749,10 @@ mp_inv:                                 # @mp_inv
 	ld.d	$s7, $sp, 168
 	ld.d	$t8, $sp, 160
 	movgr2fr.w	$fa0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI10_0)
 	ffint.d.w	$fa0, $fa0
 	ori	$a6, $zero, 1
+	lu52i.d	$a0, $zero, 971
+	movgr2fr.d	$fa1, $a0
 	vldi	$vr2, -912
 	fmov.d	$fa3, $fa0
 	.p2align	4, , 16
@@ -4658,12 +4645,7 @@ mp_mul_cmul:                            # @mp_mul_cmul
 .Lfunc_end26:
 	.size	mp_mul_cmul, .Lfunc_end26-mp_mul_cmul
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function mp_mul_d2i
-.LCPI27_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-	.text
-	.globl	mp_mul_d2i
+	.globl	mp_mul_d2i                      # -- Begin function mp_mul_d2i
 	.p2align	5
 	.type	mp_mul_d2i,@function
 mp_mul_d2i:                             # @mp_mul_d2i
@@ -4743,18 +4725,18 @@ mp_mul_d2i:                             # @mp_mul_d2i
 	fmul.d	$fa1, $fs2, $fs2
 	blt	$s3, $a1, .LBB27_6
 # %bb.3:                                # %.lr.ph.preheader
-	pcalau12i	$a2, %pc_hi20(.LCPI27_0)
-	fld.d	$fa2, $a2, %pc_lo12(.LCPI27_0)
 	alsl.d	$a2, $a1, $s0, 3
 	movgr2fr.d	$fs4, $zero
-	vldi	$vr3, -912
+	vldi	$vr2, -912
+	lu52i.d	$a3, $zero, 971
+	movgr2fr.d	$fa3, $a3
 	.p2align	4, , 16
 .LBB27_4:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
 	fld.d	$fa4, $a2, 0
-	fmadd.d	$fs4, $fa3, $fa4, $fs4
-	fmul.d	$fa3, $fs2, $fa3
-	fcmp.clt.d	$fcc0, $fa3, $fa2
+	fmadd.d	$fs4, $fa2, $fa4, $fs4
+	fmul.d	$fa2, $fs2, $fa2
+	fcmp.clt.d	$fcc0, $fa2, $fa3
 	bcnez	$fcc0, .LBB27_6
 # %bb.5:                                # %.lr.ph
                                         #   in Loop: Header=BB27_4 Depth=1
@@ -5570,26 +5552,21 @@ mp_squh_use_in1fft:                     # @mp_squh_use_in1fft
 .Lfunc_end31:
 	.size	mp_squh_use_in1fft, .Lfunc_end31-mp_squh_use_in1fft
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function mp_get_nfft_init
-.LCPI32_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-	.text
-	.globl	mp_get_nfft_init
+	.globl	mp_get_nfft_init                # -- Begin function mp_get_nfft_init
 	.p2align	5
 	.type	mp_get_nfft_init,@function
 mp_get_nfft_init:                       # @mp_get_nfft_init
 # %bb.0:
-	movgr2fr.w	$fa1, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI32_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI32_0)
-	ffint.d.w	$fa1, $fa1
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
 	ori	$a0, $zero, 1
+	lu52i.d	$a2, $zero, 971
+	movgr2fr.d	$fa1, $a2
 	vldi	$vr2, -912
 	.p2align	4, , 16
 .LBB32_1:                               # =>This Inner Loop Header: Depth=1
-	fmul.d	$fa1, $fa1, $fa1
-	fmul.d	$fa3, $fa1, $fa0
+	fmul.d	$fa0, $fa0, $fa0
+	fmul.d	$fa3, $fa0, $fa1
 	fcmp.cule.d	$fcc0, $fa2, $fa3
 	slli.w	$a0, $a0, 1
 	bcnez	$fcc0, .LBB32_3

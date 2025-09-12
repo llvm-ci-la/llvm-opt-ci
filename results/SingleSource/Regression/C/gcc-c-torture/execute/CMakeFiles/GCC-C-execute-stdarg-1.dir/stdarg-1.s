@@ -800,12 +800,7 @@ f8:                                     # @f8
 .Lfunc_end10:
 	.size	f8, .Lfunc_end10-f8
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI11_0:
-	.dword	0x4060600000000000              # double 131
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -823,41 +818,41 @@ main:                                   # @main
 	lu52i.d	$a0, $a0, 1027
 	st.d	$a0, $s1, %pc_lo12(d)
 	ori	$a1, $zero, 28
-	ori	$s0, $zero, 28
+	ori	$fp, $zero, 28
 	pcaddu18i	$ra, %call36(f2)
 	jirl	$ra, $ra, 0
 	pcalau12i	$s2, %pc_hi20(bar_arg)
 	ld.w	$a0, $s2, %pc_lo12(bar_arg)
-	bne	$a0, $s0, .LBB11_11
+	bne	$a0, $fp, .LBB11_11
 # %bb.1:
-	pcalau12i	$fp, %pc_hi20(x)
-	ld.d	$a0, $fp, %pc_lo12(x)
-	bne	$a0, $s0, .LBB11_11
+	pcalau12i	$s0, %pc_hi20(x)
+	ld.d	$a0, $s0, %pc_lo12(x)
+	bne	$a0, $fp, .LBB11_11
 # %bb.2:
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, 24576
-	lu52i.d	$a1, $a0, 1030
+	lu52i.d	$fp, $a0, 1030
+	move	$a1, $fp
 	pcaddu18i	$ra, %call36(f3)
 	jirl	$ra, $ra, 0
 	fld.d	$fa0, $s1, %pc_lo12(d)
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI11_0)
+	movgr2fr.d	$fa1, $fp
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB11_11
 # %bb.3:
 	lu52i.d	$a1, $zero, 1027
 	ori	$a0, $zero, 5
 	ori	$a2, $zero, 128
-	ori	$s0, $zero, 128
+	ori	$fp, $zero, 128
 	pcaddu18i	$ra, %call36(f4)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $fp, %pc_lo12(x)
+	ld.d	$a0, $s0, %pc_lo12(x)
 	ori	$a1, $zero, 16
 	bne	$a0, $a1, .LBB11_11
 # %bb.4:
 	pcalau12i	$a0, %pc_hi20(foo_arg)
 	ld.w	$a0, $a0, %pc_lo12(foo_arg)
-	bne	$a0, $s0, .LBB11_11
+	bne	$a0, $fp, .LBB11_11
 # %bb.5:
 	lu12i.w	$s0, 4
 	ori	$fp, $s0, 6

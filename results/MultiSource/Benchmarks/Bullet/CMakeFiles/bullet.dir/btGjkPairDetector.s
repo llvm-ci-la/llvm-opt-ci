@@ -120,22 +120,6 @@ _ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterfa
 	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI3_1:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-.LCPI3_2:
-	.word	0x358637bd                      # float 9.99999997E-7
-.LCPI3_3:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI3_5:
-	.word	0x28800000                      # float 1.42108547E-14
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI3_4:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI3_6:
-	.dword	0x3f847ae147ae147b              # double 0.01
 	.text
 	.globl	_ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDraw
 	.p2align	5
@@ -289,12 +273,14 @@ _ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36btDiscreteCollisionDetec
 	fld.s	$fa0, $sp, 288
 	fst.s	$fa0, $sp, 88                   # 4-byte Folded Spill
 	fld.s	$fs2, $sp, 292
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.s	$fs4, $a0, %pc_lo12(.LCPI3_1)
+	lu12i.w	$a0, 382432
+	ori	$a0, $a0, 2923
+	movgr2fr.w	$fs4, $a0
 	fld.s	$fs3, $sp, 296
-	pcalau12i	$a0, %pc_hi20(.LCPI3_2)
-	fld.s	$fs7, $a0, %pc_lo12(.LCPI3_2)
-	pcalau12i	$s5, %pc_hi20(.LCPI3_3)
+	lu12i.w	$a0, 219235
+	ori	$a0, $a0, 1981
+	movgr2fr.w	$fs7, $a0
+	lu12i.w	$s5, 212992
 	ori	$s6, $zero, 1000
 	ori	$s7, $zero, 4
 .LBB3_3:                                # =>This Inner Loop Header: Depth=1
@@ -497,10 +483,10 @@ _ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36btDiscreteCollisionDetec
 	vst	$vr3, $s2, 0
 	bcnez	$fcc0, .LBB3_18
 # %bb.11:                               #   in Loop: Header=BB3_3 Depth=1
-	fld.s	$fa0, $s5, %pc_lo12(.LCPI3_3)
-	fsub.s	$fa1, $fs4, $fs0
-	fmul.s	$fa0, $fs4, $fa0
-	fcmp.cult.s	$fcc0, $fa0, $fa1
+	fsub.s	$fa0, $fs4, $fs0
+	movgr2fr.w	$fa1, $s5
+	fmul.s	$fa1, $fs4, $fa1
+	fcmp.cult.s	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB3_19
 # %bb.12:                               #   in Loop: Header=BB3_3 Depth=1
 	ld.w	$a0, $fp, 84
@@ -574,26 +560,29 @@ _ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36btDiscreteCollisionDetec
 	movfr2gr.s	$a1, $fa1
 	bstrins.d	$a0, $a1, 63, 32
 	movfr2gr.s	$a1, $fa0
-	fld.s	$fs7, $fp, 12
 	bstrpick.d	$a1, $a1, 31, 0
-	st.d	$a0, $sp, 352
+	fld.s	$fs7, $fp, 12
 	fld.s	$fs1, $fp, 8
-	fmul.s	$fa3, $fs7, $fs7
 	fld.s	$fs2, $fp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI3_4)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI3_4)
+	st.d	$a0, $sp, 352
+	fmul.s	$fa3, $fs7, $fs7
 	fmadd.s	$fa3, $fs1, $fs1, $fa3
 	fmadd.s	$fa3, $fs2, $fs2, $fa3
-	fcvt.d.s	$fa5, $fa3
-	fcmp.cule.d	$fcc0, $fa4, $fa5
+	fcvt.d.s	$fa4, $fa3
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa5, $a0
+	fcmp.cule.d	$fcc0, $fa5, $fa4
 	st.d	$a1, $sp, 360
 	bcnez	$fcc0, .LBB3_25
 # %bb.24:
 	ori	$a0, $zero, 5
 	st.w	$a0, $fp, 88
 .LBB3_25:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_5)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI3_5)
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa4, $a0
 	fcmp.cule.s	$fcc0, $fa3, $fa4
 	bcnez	$fcc0, .LBB3_28
 # %bb.26:
@@ -657,11 +646,14 @@ _ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36btDiscreteCollisionDetec
 	ld.w	$a2, $fp, 88
 	beqz	$a2, .LBB3_33
 # %bb.32:
-	pcalau12i	$a1, %pc_hi20(.LCPI3_6)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI3_6)
-	fadd.s	$fa1, $fs1, $fs0
-	fcvt.d.s	$fa1, $fa1
-	fcmp.cule.d	$fcc0, $fa0, $fa1
+	fadd.s	$fa0, $fs1, $fs0
+	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a1, 293601
+	ori	$a1, $a1, 1147
+	lu32i.d	$a1, 293601
+	lu52i.d	$a1, $a1, 1016
+	movgr2fr.d	$fa1, $a1
+	fcmp.cule.d	$fcc0, $fa1, $fa0
 	movcf2gr	$a1, $fcc0
 .LBB3_33:
 	and	$a1, $s4, $a1
@@ -701,11 +693,11 @@ _ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36btDiscreteCollisionDetec
 	fsub.s	$fs1, $fa2, $fa3
 	fsub.s	$fs2, $fs6, $fs7
 	fsub.s	$fs3, $fs4, $fs5
-	pcalau12i	$a0, %pc_hi20(.LCPI3_5)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI3_5)
 	fmul.s	$fa0, $fs2, $fs2
 	fmadd.s	$fa0, $fs1, $fs1, $fa0
 	fmadd.s	$fa0, $fs3, $fs3, $fa0
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa1, $a0
 	fcmp.cult.s	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB3_44
 # %bb.37:

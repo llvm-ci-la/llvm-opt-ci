@@ -1,10 +1,6 @@
 	.file	"PolyGas.cc"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN7PolyGasC2EPK9InputFileP5Hydro
-.LCPI0_0:
-	.dword	0x3ffaaaaaaaaaaaab              # double 1.6666666666666667
 	.text
-	.globl	_ZN7PolyGasC2EPK9InputFileP5Hydro
+	.globl	_ZN7PolyGasC2EPK9InputFileP5Hydro # -- Begin function _ZN7PolyGasC2EPK9InputFileP5Hydro
 	.p2align	5
 	.type	_ZN7PolyGasC2EPK9InputFileP5Hydro,@function
 _ZN7PolyGasC2EPK9InputFileP5Hydro:      # @_ZN7PolyGasC2EPK9InputFileP5Hydro
@@ -38,8 +34,11 @@ _ZN7PolyGasC2EPK9InputFileP5Hydro:      # @_ZN7PolyGasC2EPK9InputFileP5Hydro
 	st.d	$a0, $sp, 24
 	st.b	$zero, $sp, 37
 .Ltmp0:                                 # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, -349526
+	ori	$a0, $a0, 2731
+	lu32i.d	$a0, -349526
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa0, $a0
 	addi.d	$a1, $sp, 16
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZNK9InputFile9getDoubleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd)
@@ -138,12 +137,8 @@ GCC_except_table0:
 .Lcst_end0:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii
-.LCPI1_0:
-	.dword	0x2b617f7d4ed8c33e              # double 1.0E-99
 	.text
-	.globl	_ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii
+	.globl	_ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii # -- Begin function _ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii
 	.p2align	5
 	.type	_ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii,@function
 _ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii: # @_ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii
@@ -187,16 +182,19 @@ _ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii: # @_ZN7PolyGas15calcSta
 	st.d	$s2, $sp, 48                    # 8-byte Folded Spill
 	st.d	$s1, $sp, 56                    # 8-byte Folded Spill
 	vldi	$vr0, -928
+	fld.d	$fa1, $s6, 8
+	fld.d	$fa2, $s6, 16
 	fmul.d	$ft2, $fs0, $fa0
-	fld.d	$fa0, $s6, 8
-	fld.d	$fa1, $s6, 16
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI1_0)
-	vldi	$vr3, -784
-	fadd.d	$fs0, $fa0, $fa3
-	fmul.d	$fa0, $fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa0, $fa2
-	fsel	$fs1, $fa0, $fa2, $fcc0
+	vldi	$vr0, -784
+	fadd.d	$fs0, $fa1, $fa0
+	fmul.d	$fa0, $fa2, $fa2
+	lu12i.w	$a1, 322956
+	ori	$a1, $a1, 830
+	lu32i.d	$a1, 98173
+	lu52i.d	$a1, $a1, 694
+	movgr2fr.d	$fa1, $a1
+	fcmp.clt.d	$fcc0, $fa0, $fa1
+	fsel	$fs1, $fa0, $fa1, $fcc0
 	alsl.d	$s6, $s0, $s7, 3
 	alsl.d	$s8, $s0, $fp, 3
 	ld.d	$a1, $sp, 64                    # 8-byte Folded Reload
@@ -425,12 +423,7 @@ _ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii: # @_ZN7PolyGas15calcSta
 .Lfunc_end1:
 	.size	_ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii, .Lfunc_end1-_ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii
-.LCPI2_0:
-	.dword	0x2b617f7d4ed8c33e              # double 1.0E-99
-	.text
-	.globl	_ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii
+	.globl	_ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii # -- Begin function _ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii
 	.p2align	5
 	.type	_ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii,@function
 _ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii:   # @_ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii
@@ -450,13 +443,16 @@ _ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii:   # @_ZN7PolyGas7calcEOSEPKdS1_PdS2_S2_ii
 	fst.d	$fs2, $sp, 16                   # 8-byte Folded Spill
 	fld.d	$fa0, $a0, 8
 	fld.d	$fa1, $a0, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI2_0)
-	vldi	$vr3, -784
-	fadd.d	$fs0, $fa0, $fa3
+	vldi	$vr2, -784
+	fadd.d	$fs0, $fa0, $fa2
 	fmul.d	$fa0, $fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa0, $fa2
-	fsel	$fs1, $fa0, $fa2, $fcc0
+	lu12i.w	$a0, 322956
+	ori	$a0, $a0, 830
+	lu32i.d	$a0, 98173
+	lu52i.d	$a0, $a0, 694
+	movgr2fr.d	$fa1, $a0
+	fcmp.clt.d	$fcc0, $fa0, $fa1
+	fsel	$fs1, $fa0, $fa1, $fcc0
 	alsl.d	$fp, $a6, $a1, 3
 	alsl.d	$s0, $a6, $a2, 3
 	alsl.d	$s1, $a6, $a3, 3

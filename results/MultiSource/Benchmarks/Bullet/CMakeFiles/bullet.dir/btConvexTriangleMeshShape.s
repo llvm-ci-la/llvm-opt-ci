@@ -116,18 +116,14 @@ __clang_call_terminate:                 # @__clang_call_terminate
 .Lfunc_end1:
 	.size	__clang_call_terminate, .Lfunc_end1-__clang_call_terminate
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK25btConvexTriangleMeshShape37localGetSupportingVertexWithoutMarginERK9btVector3
-.LCPI2_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI2_1:
+	.p2align	4, 0x0                          # -- Begin function _ZNK25btConvexTriangleMeshShape37localGetSupportingVertexWithoutMarginERK9btVector3
+.LCPI2_0:
 	.word	0x5d5e0b6b                      # float 9.99999984E+17
 	.word	0x5d5e0b6b                      # float 9.99999984E+17
 	.word	0x5d5e0b6b                      # float 9.99999984E+17
 	.word	0x00000000                      # float 0
-.LCPI2_2:
+.LCPI2_1:
 	.dword	-2495544585613341845            # 0xdd5e0b6bdd5e0b6b
 	.dword	3713928043                      # 0xdd5e0b6b
 	.text
@@ -148,15 +144,16 @@ _ZNK25btConvexTriangleMeshShape37localGetSupportingVertexWithoutMarginERK9btVect
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
-	fld.s	$fa1, $a1, 0
-	fld.s	$fa2, $a1, 4
-	fld.s	$fa4, $a1, 8
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI2_0)
-	fmul.s	$fa3, $fa2, $fa2
-	fmadd.s	$fa3, $fa1, $fa1, $fa3
-	fmadd.s	$fa3, $fa4, $fa4, $fa3
-	fcmp.clt.s	$fcc0, $fa3, $fa0
+	fld.s	$fa1, $a1, 4
+	fld.s	$fa3, $a1, 0
+	fld.s	$fa2, $a1, 8
+	fmul.s	$fa0, $fa1, $fa1
+	fmadd.s	$fa0, $fa3, $fa3, $fa0
+	fmadd.s	$fa4, $fa2, $fa2, $fa0
+	lu12i.w	$a2, 232731
+	ori	$a2, $a2, 1815
+	movgr2fr.w	$fa0, $a2
+	fcmp.clt.s	$fcc0, $fa4, $fa0
 	bceqz	$fcc0, .LBB2_2
 # %bb.1:
 	movgr2fr.w	$fa1, $zero
@@ -166,10 +163,10 @@ _ZNK25btConvexTriangleMeshShape37localGetSupportingVertexWithoutMarginERK9btVect
 	b	.LBB2_3
 .LBB2_2:
 	fld.s	$fa0, $a1, 12
-	frsqrt.s	$fa5, $fa3
-	fmul.s	$fa3, $fa1, $fa5
-	fmul.s	$fa1, $fa2, $fa5
-	fmul.s	$fa2, $fa4, $fa5
+	frsqrt.s	$fa4, $fa4
+	fmul.s	$fa3, $fa3, $fa4
+	fmul.s	$fa1, $fa1, $fa4
+	fmul.s	$fa2, $fa2, $fa4
 .LBB2_3:
 	pcalau12i	$a1, %pc_hi20(_ZTV26LocalSupportVertexCallback+16)
 	addi.d	$a1, $a1, %pc_lo12(_ZTV26LocalSupportVertexCallback+16)
@@ -181,15 +178,15 @@ _ZNK25btConvexTriangleMeshShape37localGetSupportingVertexWithoutMarginERK9btVect
 	lu32i.d	$a1, 0
 	st.w	$a1, $sp, 80
 	fst.s	$fa3, $sp, 84
-	pcalau12i	$a1, %pc_hi20(.LCPI2_2)
-	vld	$vr3, $a1, %pc_lo12(.LCPI2_2)
+	pcalau12i	$a1, %pc_hi20(.LCPI2_1)
+	vld	$vr3, $a1, %pc_lo12(.LCPI2_1)
 	ld.d	$a0, $a0, 104
 	fst.s	$fa1, $sp, 88
 	fst.s	$fa2, $sp, 92
 	vst	$vr3, $sp, 16
 	ld.d	$a1, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI2_1)
-	vld	$vr1, $a2, %pc_lo12(.LCPI2_1)
+	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
+	vld	$vr1, $a2, %pc_lo12(.LCPI2_0)
 	fst.s	$fa0, $sp, 96
 	ld.d	$a4, $a1, 16
 	vst	$vr1, $sp, 32
@@ -464,12 +461,8 @@ GCC_except_table3:
 .Lttbase2:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK25btConvexTriangleMeshShape24localGetSupportingVertexERK9btVector3
-.LCPI4_0:
-	.word	0x28800000                      # float 1.42108547E-14
 	.text
-	.globl	_ZNK25btConvexTriangleMeshShape24localGetSupportingVertexERK9btVector3
+	.globl	_ZNK25btConvexTriangleMeshShape24localGetSupportingVertexERK9btVector3 # -- Begin function _ZNK25btConvexTriangleMeshShape24localGetSupportingVertexERK9btVector3
 	.p2align	5
 	.type	_ZNK25btConvexTriangleMeshShape24localGetSupportingVertexERK9btVector3,@function
 _ZNK25btConvexTriangleMeshShape24localGetSupportingVertexERK9btVector3: # @_ZNK25btConvexTriangleMeshShape24localGetSupportingVertexERK9btVector3
@@ -520,28 +513,28 @@ _ZNK25btConvexTriangleMeshShape24localGetSupportingVertexERK9btVector3: # @_ZNK2
 # %bb.1:
 	movgr2fr.w	$fs0, $fp
 	movgr2fr.w	$fs1, $s3
-	movgr2fr.w	$fs2, $s1
-	fld.s	$fa0, $s2, 0
-	fld.s	$fa1, $s2, 4
+	fld.s	$fa0, $s2, 4
+	fld.s	$fa1, $s2, 0
 	fld.s	$fa2, $s2, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI4_0)
-	fmul.s	$fa4, $fa1, $fa1
-	fmadd.s	$fa4, $fa0, $fa0, $fa4
-	fmadd.s	$fa4, $fa2, $fa2, $fa4
-	fcmp.clt.s	$fcc0, $fa4, $fa3
+	movgr2fr.w	$fs2, $s1
+	fmul.s	$fa3, $fa0, $fa0
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa4, $a0
+	fcmp.clt.s	$fcc0, $fa3, $fa4
 	vldi	$vr3, -1040
-	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa1, $fa1, $fa3, $fcc0
+	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa2, $fa2, $fa3, $fcc0
-	fmul.s	$fa3, $fa1, $fa1
+	fmul.s	$fa3, $fa0, $fa0
 	ld.d	$a0, $s0, 0
-	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	frsqrt.s	$fa3, $fa3
 	ld.d	$a1, $a0, 88
-	fmul.s	$fs3, $fa0, $fa3
-	fmul.s	$fs4, $fa1, $fa3
+	fmul.s	$fs3, $fa1, $fa3
+	fmul.s	$fs4, $fa0, $fa3
 	fmul.s	$fs5, $fa2, $fa3
 	move	$a0, $s0
 	jirl	$ra, $a1, 0
@@ -684,12 +677,6 @@ _ZNK25btConvexTriangleMeshShape15getLocalScalingEv: # @_ZNK25btConvexTriangleMes
 .LCPI14_1:
 	.dword	-2495544585613341845            # 0xdd5e0b6bdd5e0b6b
 	.dword	3713928043                      # 0xdd5e0b6b
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI14_2:
-	.word	0x3e2aaaab                      # float 0.166666672
-.LCPI14_3:
-	.word	0x3727c5ac                      # float 9.99999974E-6
 	.text
 	.globl	_ZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3Rf
 	.p2align	5
@@ -764,10 +751,11 @@ _ZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR
 	ld.d	$a0, $sp, 164
 	ld.d	$a1, $sp, 172
 .LBB14_4:
-	pcalau12i	$a2, %pc_hi20(.LCPI14_2)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI14_2)
 	st.d	$a0, $s1, 48
 	st.d	$a1, $s1, 56
+	lu12i.w	$a2, 254634
+	ori	$a2, $a2, 2731
+	movgr2fr.w	$fa1, $a2
 	fmul.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $s0, 0
 	pcalau12i	$a2, %pc_hi20(_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE15InertiaCallback+16)
@@ -803,8 +791,9 @@ _ZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR
 # %bb.5:
 .Ltmp24:                                # EH_LABEL
 	addi.d	$a0, $sp, 56
-	pcalau12i	$a1, %pc_hi20(.LCPI14_3)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI14_3)
+	lu12i.w	$a1, 225916
+	ori	$a1, $a1, 1452
+	movgr2fr.w	$fa0, $a1
 	ori	$a2, $zero, 20
 	move	$a1, $s1
 	pcaddu18i	$ra, %call36(_ZN11btMatrix3x311diagonalizeERS_fi)
@@ -928,14 +917,8 @@ GCC_except_table14:
 .Lttbase3:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN11btMatrix3x311diagonalizeERS_fi
-.LCPI15_0:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI15_1:
-	.word	0x4ca00000                      # float 83886080
 	.section	.text._ZN11btMatrix3x311diagonalizeERS_fi,"axG",@progbits,_ZN11btMatrix3x311diagonalizeERS_fi,comdat
-	.weak	_ZN11btMatrix3x311diagonalizeERS_fi
+	.weak	_ZN11btMatrix3x311diagonalizeERS_fi # -- Begin function _ZN11btMatrix3x311diagonalizeERS_fi
 	.p2align	5
 	.type	_ZN11btMatrix3x311diagonalizeERS_fi,@function
 _ZN11btMatrix3x311diagonalizeERS_fi:    # @_ZN11btMatrix3x311diagonalizeERS_fi
@@ -953,15 +936,15 @@ _ZN11btMatrix3x311diagonalizeERS_fi:    # @_ZN11btMatrix3x311diagonalizeERS_fi
 	addi.d	$a3, $a1, 16
 	addi.d	$a4, $a1, 32
 	ori	$a5, $zero, 2
-	pcalau12i	$a6, %pc_hi20(.LCPI15_1)
-	fld.s	$fa1, $a6, %pc_lo12(.LCPI15_1)
+	lu12i.w	$a6, 313856
+	movgr2fr.w	$fa1, $a6
 	vldi	$vr2, -1168
 	movgr2fr.w	$fa3, $zero
 	ori	$a6, $zero, 1
 	vldi	$vr4, -1184
 	vldi	$vr5, -1280
 	vldi	$vr6, -1056
-	pcalau12i	$a7, %pc_hi20(.LCPI15_0)
+	lu12i.w	$a7, 212992
 	b	.LBB15_4
 	.p2align	4, , 16
 .LBB15_2:                               #   in Loop: Header=BB15_4 Depth=1
@@ -1063,7 +1046,7 @@ _ZN11btMatrix3x311diagonalizeERS_fi:    # @_ZN11btMatrix3x311diagonalizeERS_fi
 	fcmp.cult.s	$fcc0, $ft0, $fa7
 	bcnez	$fcc0, .LBB15_9
 # %bb.8:                                #   in Loop: Header=BB15_4 Depth=1
-	fld.s	$ft1, $a7, %pc_lo12(.LCPI15_0)
+	movgr2fr.w	$ft1, $a7
 	fmul.s	$ft0, $ft0, $ft1
 	fcmp.cle.s	$fcc0, $fa7, $ft0
 	ori	$a2, $zero, 1
@@ -1565,16 +1548,8 @@ GCC_except_table26:
 .Lcst_end7:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfEN15InertiaCallback28internalProcessTriangleIndexEPS2_ii
-.LCPI27_0:
-	.word	0xbe2aaaab                      # float -0.166666672
-.LCPI27_1:
-	.word	0x3d4ccccd                      # float 0.0500000007
-.LCPI27_2:
-	.word	0x3dcccccd                      # float 0.100000001
 	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfEN15InertiaCallback28internalProcessTriangleIndexEPS2_ii
 	.type	_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfEN15InertiaCallback28internalProcessTriangleIndexEPS2_ii,@function
 _ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfEN15InertiaCallback28internalProcessTriangleIndexEPS2_ii: # @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfEN15InertiaCallback28internalProcessTriangleIndexEPS2_ii
 # %bb.0:                                # %.preheader
@@ -1609,12 +1584,14 @@ _ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransform
 	fmadd.s	$ft0, $fa5, $ft0, $ft1
 	fneg.s	$ft1, $ft2
 	fmul.s	$ft1, $fa4, $ft1
-	pcalau12i	$a1, %pc_hi20(.LCPI27_0)
-	fld.s	$ft3, $a1, %pc_lo12(.LCPI27_0)
 	fmadd.s	$ft1, $fa6, $fa7, $ft1
 	fmadd.s	$ft0, $fa0, $ft1, $ft0
 	fabs.s	$ft0, $ft0
-	fmul.s	$ft0, $ft0, $ft3
+	lu12i.w	$a1, -269654
+	ori	$a1, $a1, 2731
+	lu32i.d	$a1, 0
+	movgr2fr.w	$ft1, $a1
+	fmul.s	$ft0, $ft0, $ft1
 	fmul.s	$ft1, $fa6, $fa6
 	fmadd.s	$ft1, $fa5, $fa5, $ft1
 	fmadd.s	$ft1, $ft2, $ft2, $ft1
@@ -1622,13 +1599,15 @@ _ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransform
 	fmadd.s	$ft3, $fa5, $fa6, $ft3
 	fmadd.s	$ft3, $fa5, $ft2, $ft3
 	fmadd.s	$ft3, $fa5, $ft2, $ft3
-	pcalau12i	$a1, %pc_hi20(.LCPI27_1)
-	fld.s	$ft4, $a1, %pc_lo12(.LCPI27_1)
-	pcalau12i	$a1, %pc_hi20(.LCPI27_2)
-	fld.s	$ft5, $a1, %pc_lo12(.LCPI27_2)
 	fmadd.s	$ft3, $fa6, $ft2, $ft3
 	fmadd.s	$ft3, $fa6, $ft2, $ft3
+	lu12i.w	$a1, 251084
+	ori	$a1, $a1, 3277
+	movgr2fr.w	$ft4, $a1
 	fmul.s	$ft3, $ft3, $ft4
+	lu12i.w	$a1, 253132
+	ori	$a1, $a1, 3277
+	movgr2fr.w	$ft5, $a1
 	fmadd.s	$ft1, $ft1, $ft5, $ft3
 	fmul.s	$ft3, $ft0, $ft1
 	fmul.s	$ft1, $fa4, $fa6

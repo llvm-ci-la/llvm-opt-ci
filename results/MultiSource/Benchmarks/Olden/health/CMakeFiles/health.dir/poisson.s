@@ -1,10 +1,6 @@
 	.file	"poisson.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function my_rand
-.LCPI0_0:
-	.dword	0x3e00000000200000              # double 4.6566128752457969E-10
 	.text
-	.globl	my_rand
+	.globl	my_rand                         # -- Begin function my_rand
 	.p2align	5
 	.type	my_rand,@function
 my_rand:                                # @my_rand
@@ -38,12 +34,13 @@ my_rand:                                # @my_rand
 	add.d	$a2, $a1, $a2
 	masknez	$a1, $a1, $a0
 	maskeqz	$a0, $a2, $a0
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_0)
 	or	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 512
+	lu52i.d	$a0, $a0, 992
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	ret
 .Lfunc_end0:

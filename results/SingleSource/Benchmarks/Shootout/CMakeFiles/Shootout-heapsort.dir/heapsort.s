@@ -1,10 +1,6 @@
 	.file	"heapsort.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gen_random
-.LCPI0_0:
-	.dword	0x4101160000000000              # double 139968
 	.text
-	.globl	gen_random
+	.globl	gen_random                      # -- Begin function gen_random
 	.p2align	5
 	.type	gen_random,@function
 gen_random:                             # @gen_random
@@ -26,11 +22,13 @@ gen_random:                             # @gen_random
 	ori	$a3, $a3, 704
 	mul.d	$a2, $a2, $a3
 	sub.d	$a1, $a1, $a2
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI0_0)
-	movgr2fr.d	$fa2, $a1
-	ffint.d.l	$fa2, $fa2
-	fmul.d	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, 71168
+	lu52i.d	$a2, $a2, 1040
+	movgr2fr.d	$fa1, $a2
 	fdiv.d	$fa0, $fa0, $fa1
 	st.d	$a1, $a0, %pc_lo12(gen_random.last)
 	ret
@@ -117,12 +115,7 @@ benchmark_heapsort:                     # @benchmark_heapsort
 .Lfunc_end1:
 	.size	benchmark_heapsort, .Lfunc_end1-benchmark_heapsort
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI2_0:
-	.dword	0x4101160000000000              # double 139968
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -164,11 +157,13 @@ main:                                   # @main
 	lu12i.w	$a7, -10549
 	ori	$a7, $a7, 3729
 	lu32i.d	$a7, -86783
-	pcalau12i	$t0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $t0, %pc_lo12(.LCPI2_0)
 	lu52i.d	$a7, $a7, 958
 	lu12i.w	$t0, 34
 	ori	$t0, $t0, 704
+	ori	$t1, $zero, 0
+	lu32i.d	$t1, 71168
+	lu52i.d	$t1, $t1, 1040
+	movgr2fr.d	$fa0, $t1
 	.p2align	4, , 16
 .LBB2_5:                                # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1

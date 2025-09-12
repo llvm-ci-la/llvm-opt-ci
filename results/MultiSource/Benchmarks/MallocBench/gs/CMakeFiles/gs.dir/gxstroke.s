@@ -45,14 +45,7 @@ gx_stroke_fill:                         # @gx_stroke_fill
 .Lfunc_end0:
 	.size	gx_stroke_fill, .Lfunc_end0-gx_stroke_fill
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function stroke
-.LCPI1_0:
-	.word	0x45800000                      # float 4096
-.LCPI1_1:
-	.word	0x39800000                      # float 2.44140625E-4
-	.text
-	.globl	stroke
+	.globl	stroke                          # -- Begin function stroke
 	.p2align	5
 	.type	stroke,@function
 stroke:                                 # @stroke
@@ -83,7 +76,7 @@ stroke:                                 # @stroke
 	ld.d	$a0, $a3, 24
 	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
 	fld.s	$fa0, $a3, 0
-	st.d	$a3, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a3, $sp, 32                    # 8-byte Folded Spill
 	ld.w	$a0, $a3, 32
 	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
 	ld.d	$a1, $a2, 40
@@ -101,9 +94,10 @@ stroke:                                 # @stroke
 	movgr2fr.w	$fa0, $a0
 	beqz	$s1, .LBB1_8
 # %bb.2:                                # %.thread
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_0)
-	fmul.s	$fs2, $fa0, $fa1
+	lu12i.w	$a0, 284672
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 52                   # 4-byte Folded Spill
 	ori	$a0, $zero, 1
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
 	ld.w	$a0, $fp, 112
@@ -114,7 +108,8 @@ stroke:                                 # @stroke
 	lu12i.w	$a0, 246333
 	ori	$a0, $a0, 1802
 	st.w	$a0, $sp, 656
-                                        # implicit-def: $f26
+                                        # implicit-def: $f0
+                                        # kill: killed $f0
 	ld.w	$a0, $fp, 112
 	beqz	$a0, .LBB1_9
 .LBB1_4:
@@ -148,13 +143,14 @@ stroke:                                 # @stroke
 	fcmp.clt.s	$fcc0, $fa2, $fa1
 	fsel	$fa1, $fa2, $fa1, $fcc0
 	fmul.s	$fa1, $fa1, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI1_0)
-	vldi	$vr3, -1176
-	fcmp.cule.s	$fcc0, $fa3, $fa1
+	vldi	$vr2, -1176
+	fcmp.cule.s	$fcc0, $fa2, $fa1
 	movcf2gr	$a0, $fcc0
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
-	fmul.s	$fs2, $fa0, $fa2
+	lu12i.w	$a0, 284672
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 52                   # 4-byte Folded Spill
 	ld.w	$a0, $fp, 112
 	bnez	$a0, .LBB1_4
 .LBB1_9:
@@ -173,10 +169,12 @@ stroke:                                 # @stroke
 	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
-	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
+	lu12i.w	$a0, 235520
+	movgr2fr.w	$fs3, $a0
+	st.d	$fp, $sp, 24                    # 8-byte Folded Spill
 	st.d	$s1, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 8                     # 8-byte Folded Spill
 	b	.LBB1_12
 	.p2align	4, , 16
 .LBB1_11:                               #   in Loop: Header=BB1_12 Depth=1
@@ -190,11 +188,11 @@ stroke:                                 # @stroke
 # %bb.13:                               # %.lr.ph268.preheader
                                         #   in Loop: Header=BB1_12 Depth=1
 	ld.d	$s7, $s4, 24
-	st.d	$s4, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 40                    # 8-byte Folded Spill
 	ld.d	$fp, $s4, 32
-	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ld.bu	$s6, $a0, 40
-	fld.s	$fs3, $a0, 48
+	fld.s	$fs4, $a0, 48
 	ld.w	$s5, $a0, 44
 	move	$s4, $zero
 	move	$s1, $zero
@@ -231,14 +229,14 @@ stroke:                                 # @stroke
 	sub.d	$a0, $s7, $s2
 	sub.d	$a1, $fp, $s3
 	movgr2fr.d	$fa0, $a0
-	ffint.s.l	$fs4, $fa0
-	movgr2fr.d	$fa0, $a1
 	ffint.s.l	$fs5, $fa0
+	movgr2fr.d	$fa0, $a1
+	ffint.s.l	$fs6, $fa0
 	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
 	beqz	$a0, .LBB1_26
 # %bb.20:                               #   in Loop: Header=BB1_16 Depth=2
-	fcvt.d.s	$fa0, $fs4
-	fcvt.d.s	$fa1, $fs5
+	fcvt.d.s	$fa0, $fs5
+	fcvt.d.s	$fa1, $fs6
 	addi.d	$a1, $sp, 144
 	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(gs_idtransform)
@@ -280,8 +278,8 @@ stroke:                                 # @stroke
 	jirl	$ra, $a4, 0
 	b	.LBB1_14
 .LBB1_26:                               #   in Loop: Header=BB1_16 Depth=2
-	fdiv.s	$fa1, $fs4, $fs0
-	fdiv.s	$fa2, $fs5, $fs1
+	fdiv.s	$fa1, $fs5, $fs0
+	fdiv.s	$fa2, $fs6, $fs1
 .LBB1_27:                               #   in Loop: Header=BB1_16 Depth=2
 	fmul.s	$fa0, $fa2, $fa2
 	fmadd.s	$fa0, $fa1, $fa1, $fa0
@@ -289,7 +287,8 @@ stroke:                                 # @stroke
 	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	beqz	$a0, .LBB1_32
 # %bb.28:                               #   in Loop: Header=BB1_16 Depth=2
-	fdiv.s	$fa3, $fs2, $fa0
+	fld.s	$fa3, $sp, 52                   # 4-byte Folded Reload
+	fdiv.s	$fa3, $fa3, $fa0
 	fmul.s	$fa1, $fa3, $fa1
 	fst.s	$fa1, $sp, 144
 	fmul.s	$fa2, $fa3, $fa2
@@ -387,14 +386,12 @@ stroke:                                 # @stroke
 	ld.d	$a5, $sp, 136                   # 8-byte Folded Reload
 	beqz	$a5, .LBB1_50
 # %bb.36:                               #   in Loop: Header=BB1_16 Depth=2
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_1)
-	fmul.s	$fs7, $fa0, $fa1
-	fcmp.cule.s	$fcc0, $fs7, $fs3
+	fmul.s	$fs2, $fa0, $fs3
+	fcmp.cule.s	$fcc0, $fs2, $fs4
 	bcnez	$fcc0, .LBB1_52
 # %bb.37:                               # %.lr.ph.preheader
                                         #   in Loop: Header=BB1_16 Depth=2
-	fmov.s	$fs6, $fs7
+	fmov.s	$fs7, $fs2
 	b	.LBB1_43
 	.p2align	4, , 16
 .LBB1_38:                               #   in Loop: Header=BB1_43 Depth=3
@@ -420,7 +417,7 @@ stroke:                                 # @stroke
 	move	$s4, $zero
 .LBB1_42:                               # %.thread238
                                         #   in Loop: Header=BB1_43 Depth=3
-	fsub.s	$fs6, $fs6, $fs3
+	fsub.s	$fs7, $fs7, $fs4
 	addi.w	$a0, $s5, 1
 	ld.d	$a1, $sp, 136                   # 8-byte Folded Reload
 	xor	$a1, $a0, $a1
@@ -428,8 +425,8 @@ stroke:                                 # @stroke
 	masknez	$s5, $a0, $a1
 	slli.d	$a0, $s5, 2
 	ld.d	$a1, $sp, 128                   # 8-byte Folded Reload
-	fldx.s	$fs3, $a1, $a0
-	fcmp.clt.s	$fcc0, $fs3, $fs6
+	fldx.s	$fs4, $a1, $a0
+	fcmp.clt.s	$fcc0, $fs4, $fs7
 	bceqz	$fcc0, .LBB1_53
 .LBB1_43:                               # %.lr.ph
                                         #   Parent Loop BB1_12 Depth=1
@@ -437,12 +434,12 @@ stroke:                                 # @stroke
                                         # =>    This Inner Loop Header: Depth=3
 	move	$a1, $s2
 	move	$a0, $s3
-	fdiv.s	$fa0, $fs3, $fs7
-	fmul.s	$fa1, $fa0, $fs4
+	fdiv.s	$fa0, $fs4, $fs2
+	fmul.s	$fa1, $fa0, $fs5
 	ftintrz.l.s	$fa1, $fa1
 	movfr2gr.d	$a2, $fa1
 	add.d	$s2, $s2, $a2
-	fmul.s	$fa0, $fa0, $fs5
+	fmul.s	$fa0, $fa0, $fs6
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
 	add.d	$s3, $s3, $a2
@@ -540,7 +537,7 @@ stroke:                                 # @stroke
 	st.d	$a3, $sp, 608
 	b	.LBB1_22
 .LBB1_52:                               #   in Loop: Header=BB1_16 Depth=2
-	fmov.s	$fs6, $fs7
+	fmov.s	$fs7, $fs2
 .LBB1_53:                               # %._crit_edge
                                         #   in Loop: Header=BB1_16 Depth=2
 	beqz	$s6, .LBB1_59
@@ -571,7 +568,7 @@ stroke:                                 # @stroke
 	pcaddu18i	$ra, %call36(memcpy)
 	jirl	$ra, $ra, 0
 .LBB1_59:                               #   in Loop: Header=BB1_16 Depth=2
-	fsub.s	$fs3, $fs3, $fs6
+	fsub.s	$fs4, $fs4, $fs7
 	b	.LBB1_15
 .LBB1_60:                               #   in Loop: Header=BB1_16 Depth=2
 	ld.d	$a0, $sp, 616
@@ -610,14 +607,14 @@ stroke:                                 # @stroke
                                         #   in Loop: Header=BB1_12 Depth=1
 	beqz	$s4, .LBB1_69
 # %bb.63:                               #   in Loop: Header=BB1_12 Depth=1
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	ld.bu	$a0, $a0, 56
-	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 24                    # 8-byte Folded Reload
 	beqz	$a0, .LBB1_66
 # %bb.64:                               #   in Loop: Header=BB1_12 Depth=1
 	beqz	$s6, .LBB1_66
 # %bb.65:                               #   in Loop: Header=BB1_12 Depth=1
-	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ld.w	$a0, $a0, 40
 	addi.d	$a2, $sp, 152
 	bnez	$a0, .LBB1_67
@@ -640,11 +637,11 @@ stroke:                                 # @stroke
 	.p2align	4, , 16
 .LBB1_69:                               #   in Loop: Header=BB1_12 Depth=1
 	move	$s4, $s0
-	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 24                    # 8-byte Folded Reload
 .LBB1_70:                               # %._crit_edge269.thread
                                         #   in Loop: Header=BB1_12 Depth=1
-	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$a0, $s2, %pc_lo12(stroke_path)
 	bne	$a0, $s3, .LBB1_11
 .LBB1_71:                               #   in Loop: Header=BB1_12 Depth=1

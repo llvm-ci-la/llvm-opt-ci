@@ -1,12 +1,6 @@
 	.file	"flops-2.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x403f400000000000              # double 31.25
-.LCPI0_1:
-	.dword	0x39b4484bfeebc2a0              # double 1.0000000000000001E-30
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -65,59 +59,61 @@ main:                                   # @main
 	fld.d	$fa0, $s3, %pc_lo12(five)
 	fld.d	$fa1, $s2, %pc_lo12(one)
 	fneg.d	$fa3, $fa0
-	fneg.d	$fa2, $fa1
+	fneg.d	$fa1, $fa1
 	lu12i.w	$a0, 38146
 	ori	$a1, $a0, 3984
 	.p2align	4, , 16
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1
-	fsub.d	$fa2, $fa2, $fa3
+	fsub.d	$fa1, $fa1, $fa3
 	addi.d	$a1, $a1, -1
 	fneg.d	$fa3, $fa3
 	bnez	$a1, .LBB0_1
 # %bb.2:
 	fld.d	$fa4, $s1, %pc_lo12(two)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa2, $zero
 	ori	$a0, $a0, 3984
-	fmov.d	$fa5, $fa1
+	fmov.d	$fa5, $fa2
 	.p2align	4, , 16
 .LBB0_3:                                # =>This Inner Loop Header: Depth=1
-	fadd.d	$fa2, $fa2, $fa4
-	fmadd.d	$fa1, $fa3, $fa2, $fa1
-	fdiv.d	$fa6, $fa3, $fa2
+	fadd.d	$fa1, $fa1, $fa4
+	fmadd.d	$fa2, $fa3, $fa1, $fa2
+	fdiv.d	$fa6, $fa3, $fa1
 	fneg.d	$fa3, $fa3
 	addi.d	$a0, $a0, -1
 	fsub.d	$fa5, $fa5, $fa6
 	bnez	$a0, .LBB0_3
 # %bb.4:
-	fld.d	$fa2, $s0, %pc_lo12(four)
-	fmul.d	$fa2, $fa5, $fa2
-	fdiv.d	$fa2, $fa2, $fa0
+	fld.d	$fa1, $s0, %pc_lo12(four)
+	fmul.d	$fa1, $fa5, $fa1
+	fdiv.d	$fa1, $fa1, $fa0
 	pcalau12i	$a0, %pc_hi20(sa)
-	fst.d	$fa2, $a0, %pc_lo12(sa)
-	fdiv.d	$fa0, $fa0, $fa1
-	fadd.d	$fa0, $fa0, $fa2
+	fst.d	$fa1, $a0, %pc_lo12(sa)
+	fdiv.d	$fa0, $fa0, $fa2
+	fadd.d	$fa0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(sb)
 	fst.d	$fa0, $a0, %pc_lo12(sb)
 	pcalau12i	$a0, %pc_hi20(sc)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI0_0)
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, -49152
 	lu52i.d	$a1, $a1, 1027
 	st.d	$a1, $a0, %pc_lo12(sc)
-	fmul.d	$fa3, $fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa3
+	fmul.d	$fa1, $fa2, $fa2
+	fmul.d	$fa1, $fa2, $fa1
+	movgr2fr.d	$fa2, $a1
 	fdiv.d	$fa1, $fa2, $fa1
+	fld.d	$fa2, $fp, %pc_lo12(piref)
 	fsub.d	$fa0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(piprg)
-	fld.d	$fa1, $fp, %pc_lo12(piref)
 	fst.d	$fa0, $a0, %pc_lo12(piprg)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa0, $fa0, $fa1
+	fsub.d	$fa0, $fa0, $fa2
 	pcalau12i	$a0, %pc_hi20(pierr)
 	fst.d	$fa0, $a0, %pc_lo12(pierr)
-	fmul.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -4420
+	ori	$a0, $a0, 672
+	lu32i.d	$a0, 280651
+	lu52i.d	$a0, $a0, 923
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.4)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.4)

@@ -217,14 +217,7 @@ _ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjj
 .Lfunc_end1:
 	.size	_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj, .Lfunc_end1-_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj
-.LCPI2_0:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-.LCPI2_1:
-	.word	0xff7fffff                      # float -3.40282347E+38
-	.text
-	.globl	_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj
+	.globl	_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj # -- Begin function _ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj
 	.p2align	5
 	.type	_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj,@function
 _ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj: # @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj
@@ -275,32 +268,31 @@ _ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj: # @_ZN12GIM_B
 .LBB2_2:
 	move	$s1, $a3
 	lu12i.w	$a1, 522239
-	ori	$a1, $a1, 4095
-	st.w	$a1, $a0, 8
-	bstrins.d	$a1, $a1, 62, 32
+	ori	$a4, $a1, 4095
+	move	$a1, $a4
+	bstrins.d	$a1, $a4, 62, 32
 	st.d	$a1, $a0, 0
+	st.w	$a4, $a0, 8
 	lu12i.w	$a1, -2049
-	ori	$a1, $a1, 4095
-	lu52i.d	$a3, $a1, -9
-	st.d	$a3, $a0, 16
-	lu32i.d	$a1, 0
-	st.w	$a1, $a0, 24
-	bstrpick.d	$a4, $s5, 31, 0
-	bgeu	$a2, $s1, .LBB2_11
+	ori	$a5, $a1, 4095
+	lu52i.d	$a1, $a5, -9
+	st.d	$a1, $a0, 16
+	lu32i.d	$a5, 0
+	st.w	$a5, $a0, 24
+	bstrpick.d	$a6, $s5, 31, 0
+	bgeu	$a2, $a3, .LBB2_11
 # %bb.3:                                # %.lr.ph
-	st.d	$a4, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a6, $sp, 16                    # 8-byte Folded Spill
 	addi.d	$a1, $a0, 16
 	ld.d	$a3, $s0, 0
 	bstrpick.d	$s7, $a2, 31, 0
 	bstrpick.d	$s8, $s1, 31, 0
-	slli.d	$a4, $s7, 5
-	pcalau12i	$a5, %pc_hi20(.LCPI2_0)
-	fld.s	$fa0, $a5, %pc_lo12(.LCPI2_0)
-	pcalau12i	$a5, %pc_hi20(.LCPI2_1)
-	fld.s	$fa1, $a5, %pc_lo12(.LCPI2_1)
-	alsl.d	$s2, $s7, $a4, 2
+	slli.d	$a6, $s7, 5
+	alsl.d	$s2, $s7, $a6, 2
 	add.d	$a3, $s2, $a3
 	addi.d	$a3, $a3, 16
+	movgr2fr.w	$fa0, $a4
+	movgr2fr.w	$fa1, $a5
 	sub.d	$a4, $s8, $s7
 	fmov.s	$fa4, $fa1
 	fmov.s	$fa2, $fa1
@@ -431,7 +423,7 @@ _ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj: # @_ZN12GIM_B
 	move	$a1, $s0
 	move	$s2, $a2
 	move	$a3, $s1
-	move	$s6, $a4
+	move	$s6, $a6
 	pcaddu18i	$ra, %call36(_ZN12GIM_BOX_TREE20_calc_splitting_axisER9gim_arrayI13GIM_AABB_DATAEjj)
 	jirl	$ra, $ra, 0
 	move	$t4, $s6

@@ -810,36 +810,35 @@ gx_path_add_curve:                      # @gx_path_add_curve
 .Lfunc_end11:
 	.size	gx_path_add_curve, .Lfunc_end11-gx_path_add_curve
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gx_path_add_arc
-.LCPI12_0:
-	.dword	0x3fe199999999999a              # double 0.55000000000000004
-.LCPI12_1:
-	.dword	0x3fdccccccccccccc              # double 0.44999999999999996
-	.text
-	.globl	gx_path_add_arc
+	.globl	gx_path_add_arc                 # -- Begin function gx_path_add_arc
 	.p2align	5
 	.type	gx_path_add_arc,@function
 gx_path_add_arc:                        # @gx_path_add_arc
 # %bb.0:
-	pcalau12i	$a7, %pc_hi20(.LCPI12_0)
-	fld.d	$fa0, $a7, %pc_lo12(.LCPI12_0)
 	move	$a7, $a4
 	move	$t0, $a3
-	movgr2fr.d	$fa1, $a5
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.l.d	$fa1, $fa1
-	movfr2gr.d	$a3, $fa1
-	movgr2fr.d	$fa1, $a6
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $a5
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1022
+	movgr2fr.d	$fa1, $a3
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0
-	pcalau12i	$a4, %pc_hi20(.LCPI12_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI12_1)
+	movfr2gr.d	$a3, $fa0
+	movgr2fr.d	$fa0, $a6
+	ffint.d.l	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
+	ftintrz.l.d	$fa0, $fa0
 	movfr2gr.d	$a4, $fa0
 	movgr2fr.d	$fa0, $a1
 	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a1, -209716
+	ori	$a1, $a1, 3276
+	lu32i.d	$a1, -209716
+	lu52i.d	$a1, $a1, 1021
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0

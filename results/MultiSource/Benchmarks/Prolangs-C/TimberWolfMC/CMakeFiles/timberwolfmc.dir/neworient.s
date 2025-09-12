@@ -1,10 +1,6 @@
 	.file	"neworient.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function newOrient
-.LCPI0_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
-	.globl	newOrient
+	.globl	newOrient                       # -- Begin function newOrient
 	.p2align	5
 	.type	newOrient,@function
 newOrient:                              # @newOrient
@@ -39,11 +35,12 @@ newOrient:                              # @newOrient
 	ld.d	$a5, $a3, %got_pc_lo12(randVar)
 	ld.w	$a6, $a5, 0
 	lu12i.w	$a3, 269412
-	pcalau12i	$a7, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI0_0)
 	ori	$a7, $a3, 3693
 	lu12i.w	$a3, 3
 	ori	$t0, $a3, 57
+	lu12i.w	$a3, -1024
+	lu52i.d	$a3, $a3, 1053
+	movgr2fr.d	$fa1, $a3
 	.p2align	4, , 16
 .LBB0_4:                                # =>This Inner Loop Header: Depth=1
 	mul.d	$a3, $a6, $a7
@@ -108,11 +105,12 @@ newOrient:                              # @newOrient
 	ld.d	$a5, $a3, %got_pc_lo12(randVar)
 	ld.w	$a6, $a5, 0
 	lu12i.w	$a3, 269412
-	pcalau12i	$a7, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI0_0)
 	ori	$a7, $a3, 3693
 	lu12i.w	$a3, 3
 	ori	$t0, $a3, 57
+	lu12i.w	$a3, -1024
+	lu52i.d	$a3, $a3, 1053
+	movgr2fr.d	$fa1, $a3
 	.p2align	4, , 16
 .LBB0_14:                               # =>This Inner Loop Header: Depth=1
 	mul.d	$a3, $a6, $a7
@@ -186,11 +184,12 @@ newOrient:                              # @newOrient
 	ld.d	$t3, $t1, %got_pc_lo12(randVar)
 	ld.w	$t4, $t3, 0
 	lu12i.w	$t1, 269412
-	pcalau12i	$t5, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $t5, %pc_lo12(.LCPI0_0)
 	ori	$t5, $t1, 3693
 	lu12i.w	$t1, 3
 	ori	$t6, $t1, 57
+	lu12i.w	$t1, -1024
+	lu52i.d	$t1, $t1, 1053
+	movgr2fr.d	$fa1, $t1
 	.p2align	4, , 16
 .LBB0_27:                               # =>This Inner Loop Header: Depth=1
 	mul.d	$t1, $t4, $t5

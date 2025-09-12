@@ -862,14 +862,8 @@ GCC_except_table7:
 .Lttbase1:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark5State11PauseTimingEv
-.LCPI8_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
-.LCPI8_1:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.hidden	_ZN9benchmark5State11PauseTimingEv
+	.hidden	_ZN9benchmark5State11PauseTimingEv # -- Begin function _ZN9benchmark5State11PauseTimingEv
 	.globl	_ZN9benchmark5State11PauseTimingEv
 	.p2align	5
 	.type	_ZN9benchmark5State11PauseTimingEv,@function
@@ -921,8 +915,10 @@ _ZN9benchmark5State11PauseTimingEv:     # @_ZN9benchmark5State11PauseTimingEv
 	jirl	$ra, $ra, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI8_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -144027
+	lu52i.d	$a0, $a0, 1052
+	movgr2fr.d	$fa1, $a0
 	fld.d	$fa2, $fp, 8
 	fld.d	$fa3, $fp, 24
 	ld.bu	$a0, $fp, 0
@@ -985,8 +981,9 @@ _ZN9benchmark5State11PauseTimingEv:     # @_ZN9benchmark5State11PauseTimingEv
 	move	$s6, $zero
 	move	$s7, $zero
 	addi.d	$s1, $sp, 64
-	pcalau12i	$a1, %pc_hi20(.LCPI8_1)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI8_1)
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
+	movgr2fr.d	$fs0, $a1
 	lu12i.w	$fp, 275200
 	b	.LBB8_13
 	.p2align	4, , 16
@@ -1402,12 +1399,8 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaIS7
 	.size	_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaIS7_EED2Ev, .Lfunc_end9-_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaIS7_EED2Ev
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark5State12ResumeTimingEv
-.LCPI10_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
 	.text
-	.hidden	_ZN9benchmark5State12ResumeTimingEv
+	.hidden	_ZN9benchmark5State12ResumeTimingEv # -- Begin function _ZN9benchmark5State12ResumeTimingEv
 	.globl	_ZN9benchmark5State12ResumeTimingEv
 	.p2align	5
 	.type	_ZN9benchmark5State12ResumeTimingEv,@function
@@ -1433,12 +1426,14 @@ _ZN9benchmark5State12ResumeTimingEv:    # @_ZN9benchmark5State12ResumeTimingEv
 	st.b	$a0, $s0, 1
 	pcaddu18i	$ra, %call36(_ZNSt6chrono3_V212steady_clock3nowEv)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI10_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI10_0)
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -144027
 	ld.bu	$a1, $s0, 0
+	lu52i.d	$a0, $a0, 1052
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $s0, 8
 	beqz	$a1, .LBB10_3
 # %bb.2:
@@ -1499,12 +1494,7 @@ _ZN9benchmark5State12ResumeTimingEv:    # @_ZN9benchmark5State12ResumeTimingEv
 	.size	_ZN9benchmark5State12ResumeTimingEv, .Lfunc_end10-_ZN9benchmark5State12ResumeTimingEv
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark5State15SkipWithMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
-.LCPI11_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
-	.text
-	.hidden	_ZN9benchmark5State15SkipWithMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+	.hidden	_ZN9benchmark5State15SkipWithMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE # -- Begin function _ZN9benchmark5State15SkipWithMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	.globl	_ZN9benchmark5State15SkipWithMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	.p2align	5
 	.type	_ZN9benchmark5State15SkipWithMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE,@function
@@ -1568,8 +1558,10 @@ _ZN9benchmark5State15SkipWithMessageERKNSt7__cxx1112basic_stringIcSt11char_trait
 	jirl	$ra, $ra, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI11_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -144027
+	lu52i.d	$a0, $a0, 1052
+	movgr2fr.d	$fa1, $a0
 	fld.d	$fa2, $s0, 8
 	fld.d	$fa3, $s0, 24
 	ld.bu	$a0, $s0, 0
@@ -1655,12 +1647,8 @@ GCC_except_table11:
 .Lcst_end5:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark5State13SkipWithErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
-.LCPI12_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
 	.text
-	.hidden	_ZN9benchmark5State13SkipWithErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+	.hidden	_ZN9benchmark5State13SkipWithErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE # -- Begin function _ZN9benchmark5State13SkipWithErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	.globl	_ZN9benchmark5State13SkipWithErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	.p2align	5
 	.type	_ZN9benchmark5State13SkipWithErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE,@function
@@ -1724,8 +1712,10 @@ _ZN9benchmark5State13SkipWithErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 	jirl	$ra, $ra, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI12_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -144027
+	lu52i.d	$a0, $a0, 1052
+	movgr2fr.d	$fa1, $a0
 	fld.d	$fa2, $s0, 8
 	fld.d	$fa3, $s0, 24
 	ld.bu	$a0, $s0, 0
@@ -2048,20 +2038,15 @@ _ZN9benchmark5State17FinishKeepRunningEv: # @_ZN9benchmark5State17FinishKeepRunn
 	.size	_ZN9benchmark5State17FinishKeepRunningEv, .Lfunc_end16-_ZN9benchmark5State17FinishKeepRunningEv
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark8internal6IsZeroEd
-.LCPI17_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-	.text
-	.hidden	_ZN9benchmark8internal6IsZeroEd
+	.hidden	_ZN9benchmark8internal6IsZeroEd # -- Begin function _ZN9benchmark8internal6IsZeroEd
 	.globl	_ZN9benchmark8internal6IsZeroEd
 	.p2align	5
 	.type	_ZN9benchmark8internal6IsZeroEd,@function
 _ZN9benchmark8internal6IsZeroEd:        # @_ZN9benchmark8internal6IsZeroEd
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI17_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI17_0)
 	fabs.d	$fa0, $fa0
+	lu52i.d	$a0, $zero, 971
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	movcf2gr	$a0, $fcc0
 	ret

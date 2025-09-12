@@ -11,48 +11,36 @@
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
-.LCPI0_4:
+.LCPI0_2:
 	.word	0x00000000                      # float 0
+	.word	0x3f800000                      # float 1
+	.word	0x00000000                      # float 0
+	.word	0x00000000                      # float 0
+.LCPI0_3:
+	.word	0x00000000                      # float 0
+	.word	0x00000000                      # float 0
+	.word	0x3f800000                      # float 1
+	.word	0x00000000                      # float 0
+.LCPI0_4:
+	.word	0x3f800000                      # float 1
 	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
 .LCPI0_5:
 	.word	0x00000000                      # float 0
+	.word	0x3f333333                      # float 0.699999988
 	.word	0x00000000                      # float 0
-	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
 .LCPI0_6:
-	.word	0x3f800000                      # float 1
-	.word	0x3f800000                      # float 1
-	.word	0x00000000                      # float 0
+	.word	0x3f333333                      # float 0.699999988
+	.word	0x3f333333                      # float 0.699999988
+	.word	0x3f333333                      # float 0.699999988
 	.word	0x00000000                      # float 0
 .LCPI0_7:
 	.word	0x00000000                      # float 0
-	.word	0x3f333333                      # float 0.699999988
-	.word	0x00000000                      # float 0
-	.word	0x00000000                      # float 0
-.LCPI0_11:
-	.word	0x3f333333                      # float 0.699999988
-	.word	0x3f333333                      # float 0.699999988
-	.word	0x3f333333                      # float 0.699999988
-	.word	0x00000000                      # float 0
-.LCPI0_12:
-	.word	0x00000000                      # float 0
 	.word	0x3f800000                      # float 1
 	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI0_2:
-	.word	0xbdcccccd                      # float -0.100000001
-.LCPI0_3:
-	.word	0x3dcccccd                      # float 0.100000001
-.LCPI0_8:
-	.word	0x3eaaaaab                      # float 0.333333343
-.LCPI0_9:
-	.word	0x3f4ccccd                      # float 0.800000011
-.LCPI0_10:
-	.word	0x30000000                      # float 4.65661287E-10
 	.text
 	.globl	_ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi
 	.p2align	5
@@ -118,25 +106,28 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	vst	$vr0, $sp, 352
 	st.d	$a2, $sp, 56                    # 8-byte Folded Spill
 	andi	$a0, $a2, 1
-	pcalau12i	$a1, %pc_hi20(.LCPI0_4)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
 	st.d	$a1, $sp, 96                    # 8-byte Folded Spill
-	pcalau12i	$s5, %pc_hi20(.LCPI0_5)
+	pcalau12i	$s5, %pc_hi20(.LCPI0_3)
 	beqz	$a0, .LBB0_6
 # %bb.1:                                # %.preheader2058
 	ld.w	$a0, $s0, 820
 	blez	$a0, .LBB0_6
 # %bb.2:                                # %.lr.ph
-	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI0_2)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.s	$fs1, $a1, %pc_lo12(.LCPI0_3)
-	ld.d	$a1, $sp, 96                    # 8-byte Folded Reload
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_4)
-	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
-	vld	$vr0, $s5, %pc_lo12(.LCPI0_5)
-	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
 	move	$s2, $zero
 	move	$s3, $zero
+	lu12i.w	$a1, -271156
+	ori	$a1, $a1, 3277
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fs0, $a1
+	lu12i.w	$a1, 253132
+	ld.d	$a2, $sp, 96                    # 8-byte Folded Reload
+	vld	$vr0, $a2, %pc_lo12(.LCPI0_2)
+	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
+	vld	$vr0, $s5, %pc_lo12(.LCPI0_3)
+	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
+	ori	$a1, $a1, 3277
+	movgr2fr.w	$fs1, $a1
 	movgr2fr.w	$fs2, $zero
 	b	.LBB0_4
 	.p2align	4, , 16
@@ -377,7 +368,7 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 .LBB0_18:                               # %.loopexit2055
 	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	andi	$a0, $a0, 32
-	pcalau12i	$s1, %pc_hi20(.LCPI0_6)
+	pcalau12i	$s1, %pc_hi20(.LCPI0_4)
 	beqz	$a0, .LBB0_23
 # %bb.19:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis)
@@ -391,7 +382,7 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	ori	$s2, $zero, 2
 	pcalau12i	$a0, %pc_hi20(_ZZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis)
 	addi.d	$s4, $a0, %pc_lo12(_ZZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis)
-	vld	$vr0, $s1, %pc_lo12(.LCPI0_6)
+	vld	$vr0, $s1, %pc_lo12(.LCPI0_4)
 	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
 	move	$s6, $zero
 	move	$s7, $zero
@@ -589,7 +580,7 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	move	$s2, $zero
 	move	$s4, $zero
 	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_4)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_2)
 	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
 	movgr2fr.w	$fs0, $zero
 	.p2align	4, , 16
@@ -789,18 +780,20 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	ld.d	$s0, $sp, 128                   # 8-byte Folded Reload
 	beqz	$a0, .LBB0_39
 # %bb.34:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_7)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_5)
 	ld.w	$a0, $s0, 884
 	vst	$vr0, $sp, 224
 	blez	$a0, .LBB0_39
 # %bb.35:                               # %.lr.ph2123
-	pcalau12i	$a1, %pc_hi20(.LCPI0_8)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI0_8)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_9)
-	fld.s	$fs1, $a1, %pc_lo12(.LCPI0_9)
 	move	$s2, $zero
 	move	$s3, $zero
+	lu12i.w	$a1, 256682
+	ori	$a1, $a1, 2731
+	movgr2fr.w	$fs0, $a1
+	lu12i.w	$a1, 259276
+	ori	$a1, $a1, 3277
+	movgr2fr.w	$fs1, $a1
 	b	.LBB0_37
 	.p2align	4, , 16
 .LBB0_36:                               #   in Loop: Header=BB0_37 Depth=1
@@ -906,8 +899,8 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	blez	$a0, .LBB0_82
 # %bb.41:                               # %.lr.ph2132
 	move	$s6, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_10)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI0_10)
+	lu12i.w	$a0, 196608
+	movgr2fr.w	$fs0, $a0
 	ori	$a0, $zero, 16
 	ori	$s7, $zero, 1
 	lu32i.d	$a0, 201327
@@ -996,7 +989,7 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	st.d	$a0, $sp, 224
 	movfr2gr.s	$a0, $fa2
 	ld.d	$a2, $sp, 96                    # 8-byte Folded Reload
-	vld	$vr0, $a2, %pc_lo12(.LCPI0_4)
+	vld	$vr0, $a2, %pc_lo12(.LCPI0_2)
 	ld.d	$a4, $a1, 40
 	bstrpick.d	$a0, $a0, 31, 0
 	st.d	$a0, $sp, 232
@@ -1038,7 +1031,7 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	ld.d	$a1, $fp, 0
 	st.d	$a0, $sp, 224
 	movfr2gr.s	$a0, $fa2
-	vld	$vr0, $s5, %pc_lo12(.LCPI0_5)
+	vld	$vr0, $s5, %pc_lo12(.LCPI0_3)
 	ld.d	$a4, $a1, 40
 	bstrpick.d	$a0, $a0, 31, 0
 	st.d	$a0, $sp, 232
@@ -1356,16 +1349,17 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	andi	$a0, $a1, 8
 	beqz	$a0, .LBB0_89
 # %bb.83:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_11)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_11)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_6)
 	ld.w	$a0, $s0, 916
 	vst	$vr0, $sp, 224
 	blez	$a0, .LBB0_88
 # %bb.84:                               # %.lr.ph2135
-	pcalau12i	$a1, %pc_hi20(.LCPI0_9)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI0_9)
 	move	$s2, $zero
 	move	$s4, $zero
+	lu12i.w	$a1, 259276
+	ori	$a1, $a1, 3277
+	movgr2fr.w	$fs0, $a1
 	b	.LBB0_86
 	.p2align	4, , 16
 .LBB0_85:                               #   in Loop: Header=BB0_86 Depth=1
@@ -1605,7 +1599,7 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	bnez	$a0, .LBB0_101
 .LBB0_98:
 	slli.d	$a0, $s1, 52
-	pcalau12i	$s0, %pc_hi20(.LCPI0_12)
+	pcalau12i	$s0, %pc_hi20(.LCPI0_7)
 	vld	$vr1, $sp, 112                  # 16-byte Folded Reload
 	bltz	$a0, .LBB0_102
 .LBB0_99:
@@ -1632,7 +1626,7 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	beqz	$a0, .LBB0_98
 .LBB0_101:
 	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_4)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_2)
 	ld.d	$a1, $s0, 1208
 	vst	$vr0, $sp, 224
 	vld	$vr0, $sp, 112                  # 16-byte Folded Reload
@@ -1646,11 +1640,11 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	pcaddu18i	$ra, %call36(_ZL8drawTreeP12btIDebugDrawPK10btDbvtNodeiRK9btVector3S6_ii)
 	jirl	$ra, $ra, 0
 	slli.d	$a0, $s1, 52
-	pcalau12i	$s0, %pc_hi20(.LCPI0_12)
+	pcalau12i	$s0, %pc_hi20(.LCPI0_7)
 	vld	$vr1, $sp, 112                  # 16-byte Folded Reload
 	bgez	$a0, .LBB0_99
 .LBB0_102:
-	vld	$vr0, $s0, %pc_lo12(.LCPI0_12)
+	vld	$vr0, $s0, %pc_lo12(.LCPI0_7)
 	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $a0, 1272
 	vst	$vr0, $sp, 224
@@ -1678,9 +1672,9 @@ _ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi: # @_ZN17btSoftBodyHel
 	move	$s6, $zero
 	move	$s7, $zero
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_6)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_4)
 	vst	$vr0, $sp, 112                  # 16-byte Folded Spill
-	vld	$vr0, $s0, %pc_lo12(.LCPI0_12)
+	vld	$vr0, $s0, %pc_lo12(.LCPI0_7)
 	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
 	movgr2fr.w	$fa0, $zero
 	fst.s	$fa0, $sp, 28                   # 4-byte Folded Spill
@@ -3772,12 +3766,6 @@ _ZL8drawTreeP12btIDebugDrawPK10btDbvtNodeiRK9btVector3S6_ii: # @_ZL8drawTreeP12b
 	.word	0x00000000                      # float 0
 	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI11_3:
-	.word	0xbdcccccd                      # float -0.100000001
-.LCPI11_4:
-	.word	0x3dcccccd                      # float 0.100000001
 	.text
 	.globl	_ZN17btSoftBodyHelpers9DrawFrameEP10btSoftBodyP12btIDebugDraw
 	.p2align	5
@@ -3841,36 +3829,36 @@ _ZN17btSoftBodyHelpers9DrawFrameEP10btSoftBodyP12btIDebugDraw: # @_ZN17btSoftBod
 	fmul.s	$fa6, $fa1, $fa2
 	fld.s	$fa7, $fp, 692
 	fmadd.s	$fa6, $fa0, $fa3, $fa6
-	fmadd.s	$fs5, $fa4, $fa5, $fa6
+	fmadd.s	$fs3, $fa4, $fa5, $fa6
 	fld.s	$fa6, $fp, 676
 	fmul.s	$ft0, $fa2, $fa7
 	fld.s	$ft1, $fp, 708
 	fld.s	$ft2, $fp, 696
 	fld.s	$ft3, $fp, 680
 	fmadd.s	$ft0, $fa6, $fa3, $ft0
-	fmadd.s	$fs6, $ft1, $fa5, $ft0
+	fmadd.s	$fs5, $ft1, $fa5, $ft0
 	fmul.s	$fa2, $fa2, $ft2
 	fmadd.s	$fa2, $ft3, $fa3, $fa2
 	fld.s	$fa3, $fp, 712
 	fld.s	$ft0, $fp, 644
 	fld.s	$ft4, $fp, 640
 	fld.s	$ft5, $fp, 648
-	fmadd.s	$fs4, $fa3, $fa5, $fa2
+	fmadd.s	$fs1, $fa3, $fa5, $fa2
 	fmul.s	$fa2, $fa1, $ft0
 	fmadd.s	$fa2, $fa0, $ft4, $fa2
-	fmadd.s	$fs2, $fa4, $ft5, $fa2
+	fmadd.s	$fs0, $fa4, $ft5, $fa2
 	fmul.s	$fa2, $fa7, $ft0
 	fmadd.s	$fa2, $fa6, $ft4, $fa2
-	fmadd.s	$fs7, $ft1, $ft5, $fa2
+	fmadd.s	$fs6, $ft1, $ft5, $fa2
 	fmul.s	$fa2, $ft2, $ft0
 	fmadd.s	$fa2, $ft3, $ft4, $fa2
 	fld.s	$fa5, $fp, 660
 	fld.s	$ft0, $fp, 656
 	fld.s	$ft4, $fp, 664
-	fmadd.s	$ft5, $fa3, $ft5, $fa2
+	fmadd.s	$fs7, $fa3, $ft5, $fa2
 	fmul.s	$fa1, $fa1, $fa5
 	fmadd.s	$fa0, $fa0, $ft0, $fa1
-	fmadd.s	$ft6, $fa4, $ft4, $fa0
+	fmadd.s	$ft5, $fa4, $ft4, $fa0
 	fmul.s	$fa0, $fa7, $fa5
 	fmadd.s	$fa0, $fa6, $ft0, $fa0
 	fmadd.s	$ft1, $ft1, $ft4, $fa0
@@ -3878,14 +3866,14 @@ _ZN17btSoftBodyHelpers9DrawFrameEP10btSoftBodyP12btIDebugDraw: # @_ZN17btSoftBod
 	fmadd.s	$fa0, $ft3, $ft0, $fa0
 	fmadd.s	$ft2, $fa3, $ft4, $fa0
 	movgr2fr.w	$ft3, $zero
-	fmul.s	$fa0, $fs6, $ft3
-	fadd.s	$fa1, $fs5, $fa0
-	fmadd.s	$fa1, $fs4, $ft3, $fa1
-	fmul.s	$fa2, $fs7, $ft3
-	fadd.s	$fa3, $fs2, $fa2
-	fmadd.s	$fa3, $ft5, $ft3, $fa3
+	fmul.s	$fa0, $fs5, $ft3
+	fadd.s	$fa1, $fs3, $fa0
+	fmadd.s	$fa1, $fs1, $ft3, $fa1
+	fmul.s	$fa2, $fs6, $ft3
+	fadd.s	$fa3, $fs0, $fa2
+	fmadd.s	$fa3, $fs7, $ft3, $fa3
 	fmul.s	$fa4, $ft1, $ft3
-	fadd.s	$fa5, $ft6, $fa4
+	fadd.s	$fa5, $ft5, $fa4
 	fmadd.s	$fa5, $ft2, $ft3, $fa5
 	fmul.s	$fa6, $fa3, $fa3
 	fmadd.s	$fa6, $fa1, $fa1, $fa6
@@ -3894,40 +3882,40 @@ _ZN17btSoftBodyHelpers9DrawFrameEP10btSoftBodyP12btIDebugDraw: # @_ZN17btSoftBod
 	fmul.s	$fa1, $fa1, $fa6
 	fmul.s	$fa3, $fa3, $fa6
 	fmul.s	$fa5, $fa5, $fa6
-	fmadd.s	$fa6, $fs5, $ft3, $fs6
-	fmadd.s	$fa6, $fs4, $ft3, $fa6
-	fmadd.s	$fa7, $fs2, $ft3, $fs7
-	fmadd.s	$fa7, $ft5, $ft3, $fa7
-	fst.s	$ft1, $sp, 52                   # 4-byte Folded Spill
-	fmadd.s	$ft0, $ft6, $ft3, $ft1
+	fmadd.s	$fa6, $fs3, $ft3, $fs5
+	fmadd.s	$fa6, $fs1, $ft3, $fa6
+	fmadd.s	$fa7, $fs0, $ft3, $fs6
+	fmadd.s	$fa7, $fs7, $ft3, $fa7
+	fst.s	$ft1, $sp, 56                   # 4-byte Folded Spill
+	fmadd.s	$ft0, $ft5, $ft3, $ft1
 	fmadd.s	$ft0, $ft2, $ft3, $ft0
 	fmul.s	$ft1, $fa7, $fa7
 	fmadd.s	$ft1, $fa6, $fa6, $ft1
 	fmadd.s	$ft1, $ft0, $ft0, $ft1
 	frsqrt.s	$ft1, $ft1
-	fmul.s	$fs1, $fa6, $ft1
-	fmul.s	$fs0, $fa7, $ft1
-	fmul.s	$fs3, $ft0, $ft1
-	fmadd.s	$fa0, $fs5, $ft3, $fa0
-	fadd.s	$fa0, $fa0, $fs4
-	fmadd.s	$fa2, $fs2, $ft3, $fa2
+	fmul.s	$fs2, $fa6, $ft1
+	fmul.s	$fs4, $fa7, $ft1
+	fmul.s	$fa6, $ft0, $ft1
+	fst.s	$fa6, $sp, 12                   # 4-byte Folded Spill
+	fmadd.s	$fa0, $fs3, $ft3, $fa0
+	fadd.s	$fa0, $fa0, $fs1
+	fmadd.s	$fa2, $fs0, $ft3, $fa2
+	fadd.s	$fa2, $fs7, $fa2
 	fst.s	$ft5, $sp, 60                   # 4-byte Folded Spill
-	fadd.s	$fa2, $ft5, $fa2
-	fst.s	$ft6, $sp, 56                   # 4-byte Folded Spill
-	fst.s	$ft3, $sp, 44                   # 4-byte Folded Spill
-	fmadd.s	$fa4, $ft6, $ft3, $fa4
-	fst.s	$ft2, $sp, 48                   # 4-byte Folded Spill
+	fst.s	$ft3, $sp, 48                   # 4-byte Folded Spill
+	fmadd.s	$fa4, $ft5, $ft3, $fa4
+	fst.s	$ft2, $sp, 52                   # 4-byte Folded Spill
 	fadd.s	$fa4, $ft2, $fa4
 	fmul.s	$fa6, $fa2, $fa2
 	fmadd.s	$fa6, $fa0, $fa0, $fa6
 	fmadd.s	$fa6, $fa4, $fa4, $fa6
 	frsqrt.s	$fa6, $fa6
 	fmul.s	$fa0, $fa0, $fa6
-	fst.s	$fa0, $sp, 28                   # 4-byte Folded Spill
-	fmul.s	$fa0, $fa2, $fa6
 	fst.s	$fa0, $sp, 20                   # 4-byte Folded Spill
+	fmul.s	$fa0, $fa2, $fa6
+	fst.s	$fa0, $sp, 16                   # 4-byte Folded Spill
 	fmul.s	$fa0, $fa4, $fa6
-	fst.s	$fa0, $sp, 36                   # 4-byte Folded Spill
+	fst.s	$fa0, $sp, 24                   # 4-byte Folded Spill
 	fld.s	$fa0, $sp, 80
 	vldi	$vr4, -1244
 	fmul.s	$fa1, $fa1, $fa4
@@ -3957,14 +3945,15 @@ _ZN17btSoftBodyHelpers9DrawFrameEP10btSoftBodyP12btIDebugDraw: # @_ZN17btSoftBod
 	jirl	$ra, $a4, 0
 	fld.s	$fa0, $sp, 80
 	vldi	$vr3, -1244
-	fmul.s	$fa1, $fs1, $fa3
+	fmul.s	$fa1, $fs2, $fa3
 	fld.s	$fa2, $sp, 84
 	fadd.s	$fa0, $fa1, $fa0
 	fld.s	$fa1, $sp, 88
-	fmul.s	$fa3, $fs0, $fa3
+	fmul.s	$fa3, $fs4, $fa3
 	vldi	$vr4, -1244
 	fadd.s	$fa2, $fa3, $fa2
-	fmul.s	$fa3, $fs3, $fa4
+	fld.s	$fa3, $sp, 12                   # 4-byte Folded Reload
+	fmul.s	$fa3, $fa3, $fa4
 	fadd.s	$fa1, $fa3, $fa1
 	movfr2gr.s	$a0, $fa0
 	movfr2gr.s	$a1, $fa2
@@ -3983,16 +3972,16 @@ _ZN17btSoftBodyHelpers9DrawFrameEP10btSoftBodyP12btIDebugDraw: # @_ZN17btSoftBod
 	addi.d	$a3, $sp, 96
 	move	$a0, $s0
 	jirl	$ra, $a4, 0
-	fld.s	$fa0, $sp, 28                   # 4-byte Folded Reload
+	fld.s	$fa0, $sp, 20                   # 4-byte Folded Reload
 	vldi	$vr2, -1244
 	fmul.s	$fa0, $fa0, $fa2
-	fld.s	$fa1, $sp, 20                   # 4-byte Folded Reload
+	fld.s	$fa1, $sp, 16                   # 4-byte Folded Reload
 	fmul.s	$fa1, $fa1, $fa2
 	vldi	$vr6, -1244
 	fld.s	$fa2, $sp, 80
 	fld.s	$fa3, $sp, 84
 	fld.s	$fa4, $sp, 88
-	fld.s	$fa5, $sp, 36                   # 4-byte Folded Reload
+	fld.s	$fa5, $sp, 24                   # 4-byte Folded Reload
 	fmul.s	$fa5, $fa5, $fa6
 	fadd.s	$fa0, $fa0, $fa2
 	fadd.s	$fa1, $fa1, $fa3
@@ -4017,18 +4006,18 @@ _ZN17btSoftBodyHelpers9DrawFrameEP10btSoftBodyP12btIDebugDraw: # @_ZN17btSoftBod
 	ld.w	$a0, $fp, 548
 	blez	$a0, .LBB11_4
 # %bb.2:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI11_3)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI11_3)
-	fst.s	$fa0, $sp, 36                   # 4-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI11_4)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI11_4)
-	fst.s	$fa0, $sp, 28                   # 4-byte Folded Spill
 	move	$s1, $zero
 	move	$s2, $zero
-	lu12i.w	$s3, 260096
-	fst.s	$fs2, $sp, 40                   # 4-byte Folded Spill
-	fst.s	$fs4, $sp, 32                   # 4-byte Folded Spill
-	fst.s	$fs6, $sp, 24                   # 4-byte Folded Spill
+	lu12i.w	$a0, -271156
+	ori	$s4, $a0, 3277
+	lu32i.d	$s4, 0
+	lu12i.w	$a0, 253132
+	ori	$a0, $a0, 3277
+	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
+	fst.s	$fs3, $sp, 44                   # 4-byte Folded Spill
+	fst.s	$fs6, $sp, 40                   # 4-byte Folded Spill
+	fst.s	$fs0, $sp, 36                   # 4-byte Folded Spill
+	fst.s	$fs1, $sp, 32                   # 4-byte Folded Spill
 	.p2align	4, , 16
 .LBB11_3:                               # =>This Inner Loop Header: Depth=1
 	ld.d	$a0, $fp, 560
@@ -4036,97 +4025,99 @@ _ZN17btSoftBodyHelpers9DrawFrameEP10btSoftBodyP12btIDebugDraw: # @_ZN17btSoftBod
 	fld.s	$fa0, $a1, 4
 	fldx.s	$fa1, $a0, $s1
 	fld.s	$fa2, $a1, 8
-	fmul.s	$fa3, $fs6, $fa0
-	fmadd.s	$fa3, $fs5, $fa1, $fa3
-	fmadd.s	$fa3, $fs4, $fa2, $fa3
-	fmul.s	$fa4, $fs7, $fa0
-	fmadd.s	$fa4, $fs2, $fa1, $fa4
-	fld.s	$fa5, $sp, 60                   # 4-byte Folded Reload
-	fmadd.s	$fa4, $fa5, $fa2, $fa4
-	fld.s	$fa5, $sp, 52                   # 4-byte Folded Reload
-	fmul.s	$fa0, $fa5, $fa0
+	fmul.s	$fa3, $fs5, $fa0
+	fmadd.s	$fa3, $fs3, $fa1, $fa3
+	fmadd.s	$fa3, $fs1, $fa2, $fa3
+	fmul.s	$fa4, $fs6, $fa0
+	fmadd.s	$fa4, $fs0, $fa1, $fa4
+	fmadd.s	$fa4, $fs7, $fa2, $fa4
 	fld.s	$fa5, $sp, 56                   # 4-byte Folded Reload
+	fmul.s	$fa0, $fa5, $fa0
+	fld.s	$fa5, $sp, 60                   # 4-byte Folded Reload
 	fmadd.s	$fa0, $fa5, $fa1, $fa0
 	fld.s	$fa1, $sp, 80
 	fld.s	$fa5, $sp, 84
 	fld.s	$fa6, $sp, 88
-	fld.s	$fa7, $sp, 48                   # 4-byte Folded Reload
+	fld.s	$fa7, $sp, 52                   # 4-byte Folded Reload
 	fmadd.s	$fa0, $fa7, $fa2, $fa0
-	fmov.s	$fs2, $fs7
+	fmov.s	$fs6, $fs7
 	fadd.s	$fs7, $fa1, $fa3
-	fmov.s	$fs6, $fs5
+	fmov.s	$fs1, $fs5
 	fadd.s	$fs5, $fa5, $fa4
-	fadd.s	$fs3, $fa0, $fa6
-	movfr2gr.s	$s4, $fs7
-	movfr2gr.s	$s5, $fs5
-	movfr2gr.s	$a0, $fs3
-	bstrpick.d	$s7, $a0, 31, 0
-	vreplgr2vr.d	$vr0, $s3
+	fadd.s	$fs4, $fa0, $fa6
+	movfr2gr.s	$s6, $fs7
+	movfr2gr.s	$s7, $fs5
+	movfr2gr.s	$a0, $fs4
+	bstrpick.d	$s3, $a0, 31, 0
+	lu12i.w	$a0, 260096
+	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 64
-	fld.s	$fs0, $sp, 36                   # 4-byte Folded Reload
-	fadd.s	$fa0, $fs7, $fs0
+	movgr2fr.w	$fs3, $s4
+	fadd.s	$fa0, $fs7, $fs3
 	movfr2gr.s	$a0, $fa0
-	bstrins.d	$a0, $s5, 63, 32
+	bstrins.d	$a0, $s7, 63, 32
 	st.d	$a0, $sp, 120
-	st.d	$s7, $sp, 128
-	fld.s	$fs1, $sp, 28                   # 4-byte Folded Reload
-	fadd.s	$fa0, $fs7, $fs1
-	fld.s	$fs4, $sp, 44                   # 4-byte Folded Reload
-	fadd.s	$fa1, $fs5, $fs4
-	fadd.s	$fa2, $fs3, $fs4
+	st.d	$s3, $sp, 128
+	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
+	movgr2fr.w	$fs2, $a0
+	fadd.s	$fa0, $fs7, $fs2
+	fld.s	$fs0, $sp, 48                   # 4-byte Folded Reload
+	fadd.s	$fa1, $fs5, $fs0
+	fadd.s	$fa2, $fs4, $fs0
 	movfr2gr.s	$a0, $fa0
 	ld.d	$a1, $s0, 0
-	movfr2gr.s	$s6, $fa1
-	bstrins.d	$a0, $s6, 63, 32
+	movfr2gr.s	$s8, $fa1
+	bstrins.d	$a0, $s8, 63, 32
 	st.d	$a0, $sp, 96
 	ld.d	$a4, $a1, 40
 	movfr2gr.s	$a0, $fa2
-	bstrpick.d	$s8, $a0, 31, 0
-	st.d	$s8, $sp, 104
+	bstrpick.d	$s5, $a0, 31, 0
+	st.d	$s5, $sp, 104
 	addi.d	$a1, $sp, 120
 	addi.d	$a2, $sp, 96
 	addi.d	$a3, $sp, 64
 	move	$a0, $s0
 	jirl	$ra, $a4, 0
-	fadd.s	$fa0, $fs5, $fs0
+	fadd.s	$fa0, $fs5, $fs3
 	movfr2gr.s	$a0, $fa0
-	move	$a1, $s4
+	move	$a1, $s6
 	bstrins.d	$a1, $a0, 63, 32
 	st.d	$a1, $sp, 120
-	st.d	$s7, $sp, 128
-	fadd.s	$fa0, $fs7, $fs4
-	fmov.s	$fs7, $fs2
+	st.d	$s3, $sp, 128
+	fadd.s	$fa0, $fs7, $fs0
+	fmov.s	$fs7, $fs6
 	ld.d	$a0, $s0, 0
-	fadd.s	$fa1, $fs5, $fs1
-	fmov.s	$fs5, $fs6
-	fld.s	$fs6, $sp, 24                   # 4-byte Folded Reload
-	fld.s	$fs4, $sp, 32                   # 4-byte Folded Reload
-	fld.s	$fs2, $sp, 40                   # 4-byte Folded Reload
-	movfr2gr.s	$s7, $fa0
+	fadd.s	$fa1, $fs5, $fs2
+	fmov.s	$fs5, $fs1
+	fld.s	$fs1, $sp, 32                   # 4-byte Folded Reload
+	fld.s	$fs0, $sp, 36                   # 4-byte Folded Reload
+	fld.s	$fs6, $sp, 40                   # 4-byte Folded Reload
+	movfr2gr.s	$s3, $fa0
 	movfr2gr.s	$a1, $fa1
-	move	$a2, $s7
+	move	$a2, $s3
 	ld.d	$a4, $a0, 40
 	bstrins.d	$a2, $a1, 63, 32
 	st.d	$a2, $sp, 96
-	st.d	$s8, $sp, 104
+	st.d	$s5, $sp, 104
 	addi.d	$a1, $sp, 120
 	addi.d	$a2, $sp, 96
 	addi.d	$a3, $sp, 64
 	move	$a0, $s0
 	jirl	$ra, $a4, 0
-	fadd.s	$fa0, $fs3, $fs0
-	bstrins.d	$s4, $s5, 63, 32
+	fadd.s	$fa0, $fs4, $fs3
+	fld.s	$fs3, $sp, 44                   # 4-byte Folded Reload
+	bstrins.d	$s6, $s7, 63, 32
 	movfr2gr.s	$a0, $fa0
 	bstrpick.d	$a0, $a0, 31, 0
-	st.d	$s4, $sp, 120
+	st.d	$s6, $sp, 120
 	st.d	$a0, $sp, 128
 	ld.d	$a0, $s0, 0
-	fadd.s	$fa0, $fs3, $fs1
-	bstrins.d	$s7, $s6, 63, 32
+	fadd.s	$fa0, $fs4, $fs2
+	bstrins.d	$s3, $s8, 63, 32
 	movfr2gr.s	$a1, $fa0
 	ld.d	$a4, $a0, 40
 	bstrpick.d	$a0, $a1, 31, 0
-	st.d	$s7, $sp, 96
+	st.d	$s3, $sp, 96
 	st.d	$a0, $sp, 104
 	addi.d	$a1, $sp, 120
 	addi.d	$a2, $sp, 96
@@ -5701,12 +5692,8 @@ _ZN17btSoftBodyHelpers11CalculateUVEiiiii: # @_ZN17btSoftBodyHelpers11CalculateU
 	.word	.LBB15_3-.LJTI15_0
 	.word	.LBB15_4-.LJTI15_0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_i
-.LCPI16_0:
-	.word	0x40490fdb                      # float 3.14159274
 	.text
-	.globl	_ZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_i
+	.globl	_ZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_i # -- Begin function _ZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_i
 	.p2align	5
 	.type	_ZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_i,@function
 _ZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_i: # @_ZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_i
@@ -5763,8 +5750,9 @@ _ZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_i: 
 	move	$s4, $zero
 	movgr2fr.d	$fa0, $s5
 	ffint.s.l	$fs2, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI16_0)
-	fld.s	$fs3, $a0, %pc_lo12(.LCPI16_0)
+	lu12i.w	$a0, 263312
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fs3, $a0
 	movgr2fr.w	$fs4, $zero
 	vldi	$vr3, -1184
 	ori	$s5, $zero, 2

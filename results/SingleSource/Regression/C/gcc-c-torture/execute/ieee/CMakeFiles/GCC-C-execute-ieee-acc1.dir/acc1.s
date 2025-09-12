@@ -26,12 +26,7 @@ func:                                   # @func
 .Lfunc_end0:
 	.size	func, .Lfunc_end0-func
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.dword	0x2af665bf1d3e6a8d              # double 1.0000000000000001E-101
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -42,8 +37,11 @@ main:                                   # @main
 	addi.d	$a0, $a0, %pc_lo12(.L__const.main.values)
 	pcaddu18i	$ra, %call36(func)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, 119782
+	ori	$a0, $a0, 2701
+	lu32i.d	$a0, 419263
+	lu52i.d	$a0, $a0, 687
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_2
 # %bb.1:

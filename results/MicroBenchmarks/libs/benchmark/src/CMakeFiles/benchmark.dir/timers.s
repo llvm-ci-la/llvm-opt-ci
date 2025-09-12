@@ -3,12 +3,8 @@
 	.globl	_ZSt21ios_base_library_initv
 
                                         # End of file scope inline assembly
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark15ProcessCPUUsageEv
-.LCPI0_0:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
 	.text
-	.hidden	_ZN9benchmark15ProcessCPUUsageEv
+	.hidden	_ZN9benchmark15ProcessCPUUsageEv # -- Begin function _ZN9benchmark15ProcessCPUUsageEv
 	.globl	_ZN9benchmark15ProcessCPUUsageEv
 	.p2align	5
 	.type	_ZN9benchmark15ProcessCPUUsageEv,@function
@@ -28,12 +24,15 @@ _ZN9benchmark15ProcessCPUUsageEv:       # @_ZN9benchmark15ProcessCPUUsageEv
 	ld.d	$a0, $sp, 8
 	ld.d	$a1, $sp, 16
 	movgr2fr.d	$fa0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	ffint.d.l	$fa0, $fa0
-	movgr2fr.d	$fa2, $a1
-	ffint.d.l	$fa2, $fa2
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32
 	ret
@@ -77,12 +76,8 @@ _ZN9benchmark12_GLOBAL__N_115DiagnoseAndExitEPKc: # @_ZN9benchmark12_GLOBAL__N_1
 	.size	_ZN9benchmark12_GLOBAL__N_115DiagnoseAndExitEPKc, .Lfunc_end1-_ZN9benchmark12_GLOBAL__N_115DiagnoseAndExitEPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark14ThreadCPUUsageEv
-.LCPI2_0:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
 	.text
-	.hidden	_ZN9benchmark14ThreadCPUUsageEv
+	.hidden	_ZN9benchmark14ThreadCPUUsageEv # -- Begin function _ZN9benchmark14ThreadCPUUsageEv
 	.globl	_ZN9benchmark14ThreadCPUUsageEv
 	.p2align	5
 	.type	_ZN9benchmark14ThreadCPUUsageEv,@function
@@ -102,12 +97,15 @@ _ZN9benchmark14ThreadCPUUsageEv:        # @_ZN9benchmark14ThreadCPUUsageEv
 	ld.d	$a0, $sp, 8
 	ld.d	$a1, $sp, 16
 	movgr2fr.d	$fa0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_0)
 	ffint.d.l	$fa0, $fa0
-	movgr2fr.d	$fa2, $a1
-	ffint.d.l	$fa2, $fa2
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32
 	ret

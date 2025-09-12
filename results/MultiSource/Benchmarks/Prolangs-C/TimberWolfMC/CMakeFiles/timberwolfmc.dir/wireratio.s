@@ -1,12 +1,6 @@
 	.file	"wireratio.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function wireratio
-.LCPI0_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-.LCPI0_1:
-	.dword	0x400a666666666666              # double 3.2999999999999998
 	.text
-	.globl	wireratio
+	.globl	wireratio                       # -- Begin function wireratio
 	.p2align	5
 	.type	wireratio,@function
 wireratio:                              # @wireratio
@@ -91,8 +85,8 @@ wireratio:                              # @wireratio
 	lu12i.w	$a0, 293601
 	ori	$a0, $a0, 1147
 	lu32i.d	$a0, 293601
-	lu52i.d	$a0, $a0, 1016
-	st.d	$a0, $s1, %pc_lo12(a)
+	lu52i.d	$s2, $a0, 1016
+	st.d	$s2, $s1, %pc_lo12(a)
 	addi.d	$a0, $sp, 24
 	addi.d	$a1, $sp, 16
 	pcaddu18i	$ra, %call36(findratio)
@@ -101,20 +95,22 @@ wireratio:                              # @wireratio
 	fld.d	$fa1, $sp, 24
 	vldi	$vr2, -892
 	fadd.d	$fa2, $fs1, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr4, -1020
-	fadd.d	$fa4, $fa2, $fa4
-	vldi	$vr5, -908
-	fmadd.d	$fa4, $fa4, $fa5, $fa3
-	movgr2fr.d	$fa5, $zero
-	fcmp.clt.d	$fcc0, $fa5, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_1)
-	fsel	$fa3, $fa3, $fa4, $fcc0
-	fst.d	$fa3, $s1, %pc_lo12(a)
+	vldi	$vr3, -1020
+	fadd.d	$fa3, $fa2, $fa3
+	vldi	$vr4, -908
+	movgr2fr.d	$fa5, $s2
+	fmadd.d	$fa3, $fa3, $fa4, $fa5
+	movgr2fr.d	$fa4, $zero
+	fcmp.clt.d	$fcc0, $fa4, $fa2
+	fsel	$fa2, $fa5, $fa3, $fcc0
+	fst.d	$fa2, $s1, %pc_lo12(a)
 	fsub.d	$fs3, $fa0, $fa1
-	fsub.d	$fa1, $fa2, $fs0
+	lu12i.w	$a0, 419430
+	ori	$a0, $a0, 1638
+	lu32i.d	$a0, -367002
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa0, $a0
+	fsub.d	$fa1, $fa0, $fs0
 	vldi	$vr0, -988
 	pcaddu18i	$ra, %call36(pow)
 	jirl	$ra, $ra, 0
@@ -252,44 +248,12 @@ probtree:                               # @probtree
 .Lfunc_end1:
 	.size	probtree, .Lfunc_end1-probtree
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function findratio
-.LCPI2_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI2_1:
-	.dword	0x4059000000000000              # double 100
-.LCPI2_2:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-.LCPI2_3:
-	.dword	0xbf847ae147ae147b              # double -0.01
-.LCPI2_4:
-	.dword	0x4040000000000000              # double 32
-.LCPI2_5:
-	.dword	0xc042000000000000              # double -36
-.LCPI2_6:
-	.dword	0x3fd999999999999a              # double 0.40000000000000002
-.LCPI2_7:
-	.dword	0x4044000000000000              # double 40
-.LCPI2_8:
-	.dword	0xc04e000000000000              # double -60
-.LCPI2_9:
-	.dword	0x404e000000000000              # double 60
-.LCPI2_10:
-	.dword	0xc056800000000000              # double -90
-.LCPI2_11:
-	.dword	0x3fe5555555555555              # double 0.66666666666666663
-.LCPI2_12:
-	.dword	0x3fc5555555555555              # double 0.16666666666666666
-.LCPI2_13:
-	.dword	0x3ff5555555555555              # double 1.3333333333333333
-.LCPI2_14:
-	.dword	0xbfe5555555555555              # double -0.66666666666666663
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI2_15:
+	.p2align	4, 0x0                          # -- Begin function findratio
+.LCPI2_0:
 	.dword	0xc000000000000000              # double -2
 	.dword	0xc010000000000000              # double -4
-.LCPI2_16:
+.LCPI2_1:
 	.dword	0xc010000000000000              # double -4
 	.dword	0x4000000000000000              # double 2
 	.text
@@ -298,21 +262,22 @@ probtree:                               # @probtree
 	.type	findratio,@function
 findratio:                              # @findratio
 # %bb.0:
-	addi.d	$sp, $sp, -1696
-	st.d	$ra, $sp, 1688                  # 8-byte Folded Spill
-	st.d	$fp, $sp, 1680                  # 8-byte Folded Spill
-	st.d	$s0, $sp, 1672                  # 8-byte Folded Spill
-	st.d	$s1, $sp, 1664                  # 8-byte Folded Spill
-	st.d	$s2, $sp, 1656                  # 8-byte Folded Spill
-	st.d	$s3, $sp, 1648                  # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 1640                 # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 1632                 # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 1624                 # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 1616                 # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 1608                 # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 1600                 # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 1592                 # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 1584                 # 8-byte Folded Spill
+	addi.d	$sp, $sp, -1712
+	st.d	$ra, $sp, 1704                  # 8-byte Folded Spill
+	st.d	$fp, $sp, 1696                  # 8-byte Folded Spill
+	st.d	$s0, $sp, 1688                  # 8-byte Folded Spill
+	st.d	$s1, $sp, 1680                  # 8-byte Folded Spill
+	st.d	$s2, $sp, 1672                  # 8-byte Folded Spill
+	st.d	$s3, $sp, 1664                  # 8-byte Folded Spill
+	st.d	$s4, $sp, 1656                  # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 1648                 # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 1640                 # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 1632                 # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 1624                 # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 1616                 # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 1608                 # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 1600                 # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 1592                 # 8-byte Folded Spill
 	pcalau12i	$s0, %pc_hi20(N)
 	fld.d	$fs0, $s0, %pc_lo12(N)
 	fsqrt.d	$fa0, $fs0
@@ -320,50 +285,57 @@ findratio:                              # @findratio
 	move	$fp, $a1
 	bceqz	$fcc0, .LBB2_40
 .LBB2_1:                                # %.split588
-	move	$a3, $zero
+	move	$a4, $zero
 	pcalau12i	$s1, %pc_hi20(rootN)
 	fst.d	$fa0, $s1, %pc_lo12(rootN)
 	vldi	$vr1, -784
 	fadd.d	$ft13, $fa0, $fa1
 	vldi	$vr2, -1000
-	fmul.d	$fa4, $fs0, $fa2
+	fmul.d	$fa3, $fs0, $fa2
 	vldi	$vr2, -1024
-	vldi	$vr3, -864
-	fmadd.d	$fa6, $fa0, $fa3, $fa2
+	vldi	$vr4, -864
+	fmadd.d	$fa5, $fa0, $fa4, $fa2
 	vldi	$vr2, -856
 	fmul.d	$fa2, $fa0, $fa2
-	vldi	$vr3, -984
-	fmadd.d	$fa2, $fs0, $fa3, $fa2
-	fadd.d	$fa7, $fa2, $fa1
+	vldi	$vr4, -984
+	fmadd.d	$fa2, $fs0, $fa4, $fa2
+	fadd.d	$fa6, $fa2, $fa1
 	vldi	$vr1, -880
 	fmul.d	$fa1, $fa0, $fa1
-	fmadd.d	$fa1, $fs0, $fa3, $fa1
+	fmadd.d	$fa1, $fs0, $fa4, $fa1
 	vldi	$vr2, -896
-	fadd.d	$ft0, $fa1, $fa2
+	fadd.d	$fa7, $fa1, $fa2
 	pcalau12i	$a1, %pc_hi20(CC)
 	fld.d	$fa2, $a1, %pc_lo12(CC)
-	pcalau12i	$a4, %pc_hi20(.LCPI2_0)
-	fld.d	$fa5, $a4, %pc_lo12(.LCPI2_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_2)
-	fld.d	$ft1, $a1, %pc_lo12(.LCPI2_2)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_1)
-	fld.d	$fa3, $a1, %pc_lo12(.LCPI2_1)
+	ori	$a2, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
+	movgr2fr.d	$fa4, $a1
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a3, $a1, 1019
+	movgr2fr.d	$ft0, $a3
+	lu32i.d	$a2, -458752
+	lu52i.d	$a2, $a2, 1029
+	movgr2fr.d	$ft1, $a2
 	movgr2fr.d	$fa1, $zero
 	ori	$a6, $zero, 100
-	lu12i.w	$a1, 244
-	ori	$a1, $a1, 575
-                                        # implicit-def: $r6
+	lu12i.w	$a2, 244
+	ori	$a2, $a2, 575
+                                        # implicit-def: $r7
 .LBB2_2:                                # =>This Loop Header: Depth=1
                                         #     Child Loop BB2_4 Depth 2
                                         #     Child Loop BB2_10 Depth 2
-	bstrpick.d	$a5, $a3, 31, 0
+	bstrpick.d	$a5, $a4, 31, 0
 	movgr2fr.d	$ft2, $a5
 	ffint.d.l	$ft2, $ft2
-	beqz	$a3, .LBB2_8
+	beqz	$a4, .LBB2_8
 # %bb.3:                                # %.split.us.preheader
                                         #   in Loop: Header=BB2_2 Depth=1
 	move	$a5, $zero
-	addi.w	$a7, $a2, 0
+	addi.w	$a7, $a3, 0
 	.p2align	4, , 16
 .LBB2_4:                                # %.split.us
                                         #   Parent Loop BB2_2 Depth=1
@@ -371,17 +343,17 @@ findratio:                              # @findratio
 	bstrpick.d	$t0, $a5, 31, 0
 	movgr2fr.d	$ft3, $t0
 	ffint.d.l	$ft3, $ft3
-	fdiv.d	$ft3, $ft3, $fa3
+	fdiv.d	$ft3, $ft3, $ft1
 	fadd.d	$ft12, $ft3, $ft2
 	fcmp.clt.d	$fcc0, $ft13, $ft12
 	bcnez	$fcc0, .LBB2_15
 # %bb.5:                                #   in Loop: Header=BB2_4 Depth=2
-	fdiv.d	$ft3, $ft12, $fa4
+	fdiv.d	$ft3, $ft12, $fa3
 	fmul.d	$ft4, $ft12, $ft12
-	fmul.d	$ft5, $fa6, $ft4
+	fmul.d	$ft5, $fa5, $ft4
 	fmadd.d	$ft4, $ft4, $ft12, $ft5
-	fmadd.d	$ft4, $fa7, $ft12, $ft4
-	fadd.d	$ft4, $ft0, $ft4
+	fmadd.d	$ft4, $fa6, $ft12, $ft4
+	fadd.d	$ft4, $fa7, $ft4
 	fmul.d	$ft3, $ft3, $ft4
 	fcmp.cule.d	$fcc0, $ft3, $fa2
 	movcf2gr	$t0, $fcc0
@@ -389,79 +361,79 @@ findratio:                              # @findratio
 	ori	$t0, $t0, 1
 	bne	$t0, $a7, .LBB2_18
 # %bb.6:                                #   in Loop: Header=BB2_4 Depth=2
-	fsub.d	$fa5, $ft3, $fa2
-	fneg.d	$ft3, $fa5
-	fcmp.cult.d	$fcc0, $fa5, $fa1
+	fsub.d	$fa4, $ft3, $fa2
+	fneg.d	$ft3, $fa4
+	fcmp.cult.d	$fcc0, $fa4, $fa1
 	addi.w	$a5, $a5, 1
-	fsel	$fa5, $fa5, $ft3, $fcc0
+	fsel	$fa4, $fa4, $ft3, $fcc0
 	bne	$a5, $a6, .LBB2_4
 # %bb.7:                                # %.loopexit228
                                         #   in Loop: Header=BB2_2 Depth=1
-	move	$a5, $a3
-	addi.w	$a3, $a3, 1
-	blt	$a5, $a1, .LBB2_2
+	move	$a5, $a4
+	addi.w	$a4, $a4, 1
+	blt	$a5, $a2, .LBB2_2
 	b	.LBB2_14
 	.p2align	4, , 16
 .LBB2_8:                                # %.split.peel
                                         #   in Loop: Header=BB2_2 Depth=1
-	fadd.d	$ft12, $ft2, $ft1
+	fadd.d	$ft12, $ft2, $ft0
 	fcmp.clt.d	$fcc0, $ft13, $ft12
 	ori	$a7, $zero, 1
 	bcnez	$fcc0, .LBB2_39
 # %bb.9:                                # %.split.peel.next
                                         #   in Loop: Header=BB2_2 Depth=1
-	fdiv.d	$ft3, $ft12, $fa4
+	fdiv.d	$ft3, $ft12, $fa3
 	fmul.d	$ft4, $ft12, $ft12
-	fmul.d	$ft5, $fa6, $ft4
+	fmul.d	$ft5, $fa5, $ft4
 	fmadd.d	$ft4, $ft4, $ft12, $ft5
-	fmadd.d	$ft4, $fa7, $ft12, $ft4
-	fadd.d	$ft4, $ft0, $ft4
+	fmadd.d	$ft4, $fa6, $ft12, $ft4
+	fadd.d	$ft4, $fa7, $ft4
 	fmul.d	$ft3, $ft3, $ft4
 	fcmp.cule.d	$fcc0, $ft3, $fa2
-	movcf2gr	$a2, $fcc0
-	sub.d	$a2, $zero, $a2
-	ori	$t0, $a2, 1
+	movcf2gr	$a3, $fcc0
+	sub.d	$a3, $zero, $a3
+	ori	$t0, $a3, 1
 	ori	$a5, $zero, 11
 	.p2align	4, , 16
 .LBB2_10:                               # %.split
                                         #   Parent Loop BB2_2 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	bstrpick.d	$a2, $a5, 31, 0
-	movgr2fr.d	$ft3, $a2
+	bstrpick.d	$a3, $a5, 31, 0
+	movgr2fr.d	$ft3, $a3
 	ffint.d.l	$ft3, $ft3
-	fdiv.d	$ft3, $ft3, $fa3
+	fdiv.d	$ft3, $ft3, $ft1
 	fadd.d	$ft12, $ft3, $ft2
 	fcmp.clt.d	$fcc0, $ft13, $ft12
 	bcnez	$fcc0, .LBB2_16
 # %bb.11:                               #   in Loop: Header=BB2_10 Depth=2
-	fdiv.d	$ft3, $ft12, $fa4
+	fdiv.d	$ft3, $ft12, $fa3
 	fmul.d	$ft4, $ft12, $ft12
-	fmul.d	$ft5, $fa6, $ft4
+	fmul.d	$ft5, $fa5, $ft4
 	fmadd.d	$ft4, $ft4, $ft12, $ft5
-	fmadd.d	$ft4, $fa7, $ft12, $ft4
-	fadd.d	$ft4, $ft0, $ft4
+	fmadd.d	$ft4, $fa6, $ft12, $ft4
+	fadd.d	$ft4, $fa7, $ft4
 	fmul.d	$ft3, $ft3, $ft4
 	fcmp.cule.d	$fcc0, $ft3, $fa2
-	movcf2gr	$a2, $fcc0
-	sub.d	$a2, $zero, $a2
-	ori	$a2, $a2, 1
-	addi.w	$a3, $t0, 0
-	bne	$a2, $a3, .LBB2_17
+	movcf2gr	$a3, $fcc0
+	sub.d	$a3, $zero, $a3
+	ori	$a3, $a3, 1
+	addi.w	$a4, $t0, 0
+	bne	$a3, $a4, .LBB2_17
 # %bb.12:                               #   in Loop: Header=BB2_10 Depth=2
-	fsub.d	$fa5, $ft3, $fa2
-	fneg.d	$ft3, $fa5
-	fcmp.cult.d	$fcc0, $fa5, $fa1
+	fsub.d	$fa4, $ft3, $fa2
+	fneg.d	$ft3, $fa4
+	fcmp.cult.d	$fcc0, $fa4, $fa1
 	addi.w	$a5, $a5, 1
-	fsel	$fa5, $fa5, $ft3, $fcc0
-	move	$t0, $a2
+	fsel	$fa4, $fa4, $ft3, $fcc0
+	move	$t0, $a3
 	bne	$a5, $a6, .LBB2_10
 # %bb.13:                               #   in Loop: Header=BB2_2 Depth=1
-	move	$a3, $zero
-	move	$a5, $a3
-	addi.w	$a3, $a3, 1
-	blt	$a5, $a1, .LBB2_2
+	move	$a4, $zero
+	move	$a5, $a4
+	addi.w	$a4, $a4, 1
+	blt	$a5, $a2, .LBB2_2
 .LBB2_14:
-	move	$a3, $zero
+	move	$a4, $zero
 	move	$a7, $zero
                                         # implicit-def: $r9
 	bnez	$a7, .LBB2_19
@@ -471,197 +443,217 @@ findratio:                              # @findratio
 	bnez	$a7, .LBB2_19
 	b	.LBB2_32
 .LBB2_16:
-	move	$a3, $zero
-	move	$a2, $t0
+	move	$a4, $zero
+	move	$a3, $t0
 	bnez	$a7, .LBB2_19
 	b	.LBB2_32
 .LBB2_17:
-	move	$a2, $t0
+	move	$a3, $t0
 .LBB2_18:                               # %.split255.us
-	pcalau12i	$a3, %pc_hi20(.LCPI2_3)
-	fld.d	$fa6, $a3, %pc_lo12(.LCPI2_3)
-	move	$a3, $zero
+	move	$a4, $zero
 	move	$a7, $zero
-	fsub.d	$fa7, $ft3, $fa2
-	fabs.d	$fa7, $fa7
+	fsub.d	$fa5, $ft3, $fa2
+	fabs.d	$fa5, $fa5
+	lu12i.w	$a5, 293601
+	ori	$a5, $a5, 1147
+	lu32i.d	$a5, 293601
+	lu52i.d	$a5, $a5, -1032
+	movgr2fr.d	$fa6, $a5
 	fadd.d	$fa6, $ft12, $fa6
-	fcmp.cult.d	$fcc0, $fa7, $fa5
+	fcmp.cult.d	$fcc0, $fa5, $fa4
 	fsel	$ft12, $fa6, $ft12, $fcc0
                                         # implicit-def: $r9
 	beqz	$a7, .LBB2_32
 .LBB2_19:                               # %.loopexit368
-	blt	$a1, $a3, .LBB2_32
+	blt	$a2, $a4, .LBB2_32
 # %bb.20:                               # %.lr.ph291
-	frecip.d	$fa4, $fa4
-	vldi	$vr5, -896
-	vldi	$vr6, -992
-	fmadd.d	$fa5, $fa0, $fa6, $fa5
-	vldi	$vr6, -840
-	fmul.d	$fa7, $fs0, $fa6
-	vldi	$vr6, -984
-	pcalau12i	$a6, %pc_hi20(.LCPI2_4)
-	fld.d	$ft0, $a6, %pc_lo12(.LCPI2_4)
-	fmadd.d	$fa6, $fa0, $fa6, $fa7
-	vldi	$vr9, -912
-	fadd.d	$fa6, $fa6, $ft1
-	fmul.d	$ft5, $fs0, $ft0
-	fmadd.d	$fa7, $ft5, $fa0, $fa7
-	vldi	$vr12, -880
-	fmadd.d	$ft0, $fa0, $ft4, $fa7
-	vldi	$vr7, -1024
-	fadd.d	$ft0, $ft0, $fa7
-	fmul.d	$ft1, $ft13, $ft13
+	frecip.d	$fa3, $fa3
+	vldi	$vr4, -896
+	vldi	$vr5, -992
+	fmadd.d	$fa4, $fa0, $fa5, $fa4
+	vldi	$vr5, -840
+	fmul.d	$fa6, $fs0, $fa5
+	vldi	$vr5, -984
+	fmadd.d	$fa5, $fa0, $fa5, $fa6
+	vldi	$vr7, -912
+	fadd.d	$fa5, $fa5, $fa7
+	lu52i.d	$a6, $zero, 1028
+	movgr2fr.d	$fa7, $a6
+	fmul.d	$ft4, $fs0, $fa7
+	fmadd.d	$fa6, $ft4, $fa0, $fa6
+	vldi	$vr11, -880
+	fmadd.d	$fa7, $fa0, $ft3, $fa6
+	vldi	$vr6, -1024
+	fadd.d	$fa7, $fa7, $fa6
+	fmul.d	$ft0, $ft13, $ft13
+	fmul.d	$ft1, $ft13, $ft0
 	fmul.d	$ft2, $ft13, $ft1
-	pcalau12i	$a6, %pc_hi20(.LCPI2_5)
-	fld.d	$ft6, $a6, %pc_lo12(.LCPI2_5)
-	fmul.d	$ft3, $ft13, $ft2
-	vldi	$vr15, -976
-	fnmadd.d	$ft4, $fa0, $ft7, $ft4
-	fmul.d	$ft7, $fs0, $ft6
-	vldi	$vr14, -968
-	fmadd.d	$ft6, $fa0, $ft6, $ft7
-	fadd.d	$ft6, $ft6, $fa7
-	fneg.d	$ft6, $ft6
-	fmadd.d	$ft5, $ft5, $fa0, $ft7
-	vldi	$vr15, -1008
-	fadd.d	$ft7, $ft5, $ft7
-	fld.d	$ft5, $a4, %pc_lo12(.LCPI2_0)
-	fneg.d	$ft7, $ft7
-	ori	$a4, $zero, 99
-	addi.w	$a6, $a5, 0
-	move	$t0, $a3
+	vldi	$vr13, -976
+	fnmadd.d	$ft3, $fa0, $ft5, $ft3
+	ori	$a7, $zero, 0
+	ori	$a6, $zero, 0
+	lu32i.d	$a6, 131072
+	lu52i.d	$a6, $a6, -1020
+	movgr2fr.d	$ft5, $a6
+	fmul.d	$ft6, $fs0, $ft5
+	vldi	$vr13, -968
+	fmadd.d	$ft5, $fa0, $ft5, $ft6
+	fadd.d	$ft5, $ft5, $fa6
+	fneg.d	$ft5, $ft5
+	fmadd.d	$ft4, $ft4, $fa0, $ft6
+	vldi	$vr14, -1008
+	fadd.d	$ft4, $ft4, $ft6
+	fneg.d	$ft6, $ft4
+	ori	$a6, $zero, 0
+	lu32i.d	$a6, -97152
+	lu52i.d	$a6, $a6, 1042
+	movgr2fr.d	$ft4, $a6
+	ori	$a6, $zero, 99
+	lu32i.d	$a7, -458752
+	lu52i.d	$a7, $a7, 1029
+	movgr2fr.d	$ft7, $a7
+	addi.w	$a7, $a5, 0
+	move	$t1, $a4
 	b	.LBB2_23
 .LBB2_21:                               #   in Loop: Header=BB2_23 Depth=1
-	move	$a2, $t0
-	move	$t0, $a3
+	move	$a3, $t1
+	move	$t1, $a4
 .LBB2_22:                               # %.loopexit
                                         #   in Loop: Header=BB2_23 Depth=1
-	move	$a7, $t0
-	addi.w	$t0, $t0, 1
-	bge	$a7, $a1, .LBB2_32
+	move	$t0, $t1
+	addi.w	$t1, $t1, 1
+	bge	$t0, $a2, .LBB2_32
 .LBB2_23:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB2_25 Depth 2
                                         #     Child Loop BB2_28 Depth 2
-	slt	$a7, $a3, $t0
-	masknez	$a7, $a5, $a7
-	addi.w	$a7, $a7, 0
-	blt	$a4, $a7, .LBB2_22
+	slt	$t0, $a4, $t1
+	masknez	$t0, $a5, $t0
+	addi.w	$t0, $t0, 0
+	blt	$a6, $t0, .LBB2_22
 # %bb.24:                               # %.lr.ph
                                         #   in Loop: Header=BB2_23 Depth=1
-	bstrpick.d	$a5, $t0, 31, 0
+	bstrpick.d	$a5, $t1, 31, 0
 	movgr2fr.d	$ft8, $a5
 	ffint.d.l	$ft8, $ft8
-	beq	$t0, $a3, .LBB2_28
+	beq	$t1, $a4, .LBB2_28
 	.p2align	4, , 16
 .LBB2_25:                               # %.lr.ph.split.us
                                         #   Parent Loop BB2_23 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	movgr2fr.w	$ft9, $a7
+	movgr2fr.w	$ft9, $t0
 	ffint.d.w	$ft9, $ft9
-	fdiv.d	$ft9, $ft9, $fa3
+	fdiv.d	$ft9, $ft9, $ft7
 	fadd.d	$ft12, $ft9, $ft8
 	fmul.d	$ft9, $ft12, $ft12
 	fmul.d	$ft10, $ft12, $ft9
-	fmul.d	$ft11, $fa5, $ft10
+	fmul.d	$ft11, $fa4, $ft10
 	fneg.d	$ft10, $ft10
 	fmadd.d	$ft10, $ft10, $ft12, $ft11
-	fmadd.d	$ft9, $fa6, $ft9, $ft10
-	fmadd.d	$ft9, $ft0, $ft12, $ft9
-	fmadd.d	$ft9, $ft3, $fa7, $ft9
-	fmadd.d	$ft9, $ft4, $ft2, $ft9
-	fmadd.d	$ft9, $ft6, $ft1, $ft9
-	fmadd.d	$ft9, $ft7, $ft13, $ft9
-	fmul.d	$ft9, $fa4, $ft9
+	fmadd.d	$ft9, $fa5, $ft9, $ft10
+	fmadd.d	$ft9, $fa7, $ft12, $ft9
+	fmadd.d	$ft9, $ft2, $fa6, $ft9
+	fmadd.d	$ft9, $ft3, $ft1, $ft9
+	fmadd.d	$ft9, $ft5, $ft0, $ft9
+	fmadd.d	$ft9, $ft6, $ft13, $ft9
+	fmul.d	$ft9, $fa3, $ft9
 	fcmp.cule.d	$fcc0, $ft9, $fa2
 	movcf2gr	$a5, $fcc0
 	sub.d	$a5, $zero, $a5
 	ori	$a5, $a5, 1
-	addi.w	$t1, $a2, 0
-	bne	$a5, $t1, .LBB2_31
+	addi.w	$t2, $a3, 0
+	bne	$a5, $t2, .LBB2_31
 # %bb.26:                               # %select.unfold.us
                                         #   in Loop: Header=BB2_25 Depth=2
-	fsub.d	$ft5, $ft9, $fa2
-	fneg.d	$ft9, $ft5
-	fcmp.cult.d	$fcc0, $ft5, $fa1
-	addi.w	$a7, $a7, 1
+	fsub.d	$ft4, $ft9, $fa2
+	fneg.d	$ft9, $ft4
+	fcmp.cult.d	$fcc0, $ft4, $fa1
+	addi.w	$t0, $t0, 1
 	ori	$a5, $zero, 100
-	fsel	$ft5, $ft5, $ft9, $fcc0
-	bne	$a7, $a5, .LBB2_25
+	fsel	$ft4, $ft4, $ft9, $fcc0
+	bne	$t0, $a5, .LBB2_25
 	b	.LBB2_22
 	.p2align	4, , 16
 .LBB2_27:                               # %select.unfold
                                         #   in Loop: Header=BB2_28 Depth=2
-	addi.w	$a7, $a7, 1
+	addi.w	$t0, $t0, 1
 	ori	$a5, $zero, 100
-	move	$a2, $t0
-	beq	$a7, $a5, .LBB2_21
+	move	$a3, $t1
+	beq	$t0, $a5, .LBB2_21
 .LBB2_28:                               # %.lr.ph.split
                                         #   Parent Loop BB2_23 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	movgr2fr.w	$ft9, $a7
+	movgr2fr.w	$ft9, $t0
 	ffint.d.w	$ft9, $ft9
-	fdiv.d	$ft9, $ft9, $fa3
+	fdiv.d	$ft9, $ft9, $ft7
 	fadd.d	$ft12, $ft9, $ft8
 	fmul.d	$ft9, $ft12, $ft12
 	fmul.d	$ft10, $ft12, $ft9
-	fmul.d	$ft11, $fa5, $ft10
+	fmul.d	$ft11, $fa4, $ft10
 	fneg.d	$ft10, $ft10
 	fmadd.d	$ft10, $ft10, $ft12, $ft11
-	fmadd.d	$ft9, $fa6, $ft9, $ft10
-	fmadd.d	$ft9, $ft0, $ft12, $ft9
-	fmadd.d	$ft9, $ft3, $fa7, $ft9
-	fmadd.d	$ft9, $ft4, $ft2, $ft9
-	fmadd.d	$ft9, $ft6, $ft1, $ft9
-	fmadd.d	$ft9, $ft7, $ft13, $ft9
-	fmul.d	$ft9, $fa4, $ft9
+	fmadd.d	$ft9, $fa5, $ft9, $ft10
+	fmadd.d	$ft9, $fa7, $ft12, $ft9
+	fmadd.d	$ft9, $ft2, $fa6, $ft9
+	fmadd.d	$ft9, $ft3, $ft1, $ft9
+	fmadd.d	$ft9, $ft5, $ft0, $ft9
+	fmadd.d	$ft9, $ft6, $ft13, $ft9
+	fmul.d	$ft9, $fa3, $ft9
 	fcmp.cule.d	$fcc0, $ft9, $fa2
 	movcf2gr	$a5, $fcc0
 	sub.d	$a5, $zero, $a5
-	ori	$t0, $a5, 1
-	beq	$a6, $a7, .LBB2_27
+	ori	$t1, $a5, 1
+	beq	$a7, $t0, .LBB2_27
 # %bb.29:                               #   in Loop: Header=BB2_28 Depth=2
-	addi.w	$a2, $a2, 0
-	bne	$t0, $a2, .LBB2_31
+	addi.w	$a3, $a3, 0
+	bne	$t1, $a3, .LBB2_31
 # %bb.30:                               #   in Loop: Header=BB2_28 Depth=2
-	fsub.d	$ft5, $ft9, $fa2
-	fneg.d	$ft9, $ft5
-	fcmp.cult.d	$fcc0, $ft5, $fa1
-	fsel	$ft5, $ft5, $ft9, $fcc0
+	fsub.d	$ft4, $ft9, $fa2
+	fneg.d	$ft9, $ft4
+	fcmp.cult.d	$fcc0, $ft4, $fa1
+	fsel	$ft4, $ft4, $ft9, $fcc0
 	b	.LBB2_27
 .LBB2_31:                               # %.loopexit.thread
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa3, $a1, %pc_lo12(.LCPI2_3)
-	fsub.d	$fa4, $ft9, $fa2
-	fabs.d	$fa4, $fa4
-	fadd.d	$fa3, $ft12, $fa3
-	fcmp.cult.d	$fcc0, $fa4, $ft5
-	fsel	$ft12, $fa3, $ft12, $fcc0
+	fsub.d	$fa3, $ft9, $fa2
+	fabs.d	$fa3, $fa3
+	lu12i.w	$a2, 293601
+	ori	$a2, $a2, 1147
+	lu32i.d	$a2, 293601
+	lu52i.d	$a2, $a2, -1032
+	movgr2fr.d	$fa4, $a2
+	fadd.d	$fa4, $ft12, $fa4
+	fcmp.cult.d	$fcc0, $fa3, $ft4
+	fsel	$ft12, $fa4, $ft12, $fcc0
 .LBB2_32:                               # %.loopexit227
 	fmul.d	$ft1, $ft12, $ft12
-	fmul.d	$ft0, $ft12, $ft1
+	fmul.d	$fa7, $ft12, $ft1
 	fcmp.cult.d	$fcc0, $ft13, $ft12
-	fmul.d	$fs7, $ft12, $ft0
+	fmul.d	$fs7, $ft12, $fa7
 	vst	$vr9, $sp, 1488                 # 16-byte Folded Spill
-	fst.d	$ft0, $sp, 1528                 # 8-byte Folded Spill
+	fst.d	$fa7, $sp, 1528                 # 8-byte Folded Spill
 	bceqz	$fcc0, .LBB2_34
 # %bb.33:
 	fmul.d	$fa3, $ft12, $fs7
 	vldi	$vr4, -876
 	vldi	$vr5, -978
 	fmadd.d	$fa4, $fa0, $fa5, $fa4
-	pcalau12i	$a1, %pc_hi20(.LCPI2_7)
-	fld.d	$fa5, $a1, %pc_lo12(.LCPI2_7)
 	fmul.d	$fa4, $fa4, $fs7
-	vldi	$vr6, -896
-	fmadd.d	$fa3, $fa3, $fa6, $fa4
-	fmul.d	$fa4, $fs0, $fa5
-	pcalau12i	$a1, %pc_hi20(.LCPI2_8)
-	fld.d	$fa5, $a1, %pc_lo12(.LCPI2_8)
-	vldi	$vr6, -962
-	fmsub.d	$fa7, $fa0, $fa6, $fa4
-	fmadd.d	$fa3, $fa7, $ft0, $fa3
-	fmul.d	$fa5, $fs0, $fa5
-	fmadd.d	$fa7, $fa4, $fa0, $fa5
+	vldi	$vr5, -896
+	fmadd.d	$fa3, $fa3, $fa5, $fa4
+	ori	$a2, $zero, 0
+	ori	$a3, $zero, 0
+	lu32i.d	$a3, 262144
+	lu52i.d	$a3, $a3, 1028
+	movgr2fr.d	$fa4, $a3
+	fmul.d	$fa4, $fs0, $fa4
+	vldi	$vr5, -962
+	fmsub.d	$fa6, $fa0, $fa5, $fa4
+	fmadd.d	$fa3, $fa6, $fa7, $fa3
+	ori	$a3, $zero, 0
+	lu32i.d	$a3, -131072
+	lu52i.d	$a4, $a3, -1020
+	movgr2fr.d	$fa6, $a4
+	fmul.d	$fa6, $fs0, $fa6
+	fmadd.d	$fa7, $fa4, $fa0, $fa6
 	vldi	$vr8, -1004
 	fmadd.d	$fa7, $fa0, $ft0, $fa7
 	fadd.d	$fa7, $fa7, $ft0
@@ -678,18 +670,19 @@ findratio:                              # @findratio
 	fmul.d	$ft1, $ft13, $fa7
 	fmul.d	$ft2, $ft13, $ft1
 	fmul.d	$ft3, $ft13, $ft2
-	fmadd.d	$fa6, $fa0, $fa6, $ft0
+	fmadd.d	$fa5, $fa0, $fa5, $ft0
 	fneg.d	$ft2, $ft2
-	fmul.d	$fa6, $fa6, $ft2
+	fmul.d	$fa5, $fa5, $ft2
 	vldi	$vr10, -1008
-	pcalau12i	$a1, %pc_hi20(.LCPI2_9)
-	fld.d	$ft4, $a1, %pc_lo12(.LCPI2_9)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_10)
-	fld.d	$ft5, $a1, %pc_lo12(.LCPI2_10)
-	fmadd.d	$fa6, $ft3, $ft2, $fa6
-	fnmadd.d	$fa5, $fa0, $ft4, $fa5
-	fmadd.d	$fa5, $fa5, $ft1, $fa6
-	fmul.d	$fa6, $fs0, $ft5
+	fmadd.d	$fa5, $ft3, $ft2, $fa5
+	lu52i.d	$a3, $a3, 1028
+	movgr2fr.d	$ft3, $a3
+	fnmadd.d	$fa6, $fa0, $ft3, $fa6
+	fmadd.d	$fa5, $fa6, $ft1, $fa5
+	lu32i.d	$a2, 425984
+	lu52i.d	$a2, $a2, -1019
+	movgr2fr.d	$fa6, $a2
+	fmul.d	$fa6, $fs0, $fa6
 	fmadd.d	$fa6, $fa4, $fa0, $fa6
 	vldi	$vr9, -972
 	fmadd.d	$fa6, $fa0, $ft1, $fa6
@@ -702,12 +695,12 @@ findratio:                              # @findratio
 	fmadd.d	$fa4, $fa4, $fa0, $fa6
 	fmadd.d	$fa4, $fa0, $ft0, $fa4
 	fadd.d	$fa4, $fa4, $ft2
-	pcalau12i	$a1, %pc_hi20(.LCPI2_6)
-	fld.d	$fa6, $a1, %pc_lo12(.LCPI2_6)
 	fneg.d	$fa4, $fa4
 	fmadd.d	$fa4, $fa4, $ft13, $fa5
 	fadd.d	$fa3, $fa4, $fa3
-	fmul.d	$fa3, $fa3, $fa6
+	lu52i.d	$a1, $a1, 1021
+	movgr2fr.d	$fa4, $a1
+	fmul.d	$fa3, $fa3, $fa4
 	vldi	$vr4, -1000
 	fmul.d	$fa2, $fa2, $fa4
 	fmul.d	$fa2, $fs0, $fa2
@@ -717,7 +710,7 @@ findratio:                              # @findratio
 	vldi	$vr3, -1004
 	vldi	$vr4, -850
 	fmadd.d	$fa3, $fa0, $fa4, $fa3
-	fmul.d	$fa3, $fa3, $ft0
+	fmul.d	$fa3, $fa3, $fa7
 	vldi	$vr5, -1024
 	fmadd.d	$fa3, $fs7, $fa5, $fa3
 	vldi	$vr5, -834
@@ -737,27 +730,30 @@ findratio:                              # @findratio
 	fadd.d	$fa3, $fa4, $fa3
 	vldi	$vr4, -1000
 	fmul.d	$fa2, $fa2, $fa4
-	pcalau12i	$a1, %pc_hi20(.LCPI2_6)
-	fld.d	$fa4, $a1, %pc_lo12(.LCPI2_6)
 	fmul.d	$fa2, $fs0, $fa2
 	fdiv.d	$fa2, $fa2, $ft12
 	fdiv.d	$fa2, $fa3, $fa2
-	fmul.d	$fa2, $fa2, $fa4
+	lu52i.d	$a1, $a1, 1021
+	movgr2fr.d	$fa3, $a1
+	fmul.d	$fa2, $fa2, $fa3
 .LBB2_35:
-	pcalau12i	$a1, %pc_hi20(.LCPI2_11)
-	fld.d	$fa3, $a1, %pc_lo12(.LCPI2_11)
+	lu12i.w	$a1, 349525
+	ori	$s2, $a1, 1365
+	lu32i.d	$s2, 349525
+	lu52i.d	$a1, $s2, 1022
+	movgr2fr.d	$fa3, $a1
 	fst.d	$fa3, $sp, 1456                 # 8-byte Folded Spill
 	fmul.d	$fa0, $fa0, $fa3
 	fst.d	$fa0, $sp, 1480                 # 8-byte Folded Spill
 	fdiv.d	$fa0, $fa0, $fa2
 	fst.d	$fa0, $a0, 0
-	pcalau12i	$s3, %pc_hi20(a)
-	fld.d	$fa2, $s3, %pc_lo12(a)
+	pcalau12i	$s4, %pc_hi20(a)
+	fld.d	$fa2, $s4, %pc_lo12(a)
 	pcalau12i	$a0, %pc_hi20(bb)
 	fld.d	$fa0, $a0, %pc_lo12(bb)
 	fadd.d	$fa3, $fa2, $fa0
-	pcalau12i	$s2, %pc_hi20(c)
-	fst.d	$fa3, $s2, %pc_lo12(c)
+	pcalau12i	$s3, %pc_hi20(c)
+	fst.d	$fa3, $s3, %pc_lo12(c)
 	fneg.d	$fa0, $fa1
 	fmul.d	$fs1, $fa2, $fa0
 	fcmp.cule.d	$fcc0, $ft12, $ft13
@@ -805,13 +801,13 @@ findratio:                              # @findratio
 	fmov.d	$fa0, $fs0
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_12)
-	fld.d	$fs5, $a0, %pc_lo12(.LCPI2_12)
 	vld	$vr1, $sp, 1568                 # 16-byte Folded Reload
 	fdiv.d	$fa0, $fa0, $fa1
 	vld	$vr1, $sp, 1552                 # 16-byte Folded Reload
 	fdiv.d	$fa1, $fs4, $fa1
 	fsub.d	$fa0, $fa0, $fa1
+	lu52i.d	$a0, $s2, 1020
+	movgr2fr.d	$fs5, $a0
 	fmul.d	$fa0, $fa0, $fs5
 	vst	$vr0, $sp, 1232                 # 16-byte Folded Spill
 	fmov.d	$fa0, $fs3
@@ -880,7 +876,7 @@ findratio:                              # @findratio
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 544                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 576                  # 16-byte Folded Spill
 	fmov.d	$fa0, $fs2
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
@@ -896,7 +892,7 @@ findratio:                              # @findratio
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 448                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 480                  # 16-byte Folded Spill
 	fmov.d	$fa0, $fs0
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
@@ -906,7 +902,7 @@ findratio:                              # @findratio
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 480                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 496                  # 16-byte Folded Spill
 	fmov.d	$fa0, $fs2
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
@@ -1028,12 +1024,12 @@ findratio:                              # @findratio
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 592                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 608                  # 16-byte Folded Spill
 	fmov.d	$fa0, $fs0
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 528                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 544                  # 16-byte Folded Spill
 	vld	$vr0, $sp, 1504                 # 16-byte Folded Reload
 	vldi	$vr1, -784
 	fadd.d	$fa0, $fa0, $fa1
@@ -1077,11 +1073,11 @@ findratio:                              # @findratio
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
 	fmov.d	$fs4, $fa0
-	fst.d	$fa0, $sp, 576                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 536                  # 8-byte Folded Spill
 	fmov.d	$fa0, $fs1
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $sp, 568                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 528                  # 8-byte Folded Spill
 	fld.d	$fa2, $s1, %pc_lo12(rootN)
 	vst	$vr2, $sp, 1536                 # 16-byte Folded Spill
 	vld	$vr1, $sp, 1568                 # 16-byte Folded Reload
@@ -1090,16 +1086,16 @@ findratio:                              # @findratio
 	fdiv.d	$fa1, $fs4, $fa0
 	fsub.d	$fa0, $fa3, $fa1
 	fmul.d	$fa0, $fa2, $fa0
-	fst.d	$fa0, $sp, 584                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 568                  # 8-byte Folded Spill
 	fmov.d	$fa0, $fs3
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
 	fmov.d	$fs4, $fa0
-	fst.d	$fa0, $sp, 472                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 464                  # 8-byte Folded Spill
 	fmov.d	$fa0, $fs2
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $sp, 464                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 456                  # 8-byte Folded Spill
 	vld	$vr1, $sp, 1568                 # 16-byte Folded Reload
 	fdiv.d	$fa2, $fa0, $fa1
 	vld	$vr0, $sp, 1552                 # 16-byte Folded Reload
@@ -1107,7 +1103,7 @@ findratio:                              # @findratio
 	fsub.d	$fa0, $fa2, $fa1
 	vld	$vr1, $sp, 1536                 # 16-byte Folded Reload
 	fmul.d	$fa0, $fa1, $fa0
-	fst.d	$fa0, $sp, 504                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 472                  # 8-byte Folded Spill
 	fmov.d	$fa0, $fs0
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
@@ -1138,20 +1134,20 @@ findratio:                              # @findratio
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 896                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 880                  # 16-byte Folded Spill
 	fmov.d	$fa0, $fs1
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_13)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_13)
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 832                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 848                  # 16-byte Folded Spill
 	vld	$vr0, $sp, 1536                 # 16-byte Folded Reload
-	vldi	$vr2, -1000
-	fmul.d	$fa0, $fa0, $fa2
-	fst.d	$fa0, $sp, 808                  # 8-byte Folded Spill
-	vld	$vr0, $sp, 1360                 # 16-byte Folded Reload
+	vldi	$vr1, -1000
 	fmul.d	$fa0, $fa0, $fa1
+	fst.d	$fa0, $sp, 792                  # 8-byte Folded Spill
+	lu52i.d	$a0, $s2, 1023
+	movgr2fr.d	$fa0, $a0
+	vld	$vr1, $sp, 1360                 # 16-byte Folded Reload
+	fmul.d	$fa0, $fa1, $fa0
 	vst	$vr0, $sp, 736                  # 16-byte Folded Spill
 	fmov.d	$fa0, $fs3
 	pcaddu18i	$ra, %call36(exp)
@@ -1172,7 +1168,7 @@ findratio:                              # @findratio
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 880                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 896                  # 16-byte Folded Spill
 	fmov.d	$fa0, $fs3
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
@@ -1225,7 +1221,7 @@ findratio:                              # @findratio
 	vst	$vr0, $sp, 320                  # 16-byte Folded Spill
 	vld	$vr1, $sp, 1568                 # 16-byte Folded Reload
 	fdiv.d	$fa2, $fa0, $fa1
-	fld.d	$fa3, $s3, %pc_lo12(a)
+	fld.d	$fa3, $s4, %pc_lo12(a)
 	vst	$vr3, $sp, 1408                 # 16-byte Folded Spill
 	vld	$vr1, $sp, 1344                 # 16-byte Folded Reload
 	vld	$vr0, $sp, 1552                 # 16-byte Folded Reload
@@ -1233,7 +1229,7 @@ findratio:                              # @findratio
 	fsub.d	$fa0, $fa2, $fa1
 	vld	$vr1, $sp, 1536                 # 16-byte Folded Reload
 	fmul.d	$fa0, $fa1, $fa0
-	vst	$vr0, $sp, 608                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 592                  # 16-byte Folded Spill
 	fld.d	$fs3, $sp, 1312                 # 8-byte Folded Reload
 	fmul.d	$fs0, $fa3, $fs3
 	fmov.d	$fa0, $fs0
@@ -1259,7 +1255,7 @@ findratio:                              # @findratio
 	fmov.d	$fa0, $fs1
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s2, %pc_lo12(c)
+	fld.d	$fa1, $s3, %pc_lo12(c)
 	vst	$vr1, $sp, 1424                 # 16-byte Folded Spill
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 	vst	$vr0, $sp, 1056                 # 16-byte Folded Spill
@@ -1295,12 +1291,12 @@ findratio:                              # @findratio
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 848                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 832                  # 16-byte Folded Spill
 	fmov.d	$fa0, $fs3
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 784                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 800                  # 16-byte Folded Spill
 	vld	$vr10, $sp, 1424                # 16-byte Folded Reload
 	vori.b	$vr0, $vr10, 0
 	vld	$vr1, $sp, 1568                 # 16-byte Folded Reload
@@ -1400,14 +1396,14 @@ findratio:                              # @findratio
 	vextrins.d	$vr3, $vr12, 16
 	vfmadd.d	$vr0, $vr1, $vr0, $vr3
 	vst	$vr0, $sp, 1296                 # 16-byte Folded Spill
-	vld	$vr25, $sp, 512                 # 16-byte Folded Reload
-	fdiv.d	$fa0, $fs1, $ft5
-	vld	$vr12, $sp, 544                 # 16-byte Folded Reload
+	vld	$vr26, $sp, 512                 # 16-byte Folded Reload
+	fdiv.d	$fa0, $fs2, $ft5
+	vld	$vr12, $sp, 576                 # 16-byte Folded Reload
 	fdiv.d	$fa1, $ft4, $ft6
 	fsub.d	$fa0, $fa0, $fa1
 	vld	$vr4, $sp, 400                  # 16-byte Folded Reload
 	fdiv.d	$fa1, $fa4, $ft5
-	vld	$vr11, $sp, 448                 # 16-byte Folded Reload
+	vld	$vr11, $sp, 480                 # 16-byte Folded Reload
 	fdiv.d	$ft9, $ft3, $ft6
 	fsub.d	$fa1, $fa1, $ft9
 	vori.b	$vr17, $vr10, 0
@@ -1424,7 +1420,7 @@ findratio:                              # @findratio
 	vld	$vr10, $sp, 416                 # 16-byte Folded Reload
 	fdiv.d	$ft11, $ft2, $ft9
 	vreplvei.d	$vr18, $vr21, 1
-	vld	$vr9, $sp, 480                  # 16-byte Folded Reload
+	vld	$vr9, $sp, 496                  # 16-byte Folded Reload
 	fdiv.d	$ft14, $ft1, $ft10
 	fsub.d	$ft11, $ft11, $ft14
 	vld	$vr15, $sp, 384                 # 16-byte Folded Reload
@@ -1434,11 +1430,11 @@ findratio:                              # @findratio
 	fsub.d	$ft14, $ft14, $ft15
 	fneg.d	$fa0, $fa0
 	fld.d	$fa2, $sp, 640                  # 8-byte Folded Reload
-	fmul.d	$fs0, $fa2, $fa0
+	fmul.d	$fs1, $fa2, $fa0
 	fneg.d	$fa0, $fa1
 	fmul.d	$fa0, $fa2, $fa0
 	fneg.d	$fa1, $ft11
-	fmul.d	$fs2, $fa2, $fa1
+	fmul.d	$fs0, $fa2, $fa1
 	fneg.d	$fa1, $ft14
 	fmul.d	$ft11, $fa2, $fa1
 	vld	$vr3, $sp, 240                  # 16-byte Folded Reload
@@ -1446,74 +1442,74 @@ findratio:                              # @findratio
 	vld	$vr2, $sp, 256                  # 16-byte Folded Reload
 	fdiv.d	$ft14, $fa2, $ft6
 	fsub.d	$fa1, $fa1, $ft14
-	vextrins.d	$vr3, $vr25, 16
+	vextrins.d	$vr3, $vr26, 16
 	vextrins.d	$vr2, $vr12, 16
-	vori.b	$vr25, $vr28, 0
-	vshuf4i.d	$vr25, $vr20, 12
+	vori.b	$vr26, $vr28, 0
+	vshuf4i.d	$vr26, $vr20, 12
 	vori.b	$vr29, $vr27, 0
 	vshuf4i.d	$vr29, $vr21, 12
-	vfdiv.d	$vr22, $vr3, $vr25
+	vfdiv.d	$vr22, $vr3, $vr26
 	vfdiv.d	$vr23, $vr2, $vr29
 	vfsub.d	$vr22, $vr22, $vr23
 	vldi	$vr23, -1008
 	vld	$vr5, $sp, 272                  # 16-byte Folded Reload
 	vpackev.d	$vr23, $vr23, $vr5
-	vextrins.d	$vr1, $vr24, 16
+	vextrins.d	$vr1, $vr25, 16
 	vfmadd.d	$vr22, $vr22, $vr23, $vr1
 	vld	$vr12, $sp, 288                 # 16-byte Folded Reload
 	fdiv.d	$fa1, $ft4, $ft5
 	vld	$vr30, $sp, 304                 # 16-byte Folded Reload
-	fdiv.d	$fs0, $fs6, $ft6
-	fsub.d	$fa1, $fa1, $fs0
+	fdiv.d	$fs1, $fs6, $ft6
+	fsub.d	$fa1, $fa1, $fs1
 	vextrins.d	$vr12, $vr4, 16
 	vextrins.d	$vr30, $vr11, 16
-	vfdiv.d	$vr24, $vr12, $vr25
-	vfdiv.d	$vr25, $vr30, $vr29
+	vfdiv.d	$vr25, $vr12, $vr26
+	vfdiv.d	$vr26, $vr30, $vr29
 	vori.b	$vr11, $vr30, 0
-	vfsub.d	$vr24, $vr24, $vr25
+	vfsub.d	$vr25, $vr25, $vr26
 	vextrins.d	$vr1, $vr0, 16
-	vfmadd.d	$vr0, $vr24, $vr23, $vr1
+	vfmadd.d	$vr0, $vr25, $vr23, $vr1
 	vld	$vr5, $sp, 352                  # 16-byte Folded Reload
 	fdiv.d	$fa1, $fa5, $ft9
-	vld	$vr25, $sp, 368                 # 16-byte Folded Reload
-	fdiv.d	$fs0, $fs1, $ft10
-	fsub.d	$fa1, $fa1, $fs0
+	vld	$vr26, $sp, 368                 # 16-byte Folded Reload
+	fdiv.d	$fs1, $fs2, $ft10
+	fsub.d	$fa1, $fa1, $fs1
 	vextrins.d	$vr5, $vr10, 16
-	vori.b	$vr10, $vr25, 0
+	vori.b	$vr10, $vr26, 0
 	vextrins.d	$vr10, $vr9, 16
 	vfmul.d	$vr4, $vr7, $vr20
 	vst	$vr4, $sp, 640                  # 16-byte Folded Spill
-	vfmul.d	$vr25, $vr6, $vr21
+	vfmul.d	$vr26, $vr6, $vr21
 	vld	$vr7, $sp, 1456                 # 16-byte Folded Reload
 	vpackod.d	$vr20, $vr4, $vr7
 	vfdiv.d	$vr21, $vr5, $vr20
-	vpackod.d	$vr29, $vr25, $vr8
+	vpackod.d	$vr29, $vr26, $vr8
 	vfdiv.d	$vr30, $vr10, $vr29
 	vfsub.d	$vr21, $vr21, $vr30
-	vextrins.d	$vr1, $vr26, 16
+	vextrins.d	$vr1, $vr24, 16
 	vfmadd.d	$vr1, $vr21, $vr23, $vr1
-	vld	$vr9, $sp, 528                  # 16-byte Folded Reload
+	vld	$vr9, $sp, 544                  # 16-byte Folded Reload
 	fdiv.d	$ft13, $ft1, $ft9
-	vld	$vr4, $sp, 592                  # 16-byte Folded Reload
-	fdiv.d	$fs2, $fa4, $ft10
-	fsub.d	$ft13, $ft13, $fs2
+	vld	$vr4, $sp, 608                  # 16-byte Folded Reload
+	fdiv.d	$fs0, $fa4, $ft10
+	fsub.d	$ft13, $ft13, $fs0
 	vextrins.d	$vr9, $vr15, 16
 	vextrins.d	$vr4, $vr16, 16
 	vfdiv.d	$vr20, $vr9, $vr20
-	vfdiv.d	$vr26, $vr4, $vr29
-	vfsub.d	$vr20, $vr20, $vr26
+	vfdiv.d	$vr24, $vr4, $vr29
+	vfsub.d	$vr20, $vr20, $vr24
 	vextrins.d	$vr21, $vr19, 16
 	vfmadd.d	$vr23, $vr20, $vr23, $vr21
 	vld	$vr20, $sp, 1312                # 16-byte Folded Reload
 	vld	$vr6, $sp, 1568                 # 16-byte Folded Reload
 	vextrins.d	$vr20, $vr6, 0
-	vld	$vr24, $sp, 16                  # 16-byte Folded Reload
-	vori.b	$vr21, $vr24, 0
+	vld	$vr25, $sp, 16                  # 16-byte Folded Reload
+	vori.b	$vr21, $vr25, 0
 	vld	$vr6, $sp, 1552                 # 16-byte Folded Reload
 	vextrins.d	$vr21, $vr6, 0
 	vfdiv.d	$vr19, $vr3, $vr20
-	vfdiv.d	$vr26, $vr2, $vr21
-	vfsub.d	$vr19, $vr19, $vr26
+	vfdiv.d	$vr24, $vr2, $vr21
+	vfsub.d	$vr19, $vr19, $vr24
 	vld	$vr2, $sp, 1440                 # 16-byte Folded Reload
 	vld	$vr3, $sp, 1024                 # 16-byte Folded Reload
 	vextrins.d	$vr2, $vr3, 16
@@ -1530,8 +1526,8 @@ findratio:                              # @findratio
 	vori.b	$vr22, $vr27, 0
 	vshuf4i.d	$vr22, $vr8, 12
 	vori.b	$vr20, $vr8, 0
-	vfdiv.d	$vr26, $vr10, $vr22
-	vfsub.d	$vr21, $vr21, $vr26
+	vfdiv.d	$vr24, $vr10, $vr22
+	vfsub.d	$vr21, $vr21, $vr24
 	vfmadd.d	$vr1, $vr2, $vr21, $vr1
 	vst	$vr1, $sp, 1440                 # 16-byte Folded Spill
 	vfdiv.d	$vr0, $vr9, $vr0
@@ -1539,24 +1535,24 @@ findratio:                              # @findratio
 	vfsub.d	$vr0, $vr0, $vr1
 	vfmadd.d	$vr0, $vr2, $vr0, $vr23
 	vst	$vr0, $sp, 1024                 # 16-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI2_14)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI2_14)
-	fld.d	$fa1, $sp, 568                  # 8-byte Folded Reload
-	fdiv.d	$fa1, $fa1, $fs7
-	fld.d	$fa2, $sp, 576                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 528                  # 8-byte Folded Reload
+	fdiv.d	$fa0, $fa0, $fs7
+	fld.d	$fa1, $sp, 536                  # 8-byte Folded Reload
 	vld	$vr7, $sp, 32                   # 16-byte Folded Reload
-	fdiv.d	$ft15, $fa2, $fa7
-	fsub.d	$fa1, $fa1, $ft15
-	fld.d	$fa2, $sp, 584                  # 8-byte Folded Reload
-	fmadd.d	$fs2, $fa1, $fa0, $fa2
-	fld.d	$fa1, $sp, 464                  # 8-byte Folded Reload
-	fdiv.d	$fa1, $fa1, $fs7
+	fdiv.d	$fa1, $fa1, $fa7
+	fsub.d	$fa0, $fa0, $fa1
+	lu52i.d	$a0, $s2, -1026
+	movgr2fr.d	$fa1, $a0
+	fld.d	$fa2, $sp, 568                  # 8-byte Folded Reload
+	fmadd.d	$fs0, $fa0, $fa1, $fa2
+	fld.d	$fa0, $sp, 456                  # 8-byte Folded Reload
+	fdiv.d	$fa0, $fa0, $fs7
 	vori.b	$vr6, $vr31, 0
-	fld.d	$fa2, $sp, 472                  # 8-byte Folded Reload
+	fld.d	$fa2, $sp, 464                  # 8-byte Folded Reload
 	fdiv.d	$ft15, $fa2, $fa7
-	fsub.d	$fa1, $fa1, $ft15
-	fld.d	$fa2, $sp, 504                  # 8-byte Folded Reload
-	fmadd.d	$ft15, $fa1, $fa0, $fa2
+	fsub.d	$fa0, $fa0, $ft15
+	fld.d	$fa2, $sp, 472                  # 8-byte Folded Reload
+	fmadd.d	$ft15, $fa0, $fa1, $fa2
 	vld	$vr2, $sp, 656                  # 16-byte Folded Reload
 	vld	$vr0, $sp, 320                  # 16-byte Folded Reload
 	vextrins.d	$vr0, $vr2, 16
@@ -1598,7 +1594,7 @@ findratio:                              # @findratio
 	vextrins.d	$vr2, $vr5, 16
 	vfdiv.d	$vr30, $vr2, $vr27
 	vfsub.d	$vr0, $vr0, $vr30
-	vld	$vr2, $sp, 608                  # 16-byte Folded Reload
+	vld	$vr2, $sp, 592                  # 16-byte Folded Reload
 	vextrins.d	$vr2, $vr28, 16
 	vfmul.d	$vr28, $vr3, $vr15
 	lu52i.d	$a0, $zero, -1026
@@ -1607,24 +1603,24 @@ findratio:                              # @findratio
 	vfmadd.d	$vr22, $vr0, $vr30, $vr2
 	vld	$vr0, $sp, 1328                 # 16-byte Folded Reload
 	vextrins.d	$vr0, $vr6, 16
-	vori.b	$vr15, $vr24, 0
-	vshuf4i.d	$vr27, $vr24, 6
+	vori.b	$vr15, $vr25, 0
+	vshuf4i.d	$vr27, $vr25, 6
 	vfdiv.d	$vr0, $vr0, $vr27
 	vfsub.d	$vr0, $vr1, $vr0
 	vld	$vr1, $sp, 624                  # 16-byte Folded Reload
 	vextrins.d	$vr1, $vr16, 16
 	vfmadd.d	$vr21, $vr0, $vr30, $vr1
-	vld	$vr10, $sp, 832                 # 16-byte Folded Reload
+	vld	$vr10, $sp, 848                 # 16-byte Folded Reload
 	fdiv.d	$fa0, $ft2, $ft9
-	vld	$vr16, $sp, 896                 # 16-byte Folded Reload
+	vld	$vr16, $sp, 880                 # 16-byte Folded Reload
 	fdiv.d	$fa1, $ft8, $ft10
 	fsub.d	$fa0, $fa0, $fa1
 	fdiv.d	$fa1, $ft2, $ft5
 	fdiv.d	$fs3, $ft8, $ft6
 	fsub.d	$fa1, $fa1, $fs3
-	pcalau12i	$a0, %pc_hi20(.LCPI2_15)
-	vld	$vr30, $a0, %pc_lo12(.LCPI2_15)
-	fld.d	$fa5, $sp, 808                  # 8-byte Folded Reload
+	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
+	vld	$vr30, $a0, %pc_lo12(.LCPI2_0)
+	fld.d	$fa5, $sp, 792                  # 8-byte Folded Reload
 	fmul.d	$fa1, $fa5, $fa1
 	vldi	$vr31, -880
 	fmadd.d	$fs3, $fa0, $fs7, $fa1
@@ -1639,19 +1635,19 @@ findratio:                              # @findratio
 	fsub.d	$fa1, $fa1, $ft5
 	fmul.d	$fa1, $fa5, $fa1
 	fmadd.d	$ft5, $fa0, $fs7, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI2_16)
-	vld	$vr0, $a0, %pc_lo12(.LCPI2_16)
-	vld	$vr4, $sp, 880                  # 16-byte Folded Reload
+	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
+	vld	$vr0, $a0, %pc_lo12(.LCPI2_1)
+	vld	$vr4, $sp, 896                  # 16-byte Folded Reload
 	fdiv.d	$fa1, $fa4, $ft9
 	vld	$vr12, $sp, 912                 # 16-byte Folded Reload
 	fdiv.d	$ft6, $ft4, $ft10
 	fsub.d	$fa6, $fa1, $ft6
 	vfmul.d	$vr14, $vr3, $vr0
-	vreplvei.d	$vr29, $vr25, 0
+	vreplvei.d	$vr29, $vr26, 0
 	vld	$vr0, $sp, 1408                 # 16-byte Folded Reload
 	fmul.d	$fa2, $fa0, $fs5
-	vld	$vr24, $sp, 640                 # 16-byte Folded Reload
-	vreplvei.d	$vr3, $vr24, 0
+	vld	$vr25, $sp, 640                 # 16-byte Folded Reload
+	vreplvei.d	$vr3, $vr25, 0
 	vld	$vr0, $sp, 1424                 # 16-byte Folded Reload
 	fmul.d	$fa1, $fa0, $fa3
 	vld	$vr9, $sp, 688                  # 16-byte Folded Reload
@@ -1662,8 +1658,8 @@ findratio:                              # @findratio
 	vextrins.d	$vr9, $vr4, 16
 	vextrins.d	$vr8, $vr12, 16
 	vshuf4i.d	$vr14, $vr0, 1
-	vfdiv.d	$vr11, $vr9, $vr24
-	vfdiv.d	$vr12, $vr8, $vr25
+	vfdiv.d	$vr11, $vr9, $vr25
+	vfdiv.d	$vr12, $vr8, $vr26
 	vfsub.d	$vr11, $vr11, $vr12
 	vori.b	$vr12, $vr14, 0
 	vextrins.d	$vr12, $vr31, 16
@@ -1682,16 +1678,16 @@ findratio:                              # @findratio
 	fdiv.d	$ft3, $ft9, $ft10
 	fsub.d	$fa4, $fa4, $ft3
 	fmul.d	$fa4, $fa5, $fa4
-	vld	$vr6, $sp, 784                  # 16-byte Folded Reload
+	vld	$vr6, $sp, 800                  # 16-byte Folded Reload
 	fdiv.d	$fa1, $fa6, $fa1
-	vld	$vr5, $sp, 848                  # 16-byte Folded Reload
+	vld	$vr5, $sp, 832                  # 16-byte Folded Reload
 	fdiv.d	$fa2, $fa5, $fa2
 	fsub.d	$fa1, $fa1, $fa2
 	vextrins.d	$vr6, $vr30, 16
 	vextrins.d	$vr5, $vr17, 16
-	vfdiv.d	$vr2, $vr6, $vr24
+	vfdiv.d	$vr2, $vr6, $vr25
 	vori.b	$vr18, $vr6, 0
-	vfdiv.d	$vr11, $vr5, $vr25
+	vfdiv.d	$vr11, $vr5, $vr26
 	vori.b	$vr17, $vr5, 0
 	vfsub.d	$vr2, $vr2, $vr11
 	fneg.d	$fa1, $fa1
@@ -1790,7 +1786,7 @@ findratio:                              # @findratio
 	vld	$vr8, $sp, 1024                 # 16-byte Folded Reload
 	vfsub.d	$vr4, $vr4, $vr8
 	fld.d	$ft0, $sp, 1528                 # 8-byte Folded Reload
-	fmul.d	$ft0, $ft0, $fs2
+	fmul.d	$ft0, $ft0, $fs0
 	vld	$vr12, $sp, 1136                # 16-byte Folded Reload
 	vori.b	$vr9, $vr12, 0
 	vld	$vr10, $sp, 1152                # 16-byte Folded Reload
@@ -1851,13 +1847,13 @@ findratio:                              # @findratio
 	fmov.d	$fa0, $fs0
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_12)
-	fld.d	$fs7, $a0, %pc_lo12(.LCPI2_12)
 	vld	$vr1, $sp, 1568                 # 16-byte Folded Reload
 	fdiv.d	$fa0, $fa0, $fa1
 	vld	$vr1, $sp, 1552                 # 16-byte Folded Reload
 	fdiv.d	$fa1, $fs4, $fa1
 	fsub.d	$fa0, $fa0, $fa1
+	lu52i.d	$a0, $s2, 1020
+	movgr2fr.d	$fs7, $a0
 	fmul.d	$fa0, $fa0, $fs7
 	vst	$vr0, $sp, 1392                 # 16-byte Folded Spill
 	fmov.d	$fa0, $fs2
@@ -2305,24 +2301,25 @@ findratio:                              # @findratio
 	fld.d	$fa1, $sp, 1480                 # 8-byte Folded Reload
 	fdiv.d	$fa0, $fa1, $fa0
 	fst.d	$fa0, $fp, 0
-	fld.d	$fs7, $sp, 1584                 # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 1592                 # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 1600                 # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 1608                 # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 1616                 # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 1624                 # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 1632                 # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 1640                 # 8-byte Folded Reload
-	ld.d	$s3, $sp, 1648                  # 8-byte Folded Reload
-	ld.d	$s2, $sp, 1656                  # 8-byte Folded Reload
-	ld.d	$s1, $sp, 1664                  # 8-byte Folded Reload
-	ld.d	$s0, $sp, 1672                  # 8-byte Folded Reload
-	ld.d	$fp, $sp, 1680                  # 8-byte Folded Reload
-	ld.d	$ra, $sp, 1688                  # 8-byte Folded Reload
-	addi.d	$sp, $sp, 1696
+	fld.d	$fs7, $sp, 1592                 # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 1600                 # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 1608                 # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 1616                 # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 1624                 # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 1632                 # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 1640                 # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 1648                 # 8-byte Folded Reload
+	ld.d	$s4, $sp, 1656                  # 8-byte Folded Reload
+	ld.d	$s3, $sp, 1664                  # 8-byte Folded Reload
+	ld.d	$s2, $sp, 1672                  # 8-byte Folded Reload
+	ld.d	$s1, $sp, 1680                  # 8-byte Folded Reload
+	ld.d	$s0, $sp, 1688                  # 8-byte Folded Reload
+	ld.d	$fp, $sp, 1696                  # 8-byte Folded Reload
+	ld.d	$ra, $sp, 1704                  # 8-byte Folded Reload
+	addi.d	$sp, $sp, 1712
 	ret
 .LBB2_39:
-	move	$a3, $zero
+	move	$a4, $zero
 	ori	$a5, $zero, 10
 	bnez	$a7, .LBB2_19
 	b	.LBB2_32
@@ -2383,12 +2380,7 @@ Nterm1:                                 # @Nterm1
 .Lfunc_end3:
 	.size	Nterm1, .Lfunc_end3-Nterm1
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Nterm2
-.LCPI4_0:
-	.dword	0x3fe5555555555555              # double 0.66666666666666663
-	.text
-	.globl	Nterm2
+	.globl	Nterm2                          # -- Begin function Nterm2
 	.p2align	5
 	.type	Nterm2,@function
 Nterm2:                                 # @Nterm2
@@ -2426,12 +2418,15 @@ Nterm2:                                 # @Nterm2
 	fld.d	$fa3, $a0, %pc_lo12(rootN)
 	fdiv.d	$fa0, $fa0, $fs4
 	fdiv.d	$fa4, $fs1, $fs2
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI4_0)
 	fsub.d	$fa0, $fa0, $fa4
 	fneg.d	$fa0, $fa0
 	fmul.d	$fa0, $fa3, $fa0
-	fmadd.d	$fa0, $fa2, $fa5, $fa0
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa3, $a0
+	fmadd.d	$fa0, $fa2, $fa3, $fa0
 	fmul.d	$fa0, $fa1, $fa0
 	fld.d	$fs4, $sp, 0                    # 8-byte Folded Reload
 	fld.d	$fs3, $sp, 8                    # 8-byte Folded Reload
@@ -2900,12 +2895,7 @@ NNterm1:                                # @NNterm1
 .Lfunc_end12:
 	.size	NNterm1, .Lfunc_end12-NNterm1
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function NNterm2
-.LCPI13_0:
-	.dword	0xbfe5555555555555              # double -0.66666666666666663
-	.text
-	.globl	NNterm2
+	.globl	NNterm2                         # -- Begin function NNterm2
 	.p2align	5
 	.type	NNterm2,@function
 NNterm2:                                # @NNterm2
@@ -2942,12 +2932,15 @@ NNterm2:                                # @NNterm2
 	pcalau12i	$a0, %pc_hi20(rootN)
 	fld.d	$fa3, $a0, %pc_lo12(rootN)
 	fdiv.d	$fa0, $fa0, $fs4
-	pcalau12i	$a0, %pc_hi20(.LCPI13_0)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI13_0)
-	fdiv.d	$fa5, $fs1, $fs2
-	fsub.d	$fa0, $fa0, $fa5
+	fdiv.d	$fa4, $fs1, $fs2
+	fsub.d	$fa0, $fa0, $fa4
 	fmul.d	$fa0, $fa3, $fa0
-	fmadd.d	$fa0, $fa2, $fa4, $fa0
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, -1026
+	movgr2fr.d	$fa3, $a0
+	fmadd.d	$fa0, $fa2, $fa3, $fa0
 	fmul.d	$fa0, $fa1, $fa0
 	fld.d	$fs4, $sp, 0                    # 8-byte Folded Reload
 	fld.d	$fs3, $sp, 8                    # 8-byte Folded Reload
@@ -3024,12 +3017,7 @@ NNterm3:                                # @NNterm3
 .Lfunc_end14:
 	.size	NNterm3, .Lfunc_end14-NNterm3
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function NNterm4
-.LCPI15_0:
-	.dword	0x3ff5555555555555              # double 1.3333333333333333
-	.text
-	.globl	NNterm4
+	.globl	NNterm4                         # -- Begin function NNterm4
 	.p2align	5
 	.type	NNterm4,@function
 NNterm4:                                # @NNterm4
@@ -3079,12 +3067,15 @@ NNterm4:                                # @NNterm4
 	fld.d	$fa3, $a0, %pc_lo12(N)
 	fdiv.d	$fa4, $fa0, $fa4
 	fdiv.d	$fa1, $fs1, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI15_0)
-	fld.d	$fa6, $a0, %pc_lo12(.LCPI15_0)
 	fsub.d	$fa1, $fa4, $fa1
 	fmul.d	$fa4, $fa3, $fa5
 	fmadd.d	$fa1, $fa4, $fa1, $fa2
-	fmul.d	$fa2, $fa3, $fa6
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa2, $fa3, $fa2
 	fmul.d	$fa2, $fa7, $fa2
 	fdiv.d	$fa0, $fa0, $fs4
 	fdiv.d	$fa3, $fs1, $fs2
@@ -3102,12 +3093,7 @@ NNterm4:                                # @NNterm4
 .Lfunc_end15:
 	.size	NNterm4, .Lfunc_end15-NNterm4
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function NNterm5
-.LCPI16_0:
-	.dword	0x3ff5555555555555              # double 1.3333333333333333
-	.text
-	.globl	NNterm5
+	.globl	NNterm5                         # -- Begin function NNterm5
 	.p2align	5
 	.type	NNterm5,@function
 NNterm5:                                # @NNterm5
@@ -3157,12 +3143,15 @@ NNterm5:                                # @NNterm5
 	fld.d	$fa4, $a0, %pc_lo12(N)
 	fdiv.d	$fa6, $fa0, $fa6
 	fdiv.d	$fa2, $fs0, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI16_0)
-	fld.d	$ft0, $a0, %pc_lo12(.LCPI16_0)
 	fsub.d	$fa2, $fa6, $fa2
 	fmul.d	$fa6, $fa4, $fa7
 	fmadd.d	$fa2, $fa6, $fa2, $fa3
-	fmul.d	$fa3, $fa4, $ft0
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa3, $a0
+	fmul.d	$fa3, $fa4, $fa3
 	fmul.d	$fa3, $ft1, $fa3
 	fdiv.d	$fa0, $fa0, $fa5
 	fdiv.d	$fa1, $fs0, $fa1
@@ -3338,12 +3327,7 @@ DDterm3:                                # @DDterm3
 .Lfunc_end19:
 	.size	DDterm3, .Lfunc_end19-DDterm3
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DDterm4
-.LCPI20_0:
-	.dword	0x3ff5555555555555              # double 1.3333333333333333
-	.text
-	.globl	DDterm4
+	.globl	DDterm4                         # -- Begin function DDterm4
 	.p2align	5
 	.type	DDterm4,@function
 DDterm4:                                # @DDterm4
@@ -3389,12 +3373,15 @@ DDterm4:                                # @DDterm4
 	fdiv.d	$fa4, $fa0, $fa4
 	fdiv.d	$fa1, $fs0, $fa1
 	fsub.d	$fa1, $fa4, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI20_0)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI20_0)
-	vldi	$vr5, -896
-	fmul.d	$fa5, $fa3, $fa5
-	fmadd.d	$fa1, $fa5, $fa1, $fa2
-	fmul.d	$fa2, $fa3, $fa4
+	vldi	$vr4, -896
+	fmul.d	$fa4, $fa3, $fa4
+	fmadd.d	$fa1, $fa4, $fa1, $fa2
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa2, $fa3, $fa2
 	fmul.d	$fa2, $fa7, $fa2
 	fdiv.d	$fa0, $fa0, $fs3
 	fdiv.d	$fa3, $fs0, $fs1
@@ -3410,12 +3397,7 @@ DDterm4:                                # @DDterm4
 .Lfunc_end20:
 	.size	DDterm4, .Lfunc_end20-DDterm4
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function getptree
-.LCPI21_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	getptree
+	.globl	getptree                        # -- Begin function getptree
 	.p2align	5
 	.type	getptree,@function
 getptree:                               # @getptree
@@ -3799,11 +3781,14 @@ getptree:                               # @getptree
 .LBB21_56:                              # %._crit_edge115
 	pcaddu18i	$ra, %call36(free)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI21_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI21_0)
-	fdiv.d	$fa1, $fs1, $fs2
-	fcmp.clt.d	$fcc0, $fs1, $fa0
-	fsel	$fa0, $fa1, $fs0, $fcc0
+	fdiv.d	$fa0, $fs1, $fs2
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa1, $a0
+	fcmp.clt.d	$fcc0, $fs1, $fa1
+	fsel	$fa0, $fa0, $fs0, $fcc0
 	fld.d	$fs2, $sp, 8                    # 8-byte Folded Reload
 	fld.d	$fs1, $sp, 16                   # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 24                   # 8-byte Folded Reload

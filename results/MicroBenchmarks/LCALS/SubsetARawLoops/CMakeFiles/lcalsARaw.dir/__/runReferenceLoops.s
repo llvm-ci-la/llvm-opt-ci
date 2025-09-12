@@ -903,14 +903,8 @@ _ZN8LoopStatD2Ev:                       # @_ZN8LoopStatD2Ev
 	.size	_ZN8LoopStatD2Ev, .Lfunc_end3-_ZN8LoopStatD2Ev
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z25computeReferenceLoopTimesv
-.LCPI4_0:
-	.dword	0x3f5426fe718a86d7              # double 0.00123
-.LCPI4_1:
-	.dword	0xbf5426fe718a86d7              # double -0.00123
 	.text
-	.globl	_Z25computeReferenceLoopTimesv
+	.globl	_Z25computeReferenceLoopTimesv  # -- Begin function _Z25computeReferenceLoopTimesv
 	.p2align	5
 	.type	_Z25computeReferenceLoopTimesv,@function
 _Z25computeReferenceLoopTimesv:         # @_Z25computeReferenceLoopTimesv
@@ -1649,13 +1643,16 @@ _Z25computeReferenceLoopTimesv:         # @_Z25computeReferenceLoopTimesv
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	st.d	$a0, $sp, 640
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI4_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI4_1)
 	ori	$a0, $zero, 1
 	st.b	$a0, $sp, 648
+	lu12i.w	$a0, 465064
+	ori	$a0, $a0, 1751
+	lu32i.d	$a0, 272126
+	lu52i.d	$a1, $a0, 1013
+	movgr2fr.d	$fs0, $a1
 	fadd.d	$fa0, $fs2, $fs0
+	lu52i.d	$a0, $a0, -1035
+	movgr2fr.d	$fs1, $a0
 	fadd.d	$fa1, $fs2, $fs1
 	fdiv.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $fp, 384

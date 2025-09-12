@@ -1,18 +1,6 @@
 	.file	"btContactProcessing.cpp"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN14btContactArray14merge_contactsERKS_b
-.LCPI0_0:
-	.word	0x447a0000                      # float 1000
-.LCPI0_1:
-	.word	0x44a6a000                      # float 1333
-.LCPI0_2:
-	.word	0x45055000                      # float 2133
-.LCPI0_3:
-	.word	0x3727c5ac                      # float 9.99999974E-6
-.LCPI0_4:
-	.word	0xb727c5ac                      # float -9.99999974E-6
 	.text
-	.globl	_ZN14btContactArray14merge_contactsERKS_b
+	.globl	_ZN14btContactArray14merge_contactsERKS_b # -- Begin function _ZN14btContactArray14merge_contactsERKS_b
 	.p2align	5
 	.type	_ZN14btContactArray14merge_contactsERKS_b,@function
 _ZN14btContactArray14merge_contactsERKS_b: # @_ZN14btContactArray14merge_contactsERKS_b
@@ -194,13 +182,13 @@ _ZN14btContactArray14merge_contactsERKS_b: # @_ZN14btContactArray14merge_contact
 	st.w	$s3, $sp, 144
 	blez	$a0, .LBB0_36
 # %bb.22:                               # %.lr.ph
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a2, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a2, %pc_hi20(.LCPI0_1)
-	fld.s	$fs1, $a2, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a2, %pc_hi20(.LCPI0_2)
-	fld.s	$fs2, $a2, %pc_lo12(.LCPI0_2)
 	move	$s5, $zero
+	lu12i.w	$a2, 280480
+	movgr2fr.w	$fs0, $a2
+	lu12i.w	$a2, 281194
+	movgr2fr.w	$fs1, $a2
+	lu12i.w	$a2, 282709
+	movgr2fr.w	$fs2, $a2
 	b	.LBB0_27
 .LBB0_23:                               #   in Loop: Header=BB0_27 Depth=1
 .Ltmp6:                                 # EH_LABEL
@@ -413,10 +401,13 @@ _ZN14btContactArray14merge_contactsERKS_b: # @_ZN14btContactArray14merge_contact
 	move	$s6, $zero
 	ld.d	$a0, $fp, 16
 	addi.d	$a6, $sp, 16
-	pcalau12i	$a2, %pc_hi20(.LCPI0_4)
-	fld.s	$fs0, $a2, %pc_lo12(.LCPI0_4)
-	pcalau12i	$a2, %pc_hi20(.LCPI0_3)
-	fld.s	$fs1, $a2, %pc_lo12(.LCPI0_3)
+	lu12i.w	$a2, -298372
+	ori	$a2, $a2, 1452
+	lu32i.d	$a2, 0
+	movgr2fr.w	$fs0, $a2
+	lu12i.w	$a2, 225916
+	ori	$a2, $a2, 1452
+	movgr2fr.w	$fs1, $a2
 	ori	$a7, $zero, 48
 	ori	$s7, $zero, 1
 	b	.LBB0_56

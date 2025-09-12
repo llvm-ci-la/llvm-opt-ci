@@ -1,10 +1,6 @@
 	.file	"md_low.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function encode_one_macroblock_low
-.LCPI0_0:
-	.dword	0x3fdffe5c91d14e3c              # double 0.49990000000000001
 	.text
-	.globl	encode_one_macroblock_low
+	.globl	encode_one_macroblock_low       # -- Begin function encode_one_macroblock_low
 	.p2align	5
 	.type	encode_one_macroblock_low,@function
 encode_one_macroblock_low:              # @encode_one_macroblock_low
@@ -1070,10 +1066,13 @@ encode_one_macroblock_low:              # @encode_one_macroblock_low
 	beq	$a0, $a1, .LBB0_90
 .LBB0_89:
 	fld.d	$fa0, $sp, 328
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -976
-	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	vldi	$vr1, -976
+	lu12i.w	$a1, -451308
+	ori	$a1, $a1, 3644
+	lu32i.d	$a1, -420
+	lu52i.d	$a1, $a1, 1021
+	movgr2fr.d	$fa2, $a1
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
 	vreplvei.d	$vr0, $vr0, 0
 	vfrintrm.d	$vr0, $vr0
 	ftintrz.w.d	$fa0, $fa0

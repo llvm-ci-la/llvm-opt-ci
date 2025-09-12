@@ -1,10 +1,6 @@
 	.file	"nbench1.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoNumSort
-.LCPI0_0:
-	.dword	0x4077700000000000              # double 375
 	.text
-	.globl	DoNumSort
+	.globl	DoNumSort                       # -- Begin function DoNumSort
 	.p2align	5
 	.type	DoNumSort,@function
 DoNumSort:                              # @DoNumSort
@@ -46,10 +42,12 @@ DoNumSort:                              # @DoNumSort
 	pcaddu18i	$ra, %call36(ErrorExit)
 	jirl	$ra, $ra, 0
 .LBB0_3:                                # %.loopexit
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_0)
 	move	$s0, $zero
 	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fs1, $a0
 	.p2align	4, , 16
 .LBB0_4:                                # =>This Inner Loop Header: Depth=1
 	ld.d	$a1, $s2, 32
@@ -407,12 +405,7 @@ DoNumSortIteration:                     # @DoNumSortIteration
 .Lfunc_end1:
 	.size	DoNumSortIteration, .Lfunc_end1-DoNumSortIteration
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoStringSort
-.LCPI2_0:
-	.dword	0x405f400000000000              # double 125
-	.text
-	.globl	DoStringSort
+	.globl	DoStringSort                    # -- Begin function DoStringSort
 	.p2align	5
 	.type	DoStringSort,@function
 DoStringSort:                           # @DoStringSort
@@ -448,11 +441,13 @@ DoStringSort:                           # @DoStringSort
 	pcaddu18i	$ra, %call36(ErrorExit)
 	jirl	$ra, $ra, 0
 .LBB2_3:                                # %.loopexit
-	ld.hu	$a1, $s1, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI2_0)
 	move	$s0, $zero
+	ld.hu	$a1, $s1, 24
 	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fs1, $a0
 	.p2align	4, , 16
 .LBB2_4:                                # =>This Inner Loop Header: Depth=1
 	ld.d	$a2, $s1, 32
@@ -1257,14 +1252,7 @@ DoStringSortIteration:                  # @DoStringSortIteration
 .Lfunc_end3:
 	.size	DoStringSortIteration, .Lfunc_end3-DoStringSortIteration
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoBitops
-.LCPI4_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI4_1:
-	.dword	0x413312d000000000              # double 1.25E+6
-	.text
-	.globl	DoBitops
+	.globl	DoBitops                        # -- Begin function DoBitops
 	.p2align	5
 	.type	DoBitops,@function
 DoBitops:                               # @DoBitops
@@ -1322,13 +1310,16 @@ DoBitops:                               # @DoBitops
 	jirl	$ra, $ra, 0
 .LBB4_5:                                # %.loopexit
 	move	$s1, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI4_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI4_1)
 	movgr2fr.d	$fs0, $zero
 	lu52i.d	$s3, $zero, 1107
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$s4, 275200
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 201424
+	lu52i.d	$a0, $a0, 1043
+	movgr2fr.d	$fs2, $a0
 	.p2align	4, , 16
 .LBB4_6:                                # =>This Inner Loop Header: Depth=1
 	ld.d	$a2, $s2, 24
@@ -1617,14 +1608,7 @@ DoBitfieldIteration:                    # @DoBitfieldIteration
 .Lfunc_end5:
 	.size	DoBitfieldIteration, .Lfunc_end5-DoBitfieldIteration
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoEmFloat
-.LCPI6_0:
-	.dword	0x4052c00000000000              # double 75
-.LCPI6_1:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	DoEmFloat
+	.globl	DoEmFloat                       # -- Begin function DoEmFloat
 	.p2align	5
 	.type	DoEmFloat,@function
 DoEmFloat:                              # @DoEmFloat
@@ -1950,10 +1934,12 @@ DoEmFloat:                              # @DoEmFloat
 .LBB6_28:                               # %.thread
 	st.d	$s2, $s3, 24
 .LBB6_29:                               # %.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI6_0)
 	move	$s2, $zero
 	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 180224
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fs1, $a0
 	.p2align	4, , 16
 .LBB6_30:                               # =>This Inner Loop Header: Depth=1
 	ld.d	$a3, $s3, 16
@@ -1983,12 +1969,13 @@ DoEmFloat:                              # @DoEmFloat
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s3, 24
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI6_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI6_1)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -2019,14 +2006,7 @@ DoEmFloat:                              # @DoEmFloat
 .Lfunc_end6:
 	.size	DoEmFloat, .Lfunc_end6-DoEmFloat
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoFourier
-.LCPI7_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI7_1:
-	.dword	0x40c3880000000000              # double 1.0E+4
-	.text
-	.globl	DoFourier
+	.globl	DoFourier                       # -- Begin function DoFourier
 	.p2align	5
 	.type	DoFourier,@function
 DoFourier:                              # @DoFourier
@@ -2087,11 +2067,14 @@ DoFourier:                              # @DoFourier
 	ld.d	$a2, $s2, 16
 	movgr2fr.d	$fs0, $zero
 	lu52i.d	$s3, $zero, 1107
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI7_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI7_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$s4, 275200
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 231424
+	lu52i.d	$a0, $a0, 1036
+	movgr2fr.d	$fs2, $a0
 	.p2align	4, , 16
 .LBB7_6:                                # =>This Inner Loop Header: Depth=1
 	move	$a0, $fp
@@ -2211,16 +2194,7 @@ DoFourier:                              # @DoFourier
 .Lfunc_end7:
 	.size	DoFourier, .Lfunc_end7-DoFourier
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoFPUTransIteration
-.LCPI8_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-.LCPI8_1:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI8_2:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function DoFPUTransIteration
 	.type	DoFPUTransIteration,@function
 DoFPUTransIteration:                    # @DoFPUTransIteration
 # %bb.0:
@@ -2253,9 +2227,12 @@ DoFPUTransIteration:                    # @DoFPUTransIteration
 	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(StartStopwatch)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI8_0)
-	fld.d	$fs3, $a1, %pc_lo12(.LCPI8_0)
 	move	$s2, $a0
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fs3, $a0
 	.p2align	4, , 16
 .LBB8_1:                                # %thefunction.exit27.us.i
                                         # =>This Inner Loop Header: Depth=1
@@ -2285,12 +2262,16 @@ DoFPUTransIteration:                    # @DoFPUTransIteration
 # %bb.3:                                # %.lr.ph.preheader
 	ori	$s3, $zero, 1
 	lu52i.d	$s4, $zero, 1107
-	pcalau12i	$a0, %pc_hi20(.LCPI8_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI8_1)
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fa0, $a0
 	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
 	lu12i.w	$s5, 275200
-	pcalau12i	$a0, %pc_hi20(.LCPI8_2)
-	fld.d	$fs5, $a0, %pc_lo12(.LCPI8_2)
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fs5, $a0
 	movgr2fr.d	$fs6, $zero
 	addi.w	$s6, $zero, -198
 	.p2align	4, , 16
@@ -2418,12 +2399,7 @@ DoFPUTransIteration:                    # @DoFPUTransIteration
 .Lfunc_end8:
 	.size	DoFPUTransIteration, .Lfunc_end8-DoFPUTransIteration
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoAssign
-.LCPI9_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	DoAssign
+	.globl	DoAssign                        # -- Begin function DoAssign
 	.p2align	5
 	.type	DoAssign,@function
 DoAssign:                               # @DoAssign
@@ -2509,12 +2485,13 @@ DoAssign:                               # @DoAssign
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s1, 16
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI9_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI9_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -4227,14 +4204,7 @@ DoAssignIteration:                      # @DoAssignIteration
 .Lfunc_end10:
 	.size	DoAssignIteration, .Lfunc_end10-DoAssignIteration
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoIDEA
-.LCPI11_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI11_1:
-	.dword	0x409d4c0000000000              # double 1875
-	.text
-	.globl	DoIDEA
+	.globl	DoIDEA                          # -- Begin function DoIDEA
 	.p2align	5
 	.type	DoIDEA,@function
 DoIDEA:                                 # @DoIDEA
@@ -5165,10 +5135,13 @@ DoIDEA:                                 # @DoIDEA
 	ld.hu	$s3, $sp, 164
 	sub.d	$s2, $s5, $s6
 	movgr2fr.d	$fs0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI11_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI11_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI11_1)
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -177152
+	lu52i.d	$a0, $a0, 1033
+	movgr2fr.d	$fs2, $a0
 	addi.w	$s1, $zero, -8
 	move	$s4, $a2
 	b	.LBB11_130
@@ -5641,14 +5614,7 @@ DoIDEA:                                 # @DoIDEA
 .Lfunc_end11:
 	.size	DoIDEA, .Lfunc_end11-DoIDEA
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoHuffman
-.LCPI12_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI12_1:
-	.dword	0x407f400000000000              # double 500
-	.text
-	.globl	DoHuffman
+	.globl	DoHuffman                       # -- Begin function DoHuffman
 	.p2align	5
 	.type	DoHuffman,@function
 DoHuffman:                              # @DoHuffman
@@ -5875,13 +5841,16 @@ DoHuffman:                              # @DoHuffman
 .LBB12_18:                              # %.loopexit
 	move	$s2, $zero
 	ld.d	$a4, $s1, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI12_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI12_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI12_1)
 	movgr2fr.d	$fs0, $zero
 	lu52i.d	$fp, $zero, 1107
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$s0, 275200
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fs2, $a0
 	.p2align	4, , 16
 .LBB12_19:                              # =>This Inner Loop Header: Depth=1
 	ld.d	$a3, $s1, 16
@@ -6437,16 +6406,7 @@ DoHuffIteration:                        # @DoHuffIteration
 .Lfunc_end13:
 	.size	DoHuffIteration, .Lfunc_end13-DoHuffIteration
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoNNET
-.LCPI14_0:
-	.dword	0x3feccccccccccccd              # double 0.90000000000000002
-.LCPI14_1:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-.LCPI14_2:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	DoNNET
+	.globl	DoNNET                          # -- Begin function DoNNET
 	.p2align	5
 	.type	DoNNET,@function
 DoNNET:                                 # @DoNNET
@@ -6535,18 +6495,16 @@ DoNNET:                                 # @DoNNET
 	lu12i.w	$a0, -209716
 	ori	$a0, $a0, 3277
 	lu32i.d	$a0, -209716
-	lu52i.d	$a0, $a0, 1022
-	vreplgr2vr.d	$vr0, $a0
+	lu52i.d	$s6, $a0, 1022
+	vreplgr2vr.d	$vr0, $s6
 	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
 	lu12i.w	$a0, -419431
 	ori	$a0, $a0, 2458
 	lu32i.d	$a0, -419431
 	lu52i.d	$a0, $a0, 1019
+	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
-	pcalau12i	$s6, %pc_hi20(.LCPI14_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI14_1)
-	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.L.str.72)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.72)
 	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
@@ -6942,7 +6900,7 @@ DoNNET:                                 # @DoNNET
 .LBB14_76:                              # %scalar.ph
                                         #   in Loop: Header=BB14_10 Depth=1
 	fld.d	$fa1, $a0, 256
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI14_0)
+	movgr2fr.d	$fa0, $s6
 	fcmp.cle.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB14_79
 	b	.LBB14_80
@@ -6956,12 +6914,12 @@ DoNNET:                                 # @DoNNET
                                         #   in Loop: Header=BB14_10 Depth=1
 	vstelm.d	$vr0, $a0, 248, 1
 	fld.d	$fa1, $a0, 256
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI14_0)
+	movgr2fr.d	$fa0, $s6
 	fcmp.cle.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB14_80
 .LBB14_79:                              #   in Loop: Header=BB14_10 Depth=1
 	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI14_1)
+	movgr2fr.d	$fa0, $a1
 	fcmp.cult.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB14_81
 .LBB14_80:                              # %.sink.split.i
@@ -6970,12 +6928,12 @@ DoNNET:                                 # @DoNNET
 .LBB14_81:                              # %scalar.ph.1
                                         #   in Loop: Header=BB14_10 Depth=1
 	fld.d	$fa1, $a0, 264
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI14_0)
+	movgr2fr.d	$fa0, $s6
 	fcmp.cle.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB14_83
 # %bb.82:                               #   in Loop: Header=BB14_10 Depth=1
 	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI14_1)
+	movgr2fr.d	$fa0, $a1
 	fcmp.cult.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB14_84
 .LBB14_83:                              # %.sink.split.i.1
@@ -6984,12 +6942,12 @@ DoNNET:                                 # @DoNNET
 .LBB14_84:                              # %scalar.ph.2
                                         #   in Loop: Header=BB14_10 Depth=1
 	fld.d	$fa1, $a0, 272
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI14_0)
+	movgr2fr.d	$fa0, $s6
 	fcmp.cle.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB14_86
 # %bb.85:                               #   in Loop: Header=BB14_10 Depth=1
 	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI14_1)
+	movgr2fr.d	$fa0, $a1
 	fcmp.cult.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB14_87
 .LBB14_86:                              # %.sink.split.i.2
@@ -7095,9 +7053,10 @@ DoNNET:                                 # @DoNNET
 .LBB14_95:                              # %.loopexit.preheader
 	move	$fp, $zero
 	movgr2fr.d	$fs0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI14_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI14_2)
 	lu52i.d	$s1, $zero, 1107
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$s2, 275200
 	.p2align	4, , 16
 .LBB14_96:                              # %.loopexit
@@ -7151,18 +7110,7 @@ DoNNET:                                 # @DoNNET
 .Lfunc_end14:
 	.size	DoNNET, .Lfunc_end14-DoNNET
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoNNetIteration
-.LCPI15_0:
-	.dword	0x40f86a0000000000              # double 1.0E+5
-.LCPI15_1:
-	.dword	0x40c3880000000000              # double 1.0E+4
-.LCPI15_2:
-	.dword	0x3fb70a3d70a3d70a              # double 0.089999999999999996
-.LCPI15_3:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function DoNNetIteration
 	.type	DoNNetIteration,@function
 DoNNetIteration:                        # @DoNNetIteration
 # %bb.0:
@@ -7186,37 +7134,45 @@ DoNNetIteration:                        # @DoNNetIteration
 	fst.d	$fs5, $sp, 920                  # 8-byte Folded Spill
 	fst.d	$fs6, $sp, 912                  # 8-byte Folded Spill
 	fst.d	$fs7, $sp, 904                  # 8-byte Folded Spill
-	move	$s1, $a0
+	move	$s0, $a0
 	pcaddu18i	$ra, %call36(StartStopwatch)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
-	beqz	$s1, .LBB15_95
+	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
+	beqz	$s0, .LBB15_95
 # %bb.1:
 	lu12i.w	$a0, 24
-	pcalau12i	$a1, %pc_hi20(.LCPI15_0)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI15_0)
-	ori	$s2, $a0, 1696
-	pcalau12i	$a0, %pc_hi20(mid_wts)
-	addi.d	$s6, $a0, %pc_lo12(mid_wts)
-	ori	$s7, $zero, 280
-	pcalau12i	$a0, %pc_hi20(out_wts)
-	addi.d	$s8, $a0, %pc_lo12(out_wts)
-	pcalau12i	$a0, %pc_hi20(.LCPI15_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI15_1)
+	ori	$s1, $a0, 1696
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -497152
+	lu52i.d	$a1, $a1, 1039
+	movgr2fr.d	$fs0, $a1
+	pcalau12i	$a1, %pc_hi20(mid_wts)
+	addi.d	$s6, $a1, %pc_lo12(mid_wts)
+	ori	$s2, $zero, 280
+	pcalau12i	$a1, %pc_hi20(out_wts)
+	addi.d	$s8, $a1, %pc_lo12(out_wts)
+	lu32i.d	$a0, 231424
+	lu52i.d	$a0, $a0, 1036
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$a0, -1
 	ori	$a0, $a0, 1856
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	vrepli.b	$vr5, 0
-	ori	$fp, $zero, 2496
 	lu12i.w	$a0, 461373
 	ori	$a0, $a0, 1802
 	lu32i.d	$a0, 461373
-	lu52i.d	$a1, $a0, 1019
+	lu52i.d	$s7, $a0, 1019
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 88                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 80                   # 8-byte Folded Spill
 	vst	$vr5, $sp, 96                   # 16-byte Folded Spill
-	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
 	b	.LBB15_5
 	.p2align	4, , 16
 .LBB15_2:                               # %._crit_edge.thread
@@ -7235,12 +7191,13 @@ DoNNetIteration:                        # @DoNNetIteration
 	ori	$a0, $zero, 1
 .LBB15_4:                               # %.loopexit
                                         #   in Loop: Header=BB15_5 Depth=1
-	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
-	addi.d	$s1, $s1, -1
-	ld.d	$a2, $sp, 56                    # 8-byte Folded Reload
-	st.w	$a0, $a2, %pc_lo12(learned)
-	beqz	$s1, .LBB15_95
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ori	$s2, $zero, 280
+	addi.d	$s0, $s0, -1
+	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	st.w	$a0, $a1, %pc_lo12(learned)
+	beqz	$s0, .LBB15_95
 .LBB15_5:                               # %.preheader22
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB15_6 Depth 2
@@ -7261,11 +7218,11 @@ DoNNetIteration:                        # @DoNNetIteration
                                         #       Child Loop BB15_83 Depth 3
                                         #     Child Loop BB15_90 Depth 2
                                         #     Child Loop BB15_93 Depth 2
-	move	$s0, $zero
+	move	$fp, $zero
 	.p2align	4, , 16
 .LBB15_6:                               #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a0, $s2
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7276,17 +7233,17 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	fstx.d	$fa0, $s6, $s0
-	addi.d	$s0, $s0, 8
-	bne	$s0, $s7, .LBB15_6
+	fstx.d	$fa0, $s6, $fp
+	addi.d	$fp, $fp, 8
+	bne	$fp, $s2, .LBB15_6
 # %bb.7:                                # %.preheader18.1.i.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
-	move	$s0, $zero
+	move	$fp, $zero
 	.p2align	4, , 16
 .LBB15_8:                               # %.preheader18.1.i
                                         #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a0, $s2
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7297,18 +7254,18 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	add.d	$a0, $s6, $s0
-	addi.d	$s0, $s0, 8
+	add.d	$a0, $s6, $fp
+	addi.d	$fp, $fp, 8
 	fst.d	$fa0, $a0, 280
-	bne	$s0, $s7, .LBB15_8
+	bne	$fp, $s2, .LBB15_8
 # %bb.9:                                # %.preheader18.2.i.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
-	move	$s0, $zero
+	move	$fp, $zero
 	.p2align	4, , 16
 .LBB15_10:                              # %.preheader18.2.i
                                         #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a0, $s2
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7319,18 +7276,18 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	add.d	$a0, $s6, $s0
-	addi.d	$s0, $s0, 8
+	add.d	$a0, $s6, $fp
+	addi.d	$fp, $fp, 8
 	fst.d	$fa0, $a0, 560
-	bne	$s0, $s7, .LBB15_10
+	bne	$fp, $s2, .LBB15_10
 # %bb.11:                               # %.preheader18.3.i.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
-	move	$s0, $zero
+	move	$fp, $zero
 	.p2align	4, , 16
 .LBB15_12:                              # %.preheader18.3.i
                                         #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a0, $s2
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7341,18 +7298,18 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	add.d	$a0, $s6, $s0
-	addi.d	$s0, $s0, 8
+	add.d	$a0, $s6, $fp
+	addi.d	$fp, $fp, 8
 	fst.d	$fa0, $a0, 840
-	bne	$s0, $s7, .LBB15_12
+	bne	$fp, $s2, .LBB15_12
 # %bb.13:                               # %.preheader18.4.i.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
-	move	$s0, $zero
+	move	$fp, $zero
 	.p2align	4, , 16
 .LBB15_14:                              # %.preheader18.4.i
                                         #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a0, $s2
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7363,18 +7320,18 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	add.d	$a0, $s6, $s0
-	addi.d	$s0, $s0, 8
+	add.d	$a0, $s6, $fp
+	addi.d	$fp, $fp, 8
 	fst.d	$fa0, $a0, 1120
-	bne	$s0, $s7, .LBB15_14
+	bne	$fp, $s2, .LBB15_14
 # %bb.15:                               # %.preheader18.5.i.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
-	move	$s0, $zero
+	move	$fp, $zero
 	.p2align	4, , 16
 .LBB15_16:                              # %.preheader18.5.i
                                         #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a0, $s2
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7385,18 +7342,18 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	add.d	$a0, $s6, $s0
-	addi.d	$s0, $s0, 8
+	add.d	$a0, $s6, $fp
+	addi.d	$fp, $fp, 8
 	fst.d	$fa0, $a0, 1400
-	bne	$s0, $s7, .LBB15_16
+	bne	$fp, $s2, .LBB15_16
 # %bb.17:                               # %.preheader18.6.i.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
-	move	$s0, $zero
+	move	$fp, $zero
 	.p2align	4, , 16
 .LBB15_18:                              # %.preheader18.6.i
                                         #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a0, $s2
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7407,18 +7364,18 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	add.d	$a0, $s6, $s0
-	addi.d	$s0, $s0, 8
+	add.d	$a0, $s6, $fp
+	addi.d	$fp, $fp, 8
 	fst.d	$fa0, $a0, 1680
-	bne	$s0, $s7, .LBB15_18
+	bne	$fp, $s2, .LBB15_18
 # %bb.19:                               # %.preheader18.7.i.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
-	move	$s0, $zero
+	move	$fp, $zero
 	.p2align	4, , 16
 .LBB15_20:                              # %.preheader18.7.i
                                         #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	move	$a0, $s2
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7429,21 +7386,21 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	add.d	$a0, $s6, $s0
-	addi.d	$s0, $s0, 8
+	add.d	$a0, $s6, $fp
+	addi.d	$fp, $fp, 8
 	fst.d	$fa0, $a0, 1960
-	bne	$s0, $s7, .LBB15_20
+	bne	$fp, $s2, .LBB15_20
 # %bb.21:                               # %.preheader.i.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
-	st.d	$s1, $sp, 32                    # 8-byte Folded Spill
-	move	$s0, $zero
-	ori	$s3, $zero, 512
+	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
+	move	$fp, $zero
+	ori	$s2, $zero, 512
 	.p2align	4, , 16
 .LBB15_22:                              # %.preheader.i
                                         #   Parent Loop BB15_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	add.d	$s1, $s8, $s0
-	move	$a0, $s2
+	add.d	$s0, $s8, $fp
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	bstrpick.d	$a0, $a0, 31, 0
@@ -7454,8 +7411,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	fstx.d	$fa0, $s8, $s0
-	move	$a0, $s2
+	fstx.d	$fa0, $s8, $fp
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	bstrpick.d	$a0, $a0, 31, 0
@@ -7466,8 +7423,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $s1, 8
-	move	$a0, $s2
+	fst.d	$fa0, $s0, 8
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	bstrpick.d	$a0, $a0, 31, 0
@@ -7478,8 +7435,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $s1, 16
-	move	$a0, $s2
+	fst.d	$fa0, $s0, 16
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	bstrpick.d	$a0, $a0, 31, 0
@@ -7490,8 +7447,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $s1, 24
-	move	$a0, $s2
+	fst.d	$fa0, $s0, 24
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	bstrpick.d	$a0, $a0, 31, 0
@@ -7502,8 +7459,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $s1, 32
-	move	$a0, $s2
+	fst.d	$fa0, $s0, 32
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	bstrpick.d	$a0, $a0, 31, 0
@@ -7514,8 +7471,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $s1, 40
-	move	$a0, $s2
+	fst.d	$fa0, $s0, 40
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	bstrpick.d	$a0, $a0, 31, 0
@@ -7526,8 +7483,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $s1, 48
-	move	$a0, $s2
+	fst.d	$fa0, $s0, 48
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(abs_randwc)
 	jirl	$ra, $ra, 0
 	vldi	$vr1, -800
@@ -7538,9 +7495,9 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -928
 	fmul.d	$fa0, $fa0, $fa1
-	addi.d	$s0, $s0, 64
-	fst.d	$fa0, $s1, 56
-	bne	$s0, $s3, .LBB15_22
+	addi.d	$fp, $fp, 64
+	fst.d	$fa0, $s0, 56
+	bne	$fp, $s2, .LBB15_22
 # %bb.23:                               # %randomize_wts.exit
                                         #   in Loop: Header=BB15_5 Depth=1
 	pcalau12i	$a0, %pc_hi20(mid_wt_change)
@@ -7591,21 +7548,23 @@ DoNNetIteration:                        # @DoNNetIteration
 # %bb.24:                               # %.lr.ph.preheader
                                         #   in Loop: Header=BB15_5 Depth=1
 	st.d	$a3, $sp, 40                    # 8-byte Folded Spill
-	move	$ra, $zero
-	ori	$t0, $zero, 2240
+	st.d	$zero, $sp, 560                 # 8-byte Folded Spill
+	ori	$a5, $zero, 2240
 	vld	$vr5, $sp, 96                   # 16-byte Folded Reload
-	ori	$t1, $zero, 2256
-	ori	$t2, $zero, 2272
-	ori	$t3, $zero, 2288
-	ori	$t4, $zero, 2304
-	ori	$t5, $zero, 2320
-	ori	$t6, $zero, 2336
-	ori	$t7, $zero, 2352
-	ori	$t8, $zero, 2368
-	ori	$s0, $zero, 2384
-	ori	$s1, $zero, 2400
-	ori	$a6, $zero, 2464
-	ori	$a7, $zero, 2480
+	ori	$a7, $zero, 2256
+	ori	$t0, $zero, 2272
+	ori	$t1, $zero, 2288
+	ori	$t2, $zero, 2304
+	ori	$t3, $zero, 2320
+	ori	$t4, $zero, 2336
+	ori	$t5, $zero, 2352
+	ori	$t6, $zero, 2368
+	ori	$t7, $zero, 2384
+	ori	$t8, $zero, 2400
+	ori	$fp, $zero, 2416
+	ori	$s0, $zero, 2432
+	ori	$s1, $zero, 2448
+	ori	$ra, $zero, 2512
 	.p2align	4, , 16
 .LBB15_25:                              # %.lr.ph
                                         #   Parent Loop BB15_5 Depth=1
@@ -7619,70 +7578,69 @@ DoNNetIteration:                        # @DoNNetIteration
 	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
 	st.d	$zero, $a0, %pc_lo12(worst_error)
 	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
-	ori	$a3, $zero, 2416
-	ori	$a4, $zero, 2432
-	ori	$a5, $zero, 2448
-	ori	$s7, $zero, 2512
+	ori	$a3, $zero, 2464
+	ori	$a4, $zero, 2480
+	ori	$a6, $zero, 2496
 	.p2align	4, , 16
 .LBB15_26:                              # %.preheader23.i
                                         #   Parent Loop BB15_5 Depth=1
                                         #     Parent Loop BB15_25 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
 	add.d	$a1, $s3, $a0
-	vldx	$vr0, $a1, $t0
+	vldx	$vr0, $a1, $a5
 	add.d	$a2, $s2, $a0
-	vldx	$vr1, $a1, $t1
-	vldx	$vr2, $a1, $t2
-	vstx	$vr0, $a2, $t0
+	vldx	$vr1, $a1, $a7
+	vldx	$vr2, $a1, $t0
+	vstx	$vr0, $a2, $a5
+	vldx	$vr0, $a1, $t1
+	vstx	$vr1, $a2, $a7
+	vstx	$vr2, $a2, $t0
+	vldx	$vr1, $a1, $t2
+	vstx	$vr0, $a2, $t1
 	vldx	$vr0, $a1, $t3
-	vstx	$vr1, $a2, $t1
-	vstx	$vr2, $a2, $t2
-	vldx	$vr1, $a1, $t4
+	vldx	$vr2, $a1, $t4
+	vstx	$vr1, $a2, $t2
+	vldx	$vr1, $a1, $t5
 	vstx	$vr0, $a2, $t3
-	vldx	$vr0, $a1, $t5
-	vldx	$vr2, $a1, $t6
-	vstx	$vr1, $a2, $t4
+	vstx	$vr2, $a2, $t4
+	vldx	$vr0, $a1, $t6
+	vstx	$vr1, $a2, $t5
 	vldx	$vr1, $a1, $t7
-	vstx	$vr0, $a2, $t5
-	vstx	$vr2, $a2, $t6
-	vldx	$vr0, $a1, $t8
+	vldx	$vr2, $a1, $t8
+	vstx	$vr0, $a2, $t6
+	vldx	$vr0, $a1, $fp
 	vstx	$vr1, $a2, $t7
+	vstx	$vr2, $a2, $t8
 	vldx	$vr1, $a1, $s0
-	vldx	$vr2, $a1, $s1
-	vstx	$vr0, $a2, $t8
-	vldx	$vr0, $a1, $a3
+	vstx	$vr0, $a2, $fp
+	vstx	$vr5, $a1, $a5
+	vstx	$vr5, $a1, $a7
 	vstx	$vr1, $a2, $s0
-	vstx	$vr2, $a2, $s1
-	vldx	$vr1, $a1, $a4
-	vstx	$vr0, $a2, $a3
+	vldx	$vr0, $a1, $s1
 	vstx	$vr5, $a1, $t0
 	vstx	$vr5, $a1, $t1
-	vstx	$vr1, $a2, $a4
-	vldx	$vr0, $a1, $a5
 	vstx	$vr5, $a1, $t2
+	vstx	$vr0, $a2, $s1
+	vldx	$vr0, $a1, $a3
 	vstx	$vr5, $a1, $t3
 	vstx	$vr5, $a1, $t4
-	vstx	$vr0, $a2, $a5
-	vldx	$vr0, $a1, $a6
 	vstx	$vr5, $a1, $t5
+	vstx	$vr0, $a2, $a3
+	vldx	$vr0, $a1, $a4
 	vstx	$vr5, $a1, $t6
 	vstx	$vr5, $a1, $t7
-	vstx	$vr0, $a2, $a6
-	vldx	$vr0, $a1, $a7
 	vstx	$vr5, $a1, $t8
+	vstx	$vr0, $a2, $a4
+	vldx	$vr0, $a1, $a6
+	vstx	$vr5, $a1, $fp
 	vstx	$vr5, $a1, $s0
 	vstx	$vr5, $a1, $s1
-	vstx	$vr0, $a2, $a7
-	vldx	$vr0, $a1, $fp
+	vstx	$vr0, $a2, $a6
+	fldx.d	$fa0, $a1, $ra
 	vstx	$vr5, $a1, $a3
 	vstx	$vr5, $a1, $a4
-	vstx	$vr5, $a1, $a5
-	vstx	$vr0, $a2, $fp
-	fldx.d	$fa0, $a1, $s7
 	vstx	$vr5, $a1, $a6
-	vstx	$vr5, $a1, $a7
-	vstx	$vr5, $a1, $fp
-	fstx.d	$fa0, $a2, $s7
+	fstx.d	$fa0, $a2, $ra
 	addi.d	$a0, $a0, 280
 	stptr.d	$zero, $a1, 2512
 	bnez	$a0, .LBB15_26
@@ -7784,86 +7742,86 @@ DoNNetIteration:                        # @DoNNetIteration
 	vst	$vr5, $s5, 480
 	vst	$vr0, $s4, 496
 	vst	$vr5, $s5, 496
-	st.d	$ra, $sp, 560                   # 8-byte Folded Spill
 	ori	$a0, $zero, 280
-	mul.d	$a0, $ra, $a0
+	ld.d	$a1, $sp, 560                   # 8-byte Folded Reload
+	mul.d	$a0, $a1, $a0
 	pcalau12i	$a1, %pc_hi20(in_pats)
 	addi.d	$a1, $a1, %pc_lo12(in_pats)
-	add.d	$s7, $a1, $a0
-	fld.d	$fa0, $s7, 136
+	add.d	$s0, $a1, $a0
+	fld.d	$fa0, $s0, 136
 	fst.d	$fa0, $sp, 880                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 144
+	fld.d	$fa0, $s0, 144
 	fst.d	$fa0, $sp, 864                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 152
+	fld.d	$fa0, $s0, 152
 	fst.d	$fa0, $sp, 848                  # 8-byte Folded Spill
 	fldx.d	$fa0, $a1, $a0
 	fst.d	$fa0, $sp, 832                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 8
+	fld.d	$fa0, $s0, 8
 	fst.d	$fa0, $sp, 816                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 16
+	fld.d	$fa0, $s0, 16
 	fst.d	$fa0, $sp, 800                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 24
+	fld.d	$fa0, $s0, 24
 	fst.d	$fa0, $sp, 784                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 32
+	fld.d	$fa0, $s0, 32
 	fst.d	$fa0, $sp, 768                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 40
+	fld.d	$fa0, $s0, 40
 	fst.d	$fa0, $sp, 752                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 48
+	fld.d	$fa0, $s0, 48
 	fst.d	$fa0, $sp, 736                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 56
+	fld.d	$fa0, $s0, 56
 	fst.d	$fa0, $sp, 720                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 64
+	fld.d	$fa0, $s0, 64
 	fst.d	$fa0, $sp, 704                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 72
+	fld.d	$fa0, $s0, 72
 	fst.d	$fa0, $sp, 688                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 80
+	fld.d	$fa0, $s0, 80
 	fst.d	$fa0, $sp, 680                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 88
+	fld.d	$fa0, $s0, 88
 	fst.d	$fa0, $sp, 672                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 96
+	fld.d	$fa0, $s0, 96
 	fst.d	$fa0, $sp, 664                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 104
+	fld.d	$fa0, $s0, 104
 	fst.d	$fa0, $sp, 656                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 112
+	fld.d	$fa0, $s0, 112
 	fst.d	$fa0, $sp, 648                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 120
+	fld.d	$fa0, $s0, 120
 	fst.d	$fa0, $sp, 640                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 128
+	fld.d	$fa0, $s0, 128
 	fst.d	$fa0, $sp, 632                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 160
+	fld.d	$fa0, $s0, 160
 	fst.d	$fa0, $sp, 624                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 168
+	fld.d	$fa0, $s0, 168
 	fst.d	$fa0, $sp, 616                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 176
+	fld.d	$fa0, $s0, 176
 	fst.d	$fa0, $sp, 608                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 184
+	fld.d	$fa0, $s0, 184
 	fst.d	$fa0, $sp, 600                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 192
+	fld.d	$fa0, $s0, 192
 	fst.d	$fa0, $sp, 592                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 200
+	fld.d	$fa0, $s0, 200
 	fst.d	$fa0, $sp, 584                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 208
+	fld.d	$fa0, $s0, 208
 	fst.d	$fa0, $sp, 576                  # 8-byte Folded Spill
-	fld.d	$fa0, $s7, 216
+	fld.d	$fa0, $s0, 216
 	fst.d	$fa0, $sp, 568                  # 8-byte Folded Spill
-	fld.d	$fs0, $s7, 224
-	fld.d	$fs1, $s7, 232
-	fld.d	$fs2, $s7, 240
-	fld.d	$fs3, $s7, 248
-	fld.d	$fs4, $s7, 256
-	fld.d	$fs5, $s7, 264
-	fld.d	$fs6, $s7, 272
-	move	$s0, $zero
-	addi.d	$s1, $s6, 136
-	ori	$fp, $zero, 64
+	fld.d	$fs0, $s0, 224
+	fld.d	$fs1, $s0, 232
+	fld.d	$fs2, $s0, 240
+	fld.d	$fs3, $s0, 248
+	fld.d	$fs4, $s0, 256
+	fld.d	$fs5, $s0, 264
+	fld.d	$fs6, $s0, 272
+	move	$s1, $zero
+	addi.d	$fp, $s6, 136
+	ori	$s7, $zero, 64
 	.p2align	4, , 16
 .LBB15_28:                              # %.preheader.i.i
                                         #   Parent Loop BB15_5 Depth=1
                                         #     Parent Loop BB15_25 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	fld.d	$fa0, $s1, -136
-	fld.d	$fa1, $s1, -128
-	fld.d	$fa2, $s1, -120
+	fld.d	$fa0, $fp, -136
+	fld.d	$fa1, $fp, -128
+	fld.d	$fa2, $fp, -120
 	movgr2fr.d	$fs7, $zero
 	fld.d	$fa3, $sp, 832                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa0, $fa3, $fs7
@@ -7871,10 +7829,10 @@ DoNNetIteration:                        # @DoNNetIteration
 	fmadd.d	$fa0, $fa1, $fa3, $fa0
 	fld.d	$fa1, $sp, 800                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa2, $fa1, $fa0
-	fld.d	$fa1, $s1, -112
-	fld.d	$fa2, $s1, -104
-	fld.d	$fa3, $s1, -96
-	fld.d	$fa4, $s1, -88
+	fld.d	$fa1, $fp, -112
+	fld.d	$fa2, $fp, -104
+	fld.d	$fa3, $fp, -96
+	fld.d	$fa4, $fp, -88
 	fld.d	$fa5, $sp, 784                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa1, $fa5, $fa0
 	fld.d	$fa1, $sp, 768                  # 8-byte Folded Reload
@@ -7883,10 +7841,10 @@ DoNNetIteration:                        # @DoNNetIteration
 	fmadd.d	$fa0, $fa3, $fa1, $fa0
 	fld.d	$fa1, $sp, 736                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa4, $fa1, $fa0
-	fld.d	$fa1, $s1, -80
-	fld.d	$fa2, $s1, -72
-	fld.d	$fa3, $s1, -64
-	fld.d	$fa4, $s1, -56
+	fld.d	$fa1, $fp, -80
+	fld.d	$fa2, $fp, -72
+	fld.d	$fa3, $fp, -64
+	fld.d	$fa4, $fp, -56
 	fld.d	$fa5, $sp, 720                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa1, $fa5, $fa0
 	fld.d	$fa1, $sp, 704                  # 8-byte Folded Reload
@@ -7895,10 +7853,10 @@ DoNNetIteration:                        # @DoNNetIteration
 	fmadd.d	$fa0, $fa3, $fa1, $fa0
 	fld.d	$fa1, $sp, 680                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa4, $fa1, $fa0
-	fld.d	$fa1, $s1, -48
-	fld.d	$fa2, $s1, -40
-	fld.d	$fa3, $s1, -32
-	fld.d	$fa4, $s1, -24
+	fld.d	$fa1, $fp, -48
+	fld.d	$fa2, $fp, -40
+	fld.d	$fa3, $fp, -32
+	fld.d	$fa4, $fp, -24
 	fld.d	$fa5, $sp, 672                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa1, $fa5, $fa0
 	fld.d	$fa1, $sp, 664                  # 8-byte Folded Reload
@@ -7907,10 +7865,10 @@ DoNNetIteration:                        # @DoNNetIteration
 	fmadd.d	$fa0, $fa3, $fa1, $fa0
 	fld.d	$fa1, $sp, 648                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa4, $fa1, $fa0
-	fld.d	$fa1, $s1, -16
-	fld.d	$fa2, $s1, -8
-	fld.d	$fa3, $s1, 0
-	fld.d	$fa4, $s1, 8
+	fld.d	$fa1, $fp, -16
+	fld.d	$fa2, $fp, -8
+	fld.d	$fa3, $fp, 0
+	fld.d	$fa4, $fp, 8
 	fld.d	$fa5, $sp, 640                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa1, $fa5, $fa0
 	fld.d	$fa1, $sp, 632                  # 8-byte Folded Reload
@@ -7919,10 +7877,10 @@ DoNNetIteration:                        # @DoNNetIteration
 	fmadd.d	$fa0, $fa3, $fa1, $fa0
 	fld.d	$fa1, $sp, 864                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa4, $fa1, $fa0
-	fld.d	$fa1, $s1, 16
-	fld.d	$fa2, $s1, 24
-	fld.d	$fa3, $s1, 32
-	fld.d	$fa4, $s1, 40
+	fld.d	$fa1, $fp, 16
+	fld.d	$fa2, $fp, 24
+	fld.d	$fa3, $fp, 32
+	fld.d	$fa4, $fp, 40
 	fld.d	$fa5, $sp, 848                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa1, $fa5, $fa0
 	fld.d	$fa1, $sp, 624                  # 8-byte Folded Reload
@@ -7931,10 +7889,10 @@ DoNNetIteration:                        # @DoNNetIteration
 	fmadd.d	$fa0, $fa3, $fa1, $fa0
 	fld.d	$fa1, $sp, 608                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa4, $fa1, $fa0
-	fld.d	$fa1, $s1, 48
-	fld.d	$fa2, $s1, 56
-	fld.d	$fa3, $s1, 64
-	fld.d	$fa4, $s1, 72
+	fld.d	$fa1, $fp, 48
+	fld.d	$fa2, $fp, 56
+	fld.d	$fa3, $fp, 64
+	fld.d	$fa4, $fp, 72
 	fld.d	$fa5, $sp, 600                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa1, $fa5, $fa0
 	fld.d	$fa1, $sp, 592                  # 8-byte Folded Reload
@@ -7943,19 +7901,19 @@ DoNNetIteration:                        # @DoNNetIteration
 	fmadd.d	$fa0, $fa3, $fa1, $fa0
 	fld.d	$fa1, $sp, 576                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa4, $fa1, $fa0
-	fld.d	$fa1, $s1, 80
-	fld.d	$fa2, $s1, 88
-	fld.d	$fa3, $s1, 96
-	fld.d	$fa4, $s1, 104
+	fld.d	$fa1, $fp, 80
+	fld.d	$fa2, $fp, 88
+	fld.d	$fa3, $fp, 96
+	fld.d	$fa4, $fp, 104
 	fld.d	$fa5, $sp, 568                  # 8-byte Folded Reload
 	fmadd.d	$fa0, $fa1, $fa5, $fa0
 	fmadd.d	$fa0, $fa2, $fs0, $fa0
 	fmadd.d	$fa0, $fa3, $fs1, $fa0
 	fmadd.d	$fa0, $fa4, $fs2, $fa0
-	fld.d	$fa1, $s1, 112
-	fld.d	$fa2, $s1, 120
-	fld.d	$fa3, $s1, 128
-	fld.d	$fa4, $s1, 136
+	fld.d	$fa1, $fp, 112
+	fld.d	$fa2, $fp, 120
+	fld.d	$fa3, $fp, 128
+	fld.d	$fa4, $fp, 136
 	fmadd.d	$fa0, $fa1, $fs3, $fa0
 	fmadd.d	$fa0, $fa2, $fs4, $fa0
 	fmadd.d	$fa0, $fa3, $fs5, $fa0
@@ -7967,10 +7925,10 @@ DoNNetIteration:                        # @DoNNetIteration
 	frecip.d	$fa0, $fa0
 	pcalau12i	$a0, %pc_hi20(mid_out)
 	addi.d	$a0, $a0, %pc_lo12(mid_out)
-	fstx.d	$fa0, $a0, $s0
-	addi.d	$s0, $s0, 8
-	addi.d	$s1, $s1, 280
-	bne	$s0, $fp, .LBB15_28
+	fstx.d	$fa0, $a0, $s1
+	addi.d	$s1, $s1, 8
+	addi.d	$fp, $fp, 280
+	bne	$s1, $s7, .LBB15_28
 # %bb.29:                               # %do_forward_pass.exit
                                         #   in Loop: Header=BB15_25 Depth=2
 	vld	$vr1, $a0, 0
@@ -8069,8 +8027,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfrecip.d	$vr0, $vr0
 	vst	$vr0, $sp, 160                  # 16-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(out_out)
-	addi.d	$s0, $a0, %pc_lo12(out_out)
-	vst	$vr0, $s0, 0
+	addi.d	$s1, $a0, %pc_lo12(out_out)
+	vst	$vr0, $s1, 0
 	fld.d	$fa0, $s8, 128
 	fld.d	$fa1, $s8, 136
 	fld.d	$fa2, $s8, 144
@@ -8147,7 +8105,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr0, $vr1, $vr0
 	vfrecip.d	$vr0, $vr0
 	vst	$vr0, $sp, 176                  # 16-byte Folded Spill
-	vst	$vr0, $s0, 16
+	vst	$vr0, $s1, 16
 	fld.d	$fs6, $s8, 256
 	fld.d	$fa1, $s8, 264
 	fld.d	$fa2, $s8, 272
@@ -8223,7 +8181,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr0, $vr1, $vr0
 	vfrecip.d	$vr0, $vr0
 	vst	$vr0, $sp, 192                  # 16-byte Folded Spill
-	vst	$vr0, $s0, 32
+	vst	$vr0, $s1, 32
 	fld.d	$fs3, $s8, 384
 	fld.d	$fa1, $s8, 392
 	fld.d	$fa2, $s8, 400
@@ -8297,9 +8255,9 @@ DoNNetIteration:                        # @DoNNetIteration
 	vld	$vr0, $sp, 752                  # 16-byte Folded Reload
 	vfadd.d	$vr0, $vr1, $vr0
 	vfrecip.d	$vr6, $vr0
-	vst	$vr6, $s0, 48
-	ld.d	$a3, $sp, 560                   # 8-byte Folded Reload
-	slli.d	$a0, $a3, 6
+	vst	$vr6, $s1, 48
+	ld.d	$a0, $sp, 560                   # 8-byte Folded Reload
+	slli.d	$a0, $a0, 6
 	pcalau12i	$a1, %pc_hi20(out_pats)
 	addi.d	$a1, $a1, %pc_lo12(out_pats)
 	fldx.d	$fa0, $a1, $a0
@@ -8315,35 +8273,17 @@ DoNNetIteration:                        # @DoNNetIteration
 	fsub.d	$fa3, $fa0, $fa1
 	fneg.d	$fa0, $fa1
 	ori	$a7, $zero, 512
-	ori	$t0, $zero, 2240
-	ori	$t1, $zero, 2256
-	ori	$t2, $zero, 2272
-	ori	$t3, $zero, 2288
-	ori	$t4, $zero, 2304
-	ori	$t5, $zero, 2320
-	ori	$t6, $zero, 2336
-	ori	$t7, $zero, 2352
-	ori	$t8, $zero, 2368
-	ori	$s0, $zero, 2384
-	ori	$s1, $zero, 2400
-	ori	$fp, $zero, 2496
+	ori	$s1, $zero, 2448
+	ori	$ra, $zero, 2512
+	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
 	b	.LBB15_35
 	.p2align	4, , 16
 .LBB15_31:                              #   in Loop: Header=BB15_25 Depth=2
 	fcmp.cule.d	$fcc0, $fa1, $fs7
 	fadd.d	$fa3, $fa1, $fs7
-	ori	$t0, $zero, 2240
-	ori	$t1, $zero, 2256
-	ori	$t2, $zero, 2272
-	ori	$t3, $zero, 2288
-	ori	$t4, $zero, 2304
-	ori	$t5, $zero, 2320
-	ori	$t6, $zero, 2336
-	ori	$t7, $zero, 2352
-	ori	$t8, $zero, 2368
-	ori	$s0, $zero, 2384
-	ori	$s1, $zero, 2400
-	ori	$fp, $zero, 2496
+	ori	$a7, $zero, 512
+	ori	$s1, $zero, 2448
+	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
 	bcnez	$fcc0, .LBB15_33
 # %bb.32:                               #   in Loop: Header=BB15_25 Depth=2
 	fmov.d	$fa0, $fa1
@@ -8352,7 +8292,7 @@ DoNNetIteration:                        # @DoNNetIteration
 .LBB15_33:                              #   in Loop: Header=BB15_25 Depth=2
 	fmov.d	$fa0, $fs7
 .LBB15_34:                              #   in Loop: Header=BB15_25 Depth=2
-	ori	$a7, $zero, 512
+	ori	$ra, $zero, 2512
 .LBB15_35:                              #   in Loop: Header=BB15_25 Depth=2
 	vld	$vr17, $sp, 720                 # 16-byte Folded Reload
 	vld	$vr18, $sp, 704                 # 16-byte Folded Reload
@@ -8532,7 +8472,8 @@ DoNNetIteration:                        # @DoNNetIteration
                                         #   in Loop: Header=BB15_25 Depth=2
 	vldi	$vr10, -960
 	fmul.d	$ft2, $ft3, $ft2
-	slli.d	$a3, $a3, 3
+	ld.d	$a0, $sp, 560                   # 8-byte Folded Reload
+	slli.d	$a3, $a0, 3
 	pcalau12i	$a0, %pc_hi20(avg_out_error)
 	addi.d	$a0, $a0, %pc_lo12(avg_out_error)
 	fstx.d	$ft2, $a0, $a3
@@ -8704,7 +8645,6 @@ DoNNetIteration:                        # @DoNNetIteration
 	fst.d	$fa5, $a3, 40
 	fst.d	$fa4, $a3, 48
 	fst.d	$fa3, $a3, 56
-	ld.d	$ra, $sp, 64                    # 8-byte Folded Reload
 	vld	$vr16, $sp, 736                 # 16-byte Folded Reload
 	.p2align	4, , 16
 .LBB15_71:                              # %.preheader.i.i10
@@ -8712,8 +8652,7 @@ DoNNetIteration:                        # @DoNNetIteration
                                         #     Parent Loop BB15_25 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
 	fld.d	$fa2, $a2, 0
-	pcalau12i	$a3, %pc_hi20(.LCPI15_2)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI15_2)
+	movgr2fr.d	$fa1, $s7
 	fmul.d	$fa2, $fa2, $fa1
 	add.d	$a3, $s4, $a4
 	add.d	$a5, $s8, $a4
@@ -8722,7 +8661,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfmul.d	$vr12, $vr16, $vr11
 	vldx	$vr13, $s4, $a4
 	vldx	$vr14, $s8, $a4
-	vreplgr2vr.d	$vr2, $ra
+	vreplgr2vr.d	$vr2, $s7
 	vldx	$vr15, $s5, $a4
 	vfmadd.d	$vr12, $vr13, $vr2, $vr12
 	vfadd.d	$vr13, $vr14, $vr12
@@ -8762,7 +8701,7 @@ DoNNetIteration:                        # @DoNNetIteration
 # %bb.72:                               # %adjust_out_wts.exit.i
                                         #   in Loop: Header=BB15_25 Depth=2
 	fmul.d	$ft2, $ft2, $fa1
-	vld	$vr12, $s7, 0
+	vld	$vr12, $s0, 0
 	vreplvei.d	$vr11, $vr10, 0
 	vld	$vr13, $s2, 0
 	vld	$vr14, $s6, 0
@@ -8772,7 +8711,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 0
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 16
+	vld	$vr13, $s0, 16
 	vst	$vr12, $s3, 0
 	vld	$vr12, $s2, 16
 	vld	$vr14, $s6, 16
@@ -8782,7 +8721,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 16
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 32
+	vld	$vr13, $s0, 32
 	vst	$vr12, $s3, 16
 	vld	$vr12, $s2, 32
 	vld	$vr14, $s6, 32
@@ -8792,7 +8731,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 32
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 48
+	vld	$vr13, $s0, 48
 	vst	$vr12, $s3, 32
 	vld	$vr12, $s2, 48
 	vld	$vr14, $s6, 48
@@ -8802,7 +8741,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 48
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 64
+	vld	$vr13, $s0, 64
 	vst	$vr12, $s3, 48
 	vld	$vr12, $s2, 64
 	vld	$vr14, $s6, 64
@@ -8812,7 +8751,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 64
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 80
+	vld	$vr13, $s0, 80
 	vst	$vr12, $s3, 64
 	vld	$vr12, $s2, 80
 	vld	$vr14, $s6, 80
@@ -8822,7 +8761,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 80
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 96
+	vld	$vr13, $s0, 96
 	vst	$vr12, $s3, 80
 	vld	$vr12, $s2, 96
 	vld	$vr14, $s6, 96
@@ -8832,7 +8771,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 96
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 112
+	vld	$vr13, $s0, 112
 	vst	$vr12, $s3, 96
 	vld	$vr12, $s2, 112
 	vld	$vr14, $s6, 112
@@ -8842,7 +8781,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 112
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 128
+	vld	$vr13, $s0, 128
 	vst	$vr12, $s3, 112
 	vld	$vr12, $s2, 128
 	vld	$vr14, $s6, 128
@@ -8852,7 +8791,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 128
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 144
+	vld	$vr13, $s0, 144
 	vst	$vr12, $s3, 128
 	vld	$vr12, $s2, 144
 	vld	$vr14, $s6, 144
@@ -8862,7 +8801,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 144
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 160
+	vld	$vr13, $s0, 160
 	vst	$vr12, $s3, 144
 	vld	$vr12, $s2, 160
 	vld	$vr14, $s6, 160
@@ -8872,7 +8811,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 160
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 176
+	vld	$vr13, $s0, 176
 	vst	$vr12, $s3, 160
 	vld	$vr12, $s2, 176
 	vld	$vr14, $s6, 176
@@ -8882,7 +8821,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 176
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 192
+	vld	$vr13, $s0, 192
 	vst	$vr12, $s3, 176
 	vld	$vr12, $s2, 192
 	vld	$vr14, $s6, 192
@@ -8892,7 +8831,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 192
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 208
+	vld	$vr13, $s0, 208
 	vst	$vr12, $s3, 192
 	vld	$vr12, $s2, 208
 	vld	$vr14, $s6, 208
@@ -8902,7 +8841,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 208
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 224
+	vld	$vr13, $s0, 224
 	vst	$vr12, $s3, 208
 	vld	$vr12, $s2, 224
 	vld	$vr14, $s6, 224
@@ -8912,7 +8851,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 224
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 240
+	vld	$vr13, $s0, 240
 	vst	$vr12, $s3, 224
 	vld	$vr12, $s2, 240
 	vld	$vr14, $s6, 240
@@ -8922,7 +8861,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr13, $vr14, $vr12
 	vst	$vr13, $s6, 240
 	vfadd.d	$vr12, $vr12, $vr15
-	vld	$vr13, $s7, 256
+	vld	$vr13, $s0, 256
 	vst	$vr12, $s3, 240
 	vld	$vr12, $s2, 256
 	vld	$vr14, $s6, 256
@@ -8932,7 +8871,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr14, $vr11
 	vst	$vr12, $s6, 256
 	vfadd.d	$vr11, $vr11, $vr13
-	fld.d	$ft4, $s7, 272
+	fld.d	$ft4, $s0, 272
 	vst	$vr11, $s3, 256
 	fld.d	$ft3, $s2, 272
 	fld.d	$ft5, $s6, 272
@@ -8944,7 +8883,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$ft2, $ft2, $ft4
 	fst.d	$ft2, $s3, 272
 	fmul.d	$ft1, $ft1, $fa1
-	vld	$vr11, $s7, 0
+	vld	$vr11, $s0, 0
 	vreplvei.d	$vr10, $vr9, 0
 	vld	$vr12, $s2, 280
 	vld	$vr13, $s6, 280
@@ -8954,7 +8893,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 280
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 16
+	vld	$vr12, $s0, 16
 	vst	$vr11, $s3, 280
 	vld	$vr11, $s2, 296
 	vld	$vr13, $s6, 296
@@ -8964,7 +8903,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 296
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 32
+	vld	$vr12, $s0, 32
 	vst	$vr11, $s3, 296
 	vld	$vr11, $s2, 312
 	vld	$vr13, $s6, 312
@@ -8974,7 +8913,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 312
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 48
+	vld	$vr12, $s0, 48
 	vst	$vr11, $s3, 312
 	vld	$vr11, $s2, 328
 	vld	$vr13, $s6, 328
@@ -8984,7 +8923,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 328
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 64
+	vld	$vr12, $s0, 64
 	vst	$vr11, $s3, 328
 	vld	$vr11, $s2, 344
 	vld	$vr13, $s6, 344
@@ -8994,7 +8933,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 344
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 80
+	vld	$vr12, $s0, 80
 	vst	$vr11, $s3, 344
 	vld	$vr11, $s2, 360
 	vld	$vr13, $s6, 360
@@ -9004,7 +8943,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 360
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 96
+	vld	$vr12, $s0, 96
 	vst	$vr11, $s3, 360
 	vld	$vr11, $s2, 376
 	vld	$vr13, $s6, 376
@@ -9014,7 +8953,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 376
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 112
+	vld	$vr12, $s0, 112
 	vst	$vr11, $s3, 376
 	vld	$vr11, $s2, 392
 	vld	$vr13, $s6, 392
@@ -9024,7 +8963,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 392
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 128
+	vld	$vr12, $s0, 128
 	vst	$vr11, $s3, 392
 	vld	$vr11, $s2, 408
 	vld	$vr13, $s6, 408
@@ -9034,7 +8973,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 408
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 144
+	vld	$vr12, $s0, 144
 	vst	$vr11, $s3, 408
 	vld	$vr11, $s2, 424
 	vld	$vr13, $s6, 424
@@ -9044,7 +8983,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 424
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 160
+	vld	$vr12, $s0, 160
 	vst	$vr11, $s3, 424
 	vld	$vr11, $s2, 440
 	vld	$vr13, $s6, 440
@@ -9054,7 +8993,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 440
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 176
+	vld	$vr12, $s0, 176
 	vst	$vr11, $s3, 440
 	vld	$vr11, $s2, 456
 	vld	$vr13, $s6, 456
@@ -9064,7 +9003,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 456
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 192
+	vld	$vr12, $s0, 192
 	vst	$vr11, $s3, 456
 	vld	$vr11, $s2, 472
 	vld	$vr13, $s6, 472
@@ -9074,7 +9013,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 472
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 208
+	vld	$vr12, $s0, 208
 	vst	$vr11, $s3, 472
 	vld	$vr11, $s2, 488
 	vld	$vr13, $s6, 488
@@ -9084,7 +9023,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 488
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 224
+	vld	$vr12, $s0, 224
 	vst	$vr11, $s3, 488
 	vld	$vr11, $s2, 504
 	vld	$vr13, $s6, 504
@@ -9094,7 +9033,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 504
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 240
+	vld	$vr12, $s0, 240
 	vst	$vr11, $s3, 504
 	vld	$vr11, $s2, 520
 	vld	$vr13, $s6, 520
@@ -9104,7 +9043,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr12, $vr13, $vr11
 	vst	$vr12, $s6, 520
 	vfadd.d	$vr11, $vr11, $vr14
-	vld	$vr12, $s7, 256
+	vld	$vr12, $s0, 256
 	vst	$vr11, $s3, 520
 	vld	$vr11, $s2, 536
 	vld	$vr13, $s6, 536
@@ -9114,7 +9053,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr13, $vr10
 	vst	$vr11, $s6, 536
 	vfadd.d	$vr10, $vr10, $vr12
-	fld.d	$ft3, $s7, 272
+	fld.d	$ft3, $s0, 272
 	vst	$vr10, $s3, 536
 	fld.d	$ft2, $s2, 552
 	fld.d	$ft4, $s6, 552
@@ -9126,7 +9065,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$ft1, $ft1, $ft3
 	fst.d	$ft1, $s3, 552
 	fmul.d	$ft0, $ft0, $fa1
-	vld	$vr10, $s7, 0
+	vld	$vr10, $s0, 0
 	vreplvei.d	$vr9, $vr8, 0
 	vld	$vr11, $s2, 560
 	vld	$vr12, $s6, 560
@@ -9136,7 +9075,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 560
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 16
+	vld	$vr11, $s0, 16
 	vst	$vr10, $s3, 560
 	vld	$vr10, $s2, 576
 	vld	$vr12, $s6, 576
@@ -9146,7 +9085,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 576
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 32
+	vld	$vr11, $s0, 32
 	vst	$vr10, $s3, 576
 	vld	$vr10, $s2, 592
 	vld	$vr12, $s6, 592
@@ -9156,7 +9095,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 592
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 48
+	vld	$vr11, $s0, 48
 	vst	$vr10, $s3, 592
 	vld	$vr10, $s2, 608
 	vld	$vr12, $s6, 608
@@ -9166,7 +9105,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 608
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 64
+	vld	$vr11, $s0, 64
 	vst	$vr10, $s3, 608
 	vld	$vr10, $s2, 624
 	vld	$vr12, $s6, 624
@@ -9176,7 +9115,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 624
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 80
+	vld	$vr11, $s0, 80
 	vst	$vr10, $s3, 624
 	vld	$vr10, $s2, 640
 	vld	$vr12, $s6, 640
@@ -9186,7 +9125,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 640
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 96
+	vld	$vr11, $s0, 96
 	vst	$vr10, $s3, 640
 	vld	$vr10, $s2, 656
 	vld	$vr12, $s6, 656
@@ -9196,7 +9135,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 656
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 112
+	vld	$vr11, $s0, 112
 	vst	$vr10, $s3, 656
 	vld	$vr10, $s2, 672
 	vld	$vr12, $s6, 672
@@ -9206,7 +9145,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 672
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 128
+	vld	$vr11, $s0, 128
 	vst	$vr10, $s3, 672
 	vld	$vr10, $s2, 688
 	vld	$vr12, $s6, 688
@@ -9216,7 +9155,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 688
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 144
+	vld	$vr11, $s0, 144
 	vst	$vr10, $s3, 688
 	vld	$vr10, $s2, 704
 	vld	$vr12, $s6, 704
@@ -9226,7 +9165,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 704
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 160
+	vld	$vr11, $s0, 160
 	vst	$vr10, $s3, 704
 	vld	$vr10, $s2, 720
 	vld	$vr12, $s6, 720
@@ -9236,7 +9175,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 720
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 176
+	vld	$vr11, $s0, 176
 	vst	$vr10, $s3, 720
 	vld	$vr10, $s2, 736
 	vld	$vr12, $s6, 736
@@ -9246,7 +9185,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 736
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 192
+	vld	$vr11, $s0, 192
 	vst	$vr10, $s3, 736
 	vld	$vr10, $s2, 752
 	vld	$vr12, $s6, 752
@@ -9256,7 +9195,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 752
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 208
+	vld	$vr11, $s0, 208
 	vst	$vr10, $s3, 752
 	vld	$vr10, $s2, 768
 	vld	$vr12, $s6, 768
@@ -9266,7 +9205,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 768
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 224
+	vld	$vr11, $s0, 224
 	vst	$vr10, $s3, 768
 	vld	$vr10, $s2, 784
 	vld	$vr12, $s6, 784
@@ -9276,7 +9215,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 784
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 240
+	vld	$vr11, $s0, 240
 	vst	$vr10, $s3, 784
 	vld	$vr10, $s2, 800
 	vld	$vr12, $s6, 800
@@ -9286,7 +9225,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr11, $vr12, $vr10
 	vst	$vr11, $s6, 800
 	vfadd.d	$vr10, $vr10, $vr13
-	vld	$vr11, $s7, 256
+	vld	$vr11, $s0, 256
 	vst	$vr10, $s3, 800
 	vld	$vr10, $s2, 816
 	vld	$vr12, $s6, 816
@@ -9296,7 +9235,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr12, $vr9
 	vst	$vr10, $s6, 816
 	vfadd.d	$vr9, $vr9, $vr11
-	fld.d	$ft2, $s7, 272
+	fld.d	$ft2, $s0, 272
 	vst	$vr9, $s3, 816
 	fld.d	$ft1, $s2, 832
 	fld.d	$ft3, $s6, 832
@@ -9308,7 +9247,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$ft0, $ft0, $ft2
 	fst.d	$ft0, $s3, 832
 	fmul.d	$fa7, $fa7, $fa1
-	vld	$vr9, $s7, 0
+	vld	$vr9, $s0, 0
 	vreplvei.d	$vr8, $vr7, 0
 	vld	$vr10, $s2, 840
 	vld	$vr11, $s6, 840
@@ -9318,7 +9257,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 840
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 16
+	vld	$vr10, $s0, 16
 	vst	$vr9, $s3, 840
 	vld	$vr9, $s2, 856
 	vld	$vr11, $s6, 856
@@ -9328,7 +9267,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 856
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 32
+	vld	$vr10, $s0, 32
 	vst	$vr9, $s3, 856
 	vld	$vr9, $s2, 872
 	vld	$vr11, $s6, 872
@@ -9338,7 +9277,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 872
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 48
+	vld	$vr10, $s0, 48
 	vst	$vr9, $s3, 872
 	vld	$vr9, $s2, 888
 	vld	$vr11, $s6, 888
@@ -9348,7 +9287,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 888
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 64
+	vld	$vr10, $s0, 64
 	vst	$vr9, $s3, 888
 	vld	$vr9, $s2, 904
 	vld	$vr11, $s6, 904
@@ -9358,7 +9297,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 904
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 80
+	vld	$vr10, $s0, 80
 	vst	$vr9, $s3, 904
 	vld	$vr9, $s2, 920
 	vld	$vr11, $s6, 920
@@ -9368,7 +9307,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 920
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 96
+	vld	$vr10, $s0, 96
 	vst	$vr9, $s3, 920
 	vld	$vr9, $s2, 936
 	vld	$vr11, $s6, 936
@@ -9378,7 +9317,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 936
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 112
+	vld	$vr10, $s0, 112
 	vst	$vr9, $s3, 936
 	vld	$vr9, $s2, 952
 	vld	$vr11, $s6, 952
@@ -9388,7 +9327,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 952
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 128
+	vld	$vr10, $s0, 128
 	vst	$vr9, $s3, 952
 	vld	$vr9, $s2, 968
 	vld	$vr11, $s6, 968
@@ -9398,7 +9337,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 968
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 144
+	vld	$vr10, $s0, 144
 	vst	$vr9, $s3, 968
 	vld	$vr9, $s2, 984
 	vld	$vr11, $s6, 984
@@ -9408,7 +9347,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 984
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 160
+	vld	$vr10, $s0, 160
 	vst	$vr9, $s3, 984
 	vld	$vr9, $s2, 1000
 	vld	$vr11, $s6, 1000
@@ -9418,7 +9357,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 1000
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 176
+	vld	$vr10, $s0, 176
 	vst	$vr9, $s3, 1000
 	vld	$vr9, $s2, 1016
 	vld	$vr11, $s6, 1016
@@ -9428,7 +9367,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 1016
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 192
+	vld	$vr10, $s0, 192
 	vst	$vr9, $s3, 1016
 	vld	$vr9, $s2, 1032
 	vld	$vr11, $s6, 1032
@@ -9438,7 +9377,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 1032
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 208
+	vld	$vr10, $s0, 208
 	vst	$vr9, $s3, 1032
 	vld	$vr9, $s2, 1048
 	vld	$vr11, $s6, 1048
@@ -9448,7 +9387,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 1048
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 224
+	vld	$vr10, $s0, 224
 	vst	$vr9, $s3, 1048
 	vld	$vr9, $s2, 1064
 	vld	$vr11, $s6, 1064
@@ -9458,7 +9397,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 1064
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 240
+	vld	$vr10, $s0, 240
 	vst	$vr9, $s3, 1064
 	vld	$vr9, $s2, 1080
 	vld	$vr11, $s6, 1080
@@ -9468,7 +9407,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr10, $vr11, $vr9
 	vst	$vr10, $s6, 1080
 	vfadd.d	$vr9, $vr9, $vr12
-	vld	$vr10, $s7, 256
+	vld	$vr10, $s0, 256
 	vst	$vr9, $s3, 1080
 	vld	$vr9, $s2, 1096
 	vld	$vr11, $s6, 1096
@@ -9478,7 +9417,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr11, $vr8
 	vst	$vr9, $s6, 1096
 	vfadd.d	$vr8, $vr8, $vr10
-	fld.d	$ft1, $s7, 272
+	fld.d	$ft1, $s0, 272
 	vst	$vr8, $s3, 1096
 	fld.d	$ft0, $s2, 1112
 	fld.d	$ft2, $s6, 1112
@@ -9490,7 +9429,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa7, $fa7, $ft1
 	fst.d	$fa7, $s3, 1112
 	fmul.d	$fa6, $fa6, $fa1
-	vld	$vr8, $s7, 0
+	vld	$vr8, $s0, 0
 	vreplvei.d	$vr7, $vr6, 0
 	vld	$vr9, $s2, 1120
 	vld	$vr10, $s6, 1120
@@ -9500,7 +9439,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1120
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 16
+	vld	$vr9, $s0, 16
 	vst	$vr8, $s3, 1120
 	vld	$vr8, $s2, 1136
 	vld	$vr10, $s6, 1136
@@ -9510,7 +9449,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1136
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 32
+	vld	$vr9, $s0, 32
 	vst	$vr8, $s3, 1136
 	vld	$vr8, $s2, 1152
 	vld	$vr10, $s6, 1152
@@ -9520,7 +9459,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1152
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 48
+	vld	$vr9, $s0, 48
 	vst	$vr8, $s3, 1152
 	vld	$vr8, $s2, 1168
 	vld	$vr10, $s6, 1168
@@ -9530,7 +9469,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1168
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 64
+	vld	$vr9, $s0, 64
 	vst	$vr8, $s3, 1168
 	vld	$vr8, $s2, 1184
 	vld	$vr10, $s6, 1184
@@ -9540,7 +9479,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1184
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 80
+	vld	$vr9, $s0, 80
 	vst	$vr8, $s3, 1184
 	vld	$vr8, $s2, 1200
 	vld	$vr10, $s6, 1200
@@ -9550,7 +9489,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1200
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 96
+	vld	$vr9, $s0, 96
 	vst	$vr8, $s3, 1200
 	vld	$vr8, $s2, 1216
 	vld	$vr10, $s6, 1216
@@ -9560,7 +9499,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1216
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 112
+	vld	$vr9, $s0, 112
 	vst	$vr8, $s3, 1216
 	vld	$vr8, $s2, 1232
 	vld	$vr10, $s6, 1232
@@ -9570,7 +9509,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1232
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 128
+	vld	$vr9, $s0, 128
 	vst	$vr8, $s3, 1232
 	vld	$vr8, $s2, 1248
 	vld	$vr10, $s6, 1248
@@ -9580,7 +9519,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1248
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 144
+	vld	$vr9, $s0, 144
 	vst	$vr8, $s3, 1248
 	vld	$vr8, $s2, 1264
 	vld	$vr10, $s6, 1264
@@ -9590,7 +9529,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1264
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 160
+	vld	$vr9, $s0, 160
 	vst	$vr8, $s3, 1264
 	vld	$vr8, $s2, 1280
 	vld	$vr10, $s6, 1280
@@ -9600,7 +9539,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1280
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 176
+	vld	$vr9, $s0, 176
 	vst	$vr8, $s3, 1280
 	vld	$vr8, $s2, 1296
 	vld	$vr10, $s6, 1296
@@ -9610,7 +9549,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1296
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 192
+	vld	$vr9, $s0, 192
 	vst	$vr8, $s3, 1296
 	vld	$vr8, $s2, 1312
 	vld	$vr10, $s6, 1312
@@ -9620,7 +9559,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1312
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 208
+	vld	$vr9, $s0, 208
 	vst	$vr8, $s3, 1312
 	vld	$vr8, $s2, 1328
 	vld	$vr10, $s6, 1328
@@ -9630,7 +9569,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1328
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 224
+	vld	$vr9, $s0, 224
 	vst	$vr8, $s3, 1328
 	vld	$vr8, $s2, 1344
 	vld	$vr10, $s6, 1344
@@ -9640,7 +9579,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1344
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 240
+	vld	$vr9, $s0, 240
 	vst	$vr8, $s3, 1344
 	vld	$vr8, $s2, 1360
 	vld	$vr10, $s6, 1360
@@ -9650,7 +9589,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr9, $vr10, $vr8
 	vst	$vr9, $s6, 1360
 	vfadd.d	$vr8, $vr8, $vr11
-	vld	$vr9, $s7, 256
+	vld	$vr9, $s0, 256
 	vst	$vr8, $s3, 1360
 	vld	$vr8, $s2, 1376
 	vld	$vr10, $s6, 1376
@@ -9660,7 +9599,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr10, $vr7
 	vst	$vr8, $s6, 1376
 	vfadd.d	$vr7, $vr7, $vr9
-	fld.d	$ft0, $s7, 272
+	fld.d	$ft0, $s0, 272
 	vst	$vr7, $s3, 1376
 	fld.d	$fa7, $s2, 1392
 	fld.d	$ft1, $s6, 1392
@@ -9672,7 +9611,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa6, $fa6, $ft0
 	fst.d	$fa6, $s3, 1392
 	fmul.d	$fa5, $fa5, $fa1
-	vld	$vr7, $s7, 0
+	vld	$vr7, $s0, 0
 	vreplvei.d	$vr6, $vr5, 0
 	vld	$vr8, $s2, 1400
 	vld	$vr9, $s6, 1400
@@ -9682,7 +9621,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1400
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 16
+	vld	$vr8, $s0, 16
 	vst	$vr7, $s3, 1400
 	vld	$vr7, $s2, 1416
 	vld	$vr9, $s6, 1416
@@ -9692,7 +9631,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1416
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 32
+	vld	$vr8, $s0, 32
 	vst	$vr7, $s3, 1416
 	vld	$vr7, $s2, 1432
 	vld	$vr9, $s6, 1432
@@ -9702,7 +9641,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1432
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 48
+	vld	$vr8, $s0, 48
 	vst	$vr7, $s3, 1432
 	vld	$vr7, $s2, 1448
 	vld	$vr9, $s6, 1448
@@ -9712,7 +9651,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1448
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 64
+	vld	$vr8, $s0, 64
 	vst	$vr7, $s3, 1448
 	vld	$vr7, $s2, 1464
 	vld	$vr9, $s6, 1464
@@ -9722,7 +9661,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1464
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 80
+	vld	$vr8, $s0, 80
 	vst	$vr7, $s3, 1464
 	vld	$vr7, $s2, 1480
 	vld	$vr9, $s6, 1480
@@ -9732,7 +9671,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1480
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 96
+	vld	$vr8, $s0, 96
 	vst	$vr7, $s3, 1480
 	vld	$vr7, $s2, 1496
 	vld	$vr9, $s6, 1496
@@ -9742,7 +9681,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1496
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 112
+	vld	$vr8, $s0, 112
 	vst	$vr7, $s3, 1496
 	vld	$vr7, $s2, 1512
 	vld	$vr9, $s6, 1512
@@ -9752,7 +9691,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1512
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 128
+	vld	$vr8, $s0, 128
 	vst	$vr7, $s3, 1512
 	vld	$vr7, $s2, 1528
 	vld	$vr9, $s6, 1528
@@ -9762,7 +9701,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1528
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 144
+	vld	$vr8, $s0, 144
 	vst	$vr7, $s3, 1528
 	vld	$vr7, $s2, 1544
 	vld	$vr9, $s6, 1544
@@ -9772,7 +9711,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1544
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 160
+	vld	$vr8, $s0, 160
 	vst	$vr7, $s3, 1544
 	vld	$vr7, $s2, 1560
 	vld	$vr9, $s6, 1560
@@ -9782,7 +9721,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1560
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 176
+	vld	$vr8, $s0, 176
 	vst	$vr7, $s3, 1560
 	vld	$vr7, $s2, 1576
 	vld	$vr9, $s6, 1576
@@ -9792,7 +9731,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1576
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 192
+	vld	$vr8, $s0, 192
 	vst	$vr7, $s3, 1576
 	vld	$vr7, $s2, 1592
 	vld	$vr9, $s6, 1592
@@ -9802,7 +9741,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1592
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 208
+	vld	$vr8, $s0, 208
 	vst	$vr7, $s3, 1592
 	vld	$vr7, $s2, 1608
 	vld	$vr9, $s6, 1608
@@ -9812,7 +9751,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1608
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 224
+	vld	$vr8, $s0, 224
 	vst	$vr7, $s3, 1608
 	vld	$vr7, $s2, 1624
 	vld	$vr9, $s6, 1624
@@ -9822,7 +9761,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1624
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 240
+	vld	$vr8, $s0, 240
 	vst	$vr7, $s3, 1624
 	vld	$vr7, $s2, 1640
 	vld	$vr9, $s6, 1640
@@ -9832,7 +9771,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr8, $vr9, $vr7
 	vst	$vr8, $s6, 1640
 	vfadd.d	$vr7, $vr7, $vr10
-	vld	$vr8, $s7, 256
+	vld	$vr8, $s0, 256
 	vst	$vr7, $s3, 1640
 	vld	$vr7, $s2, 1656
 	vld	$vr9, $s6, 1656
@@ -9842,7 +9781,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr9, $vr6
 	vst	$vr7, $s6, 1656
 	vfadd.d	$vr6, $vr6, $vr8
-	fld.d	$fa7, $s7, 272
+	fld.d	$fa7, $s0, 272
 	vst	$vr6, $s3, 1656
 	fld.d	$fa6, $s2, 1672
 	fld.d	$ft0, $s6, 1672
@@ -9854,7 +9793,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa5, $fa5, $fa7
 	fst.d	$fa5, $s3, 1672
 	fmul.d	$fa4, $fa4, $fa1
-	vld	$vr6, $s7, 0
+	vld	$vr6, $s0, 0
 	vreplvei.d	$vr5, $vr4, 0
 	vld	$vr7, $s2, 1680
 	vld	$vr8, $s6, 1680
@@ -9864,7 +9803,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1680
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 16
+	vld	$vr7, $s0, 16
 	vst	$vr6, $s3, 1680
 	vld	$vr6, $s2, 1696
 	vld	$vr8, $s6, 1696
@@ -9874,7 +9813,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1696
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 32
+	vld	$vr7, $s0, 32
 	vst	$vr6, $s3, 1696
 	vld	$vr6, $s2, 1712
 	vld	$vr8, $s6, 1712
@@ -9884,7 +9823,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1712
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 48
+	vld	$vr7, $s0, 48
 	vst	$vr6, $s3, 1712
 	vld	$vr6, $s2, 1728
 	vld	$vr8, $s6, 1728
@@ -9894,7 +9833,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1728
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 64
+	vld	$vr7, $s0, 64
 	vst	$vr6, $s3, 1728
 	vld	$vr6, $s2, 1744
 	vld	$vr8, $s6, 1744
@@ -9904,7 +9843,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1744
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 80
+	vld	$vr7, $s0, 80
 	vst	$vr6, $s3, 1744
 	vld	$vr6, $s2, 1760
 	vld	$vr8, $s6, 1760
@@ -9914,7 +9853,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1760
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 96
+	vld	$vr7, $s0, 96
 	vst	$vr6, $s3, 1760
 	vld	$vr6, $s2, 1776
 	vld	$vr8, $s6, 1776
@@ -9924,7 +9863,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1776
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 112
+	vld	$vr7, $s0, 112
 	vst	$vr6, $s3, 1776
 	vld	$vr6, $s2, 1792
 	vld	$vr8, $s6, 1792
@@ -9934,7 +9873,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1792
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 128
+	vld	$vr7, $s0, 128
 	vst	$vr6, $s3, 1792
 	vld	$vr6, $s2, 1808
 	vld	$vr8, $s6, 1808
@@ -9944,7 +9883,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1808
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 144
+	vld	$vr7, $s0, 144
 	vst	$vr6, $s3, 1808
 	vld	$vr6, $s2, 1824
 	vld	$vr8, $s6, 1824
@@ -9954,7 +9893,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1824
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 160
+	vld	$vr7, $s0, 160
 	vst	$vr6, $s3, 1824
 	vld	$vr6, $s2, 1840
 	vld	$vr8, $s6, 1840
@@ -9964,7 +9903,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1840
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 176
+	vld	$vr7, $s0, 176
 	vst	$vr6, $s3, 1840
 	vld	$vr6, $s2, 1856
 	vld	$vr8, $s6, 1856
@@ -9974,7 +9913,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1856
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 192
+	vld	$vr7, $s0, 192
 	vst	$vr6, $s3, 1856
 	vld	$vr6, $s2, 1872
 	vld	$vr8, $s6, 1872
@@ -9984,7 +9923,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1872
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 208
+	vld	$vr7, $s0, 208
 	vst	$vr6, $s3, 1872
 	vld	$vr6, $s2, 1888
 	vld	$vr8, $s6, 1888
@@ -9994,7 +9933,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1888
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 224
+	vld	$vr7, $s0, 224
 	vst	$vr6, $s3, 1888
 	vld	$vr6, $s2, 1904
 	vld	$vr8, $s6, 1904
@@ -10004,7 +9943,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1904
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 240
+	vld	$vr7, $s0, 240
 	vst	$vr6, $s3, 1904
 	vld	$vr6, $s2, 1920
 	vld	$vr8, $s6, 1920
@@ -10014,7 +9953,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr7, $vr8, $vr6
 	vst	$vr7, $s6, 1920
 	vfadd.d	$vr6, $vr6, $vr9
-	vld	$vr7, $s7, 256
+	vld	$vr7, $s0, 256
 	vst	$vr6, $s3, 1920
 	vld	$vr6, $s2, 1936
 	vld	$vr8, $s6, 1936
@@ -10024,7 +9963,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr6, $vr8, $vr5
 	vst	$vr6, $s6, 1936
 	vfadd.d	$vr5, $vr5, $vr7
-	fld.d	$fa6, $s7, 272
+	fld.d	$fa6, $s0, 272
 	vst	$vr5, $s3, 1936
 	fld.d	$fa5, $s2, 1952
 	fld.d	$fa7, $s6, 1952
@@ -10036,7 +9975,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa4, $fa4, $fa6
 	fst.d	$fa4, $s3, 1952
 	fmul.d	$fa3, $fa3, $fa1
-	vld	$vr5, $s7, 0
+	vld	$vr5, $s0, 0
 	vreplvei.d	$vr4, $vr3, 0
 	vld	$vr6, $s2, 1960
 	vld	$vr7, $s6, 1960
@@ -10046,7 +9985,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr6, $vr7, $vr5
 	vst	$vr6, $s6, 1960
 	vfadd.d	$vr5, $vr5, $vr8
-	vld	$vr6, $s7, 16
+	vld	$vr6, $s0, 16
 	vld	$vr7, $s2, 1976
 	vst	$vr5, $s3, 1960
 	vld	$vr5, $s6, 1976
@@ -10058,7 +9997,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vld	$vr5, $s6, 1992
 	vfadd.d	$vr6, $vr6, $vr7
 	vst	$vr6, $s3, 1976
-	vld	$vr6, $s7, 32
+	vld	$vr6, $s0, 32
 	vld	$vr7, $s2, 1992
 	vld	$vr8, $s6, 2008
 	vld	$vr9, $s3, 1992
@@ -10068,7 +10007,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vst	$vr5, $s6, 1992
 	vfadd.d	$vr5, $vr6, $vr9
 	vst	$vr5, $s3, 1992
-	vld	$vr5, $s7, 48
+	vld	$vr5, $s0, 48
 	vld	$vr6, $s2, 2008
 	vld	$vr7, $s6, 2024
 	vld	$vr9, $s3, 2008
@@ -10078,7 +10017,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vst	$vr6, $s6, 2008
 	vfadd.d	$vr5, $vr5, $vr9
 	vst	$vr5, $s3, 2008
-	vld	$vr5, $s7, 64
+	vld	$vr5, $s0, 64
 	vld	$vr6, $s2, 2024
 	vld	$vr8, $s6, 2040
 	vld	$vr9, $s3, 2024
@@ -10088,7 +10027,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vst	$vr6, $s6, 2024
 	vfadd.d	$vr5, $vr5, $vr9
 	vst	$vr5, $s3, 2024
-	vld	$vr5, $s7, 80
+	vld	$vr5, $s0, 80
 	vld	$vr6, $s2, 2040
 	ori	$a2, $zero, 2056
 	vldx	$vr7, $s6, $a2
@@ -10099,7 +10038,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vst	$vr6, $s6, 2040
 	vfadd.d	$vr5, $vr5, $vr9
 	vst	$vr5, $s3, 2040
-	vld	$vr5, $s7, 96
+	vld	$vr5, $s0, 96
 	vldx	$vr6, $s2, $a2
 	ori	$a3, $zero, 2072
 	vldx	$vr8, $s6, $a3
@@ -10110,7 +10049,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vstx	$vr6, $s6, $a2
 	vfadd.d	$vr5, $vr5, $vr9
 	vstx	$vr5, $s3, $a2
-	vld	$vr5, $s7, 112
+	vld	$vr5, $s0, 112
 	vldx	$vr6, $s2, $a3
 	ori	$a2, $zero, 2088
 	vldx	$vr7, $s6, $a2
@@ -10121,7 +10060,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vstx	$vr6, $s6, $a3
 	vfadd.d	$vr5, $vr5, $vr9
 	vstx	$vr5, $s3, $a3
-	vld	$vr5, $s7, 128
+	vld	$vr5, $s0, 128
 	vldx	$vr6, $s2, $a2
 	ori	$a3, $zero, 2104
 	vldx	$vr8, $s6, $a3
@@ -10132,7 +10071,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vstx	$vr6, $s6, $a2
 	vfadd.d	$vr5, $vr5, $vr9
 	vstx	$vr5, $s3, $a2
-	vld	$vr5, $s7, 144
+	vld	$vr5, $s0, 144
 	vldx	$vr6, $s2, $a3
 	ori	$a2, $zero, 2120
 	vldx	$vr7, $s6, $a2
@@ -10143,7 +10082,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vstx	$vr6, $s6, $a3
 	vfadd.d	$vr5, $vr5, $vr9
 	vstx	$vr5, $s3, $a3
-	vld	$vr5, $s7, 160
+	vld	$vr5, $s0, 160
 	vldx	$vr6, $s2, $a2
 	ori	$a3, $zero, 2136
 	vldx	$vr8, $s6, $a3
@@ -10154,7 +10093,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vstx	$vr6, $s6, $a2
 	vfadd.d	$vr5, $vr5, $vr9
 	vstx	$vr5, $s3, $a2
-	vld	$vr5, $s7, 176
+	vld	$vr5, $s0, 176
 	vldx	$vr6, $s2, $a3
 	ori	$a2, $zero, 2152
 	vldx	$vr7, $s6, $a2
@@ -10165,7 +10104,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	vstx	$vr6, $s6, $a3
 	vfadd.d	$vr5, $vr5, $vr9
 	vstx	$vr5, $s3, $a3
-	vld	$vr5, $s7, 192
+	vld	$vr5, $s0, 192
 	vldx	$vr6, $s2, $a2
 	ori	$a3, $zero, 2168
 	vldx	$vr8, $s6, $a3
@@ -10179,10 +10118,10 @@ DoNNetIteration:                        # @DoNNetIteration
 	ori	$a4, $zero, 2184
 	vldx	$vr5, $s6, $a4
 	vldx	$vr6, $s2, $a4
-	vld	$vr7, $s7, 208
+	vld	$vr7, $s0, 208
 	vldx	$vr9, $s2, $a3
 	vldx	$vr10, $s3, $a3
-	vld	$vr11, $s7, 224
+	vld	$vr11, $s0, 224
 	vfmul.d	$vr7, $vr4, $vr7
 	vfmadd.d	$vr7, $vr9, $vr2, $vr7
 	vfadd.d	$vr8, $vr8, $vr7
@@ -10193,9 +10132,9 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfmadd.d	$vr6, $vr6, $vr2, $vr7
 	vfadd.d	$vr5, $vr5, $vr6
 	vstx	$vr5, $s6, $a4
-	vld	$vr5, $s7, 240
-	vld	$vr7, $s7, 256
-	fld.d	$ft0, $s7, 272
+	vld	$vr5, $s0, 240
+	vld	$vr7, $s0, 256
+	fld.d	$ft0, $s0, 272
 	ld.d	$a5, $sp, 128                   # 8-byte Folded Reload
 	ld.w	$a2, $a5, %pc_lo12(iteration_count)
 	ori	$a3, $zero, 2200
@@ -10213,8 +10152,8 @@ DoNNetIteration:                        # @DoNNetIteration
 	vfadd.d	$vr6, $vr9, $vr5
 	vstx	$vr6, $s6, $a3
 	vldx	$vr6, $s3, $a3
-	ld.d	$ra, $sp, 560                   # 8-byte Folded Reload
-	addi.d	$ra, $ra, 1
+	ld.d	$a6, $sp, 560                   # 8-byte Folded Reload
+	addi.d	$a6, $a6, 1
 	ori	$a4, $zero, 2216
 	vldx	$vr9, $s6, $a4
 	ori	$a5, $zero, 2232
@@ -10238,19 +10177,30 @@ DoNNetIteration:                        # @DoNNetIteration
 	fadd.d	$fa1, $fa1, $fa2
 	fstx.d	$fa1, $s3, $a5
 	fld.d	$fs0, $sp, 88                   # 8-byte Folded Reload
-	ori	$s7, $zero, 280
 	fld.d	$fs1, $sp, 80                   # 8-byte Folded Reload
+	ori	$a5, $zero, 2240
 	vld	$vr5, $sp, 96                   # 16-byte Folded Reload
-	ori	$a6, $zero, 2464
-	ori	$a7, $zero, 2480
-	blt	$ra, $a2, .LBB15_25
+	ori	$a7, $zero, 2256
+	ori	$t0, $zero, 2272
+	ori	$t1, $zero, 2288
+	ori	$t2, $zero, 2304
+	ori	$t3, $zero, 2320
+	ori	$t4, $zero, 2336
+	ori	$t5, $zero, 2352
+	ori	$t6, $zero, 2368
+	ori	$t7, $zero, 2384
+	ori	$t8, $zero, 2400
+	ori	$fp, $zero, 2416
+	ori	$s0, $zero, 2432
+	st.d	$a6, $sp, 560                   # 8-byte Folded Spill
+	blt	$a6, $a2, .LBB15_25
 # %bb.73:                               # %._crit_edge
                                         #   in Loop: Header=BB15_25 Depth=2
 	ld.d	$a4, $sp, 40                    # 8-byte Folded Reload
 	ld.w	$a3, $a4, %pc_lo12(numpasses)
 	addi.d	$a3, $a3, 1
 	st.w	$a3, $a4, %pc_lo12(numpasses)
-	ori	$a5, $zero, 1
+	ori	$a6, $zero, 1
 	blez	$a2, .LBB15_3
 # %bb.74:                               # %.lr.ph.preheader.i.i
                                         #   in Loop: Header=BB15_25 Depth=2
@@ -10277,13 +10227,13 @@ DoNNetIteration:                        # @DoNNetIteration
 	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
 	fst.d	$fa1, $a0, %pc_lo12(worst_error)
 	movgr2fr.d	$fa2, $a3
-	pcalau12i	$a0, %pc_hi20(.LCPI15_3)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI15_3)
 	ffint.d.l	$fa2, $fa2
 	fdiv.d	$fa0, $fa0, $fa2
 	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
 	fst.d	$fa0, $a0, %pc_lo12(average_error)
-	fcmp.cult.d	$fcc0, $fa1, $fa3
+	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
+	movgr2fr.d	$fa0, $a0
+	fcmp.cult.d	$fcc0, $fa1, $fa0
 	lu52i.d	$a0, $zero, 1027
 	vreplgr2vr.d	$vr0, $a0
 	ori	$a0, $zero, 4
@@ -10341,7 +10291,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fld.d	$fa0, $a0, 0
 	fcmp.cult.d	$fcc0, $fa0, $fa6
 	movcf2gr	$a3, $fcc0
-	masknez	$a4, $a5, $a3
+	masknez	$a4, $a6, $a3
 	maskeqz	$a1, $a1, $a3
 	or	$a1, $a1, $a4
 	addi.d	$a2, $a2, -1
@@ -10352,7 +10302,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	bnez	$a1, .LBB15_88
 # %bb.85:                               # %check_out_error.exit
                                         #   in Loop: Header=BB15_25 Depth=2
-	move	$ra, $zero
+	st.d	$zero, $sp, 560                 # 8-byte Folded Spill
 	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	st.w	$zero, $a0, %pc_lo12(learned)
 	b	.LBB15_25
@@ -10363,8 +10313,9 @@ DoNNetIteration:                        # @DoNNetIteration
 # %bb.87:                               #   in Loop: Header=BB15_5 Depth=1
 	move	$a0, $zero
 	move	$a1, $zero
-	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ori	$s2, $zero, 280
 	b	.LBB15_92
 	.p2align	4, , 16
 .LBB15_88:                              #   in Loop: Header=BB15_5 Depth=1
@@ -10379,8 +10330,9 @@ DoNNetIteration:                        # @DoNNetIteration
 	vrepli.b	$vr1, 0
 	move	$a4, $a0
 	vori.b	$vr2, $vr1, 0
-	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ori	$s2, $zero, 280
 	.p2align	4, , 16
 .LBB15_90:                              # %vector.body
                                         #   Parent Loop BB15_5 Depth=1
@@ -10415,7 +10367,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	fld.d	$fa0, $a0, 0
 	fcmp.cult.d	$fcc0, $fa0, $fa6
 	movcf2gr	$a3, $fcc0
-	masknez	$a4, $a5, $a3
+	masknez	$a4, $a6, $a3
 	maskeqz	$a1, $a1, $a3
 	or	$a1, $a1, $a4
 	addi.d	$a2, $a2, -1
@@ -10426,12 +10378,12 @@ DoNNetIteration:                        # @DoNNetIteration
 	sltu	$a0, $zero, $a1
 	sub.d	$a0, $zero, $a0
 	ori	$a0, $a0, 1
-	addi.d	$s1, $s1, -1
-	ld.d	$a2, $sp, 56                    # 8-byte Folded Reload
-	st.w	$a0, $a2, %pc_lo12(learned)
-	bnez	$s1, .LBB15_5
+	addi.d	$s0, $s0, -1
+	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	st.w	$a0, $a1, %pc_lo12(learned)
+	bnez	$s0, .LBB15_5
 .LBB15_95:                              # %._crit_edge26
-	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
 	fld.d	$fs7, $sp, 904                  # 8-byte Folded Reload
 	fld.d	$fs6, $sp, 912                  # 8-byte Folded Reload
 	fld.d	$fs5, $sp, 920                  # 8-byte Folded Reload
@@ -10457,14 +10409,7 @@ DoNNetIteration:                        # @DoNNetIteration
 .Lfunc_end15:
 	.size	DoNNetIteration, .Lfunc_end15-DoNNetIteration
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoLU
-.LCPI16_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI16_1:
-	.dword	0x407f400000000000              # double 500
-	.text
-	.globl	DoLU
+	.globl	DoLU                            # -- Begin function DoLU
 	.p2align	5
 	.type	DoLU,@function
 DoLU:                                   # @DoLU
@@ -11040,13 +10985,16 @@ DoLU:                                   # @DoLU
 .LBB16_39:
 	move	$s1, $zero
 	ld.d	$a4, $s8, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI16_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI16_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI16_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI16_1)
 	movgr2fr.d	$fs0, $zero
 	lu52i.d	$s4, $zero, 1107
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$s5, 275200
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fs2, $a0
 	.p2align	4, , 16
 .LBB16_40:                              # =>This Inner Loop Header: Depth=1
 	move	$a0, $fp
@@ -11126,12 +11074,7 @@ DoLU:                                   # @DoLU
 .Lfunc_end16:
 	.size	DoLU, .Lfunc_end16-DoLU
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DoLUIteration
-.LCPI17_0:
-	.dword	0x3bc79ca10c924223              # double 9.9999999999999995E-21
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function DoLUIteration
 	.type	DoLUIteration,@function
 DoLUIteration:                          # @DoLUIteration
 # %bb.0:
@@ -11364,6 +11307,7 @@ DoLUIteration:                          # @DoLUIteration
 	lu32i.d	$a0, 498849
 	lu52i.d	$a0, $a0, 956
 	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
+	movgr2fr.d	$fa1, $a0
 	move	$t6, $s1
 	move	$t3, $s2
 	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
@@ -11414,24 +11358,24 @@ DoLUIteration:                          # @DoLUIteration
                                         # =>  This Loop Header: Depth=2
                                         #       Child Loop BB17_19 Depth 3
 	move	$a1, $zero
-	fmov.d	$fa1, $fa0
+	fmov.d	$fa2, $fa0
 	.p2align	4, , 16
 .LBB17_19:                              #   Parent Loop BB17_17 Depth=1
                                         #     Parent Loop BB17_18 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	fldx.d	$fa2, $a3, $a1
-	fabs.d	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fa1, $fa2
+	fldx.d	$fa3, $a3, $a1
+	fabs.d	$fa3, $fa3
+	fcmp.clt.d	$fcc0, $fa2, $fa3
 	addi.d	$a1, $a1, 8
-	fsel	$fa1, $fa1, $fa2, $fcc0
+	fsel	$fa2, $fa2, $fa3, $fcc0
 	bne	$a1, $a6, .LBB17_19
 # %bb.20:                               #   in Loop: Header=BB17_18 Depth=2
-	fcmp.ceq.d	$fcc0, $fa1, $fa0
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB17_16
 # %bb.21:                               #   in Loop: Header=BB17_18 Depth=2
-	frecip.d	$fa1, $fa1
+	frecip.d	$fa2, $fa2
 	slli.d	$a1, $a0, 3
-	fstx.d	$fa1, $a2, $a1
+	fstx.d	$fa2, $a2, $a1
 	addi.d	$a0, $a0, 1
 	addi.d	$a3, $a3, 808
 	bne	$a0, $t0, .LBB17_18
@@ -11482,7 +11426,7 @@ DoLUIteration:                          # @DoLUIteration
 .LBB17_26:                              # %.loopexit146.i.i
                                         #   in Loop: Header=BB17_27 Depth=3
 	alsl.d	$a1, $s7, $a7, 3
-	fst.d	$fa1, $a1, 0
+	fst.d	$fa2, $a1, 0
 	addi.d	$a4, $a4, 1
 	addi.d	$a5, $a5, 808
 	beq	$a4, $s7, .LBB17_30
@@ -11492,7 +11436,7 @@ DoLUIteration:                          # @DoLUIteration
                                         #         Child Loop BB17_29 Depth 4
 	mul.d	$a1, $a4, $a6
 	add.d	$a7, $t8, $a1
-	fldx.d	$fa1, $a7, $a0
+	fldx.d	$fa2, $a7, $a0
 	beqz	$a4, .LBB17_26
 # %bb.28:                               # %.preheader145.i.i.preheader
                                         #   in Loop: Header=BB17_27 Depth=3
@@ -11505,10 +11449,10 @@ DoLUIteration:                          # @DoLUIteration
                                         #     Parent Loop BB17_24 Depth=2
                                         #       Parent Loop BB17_27 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	fld.d	$fa2, $t4, 0
-	fld.d	$fa3, $t5, 0
-	fneg.d	$fa2, $fa2
-	fmadd.d	$fa1, $fa2, $fa3, $fa1
+	fld.d	$fa3, $t4, 0
+	fld.d	$fa4, $t5, 0
+	fneg.d	$fa3, $fa3
+	fmadd.d	$fa2, $fa3, $fa4, $fa2
 	addi.d	$s0, $s0, -1
 	addi.d	$t5, $t5, 808
 	addi.d	$t4, $t4, 8
@@ -11525,19 +11469,19 @@ DoLUIteration:                          # @DoLUIteration
 	sub.d	$a7, $t1, $s7
 	move	$t7, $fp
 	move	$a5, $s7
-	fmov.d	$fa1, $fa0
+	fmov.d	$fa2, $fa0
 	b	.LBB17_32
 	.p2align	4, , 16
 .LBB17_31:                              # %.loopexit.i.i
                                         #   in Loop: Header=BB17_32 Depth=3
 	alsl.d	$a1, $s7, $t5, 3
-	fst.d	$fa2, $a1, 0
+	fst.d	$fa3, $a1, 0
 	slli.d	$a1, $a5, 3
-	fldx.d	$fa3, $s5, $a1
-	fabs.d	$fa2, $fa2
-	fmul.d	$fa2, $fa2, $fa3
-	fcmp.cult.d	$fcc0, $fa2, $fa1
-	fsel	$fa1, $fa2, $fa1, $fcc0
+	fldx.d	$fa4, $s5, $a1
+	fabs.d	$fa3, $fa3
+	fmul.d	$fa3, $fa3, $fa4
+	fcmp.cult.d	$fcc0, $fa3, $fa2
+	fsel	$fa2, $fa3, $fa2, $fcc0
 	movcf2gr	$a1, $fcc0
 	masknez	$a4, $a5, $a1
 	maskeqz	$a1, $ra, $a1
@@ -11551,7 +11495,7 @@ DoLUIteration:                          # @DoLUIteration
                                         #         Child Loop BB17_34 Depth 4
 	mul.d	$a1, $a5, $a6
 	add.d	$t5, $t8, $a1
-	fldx.d	$fa2, $t5, $a0
+	fldx.d	$fa3, $t5, $a0
 	beqz	$s7, .LBB17_31
 # %bb.33:                               # %.preheader.i.i.preheader
                                         #   in Loop: Header=BB17_32 Depth=3
@@ -11563,10 +11507,10 @@ DoLUIteration:                          # @DoLUIteration
                                         #     Parent Loop BB17_24 Depth=2
                                         #       Parent Loop BB17_32 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	fld.d	$fa3, $a4, 0
-	fldx.d	$fa4, $s1, $a1
-	fneg.d	$fa3, $fa3
-	fmadd.d	$fa2, $fa3, $fa4, $fa2
+	fld.d	$fa4, $a4, 0
+	fldx.d	$fa5, $s1, $a1
+	fneg.d	$fa4, $fa4
+	fmadd.d	$fa3, $fa4, $fa5, $fa3
 	addi.d	$a1, $a1, 808
 	addi.d	$a4, $a4, 8
 	bne	$s6, $a1, .LBB17_34
@@ -11591,206 +11535,206 @@ DoLUIteration:                          # @DoLUIteration
 	.p2align	4, , 16
 .LBB17_39:                              # %vector.body92
                                         #   in Loop: Header=BB17_24 Depth=2
-	vld	$vr1, $s0, 0
-	vld	$vr2, $s0, 16
-	vld	$vr3, $t5, 0
-	vld	$vr4, $t5, 16
-	vst	$vr1, $t5, 0
-	vst	$vr2, $t5, 16
-	vst	$vr3, $s0, 0
-	vst	$vr4, $s0, 16
-	vld	$vr1, $s0, 32
-	vld	$vr2, $s0, 48
-	vld	$vr3, $t5, 32
-	vld	$vr4, $t5, 48
-	vst	$vr1, $t5, 32
-	vst	$vr2, $t5, 48
-	vst	$vr3, $s0, 32
-	vst	$vr4, $s0, 48
-	vld	$vr1, $s0, 64
-	vld	$vr2, $s0, 80
-	vld	$vr3, $t5, 64
-	vld	$vr4, $t5, 80
-	vst	$vr1, $t5, 64
-	vst	$vr2, $t5, 80
-	vst	$vr3, $s0, 64
-	vst	$vr4, $s0, 80
-	vld	$vr1, $s0, 96
-	vld	$vr2, $s0, 112
-	vld	$vr3, $t5, 96
-	vld	$vr4, $t5, 112
-	vst	$vr1, $t5, 96
-	vst	$vr2, $t5, 112
-	vst	$vr3, $s0, 96
-	vst	$vr4, $s0, 112
-	vld	$vr1, $s0, 128
-	vld	$vr2, $s0, 144
-	vld	$vr3, $t5, 128
-	vld	$vr4, $t5, 144
-	vst	$vr1, $t5, 128
-	vst	$vr2, $t5, 144
-	vst	$vr3, $s0, 128
-	vst	$vr4, $s0, 144
-	vld	$vr1, $s0, 160
-	vld	$vr2, $s0, 176
-	vld	$vr3, $t5, 160
-	vld	$vr4, $t5, 176
-	vst	$vr1, $t5, 160
-	vst	$vr2, $t5, 176
-	vst	$vr3, $s0, 160
-	vst	$vr4, $s0, 176
-	vld	$vr1, $s0, 192
-	vld	$vr2, $s0, 208
-	vld	$vr3, $t5, 192
-	vld	$vr4, $t5, 208
-	vst	$vr1, $t5, 192
-	vst	$vr2, $t5, 208
-	vst	$vr3, $s0, 192
-	vst	$vr4, $s0, 208
-	vld	$vr1, $s0, 224
-	vld	$vr2, $s0, 240
-	vld	$vr3, $t5, 224
-	vld	$vr4, $t5, 240
-	vst	$vr1, $t5, 224
-	vst	$vr2, $t5, 240
-	vst	$vr3, $s0, 224
-	vst	$vr4, $s0, 240
-	vld	$vr1, $s0, 256
-	vld	$vr2, $s0, 272
-	vld	$vr3, $t5, 256
-	vld	$vr4, $t5, 272
-	vst	$vr1, $t5, 256
-	vst	$vr2, $t5, 272
-	vst	$vr3, $s0, 256
-	vst	$vr4, $s0, 272
-	vld	$vr1, $s0, 288
-	vld	$vr2, $s0, 304
-	vld	$vr3, $t5, 288
-	vld	$vr4, $t5, 304
-	vst	$vr1, $t5, 288
-	vst	$vr2, $t5, 304
-	vst	$vr3, $s0, 288
-	vst	$vr4, $s0, 304
-	vld	$vr1, $s0, 320
-	vld	$vr2, $s0, 336
-	vld	$vr3, $t5, 320
-	vld	$vr4, $t5, 336
-	vst	$vr1, $t5, 320
-	vst	$vr2, $t5, 336
-	vst	$vr3, $s0, 320
-	vst	$vr4, $s0, 336
-	vld	$vr1, $s0, 352
-	vld	$vr2, $s0, 368
-	vld	$vr3, $t5, 352
-	vld	$vr4, $t5, 368
-	vst	$vr1, $t5, 352
-	vst	$vr2, $t5, 368
-	vst	$vr3, $s0, 352
-	vst	$vr4, $s0, 368
-	vld	$vr1, $s0, 384
-	vld	$vr2, $s0, 400
-	vld	$vr3, $t5, 384
-	vld	$vr4, $t5, 400
-	vst	$vr1, $t5, 384
-	vst	$vr2, $t5, 400
-	vst	$vr3, $s0, 384
-	vst	$vr4, $s0, 400
-	vld	$vr1, $s0, 416
-	vld	$vr2, $s0, 432
-	vld	$vr3, $t5, 416
-	vld	$vr4, $t5, 432
-	vst	$vr1, $t5, 416
-	vst	$vr2, $t5, 432
-	vst	$vr3, $s0, 416
-	vst	$vr4, $s0, 432
-	vld	$vr1, $s0, 448
-	vld	$vr2, $s0, 464
-	vld	$vr3, $t5, 448
-	vld	$vr4, $t5, 464
-	vst	$vr1, $t5, 448
-	vst	$vr2, $t5, 464
-	vst	$vr3, $s0, 448
-	vst	$vr4, $s0, 464
-	vld	$vr1, $s0, 480
-	vld	$vr2, $s0, 496
-	vld	$vr3, $t5, 480
-	vld	$vr4, $t5, 496
-	vst	$vr1, $t5, 480
-	vst	$vr2, $t5, 496
-	vst	$vr3, $s0, 480
-	vst	$vr4, $s0, 496
-	vld	$vr1, $s0, 512
-	vld	$vr2, $s0, 528
-	vld	$vr3, $t5, 512
-	vld	$vr4, $t5, 528
-	vst	$vr1, $t5, 512
-	vst	$vr2, $t5, 528
-	vst	$vr3, $s0, 512
-	vst	$vr4, $s0, 528
-	vld	$vr1, $s0, 544
-	vld	$vr2, $s0, 560
-	vld	$vr3, $t5, 544
-	vld	$vr4, $t5, 560
-	vst	$vr1, $t5, 544
-	vst	$vr2, $t5, 560
-	vst	$vr3, $s0, 544
-	vst	$vr4, $s0, 560
-	vld	$vr1, $s0, 576
-	vld	$vr2, $s0, 592
-	vld	$vr3, $t5, 576
-	vld	$vr4, $t5, 592
-	vst	$vr1, $t5, 576
-	vst	$vr2, $t5, 592
-	vst	$vr3, $s0, 576
-	vst	$vr4, $s0, 592
-	vld	$vr1, $s0, 608
-	vld	$vr2, $s0, 624
-	vld	$vr3, $t5, 608
-	vld	$vr4, $t5, 624
-	vst	$vr1, $t5, 608
-	vst	$vr2, $t5, 624
-	vst	$vr3, $s0, 608
-	vst	$vr4, $s0, 624
-	vld	$vr1, $s0, 640
-	vld	$vr2, $s0, 656
-	vld	$vr3, $t5, 640
-	vld	$vr4, $t5, 656
-	vst	$vr1, $t5, 640
-	vst	$vr2, $t5, 656
-	vst	$vr3, $s0, 640
-	vst	$vr4, $s0, 656
-	vld	$vr1, $s0, 672
-	vld	$vr2, $s0, 688
-	vld	$vr3, $t5, 672
-	vld	$vr4, $t5, 688
-	vst	$vr1, $t5, 672
-	vst	$vr2, $t5, 688
-	vst	$vr3, $s0, 672
-	vst	$vr4, $s0, 688
-	vld	$vr1, $s0, 704
-	vld	$vr2, $s0, 720
-	vld	$vr3, $t5, 704
-	vld	$vr4, $t5, 720
-	vst	$vr1, $t5, 704
-	vst	$vr2, $t5, 720
-	vst	$vr3, $s0, 704
-	vst	$vr4, $s0, 720
-	vld	$vr1, $s0, 736
-	vld	$vr2, $s0, 752
-	vld	$vr3, $t5, 736
-	vld	$vr4, $t5, 752
-	vst	$vr1, $t5, 736
-	vst	$vr2, $t5, 752
-	vst	$vr3, $s0, 736
-	vst	$vr4, $s0, 752
-	vld	$vr1, $s0, 768
-	vld	$vr2, $s0, 784
-	vld	$vr3, $t5, 768
-	vld	$vr4, $t5, 784
-	vst	$vr1, $t5, 768
-	vst	$vr2, $t5, 784
-	vst	$vr3, $s0, 768
-	vst	$vr4, $s0, 784
+	vld	$vr2, $s0, 0
+	vld	$vr3, $s0, 16
+	vld	$vr4, $t5, 0
+	vld	$vr5, $t5, 16
+	vst	$vr2, $t5, 0
+	vst	$vr3, $t5, 16
+	vst	$vr4, $s0, 0
+	vst	$vr5, $s0, 16
+	vld	$vr2, $s0, 32
+	vld	$vr3, $s0, 48
+	vld	$vr4, $t5, 32
+	vld	$vr5, $t5, 48
+	vst	$vr2, $t5, 32
+	vst	$vr3, $t5, 48
+	vst	$vr4, $s0, 32
+	vst	$vr5, $s0, 48
+	vld	$vr2, $s0, 64
+	vld	$vr3, $s0, 80
+	vld	$vr4, $t5, 64
+	vld	$vr5, $t5, 80
+	vst	$vr2, $t5, 64
+	vst	$vr3, $t5, 80
+	vst	$vr4, $s0, 64
+	vst	$vr5, $s0, 80
+	vld	$vr2, $s0, 96
+	vld	$vr3, $s0, 112
+	vld	$vr4, $t5, 96
+	vld	$vr5, $t5, 112
+	vst	$vr2, $t5, 96
+	vst	$vr3, $t5, 112
+	vst	$vr4, $s0, 96
+	vst	$vr5, $s0, 112
+	vld	$vr2, $s0, 128
+	vld	$vr3, $s0, 144
+	vld	$vr4, $t5, 128
+	vld	$vr5, $t5, 144
+	vst	$vr2, $t5, 128
+	vst	$vr3, $t5, 144
+	vst	$vr4, $s0, 128
+	vst	$vr5, $s0, 144
+	vld	$vr2, $s0, 160
+	vld	$vr3, $s0, 176
+	vld	$vr4, $t5, 160
+	vld	$vr5, $t5, 176
+	vst	$vr2, $t5, 160
+	vst	$vr3, $t5, 176
+	vst	$vr4, $s0, 160
+	vst	$vr5, $s0, 176
+	vld	$vr2, $s0, 192
+	vld	$vr3, $s0, 208
+	vld	$vr4, $t5, 192
+	vld	$vr5, $t5, 208
+	vst	$vr2, $t5, 192
+	vst	$vr3, $t5, 208
+	vst	$vr4, $s0, 192
+	vst	$vr5, $s0, 208
+	vld	$vr2, $s0, 224
+	vld	$vr3, $s0, 240
+	vld	$vr4, $t5, 224
+	vld	$vr5, $t5, 240
+	vst	$vr2, $t5, 224
+	vst	$vr3, $t5, 240
+	vst	$vr4, $s0, 224
+	vst	$vr5, $s0, 240
+	vld	$vr2, $s0, 256
+	vld	$vr3, $s0, 272
+	vld	$vr4, $t5, 256
+	vld	$vr5, $t5, 272
+	vst	$vr2, $t5, 256
+	vst	$vr3, $t5, 272
+	vst	$vr4, $s0, 256
+	vst	$vr5, $s0, 272
+	vld	$vr2, $s0, 288
+	vld	$vr3, $s0, 304
+	vld	$vr4, $t5, 288
+	vld	$vr5, $t5, 304
+	vst	$vr2, $t5, 288
+	vst	$vr3, $t5, 304
+	vst	$vr4, $s0, 288
+	vst	$vr5, $s0, 304
+	vld	$vr2, $s0, 320
+	vld	$vr3, $s0, 336
+	vld	$vr4, $t5, 320
+	vld	$vr5, $t5, 336
+	vst	$vr2, $t5, 320
+	vst	$vr3, $t5, 336
+	vst	$vr4, $s0, 320
+	vst	$vr5, $s0, 336
+	vld	$vr2, $s0, 352
+	vld	$vr3, $s0, 368
+	vld	$vr4, $t5, 352
+	vld	$vr5, $t5, 368
+	vst	$vr2, $t5, 352
+	vst	$vr3, $t5, 368
+	vst	$vr4, $s0, 352
+	vst	$vr5, $s0, 368
+	vld	$vr2, $s0, 384
+	vld	$vr3, $s0, 400
+	vld	$vr4, $t5, 384
+	vld	$vr5, $t5, 400
+	vst	$vr2, $t5, 384
+	vst	$vr3, $t5, 400
+	vst	$vr4, $s0, 384
+	vst	$vr5, $s0, 400
+	vld	$vr2, $s0, 416
+	vld	$vr3, $s0, 432
+	vld	$vr4, $t5, 416
+	vld	$vr5, $t5, 432
+	vst	$vr2, $t5, 416
+	vst	$vr3, $t5, 432
+	vst	$vr4, $s0, 416
+	vst	$vr5, $s0, 432
+	vld	$vr2, $s0, 448
+	vld	$vr3, $s0, 464
+	vld	$vr4, $t5, 448
+	vld	$vr5, $t5, 464
+	vst	$vr2, $t5, 448
+	vst	$vr3, $t5, 464
+	vst	$vr4, $s0, 448
+	vst	$vr5, $s0, 464
+	vld	$vr2, $s0, 480
+	vld	$vr3, $s0, 496
+	vld	$vr4, $t5, 480
+	vld	$vr5, $t5, 496
+	vst	$vr2, $t5, 480
+	vst	$vr3, $t5, 496
+	vst	$vr4, $s0, 480
+	vst	$vr5, $s0, 496
+	vld	$vr2, $s0, 512
+	vld	$vr3, $s0, 528
+	vld	$vr4, $t5, 512
+	vld	$vr5, $t5, 528
+	vst	$vr2, $t5, 512
+	vst	$vr3, $t5, 528
+	vst	$vr4, $s0, 512
+	vst	$vr5, $s0, 528
+	vld	$vr2, $s0, 544
+	vld	$vr3, $s0, 560
+	vld	$vr4, $t5, 544
+	vld	$vr5, $t5, 560
+	vst	$vr2, $t5, 544
+	vst	$vr3, $t5, 560
+	vst	$vr4, $s0, 544
+	vst	$vr5, $s0, 560
+	vld	$vr2, $s0, 576
+	vld	$vr3, $s0, 592
+	vld	$vr4, $t5, 576
+	vld	$vr5, $t5, 592
+	vst	$vr2, $t5, 576
+	vst	$vr3, $t5, 592
+	vst	$vr4, $s0, 576
+	vst	$vr5, $s0, 592
+	vld	$vr2, $s0, 608
+	vld	$vr3, $s0, 624
+	vld	$vr4, $t5, 608
+	vld	$vr5, $t5, 624
+	vst	$vr2, $t5, 608
+	vst	$vr3, $t5, 624
+	vst	$vr4, $s0, 608
+	vst	$vr5, $s0, 624
+	vld	$vr2, $s0, 640
+	vld	$vr3, $s0, 656
+	vld	$vr4, $t5, 640
+	vld	$vr5, $t5, 656
+	vst	$vr2, $t5, 640
+	vst	$vr3, $t5, 656
+	vst	$vr4, $s0, 640
+	vst	$vr5, $s0, 656
+	vld	$vr2, $s0, 672
+	vld	$vr3, $s0, 688
+	vld	$vr4, $t5, 672
+	vld	$vr5, $t5, 688
+	vst	$vr2, $t5, 672
+	vst	$vr3, $t5, 688
+	vst	$vr4, $s0, 672
+	vst	$vr5, $s0, 688
+	vld	$vr2, $s0, 704
+	vld	$vr3, $s0, 720
+	vld	$vr4, $t5, 704
+	vld	$vr5, $t5, 720
+	vst	$vr2, $t5, 704
+	vst	$vr3, $t5, 720
+	vst	$vr4, $s0, 704
+	vst	$vr5, $s0, 720
+	vld	$vr2, $s0, 736
+	vld	$vr3, $s0, 752
+	vld	$vr4, $t5, 736
+	vld	$vr5, $t5, 752
+	vst	$vr2, $t5, 736
+	vst	$vr3, $t5, 752
+	vst	$vr4, $s0, 736
+	vst	$vr5, $s0, 752
+	vld	$vr2, $s0, 768
+	vld	$vr3, $s0, 784
+	vld	$vr4, $t5, 768
+	vld	$vr5, $t5, 784
+	vst	$vr2, $t5, 768
+	vst	$vr3, $t5, 784
+	vst	$vr4, $s0, 768
+	vst	$vr5, $s0, 784
 	ori	$a1, $zero, 100
 .LBB17_40:                              # %scalar.ph90.preheader
                                         #   in Loop: Header=BB17_24 Depth=2
@@ -11801,35 +11745,34 @@ DoLUIteration:                          # @DoLUIteration
                                         #   Parent Loop BB17_17 Depth=1
                                         #     Parent Loop BB17_24 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	fldx.d	$fa1, $fp, $a1
-	fldx.d	$fa2, $a5, $a1
-	fstx.d	$fa1, $a5, $a1
-	fstx.d	$fa2, $fp, $a1
+	fldx.d	$fa2, $fp, $a1
+	fldx.d	$fa3, $a5, $a1
+	fstx.d	$fa2, $a5, $a1
+	fstx.d	$fa3, $fp, $a1
 	addi.d	$a1, $a1, 8
 	bne	$a1, $a6, .LBB17_41
 # %bb.42:                               #   in Loop: Header=BB17_24 Depth=2
 	slli.d	$a1, $a4, 3
-	fldx.d	$fa1, $s5, $a0
-	fldx.d	$fa2, $s5, $a1
-	fstx.d	$fa1, $s5, $a1
-	fstx.d	$fa2, $s5, $a0
+	fldx.d	$fa2, $s5, $a0
+	fldx.d	$fa3, $s5, $a1
+	fstx.d	$fa2, $s5, $a1
+	fstx.d	$fa3, $s5, $a0
 .LBB17_43:                              #   in Loop: Header=BB17_24 Depth=2
-	fldx.d	$fa1, $s0, $a0
+	fldx.d	$fa2, $s0, $a0
 	slli.d	$a0, $s7, 2
-	fcmp.cune.d	$fcc0, $fa1, $fa0
+	fcmp.cune.d	$fcc0, $fa2, $fa0
 	stx.w	$ra, $a0, $t2
 	bcnez	$fcc0, .LBB17_45
 # %bb.44:                               #   in Loop: Header=BB17_24 Depth=2
-	pcalau12i	$a0, %pc_hi20(.LCPI17_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI17_0)
 	alsl.d	$a0, $s7, $s0, 3
 	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
 	st.d	$a1, $a0, 0
+	fmov.d	$fa2, $fa1
 .LBB17_45:                              #   in Loop: Header=BB17_24 Depth=2
 	beq	$s7, $t1, .LBB17_52
 # %bb.46:                               # %.lr.ph173.preheader.i.i
                                         #   in Loop: Header=BB17_24 Depth=2
-	frecip.d	$fa1, $fa1
+	frecip.d	$fa2, $fa2
 	move	$a0, $s7
 	ori	$a1, $zero, 2
 	bltu	$a7, $a1, .LBB17_50
@@ -11844,12 +11787,12 @@ DoLUIteration:                          # @DoLUIteration
                                         #   Parent Loop BB17_17 Depth=1
                                         #     Parent Loop BB17_24 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	fld.d	$fa2, $a1, -808
-	fld.d	$fa3, $a1, 0
-	fmul.d	$fa2, $fa1, $fa2
-	fmul.d	$fa3, $fa1, $fa3
-	fst.d	$fa2, $a1, -808
-	fst.d	$fa3, $a1, 0
+	fld.d	$fa3, $a1, -808
+	fld.d	$fa4, $a1, 0
+	fmul.d	$fa3, $fa2, $fa3
+	fmul.d	$fa4, $fa2, $fa4
+	fst.d	$fa3, $a1, -808
+	fst.d	$fa4, $a1, 0
 	addi.d	$s8, $s8, -2
 	addi.d	$a1, $a1, 1616
 	bnez	$s8, .LBB17_48
@@ -11866,9 +11809,9 @@ DoLUIteration:                          # @DoLUIteration
                                         #   Parent Loop BB17_17 Depth=1
                                         #     Parent Loop BB17_24 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	fld.d	$fa2, $a0, 0
-	fmul.d	$fa2, $fa1, $fa2
-	fst.d	$fa2, $a0, 0
+	fld.d	$fa3, $a0, 0
+	fmul.d	$fa3, $fa2, $fa3
+	fst.d	$fa3, $a0, 0
 	addi.d	$a1, $a1, 1
 	addi.d	$a0, $a0, 808
 	bnez	$a1, .LBB17_51
@@ -11893,14 +11836,14 @@ DoLUIteration:                          # @DoLUIteration
 	b	.LBB17_56
 	.p2align	4, , 16
 .LBB17_53:                              #   in Loop: Header=BB17_56 Depth=2
-	fcmp.ceq.d	$fcc0, $fa1, $fa0
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB17_60
 # %bb.54:                               #   in Loop: Header=BB17_56 Depth=2
 	move	$a4, $a2
 .LBB17_55:                              # %.loopexit61.i.i
                                         #   in Loop: Header=BB17_56 Depth=2
 	alsl.d	$a1, $a2, $s3, 3
-	fst.d	$fa1, $a1, 0
+	fst.d	$fa2, $a1, 0
 	addi.d	$a2, $a2, 1
 	addi.d	$a3, $a3, 808
 	beq	$a2, $t0, .LBB17_61
@@ -11912,10 +11855,10 @@ DoLUIteration:                          # @DoLUIteration
 	ldx.w	$a1, $a1, $t2
 	slli.d	$a1, $a1, 3
 	slli.d	$a5, $a2, 3
-	fldx.d	$fa2, $s3, $a5
-	fldx.d	$fa1, $s3, $a1
+	fldx.d	$fa3, $s3, $a5
+	fldx.d	$fa2, $s3, $a1
 	addi.w	$a5, $a4, 0
-	fstx.d	$fa2, $s3, $a1
+	fstx.d	$fa3, $s3, $a1
 	beq	$a5, $a0, .LBB17_53
 # %bb.57:                               # %.preheader60.i.i
                                         #   in Loop: Header=BB17_56 Depth=2
@@ -11928,10 +11871,10 @@ DoLUIteration:                          # @DoLUIteration
 .LBB17_59:                              #   Parent Loop BB17_17 Depth=1
                                         #     Parent Loop BB17_56 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	fld.d	$fa2, $t4, 0
-	fld.d	$fa3, $a7, 0
-	fneg.d	$fa2, $fa2
-	fmadd.d	$fa1, $fa2, $fa3, $fa1
+	fld.d	$fa3, $t4, 0
+	fld.d	$fa4, $a7, 0
+	fneg.d	$fa3, $fa3
+	fmadd.d	$fa2, $fa3, $fa4, $fa2
 	addi.d	$a5, $a5, 1
 	addi.d	$a7, $a7, 8
 	addi.d	$t4, $t4, 8
@@ -11953,10 +11896,10 @@ DoLUIteration:                          # @DoLUIteration
                                         #   in Loop: Header=BB17_63 Depth=2
 	mul.d	$a1, $a4, $a6
 	add.d	$a1, $t8, $a1
-	fldx.d	$fa2, $a1, $a5
+	fldx.d	$fa3, $a1, $a5
 	alsl.d	$a1, $a4, $s3, 3
-	fdiv.d	$fa1, $fa1, $fa2
-	fst.d	$fa1, $a1, 0
+	fdiv.d	$fa2, $fa2, $fa3
+	fst.d	$fa2, $a1, 0
 	addi.d	$a1, $a4, -1
 	addi.d	$a0, $a0, 1
 	addi.d	$a3, $a3, -8
@@ -11968,7 +11911,7 @@ DoLUIteration:                          # @DoLUIteration
                                         #       Child Loop BB17_65 Depth 3
 	move	$a4, $a1
 	slli.d	$a5, $a1, 3
-	fldx.d	$fa1, $s3, $a5
+	fldx.d	$fa2, $s3, $a5
 	ori	$a1, $zero, 99
 	bltu	$a1, $a4, .LBB17_62
 # %bb.64:                               # %.lr.ph69.i.i
@@ -11980,10 +11923,10 @@ DoLUIteration:                          # @DoLUIteration
 .LBB17_65:                              #   Parent Loop BB17_17 Depth=1
                                         #     Parent Loop BB17_63 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	fld.d	$fa2, $a7, 0
-	fld.d	$fa3, $t4, 0
-	fneg.d	$fa2, $fa2
-	fmadd.d	$fa1, $fa2, $fa3, $fa1
+	fld.d	$fa3, $a7, 0
+	fld.d	$fa4, $t4, 0
+	fneg.d	$fa3, $fa3
+	fmadd.d	$fa2, $fa3, $fa4, $fa2
 	addi.d	$t5, $t5, -1
 	addi.d	$t4, $t4, 8
 	addi.d	$a7, $a7, 8

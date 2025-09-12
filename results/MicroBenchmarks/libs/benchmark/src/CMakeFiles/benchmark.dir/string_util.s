@@ -8,10 +8,6 @@
 .LCPI0_0:
 	.dword	0x408f400000000000              # double 1000
 	.dword	0x4090000000000000              # double 1024
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x3f847ae147ae147b              # double 0.01
 	.text
 	.hidden	_ZN9benchmark19HumanReadableNumberB5cxx11EdNS_7Counter4OneKE
 	.globl	_ZN9benchmark19HumanReadableNumberB5cxx11EdNS_7Counter4OneKE
@@ -132,8 +128,11 @@ _ZN9benchmark19HumanReadableNumberB5cxx11EdNS_7Counter4OneKE: # @_ZN9benchmark19
 	fcmp.cule.d	$fcc0, $fa0, $fs0
 	bcnez	$fcc0, .LBB0_24
 # %bb.15:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa0, $a0
 	fcmp.cule.d	$fcc0, $fa0, $fs0
 	bcnez	$fcc0, .LBB0_24
 # %bb.16:                               # %.preheader129.preheader.i.i

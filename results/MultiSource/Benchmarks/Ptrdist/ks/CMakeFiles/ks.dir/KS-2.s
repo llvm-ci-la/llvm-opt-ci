@@ -159,12 +159,7 @@ UpdateDs:                               # @UpdateDs
 .Lfunc_end2:
 	.size	UpdateDs, .Lfunc_end2-UpdateDs
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function FindMaxGpAndSwap
-.LCPI3_0:
-	.word	0xcb18967f                      # float -9999999
-	.text
-	.globl	FindMaxGpAndSwap
+	.globl	FindMaxGpAndSwap                # -- Begin function FindMaxGpAndSwap
 	.p2align	5
 	.type	FindMaxGpAndSwap,@function
 FindMaxGpAndSwap:                       # @FindMaxGpAndSwap
@@ -175,8 +170,10 @@ FindMaxGpAndSwap:                       # @FindMaxGpAndSwap
 	pcalau12i	$a0, %got_pc_hi20(groupA)
 	ld.d	$a3, $a0, %got_pc_lo12(groupA)
 	ld.d	$a4, $a3, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a0, -216695
+	ori	$a0, $a0, 1663
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa0, $a0
 	beqz	$a4, .LBB3_18
 # %bb.1:                                # %.preheader.lr.ph
 	pcalau12i	$a1, %got_pc_hi20(groupB)
@@ -184,7 +181,7 @@ FindMaxGpAndSwap:                       # @FindMaxGpAndSwap
 	ld.d	$a5, $a1, 0
 	beqz	$a5, .LBB3_18
 # %bb.2:                                # %.preheader.preheader
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI3_0)
+	movgr2fr.w	$fa0, $a0
 	pcalau12i	$a0, %got_pc_hi20(D)
 	ld.d	$a6, $a0, %got_pc_lo12(D)
 	pcalau12i	$a0, %got_pc_hi20(modules)
@@ -506,12 +503,7 @@ FindMaxGpAndSwap:                       # @FindMaxGpAndSwap
 .Lfunc_end3:
 	.size	FindMaxGpAndSwap, .Lfunc_end3-FindMaxGpAndSwap
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function FindGMax
-.LCPI4_0:
-	.word	0xcb18967f                      # float -9999999
-	.text
-	.globl	FindGMax
+	.globl	FindGMax                        # -- Begin function FindGMax
 	.p2align	5
 	.type	FindGMax,@function
 FindGMax:                               # @FindGMax
@@ -522,17 +514,19 @@ FindGMax:                               # @FindGMax
 	pcalau12i	$a1, %got_pc_hi20(numModules)
 	ld.d	$a1, $a1, %got_pc_lo12(numModules)
 	ld.d	$a2, $a1, 0
+	lu12i.w	$a3, -216695
+	ori	$a5, $a3, 1663
 	ori	$a3, $zero, 2
-	pcalau12i	$a4, %pc_hi20(.LCPI4_0)
+	lu32i.d	$a5, 0
 	bgeu	$a2, $a3, .LBB4_2
 # %bb.1:
-	fld.s	$fa0, $a4, %pc_lo12(.LCPI4_0)
+	movgr2fr.w	$fa0, $a5
 	ret
 .LBB4_2:                                # %.lr.ph.preheader
 	pcalau12i	$a3, %got_pc_hi20(GP)
 	ld.d	$a3, $a3, %got_pc_lo12(GP)
-	fld.s	$fa0, $a4, %pc_lo12(.LCPI4_0)
 	move	$a4, $zero
+	movgr2fr.w	$fa0, $a5
 	b	.LBB4_4
 	.p2align	4, , 16
 .LBB4_3:                                #   in Loop: Header=BB4_4 Depth=1
@@ -1065,12 +1059,7 @@ PrintResults:                           # @PrintResults
 .Lfunc_end6:
 	.size	PrintResults, .Lfunc_end6-PrintResults
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.word	0xcb18967f                      # float -9999999
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -1111,11 +1100,13 @@ main:                                   # @main
 	ori	$s6, $zero, 1
 	pcalau12i	$a0, %got_pc_hi20(numModules)
 	ld.d	$s7, $a0, %got_pc_lo12(numModules)
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI7_0)
 	addi.w	$a0, $zero, -1
 	lu32i.d	$a0, 0
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
+	lu12i.w	$a0, -216695
+	ori	$a0, $a0, 1663
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
 	pcalau12i	$a0, %got_pc_hi20(stdout)
 	ld.d	$a0, $a0, %got_pc_lo12(stdout)
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill

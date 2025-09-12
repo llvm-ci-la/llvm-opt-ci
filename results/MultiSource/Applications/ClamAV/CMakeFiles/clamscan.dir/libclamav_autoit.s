@@ -4955,12 +4955,7 @@ MT_decrypt:                             # @MT_decrypt
 .Lfunc_end1:
 	.size	MT_decrypt, .Lfunc_end1-MT_decrypt
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function LAME_decrypt
-.LCPI2_0:
-	.dword	0x4070000000000000              # double 256
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function LAME_decrypt
 	.type	LAME_decrypt,@function
 LAME_decrypt:                           # @LAME_decrypt
 # %bb.0:
@@ -5057,10 +5052,10 @@ LAME_decrypt:                           # @LAME_decrypt
 	vrepli.w	$vr1, 16
 	lu12i.w	$a3, -1
 	lu32i.d	$a3, 0
-	pcalau12i	$a4, %pc_hi20(.LCPI2_0)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI2_0)
 	lu52i.d	$a4, $zero, 1023
-	vldi	$vr3, -784
+	vldi	$vr2, -784
+	lu52i.d	$a5, $zero, 1031
+	movgr2fr.d	$fa3, $a5
 	addi.d	$a5, $zero, -1
 	.p2align	4, , 16
 .LBB2_2:                                # %.lr.ph
@@ -5098,8 +5093,8 @@ LAME_decrypt:                           # @LAME_decrypt
 	bstrins.d	$a6, $a7, 31, 20
 	or	$a6, $a6, $a4
 	movgr2fr.d	$fa5, $a6
-	fadd.d	$fa5, $fa5, $fa3
-	fmul.d	$fa5, $fa5, $fa2
+	fadd.d	$fa5, $fa5, $fa2
+	fmul.d	$fa5, $fa5, $fa3
 	ftintrz.w.d	$fa6, $fa5
 	movfr2gr.s	$a6, $fa6
 	vadd.w	$vr6, $vr4, $vr0

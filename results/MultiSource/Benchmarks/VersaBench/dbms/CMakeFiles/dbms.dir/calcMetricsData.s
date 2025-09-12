@@ -1,10 +1,6 @@
 	.file	"calcMetricsData.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function calcMetricsData
-.LCPI0_0:
-	.dword	0xc7efffffe091ff3d              # double -3.4028234699999998E+38
 	.text
-	.globl	calcMetricsData
+	.globl	calcMetricsData                 # -- Begin function calcMetricsData
 	.p2align	5
 	.type	calcMetricsData,@function
 calcMetricsData:                        # @calcMetricsData
@@ -35,11 +31,10 @@ calcMetricsData:                        # @calcMetricsData
 	bcnez	$fcc0, .LBB0_3
 .LBB0_2:
 	lu12i.w	$a0, -128737
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_0)
 	ori	$a0, $a0, 3901
 	lu52i.d	$a0, $a0, -898
 	st.d	$a0, $fp, 72
+	movgr2fr.d	$fa0, $a0
 	ld.d	$a0, $fp, 96
 	fst.d	$fa0, $fp, 80
 	bgtz	$a0, .LBB0_5
@@ -68,11 +63,10 @@ calcMetricsData:                        # @calcMetricsData
 	bcnez	$fcc0, .LBB0_7
 .LBB0_6:
 	lu12i.w	$a0, -128737
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_0)
 	ori	$a0, $a0, 3901
 	lu52i.d	$a0, $a0, -898
 	st.d	$a0, $fp, 136
+	movgr2fr.d	$fa0, $a0
 	ld.d	$a0, $fp, 160
 	fst.d	$fa0, $fp, 144
 	bgtz	$a0, .LBB0_9
@@ -101,11 +95,10 @@ calcMetricsData:                        # @calcMetricsData
 	bcnez	$fcc0, .LBB0_11
 .LBB0_10:
 	lu12i.w	$a0, -128737
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_0)
 	ori	$a0, $a0, 3901
 	lu52i.d	$a0, $a0, -898
 	st.d	$a0, $fp, 200
+	movgr2fr.d	$fa0, $a0
 	b	.LBB0_12
 .LBB0_11:
 	fdiv.d	$fa1, $fa1, $fa0

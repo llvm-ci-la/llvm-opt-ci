@@ -1,10 +1,6 @@
 	.file	"csr_matvec.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function hypre_CSRMatrixMatvec
-.LCPI0_0:
-	.dword	0x3fe6666666666666              # double 0.69999999999999996
 	.text
-	.globl	hypre_CSRMatrixMatvec
+	.globl	hypre_CSRMatrixMatvec           # -- Begin function hypre_CSRMatrixMatvec
 	.p2align	5
 	.type	hypre_CSRMatrixMatvec,@function
 hypre_CSRMatrixMatvec:                  # @hypre_CSRMatrixMatvec
@@ -158,12 +154,15 @@ hypre_CSRMatrixMatvec:                  # @hypre_CSRMatrixMatvec
 	bnez	$a0, .LBB0_20
 .LBB0_21:                               # %.loopexit193
 	movgr2fr.w	$fa0, $s7
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	ffint.d.w	$fa0, $fa0
-	movgr2fr.w	$fa2, $s0
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa1, $fa2, $fa1
+	movgr2fr.w	$fa1, $s0
+	ffint.d.w	$fa1, $fa1
+	lu12i.w	$a0, 419430
+	ori	$a0, $a0, 1638
+	lu32i.d	$a0, 419430
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa1, $fa1, $fa2
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB0_29
 # %bb.22:                               # %.preheader186

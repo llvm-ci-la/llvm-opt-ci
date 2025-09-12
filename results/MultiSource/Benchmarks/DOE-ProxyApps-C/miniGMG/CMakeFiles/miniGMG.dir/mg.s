@@ -2748,12 +2748,7 @@ MGBuild:                                # @MGBuild
 .Lfunc_end8:
 	.size	MGBuild, .Lfunc_end8-MGBuild
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function MGSolve
-.LCPI9_0:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-	.text
-	.globl	MGSolve
+	.globl	MGSolve                         # -- Begin function MGSolve
 	.p2align	5
 	.type	MGSolve,@function
 MGSolve:                                # @MGSolve
@@ -2814,9 +2809,12 @@ MGSolve:                                # @MGSolve
 	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
 	move	$s1, $zero
 	addi.d	$s5, $fp, 1200
-	pcalau12i	$a0, %pc_hi20(.LCPI9_0)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI9_0)
 	ori	$s6, $zero, 2
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	addi.w	$s8, $zero, -8
 	b	.LBB9_5
 	.p2align	4, , 16

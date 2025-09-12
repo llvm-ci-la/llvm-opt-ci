@@ -1,10 +1,6 @@
 	.file	"sim.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3fc999999999999a              # double 0.20000000000000001
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -233,8 +229,11 @@ main:                                   # @main
 	st.d	$s4, $sp, 24                    # 8-byte Folded Spill
 	st.d	$s7, $sp, 56                    # 8-byte Folded Spill
 	st.d	$s1, $sp, 40                    # 8-byte Folded Spill
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
 	ori	$s8, $zero, 5
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
+	lu52i.d	$a0, $a0, 1020
 	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
 	blt	$s6, $s8, .LBB0_42
 # %bb.33:                               # %.lr.ph.preheader
@@ -245,9 +244,9 @@ main:                                   # @main
 	vldi	$vr2, -912
 	vldi	$vr0, -784
 	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	vldi	$vr0, -1000
 	vst	$vr0, $sp, 112                  # 16-byte Folded Spill
+	movgr2fr.d	$fs0, $a0
 	ori	$s6, $zero, 61
 	ori	$s0, $zero, 17
 	pcalau12i	$a0, %pc_hi20(.LJTI0_0)
@@ -304,12 +303,12 @@ main:                                   # @main
 	vst	$vr0, $sp, 112                  # 16-byte Folded Spill
 	b	.LBB0_35
 .LBB0_42:
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	vldi	$vr0, -1000
 	vst	$vr0, $sp, 112                  # 16-byte Folded Spill
 	vldi	$vr0, -784
 	vst	$vr0, $sp, 80                   # 16-byte Folded Spill
 	vldi	$vr1, -912
+	movgr2fr.d	$fs0, $a0
 	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
 .LBB0_43:                               # %._crit_edge
 	vst	$vr1, $sp, 128                  # 16-byte Folded Spill
@@ -5241,12 +5240,7 @@ ckopen:                                 # @ckopen
 .Lfunc_end12:
 	.size	ckopen, .Lfunc_end12-ckopen
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function dtime
-.LCPI13_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	dtime
+	.globl	dtime                           # -- Begin function dtime
 	.p2align	5
 	.type	dtime,@function
 dtime:                                  # @dtime
@@ -5261,14 +5255,17 @@ dtime:                                  # @dtime
 	pcaddu18i	$ra, %call36(getrusage)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, 0
+	ld.d	$a1, $fp, 8
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $fp, 8
-	pcalau12i	$a1, %pc_hi20(.LCPI13_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI13_0)
 	ffint.d.l	$fa0, $fa0
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
 	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
 	ld.d	$fp, $sp, 0                     # 8-byte Folded Reload
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16

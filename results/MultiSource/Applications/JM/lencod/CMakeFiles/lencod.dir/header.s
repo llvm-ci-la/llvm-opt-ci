@@ -1,10 +1,6 @@
 	.file	"header.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function SliceHeader
-.LCPI0_0:
-	.dword	0x3fe62e42fefa39ef              # double 0.69314718055994529
 	.text
-	.globl	SliceHeader
+	.globl	SliceHeader                     # -- Begin function SliceHeader
 	.p2align	5
 	.type	SliceHeader,@function
 SliceHeader:                            # @SliceHeader
@@ -1054,8 +1050,11 @@ SliceHeader:                            # @SliceHeader
 	fcvt.d.s	$fa0, $fa0
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, -4189
+	ori	$a0, $a0, 2543
+	lu32i.d	$a0, 405058
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	vreplvei.d	$vr0, $vr0, 0
 	ldptr.w	$a2, $s1, 15436

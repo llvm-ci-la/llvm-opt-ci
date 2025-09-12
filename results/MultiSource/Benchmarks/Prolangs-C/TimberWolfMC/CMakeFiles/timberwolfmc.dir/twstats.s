@@ -1,10 +1,6 @@
 	.file	"twstats.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function twstats
-.LCPI0_0:
-	.dword	0x4059000000000000              # double 100
 	.text
-	.globl	twstats
+	.globl	twstats                         # -- Begin function twstats
 	.p2align	5
 	.type	twstats,@function
 twstats:                                # @twstats
@@ -15,32 +11,33 @@ twstats:                                # @twstats
 	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
 	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
 	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
-	st.d	$s3, $sp, 0                     # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(fpo)
 	ld.d	$fp, $a0, %got_pc_lo12(fpo)
 	ld.d	$a0, $fp, 0
 	pcalau12i	$a1, %got_pc_hi20(icost)
-	ld.d	$s1, $a1, %got_pc_lo12(icost)
-	ld.w	$a2, $s1, 0
+	ld.d	$s0, $a1, %got_pc_lo12(icost)
+	ld.w	$a2, $s0, 0
 	pcalau12i	$a1, %got_pc_hi20(fcost)
-	ld.d	$s2, $a1, %got_pc_lo12(fcost)
-	ld.w	$a3, $s2, 0
+	ld.d	$s1, $a1, %got_pc_lo12(fcost)
+	ld.w	$a3, $s1, 0
 	pcalau12i	$a1, %pc_hi20(.L.str)
 	addi.d	$a1, $a1, %pc_lo12(.L.str)
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
-	ld.w	$a1, $s1, 0
-	pcalau12i	$s0, %pc_hi20(.LCPI0_0)
+	ld.w	$a1, $s0, 0
 	beqz	$a1, .LBB0_2
 # %bb.1:
-	ld.w	$a2, $s2, 0
+	ld.w	$a2, $s1, 0
 	ld.d	$a0, $fp, 0
 	movgr2fr.w	$fa0, $a2
 	ffint.d.w	$fa0, $fa0
-	fld.d	$fa1, $s0, %pc_lo12(.LCPI0_0)
-	movgr2fr.w	$fa2, $a1
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a1
+	ffint.d.w	$fa1, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
@@ -53,27 +50,30 @@ twstats:                                # @twstats
 .LBB0_2:
 	ld.d	$a0, $fp, 0
 	pcalau12i	$a1, %got_pc_hi20(iwire)
-	ld.d	$s2, $a1, %got_pc_lo12(iwire)
-	ld.w	$a2, $s2, 0
+	ld.d	$s1, $a1, %got_pc_lo12(iwire)
+	ld.w	$a2, $s1, 0
 	pcalau12i	$a1, %got_pc_hi20(fwire)
-	ld.d	$s3, $a1, %got_pc_lo12(fwire)
-	ld.w	$a3, $s3, 0
+	ld.d	$s2, $a1, %got_pc_lo12(fwire)
+	ld.w	$a3, $s2, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.2)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.2)
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
-	ld.w	$a0, $s1, 0
+	ld.w	$a0, $s0, 0
 	beqz	$a0, .LBB0_4
 # %bb.3:
-	ld.w	$a1, $s3, 0
+	ld.w	$a1, $s2, 0
+	ld.w	$a2, $s1, 0
 	ld.d	$a0, $fp, 0
-	ld.w	$a2, $s2, 0
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	fld.d	$fa1, $s0, %pc_lo12(.LCPI0_0)
-	movgr2fr.w	$fa2, $a2
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a2
+	ffint.d.w	$fa1, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
@@ -86,26 +86,29 @@ twstats:                                # @twstats
 .LBB0_4:
 	ld.d	$a0, $fp, 0
 	pcalau12i	$a1, %got_pc_hi20(iwirex)
-	ld.d	$s2, $a1, %got_pc_lo12(iwirex)
-	ld.w	$a2, $s2, 0
+	ld.d	$s1, $a1, %got_pc_lo12(iwirex)
+	ld.w	$a2, $s1, 0
 	pcalau12i	$a1, %got_pc_hi20(fwirex)
-	ld.d	$s1, $a1, %got_pc_lo12(fwirex)
-	ld.w	$a3, $s1, 0
+	ld.d	$s0, $a1, %got_pc_lo12(fwirex)
+	ld.w	$a3, $s0, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.4)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.4)
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
-	ld.w	$a1, $s2, 0
+	ld.w	$a1, $s1, 0
 	beqz	$a1, .LBB0_6
 # %bb.5:
-	ld.w	$a2, $s1, 0
+	ld.w	$a2, $s0, 0
 	ld.d	$a0, $fp, 0
 	movgr2fr.w	$fa0, $a2
 	ffint.d.w	$fa0, $fa0
-	fld.d	$fa1, $s0, %pc_lo12(.LCPI0_0)
-	movgr2fr.w	$fa2, $a1
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a1
+	ffint.d.w	$fa1, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
@@ -118,26 +121,29 @@ twstats:                                # @twstats
 .LBB0_6:
 	ld.d	$a0, $fp, 0
 	pcalau12i	$a1, %got_pc_hi20(iwirey)
-	ld.d	$s2, $a1, %got_pc_lo12(iwirey)
-	ld.w	$a2, $s2, 0
+	ld.d	$s1, $a1, %got_pc_lo12(iwirey)
+	ld.w	$a2, $s1, 0
 	pcalau12i	$a1, %got_pc_hi20(fwirey)
-	ld.d	$s1, $a1, %got_pc_lo12(fwirey)
-	ld.w	$a3, $s1, 0
+	ld.d	$s0, $a1, %got_pc_lo12(fwirey)
+	ld.w	$a3, $s0, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.6)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.6)
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
-	ld.w	$a1, $s2, 0
+	ld.w	$a1, $s1, 0
 	beqz	$a1, .LBB0_8
 # %bb.7:
-	ld.w	$a2, $s1, 0
+	ld.w	$a2, $s0, 0
 	ld.d	$a0, $fp, 0
 	movgr2fr.w	$fa0, $a2
 	ffint.d.w	$fa0, $fa0
-	fld.d	$fa1, $s0, %pc_lo12(.LCPI0_0)
-	movgr2fr.w	$fa2, $a1
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a1
+	ffint.d.w	$fa1, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
@@ -185,7 +191,6 @@ twstats:                                # @twstats
 	ld.w	$a2, $a1, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.12)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.12)
-	ld.d	$s3, $sp, 0                     # 8-byte Folded Reload
 	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload

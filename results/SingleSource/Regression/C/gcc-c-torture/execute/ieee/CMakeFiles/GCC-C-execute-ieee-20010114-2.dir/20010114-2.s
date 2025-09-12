@@ -1,19 +1,13 @@
 	.file	"20010114-2.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function rintf
-.LCPI0_0:
-	.word	0x4b000000                      # float 8388608
-.LCPI0_1:
-	.word	0xcb000000                      # float -8388608
 	.text
-	.globl	rintf
+	.globl	rintf                           # -- Begin function rintf
 	.p2align	5
 	.type	rintf,@function
 rintf:                                  # @rintf
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	fabs.s	$fa2, $fa0
+	lu12i.w	$a0, 307200
+	movgr2fr.w	$fa1, $a0
 	fcmp.cule.s	$fcc0, $fa1, $fa2
 	bcnez	$fcc0, .LBB0_5
 # %bb.1:
@@ -21,19 +15,21 @@ rintf:                                  # @rintf
 	fcmp.cule.s	$fcc0, $fa0, $fa2
 	bcnez	$fcc0, .LBB0_3
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI0_1)
 	fadd.s	$fa0, $fa0, $fa1
-	fadd.s	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -217088
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
+	fadd.s	$fa0, $fa0, $fa1
 	ret
 .LBB0_3:
 	fcmp.cule.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB0_5
 # %bb.4:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI0_1)
 	fsub.s	$fa0, $fa1, $fa0
-	fadd.s	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -217088
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
+	fadd.s	$fa0, $fa0, $fa1
 	fneg.s	$fa0, $fa0
 .LBB0_5:
 	ret

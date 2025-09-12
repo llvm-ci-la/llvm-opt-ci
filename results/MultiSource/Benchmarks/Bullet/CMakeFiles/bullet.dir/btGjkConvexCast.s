@@ -15,12 +15,7 @@ _ZN15btGjkConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver: # @_ZN15bt
 .Lfunc_end0:
 	.size	_ZN15btGjkConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver, .Lfunc_end0-_ZN15btGjkConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE
-.LCPI1_0:
-	.word	0x3a83126f                      # float 0.00100000005
-	.text
-	.globl	_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE
+	.globl	_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE # -- Begin function _ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE
 	.p2align	5
 	.type	_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE,@function
 _ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE: # @_ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast10CastResultE
@@ -134,21 +129,22 @@ _ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast1
 	fsub.s	$fa0, $fa0, $fa1
 	fld.s	$fa1, $sp, 20                   # 4-byte Folded Reload
 	fld.s	$fa2, $sp, 16                   # 4-byte Folded Reload
-	fsub.s	$fa4, $fa1, $fa2
-	fsub.s	$fa5, $fs4, $fs5
-	fsub.s	$fa1, $fs6, $fs7
-	fsub.s	$fa6, $fs0, $fs1
-	fsub.s	$fa7, $fs2, $fs3
-	fsub.s	$fs1, $fa0, $fa1
+	fsub.s	$fa1, $fa1, $fa2
+	fsub.s	$fa4, $fs4, $fs5
+	fsub.s	$fa2, $fs6, $fs7
+	fsub.s	$fa3, $fs0, $fs1
+	fsub.s	$fa5, $fs2, $fs3
+	fsub.s	$fs1, $fa0, $fa2
+	fsub.s	$fs2, $fa1, $fa3
 	fld.s	$fa3, $sp, 312
-	fld.s	$fa0, $sp, 280
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fs4, $a0, %pc_lo12(.LCPI1_0)
-	fld.s	$fa2, $sp, 284
-	fld.s	$fa1, $sp, 288
-	fsub.s	$fs2, $fa4, $fa6
+	fld.s	$fa2, $sp, 280
+	fld.s	$fa1, $sp, 284
+	fld.s	$fa0, $sp, 288
+	lu12i.w	$a0, 239665
+	ori	$a0, $a0, 623
+	movgr2fr.w	$fs4, $a0
 	fcmp.cule.s	$fcc0, $fa3, $fs4
-	fsub.s	$fs3, $fa5, $fa7
+	fsub.s	$fs3, $fa4, $fa5
 	bcnez	$fcc0, .LBB1_11
 # %bb.2:                                # %.lr.ph
 	addi.d	$s4, $sp, 296
@@ -160,9 +156,9 @@ _ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast1
 	addi.w	$s5, $s5, -1
 	beqz	$s5, .LBB1_14
 # %bb.4:                                #   in Loop: Header=BB1_3 Depth=1
-	fmul.s	$fa2, $fs2, $fa2
-	fmadd.s	$fa0, $fs1, $fa0, $fa2
-	fmadd.s	$fa0, $fs3, $fa1, $fa0
+	fmul.s	$fa1, $fs2, $fa1
+	fmadd.s	$fa1, $fs1, $fa2, $fa1
+	fmadd.s	$fa0, $fs3, $fa0, $fa1
 	fdiv.s	$fa0, $fa3, $fa0
 	fsub.s	$fs0, $fa4, $fa0
 	fcmp.cle.s	$fcc0, $fs0, $fa4
@@ -228,9 +224,9 @@ _ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast1
 	bceqz	$fcc0, .LBB1_15
 # %bb.9:                                #   in Loop: Header=BB1_3 Depth=1
 	vld	$vr4, $s4, 0
-	fld.s	$fa0, $sp, 280
-	fld.s	$fa2, $sp, 284
-	fld.s	$fa1, $sp, 288
+	fld.s	$fa2, $sp, 280
+	fld.s	$fa1, $sp, 284
+	fld.s	$fa0, $sp, 288
 	fcmp.clt.s	$fcc0, $fs4, $fa3
 	vst	$vr4, $sp, 320
 	fmov.s	$fa4, $fs0
@@ -243,9 +239,9 @@ _ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast1
 	movgr2fr.w	$fs0, $zero
 .LBB1_12:                               # %._crit_edge
 	fld.s	$fa4, $fp, 184
-	fmul.s	$fa5, $fs2, $fa2
-	fmadd.s	$fa5, $fa0, $fs1, $fa5
-	fmadd.s	$fa5, $fa1, $fs3, $fa5
+	fmul.s	$fa5, $fs2, $fa1
+	fmadd.s	$fa5, $fa2, $fs1, $fa5
+	fmadd.s	$fa5, $fa0, $fs3, $fa5
 	fneg.s	$fa4, $fa4
 	fcmp.cle.s	$fcc0, $fa4, $fa5
 	bcnez	$fcc0, .LBB1_14
@@ -257,18 +253,18 @@ _ZN15btGjkConvexCast16calcTimeOfImpactERK11btTransformS2_S2_S2_RN12btConvexCast1
 	move	$a0, $zero
 	b	.LBB1_17
 .LBB1_15:
-	fld.s	$fa0, $sp, 280
-	fld.s	$fa2, $sp, 284
-	fld.s	$fa1, $sp, 288
+	fld.s	$fa2, $sp, 280
+	fld.s	$fa1, $sp, 284
+	fld.s	$fa0, $sp, 288
 	fld.s	$fa3, $sp, 292
 	fst.s	$fs0, $fp, 168
 .LBB1_16:                               # %.thread.sink.split
-	fst.s	$fa0, $fp, 136
-	vld	$vr0, $s4, 0
-	fst.s	$fa2, $fp, 140
-	fst.s	$fa1, $fp, 144
+	fst.s	$fa2, $fp, 136
+	vld	$vr2, $s4, 0
+	fst.s	$fa1, $fp, 140
+	fst.s	$fa0, $fp, 144
 	fst.s	$fa3, $fp, 148
-	vst	$vr0, $fp, 152
+	vst	$vr2, $fp, 152
 	ori	$a0, $zero, 1
 .LBB1_17:                               # %.thread
 	fld.d	$fs7, $sp, 336                  # 8-byte Folded Reload

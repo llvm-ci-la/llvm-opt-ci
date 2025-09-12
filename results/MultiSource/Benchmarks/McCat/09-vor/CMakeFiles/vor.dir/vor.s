@@ -132,14 +132,7 @@ add_point:                              # @add_point
 .Lfunc_end3:
 	.size	add_point, .Lfunc_end3-add_point
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function compute_v
-.LCPI4_0:
-	.dword	0xc0c3880000000000              # double -1.0E+4
-.LCPI4_1:
-	.dword	0x40c3880000000000              # double 1.0E+4
-	.text
-	.globl	compute_v
+	.globl	compute_v                       # -- Begin function compute_v
 	.p2align	5
 	.type	compute_v,@function
 compute_v:                              # @compute_v
@@ -183,10 +176,12 @@ compute_v:                              # @compute_v
 # %bb.1:
 	bge	$s2, $s4, .LBB4_4
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI4_1)
+	ori	$s0, $zero, 0
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, 1
+	lu32i.d	$s0, 231424
+	lu52i.d	$a0, $s0, 1036
+	movgr2fr.d	$fs1, $a0
 	move	$a0, $fp
 	fmov.d	$fs0, $fa0
 	fmov.d	$fa1, $fs1
@@ -196,8 +191,8 @@ compute_v:                              # @compute_v
 	fcmp.cule.d	$fcc0, $fa2, $fs1
 	bcnez	$fcc0, .LBB4_21
 # %bb.3:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
+	lu52i.d	$a0, $s0, -1012
+	movgr2fr.d	$fa1, $a0
 	ori	$a1, $zero, 1
 	move	$a0, $fp
 	fmov.d	$fa0, $fs0
@@ -207,21 +202,25 @@ compute_v:                              # @compute_v
 # %bb.5:
 	bne	$s2, $s4, .LBB4_8
 # %bb.6:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_1)
-.LBB4_7:
+	ori	$a0, $zero, 0
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, 1
+	lu32i.d	$a0, 231424
+	lu52i.d	$a0, $a0, 1036
+.LBB4_7:
+	movgr2fr.d	$fa1, $a0
 	b	.LBB4_19
 .LBB4_8:
 	bge	$s3, $s5, .LBB4_12
 # %bb.9:
 	bge	$s4, $s2, .LBB4_12
 # %bb.10:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI4_1)
+	ori	$a0, $zero, 0
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, 1
+	lu32i.d	$a0, 231424
+	lu52i.d	$a0, $a0, 1036
+	movgr2fr.d	$fs0, $a0
 	move	$a0, $fp
 	fmov.d	$fs1, $fa0
 	fmov.d	$fa1, $fs0
@@ -241,17 +240,20 @@ compute_v:                              # @compute_v
 # %bb.13:
 	bge	$s2, $s4, .LBB4_15
 # %bb.14:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 231424
+	lu52i.d	$a0, $a0, -1012
 	b	.LBB4_18
 .LBB4_15:
 	bne	$s3, $s5, .LBB4_22
 # %bb.16:
 	bge	$s4, $s2, .LBB4_22
 # %bb.17:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_1)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 231424
+	lu52i.d	$a0, $a0, 1036
 .LBB4_18:
+	movgr2fr.d	$fa1, $a0
 	ori	$a1, $zero, 1
 .LBB4_19:
 	move	$a0, $fp
@@ -281,19 +283,21 @@ compute_v:                              # @compute_v
 # %bb.23:
 	bge	$s2, $s4, .LBB4_25
 # %bb.24:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI4_0)
+	ori	$s0, $zero, 0
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, 1
+	lu32i.d	$s0, 231424
+	lu52i.d	$a0, $s0, -1012
+	movgr2fr.d	$fs0, $a0
 	move	$a0, $fp
 	fmov.d	$fs1, $fa0
 	fmov.d	$fa1, $fs0
 	pcaddu18i	$ra, %call36(intersect)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI4_1)
-	fabs.d	$fa3, $fa0
-	fcmp.cule.d	$fcc0, $fa3, $fa2
+	fabs.d	$fa2, $fa0
+	lu52i.d	$a0, $s0, 1036
+	movgr2fr.d	$fa3, $a0
+	fcmp.cule.d	$fcc0, $fa2, $fa3
 	bceqz	$fcc0, .LBB4_11
 	b	.LBB4_21
 .LBB4_25:
@@ -301,25 +305,30 @@ compute_v:                              # @compute_v
 # %bb.26:
 	bne	$s2, $s4, .LBB4_28
 # %bb.27:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 1
+	lu32i.d	$a0, 231424
+	lu52i.d	$a0, $a0, -1012
 	b	.LBB4_7
 .LBB4_28:
 	bge	$s5, $s3, .LBB4_32
 # %bb.29:
 	bge	$s4, $s2, .LBB4_32
 # %bb.30:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
+	ori	$s0, $zero, 0
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, 1
+	lu32i.d	$s0, 231424
+	lu52i.d	$a0, $s0, -1012
+	movgr2fr.d	$fa1, $a0
 	move	$a0, $fp
 	fmov.d	$fs0, $fa0
 	pcaddu18i	$ra, %call36(intersect)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI4_1)
 	fabs.d	$fa3, $fa0
+	lu52i.d	$a0, $s0, 1036
+	movgr2fr.d	$fa2, $a0
 	fcmp.cule.d	$fcc0, $fa3, $fa2
 	bcnez	$fcc0, .LBB4_21
 # %bb.31:

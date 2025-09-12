@@ -877,27 +877,23 @@ marker_bit:                             # @marker_bit
 .Lfunc_end3:
 	.size	marker_bit, .Lfunc_end3-marker_bit
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function extension_and_user_data
-.LCPI4_0:
-	.dword	0x4079000000000000              # double 400
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function extension_and_user_data
 	.type	extension_and_user_data,@function
 extension_and_user_data:                # @extension_and_user_data
 # %bb.0:
-	addi.d	$sp, $sp, -256
-	st.d	$ra, $sp, 248                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 240                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 232                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 224                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 216                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 208                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 200                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 192                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 184                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 168                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -272
+	st.d	$ra, $sp, 264                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 256                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 248                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 240                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 232                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 216                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 184                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 176                  # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(ld)
 	ld.d	$s4, $a0, %got_pc_lo12(ld)
 	ld.d	$a0, $s4, 0
@@ -925,62 +921,66 @@ extension_and_user_data:                # @extension_and_user_data
 	ori	$s0, $zero, 434
 	pcalau12i	$a0, %got_pc_hi20(stderr)
 	ld.d	$a0, $a0, %got_pc_lo12(stderr)
-	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.L.str.2)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.2)
-	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
+	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LJTI4_0)
 	addi.d	$a0, $a0, %pc_lo12(.LJTI4_0)
-	st.d	$a0, $sp, 160                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 168                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(layer_id)
 	ld.d	$a0, $a0, %got_pc_lo12(layer_id)
-	st.d	$a0, $sp, 152                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 160                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(profile_and_level_indication)
 	ld.d	$a0, $a0, %got_pc_lo12(profile_and_level_indication)
-	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(progressive_sequence)
 	ld.d	$a0, $a0, %got_pc_lo12(progressive_sequence)
-	st.d	$a0, $sp, 144                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 152                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(chroma_format)
 	ld.d	$a0, $a0, %got_pc_lo12(chroma_format)
-	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(low_delay)
 	ld.d	$a0, $a0, %got_pc_lo12(low_delay)
-	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(frame_rate_extension_n)
 	ld.d	$a0, $a0, %got_pc_lo12(frame_rate_extension_n)
-	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(frame_rate_extension_d)
 	ld.d	$a0, $a0, %got_pc_lo12(frame_rate_extension_d)
-	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(frame_rate_code)
 	ld.d	$a0, $a0, %got_pc_lo12(frame_rate_code)
-	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(frame_rate_Table)
 	addi.d	$a0, $a0, %pc_lo12(frame_rate_Table)
-	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(frame_rate)
 	ld.d	$a0, $a0, %got_pc_lo12(frame_rate)
-	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(profile)
 	ld.d	$a0, $a0, %got_pc_lo12(profile)
-	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(level)
 	ld.d	$a0, $a0, %got_pc_lo12(level)
-	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(horizontal_size)
 	ld.d	$a0, $a0, %got_pc_lo12(horizontal_size)
-	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(vertical_size)
 	ld.d	$a0, $a0, %got_pc_lo12(vertical_size)
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(bit_rate_value)
 	ld.d	$a0, $a0, %got_pc_lo12(bit_rate_value)
-	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fs0, $a0
 	ori	$s8, $zero, 64
 	lu12i.w	$a0, 3
 	ori	$a0, $a0, 4095
-	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB4_3:                                # %next_start_code.exit
                                         # =>This Loop Header: Depth=1
@@ -1011,26 +1011,50 @@ extension_and_user_data:                # @extension_and_user_data
 	bltu	$a1, $a0, .LBB4_53
 # %bb.6:                                #   in Loop: Header=BB4_3 Depth=1
 	slli.d	$a0, $a0, 2
-	ld.d	$a1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 168                   # 8-byte Folded Reload
 	ldx.w	$a0, $a1, $a0
 	add.d	$a0, $a1, $a0
 	jr	$a0
 .LBB4_7:                                #   in Loop: Header=BB4_3 Depth=1
 	ld.d	$a0, $s4, 0
 	stptr.d	$s6, $a0, 3144
-	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 160                   # 8-byte Folded Reload
 	st.w	$zero, $a0, 0
 	ori	$a0, $zero, 8
 	pcaddu18i	$ra, %call36(Get_Bits)
 	jirl	$ra, $ra, 0
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 136                   # 8-byte Folded Reload
 	st.w	$a0, $fp, 0
 	ori	$a0, $zero, 1
 	pcaddu18i	$ra, %call36(Get_Bits)
 	jirl	$ra, $ra, 0
-	ld.d	$a1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	st.w	$a0, $a1, 0
 	ori	$a0, $zero, 2
+	pcaddu18i	$ra, %call36(Get_Bits)
+	jirl	$ra, $ra, 0
+	ld.d	$a1, $sp, 128                   # 8-byte Folded Reload
+	st.w	$a0, $a1, 0
+	ori	$a0, $zero, 2
+	pcaddu18i	$ra, %call36(Get_Bits)
+	jirl	$ra, $ra, 0
+	move	$s1, $a0
+	ori	$a0, $zero, 2
+	pcaddu18i	$ra, %call36(Get_Bits)
+	jirl	$ra, $ra, 0
+	move	$s0, $a0
+	ori	$a0, $zero, 12
+	pcaddu18i	$ra, %call36(Get_Bits)
+	jirl	$ra, $ra, 0
+	move	$s2, $a0
+	ori	$a0, $zero, 1
+	pcaddu18i	$ra, %call36(Get_Bits)
+	jirl	$ra, $ra, 0
+	ori	$a0, $zero, 8
+	pcaddu18i	$ra, %call36(Get_Bits)
+	jirl	$ra, $ra, 0
+	move	$s3, $a0
+	ori	$a0, $zero, 1
 	pcaddu18i	$ra, %call36(Get_Bits)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $sp, 120                   # 8-byte Folded Reload
@@ -1038,42 +1062,18 @@ extension_and_user_data:                # @extension_and_user_data
 	ori	$a0, $zero, 2
 	pcaddu18i	$ra, %call36(Get_Bits)
 	jirl	$ra, $ra, 0
-	move	$s2, $a0
-	ori	$a0, $zero, 2
-	pcaddu18i	$ra, %call36(Get_Bits)
-	jirl	$ra, $ra, 0
-	move	$s1, $a0
-	ori	$a0, $zero, 12
-	pcaddu18i	$ra, %call36(Get_Bits)
-	jirl	$ra, $ra, 0
-	move	$s3, $a0
-	ori	$a0, $zero, 1
-	pcaddu18i	$ra, %call36(Get_Bits)
-	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 8
-	pcaddu18i	$ra, %call36(Get_Bits)
-	jirl	$ra, $ra, 0
-	move	$s0, $a0
-	ori	$a0, $zero, 1
-	pcaddu18i	$ra, %call36(Get_Bits)
-	jirl	$ra, $ra, 0
-	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
-	st.w	$a0, $a1, 0
-	ori	$a0, $zero, 2
-	pcaddu18i	$ra, %call36(Get_Bits)
-	jirl	$ra, $ra, 0
-	ld.d	$s5, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
 	st.w	$a0, $s5, 0
 	ori	$a0, $zero, 5
 	pcaddu18i	$ra, %call36(Get_Bits)
 	jirl	$ra, $ra, 0
-	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 96                    # 8-byte Folded Reload
 	ld.w	$a1, $a1, 0
 	ld.w	$a2, $s5, 0
-	ld.d	$a3, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$a3, $sp, 104                   # 8-byte Folded Reload
 	st.w	$a0, $a3, 0
 	slli.d	$a1, $a1, 3
-	ld.d	$a3, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a3, $sp, 88                    # 8-byte Folded Reload
 	fldx.d	$fa0, $a3, $a1
 	addi.w	$a1, $a2, 1
 	addi.w	$a0, $a0, 1
@@ -1082,14 +1082,14 @@ extension_and_user_data:                # @extension_and_user_data
 	ld.w	$a1, $fp, 0
 	ffint.d.w	$fa1, $fa1
 	fmul.d	$fa0, $fa0, $fa1
-	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 80                    # 8-byte Folded Reload
 	fst.d	$fa0, $a0, 0
 	andi	$a2, $a1, 128
 	andi	$a0, $a1, 15
 	bnez	$a2, .LBB4_41
 # %bb.8:                                #   in Loop: Header=BB4_3 Depth=1
 	srli.d	$a1, $a1, 4
-	ld.d	$a2, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 40                    # 8-byte Folded Reload
 	st.w	$a1, $a2, 0
 	b	.LBB4_43
 	.p2align	4, , 16
@@ -1125,7 +1125,7 @@ extension_and_user_data:                # @extension_and_user_data
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s4, 0
 	ldptr.w	$a1, $a1, 3148
-	ld.d	$a2, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 160                   # 8-byte Folded Reload
 	st.w	$a0, $a2, 0
 	ori	$a0, $zero, 2
 	bne	$a1, $a0, .LBB4_14
@@ -1196,7 +1196,7 @@ extension_and_user_data:                # @extension_and_user_data
 	ori	$a0, $zero, 15
 	pcaddu18i	$ra, %call36(Get_Bits)
 	jirl	$ra, $ra, 0
-	ld.d	$fp, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
 	slt	$a1, $fp, $a0
 	lu12i.w	$s0, -8
 	add.d	$a2, $a0, $s0
@@ -1243,7 +1243,7 @@ extension_and_user_data:                # @extension_and_user_data
 	ld.d	$a0, $s4, 0
 	ori	$a1, $zero, 2100
 	ldx.w	$a0, $a0, $a1
-	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 144                   # 8-byte Folded Spill
 	ori	$a0, $zero, 1
 	pcaddu18i	$ra, %call36(Get_Bits)
 	jirl	$ra, $ra, 0
@@ -1297,7 +1297,7 @@ extension_and_user_data:                # @extension_and_user_data
 	ld.w	$a0, $fp, 0
 	blez	$a0, .LBB4_51
 # %bb.18:                               #   in Loop: Header=BB4_3 Depth=1
-	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	srai.d	$a0, $a0, 3
 	addi.d	$a1, $a0, -4
 	pcalau12i	$a0, %pc_hi20(.L.str.15)
@@ -1572,7 +1572,7 @@ extension_and_user_data:                # @extension_and_user_data
 	bne	$s0, $s8, .LBB4_33
 	b	.LBB4_51
 .LBB4_34:                               #   in Loop: Header=BB4_3 Depth=1
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.w	$a0, $a0, 0
 	beqz	$a0, .LBB4_45
 # %bb.35:                               #   in Loop: Header=BB4_3 Depth=1
@@ -1645,38 +1645,36 @@ extension_and_user_data:                # @extension_and_user_data
 	ori	$a1, $zero, 5
 	bne	$a0, $a1, .LBB4_44
 # %bb.42:                               #   in Loop: Header=BB4_3 Depth=1
-	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	ori	$a1, $zero, 133
 	st.w	$a1, $a0, 0
 	ori	$a0, $zero, 8
 .LBB4_43:                               # %.sink.split.i
                                         #   in Loop: Header=BB4_3 Depth=1
-	ld.d	$a1, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
 	st.w	$a0, $a1, 0
 .LBB4_44:                               # %sequence_extension.exit
                                         #   in Loop: Header=BB4_3 Depth=1
-	ld.d	$a2, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	ld.wu	$a0, $a2, 0
-	ld.d	$a3, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a3, $sp, 64                    # 8-byte Folded Reload
 	ld.wu	$a1, $a3, 0
-	bstrins.d	$a0, $s2, 63, 12
+	bstrins.d	$a0, $s1, 63, 12
 	st.w	$a0, $a2, 0
-	ld.d	$a2, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 56                    # 8-byte Folded Reload
 	ld.w	$a0, $a2, 0
-	bstrins.d	$a1, $s1, 63, 12
+	bstrins.d	$a1, $s0, 63, 12
 	st.w	$a1, $a3, 0
-	slli.d	$a1, $s3, 18
+	slli.d	$a1, $s2, 18
 	add.d	$a0, $a0, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI4_0)
 	st.w	$a0, $a2, 0
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fs0
 	pcalau12i	$a0, %got_pc_hi20(bit_rate)
 	ld.d	$a0, $a0, %got_pc_lo12(bit_rate)
 	fst.d	$fa0, $a0, 0
-	slli.d	$a0, $s0, 10
+	slli.d	$a0, $s3, 10
 	pcalau12i	$a1, %got_pc_hi20(vbv_buffer_size)
 	ld.d	$a1, $a1, %got_pc_lo12(vbv_buffer_size)
 	ld.w	$a2, $a1, 0
@@ -1753,25 +1751,26 @@ extension_and_user_data:                # @extension_and_user_data
 	bne	$a0, $s6, .LBB4_52
 	b	.LBB4_3
 .LBB4_53:                               #   in Loop: Header=BB4_3 Depth=1
-	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	ld.d	$a0, $a0, 0
-	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
 	b	.LBB4_51
 .LBB4_54:
-	ld.d	$s8, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 200                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 216                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 224                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 232                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 240                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 248                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 256
+	fld.d	$fs0, $sp, 176                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 232                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 240                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 248                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 256                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 264                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 272
 	ret
 .Lfunc_end4:
 	.size	extension_and_user_data, .Lfunc_end4-extension_and_user_data

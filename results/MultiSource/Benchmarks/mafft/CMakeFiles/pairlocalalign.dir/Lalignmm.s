@@ -1,10 +1,6 @@
 	.file	"Lalignmm.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function Lalignmm_hmout
-.LCPI0_0:
-	.word	0xcb189680                      # float -1.0E+7
 	.text
-	.globl	Lalignmm_hmout
+	.globl	Lalignmm_hmout                  # -- Begin function Lalignmm_hmout
 	.p2align	5
 	.type	Lalignmm_hmout,@function
 Lalignmm_hmout:                         # @Lalignmm_hmout
@@ -1198,10 +1194,12 @@ Lalignmm_hmout:                         # @Lalignmm_hmout
 	add.d	$s6, $t5, $a0
 	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	add.d	$fp, $a1, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	addi.d	$a0, $t7, -2
 	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
+	lu12i.w	$a0, -216695
+	ori	$a0, $a0, 1664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
 	addi.d	$a0, $t4, 8
 	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
 	movgr2fr.w	$fa3, $zero
@@ -2289,12 +2287,7 @@ Lalignmm_hmout:                         # @Lalignmm_hmout
 .Lfunc_end0:
 	.size	Lalignmm_hmout, .Lfunc_end0-Lalignmm_hmout
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function Lalign2m2m_hmout
-.LCPI1_0:
-	.word	0xcb189680                      # float -1.0E+7
-	.text
-	.globl	Lalign2m2m_hmout
+	.globl	Lalign2m2m_hmout                # -- Begin function Lalign2m2m_hmout
 	.p2align	5
 	.type	Lalign2m2m_hmout,@function
 Lalign2m2m_hmout:                       # @Lalign2m2m_hmout
@@ -3507,10 +3500,12 @@ Lalign2m2m_hmout:                       # @Lalign2m2m_hmout
 	add.d	$s6, $t5, $a0
 	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	add.d	$fp, $a1, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI1_0)
 	addi.d	$a0, $t7, -2
 	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
+	lu12i.w	$a0, -216695
+	ori	$a0, $a0, 1664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
 	addi.d	$a0, $t4, 8
 	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
 	movgr2fr.w	$fa3, $zero

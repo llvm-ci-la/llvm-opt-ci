@@ -475,25 +475,19 @@ exhaustiveLegSearch:                    # @exhaustiveLegSearch
 .Lfunc_end1:
 	.size	exhaustiveLegSearch, .Lfunc_end1-exhaustiveLegSearch
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function runBatch
-.LCPI2_0:
-	.dword	0x40ac200000000000              # double 3600
-.LCPI2_1:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	runBatch
+	.globl	runBatch                        # -- Begin function runBatch
 	.p2align	5
 	.type	runBatch,@function
 runBatch:                               # @runBatch
 # %bb.0:
-	addi.d	$sp, $sp, -48
-	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 0                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -64
+	st.d	$ra, $sp, 56                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 16                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 8                    # 8-byte Folded Spill
 	beqz	$a0, .LBB2_4
 # %bb.1:
 	move	$fp, $a1
@@ -519,8 +513,11 @@ runBatch:                               # @runBatch
 	bstrpick.d	$a1, $a0, 31, 31
 	srai.d	$a0, $a0, 11
 	add.d	$s1, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -253952
+	lu52i.d	$a0, $a0, 1034
+	movgr2fr.d	$fa1, $a0
+	ori	$s3, $zero, 0
 	pcaddu18i	$ra, %call36(fmod)
 	jirl	$ra, $ra, 0
 	ftintrz.w.d	$fa1, $fa0
@@ -533,8 +530,9 @@ runBatch:                               # @runBatch
 	bstrpick.d	$a1, $a0, 31, 31
 	srai.d	$a0, $a0, 5
 	add.d	$s2, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_1)
+	lu32i.d	$s3, -131072
+	lu52i.d	$a0, $s3, 1028
+	movgr2fr.d	$fa1, $a0
 	pcaddu18i	$ra, %call36(fmod)
 	jirl	$ra, $ra, 0
 	movfr2gr.d	$a3, $fa0
@@ -552,13 +550,14 @@ runBatch:                               # @runBatch
 .LBB2_3:
 	pcalau12i	$a0, %pc_hi20(.Lstr.2)
 	addi.d	$a0, $a0, %pc_lo12(.Lstr.2)
-	fld.d	$fs0, $sp, 0                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 48
+	fld.d	$fs0, $sp, 8                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 64
 	pcaddu18i	$t8, %call36(puts)
 	jr	$t8
 .LBB2_4:

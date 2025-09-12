@@ -1,10 +1,6 @@
 	.file	"transform8x8.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Mode_Decision_for_new_Intra8x8Macroblock
-.LCPI0_0:
-	.dword	0x3fdffe5c91d14e3c              # double 0.49990000000000001
 	.text
-	.globl	Mode_Decision_for_new_Intra8x8Macroblock
+	.globl	Mode_Decision_for_new_Intra8x8Macroblock # -- Begin function Mode_Decision_for_new_Intra8x8Macroblock
 	.p2align	5
 	.type	Mode_Decision_for_new_Intra8x8Macroblock,@function
 Mode_Decision_for_new_Intra8x8Macroblock: # @Mode_Decision_for_new_Intra8x8Macroblock
@@ -14,11 +10,14 @@ Mode_Decision_for_new_Intra8x8Macroblock: # @Mode_Decision_for_new_Intra8x8Macro
 	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
 	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 16                   # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_0)
 	move	$fp, $a0
 	fmov.d	$fs0, $fa0
 	vldi	$vr0, -1000
+	lu12i.w	$a0, -451308
+	ori	$a0, $a0, 3644
+	lu32i.d	$a0, -420
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa1, $a0
 	fmadd.d	$fa0, $fs0, $fa0, $fa1
 	vreplvei.d	$vr0, $vr0, 0
 	vfrintrm.d	$vr0, $vr0
@@ -80,12 +79,7 @@ Mode_Decision_for_new_Intra8x8Macroblock: # @Mode_Decision_for_new_Intra8x8Macro
 .Lfunc_end0:
 	.size	Mode_Decision_for_new_Intra8x8Macroblock, .Lfunc_end0-Mode_Decision_for_new_Intra8x8Macroblock
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Mode_Decision_for_new_8x8IntraBlocks
-.LCPI1_0:
-	.dword	0x46293e5939a08cea              # double 1.0E+30
-	.text
-	.globl	Mode_Decision_for_new_8x8IntraBlocks
+	.globl	Mode_Decision_for_new_8x8IntraBlocks # -- Begin function Mode_Decision_for_new_8x8IntraBlocks
 	.p2align	5
 	.type	Mode_Decision_for_new_8x8IntraBlocks,@function
 Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
@@ -292,8 +286,11 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	bstrins.d	$a2, $a3, 5, 5
 	add.d	$a1, $a1, $a2
 	st.d	$a1, $sp, 96                    # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fs2, $a1, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a1, 236040
+	ori	$a1, $a1, 3306
+	lu32i.d	$a1, -442791
+	lu52i.d	$a1, $a1, 1122
+	movgr2fr.d	$fs2, $a1
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 192                  # 16-byte Folded Spill
 	lu12i.w	$s4, 3

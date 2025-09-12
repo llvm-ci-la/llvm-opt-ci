@@ -1,10 +1,6 @@
 	.file	"context_ini.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function create_context_memory
-.LCPI0_0:
-	.dword	0x3fd34413509f79ff              # double 0.3010299956639812
 	.text
-	.globl	create_context_memory
+	.globl	create_context_memory           # -- Begin function create_context_memory
 	.p2align	5
 	.type	create_context_memory,@function
 create_context_memory:                  # @create_context_memory
@@ -375,8 +371,11 @@ create_context_memory:                  # @create_context_memory
 	ori	$fp, $zero, 1016
 	pcalau12i	$a0, %pc_hi20(probability)
 	addi.d	$s0, $a0, %pc_lo12(probability)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 330231
+	ori	$a0, $a0, 2559
+	lu32i.d	$a0, 214035
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(entropy)
 	addi.d	$s1, $a0, %pc_lo12(entropy)
 	move	$s2, $zero
@@ -9331,14 +9330,7 @@ init_contexts:                          # @init_contexts
 .Lfunc_end3:
 	.size	init_contexts, .Lfunc_end3-init_contexts
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function XRate
-.LCPI4_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI4_1:
-	.dword	0x3fa0000000000000              # double 0.03125
-	.text
-	.globl	XRate
+	.globl	XRate                           # -- Begin function XRate
 	.p2align	5
 	.type	XRate,@function
 XRate:                                  # @XRate
@@ -9368,30 +9360,31 @@ XRate:                                  # @XRate
 	andn	$a1, $a1, $a2
 	slti	$a2, $a1, 127
 	maskeqz	$a1, $a1, $a2
-	srli.d	$a4, $a3, 32
-	pcalau12i	$a5, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI4_0)
+	ori	$a4, $zero, 127
+	masknez	$a2, $a4, $a2
+	or	$a1, $a1, $a2
+	srli.d	$a2, $a3, 32
 	lu52i.d	$a5, $zero, 1107
-	or	$a4, $a4, $a5
-	movgr2fr.d	$fa1, $a4
-	fsub.d	$fa0, $fa1, $fa0
-	lu12i.w	$a4, 275200
-	bstrins.d	$a3, $a4, 63, 32
+	or	$a2, $a2, $a5
+	movgr2fr.d	$fa0, $a2
+	lu12i.w	$a2, 256
+	lu52i.d	$a2, $a2, 1107
+	movgr2fr.d	$fa1, $a2
+	fsub.d	$fa0, $fa0, $fa1
+	lu12i.w	$a2, 275200
+	bstrins.d	$a3, $a2, 63, 32
 	movgr2fr.d	$fa1, $a3
 	fadd.d	$fa0, $fa1, $fa0
-	pcalau12i	$a3, %pc_hi20(.LCPI4_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI4_1)
-	ori	$a3, $zero, 127
-	masknez	$a2, $a3, $a2
-	or	$a1, $a1, $a2
+	lu52i.d	$a2, $zero, 1018
+	movgr2fr.d	$fa1, $a2
 	fmul.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -912
 	fcmp.clt.d	$fcc0, $fa1, $fa0
 	fsel	$fa0, $fa0, $fa1, $fcc0
 	slli.d	$a2, $a0, 3
-	pcalau12i	$a4, %pc_hi20(probability)
-	addi.d	$a4, $a4, %pc_lo12(probability)
-	fldx.d	$fa1, $a4, $a2
+	pcalau12i	$a3, %pc_hi20(probability)
+	addi.d	$a3, $a3, %pc_lo12(probability)
+	fldx.d	$fa1, $a3, $a2
 	slli.d	$a2, $a1, 3
 	pcalau12i	$a5, %pc_hi20(entropy)
 	addi.d	$a5, $a5, %pc_lo12(entropy)
@@ -9399,9 +9392,9 @@ XRate:                                  # @XRate
 	fneg.d	$fa1, $fa1
 	fmul.d	$fa1, $fa0, $fa1
 	movgr2fr.d	$fa3, $zero
-	sub.d	$a0, $a3, $a0
+	sub.d	$a0, $a4, $a0
 	slli.d	$a0, $a0, 3
-	fldx.d	$fa4, $a4, $a0
+	fldx.d	$fa4, $a3, $a0
 	xori	$a0, $a1, 127
 	slli.d	$a0, $a0, 3
 	fldx.d	$fa5, $a5, $a0
@@ -9413,16 +9406,7 @@ XRate:                                  # @XRate
 .Lfunc_end4:
 	.size	XRate, .Lfunc_end4-XRate
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function GetCtxModelNumber
-.LCPI5_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI5_1:
-	.dword	0x3fa0000000000000              # double 0.03125
-.LCPI5_2:
-	.dword	0x46293e5939a08cea              # double 1.0E+30
-	.text
-	.globl	GetCtxModelNumber
+	.globl	GetCtxModelNumber               # -- Begin function GetCtxModelNumber
 	.p2align	5
 	.type	GetCtxModelNumber,@function
 GetCtxModelNumber:                      # @GetCtxModelNumber
@@ -9484,18 +9468,19 @@ GetCtxModelNumber:                      # @GetCtxModelNumber
 	maskeqz	$a4, $a5, $a4
 	or	$a4, $a4, $a6
 	srli.d	$a5, $a0, 32
-	pcalau12i	$a6, %pc_hi20(.LCPI5_0)
-	fld.d	$fa0, $a6, %pc_lo12(.LCPI5_0)
 	lu52i.d	$t8, $zero, 1107
 	or	$a5, $a5, $t8
 	movgr2fr.d	$fa1, $a5
-	fsub.d	$fa2, $fa1, $fa0
+	lu12i.w	$a5, 256
+	lu52i.d	$a5, $a5, 1107
+	movgr2fr.d	$fa0, $a5
+	fsub.d	$fa1, $fa1, $fa0
 	lu12i.w	$fp, 275200
-	pcalau12i	$a5, %pc_hi20(.LCPI5_1)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI5_1)
 	bstrins.d	$a0, $fp, 63, 32
-	movgr2fr.d	$fa3, $a0
-	fadd.d	$fa2, $fa3, $fa2
+	movgr2fr.d	$fa2, $a0
+	fadd.d	$fa2, $fa2, $fa1
+	lu52i.d	$a0, $zero, 1018
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa3, $fa2, $fa1
 	vldi	$vr2, -912
 	fcmp.clt.d	$fcc0, $fa2, $fa3
@@ -9742,8 +9727,11 @@ GetCtxModelNumber:                      # @GetCtxModelNumber
 	addi.d	$a0, $a0, %pc_lo12(INIT_FLD_LAST_I)
 	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
 	move	$a0, $zero
-	pcalau12i	$a4, %pc_hi20(.LCPI5_2)
-	fld.d	$ft10, $a4, %pc_lo12(.LCPI5_2)
+	lu12i.w	$a4, 236040
+	ori	$a4, $a4, 3306
+	lu32i.d	$a4, -442791
+	lu52i.d	$a4, $a4, 1122
+	movgr2fr.d	$ft10, $a4
 	ori	$s5, $zero, 2
 	ori	$s6, $zero, 176
 	ori	$t0, $zero, 120

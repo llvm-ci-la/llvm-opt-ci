@@ -144,24 +144,18 @@ gx_color_to_hsb:                        # @gx_color_to_hsb
 .Lfunc_end2:
 	.size	gx_color_to_hsb, .Lfunc_end2-gx_color_to_hsb
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gx_color_from_hsb
-.LCPI3_0:
-	.word	0x477fff00                      # float 65535
-.LCPI3_1:
-	.word	0x462aac00                      # float 10923
-	.text
-	.globl	gx_color_from_hsb
+	.globl	gx_color_from_hsb               # -- Begin function gx_color_from_hsb
 	.p2align	5
 	.type	gx_color_from_hsb,@function
 gx_color_from_hsb:                      # @gx_color_from_hsb
 # %bb.0:
 	beqz	$a2, .LBB3_4
 # %bb.1:
-	pcalau12i	$a4, %pc_hi20(.LCPI3_0)
-	fld.s	$fa0, $a4, %pc_lo12(.LCPI3_0)
-	movgr2fr.w	$fa1, $a3
-	ffint.s.w	$fa1, $fa1
+	movgr2fr.w	$fa0, $a3
+	ffint.s.w	$fa1, $fa0
+	lu12i.w	$a3, 292863
+	ori	$a3, $a3, 3840
+	movgr2fr.w	$fa0, $a3
 	fdiv.s	$fa2, $fa1, $fa0
 	movgr2fr.w	$fa1, $a2
 	ffint.s.w	$fa1, $fa1
@@ -174,12 +168,13 @@ gx_color_from_hsb:                      # @gx_color_from_hsb
 	ori	$a3, $a3, 2731
 	mul.d	$a3, $a2, $a3
 	sub.d	$a1, $a1, $a3
-	pcalau12i	$a3, %pc_hi20(.LCPI3_1)
-	fld.s	$fa1, $a3, %pc_lo12(.LCPI3_1)
 	bstrpick.d	$a1, $a1, 15, 0
+	movgr2fr.w	$fa1, $a1
+	ffint.s.w	$fa1, $fa1
+	lu12i.w	$a1, 287402
+	ori	$a1, $a1, 3072
 	movgr2fr.w	$fa3, $a1
-	ffint.s.w	$fa3, $fa3
-	fdiv.s	$fa3, $fa3, $fa1
+	fdiv.s	$fa3, $fa1, $fa3
 	vldi	$vr4, -1168
 	fsub.s	$fa1, $fa4, $fa5
 	fmul.s	$fa1, $fa2, $fa1

@@ -1,10 +1,6 @@
 	.file	"makebins.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function makebins
-.LCPI0_0:
-	.dword	0x4059000000000000              # double 100
 	.text
-	.globl	makebins
+	.globl	makebins                        # -- Begin function makebins
 	.p2align	5
 	.type	makebins,@function
 makebins:                               # @makebins
@@ -30,8 +26,10 @@ makebins:                               # @makebins
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fs1, $fa0
 	ori	$a0, $zero, 1
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fs4, $a1, %pc_lo12(.LCPI0_0)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fs4, $a1
 	fsqrt.d	$fs5, $fs1
 	fcmp.cor.d	$fcc1, $fs5, $fs5
 	movgr2fr.d	$fs6, $zero

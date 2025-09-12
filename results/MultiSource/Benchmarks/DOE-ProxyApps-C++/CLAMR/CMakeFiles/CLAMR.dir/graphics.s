@@ -1,10 +1,6 @@
 	.file	"graphics.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function init_graphics_output
-.LCPI0_0:
-	.dword	0x4089000000000000              # double 800
 	.text
-	.globl	init_graphics_output
+	.globl	init_graphics_output            # -- Begin function init_graphics_output
 	.p2align	5
 	.type	init_graphics_output,@function
 init_graphics_output:                   # @init_graphics_output
@@ -18,8 +14,10 @@ init_graphics_output:                   # @init_graphics_output
 	fld.s	$fa1, $a0, %pc_lo12(graphics_xmin)
 	fsub.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
 	pcalau12i	$a0, %pc_hi20(graphics_ymax)
 	fld.s	$fa2, $a0, %pc_lo12(graphics_ymax)
 	pcalau12i	$a0, %pc_hi20(graphics_ymin)
@@ -652,12 +650,7 @@ DrawSquaresToFile:                      # @DrawSquaresToFile
 .Lfunc_end11:
 	.size	DrawSquaresToFile, .Lfunc_end11-DrawSquaresToFile
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DisplayStateToFile
-.LCPI12_0:
-	.dword	0x40247ae147ae147b              # double 10.24
-	.text
-	.globl	DisplayStateToFile
+	.globl	DisplayStateToFile              # -- Begin function DisplayStateToFile
 	.p2align	5
 	.type	DisplayStateToFile,@function
 DisplayStateToFile:                     # @DisplayStateToFile
@@ -754,8 +747,11 @@ DisplayStateToFile:                     # @DisplayStateToFile
 	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(data_double)
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI12_0)
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1026
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$s3, %pc_hi20(graphics_xmin)
 	pcalau12i	$s4, %pc_hi20(xconversion)
 	pcalau12i	$a0, %pc_hi20(x_double)

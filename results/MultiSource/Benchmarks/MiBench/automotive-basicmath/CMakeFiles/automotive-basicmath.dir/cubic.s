@@ -1,14 +1,6 @@
 	.file	"cubic.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function SolveCubic
-.LCPI0_0:
-	.dword	0x401921fb54442d18              # double 6.2831853071795862
-.LCPI0_1:
-	.dword	0x402921fb54442d18              # double 12.566370614359172
-.LCPI0_2:
-	.dword	0x3fd5555555555555              # double 0.33333333333333331
 	.text
-	.globl	SolveCubic
+	.globl	SolveCubic                      # -- Begin function SolveCubic
 	.p2align	5
 	.type	SolveCubic,@function
 SolveCubic:                             # @SolveCubic
@@ -200,8 +192,11 @@ SolveCubic:                             # @SolveCubic
 	jirl	$ra, $ra, 0
 	fabs.d	$fa0, $fa0
 	fadd.d	$fa0, $fa0, $fs0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa1, $a0
 	pcaddu18i	$ra, %call36(pow)
 	jirl	$ra, $ra, 0
 	pcaddu18i	$ra, %call36(__extenddftf2)
@@ -231,7 +226,7 @@ SolveCubic:                             # @SolveCubic
 	fneg.d	$fa0, $fs0
 	movgr2cf	$fcc0, $a0
 	fsel	$fs2, $fa0, $fs0, $fcc0
-	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 48                    # 8-byte Folded Reload
 	b	.LBB0_8
 .LBB0_3:
 	ori	$a0, $zero, 3
@@ -267,7 +262,7 @@ SolveCubic:                             # @SolveCubic
 	fsqrt.d	$fs1, $fa0
 	fcmp.cor.d	$fcc0, $fs1, $fs1
 	fmov.d	$fs4, $fs1
-	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 48                    # 8-byte Folded Reload
 	movcf2gr	$a0, $fcc0
 	st.d	$a0, $sp, 40
 	bceqz	$fcc0, .LBB0_11
@@ -282,12 +277,15 @@ SolveCubic:                             # @SolveCubic
 	movgr2cf	$fcc0, $a0
 	bceqz	$fcc0, .LBB0_12
 .LBB0_6:                                # %.split.split.split
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -896
-	fmul.d	$fs4, $fs4, $fa2
-	fmul.d	$fs5, $fa0, $fa2
-	fadd.d	$fa0, $fs0, $fa1
+	vldi	$vr1, -896
+	fmul.d	$fs4, $fs4, $fa1
+	fmul.d	$fs5, $fa0, $fa1
+	lu12i.w	$a0, 345154
+	ori	$fp, $a0, 3352
+	lu32i.d	$fp, -450053
+	lu52i.d	$a0, $fp, 1025
+	movgr2fr.d	$fa0, $a0
+	fadd.d	$fa0, $fs0, $fa0
 	vldi	$vr1, -1016
 	fdiv.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(cos)
@@ -301,16 +299,16 @@ SolveCubic:                             # @SolveCubic
 	jirl	$ra, $ra, 0
 	pcaddu18i	$ra, %call36(__trunctfdf2)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $fp, 8
+	fst.d	$fa0, $s2, 8
 	ld.d	$a0, $sp, 40
 	movgr2cf	$fcc0, $a0
 	bceqz	$fcc0, .LBB0_13
 .LBB0_7:                                # %.split.split.split.split
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
 	fmul.d	$fs2, $fs4, $fs3
-	vldi	$vr1, -896
-	fmul.d	$fs1, $fs1, $fa1
+	vldi	$vr0, -896
+	fmul.d	$fs1, $fs1, $fa0
+	lu52i.d	$a0, $fp, 1026
+	movgr2fr.d	$fa0, $a0
 	fadd.d	$fa0, $fs0, $fa0
 	vldi	$vr1, -1016
 	fdiv.d	$fa0, $fa0, $fa1
@@ -325,7 +323,7 @@ SolveCubic:                             # @SolveCubic
 	jirl	$ra, $ra, 0
 	pcaddu18i	$ra, %call36(__trunctfdf2)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $fp, 16
+	fst.d	$fa0, $s2, 16
 .LBB0_8:
 	fmov.d	$fa0, $fs2
 	pcaddu18i	$ra, %call36(__extenddftf2)
@@ -336,7 +334,7 @@ SolveCubic:                             # @SolveCubic
 	jirl	$ra, $ra, 0
 	pcaddu18i	$ra, %call36(__trunctfdf2)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $fp, 0
+	fst.d	$fa0, $s2, 0
 	fld.d	$fs5, $sp, 56                   # 8-byte Folded Reload
 	fld.d	$fs4, $sp, 64                   # 8-byte Folded Reload
 	fld.d	$fs3, $sp, 72                   # 8-byte Folded Reload

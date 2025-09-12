@@ -1,21 +1,18 @@
 	.file	"rbug.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function d
-.LCPI0_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.globl	d
+	.globl	d                               # -- Begin function d
 	.p2align	5
 	.type	d,@function
 d:                                      # @d
 # %bb.0:
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0

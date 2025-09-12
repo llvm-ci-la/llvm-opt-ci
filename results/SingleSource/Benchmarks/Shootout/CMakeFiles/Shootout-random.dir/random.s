@@ -1,10 +1,6 @@
 	.file	"random.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x4101160000000000              # double 139968
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -68,12 +64,14 @@ main:                                   # @main
 	sub.d	$a0, $a0, $a1
 	st.d	$a0, $fp, %pc_lo12(gen_random.last)
 	ori	$a1, $zero, 100
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_0)
 	mul.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 71168
+	lu52i.d	$a0, $a0, 1040
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
 	addi.d	$a0, $a0, %pc_lo12(.L.str)

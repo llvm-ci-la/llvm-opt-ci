@@ -20,12 +20,7 @@ luaopen_os:                             # @luaopen_os
 .Lfunc_end0:
 	.size	luaopen_os, .Lfunc_end0-luaopen_os
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function os_clock
-.LCPI1_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function os_clock
 	.type	os_clock,@function
 os_clock:                               # @os_clock
 # %bb.0:
@@ -35,11 +30,13 @@ os_clock:                               # @os_clock
 	move	$fp, $a0
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI1_0)
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(lua_pushnumber)
 	jirl	$ra, $ra, 0

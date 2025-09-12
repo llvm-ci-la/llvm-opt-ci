@@ -4026,12 +4026,8 @@ callback:                               # @callback
 	.word	.LBB5_141-.LJTI5_0
 	.word	.LBB5_2-.LJTI5_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function process_input
-.LCPI6_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
 	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function process_input
 	.type	process_input,@function
 process_input:                          # @process_input
 # %bb.0:
@@ -4047,6 +4043,7 @@ process_input:                          # @process_input
 	st.d	$s6, $sp, 312                   # 8-byte Folded Spill
 	st.d	$s7, $sp, 304                   # 8-byte Folded Spill
 	st.d	$s8, $sp, 296                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 288                  # 8-byte Folded Spill
 	move	$s2, $a1
 	move	$s0, $a0
 	pcalau12i	$a0, %pc_hi20(bail_on_error)
@@ -4079,6 +4076,11 @@ process_input:                          # @process_input
 	lu12i.w	$a0, 244
 	ori	$a0, $a0, 576
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs0, $a0
 .LBB6_1:                                # %.outer
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB6_2 Depth 2
@@ -4542,22 +4544,20 @@ process_input:                          # @process_input
 	mul.d	$a0, $a0, $a2
 	vpickve2gr.d	$a1, $vr0, 1
 	add.d	$a0, $a1, $a0
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI6_0)
-	vld	$vr1, $s0, 16
-	vld	$vr2, $sp, 160
-	movgr2fr.w	$fa3, $a0
-	ffint.d.w	$fa3, $fa3
-	fmul.d	$fa3, $fa3, $fa0
-	vsub.d	$vr1, $vr2, $vr1
-	vpickve2gr.d	$a0, $vr1, 0
+	vld	$vr0, $s0, 16
+	vld	$vr1, $sp, 160
+	movgr2fr.w	$fa2, $a0
+	ffint.d.w	$fa2, $fa2
+	fmul.d	$fa2, $fa2, $fs0
+	vsub.d	$vr0, $vr1, $vr0
+	vpickve2gr.d	$a0, $vr0, 0
 	mul.d	$a0, $a0, $a2
-	vpickve2gr.d	$a1, $vr1, 1
+	vpickve2gr.d	$a1, $vr0, 1
 	add.d	$a0, $a1, $a0
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
-	movfr2gr.d	$a1, $fa3
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fs0
+	movfr2gr.d	$a1, $fa2
 	movfr2gr.d	$a2, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.167)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.167)
@@ -4766,6 +4766,7 @@ process_input:                          # @process_input
 	pcaddu18i	$ra, %call36(free)
 	jirl	$ra, $ra, 0
 	move	$a0, $s3
+	fld.d	$fs0, $sp, 288                  # 8-byte Folded Reload
 	ld.d	$s8, $sp, 296                   # 8-byte Folded Reload
 	ld.d	$s7, $sp, 304                   # 8-byte Folded Reload
 	ld.d	$s6, $sp, 312                   # 8-byte Folded Reload

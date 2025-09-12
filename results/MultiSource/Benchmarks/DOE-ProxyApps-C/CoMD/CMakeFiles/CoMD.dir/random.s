@@ -1,10 +1,6 @@
 	.file	"random.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gasdev
-.LCPI0_0:
-	.dword	0x3c20000000000000              # double 4.3368086899420177E-19
 	.text
-	.globl	gasdev
+	.globl	gasdev                          # -- Begin function gasdev
 	.p2align	5
 	.type	gasdev,@function
 gasdev:                                 # @gasdev
@@ -19,8 +15,8 @@ gasdev:                                 # @gasdev
 	lu32i.d	$a1, 221293
 	lu52i.d	$a1, $a1, 97
 	ori	$a2, $zero, 9
-	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a4, $zero, 962
+	movgr2fr.d	$fa0, $a4
 	vldi	$vr1, -784
 	vldi	$vr2, -1024
 	vldi	$vr3, -912
@@ -86,12 +82,7 @@ gasdev:                                 # @gasdev
 .Lfunc_end0:
 	.size	gasdev, .Lfunc_end0-gasdev
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lcg61
-.LCPI1_0:
-	.dword	0x3c20000000000000              # double 4.3368086899420177E-19
-	.text
-	.globl	lcg61
+	.globl	lcg61                           # -- Begin function lcg61
 	.p2align	5
 	.type	lcg61,@function
 lcg61:                                  # @lcg61
@@ -110,12 +101,12 @@ lcg61:                                  # @lcg61
 	srli.d	$a2, $a2, 60
 	slli.d	$a3, $a2, 61
 	sub.d	$a2, $a2, $a3
-	pcalau12i	$a3, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI1_0)
 	add.d	$a1, $a1, $a2
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	lu52i.d	$a2, $zero, 962
+	movgr2fr.d	$fa1, $a2
+	fmul.d	$fa0, $fa0, $fa1
 	st.d	$a1, $a0, 0
 	ret
 .Lfunc_end1:

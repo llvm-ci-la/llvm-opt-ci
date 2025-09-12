@@ -475,10 +475,6 @@
 .LCPI0_157:
 	.dword	0x4045000000000000              # double 42
 	.dword	0x0000000000000000              # double 0
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_158:
-	.dword	0x4079000000000000              # double 400
 	.text
 	.globl	JTTmtx
 	.p2align	5
@@ -1084,104 +1080,106 @@ JTTmtx:                                 # @JTTmtx
 	vstx	$vr3, $a5, $a1
 	ori	$a5, $zero, 2216
 	vstx	$vr4, $a5, $a1
-	lu32i.d	$a0, 163840
-	pcalau12i	$a5, %pc_hi20(.LCPI0_142)
-	vld	$vr3, $a5, %pc_lo12(.LCPI0_142)
-	lu52i.d	$a0, $a0, 1028
-	ori	$a5, $zero, 2248
-	add.d	$a5, $sp, $a5
-	stptr.d	$a0, $a5, 0
-	ori	$a0, $zero, 2368
-	vstx	$vr3, $a0, $a1
+	ori	$a5, $zero, 0
+	lu32i.d	$a5, 163840
+	pcalau12i	$a6, %pc_hi20(.LCPI0_142)
+	vld	$vr3, $a6, %pc_lo12(.LCPI0_142)
+	lu52i.d	$a5, $a5, 1028
+	ori	$a6, $zero, 2248
+	add.d	$a6, $sp, $a6
+	stptr.d	$a5, $a6, 0
+	ori	$a5, $zero, 2368
+	vstx	$vr3, $a5, $a1
 	vreplgr2vr.d	$vr3, $a2
-	pcalau12i	$a0, %pc_hi20(.LCPI0_143)
-	vld	$vr4, $a0, %pc_lo12(.LCPI0_143)
-	ori	$a0, $zero, 2384
-	vstx	$vr3, $a0, $a1
-	ori	$a0, $zero, 2536
-	vstx	$vr4, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_144)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_144)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_145)
-	vld	$vr4, $a0, %pc_lo12(.LCPI0_145)
-	ori	$a0, $zero, 2552
-	vstx	$vr3, $a0, $a1
-	ori	$a0, $zero, 2704
-	vstx	$vr4, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_146)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_146)
-	ori	$a0, $zero, 2864
-	pcalau12i	$a2, %pc_hi20(.LCPI0_147)
-	vld	$vr4, $a2, %pc_lo12(.LCPI0_147)
-	vstx	$vr3, $a0, $a1
+	pcalau12i	$a2, %pc_hi20(.LCPI0_143)
+	vld	$vr4, $a2, %pc_lo12(.LCPI0_143)
+	ori	$a2, $zero, 2384
+	vstx	$vr3, $a2, $a1
+	ori	$a2, $zero, 2536
+	vstx	$vr4, $a2, $a1
+	pcalau12i	$a2, %pc_hi20(.LCPI0_144)
+	vld	$vr3, $a2, %pc_lo12(.LCPI0_144)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_145)
+	vld	$vr4, $a2, %pc_lo12(.LCPI0_145)
+	ori	$a2, $zero, 2552
+	vstx	$vr3, $a2, $a1
+	ori	$a2, $zero, 2704
+	vstx	$vr4, $a2, $a1
+	pcalau12i	$a2, %pc_hi20(.LCPI0_146)
+	vld	$vr3, $a2, %pc_lo12(.LCPI0_146)
+	ori	$a2, $zero, 2864
+	pcalau12i	$a5, %pc_hi20(.LCPI0_147)
+	vld	$vr4, $a5, %pc_lo12(.LCPI0_147)
+	vstx	$vr3, $a2, $a1
 	st.d	$zero, $sp, 16
 	vst	$vr1, $sp, 184
 	vst	$vr4, $sp, 352
 	st.d	$zero, $sp, 520
 	st.d	$zero, $sp, 688
-	pcalau12i	$a0, %pc_hi20(.LCPI0_148)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_148)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_149)
-	vld	$vr4, $a0, %pc_lo12(.LCPI0_149)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_150)
-	vld	$vr5, $a0, %pc_lo12(.LCPI0_150)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_148)
+	vld	$vr3, $a2, %pc_lo12(.LCPI0_148)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_149)
+	vld	$vr4, $a2, %pc_lo12(.LCPI0_149)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_150)
+	vld	$vr5, $a2, %pc_lo12(.LCPI0_150)
 	vst	$vr3, $sp, 856
 	vst	$vr4, $sp, 1024
 	vst	$vr0, $sp, 1192
 	vst	$vr5, $sp, 1360
-	pcalau12i	$a0, %pc_hi20(.LCPI0_151)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_151)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_152)
-	vld	$vr4, $a0, %pc_lo12(.LCPI0_152)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_153)
-	vld	$vr5, $a0, %pc_lo12(.LCPI0_153)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_151)
+	vld	$vr3, $a2, %pc_lo12(.LCPI0_151)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_152)
+	vld	$vr4, $a2, %pc_lo12(.LCPI0_152)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_153)
+	vld	$vr5, $a2, %pc_lo12(.LCPI0_153)
 	vst	$vr3, $sp, 1528
 	vst	$vr0, $sp, 1696
 	vst	$vr4, $sp, 1864
 	vst	$vr5, $sp, 2032
-	ori	$a0, $zero, 2184
-	vstx	$vr1, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_154)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_154)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_155)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_155)
-	ori	$a0, $zero, 2352
-	vstx	$vr1, $a0, $a1
-	ori	$a0, $zero, 2520
-	vstx	$vr3, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_156)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_156)
-	ori	$a0, $zero, 2688
-	vstx	$vr0, $a0, $a1
-	ori	$a0, $zero, 2848
-	vstx	$vr1, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_157)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_157)
-	ori	$a0, $zero, 3024
-	vstx	$vr2, $a0, $a1
-	ori	$a0, $zero, 3184
-	vstx	$vr0, $a0, $a1
-	addi.d	$a0, $sp, 176
-	ori	$a1, $zero, 1
-	addi.d	$a2, $sp, 24
+	ori	$a2, $zero, 2184
+	vstx	$vr1, $a2, $a1
+	pcalau12i	$a2, %pc_hi20(.LCPI0_154)
+	vld	$vr1, $a2, %pc_lo12(.LCPI0_154)
+	pcalau12i	$a2, %pc_hi20(.LCPI0_155)
+	vld	$vr3, $a2, %pc_lo12(.LCPI0_155)
+	ori	$a2, $zero, 2352
+	vstx	$vr1, $a2, $a1
+	ori	$a2, $zero, 2520
+	vstx	$vr3, $a2, $a1
+	pcalau12i	$a2, %pc_hi20(.LCPI0_156)
+	vld	$vr1, $a2, %pc_lo12(.LCPI0_156)
+	ori	$a2, $zero, 2688
+	vstx	$vr0, $a2, $a1
+	ori	$a2, $zero, 2848
+	vstx	$vr1, $a2, $a1
+	pcalau12i	$a2, %pc_hi20(.LCPI0_157)
+	vld	$vr0, $a2, %pc_lo12(.LCPI0_157)
+	ori	$a2, $zero, 3024
+	vstx	$vr2, $a2, $a1
+	ori	$a2, $zero, 3184
+	vstx	$vr0, $a2, $a1
+	addi.d	$a1, $sp, 176
+	ori	$a2, $zero, 1
 	beqz	$a4, .LBB0_6
 # %bb.1:                                # %.preheader70.preheader
-	pcalau12i	$a4, %pc_hi20(.L__const.JTTmtx.freq0_TM)
-	addi.d	$a4, $a4, %pc_lo12(.L__const.JTTmtx.freq0_TM)
-	pcalau12i	$a5, %pc_hi20(.LCPI0_158)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI0_158)
-	ori	$a5, $zero, 20
+	addi.d	$a4, $sp, 24
+	pcalau12i	$a5, %pc_hi20(.L__const.JTTmtx.freq0_TM)
+	addi.d	$a5, $a5, %pc_lo12(.L__const.JTTmtx.freq0_TM)
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fa0, $a0
+	ori	$a0, $zero, 20
 	.p2align	4, , 16
 .LBB0_2:                                # %.preheader70
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_3 Depth 2
-	slli.d	$a6, $a1, 3
-	fldx.d	$fa1, $a4, $a6
+	slli.d	$a6, $a2, 3
+	fldx.d	$fa1, $a5, $a6
 	fmul.d	$fa1, $fa1, $fa0
-	move	$a6, $a1
-	move	$a7, $a2
-	move	$t0, $a0
-	move	$t1, $a4
+	move	$a6, $a2
+	move	$a7, $a4
+	move	$t0, $a1
+	move	$t1, $a5
 	.p2align	4, , 16
 .LBB0_3:                                #   Parent Loop BB0_2 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -1197,31 +1195,33 @@ JTTmtx:                                 # @JTTmtx
 	addi.d	$a7, $a7, 160
 	bnez	$a6, .LBB0_3
 # %bb.4:                                #   in Loop: Header=BB0_2 Depth=1
-	addi.d	$a1, $a1, 1
-	addi.d	$a0, $a0, 160
-	addi.d	$a2, $a2, 8
-	bne	$a1, $a5, .LBB0_2
+	addi.d	$a2, $a2, 1
+	addi.d	$a1, $a1, 160
+	addi.d	$a4, $a4, 8
+	bne	$a2, $a0, .LBB0_2
 # %bb.5:                                # %.preheader68.preheader
 	pcalau12i	$a0, %pc_hi20(.L__const.JTTmtx.freq0_TM)
 	addi.d	$a1, $a0, %pc_lo12(.L__const.JTTmtx.freq0_TM)
 	b	.LBB0_11
 .LBB0_6:                                # %.preheader66.preheader
-	pcalau12i	$a4, %pc_hi20(.L__const.BLOSUMmtx.freqd)
-	addi.d	$a4, $a4, %pc_lo12(.L__const.BLOSUMmtx.freqd)
-	pcalau12i	$a5, %pc_hi20(.LCPI0_158)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI0_158)
-	ori	$a5, $zero, 20
+	addi.d	$a4, $sp, 24
+	pcalau12i	$a5, %pc_hi20(.L__const.BLOSUMmtx.freqd)
+	addi.d	$a5, $a5, %pc_lo12(.L__const.BLOSUMmtx.freqd)
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fa0, $a0
+	ori	$a0, $zero, 20
 	.p2align	4, , 16
 .LBB0_7:                                # %.preheader66
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_8 Depth 2
-	slli.d	$a6, $a1, 3
-	fldx.d	$fa1, $a4, $a6
+	slli.d	$a6, $a2, 3
+	fldx.d	$fa1, $a5, $a6
 	fmul.d	$fa1, $fa1, $fa0
-	move	$a6, $a1
-	move	$a7, $a2
-	move	$t0, $a0
-	move	$t1, $a4
+	move	$a6, $a2
+	move	$a7, $a4
+	move	$t0, $a1
+	move	$t1, $a5
 	.p2align	4, , 16
 .LBB0_8:                                #   Parent Loop BB0_7 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -1237,10 +1237,10 @@ JTTmtx:                                 # @JTTmtx
 	addi.d	$a7, $a7, 160
 	bnez	$a6, .LBB0_8
 # %bb.9:                                #   in Loop: Header=BB0_7 Depth=1
-	addi.d	$a1, $a1, 1
-	addi.d	$a0, $a0, 160
-	addi.d	$a2, $a2, 8
-	bne	$a1, $a5, .LBB0_7
+	addi.d	$a2, $a2, 1
+	addi.d	$a1, $a1, 160
+	addi.d	$a4, $a4, 8
+	bne	$a2, $a0, .LBB0_7
 # %bb.10:                               # %.preheader65.preheader
 	pcalau12i	$a0, %pc_hi20(.L__const.BLOSUMmtx.freqd)
 	addi.d	$a1, $a0, %pc_lo12(.L__const.BLOSUMmtx.freqd)
@@ -1736,30 +1736,8 @@ BLOSUMmtx:                              # @BLOSUMmtx
 	.word	.LBB1_22-.LJTI1_0
 	.word	.LBB1_8-.LJTI1_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function constants
-.LCPI2_0:
-	.dword	0x3fe3333333333333              # double 0.59999999999999998
-.LCPI2_1:
-	.dword	0xc08f400000000000              # double -1000
-.LCPI2_2:
-	.dword	0x3f847ae147ae147b              # double 0.01
-.LCPI2_3:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-.LCPI2_4:
-	.dword	0x408f400000000000              # double 1000
-.LCPI2_5:
-	.dword	0x4082c00000000000              # double 600
-.LCPI2_6:
-	.dword	0x3ffccccccccccccd              # double 1.8
-.LCPI2_7:
-	.dword	0xbf50624dd2f1a9fc              # double -0.001
-.LCPI2_8:
-	.dword	0xbf689374bc6a7efa              # double -0.0030000000000000001
-.LCPI2_9:
-	.dword	0x3fb0000000000000              # double 0.0625
 	.text
-	.globl	constants
+	.globl	constants                       # -- Begin function constants
 	.p2align	5
 	.type	constants,@function
 constants:                              # @constants
@@ -1815,20 +1793,20 @@ constants:                              # @constants
 	lu32i.d	$a1, 0
 	st.w	$a1, $a0, 0
 	pcalau12i	$a0, %got_pc_hi20(RNAppenalty)
-	ld.d	$a1, $a0, %got_pc_lo12(RNAppenalty)
-	ld.w	$a0, $a1, 0
+	ld.d	$a0, $a0, %got_pc_lo12(RNAppenalty)
+	ld.w	$a1, $a0, 0
 	ori	$a6, $s3, 1705
-	beq	$a0, $a6, .LBB2_51
+	beq	$a1, $a6, .LBB2_51
 # %bb.2:
-	pcalau12i	$a1, %got_pc_hi20(RNAppenalty_ex)
-	ld.d	$a1, $a1, %got_pc_lo12(RNAppenalty_ex)
-	ld.w	$a2, $a1, 0
+	pcalau12i	$a0, %got_pc_hi20(RNAppenalty_ex)
+	ld.d	$a0, $a0, %got_pc_lo12(RNAppenalty_ex)
+	ld.w	$a2, $a0, 0
 	beq	$a2, $a6, .LBB2_52
 .LBB2_3:
-	pcalau12i	$a1, %got_pc_hi20(ppenalty)
-	ld.d	$a3, $a1, %got_pc_lo12(ppenalty)
-	ld.w	$a1, $a3, 0
-	beq	$a1, $a6, .LBB2_53
+	pcalau12i	$a0, %got_pc_hi20(ppenalty)
+	ld.d	$a3, $a0, %got_pc_lo12(ppenalty)
+	ld.w	$a0, $a3, 0
+	beq	$a0, $a6, .LBB2_53
 .LBB2_4:
 	pcalau12i	$a3, %got_pc_hi20(ppenalty_OP)
 	ld.d	$a3, $a3, %got_pc_lo12(ppenalty_OP)
@@ -1875,36 +1853,39 @@ constants:                              # @constants
 	ori	$a4, $zero, 2
 	st.w	$a4, $s2, 0
 .LBB2_14:
-	pcalau12i	$a6, %pc_hi20(.LCPI2_6)
-	fld.d	$fa1, $a6, %pc_lo12(.LCPI2_6)
-	movgr2fr.w	$fa0, $a0
-	ffint.d.w	$fa0, $fa0
-	vldi	$vr2, -928
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
-	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a0, $fa0
-	pcalau12i	$a6, %got_pc_hi20(RNApenalty)
-	ld.d	$a6, $a6, %got_pc_lo12(RNApenalty)
-	st.w	$a0, $a6, 0
-	movgr2fr.w	$fa0, $a2
-	ffint.d.w	$fa0, $fa0
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
-	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a0, $fa0
-	pcalau12i	$a2, %got_pc_hi20(RNApenalty_ex)
-	ld.d	$a2, $a2, %got_pc_lo12(RNApenalty_ex)
-	st.w	$a0, $a2, 0
-	movgr2fr.w	$fa0, $t2
-	ffint.d.w	$fa0, $fa0
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
-	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a0, $fa0
-	pcalau12i	$a2, %got_pc_hi20(RNAthr)
-	ld.d	$a2, $a2, %got_pc_lo12(RNAthr)
-	st.w	$a0, $a2, 0
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	fmadd.d	$fa3, $fa0, $fa1, $fa2
+	vldi	$vr1, -928
+	lu12i.w	$a1, -209716
+	ori	$a1, $a1, 3277
+	lu32i.d	$a1, -209716
+	lu52i.d	$a1, $a1, 1023
+	movgr2fr.d	$fa2, $a1
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a1, $fa0
+	pcalau12i	$a6, %got_pc_hi20(RNApenalty)
+	ld.d	$a6, $a6, %got_pc_lo12(RNApenalty)
+	st.w	$a1, $a6, 0
+	movgr2fr.w	$fa0, $a2
+	ffint.d.w	$fa0, $fa0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a1, $fa0
+	pcalau12i	$a2, %got_pc_hi20(RNApenalty_ex)
+	ld.d	$a2, $a2, %got_pc_lo12(RNApenalty_ex)
+	st.w	$a1, $a2, 0
+	movgr2fr.w	$fa0, $t2
+	ffint.d.w	$fa0, $fa0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a1, $fa0
+	pcalau12i	$a2, %got_pc_hi20(RNAthr)
+	ld.d	$a2, $a2, %got_pc_lo12(RNAthr)
+	st.w	$a1, $a2, 0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	fmadd.d	$fa3, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a0, $fa3
 	pcalau12i	$a1, %got_pc_hi20(penalty)
@@ -1912,7 +1893,7 @@ constants:                              # @constants
 	st.w	$a0, $a1, 0
 	movgr2fr.w	$fa3, $a5
 	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa3, $fa3, $fa1, $fa2
+	fmadd.d	$fa3, $fa3, $fa2, $fa1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a0, $fa3
 	pcalau12i	$a1, %got_pc_hi20(penalty_OP)
@@ -1920,7 +1901,7 @@ constants:                              # @constants
 	st.w	$a0, $a1, 0
 	movgr2fr.w	$fa3, $a7
 	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa3, $fa3, $fa1, $fa2
+	fmadd.d	$fa3, $fa3, $fa2, $fa1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a0, $fa3
 	pcalau12i	$a1, %got_pc_hi20(penalty_ex)
@@ -1928,7 +1909,7 @@ constants:                              # @constants
 	st.w	$a0, $a1, 0
 	movgr2fr.w	$fa3, $t0
 	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa3, $fa3, $fa1, $fa2
+	fmadd.d	$fa3, $fa3, $fa2, $fa1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a0, $fa3
 	pcalau12i	$a1, %got_pc_hi20(penalty_EX)
@@ -1936,7 +1917,7 @@ constants:                              # @constants
 	st.w	$a0, $a1, 0
 	movgr2fr.w	$fa3, $t1
 	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa1, $fa3, $fa1, $fa2
+	fmadd.d	$fa1, $fa3, $fa2, $fa1
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a0, $fa1
 	pcalau12i	$a1, %got_pc_hi20(offset)
@@ -1969,18 +1950,24 @@ constants:                              # @constants
 	masknez	$a1, $a1, $a0
 	pcalau12i	$a2, %pc_hi20(.L.str.3)
 	addi.d	$a2, $a2, %pc_lo12(.L.str.3)
-	pcalau12i	$a5, %pc_hi20(.LCPI2_7)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI2_7)
-	pcalau12i	$a5, %pc_hi20(.LCPI2_8)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI2_8)
 	maskeqz	$a0, $a2, $a0
 	or	$a2, $a0, $a1
-	fmul.d	$fa4, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, -1035
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa2, $fa0, $fa1
+	lu12i.w	$a0, -276825
+	ori	$a0, $a0, 3834
+	lu32i.d	$a0, -486540
+	lu52i.d	$a0, $a0, -1034
+	movgr2fr.d	$fa4, $a0
+	fmul.d	$fa0, $fa0, $fa4
 	fmul.d	$fa1, $fa3, $fa1
-	fmul.d	$fa2, $fa3, $fa2
-	fst.d	$fa2, $sp, 0
-	movfr2gr.d	$a5, $fa4
+	fmul.d	$fa3, $fa3, $fa4
+	fst.d	$fa3, $sp, 0
+	movfr2gr.d	$a5, $fa2
 	movfr2gr.d	$a6, $fa0
 	movfr2gr.d	$a7, $fa1
 	pcalau12i	$a0, %got_pc_hi20(modelname)
@@ -2093,12 +2080,12 @@ constants:                              # @constants
 	fadd.d	$ft0, $ft0, $ft3
 	fadd.d	$ft0, $ft0, $ft4
 	fadd.d	$fa4, $ft0, $fa4
-	pcalau12i	$a4, %pc_hi20(.LCPI2_9)
-	fld.d	$ft0, $a4, %pc_lo12(.LCPI2_9)
 	fadd.d	$fa4, $fa4, $fa5
 	fadd.d	$fa4, $fa4, $fa6
 	fadd.d	$fa4, $fa4, $fa7
-	fmul.d	$fa4, $fa4, $ft0
+	lu52i.d	$a4, $zero, 1019
+	movgr2fr.d	$fa5, $a4
+	fmul.d	$fa4, $fa4, $fa5
 	pcalau12i	$a4, %got_pc_hi20(disp)
 	ld.d	$a4, $a4, %got_pc_lo12(disp)
 	ld.w	$a4, $a4, 0
@@ -2146,41 +2133,43 @@ constants:                              # @constants
 	vst	$vr0, $a2, 16
 	vld	$vr0, $a3, 16
 	vld	$vr1, $a3, 0
-	pcalau12i	$a4, %pc_hi20(.LCPI2_5)
-	fld.d	$fa3, $a4, %pc_lo12(.LCPI2_5)
 	vfsub.d	$vr0, $vr0, $vr2
 	vfsub.d	$vr1, $vr1, $vr2
 	vst	$vr1, $a3, 0
 	vst	$vr0, $a3, 16
-	vld	$vr0, $a0, 16
-	vld	$vr1, $a0, 0
-	fdiv.d	$fa2, $fa3, $fa4
-	vreplvei.d	$vr2, $vr2, 0
-	vfmul.d	$vr0, $vr2, $vr0
-	vfmul.d	$vr1, $vr2, $vr1
-	vst	$vr1, $a0, 0
-	vst	$vr0, $a0, 16
-	vld	$vr0, $a1, 16
-	vld	$vr1, $a1, 0
-	vfmul.d	$vr0, $vr2, $vr0
-	vfmul.d	$vr1, $vr2, $vr1
-	vst	$vr1, $a1, 0
-	vst	$vr0, $a1, 16
-	vld	$vr0, $a2, 16
-	vld	$vr1, $a2, 0
-	vfmul.d	$vr0, $vr2, $vr0
+	ori	$a3, $zero, 0
+	lu32i.d	$a3, 180224
+	lu52i.d	$a3, $a3, 1032
+	movgr2fr.d	$fa0, $a3
+	vld	$vr1, $a0, 16
+	vld	$vr2, $a0, 0
+	fdiv.d	$fa0, $fa0, $fa4
+	vreplvei.d	$vr0, $vr0, 0
+	vfmul.d	$vr1, $vr0, $vr1
+	vfmul.d	$vr2, $vr0, $vr2
+	vst	$vr2, $a0, 0
+	vst	$vr1, $a0, 16
+	vld	$vr1, $a1, 16
+	vld	$vr2, $a1, 0
+	vfmul.d	$vr1, $vr0, $vr1
+	vfmul.d	$vr2, $vr0, $vr2
+	vst	$vr2, $a1, 0
+	vst	$vr1, $a1, 16
+	vld	$vr1, $a2, 16
+	vld	$vr2, $a2, 0
+	vfmul.d	$vr1, $vr0, $vr1
 	ld.d	$a0, $s1, 24
-	vfmul.d	$vr1, $vr2, $vr1
-	vst	$vr1, $a2, 0
-	vst	$vr0, $a2, 16
-	vld	$vr0, $a0, 16
-	vld	$vr1, $a0, 0
-	vfmul.d	$vr0, $vr2, $vr0
-	vfmul.d	$vr1, $vr2, $vr1
+	vfmul.d	$vr2, $vr0, $vr2
+	vst	$vr2, $a2, 0
+	vst	$vr1, $a2, 16
+	vld	$vr1, $a0, 16
+	vld	$vr2, $a0, 0
+	vfmul.d	$vr1, $vr0, $vr1
+	vfmul.d	$vr0, $vr0, $vr2
 	ld.w	$a2, $s4, 0
 	ld.d	$a1, $s1, 0
-	vst	$vr1, $a0, 0
-	vst	$vr0, $a0, 16
+	vst	$vr0, $a0, 0
+	vst	$vr1, $a0, 16
 	movgr2fr.w	$fa0, $a2
 	vld	$vr1, $a1, 16
 	ffint.d.w	$fa0, $fa0
@@ -2238,14 +2227,14 @@ constants:                              # @constants
 	move	$s1, $a0
 	pcalau12i	$a0, %got_pc_hi20(ppenalty)
 	ld.d	$s2, $a0, %got_pc_lo12(ppenalty)
-	ld.w	$a0, $s2, 0
+	ld.w	$a1, $s2, 0
 	ori	$a2, $s3, 1705
-	beq	$a0, $a2, .LBB2_134
+	beq	$a1, $a2, .LBB2_134
 # %bb.21:
-	pcalau12i	$a1, %got_pc_hi20(ppenalty_OP)
-	ld.d	$a3, $a1, %got_pc_lo12(ppenalty_OP)
-	ld.w	$a1, $a3, 0
-	beq	$a1, $a2, .LBB2_135
+	pcalau12i	$a0, %got_pc_hi20(ppenalty_OP)
+	ld.d	$a3, $a0, %got_pc_lo12(ppenalty_OP)
+	ld.w	$a0, $a3, 0
+	beq	$a0, $a2, .LBB2_135
 .LBB2_22:
 	pcalau12i	$a3, %got_pc_hi20(ppenalty_ex)
 	ld.d	$s3, $a3, %got_pc_lo12(ppenalty_ex)
@@ -2275,46 +2264,49 @@ constants:                              # @constants
 	ori	$a2, $zero, 1
 	st.w	$a2, $a6, 0
 .LBB2_28:
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI2_0)
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	vldi	$vr2, -928
-	fmadd.d	$fa1, $fa1, $fa0, $fa2
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
+	vldi	$vr1, -928
+	lu12i.w	$a1, 209715
+	ori	$a1, $a1, 819
+	lu32i.d	$a1, 209715
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fa2, $a1
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a1, $fa0
 	pcalau12i	$a2, %got_pc_hi20(penalty)
 	ld.d	$a2, $a2, %got_pc_lo12(penalty)
 	st.d	$a2, $sp, 120                   # 8-byte Folded Spill
-	st.w	$a0, $a2, 0
-	movgr2fr.w	$fa1, $a1
-	ffint.d.w	$fa1, $fa1
-	fmadd.d	$fa1, $fa1, $fa0, $fa2
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	st.w	$a1, $a2, 0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	pcalau12i	$a1, %got_pc_hi20(penalty_OP)
 	ld.d	$a1, $a1, %got_pc_lo12(penalty_OP)
 	st.w	$a0, $a1, 0
-	movgr2fr.w	$fa1, $a3
-	ffint.d.w	$fa1, $fa1
-	fmadd.d	$fa1, $fa1, $fa0, $fa2
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $a3
+	ffint.d.w	$fa0, $fa0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	pcalau12i	$a1, %got_pc_hi20(penalty_ex)
 	ld.d	$a1, $a1, %got_pc_lo12(penalty_ex)
 	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
 	st.w	$a0, $a1, 0
-	movgr2fr.w	$fa1, $a4
-	ffint.d.w	$fa1, $fa1
-	fmadd.d	$fa1, $fa1, $fa0, $fa2
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $a4
+	ffint.d.w	$fa0, $fa0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	pcalau12i	$a1, %got_pc_hi20(penalty_EX)
 	ld.d	$a1, $a1, %got_pc_lo12(penalty_EX)
 	st.w	$a0, $a1, 0
-	movgr2fr.w	$fa1, $a5
-	ffint.d.w	$fa1, $fa1
-	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	movgr2fr.w	$fa0, $a5
+	ffint.d.w	$fa0, $fa0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	pcalau12i	$a1, %got_pc_hi20(offset)
@@ -2352,23 +2344,25 @@ constants:                              # @constants
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $s2, 0
 	ld.w	$a2, $s7, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI2_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI2_1)
-	movgr2fr.w	$fa1, $a0
-	ld.w	$a0, $s5, 0
-	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa1, $fa1, $fa0
-	ld.w	$a1, $s3, 0
-	movgr2fr.w	$fa2, $a0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1016
+	ld.w	$a1, $s5, 0
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s3, 0
+	movgr2fr.w	$fa2, $a1
 	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa2, $fa2, $fa0
-	movgr2fr.w	$fa3, $a1
+	fdiv.d	$fa2, $fa2, $fa1
+	movgr2fr.w	$fa3, $a0
 	ffint.d.w	$fa3, $fa3
-	fdiv.d	$fa0, $fa3, $fa0
+	fdiv.d	$fa1, $fa3, $fa1
 	addi.w	$s2, $zero, -1
-	movfr2gr.d	$a3, $fa1
+	movfr2gr.d	$a3, $fa0
 	movfr2gr.d	$a4, $fa2
-	movfr2gr.d	$a5, $fa0
+	movfr2gr.d	$a5, $fa1
 	pcalau12i	$a0, %got_pc_hi20(modelname)
 	ld.d	$a0, $a0, %got_pc_lo12(modelname)
 	bne	$a2, $s2, .LBB2_140
@@ -2415,15 +2409,15 @@ constants:                              # @constants
 	jirl	$ra, $ra, 0
 	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(ppenalty)
-	ld.d	$a1, $a0, %got_pc_lo12(ppenalty)
-	ld.w	$a0, $a1, 0
+	ld.d	$a0, $a0, %got_pc_lo12(ppenalty)
+	ld.w	$a1, $a0, 0
 	ori	$a2, $s3, 1705
-	beq	$a0, $a2, .LBB2_159
+	beq	$a1, $a2, .LBB2_159
 # %bb.33:
-	pcalau12i	$a1, %got_pc_hi20(ppenalty_OP)
-	ld.d	$a3, $a1, %got_pc_lo12(ppenalty_OP)
-	ld.w	$a1, $a3, 0
-	beq	$a1, $a2, .LBB2_160
+	pcalau12i	$a0, %got_pc_hi20(ppenalty_OP)
+	ld.d	$a3, $a0, %got_pc_lo12(ppenalty_OP)
+	ld.w	$a0, $a3, 0
+	beq	$a0, $a2, .LBB2_160
 .LBB2_34:
 	pcalau12i	$a3, %got_pc_hi20(ppenalty_ex)
 	ld.d	$a3, $a3, %got_pc_lo12(ppenalty_ex)
@@ -2458,21 +2452,24 @@ constants:                              # @constants
 	ori	$a2, $zero, 1
 	st.w	$a2, $a7, 0
 .LBB2_41:                               # %.preheader1201.preheader
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI2_0)
-	movgr2fr.w	$fa0, $a0
+	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	vldi	$vr2, -928
-	fmadd.d	$fa3, $fa0, $fa1, $fa2
+	vldi	$vr1, -928
+	lu12i.w	$a1, 209715
+	ori	$a1, $a1, 819
+	lu32i.d	$a1, 209715
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fa2, $a1
+	fmadd.d	$fa3, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a0, $fa3
+	movfr2gr.s	$a1, $fa3
 	pcalau12i	$a2, %got_pc_hi20(penalty)
 	ld.d	$a2, $a2, %got_pc_lo12(penalty)
 	st.d	$a2, $sp, 40                    # 8-byte Folded Spill
-	st.w	$a0, $a2, 0
-	movgr2fr.w	$fa3, $a1
+	st.w	$a1, $a2, 0
+	movgr2fr.w	$fa3, $a0
 	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa3, $fa3, $fa1, $fa2
+	fmadd.d	$fa3, $fa3, $fa2, $fa1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a0, $fa3
 	pcalau12i	$a1, %got_pc_hi20(penalty_OP)
@@ -2480,7 +2477,7 @@ constants:                              # @constants
 	st.w	$a0, $a1, 0
 	movgr2fr.w	$fa3, $a4
 	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa3, $fa3, $fa1, $fa2
+	fmadd.d	$fa3, $fa3, $fa2, $fa1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a0, $fa3
 	pcalau12i	$a1, %got_pc_hi20(penalty_ex)
@@ -2489,7 +2486,7 @@ constants:                              # @constants
 	st.w	$a0, $a1, 0
 	movgr2fr.w	$fa3, $a5
 	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa3, $fa3, $fa1, $fa2
+	fmadd.d	$fa3, $fa3, $fa2, $fa1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a0, $fa3
 	pcalau12i	$a1, %got_pc_hi20(penalty_EX)
@@ -2497,7 +2494,7 @@ constants:                              # @constants
 	st.w	$a0, $a1, 0
 	movgr2fr.w	$fa3, $a6
 	ffint.d.w	$fa3, $fa3
-	fmadd.d	$fa1, $fa3, $fa1, $fa2
+	fmadd.d	$fa1, $fa3, $fa2, $fa1
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a0, $fa1
 	pcalau12i	$a1, %got_pc_hi20(offset)
@@ -2531,12 +2528,14 @@ constants:                              # @constants
 	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
 	masknez	$a1, $a1, $a0
 	pcalau12i	$a2, %pc_hi20(.L.str.33)
-	addi.d	$a4, $a2, %pc_lo12(.L.str.33)
-	pcalau12i	$a2, %pc_hi20(.LCPI2_1)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI2_1)
-	move	$s0, $a4
-	maskeqz	$a0, $a4, $a0
+	addi.d	$a2, $a2, %pc_lo12(.L.str.33)
+	move	$s0, $a2
+	maskeqz	$a0, $a2, $a0
 	or	$a2, $a0, $a1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1016
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	fdiv.d	$fa1, $fa3, $fa1
 	movfr2gr.d	$a4, $fa0
@@ -2794,9 +2793,12 @@ constants:                              # @constants
 	fmadd.d	$fa0, $fa2, $fa3, $fa0
 	bne	$a0, $a1, .LBB2_44
 # %bb.45:
-	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_2)
 	move	$a0, $zero
+	lu12i.w	$a1, 293601
+	ori	$a1, $a1, 1147
+	lu32i.d	$a1, 293601
+	lu52i.d	$a1, $a1, 1016
+	movgr2fr.d	$fa1, $a1
 	fdiv.d	$fa0, $fa1, $fa0
 	fneg.d	$fa1, $fa0
 	vldi	$vr2, -912
@@ -2843,24 +2845,24 @@ constants:                              # @constants
 	bne	$a2, $a1, .LBB2_49
 	b	.LBB2_46
 .LBB2_51:
-	addi.w	$a0, $zero, -1530
-	move	$a2, $a0
+	addi.w	$a1, $zero, -1530
+	move	$a2, $a1
 	lu32i.d	$a2, 0
-	st.w	$a2, $a1, 0
-	pcalau12i	$a1, %got_pc_hi20(RNAppenalty_ex)
-	ld.d	$a1, $a1, %got_pc_lo12(RNAppenalty_ex)
-	ld.w	$a2, $a1, 0
+	st.w	$a2, $a0, 0
+	pcalau12i	$a0, %got_pc_hi20(RNAppenalty_ex)
+	ld.d	$a0, $a0, %got_pc_lo12(RNAppenalty_ex)
+	ld.w	$a2, $a0, 0
 	bne	$a2, $a6, .LBB2_3
 .LBB2_52:
 	move	$a2, $zero
-	st.w	$zero, $a1, 0
-	pcalau12i	$a1, %got_pc_hi20(ppenalty)
-	ld.d	$a3, $a1, %got_pc_lo12(ppenalty)
-	ld.w	$a1, $a3, 0
-	bne	$a1, $a6, .LBB2_4
+	st.w	$zero, $a0, 0
+	pcalau12i	$a0, %got_pc_hi20(ppenalty)
+	ld.d	$a3, $a0, %got_pc_lo12(ppenalty)
+	ld.w	$a0, $a3, 0
+	bne	$a0, $a6, .LBB2_4
 .LBB2_53:
-	addi.w	$a1, $zero, -1530
-	move	$a4, $a1
+	addi.w	$a0, $zero, -1530
+	move	$a4, $a0
 	lu32i.d	$a4, 0
 	st.w	$a4, $a3, 0
 	pcalau12i	$a3, %got_pc_hi20(ppenalty_OP)
@@ -2904,14 +2906,17 @@ constants:                              # @constants
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
 	addi.d	$a0, $a0, 2
-	pcalau12i	$a1, %pc_hi20(.LCPI2_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_2)
-	movgr2fr.w	$fa2, $a0
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa0, $fa0, $fa2
-	fmul.d	$fa0, $fa0, $fa1
-	frecip.d	$fa2, $fa2
-	fmul.d	$fa1, $fa2, $fa1
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa0, $fa0, $fa2
+	frecip.d	$fa1, $fa1
+	fmul.d	$fa1, $fa1, $fa2
 	ld.d	$s2, $sp, 56                    # 8-byte Folded Reload
 	ld.d	$a0, $s2, 0
 	lu12i.w	$a1, 503316
@@ -3143,20 +3148,22 @@ constants:                              # @constants
 	ld.d	$s2, $s1, 0
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s2, 0
+	movgr2fr.d	$fa0, $a0
 .LBB2_65:
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_4)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI2_4)
-	fld.d	$fa1, $s2, 8
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.cune.d	$fcc0, $fa1, $fs0
-	fst.d	$fa0, $s2, 0
+	fmov.d	$fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.d	$fa0, $s2, 8
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa1, $fa1, $fs1
+	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fst.d	$fa1, $s2, 0
 	bcnez	$fcc0, .LBB2_67
 # %bb.66:
 	ld.d	$a3, $s8, 0
@@ -3169,13 +3176,11 @@ constants:                              # @constants
 	ld.d	$s2, $s1, 0
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s2, 8
+	movgr2fr.d	$fa0, $a0
 .LBB2_67:
-	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
 	fld.d	$fa1, $s2, 16
@@ -3194,19 +3199,23 @@ constants:                              # @constants
 	ld.d	$s2, $s1, 0
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s2, 16
+	movgr2fr.d	$fa1, $a0
 .LBB2_69:
 	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s2, 24
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.cune.d	$fcc0, $fa1, $fs0
-	fst.d	$fa0, $s2, 16
+	fmov.d	$fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.d	$fa0, $s2, 24
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa1, $fa1, $fs1
+	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fst.d	$fa1, $s2, 16
 	ld.d	$fp, $sp, 64                    # 8-byte Folded Reload
 	bcnez	$fcc0, .LBB2_71
 # %bb.70:
@@ -3220,13 +3229,11 @@ constants:                              # @constants
 	ld.d	$s2, $s1, 0
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s2, 24
+	movgr2fr.d	$fa0, $a0
 .LBB2_71:                               # %.preheader1153.1
-	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
 	ld.d	$s4, $s1, 8
@@ -3246,18 +3253,22 @@ constants:                              # @constants
 	ld.d	$s4, $s1, 8
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s4, 0
+	movgr2fr.d	$fa0, $a0
 .LBB2_73:
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s4, 8
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.cune.d	$fcc0, $fa1, $fs0
-	fst.d	$fa0, $s4, 0
+	fmov.d	$fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.d	$fa0, $s4, 8
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa1, $fa1, $fs1
+	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fst.d	$fa1, $s4, 0
 	bcnez	$fcc0, .LBB2_75
 # %bb.74:
 	ld.d	$a3, $s8, 0
@@ -3270,13 +3281,11 @@ constants:                              # @constants
 	ld.d	$s4, $s1, 8
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s4, 8
+	movgr2fr.d	$fa0, $a0
 .LBB2_75:
-	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
 	fld.d	$fa1, $s4, 16
@@ -3295,19 +3304,23 @@ constants:                              # @constants
 	ld.d	$s4, $s1, 8
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s4, 16
+	movgr2fr.d	$fa1, $a0
 .LBB2_77:
 	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s4, 24
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.cune.d	$fcc0, $fa1, $fs0
-	fst.d	$fa0, $s4, 16
+	fmov.d	$fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.d	$fa0, $s4, 24
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa1, $fa1, $fs1
+	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fst.d	$fa1, $s4, 16
 	bcnez	$fcc0, .LBB2_79
 # %bb.78:
 	ld.d	$a3, $s8, 0
@@ -3320,13 +3333,11 @@ constants:                              # @constants
 	ld.d	$s4, $s1, 8
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s4, 24
+	movgr2fr.d	$fa0, $a0
 .LBB2_79:                               # %.preheader1153.2
-	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
 	ld.d	$s2, $s1, 16
@@ -3346,18 +3357,22 @@ constants:                              # @constants
 	ld.d	$s2, $s1, 16
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s2, 0
+	movgr2fr.d	$fa0, $a0
 .LBB2_81:
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s2, 8
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.cune.d	$fcc0, $fa1, $fs0
-	fst.d	$fa0, $s2, 0
+	fmov.d	$fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.d	$fa0, $s2, 8
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa1, $fa1, $fs1
+	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fst.d	$fa1, $s2, 0
 	bcnez	$fcc0, .LBB2_83
 # %bb.82:
 	ld.d	$a3, $s8, 0
@@ -3370,13 +3385,11 @@ constants:                              # @constants
 	ld.d	$s2, $s1, 16
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s2, 8
+	movgr2fr.d	$fa0, $a0
 .LBB2_83:
-	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
 	fld.d	$fa1, $s2, 16
@@ -3395,19 +3408,23 @@ constants:                              # @constants
 	ld.d	$s2, $s1, 16
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s2, 16
+	movgr2fr.d	$fa1, $a0
 .LBB2_85:
 	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s2, 24
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.cune.d	$fcc0, $fa1, $fs0
-	fst.d	$fa0, $s2, 16
+	fmov.d	$fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.d	$fa0, $s2, 24
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa1, $fa1, $fs1
+	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fst.d	$fa1, $s2, 16
 	bcnez	$fcc0, .LBB2_87
 # %bb.86:
 	ld.d	$a3, $s8, 0
@@ -3420,13 +3437,11 @@ constants:                              # @constants
 	ld.d	$s2, $s1, 16
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s2, 24
+	movgr2fr.d	$fa0, $a0
 .LBB2_87:                               # %.preheader1153.3
-	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
 	ld.d	$s4, $s1, 24
@@ -3446,18 +3461,22 @@ constants:                              # @constants
 	ld.d	$s4, $s1, 24
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s4, 0
+	movgr2fr.d	$fa0, $a0
 .LBB2_89:
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s4, 8
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.cune.d	$fcc0, $fa1, $fs0
-	fst.d	$fa0, $s4, 0
+	fmov.d	$fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.d	$fa0, $s4, 8
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa1, $fa1, $fs1
+	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fst.d	$fa1, $s4, 0
 	bcnez	$fcc0, .LBB2_91
 # %bb.90:
 	ld.d	$a3, $s8, 0
@@ -3470,13 +3489,11 @@ constants:                              # @constants
 	ld.d	$s4, $s1, 24
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s4, 8
+	movgr2fr.d	$fa0, $a0
 .LBB2_91:
-	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
 	fld.d	$fa1, $s4, 16
@@ -3495,19 +3512,23 @@ constants:                              # @constants
 	ld.d	$s4, $s1, 24
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s4, 16
+	movgr2fr.d	$fa1, $a0
 .LBB2_93:
 	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	fld.d	$fa1, $s4, 24
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.cune.d	$fcc0, $fa1, $fs0
-	fst.d	$fa0, $s4, 16
+	fmov.d	$fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.d	$fa0, $s4, 24
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa1, $fa1, $fs1
+	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fst.d	$fa1, $s4, 16
 	bcnez	$fcc0, .LBB2_95
 # %bb.94:
 	ld.d	$a3, $s8, 0
@@ -3520,13 +3541,11 @@ constants:                              # @constants
 	ld.d	$s4, $s1, 24
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_3)
 	lu32i.d	$a0, 325813
 	lu52i.d	$a0, $a0, 1006
 	st.d	$a0, $s4, 24
+	movgr2fr.d	$fa0, $a0
 .LBB2_95:
-	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $s3, 0
@@ -4063,11 +4082,12 @@ constants:                              # @constants
 	lu12i.w	$a0, -487882
 	ori	$a0, $a0, 2289
 	lu32i.d	$a0, 325813
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI2_3)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_4)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI2_4)
 	lu52i.d	$s7, $a0, 1006
+	movgr2fr.d	$fs0, $s7
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs1, $a0
 	ori	$s6, $zero, 160
 	vst	$vr23, $sp, 128                 # 16-byte Folded Spill
 	b	.LBB2_109
@@ -4291,54 +4311,56 @@ constants:                              # @constants
 	fmadd.d	$fa0, $fa5, $fa6, $fa0
 	ld.d	$a2, $fp, 72
 	fld.d	$fa1, $a1, 64
-	fld.d	$fa2, $a3, 64
 	ld.d	$a1, $fp, 80
+	fld.d	$fa2, $a3, 64
 	fld.d	$fa3, $a2, 72
-	ld.d	$a2, $fp, 88
-	fmadd.d	$fa0, $fa1, $fa2, $fa0
-	fld.d	$fa1, $a1, 80
-	ld.d	$a1, $fp, 96
-	fld.d	$fa2, $a2, 88
-	ld.d	$a2, $fp, 104
 	fld.d	$fa4, $a3, 72
-	fld.d	$fa5, $a1, 96
-	ld.d	$a1, $fp, 112
-	fld.d	$fa6, $a2, 104
-	fld.d	$fa7, $a3, 80
+	fld.d	$fa5, $a1, 80
+	fld.d	$fa6, $a3, 80
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
+	ld.d	$a1, $fp, 88
 	fmadd.d	$fa0, $fa3, $fa4, $fa0
-	fld.d	$fa3, $a1, 112
+	fmadd.d	$fa0, $fa5, $fa6, $fa0
+	ld.d	$a2, $fp, 96
+	fld.d	$fa1, $a1, 88
+	ld.d	$a1, $fp, 104
+	fld.d	$fa2, $a3, 88
+	fld.d	$fa3, $a2, 96
+	ld.d	$a2, $fp, 112
+	fld.d	$fa4, $a1, 104
 	ld.d	$a1, $fp, 120
-	fmadd.d	$fa0, $fa1, $fa7, $fa0
-	fld.d	$fa1, $a3, 88
-	fld.d	$fa4, $a3, 96
+	fld.d	$fa5, $a3, 96
+	fld.d	$fa6, $a2, 112
+	ld.d	$a2, $fp, 128
 	fld.d	$fa7, $a1, 120
-	ld.d	$a1, $fp, 128
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
-	fld.d	$fa1, $a3, 104
-	fmadd.d	$fa0, $fa5, $fa4, $fa0
-	fld.d	$fa2, $a1, 128
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
+	fmadd.d	$fa0, $fa3, $fa5, $fa0
+	fld.d	$fa1, $a2, 128
 	ld.d	$a1, $fp, 136
-	fmadd.d	$fa0, $fa6, $fa1, $fa0
-	fld.d	$fa1, $a3, 112
-	fld.d	$fa4, $a3, 120
-	fld.d	$fa5, $a1, 136
+	fld.d	$fa2, $a3, 104
+	fld.d	$fa3, $a3, 112
+	fld.d	$fa5, $a3, 120
+	fld.d	$ft0, $a1, 136
 	ld.d	$a1, $fp, 144
-	fmadd.d	$fa0, $fa3, $fa1, $fa0
-	fld.d	$fa1, $a3, 128
-	fmadd.d	$fa0, $fa7, $fa4, $fa0
-	fld.d	$fa3, $a1, 144
+	fmadd.d	$fa0, $fa4, $fa2, $fa0
+	fmadd.d	$fa0, $fa6, $fa3, $fa0
+	fmadd.d	$fa0, $fa7, $fa5, $fa0
+	fld.d	$fa2, $a1, 144
 	ld.d	$a1, $fp, 152
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
-	fld.d	$fa1, $a3, 136
-	fld.d	$fa2, $a3, 144
-	fld.d	$fa4, $a1, 152
-	fld.d	$fa6, $a3, 152
-	pcalau12i	$a1, %pc_hi20(.LCPI2_5)
-	fld.d	$fa7, $a1, %pc_lo12(.LCPI2_5)
-	fmadd.d	$fa0, $fa5, $fa1, $fa0
-	fmadd.d	$fa0, $fa3, $fa2, $fa0
-	fmadd.d	$fa0, $fa4, $fa6, $fa0
-	fdiv.d	$fa0, $fa7, $fa0
+	fld.d	$fa3, $a3, 128
+	fld.d	$fa4, $a3, 136
+	fld.d	$fa5, $a3, 144
+	fld.d	$fa6, $a1, 152
+	fld.d	$fa7, $a3, 152
+	fmadd.d	$fa0, $fa1, $fa3, $fa0
+	fmadd.d	$fa0, $ft0, $fa4, $fa0
+	fmadd.d	$fa0, $fa2, $fa5, $fa0
+	fmadd.d	$fa0, $fa6, $fa7, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 180224
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa1, $a1
+	fdiv.d	$fa0, $fa1, $fa0
 	vreplvei.d	$vr0, $vr0, 0
 	ori	$a1, $zero, 160
 	.p2align	4, , 16
@@ -5013,12 +5035,14 @@ constants:                              # @constants
 	vld	$vr6, $a2, 16
 	fmul.d	$fa3, $fa4, $fa3
 	fadd.d	$fa3, $fa3, $fs0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_5)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI2_5)
 	fadd.d	$fa0, $fa3, $fa0
 	fadd.d	$fa0, $fa0, $fa2
 	fadd.d	$fa0, $fa0, $fa1
-	fdiv.d	$fa0, $fa4, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 180224
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa1, $fa0
 	vreplvei.d	$vr0, $vr0, 0
 	vfmul.d	$vr1, $vr0, $vr6
 	ld.d	$a3, $s1, 8
@@ -5091,17 +5115,17 @@ constants:                              # @constants
 	movfr2gr.s	$a3, $fa0
 	b	.LBB2_165
 .LBB2_134:
-	addi.w	$a0, $zero, -1530
-	move	$a1, $a0
-	lu32i.d	$a1, 0
-	st.w	$a1, $s2, 0
-	pcalau12i	$a1, %got_pc_hi20(ppenalty_OP)
-	ld.d	$a3, $a1, %got_pc_lo12(ppenalty_OP)
-	ld.w	$a1, $a3, 0
-	bne	$a1, $a2, .LBB2_22
-.LBB2_135:
 	addi.w	$a1, $zero, -1530
-	move	$a4, $a1
+	move	$a0, $a1
+	lu32i.d	$a0, 0
+	st.w	$a0, $s2, 0
+	pcalau12i	$a0, %got_pc_hi20(ppenalty_OP)
+	ld.d	$a3, $a0, %got_pc_lo12(ppenalty_OP)
+	ld.w	$a0, $a3, 0
+	bne	$a0, $a2, .LBB2_22
+.LBB2_135:
+	addi.w	$a0, $zero, -1530
+	move	$a4, $a0
 	lu32i.d	$a4, 0
 	st.w	$a4, $a3, 0
 	pcalau12i	$a3, %got_pc_hi20(ppenalty_ex)
@@ -5441,54 +5465,56 @@ constants:                              # @constants
 	fmadd.d	$fa0, $fa5, $fa6, $fa0
 	ld.d	$a2, $fp, 72
 	fld.d	$fa1, $a1, 64
-	fld.d	$fa2, $s5, 64
 	ld.d	$a1, $fp, 80
+	fld.d	$fa2, $s5, 64
 	fld.d	$fa3, $a2, 72
-	ld.d	$a2, $fp, 88
-	fmadd.d	$fa0, $fa1, $fa2, $fa0
-	fld.d	$fa1, $a1, 80
-	ld.d	$a1, $fp, 96
-	fld.d	$fa2, $a2, 88
-	ld.d	$a2, $fp, 104
 	fld.d	$fa4, $s5, 72
-	fld.d	$fa5, $a1, 96
-	ld.d	$a1, $fp, 112
-	fld.d	$fa6, $a2, 104
-	fld.d	$fa7, $s5, 80
+	fld.d	$fa5, $a1, 80
+	fld.d	$fa6, $s5, 80
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
+	ld.d	$a1, $fp, 88
 	fmadd.d	$fa0, $fa3, $fa4, $fa0
-	fld.d	$fa3, $a1, 112
+	fmadd.d	$fa0, $fa5, $fa6, $fa0
+	ld.d	$a2, $fp, 96
+	fld.d	$fa1, $a1, 88
+	ld.d	$a1, $fp, 104
+	fld.d	$fa2, $s5, 88
+	fld.d	$fa3, $a2, 96
+	ld.d	$a2, $fp, 112
+	fld.d	$fa4, $a1, 104
 	ld.d	$a1, $fp, 120
-	fmadd.d	$fa0, $fa1, $fa7, $fa0
-	fld.d	$fa1, $s5, 88
-	fld.d	$fa4, $s5, 96
+	fld.d	$fa5, $s5, 96
+	fld.d	$fa6, $a2, 112
+	ld.d	$a2, $fp, 128
 	fld.d	$fa7, $a1, 120
-	ld.d	$a1, $fp, 128
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
-	fld.d	$fa1, $s5, 104
-	fmadd.d	$fa0, $fa5, $fa4, $fa0
-	fld.d	$fa2, $a1, 128
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
+	fmadd.d	$fa0, $fa3, $fa5, $fa0
+	fld.d	$fa1, $a2, 128
 	ld.d	$a1, $fp, 136
-	fmadd.d	$fa0, $fa6, $fa1, $fa0
-	fld.d	$fa1, $s5, 112
-	fld.d	$fa4, $s5, 120
-	fld.d	$fa5, $a1, 136
+	fld.d	$fa2, $s5, 104
+	fld.d	$fa3, $s5, 112
+	fld.d	$fa5, $s5, 120
+	fld.d	$ft0, $a1, 136
 	ld.d	$a1, $fp, 144
-	fmadd.d	$fa0, $fa3, $fa1, $fa0
-	fld.d	$fa1, $s5, 128
-	fmadd.d	$fa0, $fa7, $fa4, $fa0
-	fld.d	$fa3, $a1, 144
+	fmadd.d	$fa0, $fa4, $fa2, $fa0
+	fmadd.d	$fa0, $fa6, $fa3, $fa0
+	fmadd.d	$fa0, $fa7, $fa5, $fa0
+	fld.d	$fa2, $a1, 144
 	ld.d	$a1, $fp, 152
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
-	fld.d	$fa1, $s5, 136
-	fld.d	$fa2, $s5, 144
-	fld.d	$fa4, $a1, 152
-	fld.d	$fa6, $s5, 152
-	pcalau12i	$a1, %pc_hi20(.LCPI2_5)
-	fld.d	$fa7, $a1, %pc_lo12(.LCPI2_5)
-	fmadd.d	$fa0, $fa5, $fa1, $fa0
-	fmadd.d	$fa0, $fa3, $fa2, $fa0
-	fmadd.d	$fa0, $fa4, $fa6, $fa0
-	fdiv.d	$fa0, $fa7, $fa0
+	fld.d	$fa3, $s5, 128
+	fld.d	$fa4, $s5, 136
+	fld.d	$fa5, $s5, 144
+	fld.d	$fa6, $a1, 152
+	fld.d	$fa7, $s5, 152
+	fmadd.d	$fa0, $fa1, $fa3, $fa0
+	fmadd.d	$fa0, $ft0, $fa4, $fa0
+	fmadd.d	$fa0, $fa2, $fa5, $fa0
+	fmadd.d	$fa0, $fa6, $fa7, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 180224
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa1, $a1
+	fdiv.d	$fa0, $fa1, $fa0
 	vreplvei.d	$vr0, $vr0, 0
 	ori	$a1, $zero, 160
 	.p2align	4, , 16
@@ -6054,17 +6080,17 @@ constants:                              # @constants
 	jirl	$ra, $ra, 0
 	b	.LBB2_536
 .LBB2_159:
-	addi.w	$a0, $zero, -1530
-	move	$a3, $a0
-	lu32i.d	$a3, 0
-	st.w	$a3, $a1, 0
-	pcalau12i	$a1, %got_pc_hi20(ppenalty_OP)
-	ld.d	$a3, $a1, %got_pc_lo12(ppenalty_OP)
-	ld.w	$a1, $a3, 0
-	bne	$a1, $a2, .LBB2_34
-.LBB2_160:
 	addi.w	$a1, $zero, -1530
-	move	$a4, $a1
+	move	$a3, $a1
+	lu32i.d	$a3, 0
+	st.w	$a3, $a0, 0
+	pcalau12i	$a0, %got_pc_hi20(ppenalty_OP)
+	ld.d	$a3, $a0, %got_pc_lo12(ppenalty_OP)
+	ld.w	$a0, $a3, 0
+	bne	$a0, $a2, .LBB2_34
+.LBB2_160:
+	addi.w	$a0, $zero, -1530
+	move	$a4, $a0
 	lu32i.d	$a4, 0
 	st.w	$a4, $a3, 0
 	pcalau12i	$a3, %got_pc_hi20(ppenalty_ex)
@@ -7655,18 +7681,20 @@ constants:                              # @constants
 	fld.d	$fa1, $s7, 0
 	fld.d	$fa2, $fp, 0
 	movgr2fr.d	$fa0, $zero
-	fmadd.d	$fa2, $fa1, $fa2, $fa0
 	fld.d	$fa6, $s7, 40
 	fld.d	$fa3, $fp, 8
 	fld.d	$ft4, $s7, 80
 	fld.d	$fa4, $fp, 16
 	fld.d	$ft2, $s7, 120
 	fld.d	$fa5, $fp, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI2_5)
-	fld.d	$ft1, $a0, %pc_lo12(.LCPI2_5)
+	fmadd.d	$fa2, $fa1, $fa2, $fa0
 	fmadd.d	$fa2, $fa6, $fa3, $fa2
 	fmadd.d	$fa2, $ft4, $fa4, $fa2
 	fmadd.d	$fa2, $ft2, $fa5, $fa2
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 180224
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$ft1, $a0
 	fdiv.d	$ft3, $ft1, $fa2
 	fld.d	$fa2, $s7, 8
 	fmul.d	$fa1, $ft3, $fa1
@@ -11364,12 +11392,7 @@ constants:                              # @constants
 .Lfunc_end2:
 	.size	constants, .Lfunc_end2-constants
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function calcfreq_nuc
-.LCPI3_0:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function calcfreq_nuc
 	.type	calcfreq_nuc,@function
 calcfreq_nuc:                           # @calcfreq_nuc
 # %bb.0:                                # %.preheader44
@@ -11387,7 +11410,7 @@ calcfreq_nuc:                           # @calcfreq_nuc
 	vrepli.b	$vr0, 0
 	vst	$vr0, $a2, 16
 	vst	$vr0, $a2, 0
-	pcalau12i	$s3, %pc_hi20(.LCPI3_0)
+	lu12i.w	$s3, -85564
 	blez	$a0, .LBB3_9
 # %bb.1:                                # %.lr.ph50.preheader
 	move	$s0, $a1
@@ -11442,14 +11465,23 @@ calcfreq_nuc:                           # @calcfreq_nuc
 	b	.LBB3_5
 .LBB3_8:                                # %.preheader43
 	fld.d	$fa0, $fp, 0
-	fld.d	$fa1, $s3, %pc_lo12(.LCPI3_0)
+	ori	$a0, $s3, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB3_10
 .LBB3_9:                                # %.preheader43.thread
-	fld.d	$fa0, $s3, %pc_lo12(.LCPI3_0)
+	ori	$a0, $s3, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa0, $a0
 .LBB3_10:                               # %.preheader42.preheader
 	fld.d	$fa1, $fp, 8
-	fld.d	$fa2, $s3, %pc_lo12(.LCPI3_0)
+	ori	$a0, $s3, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
 	fld.d	$fa3, $fp, 16
 	fcmp.clt.d	$fcc0, $fa1, $fa2
 	fld.d	$fa4, $fp, 24
@@ -11485,12 +11517,7 @@ calcfreq_nuc:                           # @calcfreq_nuc
 .Lfunc_end3:
 	.size	calcfreq_nuc, .Lfunc_end3-calcfreq_nuc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function calcfreq
-.LCPI4_0:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function calcfreq
 	.type	calcfreq,@function
 calcfreq:                               # @calcfreq
 # %bb.0:                                # %.preheader48
@@ -11504,7 +11531,6 @@ calcfreq:                               # @calcfreq
 	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
 	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
 	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
 	move	$fp, $a2
 	move	$s0, $a1
 	move	$s1, $a0
@@ -11514,23 +11540,22 @@ calcfreq:                               # @calcfreq
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	lu12i.w	$s3, -85564
-	pcalau12i	$s4, %pc_hi20(.LCPI4_0)
-	blez	$s1, .LBB4_30
+	blez	$s1, .LBB4_9
 # %bb.1:                                # %.lr.ph54.preheader
 	pcalau12i	$a0, %got_pc_hi20(amino_n)
-	ld.d	$s5, $a0, %got_pc_lo12(amino_n)
-	move	$s6, $zero
-	ori	$s7, $zero, 19
+	ld.d	$s4, $a0, %got_pc_lo12(amino_n)
+	move	$s5, $zero
+	ori	$s6, $zero, 19
 	b	.LBB4_3
 	.p2align	4, , 16
 .LBB4_2:                                # %._crit_edge
                                         #   in Loop: Header=BB4_3 Depth=1
-	addi.d	$s6, $s6, 1
-	beq	$s6, $s1, .LBB4_8
+	addi.d	$s5, $s5, 1
+	beq	$s5, $s1, .LBB4_8
 .LBB4_3:                                # %.lr.ph54
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB4_6 Depth 2
-	slli.d	$a0, $s6, 3
+	slli.d	$a0, $s5, 3
 	ldx.d	$s2, $s0, $a0
 	move	$a0, $s2
 	pcaddu18i	$ra, %call36(strlen)
@@ -11552,8 +11577,8 @@ calcfreq:                               # @calcfreq
                                         # =>  This Inner Loop Header: Depth=2
 	ld.b	$a1, $s2, 0
 	slli.d	$a1, $a1, 2
-	ldx.w	$a1, $s5, $a1
-	bltu	$s7, $a1, .LBB4_5
+	ldx.w	$a1, $s4, $a1
+	bltu	$s6, $a1, .LBB4_5
 # %bb.7:                                #   in Loop: Header=BB4_6 Depth=2
 	slli.d	$a1, $a1, 3
 	fldx.d	$fa0, $fp, $a1
@@ -11562,92 +11587,100 @@ calcfreq:                               # @calcfreq
 	b	.LBB4_5
 .LBB4_8:                                # %.preheader47
 	fld.d	$fa0, $fp, 0
-	fld.d	$fa1, $s4, %pc_lo12(.LCPI4_0)
-	fcmp.clt.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_30
-# %bb.9:
-	fld.d	$fa1, $fp, 8
-	fld.d	$fa0, $s4, %pc_lo12(.LCPI4_0)
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_31
-.LBB4_10:
-	fld.d	$fa1, $fp, 16
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_32
-.LBB4_11:
-	fld.d	$fa1, $fp, 24
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_33
-.LBB4_12:
-	fld.d	$fa1, $fp, 32
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_34
-.LBB4_13:
-	fld.d	$fa1, $fp, 40
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_35
-.LBB4_14:
-	fld.d	$fa1, $fp, 48
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_36
-.LBB4_15:
-	fld.d	$fa1, $fp, 56
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_37
-.LBB4_16:
-	fld.d	$fa1, $fp, 64
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_38
-.LBB4_17:
-	fld.d	$fa1, $fp, 72
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_39
-.LBB4_18:
-	fld.d	$fa1, $fp, 80
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_40
-.LBB4_19:
-	fld.d	$fa1, $fp, 88
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_41
-.LBB4_20:
-	fld.d	$fa1, $fp, 96
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_42
-.LBB4_21:
-	fld.d	$fa1, $fp, 104
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_43
-.LBB4_22:
-	fld.d	$fa1, $fp, 112
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_44
-.LBB4_23:
-	fld.d	$fa1, $fp, 120
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_45
-.LBB4_24:
-	fld.d	$fa1, $fp, 128
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_46
-.LBB4_25:
-	fld.d	$fa1, $fp, 136
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_47
-.LBB4_26:
-	fld.d	$fa1, $fp, 144
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_48
-.LBB4_27:
-	fld.d	$fa1, $fp, 152
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_29
-.LBB4_28:
 	ori	$a0, $s3, 813
 	lu32i.d	$a0, -379166
 	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa1, $a0
+	fcmp.clt.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_10
+.LBB4_9:                                # %.preheader47.thread
+	ori	$a0, $s3, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	st.d	$a0, $fp, 0
+.LBB4_10:
+	fld.d	$fa1, $fp, 8
+	ori	$a0, $s3, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa0, $a0
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_31
+# %bb.11:
+	fld.d	$fa1, $fp, 16
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_32
+.LBB4_12:
+	fld.d	$fa1, $fp, 24
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_33
+.LBB4_13:
+	fld.d	$fa1, $fp, 32
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_34
+.LBB4_14:
+	fld.d	$fa1, $fp, 40
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_35
+.LBB4_15:
+	fld.d	$fa1, $fp, 48
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_36
+.LBB4_16:
+	fld.d	$fa1, $fp, 56
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_37
+.LBB4_17:
+	fld.d	$fa1, $fp, 64
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_38
+.LBB4_18:
+	fld.d	$fa1, $fp, 72
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_39
+.LBB4_19:
+	fld.d	$fa1, $fp, 80
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_40
+.LBB4_20:
+	fld.d	$fa1, $fp, 88
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_41
+.LBB4_21:
+	fld.d	$fa1, $fp, 96
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_42
+.LBB4_22:
+	fld.d	$fa1, $fp, 104
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_43
+.LBB4_23:
+	fld.d	$fa1, $fp, 112
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_44
+.LBB4_24:
+	fld.d	$fa1, $fp, 120
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_45
+.LBB4_25:
+	fld.d	$fa1, $fp, 128
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_46
+.LBB4_26:
+	fld.d	$fa1, $fp, 136
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_47
+.LBB4_27:
+	fld.d	$fa1, $fp, 144
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB4_48
+.LBB4_28:
+	fld.d	$fa1, $fp, 152
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bcnez	$fcc0, .LBB4_30
+.LBB4_29:
 	st.d	$a0, $fp, 152
-.LBB4_29:                               # %.preheader.preheader
+.LBB4_30:                               # %.preheader.preheader
 	pcalau12i	$a0, %got_pc_hi20(stderr)
 	ld.d	$s1, $a0, %got_pc_lo12(stderr)
 	ld.d	$a3, $s1, 0
@@ -11839,7 +11872,6 @@ calcfreq:                               # @calcfreq
 	vfdiv.d	$vr1, $vr3, $vr2
 	vst	$vr1, $fp, 128
 	vst	$vr0, $fp, 144
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
 	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
 	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
@@ -11851,160 +11883,97 @@ calcfreq:                               # @calcfreq
 	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
 	addi.d	$sp, $sp, 112
 	ret
-.LBB4_30:                               # %.preheader47.thread
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
-	st.d	$a0, $fp, 0
-	fld.d	$fa1, $fp, 8
-	fld.d	$fa0, $s4, %pc_lo12(.LCPI4_0)
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_10
 .LBB4_31:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 8
 	fld.d	$fa1, $fp, 16
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_11
+	bcnez	$fcc0, .LBB4_12
 .LBB4_32:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 16
 	fld.d	$fa1, $fp, 24
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_12
+	bcnez	$fcc0, .LBB4_13
 .LBB4_33:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 24
 	fld.d	$fa1, $fp, 32
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_13
+	bcnez	$fcc0, .LBB4_14
 .LBB4_34:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 32
 	fld.d	$fa1, $fp, 40
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_14
+	bcnez	$fcc0, .LBB4_15
 .LBB4_35:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 40
 	fld.d	$fa1, $fp, 48
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_15
+	bcnez	$fcc0, .LBB4_16
 .LBB4_36:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 48
 	fld.d	$fa1, $fp, 56
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_16
+	bcnez	$fcc0, .LBB4_17
 .LBB4_37:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 56
 	fld.d	$fa1, $fp, 64
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_17
+	bcnez	$fcc0, .LBB4_18
 .LBB4_38:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 64
 	fld.d	$fa1, $fp, 72
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_18
+	bcnez	$fcc0, .LBB4_19
 .LBB4_39:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 72
 	fld.d	$fa1, $fp, 80
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_19
+	bcnez	$fcc0, .LBB4_20
 .LBB4_40:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 80
 	fld.d	$fa1, $fp, 88
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_20
+	bcnez	$fcc0, .LBB4_21
 .LBB4_41:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 88
 	fld.d	$fa1, $fp, 96
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_21
+	bcnez	$fcc0, .LBB4_22
 .LBB4_42:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 96
 	fld.d	$fa1, $fp, 104
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_22
+	bcnez	$fcc0, .LBB4_23
 .LBB4_43:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 104
 	fld.d	$fa1, $fp, 112
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_23
+	bcnez	$fcc0, .LBB4_24
 .LBB4_44:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 112
 	fld.d	$fa1, $fp, 120
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_24
+	bcnez	$fcc0, .LBB4_25
 .LBB4_45:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 120
 	fld.d	$fa1, $fp, 128
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_25
+	bcnez	$fcc0, .LBB4_26
 .LBB4_46:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 128
 	fld.d	$fa1, $fp, 136
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_26
+	bcnez	$fcc0, .LBB4_27
 .LBB4_47:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 136
 	fld.d	$fa1, $fp, 144
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB4_27
+	bcnez	$fcc0, .LBB4_28
 .LBB4_48:
-	ori	$a0, $s3, 813
-	lu32i.d	$a0, -379166
-	lu52i.d	$a0, $a0, 1009
 	st.d	$a0, $fp, 144
 	fld.d	$fa1, $fp, 152
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bceqz	$fcc0, .LBB4_28
-	b	.LBB4_29
+	bceqz	$fcc0, .LBB4_29
+	b	.LBB4_30
 .Lfunc_end4:
 	.size	calcfreq, .Lfunc_end4-calcfreq
                                         # -- End function

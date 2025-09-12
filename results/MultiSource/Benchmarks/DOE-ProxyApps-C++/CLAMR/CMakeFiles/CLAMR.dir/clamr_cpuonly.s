@@ -1,14 +1,6 @@
 	.file	"clamr_cpuonly.cpp"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3f80000000000000              # double 0.0078125
-.LCPI0_1:
-	.dword	0x4059000000000000              # double 100
-.LCPI0_2:
-	.dword	0x3cacd2b297d889bc              # double 2.0E-16
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -76,15 +68,15 @@ main:                                   # @main
 # %bb.2:
 	pcalau12i	$s5, %pc_hi20(nx)
 	ld.w	$fp, $s5, %pc_lo12(nx)
+	pcalau12i	$s1, %pc_hi20(_ZL4crux)
+	st.d	$s0, $s1, %pc_lo12(_ZL4crux)
 	movgr2fr.w	$fa0, $fp
 	ffint.d.w	$fa0, $fa0
 	vldi	$vr1, -1000
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_0)
 	fmul.d	$fa0, $fa0, $fa1
-	pcalau12i	$s1, %pc_hi20(_ZL4crux)
-	st.d	$s0, $s1, %pc_lo12(_ZL4crux)
-	fmul.d	$fa0, $fa0, $fa2
+	lu52i.d	$a0, $zero, 1016
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	ld.bu	$a0, $s2, %pc_lo12(restart)
 	pcalau12i	$s4, %pc_hi20(_ZL11circ_radius)
 	fst.d	$fa0, $s4, %pc_lo12(_ZL11circ_radius)
@@ -248,8 +240,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s3, %pc_lo12(_ZL5state)
 	fld.d	$fa0, $s4, %pc_lo12(_ZL11circ_radius)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_1)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
 	vldi	$vr2, -996
 	pcaddu18i	$ra, %call36(_ZN5State11fill_circleEddd)
 	jirl	$ra, $ra, 0
@@ -291,8 +285,11 @@ main:                                   # @main
 	fst.d	$fs0, $a1, %pc_lo12(_ZL13H_sum_initial)
 	bcnez	$fcc0, .LBB0_25
 # %bb.24:
-	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a1, -426616
+	ori	$a1, $a1, 2492
+	lu32i.d	$a1, -208206
+	lu52i.d	$a1, $a1, 970
+	movgr2fr.d	$fa0, $a1
 	fmul.d	$fa0, $fs0, $fa0
 	fst.d	$fa0, $a0, %pc_lo12(upper_mass_diff_percentage)
 .LBB0_25:
@@ -1200,16 +1197,8 @@ GCC_except_table3:
 .Lttbase1:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function do_calc
-.LCPI4_0:
-	.dword	0x402399999999999a              # double 9.8000000000000007
-.LCPI4_1:
-	.dword	0x3fee666666666666              # double 0.94999999999999996
-.LCPI4_2:
-	.dword	0x4059000000000000              # double 100
 	.text
-	.globl	do_calc
+	.globl	do_calc                         # -- Begin function do_calc
 	.p2align	5
 	.type	do_calc,@function
 do_calc:                                # @do_calc
@@ -1233,7 +1222,6 @@ do_calc:                                # @do_calc
 	st.d	$s8, $sp, 280                   # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 272                  # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 264                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 256                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -1247,9 +1235,8 @@ do_calc:                                # @do_calc
 	.cfi_offset 31, -88
 	.cfi_offset 56, -96
 	.cfi_offset 57, -104
-	.cfi_offset 58, -112
 	pcalau12i	$a0, %pc_hi20(_ZL4mesh)
-	st.d	$a0, $sp, 144                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 152                   # 8-byte Folded Spill
 	ld.d	$fp, $a0, %pc_lo12(_ZL4mesh)
 	pcalau12i	$a0, %pc_hi20(_ZL13next_cp_cycle)
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
@@ -1260,10 +1247,10 @@ do_calc:                                # @do_calc
 	pcalau12i	$a0, %pc_hi20(_ZL19next_graphics_cycle)
 	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 	ld.w	$s0, $a0, %pc_lo12(_ZL19next_graphics_cycle)
-	st.d	$zero, $sp, 240
+	st.d	$zero, $sp, 248
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
-	vst	$vr0, $sp, 224
+	vst	$vr0, $sp, 232
 .Ltmp42:                                # EH_LABEL
 	pcalau12i	$a0, %pc_hi20(_ZL10tstart_cpu)
 	addi.d	$a0, $a0, %pc_lo12(_ZL10tstart_cpu)
@@ -1295,11 +1282,17 @@ do_calc:                                # @do_calc
 	bge	$a1, $a2, .LBB4_76
 # %bb.3:                                # %.lr.ph
 	mod.w	$a0, $a1, $a0
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI4_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI4_1)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI4_1)
 	addi.w	$s8, $a0, 1
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 235929
+	lu52i.d	$a0, $a0, 1026
+	movgr2fr.d	$fs0, $a0
+	lu12i.w	$a0, 419430
+	ori	$a0, $a0, 1638
+	lu32i.d	$a0, -104858
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(_ZL6deltaT)
 	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(_ZL7simTime)
@@ -1326,7 +1319,7 @@ do_calc:                                # @do_calc
 # %bb.5:                                #   in Loop: Header=BB4_4 Depth=1
 	ld.d	$a3, $sp, 80                    # 8-byte Folded Reload
 	fld.d	$fa1, $a3, %pc_lo12(_ZL7simTime)
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 	ld.w	$a1, $fp, 1160
 	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
@@ -1344,7 +1337,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp49:                                # EH_LABEL
 # %bb.7:                                #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 .Ltmp50:                                # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN4Mesh17partition_measureEv)
@@ -1361,7 +1354,7 @@ do_calc:                                # @do_calc
 # %bb.9:                                #   in Loop: Header=BB4_4 Depth=1
 	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	fld.d	$fa1, $a2, %pc_lo12(_ZL17cpu_time_partmeas)
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 	ld.w	$a1, $fp, 1160
 	fadd.d	$fa0, $fa0, $fa1
@@ -1396,14 +1389,14 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp61:                                # EH_LABEL
 # %bb.14:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 232
-	ld.d	$s1, $sp, 224
+	ld.d	$a0, $sp, 240
+	ld.d	$s1, $sp, 232
 	ld.d	$a2, $fp, 1160
 	sub.d	$s2, $a0, $s1
 	srai.d	$a1, $s2, 2
 	bgeu	$a1, $a2, .LBB4_25
 # %bb.15:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$s5, $sp, 240
+	ld.d	$s5, $sp, 248
 	sub.d	$s4, $a2, $a1
 	sub.d	$a2, $s5, $a0
 	srai.d	$a2, $a2, 2
@@ -1460,11 +1453,11 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .LBB4_24:                               # %_ZZNSt6vectorIiSaIiEE17_M_default_appendEmEN6_GuardD2Ev.exit.i
                                         #   in Loop: Header=BB4_4 Depth=1
-	st.d	$s3, $sp, 224
+	st.d	$s3, $sp, 232
 	alsl.d	$a0, $s4, $s7, 2
-	st.d	$a0, $sp, 232
-	alsl.d	$a0, $s6, $s3, 2
 	st.d	$a0, $sp, 240
+	alsl.d	$a0, $s6, $s3, 2
+	st.d	$a0, $sp, 248
 	ld.d	$s7, $sp, 104                   # 8-byte Folded Reload
 	b	.LBB4_31
 	.p2align	4, , 16
@@ -1475,7 +1468,7 @@ do_calc:                                # @do_calc
 	beq	$a0, $a1, .LBB4_31
 # %bb.27:                               # %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
                                         #   in Loop: Header=BB4_4 Depth=1
-	st.d	$a1, $sp, 232
+	st.d	$a1, $sp, 240
 	b	.LBB4_31
 	.p2align	4, , 16
 .LBB4_28:                               #   in Loop: Header=BB4_4 Depth=1
@@ -1493,28 +1486,28 @@ do_calc:                                # @do_calc
 	alsl.d	$s1, $s2, $s1, 2
 .LBB4_30:                               # %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
                                         #   in Loop: Header=BB4_4 Depth=1
-	st.d	$s1, $sp, 232
+	st.d	$s1, $sp, 240
 .LBB4_31:                               # %_ZNSt6vectorIiSaIiEE6resizeEm.exit
                                         #   in Loop: Header=BB4_4 Depth=1
 	ld.d	$a0, $s7, %pc_lo12(_ZL5state)
 .Ltmp64:                                # EH_LABEL
-	addi.d	$a1, $sp, 224
-	addi.d	$a2, $sp, 252
-	addi.d	$a3, $sp, 248
+	addi.d	$a1, $sp, 232
+	addi.d	$a2, $sp, 260
+	addi.d	$a3, $sp, 256
 	pcaddu18i	$ra, %call36(_ZN5State21calc_refine_potentialERSt6vectorIiSaIiEERiS4_)
 	jirl	$ra, $ra, 0
 .Ltmp65:                                # EH_LABEL
 # %bb.32:                               #   in Loop: Header=BB4_4 Depth=1
 	move	$s1, $a0
-	ld.d	$a0, $sp, 232
-	ld.d	$s6, $sp, 224
+	ld.d	$a0, $sp, 240
+	ld.d	$s6, $sp, 232
 	ld.d	$s2, $s7, %pc_lo12(_ZL5state)
-	ld.w	$s3, $sp, 252
-	ld.w	$s4, $sp, 248
+	ld.w	$s3, $sp, 260
+	ld.w	$s4, $sp, 256
 	sub.d	$s5, $a0, $s6
-	st.d	$zero, $sp, 200
+	st.d	$zero, $sp, 208
 	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
-	vst	$vr0, $sp, 208
+	vst	$vr0, $sp, 216
 	beq	$a0, $s6, .LBB4_37
 # %bb.33:                               #   in Loop: Header=BB4_4 Depth=1
 	addi.w	$a0, $zero, -3
@@ -1529,10 +1522,10 @@ do_calc:                                # @do_calc
 .Ltmp67:                                # EH_LABEL
 # %bb.35:                               # %.noexc100
                                         #   in Loop: Header=BB4_4 Depth=1
-	st.d	$a0, $sp, 200
 	st.d	$a0, $sp, 208
+	st.d	$a0, $sp, 216
 	add.d	$s7, $a0, $s5
-	st.d	$s7, $sp, 216
+	st.d	$s7, $sp, 224
 	ori	$a1, $zero, 5
 	bltu	$s5, $a1, .LBB4_71
 # %bb.36:                               #   in Loop: Header=BB4_4 Depth=1
@@ -1544,13 +1537,13 @@ do_calc:                                # @do_calc
 	.p2align	4, , 16
 .LBB4_37:                               # %.thread
                                         #   in Loop: Header=BB4_4 Depth=1
-	st.d	$zero, $sp, 200
-	st.d	$s5, $sp, 216
+	st.d	$zero, $sp, 208
+	st.d	$s5, $sp, 224
 	move	$s7, $s5
 .LBB4_38:                               #   in Loop: Header=BB4_4 Depth=1
-	st.d	$s7, $sp, 208
+	st.d	$s7, $sp, 216
 .Ltmp70:                                # EH_LABEL
-	addi.d	$a3, $sp, 200
+	addi.d	$a3, $sp, 208
 	move	$a0, $s2
 	move	$a1, $s3
 	move	$a2, $s4
@@ -1558,21 +1551,21 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp71:                                # EH_LABEL
 # %bb.39:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 200
+	ld.d	$a0, $sp, 208
 	ld.d	$s7, $sp, 104                   # 8-byte Folded Reload
 	beqz	$a0, .LBB4_41
 # %bb.40:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a1, $sp, 216
+	ld.d	$a1, $sp, 224
 	sub.d	$a1, $a1, $a0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB4_41:                               # %_ZNSt6vectorIiSaIiEED2Ev.exit
                                         #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 224
-	ld.d	$a1, $sp, 240
-	st.d	$zero, $sp, 224
+	ld.d	$a0, $sp, 232
+	ld.d	$a1, $sp, 248
+	st.d	$zero, $sp, 232
 	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
-	vst	$vr0, $sp, 232
+	vst	$vr0, $sp, 240
 	beqz	$a0, .LBB4_43
 # %bb.42:                               #   in Loop: Header=BB4_4 Depth=1
 	sub.d	$a1, $a1, $a0
@@ -1580,7 +1573,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .LBB4_43:                               # %_ZNSt6vectorIiSaIiEED2Ev.exit102
                                         #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 	st.d	$s1, $a0, 1160
 	st.d	$s1, $fp, 1160
@@ -1590,7 +1583,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp74:                                # EH_LABEL
 # %bb.44:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 	ld.d	$a1, $a0, 864
 	ld.d	$a3, $a0, 856
@@ -1618,7 +1611,7 @@ do_calc:                                # @do_calc
 	.p2align	4, , 16
 .LBB4_49:                               # %_ZNSt6vectorIiSaIiEE6resizeEm.exit106
                                         #   in Loop: Header=BB4_4 Depth=1
-	ld.w	$a0, $sp, 252
+	ld.w	$a0, $sp, 260
 	move	$s5, $s0
 	beqz	$a0, .LBB4_69
 # %bb.50:                               #   in Loop: Header=BB4_4 Depth=1
@@ -1636,9 +1629,9 @@ do_calc:                                # @do_calc
 .Ltmp79:                                # EH_LABEL
 # %bb.53:                               # %.noexc109
                                         #   in Loop: Header=BB4_4 Depth=1
-	st.d	$a0, $sp, 176
+	st.d	$a0, $sp, 184
 	alsl.d	$a1, $s1, $a0, 2
-	st.d	$a1, $sp, 192
+	st.d	$a1, $sp, 200
 	st.w	$zero, $a0, 0
 	addi.d	$s2, $s1, -1
 	addi.d	$s1, $a0, 4
@@ -1656,30 +1649,30 @@ do_calc:                                # @do_calc
 .LBB4_55:                               # %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
                                         #   in Loop: Header=BB4_4 Depth=1
 	move	$s1, $zero
-	st.d	$zero, $sp, 192
+	st.d	$zero, $sp, 200
 	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
-	vst	$vr0, $sp, 176
+	vst	$vr0, $sp, 184
 .LBB4_56:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 	pcalau12i	$a1, %pc_hi20(numpe)
 	ld.w	$a1, $a1, %pc_lo12(numpe)
 	pcalau12i	$a2, %pc_hi20(cycle_reorder)
 	ld.w	$a3, $a2, %pc_lo12(cycle_reorder)
-	st.d	$s1, $sp, 184
+	st.d	$s1, $sp, 192
 .Ltmp81:                                # EH_LABEL
-	addi.d	$a2, $sp, 176
+	addi.d	$a2, $sp, 184
 	pcaddu18i	$ra, %call36(_ZN4Mesh15partition_cellsEiRSt6vectorIiSaIiEE16partition_method)
 	jirl	$ra, $ra, 0
 .Ltmp82:                                # EH_LABEL
 # %bb.57:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 184
-	ld.d	$s3, $sp, 176
+	ld.d	$a0, $sp, 192
+	ld.d	$s3, $sp, 184
 	ld.d	$s1, $s7, %pc_lo12(_ZL5state)
 	sub.d	$s2, $a0, $s3
-	st.d	$zero, $sp, 152
+	st.d	$zero, $sp, 160
 	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
-	vst	$vr0, $sp, 160
+	vst	$vr0, $sp, 168
 	beq	$a0, $s3, .LBB4_62
 # %bb.58:                               #   in Loop: Header=BB4_4 Depth=1
 	addi.w	$a0, $zero, -3
@@ -1694,10 +1687,10 @@ do_calc:                                # @do_calc
 .Ltmp84:                                # EH_LABEL
 # %bb.60:                               # %.noexc114
                                         #   in Loop: Header=BB4_4 Depth=1
-	st.d	$a0, $sp, 152
 	st.d	$a0, $sp, 160
+	st.d	$a0, $sp, 168
 	add.d	$s4, $a0, $s2
-	st.d	$s4, $sp, 168
+	st.d	$s4, $sp, 176
 	ori	$a1, $zero, 5
 	bltu	$s2, $a1, .LBB4_73
 # %bb.61:                               #   in Loop: Header=BB4_4 Depth=1
@@ -1709,22 +1702,22 @@ do_calc:                                # @do_calc
 	.p2align	4, , 16
 .LBB4_62:                               # %.thread140
                                         #   in Loop: Header=BB4_4 Depth=1
-	st.d	$zero, $sp, 152
-	st.d	$s2, $sp, 168
+	st.d	$zero, $sp, 160
+	st.d	$s2, $sp, 176
 	move	$s4, $s2
 .LBB4_63:                               #   in Loop: Header=BB4_4 Depth=1
-	st.d	$s4, $sp, 160
+	st.d	$s4, $sp, 168
 .Ltmp88:                                # EH_LABEL
-	addi.d	$a1, $sp, 152
+	addi.d	$a1, $sp, 160
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(_ZN5State13state_reorderESt6vectorIiSaIiEE)
 	jirl	$ra, $ra, 0
 .Ltmp89:                                # EH_LABEL
 # %bb.64:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 152
+	ld.d	$a0, $sp, 160
 	beqz	$a0, .LBB4_66
 # %bb.65:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a1, $sp, 168
+	ld.d	$a1, $sp, 176
 	sub.d	$a1, $a1, $a0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -1736,10 +1729,10 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp92:                                # EH_LABEL
 # %bb.67:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a0, $sp, 176
+	ld.d	$a0, $sp, 184
 	beqz	$a0, .LBB4_69
 # %bb.68:                               #   in Loop: Header=BB4_4 Depth=1
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 200
 	sub.d	$a1, $a1, $a0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -1802,15 +1795,17 @@ do_calc:                                # @do_calc
 	bceqz	$fcc1, .LBB4_134
 .LBB4_79:
 	pcalau12i	$s1, %pc_hi20(_ZL13H_sum_initial)
-	fld.d	$fa1, $s1, %pc_lo12(_ZL13H_sum_initial)
-	fsub.d	$fa2, $fs0, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI4_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI4_2)
-	pcalau12i	$a0, %pc_hi20(upper_mass_diff_percentage)
-	fld.d	$fa0, $a0, %pc_lo12(upper_mass_diff_percentage)
-	fabs.d	$fa2, $fa2
-	fdiv.d	$fa1, $fa2, $fa1
-	fmul.d	$fs1, $fa1, $fs2
+	fld.d	$fa0, $s1, %pc_lo12(_ZL13H_sum_initial)
+	fsub.d	$fa1, $fs0, $fa0
+	fabs.d	$fa1, $fa1
+	fdiv.d	$fa1, $fa1, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	pcalau12i	$a1, %pc_hi20(upper_mass_diff_percentage)
+	fld.d	$fa0, $a1, %pc_lo12(upper_mass_diff_percentage)
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fs1, $fa1, $fa2
 	fcmp.cult.d	$fcc0, $fs1, $fa0
 	bceqz	$fcc0, .LBB4_82
 # %bb.80:
@@ -1845,7 +1840,7 @@ do_calc:                                # @do_calc
 	ld.w	$a2, $s8, %pc_lo12(niter)
 	blt	$a2, $a1, .LBB4_94
 # %bb.86:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 .Ltmp107:                               # EH_LABEL
 	move	$a1, $zero
@@ -1866,7 +1861,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp112:                               # EH_LABEL
 # %bb.89:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a3, $a0, %pc_lo12(_ZL4mesh)
 	pcalau12i	$a0, %pc_hi20(set_graphics_cell_coordinates)
 	ld.d	$a4, $a0, %pc_lo12(set_graphics_cell_coordinates)
@@ -1886,7 +1881,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $a1, 0
 .Ltmp116:                               # EH_LABEL
 # %bb.91:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 	ld.d	$a0, $a0, 856
 .Ltmp117:                               # EH_LABEL
@@ -1956,7 +1951,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp126:                               # EH_LABEL
 # %bb.100:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 .Ltmp127:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN4Mesh9terminateEv)
@@ -2038,7 +2033,7 @@ do_calc:                                # @do_calc
 	ld.w	$a0, $a0, %pc_lo12(graphic_outputInterval)
 	bge	$a0, $a1, .LBB4_121
 .LBB4_112:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 .Ltmp142:                               # EH_LABEL
 	move	$a1, $zero
@@ -2063,7 +2058,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp147:                               # EH_LABEL
 # %bb.116:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a3, $a0, %pc_lo12(_ZL4mesh)
 	pcalau12i	$a0, %pc_hi20(set_graphics_cell_coordinates)
 	ld.d	$a4, $a0, %pc_lo12(set_graphics_cell_coordinates)
@@ -2083,7 +2078,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $a1, 0
 .Ltmp151:                               # EH_LABEL
 # %bb.118:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 	ld.d	$a0, $a0, 856
 .Ltmp152:                               # EH_LABEL
@@ -2124,15 +2119,14 @@ do_calc:                                # @do_calc
 	fst.d	$fa0, $s0, %pc_lo12(_ZL17cpu_time_graphics)
 	bge	$a1, $a0, .LBB4_135
 # %bb.123:
-	ld.d	$a0, $sp, 224
+	ld.d	$a0, $sp, 232
 	beqz	$a0, .LBB4_125
 # %bb.124:
-	ld.d	$a1, $sp, 240
+	ld.d	$a1, $sp, 248
 	sub.d	$a1, $a1, $a0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB4_125:                              # %_ZNSt6vectorIiSaIiEED2Ev.exit129
-	fld.d	$fs2, $sp, 256                  # 8-byte Folded Reload
 	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
 	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
@@ -2247,28 +2241,28 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp168:                               # EH_LABEL
 # %bb.142:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 .Ltmp169:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN4Mesh23print_partition_measureEv)
 	jirl	$ra, $ra, 0
 .Ltmp170:                               # EH_LABEL
 # %bb.143:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 .Ltmp171:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN4Mesh24print_calc_neighbor_typeEv)
 	jirl	$ra, $ra, 0
 .Ltmp172:                               # EH_LABEL
 # %bb.144:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(_ZL4mesh)
 .Ltmp173:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN4Mesh20print_partition_typeEv)
 	jirl	$ra, $ra, 0
 .Ltmp174:                               # EH_LABEL
 # %bb.145:
-	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$a0, $fp, %pc_lo12(_ZL4mesh)
 	ld.w	$a0, $a0, 584
 	ld.d	$s0, $sp, 96                    # 8-byte Folded Reload
@@ -2278,7 +2272,11 @@ do_calc:                                # @do_calc
 	movgr2fr.w	$fa1, $a1
 	ffint.d.w	$fa1, $fa1
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fs2
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fs0, $a0
+	fmul.d	$fa0, $fa0, $fs0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.12)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.12)
@@ -2292,7 +2290,7 @@ do_calc:                                # @do_calc
 	movgr2fr.w	$fa1, $a1
 	ffint.d.w	$fa1, $fa1
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fs2
+	fmul.d	$fa0, $fa0, $fs0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.13)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.13)
@@ -2329,7 +2327,7 @@ do_calc:                                # @do_calc
 	jirl	$ra, $ra, 0
 .Ltmp180:                               # EH_LABEL
 # %bb.148:
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$fp, $a0, %pc_lo12(_ZL4mesh)
 	bnez	$fp, .LBB4_159
 # %bb.149:
@@ -2485,41 +2483,41 @@ do_calc:                                # @do_calc
 	b	.LBB4_153
 .LBB4_162:
 .Ltmp106:                               # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_163:
 .Ltmp183:                               # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_164:
 .Ltmp135:                               # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_165:
 .Ltmp101:                               # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_166:                              # %.loopexit145
 .Ltmp80:                                # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_167:
 .Ltmp164:                               # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_168:
 .Ltmp90:                                # EH_LABEL
-	ld.d	$a2, $sp, 152
+	ld.d	$a2, $sp, 160
 	move	$fp, $a0
 	beqz	$a2, .LBB4_170
 # %bb.169:
-	ld.d	$a0, $sp, 168
+	ld.d	$a0, $sp, 176
 	sub.d	$a1, $a0, $a2
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
@@ -2529,21 +2527,21 @@ do_calc:                                # @do_calc
 	b	.LBB4_178
 .LBB4_171:                              # %.loopexit.split-lp146
 .Ltmp96:                                # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_172:
 .Ltmp72:                                # EH_LABEL
-	ld.d	$a2, $sp, 200
+	ld.d	$a2, $sp, 208
 	move	$fp, $a0
 	bnez	$a2, .LBB4_174
 # %bb.173:
 	move	$a0, $fp
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_174:
-	ld.d	$a0, $sp, 216
+	ld.d	$a0, $sp, 224
 	sub.d	$a1, $a0, $a2
 	b	.LBB4_182
 .LBB4_175:                              # %.loopexit150
@@ -2551,22 +2549,22 @@ do_calc:                                # @do_calc
 	b	.LBB4_178
 .LBB4_176:                              # %.loopexit
 .Ltmp77:                                # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_177:                              # %.loopexit.split-lp151
 .Ltmp87:                                # EH_LABEL
 .LBB4_178:                              # %_ZNSt6vectorIiSaIiEED2Ev.exit123
-	ld.d	$a2, $sp, 176
+	ld.d	$a2, $sp, 184
 	bnez	$a2, .LBB4_181
 # %bb.179:                              # %_ZNSt6vectorIiSaIiEED2Ev.exit121
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	bnez	$a2, .LBB4_184
 .LBB4_180:                              # %_ZNSt6vectorIiSaIiEED2Ev.exit131
 	pcaddu18i	$ra, %call36(_Unwind_Resume)
 	jirl	$ra, $ra, 0
 .LBB4_181:
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 200
 	sub.d	$a1, $a1, $a2
 	move	$fp, $a0
 .LBB4_182:                              # %_ZNSt6vectorIiSaIiEED2Ev.exit121
@@ -2574,15 +2572,15 @@ do_calc:                                # @do_calc
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 	move	$a0, $fp
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 	b	.LBB4_184
 .LBB4_183:                              # %.loopexit.split-lp
 .Ltmp186:                               # EH_LABEL
-	ld.d	$a2, $sp, 224
+	ld.d	$a2, $sp, 232
 	beqz	$a2, .LBB4_180
 .LBB4_184:
-	ld.d	$a1, $sp, 240
+	ld.d	$a1, $sp, 248
 	sub.d	$a1, $a1, $a2
 	move	$fp, $a0
 	move	$a0, $a2

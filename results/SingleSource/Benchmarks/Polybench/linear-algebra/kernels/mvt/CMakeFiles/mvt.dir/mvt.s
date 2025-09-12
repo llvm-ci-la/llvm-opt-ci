@@ -106,17 +106,9 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .Lfunc_end6:
 	.size	polybench_alloc_data, .Lfunc_end6-polybench_alloc_data
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI7_1:
-	.dword	0x409f400000000000              # double 2000
-.LCPI7_3:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI7_2:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI7_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
 	.text
@@ -219,24 +211,24 @@ main:                                   # @main
 # %bb.14:                               # %polybench_alloc_data.exit48
 	move	$t2, $zero
 	lu52i.d	$a0, $zero, 1107
-	pcalau12i	$a1, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
+	movgr2fr.d	$fa0, $a1
 	lu12i.w	$a1, 275200
-	pcalau12i	$a2, %pc_hi20(.LCPI7_1)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI7_1)
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -49152
+	lu52i.d	$t0, $a2, 1033
+	movgr2fr.d	$fa1, $t0
 	movgr2fr.d	$fa2, $zero
 	addi.w	$a2, $zero, -1997
 	ori	$a3, $zero, 3
 	addi.w	$a4, $zero, -1996
 	ori	$a5, $zero, 4
-	pcalau12i	$a6, %pc_hi20(.LCPI7_2)
-	vld	$vr3, $a6, %pc_lo12(.LCPI7_2)
+	pcalau12i	$a6, %pc_hi20(.LCPI7_0)
+	vld	$vr3, $a6, %pc_lo12(.LCPI7_0)
 	lu12i.w	$s7, -4
 	ori	$a6, $s7, 384
 	ori	$a7, $zero, 2000
-	ori	$t0, $zero, 0
-	lu32i.d	$t0, -49152
-	lu52i.d	$t0, $t0, 1033
 	vreplgr2vr.d	$vr4, $t0
 	ori	$t0, $s8, 3728
 	move	$t1, $fp
@@ -453,10 +445,13 @@ main:                                   # @main
 	addi.d	$a3, $a3, 8
 	bne	$a0, $a2, .LBB7_31
 # %bb.34:                               # %kernel_mvt_StrictFP.exit.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI7_3)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_3)
 	move	$a2, $zero
 	ori	$a0, $s7, 384
+	lu12i.w	$a1, -487882
+	ori	$a1, $a1, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a6, $a1, 1006
+	movgr2fr.d	$fa0, $a6
 	.p2align	4, , 16
 .LBB7_35:                               # %kernel_mvt_StrictFP.exit
                                         # =>This Inner Loop Header: Depth=1
@@ -628,10 +623,6 @@ main:                                   # @main
 	movfr2gr.d	$a5, $fa2
 	pcalau12i	$a1, %pc_hi20(.L.str.2)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.2)
-	lu12i.w	$a4, -487882
-	ori	$a4, $a4, 2289
-	lu32i.d	$a4, 325813
-	lu52i.d	$a6, $a4, 1006
 	move	$a4, $a2
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0

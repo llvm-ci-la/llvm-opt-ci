@@ -1,10 +1,6 @@
 	.file	"newton.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function newton
-.LCPI0_0:
-	.dword	0x3ed4f8b588e368f1              # double 5.0000000000000004E-6
 	.text
-	.globl	newton
+	.globl	newton                          # -- Begin function newton
 	.p2align	5
 	.type	newton,@function
 newton:                                 # @newton
@@ -44,9 +40,12 @@ newton:                                 # @newton
 	fmov.d	$fa0, $fs0
 	pcaddu18i	$ra, %call36(d_abs)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI0_0)
 	fdiv.d	$fa0, $fs1, $fa0
+	lu12i.w	$a0, -487882
+	ori	$a0, $a0, 2289
+	lu32i.d	$a0, 325813
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fs2, $a0
 	fcmp.cule.d	$fcc0, $fa0, $fs2
 	bcnez	$fcc0, .LBB0_4
 # %bb.1:                                # %.lr.ph.preheader

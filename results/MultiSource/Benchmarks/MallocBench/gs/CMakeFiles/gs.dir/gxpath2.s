@@ -629,29 +629,25 @@ gx_path_translate:                      # @gx_path_translate
 .Lfunc_end10:
 	.size	gx_path_translate, .Lfunc_end10-gx_path_translate
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gx_path_flatten
-.LCPI11_0:
-	.dword	0x40b0000000000000              # double 4096
-.LCPI11_1:
-	.dword	0x3fdccccccccccccd              # double 0.45000000000000001
-	.text
-	.globl	gx_path_flatten
+	.globl	gx_path_flatten                 # -- Begin function gx_path_flatten
 	.p2align	5
 	.type	gx_path_flatten,@function
 gx_path_flatten:                        # @gx_path_flatten
 # %bb.0:
-	pcalau12i	$a2, %pc_hi20(.LCPI11_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI11_0)
+	lu52i.d	$a2, $zero, 1035
+	movgr2fr.d	$fa1, $a2
 	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	ftintrz.l.s	$fa1, $fa0
-	pcalau12i	$a2, %pc_hi20(.LCPI11_1)
-	fld.d	$fa2, $a2, %pc_lo12(.LCPI11_1)
 	pcalau12i	$a2, %pc_hi20(scaled_flat)
 	fst.d	$fa1, $a2, %pc_lo12(scaled_flat)
 	fcvt.d.s	$fa0, $fa0
-	fmul.d	$fa0, $fa0, $fa2
+	lu12i.w	$a2, -209716
+	ori	$a2, $a2, 3277
+	lu32i.d	$a2, -209716
+	lu52i.d	$a2, $a2, 1021
+	movgr2fr.d	$fa1, $a2
+	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	pcalau12i	$a2, %pc_hi20(scaled_flat_sq)
 	fst.s	$fa0, $a2, %pc_lo12(scaled_flat_sq)

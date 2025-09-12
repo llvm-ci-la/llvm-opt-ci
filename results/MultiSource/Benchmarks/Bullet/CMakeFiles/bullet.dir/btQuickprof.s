@@ -341,12 +341,7 @@ _ZN12CProfileNode4CallEv:               # @_ZN12CProfileNode4CallEv
 .Lfunc_end5:
 	.size	_ZN12CProfileNode4CallEv, .Lfunc_end5-_ZN12CProfileNode4CallEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12CProfileNode6ReturnEv
-.LCPI6_0:
-	.word	0x447a0000                      # float 1000
-	.text
-	.globl	_ZN12CProfileNode6ReturnEv
+	.globl	_ZN12CProfileNode6ReturnEv      # -- Begin function _ZN12CProfileNode6ReturnEv
 	.p2align	5
 	.type	_ZN12CProfileNode6ReturnEv,@function
 _ZN12CProfileNode6ReturnEv:             # @_ZN12CProfileNode6ReturnEv
@@ -391,13 +386,13 @@ _ZN12CProfileNode6ReturnEv:             # @_ZN12CProfileNode6ReturnEv
 	movgr2fr.d	$fa1, $a0
 	ffint.s.l	$fa1, $fa1
 	movgr2cf	$fcc0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI6_0)
-	fld.s	$fa3, $fp, 12
 	fsel	$fa0, $fa1, $fa0, $fcc0
+	lu12i.w	$a0, 280480
+	fld.s	$fa1, $fp, 12
+	movgr2fr.w	$fa2, $a0
 	ld.w	$a0, $fp, 24
 	fdiv.s	$fa0, $fa0, $fa2
-	fadd.s	$fa0, $fa3, $fa0
+	fadd.s	$fa0, $fa1, $fa0
 	fst.s	$fa0, $fp, 12
 .LBB6_3:
 	sltui	$a0, $a0, 1
@@ -603,12 +598,7 @@ _ZN15CProfileManager13Start_ProfileEPKc: # @_ZN15CProfileManager13Start_ProfileE
 	.size	_ZN15CProfileManager13Start_ProfileEPKc, .Lfunc_end13-_ZN15CProfileManager13Start_ProfileEPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15CProfileManager12Stop_ProfileEv
-.LCPI14_0:
-	.word	0x447a0000                      # float 1000
-	.text
-	.globl	_ZN15CProfileManager12Stop_ProfileEv
+	.globl	_ZN15CProfileManager12Stop_ProfileEv # -- Begin function _ZN15CProfileManager12Stop_ProfileEv
 	.p2align	5
 	.type	_ZN15CProfileManager12Stop_ProfileEv,@function
 _ZN15CProfileManager12Stop_ProfileEv:   # @_ZN15CProfileManager12Stop_ProfileEv
@@ -655,13 +645,13 @@ _ZN15CProfileManager12Stop_ProfileEv:   # @_ZN15CProfileManager12Stop_ProfileEv
 	movgr2fr.d	$fa1, $a0
 	ffint.s.l	$fa1, $fa1
 	movgr2cf	$fcc0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI14_0)
-	fld.s	$fa3, $s0, 12
 	fsel	$fa0, $fa1, $fa0, $fcc0
+	lu12i.w	$a0, 280480
+	fld.s	$fa1, $s0, 12
+	movgr2fr.w	$fa2, $a0
 	ld.w	$a0, $s0, 24
 	fdiv.s	$fa0, $fa0, $fa2
-	fadd.s	$fa0, $fa3, $fa0
+	fadd.s	$fa0, $fa1, $fa0
 	fst.s	$fa0, $s0, 12
 .LBB14_3:                               # %_ZN12CProfileNode6ReturnEv.exit
 	bnez	$a0, .LBB14_5
@@ -760,12 +750,7 @@ _ZN15CProfileManager23Increment_Frame_CounterEv: # @_ZN15CProfileManager23Increm
 .Lfunc_end16:
 	.size	_ZN15CProfileManager23Increment_Frame_CounterEv, .Lfunc_end16-_ZN15CProfileManager23Increment_Frame_CounterEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15CProfileManager20Get_Time_Since_ResetEv
-.LCPI17_0:
-	.word	0x447a0000                      # float 1000
-	.text
-	.globl	_ZN15CProfileManager20Get_Time_Since_ResetEv
+	.globl	_ZN15CProfileManager20Get_Time_Since_ResetEv # -- Begin function _ZN15CProfileManager20Get_Time_Since_ResetEv
 	.p2align	5
 	.type	_ZN15CProfileManager20Get_Time_Since_ResetEv,@function
 _ZN15CProfileManager20Get_Time_Since_ResetEv: # @_ZN15CProfileManager20Get_Time_Since_ResetEv
@@ -798,12 +783,12 @@ _ZN15CProfileManager20Get_Time_Since_ResetEv: # @_ZN15CProfileManager20Get_Time_
 	ffint.s.l	$fa0, $fa0
 	fadd.s	$fa0, $fa0, $fa0
 	slti	$a1, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI17_0)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI17_0)
-	movgr2fr.d	$fa2, $a0
-	ffint.s.l	$fa2, $fa2
+	movgr2fr.d	$fa1, $a0
+	ffint.s.l	$fa1, $fa1
 	movgr2cf	$fcc0, $a1
-	fsel	$fa0, $fa2, $fa0, $fcc0
+	fsel	$fa0, $fa1, $fa0, $fcc0
+	lu12i.w	$a0, 280480
+	movgr2fr.w	$fa1, $a0
 	fdiv.s	$fa0, $fa0, $fa1
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32
@@ -811,16 +796,7 @@ _ZN15CProfileManager20Get_Time_Since_ResetEv: # @_ZN15CProfileManager20Get_Time_
 .Lfunc_end17:
 	.size	_ZN15CProfileManager20Get_Time_Since_ResetEv, .Lfunc_end17-_ZN15CProfileManager20Get_Time_Since_ResetEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori
-.LCPI18_0:
-	.word	0x447a0000                      # float 1000
-.LCPI18_1:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI18_2:
-	.word	0x42c80000                      # float 100
-	.text
-	.globl	_ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori
+	.globl	_ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori # -- Begin function _ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori
 	.p2align	5
 	.type	_ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori,@function
 _ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori: # @_ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori
@@ -907,12 +883,12 @@ _ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori: # @_ZN15CProfileManage
 	ffint.s.l	$fa0, $fa0
 	fadd.s	$fa0, $fa0, $fa0
 	slti	$a1, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI18_0)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI18_0)
-	movgr2fr.d	$fa2, $a0
-	ffint.s.l	$fa2, $fa2
+	movgr2fr.d	$fa1, $a0
+	ffint.s.l	$fa1, $fa1
 	movgr2cf	$fcc0, $a1
-	fsel	$fa0, $fa2, $fa0, $fcc0
+	fsel	$fa0, $fa1, $fa0, $fcc0
+	lu12i.w	$a0, 280480
+	movgr2fr.w	$fa1, $a0
 	fdiv.s	$fs0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(_ZN15CProfileManager12FrameCounterE)
 	ld.w	$s1, $a0, %pc_lo12(_ZN15CProfileManager12FrameCounterE)
@@ -932,19 +908,19 @@ _ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori: # @_ZN15CProfileManage
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, 8
-	pcalau12i	$s5, %pc_hi20(.LCPI18_1)
-	pcalau12i	$s4, %pc_hi20(.LCPI18_2)
+	lu12i.w	$s5, 212992
+	lu12i.w	$s4, 273536
 	beqz	$a0, .LBB18_18
 # %bb.10:                               # %.lr.ph77
 	movgr2fr.w	$fa0, $s1
 	ffint.d.w	$fs2, $fa0
-	fld.s	$fa0, $s5, %pc_lo12(.LCPI18_1)
-	fld.s	$fs3, $s4, %pc_lo12(.LCPI18_2)
 	movgr2fr.w	$fs1, $zero
-	movgr2fr.d	$fs4, $zero
+	movgr2fr.d	$fs3, $zero
+	movgr2fr.w	$fa0, $s5
 	fcmp.cule.s	$fcc0, $fs0, $fa0
 	movcf2gr	$a1, $fcc0
 	st.d	$a1, $sp, 16
+	movgr2fr.w	$fs4, $s4
 	pcalau12i	$a1, %pc_hi20(.L.str.5)
 	addi.d	$s1, $a1, %pc_lo12(.L.str.5)
 	move	$s2, $zero
@@ -972,13 +948,13 @@ _ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori: # @_ZN15CProfileManage
 .LBB18_12:                              # =>This Loop Header: Depth=1
                                         #     Child Loop BB18_16 Depth 2
 	fld.s	$fs5, $a0, 12
-	fmov.d	$fs6, $fs4
+	fmov.d	$fs6, $fs3
 	ld.d	$a1, $sp, 16
 	movgr2cf	$fcc0, $a1
 	bcnez	$fcc0, .LBB18_14
 # %bb.13:                               #   in Loop: Header=BB18_12 Depth=1
 	fdiv.s	$fa0, $fs5, $fs0
-	fmul.s	$fa0, $fa0, $fs3
+	fmul.s	$fa0, $fa0, $fs4
 	fcvt.d.s	$fs6, $fa0
 .LBB18_14:                              #   in Loop: Header=BB18_12 Depth=1
 	blez	$s0, .LBB18_11
@@ -1022,14 +998,14 @@ _ZN15CProfileManager13dumpRecursiveEP16CProfileIteratori: # @_ZN15CProfileManage
 	addi.w	$s1, $s1, -1
 	bnez	$s1, .LBB18_23
 .LBB18_24:                              # %._crit_edge83
-	fld.s	$fa0, $s5, %pc_lo12(.LCPI18_1)
+	movgr2fr.w	$fa0, $s5
 	fcmp.cule.s	$fcc0, $fs0, $fa0
 	fsub.s	$fa0, $fs0, $fs1
 	bcnez	$fcc0, .LBB18_26
 # %bb.25:
-	fld.s	$fa1, $s4, %pc_lo12(.LCPI18_2)
-	fdiv.s	$fa2, $fa0, $fs0
-	fmul.s	$fa1, $fa2, $fa1
+	fdiv.s	$fa1, $fa0, $fs0
+	movgr2fr.w	$fa2, $s4
+	fmul.s	$fa1, $fa1, $fa2
 	fcvt.d.s	$fa1, $fa1
 	b	.LBB18_27
 .LBB18_26:

@@ -1,10 +1,6 @@
 	.file	"utils.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function urand
-.LCPI0_0:
-	.word	0x30000000                      # float 4.65661287E-10
 	.text
-	.globl	urand
+	.globl	urand                           # -- Begin function urand
 	.p2align	5
 	.type	urand,@function
 urand:                                  # @urand
@@ -13,27 +9,18 @@ urand:                                  # @urand
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(glibc_compat_rand)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI0_0)
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 196608
 	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fmul.s	$fa0, $fa0, $fa1
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
 	ret
 .Lfunc_end0:
 	.size	urand, .Lfunc_end0-urand
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function nrand
-.LCPI1_0:
-	.word	0x30000000                      # float 4.65661287E-10
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI1_1:
-	.dword	0x401921fb54442d18              # double 6.2831853071795862
-	.text
-	.globl	nrand
+	.globl	nrand                           # -- Begin function nrand
 	.p2align	5
 	.type	nrand,@function
 nrand:                                  # @nrand
@@ -49,10 +36,10 @@ nrand:                                  # @nrand
 	fmov.s	$fs1, $fa0
 	pcaddu18i	$ra, %call36(glibc_compat_rand)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.s	$fs2, $a1, %pc_lo12(.LCPI1_0)
 	movgr2fr.w	$fa0, $a0
 	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 196608
+	movgr2fr.w	$fs2, $a0
 	fmul.s	$fs4, $fa0, $fs2
 	pcaddu18i	$ra, %call36(glibc_compat_rand)
 	jirl	$ra, $ra, 0
@@ -68,10 +55,13 @@ nrand:                                  # @nrand
 	fcmp.cor.d	$fcc0, $fs2, $fs2
 	bceqz	$fcc0, .LBB1_2
 .LBB1_1:                                # %.split
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_1)
-	fcvt.d.s	$fa1, $fs3
-	fmul.d	$fa0, $fa1, $fa0
+	fcvt.d.s	$fa0, $fs3
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1025
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	fmul.d	$fa0, $fs2, $fa0
@@ -142,12 +132,7 @@ pairwise_sum:                           # @pairwise_sum
 .Lfunc_end2:
 	.size	pairwise_sum, .Lfunc_end2-pairwise_sum
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function buildExponentialTable
-.LCPI3_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-	.text
-	.globl	buildExponentialTable
+	.globl	buildExponentialTable           # -- Begin function buildExponentialTable
 	.p2align	5
 	.type	buildExponentialTable,@function
 buildExponentialTable:                  # @buildExponentialTable
@@ -165,11 +150,14 @@ buildExponentialTable:                  # @buildExponentialTable
 	fst.d	$fs1, $sp, 16                   # 8-byte Folded Spill
 	fmov.s	$fs0, $fa1
 	move	$fp, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_0)
 	fcvt.d.s	$fa0, $fa0
-	vldi	$vr2, -992
-	fmul.d	$fa0, $fa0, $fa2
+	vldi	$vr1, -992
+	fmul.d	$fa0, $fa0, $fa1
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	frecip.d	$fa1, $fa0
 	fsqrt.d	$fa0, $fa1
@@ -245,12 +233,7 @@ buildExponentialTable:                  # @buildExponentialTable
 .Lfunc_end3:
 	.size	buildExponentialTable, .Lfunc_end3-buildExponentialTable
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function get_time
-.LCPI4_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	get_time
+	.globl	get_time                        # -- Begin function get_time
 	.p2align	5
 	.type	get_time,@function
 get_time:                               # @get_time
@@ -259,11 +242,13 @@ get_time:                               # @get_time
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI4_0)
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
 	ret
@@ -334,24 +319,21 @@ est_mem_usage:                          # @est_mem_usage
 .Lfunc_end5:
 	.size	est_mem_usage, .Lfunc_end5-est_mem_usage
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function time_per_intersection
-.LCPI6_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
-	.text
-	.globl	time_per_intersection
+	.globl	time_per_intersection           # -- Begin function time_per_intersection
 	.p2align	5
 	.type	time_per_intersection,@function
 time_per_intersection:                  # @time_per_intersection
 # %bb.0:
 	ld.d	$a1, $a0, 144
 	movgr2fr.d	$fa1, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI6_0)
-	ld.w	$a0, $a0, 36
 	ffint.d.l	$fa1, $fa1
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -144027
+	ld.w	$a0, $a0, 36
+	lu52i.d	$a1, $a1, 1052
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 	movgr2fr.w	$fa1, $a0
 	ffint.d.w	$fa1, $fa1
 	fdiv.d	$fa0, $fa0, $fa1

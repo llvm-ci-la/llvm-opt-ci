@@ -23,33 +23,21 @@ _Z11getLoopDatav:                       # @_Z11getLoopDatav
 .LCPI1_1:
 	.dword	0x3ff6666666666666              # double 1.3999999999999999
 	.dword	0x3ff0000000000000              # double 1
-.LCPI1_5:
+.LCPI1_2:
 	.dword	8                               # 0x8
 	.dword	4923084613239392580             # 0x44524f5f43534944
-.LCPI1_6:
+.LCPI1_3:
 	.dword	8                               # 0x8
 	.dword	4914094937701898568             # 0x44325f4f52445948
-.LCPI1_7:
+.LCPI1_4:
 	.dword	8                               # 0x8
 	.dword	4913813462725187912             # 0x44315f4f52445948
-.LCPI1_8:
+.LCPI1_5:
 	.dword	8                               # 0x8
 	.dword	6074873621086556756             # 0x544e495f50415254
-.LCPI1_11:
+.LCPI1_6:
 	.dword	8                               # 0x8
 	.dword	5786931235628926290             # 0x504f4f4c5f464552
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI1_2:
-	.dword	0x40e5972000000000              # double 44217
-.LCPI1_3:
-	.dword	0x40b3890000000000              # double 5001
-.LCPI1_4:
-	.dword	0x4065600000000000              # double 171
-.LCPI1_9:
-	.dword	0x4063800000000000              # double 156
-.LCPI1_10:
-	.dword	0x4050000000000000              # double 64
 	.text
 	.globl	_Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd
 	.p2align	5
@@ -640,21 +628,27 @@ _Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd: # @_Z22define
 .Ltmp34:                                # EH_LABEL
 # %bb.92:
 	move	$s8, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_3)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 366368
+	lu52i.d	$a1, $a1, 1038
+	movgr2fr.d	$fa0, $a1
 	fmul.d	$fa0, $fs0, $fa0
 	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a0, $fa0
-	fmul.d	$fa0, $fs0, $fa1
-	ftintrz.w.d	$fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_4)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_4)
 	movfr2gr.s	$a1, $fa0
-	st.w	$a0, $s8, 0
+	st.w	$a1, $s8, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 231680
+	lu52i.d	$a1, $a1, 1035
+	movgr2fr.d	$fa0, $a1
+	fmul.d	$fa0, $fs0, $fa0
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a1, $fa0
 	st.w	$a1, $s8, 4
-	fmul.d	$fa0, $fs0, $fa1
+	lu32i.d	$a0, 352256
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa0, $a0
+	fmul.d	$fa0, $fs0, $fa0
 	ftintrz.w.d	$fa0, $fa0
 	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
 	ld.w	$a0, $s7, 32
@@ -732,8 +726,8 @@ _Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd: # @_Z22define
 	jr	$a0
 .LBB1_99:                               # %._crit_edge.i.i352
                                         #   in Loop: Header=BB1_95 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_11)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_11)
+	pcalau12i	$a0, %pc_hi20(.LCPI1_6)
+	vld	$vr0, $a0, %pc_lo12(.LCPI1_6)
 	vst	$vr0, $sp, 136
 	ld.d	$a0, $sp, 440
 	ld.d	$a1, $sp, 144
@@ -936,8 +930,8 @@ _Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd: # @_Z22define
 	b	.LBB1_133
 .LBB1_112:                              # %._crit_edge.i.i732
                                         #   in Loop: Header=BB1_95 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_8)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_8)
+	pcalau12i	$a0, %pc_hi20(.LCPI1_5)
+	vld	$vr0, $a0, %pc_lo12(.LCPI1_5)
 	vst	$vr0, $sp, 136
 	ld.d	$a0, $sp, 440
 	ld.d	$a1, $sp, 144
@@ -1687,8 +1681,8 @@ _Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd: # @_Z22define
 	b	.LBB1_205
 .LBB1_158:                              # %._crit_edge.i.i748
                                         #   in Loop: Header=BB1_95 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_7)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_7)
+	pcalau12i	$a0, %pc_hi20(.LCPI1_4)
+	vld	$vr0, $a0, %pc_lo12(.LCPI1_4)
 	vst	$vr0, $sp, 136
 	ld.d	$a0, $sp, 440
 	ld.d	$a1, $sp, 144
@@ -1761,16 +1755,18 @@ _Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd: # @_Z22define
                                         #   in Loop: Header=BB1_95 Depth=1
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ld.d	$a0, $a0, 0
-	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
-	fld.d	$fa0, $a1, %pc_lo12(_ZN7ADomain18loop_length_factorE)
-	pcalau12i	$a1, %pc_hi20(.LCPI1_9)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_9)
-	fld.d	$fa2, $a0, 0
-	fmul.d	$fa1, $fa0, $fa1
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	fld.d	$fa1, $a0, 0
+	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
+	fld.d	$fa0, $a0, %pc_lo12(_ZN7ADomain18loop_length_factorE)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 229376
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa2, $fa0, $fa2
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$a0, $fa2
 	ori	$a2, $zero, 2
-	fst.d	$fa2, $sp, 168
+	fst.d	$fa1, $sp, 168
 	blt	$a0, $a2, .LBB1_211
 # %bb.164:                              # %.lr.ph72.us.i.preheader
                                         #   in Loop: Header=BB1_95 Depth=1
@@ -2202,8 +2198,8 @@ _Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd: # @_Z22define
 	b	.LBB1_205
 .LBB1_196:                              # %._crit_edge.i.i988
                                         #   in Loop: Header=BB1_95 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_5)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_5)
+	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
+	vld	$vr0, $a0, %pc_lo12(.LCPI1_2)
 	vst	$vr0, $sp, 136
 	ld.d	$a0, $sp, 440
 	ld.d	$a1, $sp, 144
@@ -2297,8 +2293,8 @@ _Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd: # @_Z22define
 	b	.LBB1_205
 .LBB1_202:                              # %._crit_edge.i.i956
                                         #   in Loop: Header=BB1_95 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_6)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_6)
+	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
+	vld	$vr0, $a0, %pc_lo12(.LCPI1_3)
 	vst	$vr0, $sp, 136
 	ld.d	$a0, $sp, 440
 	ld.d	$a1, $sp, 144
@@ -2382,9 +2378,9 @@ _Z22defineLoopSuiteRunInfoRKSt6vectorI13LoopVariantIDSaIS0_EEPbdd: # @_Z22define
 	move	$a3, $zero
 .LBB1_212:                              # %_ZN7ADomainC2Eii.exit527
                                         #   in Loop: Header=BB1_95 Depth=1
-	pcalau12i	$a1, %pc_hi20(.LCPI1_10)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_10)
 	ld.d	$a1, $sp, 368
+	lu52i.d	$a4, $zero, 1029
+	movgr2fr.d	$fa1, $a4
 	fmul.d	$fa1, $fa0, $fa1
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a4, $fa1
@@ -4488,15 +4484,9 @@ GCC_except_table7:
 .LCPI8_0:
 	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.dword	0x3fc999999999999a              # double 0.20000000000000001
-.LCPI8_3:
+.LCPI8_1:
 	.dword	0x3fc999999999999a              # double 0.20000000000000001
 	.dword	0x3fd3333333333333              # double 0.29999999999999999
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI8_1:
-	.dword	0x3ff199999999999a              # double 1.1000000000000001
-.LCPI8_2:
-	.dword	0x3ff1f9a6b50b0f28              # double 1.1234500000000001
 	.text
 	.globl	_Z8loopInitjR8LoopStat
 	.p2align	5
@@ -4747,8 +4737,8 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 .LBB8_40:
 	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
 	addi.d	$a0, $a0, %pc_lo12(.LCPI8_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI8_3)
-	addi.d	$a1, $a1, %pc_lo12(.LCPI8_3)
+	pcalau12i	$a1, %pc_hi20(.LCPI8_1)
+	addi.d	$a1, $a1, %pc_lo12(.LCPI8_1)
 	ld.w	$a3, $s1, 1032
 	blez	$a3, .LBB8_577
 # %bb.41:                               # %.lr.ph.preheader.i430
@@ -4962,8 +4952,10 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 	pcalau12i	$a2, %pc_hi20(.LCPI8_0)
 	addi.d	$a2, $a2, %pc_lo12(.LCPI8_0)
 	fldx.d	$fa0, $a2, $a0
-	ld.d	$a2, $s1, 472
+	ld.d	$a3, $s1, 472
 	ori	$a0, $zero, 4
+	lu12i.w	$a4, -419431
+	lu12i.w	$a2, -307024
 	bgeu	$a1, $a0, .LBB8_920
 # %bb.78:
 	move	$a0, $zero
@@ -5152,12 +5144,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.102:                              # %middle.block3803
 	beq	$a1, $a2, .LBB8_105
 .LBB8_103:                              # %.lr.ph.i184.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_104:                              # %.lr.ph.i184
                                         # =>This Inner Loop Header: Depth=1
@@ -5246,12 +5244,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.110:                              # %middle.block3819
 	beq	$a1, $a2, .LBB8_113
 .LBB8_111:                              # %.lr.ph.i192.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_112:                              # %.lr.ph.i192
                                         # =>This Inner Loop Header: Depth=1
@@ -5340,12 +5344,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.118:                              # %middle.block3835
 	beq	$a1, $a2, .LBB8_121
 .LBB8_119:                              # %.lr.ph.i200.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_120:                              # %.lr.ph.i200
                                         # =>This Inner Loop Header: Depth=1
@@ -5434,12 +5444,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.126:                              # %middle.block3851
 	beq	$a1, $a2, .LBB8_129
 .LBB8_127:                              # %.lr.ph.i208.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_128:                              # %.lr.ph.i208
                                         # =>This Inner Loop Header: Depth=1
@@ -5528,12 +5544,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.134:                              # %middle.block3867
 	beq	$a1, $a2, .LBB8_137
 .LBB8_135:                              # %.lr.ph.i216.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_136:                              # %.lr.ph.i216
                                         # =>This Inner Loop Header: Depth=1
@@ -5622,12 +5644,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.142:                              # %middle.block3883
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_143:                              # %.lr.ph.i224.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_144:                              # %.lr.ph.i224
                                         # =>This Inner Loop Header: Depth=1
@@ -5702,12 +5730,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.147:                              # %middle.block3547
 	beq	$a1, $a2, .LBB8_150
 .LBB8_148:                              # %.lr.ph.i232.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_149:                              # %.lr.ph.i232
                                         # =>This Inner Loop Header: Depth=1
@@ -5796,12 +5830,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.155:                              # %middle.block3563
 	beq	$a1, $a2, .LBB8_158
 .LBB8_156:                              # %.lr.ph.i240.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_157:                              # %.lr.ph.i240
                                         # =>This Inner Loop Header: Depth=1
@@ -5890,12 +5930,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.163:                              # %middle.block3579
 	beq	$a1, $a2, .LBB8_166
 .LBB8_164:                              # %.lr.ph.i248.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_165:                              # %.lr.ph.i248
                                         # =>This Inner Loop Header: Depth=1
@@ -5984,12 +6030,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.171:                              # %middle.block3595
 	beq	$a1, $a2, .LBB8_174
 .LBB8_172:                              # %.lr.ph.i256.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_173:                              # %.lr.ph.i256
                                         # =>This Inner Loop Header: Depth=1
@@ -6078,12 +6130,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.179:                              # %middle.block3611
 	beq	$a1, $a2, .LBB8_182
 .LBB8_180:                              # %.lr.ph.i264.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_181:                              # %.lr.ph.i264
                                         # =>This Inner Loop Header: Depth=1
@@ -6172,12 +6230,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.187:                              # %middle.block3627
 	beq	$a1, $a2, .LBB8_190
 .LBB8_188:                              # %.lr.ph.i272.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_189:                              # %.lr.ph.i272
                                         # =>This Inner Loop Header: Depth=1
@@ -6266,12 +6330,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.195:                              # %middle.block3643
 	beq	$a1, $a2, .LBB8_198
 .LBB8_196:                              # %.lr.ph.i280.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_197:                              # %.lr.ph.i280
                                         # =>This Inner Loop Header: Depth=1
@@ -6360,12 +6430,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.203:                              # %middle.block3659
 	beq	$a1, $a2, .LBB8_206
 .LBB8_204:                              # %.lr.ph.i288.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_205:                              # %.lr.ph.i288
                                         # =>This Inner Loop Header: Depth=1
@@ -6454,12 +6530,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.211:                              # %middle.block3675
 	beq	$a1, $a2, .LBB8_214
 .LBB8_212:                              # %.lr.ph.i296.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_213:                              # %.lr.ph.i296
                                         # =>This Inner Loop Header: Depth=1
@@ -6548,12 +6630,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.219:                              # %middle.block3691
 	beq	$a1, $a2, .LBB8_222
 .LBB8_220:                              # %.lr.ph.i304.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_221:                              # %.lr.ph.i304
                                         # =>This Inner Loop Header: Depth=1
@@ -6642,12 +6730,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.227:                              # %middle.block3707
 	beq	$a1, $a2, .LBB8_230
 .LBB8_228:                              # %.lr.ph.i312.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_229:                              # %.lr.ph.i312
                                         # =>This Inner Loop Header: Depth=1
@@ -6736,12 +6830,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.235:                              # %middle.block3723
 	beq	$a1, $a2, .LBB8_238
 .LBB8_236:                              # %.lr.ph.i320.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_237:                              # %.lr.ph.i320
                                         # =>This Inner Loop Header: Depth=1
@@ -6830,12 +6930,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.243:                              # %middle.block3739
 	beq	$a1, $a2, .LBB8_246
 .LBB8_244:                              # %.lr.ph.i328.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_245:                              # %.lr.ph.i328
                                         # =>This Inner Loop Header: Depth=1
@@ -6924,12 +7030,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.251:                              # %middle.block3755
 	beq	$a1, $a2, .LBB8_254
 .LBB8_252:                              # %.lr.ph.i336.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_253:                              # %.lr.ph.i336
                                         # =>This Inner Loop Header: Depth=1
@@ -7018,12 +7130,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.259:                              # %middle.block3771
 	beq	$a1, $a2, .LBB8_262
 .LBB8_260:                              # %.lr.ph.i344.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_261:                              # %.lr.ph.i344
                                         # =>This Inner Loop Header: Depth=1
@@ -7112,12 +7230,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.267:                              # %middle.block3787
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_268:                              # %.lr.ph.i352.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_269:                              # %.lr.ph.i352
                                         # =>This Inner Loop Header: Depth=1
@@ -7215,12 +7339,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.274:                              # %middle.block2006
 	beq	$a1, $a2, .LBB8_277
 .LBB8_275:                              # %.lr.ph.i1118.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_276:                              # %.lr.ph.i1118
                                         # =>This Inner Loop Header: Depth=1
@@ -7309,12 +7439,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.282:                              # %middle.block2022
 	beq	$a1, $a2, .LBB8_285
 .LBB8_283:                              # %.lr.ph.i1126.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_284:                              # %.lr.ph.i1126
                                         # =>This Inner Loop Header: Depth=1
@@ -7403,12 +7539,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.290:                              # %middle.block2038
 	beq	$a1, $a2, .LBB8_293
 .LBB8_291:                              # %.lr.ph.i1134.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_292:                              # %.lr.ph.i1134
                                         # =>This Inner Loop Header: Depth=1
@@ -7497,12 +7639,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.298:                              # %middle.block2054
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_299:                              # %.lr.ph.i1142.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_300:                              # %.lr.ph.i1142
                                         # =>This Inner Loop Header: Depth=1
@@ -7577,12 +7725,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.303:                              # %middle.block2870
 	beq	$a1, $a2, .LBB8_306
 .LBB8_304:                              # %.lr.ph.i692.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_305:                              # %.lr.ph.i692
                                         # =>This Inner Loop Header: Depth=1
@@ -7671,12 +7825,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.311:                              # %middle.block2886
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_312:                              # %.lr.ph.i700.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_313:                              # %.lr.ph.i700
                                         # =>This Inner Loop Header: Depth=1
@@ -7751,12 +7911,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.316:                              # %middle.block2934
 	beq	$a1, $a2, .LBB8_319
 .LBB8_317:                              # %.lr.ph.i660.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_318:                              # %.lr.ph.i660
                                         # =>This Inner Loop Header: Depth=1
@@ -7845,12 +8011,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.324:                              # %middle.block2950
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_325:                              # %.lr.ph.i668.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_326:                              # %.lr.ph.i668
                                         # =>This Inner Loop Header: Depth=1
@@ -7925,12 +8097,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.329:                              # %middle.block3046
 	beq	$a1, $a2, .LBB8_332
 .LBB8_330:                              # %.lr.ph.i579.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_331:                              # %.lr.ph.i579
                                         # =>This Inner Loop Header: Depth=1
@@ -8019,12 +8197,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.337:                              # %middle.block3062
 	beq	$a1, $a2, .LBB8_340
 .LBB8_338:                              # %.lr.ph.i587.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_339:                              # %.lr.ph.i587
                                         # =>This Inner Loop Header: Depth=1
@@ -8113,12 +8297,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.345:                              # %middle.block3078
 	beq	$a1, $a2, .LBB8_348
 .LBB8_346:                              # %.lr.ph.i595.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_347:                              # %.lr.ph.i595
                                         # =>This Inner Loop Header: Depth=1
@@ -8207,12 +8397,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.353:                              # %middle.block3094
 	beq	$a1, $a2, .LBB8_356
 .LBB8_354:                              # %.lr.ph.i603.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_355:                              # %.lr.ph.i603
                                         # =>This Inner Loop Header: Depth=1
@@ -8301,12 +8497,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.361:                              # %middle.block3110
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_362:                              # %.lr.ph.i611.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_363:                              # %.lr.ph.i611
                                         # =>This Inner Loop Header: Depth=1
@@ -8381,12 +8583,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.366:                              # %middle.block3030
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_367:                              # %.lr.ph.i620.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_368:                              # %.lr.ph.i620
                                         # =>This Inner Loop Header: Depth=1
@@ -8461,12 +8669,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.371:                              # %middle.block3899
 	beq	$a1, $a2, .LBB8_374
 .LBB8_372:                              # %.lr.ph.i.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_373:                              # %.lr.ph.i
                                         # =>This Inner Loop Header: Depth=1
@@ -8555,12 +8769,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.379:                              # %middle.block3915
 	beq	$a1, $a2, .LBB8_382
 .LBB8_380:                              # %.lr.ph.i168.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_381:                              # %.lr.ph.i168
                                         # =>This Inner Loop Header: Depth=1
@@ -8649,12 +8869,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.387:                              # %middle.block3931
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_388:                              # %.lr.ph.i176.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_389:                              # %.lr.ph.i176
                                         # =>This Inner Loop Header: Depth=1
@@ -8729,12 +8955,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.392:                              # %middle.block3206
 	beq	$a1, $a2, .LBB8_395
 .LBB8_393:                              # %.lr.ph.i499.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_394:                              # %.lr.ph.i499
                                         # =>This Inner Loop Header: Depth=1
@@ -8823,12 +9055,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.400:                              # %middle.block3222
 	beq	$a1, $a2, .LBB8_403
 .LBB8_401:                              # %.lr.ph.i507.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_402:                              # %.lr.ph.i507
                                         # =>This Inner Loop Header: Depth=1
@@ -8917,12 +9155,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.408:                              # %middle.block3238
 	beq	$a1, $a2, .LBB8_411
 .LBB8_409:                              # %.lr.ph.i515.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_410:                              # %.lr.ph.i515
                                         # =>This Inner Loop Header: Depth=1
@@ -9011,12 +9255,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.416:                              # %middle.block3254
 	beq	$a1, $a2, .LBB8_419
 .LBB8_417:                              # %.lr.ph.i523.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_418:                              # %.lr.ph.i523
                                         # =>This Inner Loop Header: Depth=1
@@ -9105,12 +9355,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.424:                              # %middle.block3270
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_425:                              # %.lr.ph.i531.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_426:                              # %.lr.ph.i531
                                         # =>This Inner Loop Header: Depth=1
@@ -9185,12 +9441,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.429:                              # %middle.block2246
 	beq	$a1, $a2, .LBB8_432
 .LBB8_430:                              # %.lr.ph.i944.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_431:                              # %.lr.ph.i944
                                         # =>This Inner Loop Header: Depth=1
@@ -9279,12 +9541,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.437:                              # %middle.block2262
 	beq	$a1, $a2, .LBB8_440
 .LBB8_438:                              # %.lr.ph.i952.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_439:                              # %.lr.ph.i952
                                         # =>This Inner Loop Header: Depth=1
@@ -9373,12 +9641,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.445:                              # %middle.block2278
 	beq	$a1, $a2, .LBB8_448
 .LBB8_446:                              # %.lr.ph.i960.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_447:                              # %.lr.ph.i960
                                         # =>This Inner Loop Header: Depth=1
@@ -9467,12 +9741,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.453:                              # %middle.block2294
 	beq	$a1, $a2, .LBB8_456
 .LBB8_454:                              # %.lr.ph.i968.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_455:                              # %.lr.ph.i968
                                         # =>This Inner Loop Header: Depth=1
@@ -9561,12 +9841,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.461:                              # %middle.block2310
 	beq	$a1, $a2, .LBB8_464
 .LBB8_462:                              # %.lr.ph.i976.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_463:                              # %.lr.ph.i976
                                         # =>This Inner Loop Header: Depth=1
@@ -9655,12 +9941,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.469:                              # %middle.block2326
 	beq	$a1, $a2, .LBB8_472
 .LBB8_470:                              # %.lr.ph.i984.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_471:                              # %.lr.ph.i984
                                         # =>This Inner Loop Header: Depth=1
@@ -9749,12 +10041,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.477:                              # %middle.block2342
 	beq	$a1, $a2, .LBB8_480
 .LBB8_478:                              # %.lr.ph.i992.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_479:                              # %.lr.ph.i992
                                         # =>This Inner Loop Header: Depth=1
@@ -9843,12 +10141,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.485:                              # %middle.block2358
 	beq	$a1, $a2, .LBB8_488
 .LBB8_486:                              # %.lr.ph.i1000.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_487:                              # %.lr.ph.i1000
                                         # =>This Inner Loop Header: Depth=1
@@ -9937,12 +10241,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.493:                              # %middle.block2374
 	beq	$a1, $a2, .LBB8_496
 .LBB8_494:                              # %.lr.ph.i1008.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_495:                              # %.lr.ph.i1008
                                         # =>This Inner Loop Header: Depth=1
@@ -10031,12 +10341,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.501:                              # %middle.block2390
 	beq	$a0, $a1, .LBB8_504
 .LBB8_502:                              # %.lr.ph.i1016.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_503:                              # %.lr.ph.i1016
                                         # =>This Inner Loop Header: Depth=1
@@ -10142,12 +10458,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.512:                              # %middle.block2406
 	beq	$a0, $a1, .LBB8_515
 .LBB8_513:                              # %.lr.ph.i892.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_514:                              # %.lr.ph.i892
                                         # =>This Inner Loop Header: Depth=1
@@ -10236,12 +10558,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.520:                              # %middle.block2422
 	beq	$a0, $a1, .LBB8_523
 .LBB8_521:                              # %.lr.ph.i900.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_522:                              # %.lr.ph.i900
                                         # =>This Inner Loop Header: Depth=1
@@ -10330,12 +10658,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.528:                              # %middle.block2438
 	beq	$a0, $a1, .LBB8_531
 .LBB8_529:                              # %.lr.ph.i908.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_530:                              # %.lr.ph.i908
                                         # =>This Inner Loop Header: Depth=1
@@ -10424,12 +10758,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.536:                              # %middle.block2454
 	beq	$a0, $a1, .LBB8_539
 .LBB8_537:                              # %.lr.ph.i916.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_538:                              # %.lr.ph.i916
                                         # =>This Inner Loop Header: Depth=1
@@ -10518,12 +10858,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.544:                              # %middle.block2470
 	beq	$a0, $a1, .LBB8_547
 .LBB8_545:                              # %.lr.ph.i924.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_546:                              # %.lr.ph.i924
                                         # =>This Inner Loop Header: Depth=1
@@ -10630,12 +10976,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.556:                              # %middle.block2486
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_557:                              # %.lr.ph.i936.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_558:                              # %.lr.ph.i936
                                         # =>This Inner Loop Header: Depth=1
@@ -10710,12 +11062,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.561:                              # %middle.block2902
 	beq	$a1, $a2, .LBB8_564
 .LBB8_562:                              # %.lr.ph.i676.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_563:                              # %.lr.ph.i676
                                         # =>This Inner Loop Header: Depth=1
@@ -10804,12 +11162,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.569:                              # %middle.block2918
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_570:                              # %.lr.ph.i684.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_571:                              # %.lr.ph.i684
                                         # =>This Inner Loop Header: Depth=1
@@ -10875,13 +11239,19 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.574:                              # %middle.block3319
 	beq	$a2, $a3, .LBB8_577
 .LBB8_575:                              # %.lr.ph.i432.preheader
-	pcalau12i	$a5, %pc_hi20(.LCPI8_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI8_2)
-	fld.d	$fa3, $a5, %pc_lo12(.LCPI8_2)
 	sub.d	$a3, $a3, $a2
 	alsl.d	$a4, $a2, $a4, 4
 	addi.d	$a4, $a4, 8
+	lu12i.w	$a5, -419431
+	ori	$a5, $a5, 2458
+	lu32i.d	$a5, 104857
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa2, $a5
+	lu12i.w	$a5, -307024
+	ori	$a5, $a5, 3880
+	lu32i.d	$a5, 129446
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa3, $a5
 	.p2align	4, , 16
 .LBB8_576:                              # %.lr.ph.i432
                                         # =>This Inner Loop Header: Depth=1
@@ -10965,13 +11335,19 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.582:                              # %middle.block3336
 	beq	$a2, $a3, .LBB8_585
 .LBB8_583:                              # %.lr.ph.i441.preheader
-	pcalau12i	$a5, %pc_hi20(.LCPI8_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI8_2)
-	fld.d	$fa3, $a5, %pc_lo12(.LCPI8_2)
 	sub.d	$a3, $a3, $a2
 	alsl.d	$a4, $a2, $a4, 4
 	addi.d	$a4, $a4, 8
+	lu12i.w	$a5, -419431
+	ori	$a5, $a5, 2458
+	lu32i.d	$a5, 104857
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa2, $a5
+	lu12i.w	$a5, -307024
+	ori	$a5, $a5, 3880
+	lu32i.d	$a5, 129446
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa3, $a5
 	.p2align	4, , 16
 .LBB8_584:                              # %.lr.ph.i441
                                         # =>This Inner Loop Header: Depth=1
@@ -11055,13 +11431,19 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.590:                              # %middle.block3353
 	beq	$a2, $a3, .LBB8_593
 .LBB8_591:                              # %.lr.ph.i452.preheader
-	pcalau12i	$a5, %pc_hi20(.LCPI8_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI8_2)
-	fld.d	$fa3, $a5, %pc_lo12(.LCPI8_2)
 	sub.d	$a3, $a3, $a2
 	alsl.d	$a4, $a2, $a4, 4
 	addi.d	$a4, $a4, 8
+	lu12i.w	$a5, -419431
+	ori	$a5, $a5, 2458
+	lu32i.d	$a5, 104857
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa2, $a5
+	lu12i.w	$a5, -307024
+	ori	$a5, $a5, 3880
+	lu32i.d	$a5, 129446
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa3, $a5
 	.p2align	4, , 16
 .LBB8_592:                              # %.lr.ph.i452
                                         # =>This Inner Loop Header: Depth=1
@@ -11145,13 +11527,19 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.598:                              # %middle.block3370
 	beq	$a2, $a3, .LBB8_601
 .LBB8_599:                              # %.lr.ph.i463.preheader
-	pcalau12i	$a5, %pc_hi20(.LCPI8_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI8_2)
-	fld.d	$fa3, $a5, %pc_lo12(.LCPI8_2)
 	sub.d	$a3, $a3, $a2
 	alsl.d	$a4, $a2, $a4, 4
 	addi.d	$a4, $a4, 8
+	lu12i.w	$a5, -419431
+	ori	$a5, $a5, 2458
+	lu32i.d	$a5, 104857
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa2, $a5
+	lu12i.w	$a5, -307024
+	ori	$a5, $a5, 3880
+	lu32i.d	$a5, 129446
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa3, $a5
 	.p2align	4, , 16
 .LBB8_600:                              # %.lr.ph.i463
                                         # =>This Inner Loop Header: Depth=1
@@ -11235,13 +11623,19 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.606:                              # %middle.block3387
 	beq	$a0, $a2, .LBB8_1187
 .LBB8_607:                              # %.lr.ph.i474.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa3, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a0
 	alsl.d	$a1, $a0, $a1, 4
 	addi.d	$a1, $a1, 8
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa3, $a3
 	.p2align	4, , 16
 .LBB8_608:                              # %.lr.ph.i474
                                         # =>This Inner Loop Header: Depth=1
@@ -11319,12 +11713,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.611:                              # %middle.block1622
 	beq	$a1, $a2, .LBB8_614
 .LBB8_612:                              # %.lr.ph.i1294.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_613:                              # %.lr.ph.i1294
                                         # =>This Inner Loop Header: Depth=1
@@ -11413,12 +11813,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.619:                              # %middle.block1638
 	beq	$a1, $a2, .LBB8_622
 .LBB8_620:                              # %.lr.ph.i1302.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_621:                              # %.lr.ph.i1302
                                         # =>This Inner Loop Header: Depth=1
@@ -11507,12 +11913,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.627:                              # %middle.block1654
 	beq	$a1, $a2, .LBB8_630
 .LBB8_628:                              # %.lr.ph.i1310.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_629:                              # %.lr.ph.i1310
                                         # =>This Inner Loop Header: Depth=1
@@ -11601,12 +12013,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.635:                              # %middle.block1670
 	beq	$a1, $a2, .LBB8_638
 .LBB8_636:                              # %.lr.ph.i1318.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_637:                              # %.lr.ph.i1318
                                         # =>This Inner Loop Header: Depth=1
@@ -11695,12 +12113,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.643:                              # %middle.block1686
 	beq	$a1, $a2, .LBB8_646
 .LBB8_644:                              # %.lr.ph.i1326.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_645:                              # %.lr.ph.i1326
                                         # =>This Inner Loop Header: Depth=1
@@ -11789,12 +12213,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.651:                              # %middle.block1702
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_652:                              # %.lr.ph.i1334.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_653:                              # %.lr.ph.i1334
                                         # =>This Inner Loop Header: Depth=1
@@ -11869,12 +12299,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.656:                              # %middle.block2822
 	beq	$a1, $a2, .LBB8_659
 .LBB8_657:                              # %.lr.ph.i708.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_658:                              # %.lr.ph.i708
                                         # =>This Inner Loop Header: Depth=1
@@ -11963,12 +12399,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.664:                              # %middle.block2838
 	beq	$a1, $a2, .LBB8_667
 .LBB8_665:                              # %.lr.ph.i716.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_666:                              # %.lr.ph.i716
                                         # =>This Inner Loop Header: Depth=1
@@ -12057,12 +12499,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.672:                              # %middle.block2854
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_673:                              # %.lr.ph.i724.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_674:                              # %.lr.ph.i724
                                         # =>This Inner Loop Header: Depth=1
@@ -12137,12 +12585,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.677:                              # %middle.block2598
 	beq	$a1, $a2, .LBB8_680
 .LBB8_678:                              # %.lr.ph.i828.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_679:                              # %.lr.ph.i828
                                         # =>This Inner Loop Header: Depth=1
@@ -12231,12 +12685,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.685:                              # %middle.block2614
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_686:                              # %.lr.ph.i836.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_687:                              # %.lr.ph.i836
                                         # =>This Inner Loop Header: Depth=1
@@ -12311,12 +12771,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.690:                              # %middle.block3483
 	beq	$a1, $a2, .LBB8_693
 .LBB8_691:                              # %.lr.ph.i360.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_692:                              # %.lr.ph.i360
                                         # =>This Inner Loop Header: Depth=1
@@ -12405,12 +12871,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.698:                              # %middle.block3499
 	beq	$a1, $a2, .LBB8_701
 .LBB8_699:                              # %.lr.ph.i368.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_700:                              # %.lr.ph.i368
                                         # =>This Inner Loop Header: Depth=1
@@ -12499,12 +12971,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.706:                              # %middle.block3515
 	beq	$a1, $a2, .LBB8_709
 .LBB8_707:                              # %.lr.ph.i376.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_708:                              # %.lr.ph.i376
                                         # =>This Inner Loop Header: Depth=1
@@ -12593,12 +13071,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.714:                              # %middle.block3531
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_715:                              # %.lr.ph.i384.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_716:                              # %.lr.ph.i384
                                         # =>This Inner Loop Header: Depth=1
@@ -12673,12 +13157,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.719:                              # %middle.block2566
 	beq	$a1, $a2, .LBB8_722
 .LBB8_720:                              # %.lr.ph.i844.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_721:                              # %.lr.ph.i844
                                         # =>This Inner Loop Header: Depth=1
@@ -12767,12 +13257,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.727:                              # %middle.block2582
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_728:                              # %.lr.ph.i852.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_729:                              # %.lr.ph.i852
                                         # =>This Inner Loop Header: Depth=1
@@ -12847,12 +13343,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.732:                              # %middle.block2966
 	beq	$a1, $a2, .LBB8_735
 .LBB8_733:                              # %.lr.ph.i628.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_734:                              # %.lr.ph.i628
                                         # =>This Inner Loop Header: Depth=1
@@ -12941,12 +13443,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.740:                              # %middle.block2982
 	beq	$a1, $a2, .LBB8_743
 .LBB8_741:                              # %.lr.ph.i636.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_742:                              # %.lr.ph.i636
                                         # =>This Inner Loop Header: Depth=1
@@ -13035,12 +13543,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.748:                              # %middle.block2998
 	beq	$a1, $a2, .LBB8_751
 .LBB8_749:                              # %.lr.ph.i644.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_750:                              # %.lr.ph.i644
                                         # =>This Inner Loop Header: Depth=1
@@ -13129,12 +13643,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.756:                              # %middle.block3014
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_757:                              # %.lr.ph.i652.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_758:                              # %.lr.ph.i652
                                         # =>This Inner Loop Header: Depth=1
@@ -13209,12 +13729,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.761:                              # %middle.block3403
 	beq	$a1, $a2, .LBB8_764
 .LBB8_762:                              # %.lr.ph.i392.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_763:                              # %.lr.ph.i392
                                         # =>This Inner Loop Header: Depth=1
@@ -13303,12 +13829,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.769:                              # %middle.block3419
 	beq	$a1, $a2, .LBB8_772
 .LBB8_770:                              # %.lr.ph.i400.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_771:                              # %.lr.ph.i400
                                         # =>This Inner Loop Header: Depth=1
@@ -13397,12 +13929,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.777:                              # %middle.block3435
 	beq	$a1, $a2, .LBB8_780
 .LBB8_778:                              # %.lr.ph.i408.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_779:                              # %.lr.ph.i408
                                         # =>This Inner Loop Header: Depth=1
@@ -13491,12 +14029,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.785:                              # %middle.block3451
 	beq	$a1, $a2, .LBB8_788
 .LBB8_786:                              # %.lr.ph.i416.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_787:                              # %.lr.ph.i416
                                         # =>This Inner Loop Header: Depth=1
@@ -13585,12 +14129,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.793:                              # %middle.block3467
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_794:                              # %.lr.ph.i424.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_795:                              # %.lr.ph.i424
                                         # =>This Inner Loop Header: Depth=1
@@ -13665,12 +14215,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.798:                              # %middle.block2742
 	beq	$a1, $a2, .LBB8_801
 .LBB8_799:                              # %.lr.ph.i732.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_800:                              # %.lr.ph.i732
                                         # =>This Inner Loop Header: Depth=1
@@ -13759,12 +14315,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.806:                              # %middle.block2758
 	beq	$a1, $a2, .LBB8_809
 .LBB8_807:                              # %.lr.ph.i740.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_808:                              # %.lr.ph.i740
                                         # =>This Inner Loop Header: Depth=1
@@ -13853,12 +14415,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.814:                              # %middle.block2774
 	beq	$a1, $a2, .LBB8_817
 .LBB8_815:                              # %.lr.ph.i748.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_816:                              # %.lr.ph.i748
                                         # =>This Inner Loop Header: Depth=1
@@ -13947,12 +14515,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.822:                              # %middle.block2790
 	beq	$a1, $a2, .LBB8_825
 .LBB8_823:                              # %.lr.ph.i756.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_824:                              # %.lr.ph.i756
                                         # =>This Inner Loop Header: Depth=1
@@ -14041,12 +14615,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.830:                              # %middle.block2806
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_831:                              # %.lr.ph.i764.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_832:                              # %.lr.ph.i764
                                         # =>This Inner Loop Header: Depth=1
@@ -14121,12 +14701,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.835:                              # %middle.block3126
 	beq	$a1, $a2, .LBB8_838
 .LBB8_836:                              # %.lr.ph.i539.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_837:                              # %.lr.ph.i539
                                         # =>This Inner Loop Header: Depth=1
@@ -14215,12 +14801,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.843:                              # %middle.block3142
 	beq	$a1, $a2, .LBB8_846
 .LBB8_844:                              # %.lr.ph.i547.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_845:                              # %.lr.ph.i547
                                         # =>This Inner Loop Header: Depth=1
@@ -14309,12 +14901,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.851:                              # %middle.block3158
 	beq	$a1, $a2, .LBB8_854
 .LBB8_852:                              # %.lr.ph.i555.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_853:                              # %.lr.ph.i555
                                         # =>This Inner Loop Header: Depth=1
@@ -14403,12 +15001,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.859:                              # %middle.block3174
 	beq	$a1, $a2, .LBB8_862
 .LBB8_860:                              # %.lr.ph.i563.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_861:                              # %.lr.ph.i563
                                         # =>This Inner Loop Header: Depth=1
@@ -14497,12 +15101,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.867:                              # %middle.block3190
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_868:                              # %.lr.ph.i571.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_869:                              # %.lr.ph.i571
                                         # =>This Inner Loop Header: Depth=1
@@ -14577,12 +15187,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.872:                              # %middle.block3286
 	beq	$a1, $a2, .LBB8_875
 .LBB8_873:                              # %.lr.ph.i483.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_874:                              # %.lr.ph.i483
                                         # =>This Inner Loop Header: Depth=1
@@ -14671,12 +15287,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.880:                              # %middle.block3302
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_881:                              # %.lr.ph.i491.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_882:                              # %.lr.ph.i491
                                         # =>This Inner Loop Header: Depth=1
@@ -14751,12 +15373,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.885:                              # %middle.block1718
 	beq	$a1, $a2, .LBB8_888
 .LBB8_886:                              # %.lr.ph.i1254.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_887:                              # %.lr.ph.i1254
                                         # =>This Inner Loop Header: Depth=1
@@ -14845,12 +15473,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.893:                              # %middle.block1734
 	beq	$a1, $a2, .LBB8_896
 .LBB8_894:                              # %.lr.ph.i1262.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_895:                              # %.lr.ph.i1262
                                         # =>This Inner Loop Header: Depth=1
@@ -14939,12 +15573,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.901:                              # %middle.block1750
 	beq	$a1, $a2, .LBB8_904
 .LBB8_902:                              # %.lr.ph.i1270.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_903:                              # %.lr.ph.i1270
                                         # =>This Inner Loop Header: Depth=1
@@ -15033,12 +15673,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.909:                              # %middle.block1766
 	beq	$a1, $a2, .LBB8_912
 .LBB8_910:                              # %.lr.ph.i1278.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_911:                              # %.lr.ph.i1278
                                         # =>This Inner Loop Header: Depth=1
@@ -15127,12 +15773,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.917:                              # %middle.block1782
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_918:                              # %.lr.ph.i1286.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_919:                              # %.lr.ph.i1286
                                         # =>This Inner Loop Header: Depth=1
@@ -15153,41 +15805,39 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 	bstrpick.d	$a0, $a1, 30, 2
 	slli.d	$a0, $a0, 2
 	vreplvei.d	$vr1, $vr0, 0
-	addi.d	$a3, $a2, 16
-	ori	$a4, $zero, 0
-	lu32i.d	$a4, 1
-	vreplgr2vr.d	$vr2, $a4
-	lu12i.w	$a4, -419431
-	ori	$a4, $a4, 2458
-	lu32i.d	$a4, 104857
-	lu52i.d	$a4, $a4, 1023
-	vreplgr2vr.d	$vr3, $a4
-	lu12i.w	$a4, -307024
-	ori	$a4, $a4, 3880
-	lu32i.d	$a4, 129446
-	lu52i.d	$a4, $a4, 1023
-	vreplgr2vr.d	$vr4, $a4
-	move	$a4, $a0
+	addi.d	$a5, $a3, 16
+	ori	$a6, $zero, 0
+	lu32i.d	$a6, 1
+	vreplgr2vr.d	$vr2, $a6
+	ori	$a6, $a4, 2458
+	lu32i.d	$a6, 104857
+	lu52i.d	$a6, $a6, 1023
+	vreplgr2vr.d	$vr3, $a6
+	ori	$a6, $a2, 3880
+	lu32i.d	$a6, 129446
+	lu52i.d	$a6, $a6, 1023
+	vreplgr2vr.d	$vr4, $a6
+	move	$a6, $a0
 	.p2align	4, , 16
 .LBB8_921:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vaddi.wu	$vr5, $vr2, 2
-	vpickve2gr.w	$a5, $vr2, 1
-	bstrpick.d	$a5, $a5, 31, 0
-	movgr2fr.d	$fa6, $a5
+	vpickve2gr.w	$a7, $vr2, 1
+	bstrpick.d	$a7, $a7, 31, 0
+	movgr2fr.d	$fa6, $a7
 	ffint.d.l	$fa6, $fa6
-	vpickve2gr.w	$a5, $vr2, 0
-	bstrpick.d	$a5, $a5, 31, 0
-	movgr2fr.d	$fa7, $a5
+	vpickve2gr.w	$a7, $vr2, 0
+	bstrpick.d	$a7, $a7, 31, 0
+	movgr2fr.d	$fa7, $a7
 	ffint.d.l	$fa7, $fa7
 	vextrins.d	$vr7, $vr6, 16
-	vpickve2gr.w	$a5, $vr5, 1
-	bstrpick.d	$a5, $a5, 31, 0
-	movgr2fr.d	$fa6, $a5
+	vpickve2gr.w	$a7, $vr5, 1
+	bstrpick.d	$a7, $a7, 31, 0
+	movgr2fr.d	$fa6, $a7
 	ffint.d.l	$fa6, $fa6
-	vpickve2gr.w	$a5, $vr5, 0
-	bstrpick.d	$a5, $a5, 31, 0
-	movgr2fr.d	$fa5, $a5
+	vpickve2gr.w	$a7, $vr5, 0
+	bstrpick.d	$a7, $a7, 31, 0
+	movgr2fr.d	$fa5, $a7
 	ffint.d.l	$fa5, $fa5
 	vextrins.d	$vr5, $vr6, 16
 	vfadd.d	$vr6, $vr7, $vr3
@@ -15198,34 +15848,38 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 	vfadd.d	$vr5, $vr5, $vr4
 	vfdiv.d	$vr6, $vr6, $vr7
 	vfdiv.d	$vr5, $vr8, $vr5
-	vst	$vr6, $a3, -16
-	vst	$vr5, $a3, 0
+	vst	$vr6, $a5, -16
+	vst	$vr5, $a5, 0
 	vaddi.wu	$vr2, $vr2, 4
-	addi.d	$a4, $a4, -4
-	addi.d	$a3, $a3, 32
-	bnez	$a4, .LBB8_921
+	addi.d	$a6, $a6, -4
+	addi.d	$a5, $a5, 32
+	bnez	$a6, .LBB8_921
 # %bb.922:                              # %middle.block
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_923:                              # %.lr.ph.i1342.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
-	alsl.d	$a2, $a0, $a2, 3
+	alsl.d	$a3, $a0, $a3, 3
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	ori	$a2, $a2, 3880
+	lu32i.d	$a2, 129446
+	lu52i.d	$a2, $a2, 1023
+	movgr2fr.d	$fa2, $a2
 	.p2align	4, , 16
 .LBB8_924:                              # %.lr.ph.i1342
                                         # =>This Inner Loop Header: Depth=1
-	bstrpick.d	$a3, $a0, 31, 0
-	movgr2fr.d	$fa3, $a3
+	bstrpick.d	$a2, $a0, 31, 0
+	movgr2fr.d	$fa3, $a2
 	ffint.d.l	$fa3, $fa3
 	fadd.d	$fa4, $fa3, $fa1
 	fmul.d	$fa4, $fa0, $fa4
 	fadd.d	$fa3, $fa3, $fa2
 	fdiv.d	$fa3, $fa4, $fa3
-	fst.d	$fa3, $a2, 0
+	fst.d	$fa3, $a3, 0
 	addi.d	$a1, $a1, -1
-	addi.d	$a2, $a2, 8
+	addi.d	$a3, $a3, 8
 	addi.w	$a0, $a0, 1
 	bnez	$a1, .LBB8_924
 	b	.LBB8_1187
@@ -15287,12 +15941,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.927:                              # %middle.block2534
 	beq	$a1, $a2, .LBB8_930
 .LBB8_928:                              # %.lr.ph.i860.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_929:                              # %.lr.ph.i860
                                         # =>This Inner Loop Header: Depth=1
@@ -15381,12 +16041,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.935:                              # %middle.block2550
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_936:                              # %.lr.ph.i868.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_937:                              # %.lr.ph.i868
                                         # =>This Inner Loop Header: Depth=1
@@ -15461,12 +16127,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.940:                              # %middle.block2630
 	beq	$a1, $a2, .LBB8_943
 .LBB8_941:                              # %.lr.ph.i772.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_942:                              # %.lr.ph.i772
                                         # =>This Inner Loop Header: Depth=1
@@ -15555,12 +16227,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.948:                              # %middle.block2646
 	beq	$a1, $a2, .LBB8_951
 .LBB8_949:                              # %.lr.ph.i780.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_950:                              # %.lr.ph.i780
                                         # =>This Inner Loop Header: Depth=1
@@ -15649,12 +16327,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.956:                              # %middle.block2662
 	beq	$a1, $a2, .LBB8_959
 .LBB8_957:                              # %.lr.ph.i788.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_958:                              # %.lr.ph.i788
                                         # =>This Inner Loop Header: Depth=1
@@ -15743,12 +16427,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.964:                              # %middle.block2678
 	beq	$a1, $a2, .LBB8_967
 .LBB8_965:                              # %.lr.ph.i796.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_966:                              # %.lr.ph.i796
                                         # =>This Inner Loop Header: Depth=1
@@ -15837,12 +16527,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.972:                              # %middle.block2694
 	beq	$a1, $a2, .LBB8_975
 .LBB8_973:                              # %.lr.ph.i804.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_974:                              # %.lr.ph.i804
                                         # =>This Inner Loop Header: Depth=1
@@ -15931,12 +16627,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.980:                              # %middle.block2710
 	beq	$a1, $a2, .LBB8_983
 .LBB8_981:                              # %.lr.ph.i812.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_982:                              # %.lr.ph.i812
                                         # =>This Inner Loop Header: Depth=1
@@ -16025,12 +16727,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.988:                              # %middle.block2726
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_989:                              # %.lr.ph.i820.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_990:                              # %.lr.ph.i820
                                         # =>This Inner Loop Header: Depth=1
@@ -16105,12 +16813,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.993:                              # %middle.block2502
 	beq	$a1, $a2, .LBB8_996
 .LBB8_994:                              # %.lr.ph.i876.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_995:                              # %.lr.ph.i876
                                         # =>This Inner Loop Header: Depth=1
@@ -16199,12 +16913,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1001:                             # %middle.block2518
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_1002:                             # %.lr.ph.i884.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_1003:                             # %.lr.ph.i884
                                         # =>This Inner Loop Header: Depth=1
@@ -16279,12 +16999,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1006:                             # %middle.block1846
 	beq	$a1, $a2, .LBB8_1009
 .LBB8_1007:                             # %.lr.ph.i1150.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1008:                             # %.lr.ph.i1150
                                         # =>This Inner Loop Header: Depth=1
@@ -16373,12 +17099,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1014:                             # %middle.block1862
 	beq	$a1, $a2, .LBB8_1017
 .LBB8_1015:                             # %.lr.ph.i1158.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1016:                             # %.lr.ph.i1158
                                         # =>This Inner Loop Header: Depth=1
@@ -16467,12 +17199,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1022:                             # %middle.block1878
 	beq	$a1, $a2, .LBB8_1025
 .LBB8_1023:                             # %.lr.ph.i1166.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1024:                             # %.lr.ph.i1166
                                         # =>This Inner Loop Header: Depth=1
@@ -16561,12 +17299,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1030:                             # %middle.block1894
 	beq	$a1, $a2, .LBB8_1033
 .LBB8_1031:                             # %.lr.ph.i1174.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1032:                             # %.lr.ph.i1174
                                         # =>This Inner Loop Header: Depth=1
@@ -16655,12 +17399,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1038:                             # %middle.block1910
 	beq	$a1, $a2, .LBB8_1041
 .LBB8_1039:                             # %.lr.ph.i1182.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1040:                             # %.lr.ph.i1182
                                         # =>This Inner Loop Header: Depth=1
@@ -16749,12 +17499,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1046:                             # %middle.block1926
 	beq	$a1, $a2, .LBB8_1049
 .LBB8_1047:                             # %.lr.ph.i1190.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1048:                             # %.lr.ph.i1190
                                         # =>This Inner Loop Header: Depth=1
@@ -16843,12 +17599,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1054:                             # %middle.block1942
 	beq	$a1, $a2, .LBB8_1057
 .LBB8_1055:                             # %.lr.ph.i1198.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1056:                             # %.lr.ph.i1198
                                         # =>This Inner Loop Header: Depth=1
@@ -16937,12 +17699,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1062:                             # %middle.block1958
 	beq	$a1, $a2, .LBB8_1065
 .LBB8_1063:                             # %.lr.ph.i1206.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1064:                             # %.lr.ph.i1206
                                         # =>This Inner Loop Header: Depth=1
@@ -17031,12 +17799,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1070:                             # %middle.block1974
 	beq	$a1, $a2, .LBB8_1073
 .LBB8_1071:                             # %.lr.ph.i1214.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1072:                             # %.lr.ph.i1214
                                         # =>This Inner Loop Header: Depth=1
@@ -17125,12 +17899,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1078:                             # %middle.block1990
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_1079:                             # %.lr.ph.i1222.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_1080:                             # %.lr.ph.i1222
                                         # =>This Inner Loop Header: Depth=1
@@ -17205,12 +17985,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1083:                             # %middle.block1798
 	beq	$a1, $a2, .LBB8_1086
 .LBB8_1084:                             # %.lr.ph.i1230.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1085:                             # %.lr.ph.i1230
                                         # =>This Inner Loop Header: Depth=1
@@ -17299,12 +18085,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1091:                             # %middle.block1814
 	beq	$a1, $a2, .LBB8_1094
 .LBB8_1092:                             # %.lr.ph.i1238.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1093:                             # %.lr.ph.i1238
                                         # =>This Inner Loop Header: Depth=1
@@ -17393,12 +18185,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1099:                             # %middle.block1830
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_1100:                             # %.lr.ph.i1246.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_1101:                             # %.lr.ph.i1246
                                         # =>This Inner Loop Header: Depth=1
@@ -17473,12 +18271,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1104:                             # %middle.block2070
 	beq	$a1, $a2, .LBB8_1107
 .LBB8_1105:                             # %.lr.ph.i1030.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1106:                             # %.lr.ph.i1030
                                         # =>This Inner Loop Header: Depth=1
@@ -17567,12 +18371,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1112:                             # %middle.block2086
 	beq	$a1, $a2, .LBB8_1115
 .LBB8_1113:                             # %.lr.ph.i1038.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1114:                             # %.lr.ph.i1038
                                         # =>This Inner Loop Header: Depth=1
@@ -17661,12 +18471,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1120:                             # %middle.block2102
 	beq	$a1, $a2, .LBB8_1123
 .LBB8_1121:                             # %.lr.ph.i1046.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1122:                             # %.lr.ph.i1046
                                         # =>This Inner Loop Header: Depth=1
@@ -17755,12 +18571,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1128:                             # %middle.block2118
 	beq	$a1, $a2, .LBB8_1131
 .LBB8_1129:                             # %.lr.ph.i1054.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1130:                             # %.lr.ph.i1054
                                         # =>This Inner Loop Header: Depth=1
@@ -17849,12 +18671,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1136:                             # %middle.block2134
 	beq	$a1, $a2, .LBB8_1139
 .LBB8_1137:                             # %.lr.ph.i1062.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1138:                             # %.lr.ph.i1062
                                         # =>This Inner Loop Header: Depth=1
@@ -17943,12 +18771,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1144:                             # %middle.block2150
 	beq	$a1, $a2, .LBB8_1147
 .LBB8_1145:                             # %.lr.ph.i1070.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1146:                             # %.lr.ph.i1070
                                         # =>This Inner Loop Header: Depth=1
@@ -18037,12 +18871,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1152:                             # %middle.block2166
 	beq	$a1, $a2, .LBB8_1155
 .LBB8_1153:                             # %.lr.ph.i1078.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1154:                             # %.lr.ph.i1078
                                         # =>This Inner Loop Header: Depth=1
@@ -18131,12 +18971,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1160:                             # %middle.block2182
 	beq	$a1, $a2, .LBB8_1163
 .LBB8_1161:                             # %.lr.ph.i1086.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1162:                             # %.lr.ph.i1086
                                         # =>This Inner Loop Header: Depth=1
@@ -18225,12 +19071,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1168:                             # %middle.block2198
 	beq	$a1, $a2, .LBB8_1171
 .LBB8_1169:                             # %.lr.ph.i1094.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1170:                             # %.lr.ph.i1094
                                         # =>This Inner Loop Header: Depth=1
@@ -18319,12 +19171,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1176:                             # %middle.block2214
 	beq	$a1, $a2, .LBB8_1179
 .LBB8_1177:                             # %.lr.ph.i1102.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI8_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB8_1178:                             # %.lr.ph.i1102
                                         # =>This Inner Loop Header: Depth=1
@@ -18413,12 +19271,18 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 # %bb.1184:                             # %middle.block2230
 	beq	$a0, $a1, .LBB8_1187
 .LBB8_1185:                             # %.lr.ph.i1110.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI8_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI8_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB8_1186:                             # %.lr.ph.i1110
                                         # =>This Inner Loop Header: Depth=1
@@ -18489,15 +19353,9 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 .LCPI9_0:
 	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.dword	0x3fc999999999999a              # double 0.20000000000000001
-.LCPI9_3:
+.LCPI9_1:
 	.dword	0x3fc999999999999a              # double 0.20000000000000001
 	.dword	0x3fd3333333333333              # double 0.29999999999999999
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI9_1:
-	.dword	0x3ff199999999999a              # double 1.1000000000000001
-.LCPI9_2:
-	.dword	0x3ff1f9a6b50b0f28              # double 1.1234500000000001
 	.text
 	.globl	_Z8loopInitj
 	.p2align	5
@@ -18743,8 +19601,8 @@ _Z8loopInitj:                           # @_Z8loopInitj
 .LBB9_40:
 	pcalau12i	$a0, %pc_hi20(.LCPI9_0)
 	addi.d	$a0, $a0, %pc_lo12(.LCPI9_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI9_3)
-	addi.d	$a1, $a1, %pc_lo12(.LCPI9_3)
+	pcalau12i	$a1, %pc_hi20(.LCPI9_1)
+	addi.d	$a1, $a1, %pc_lo12(.LCPI9_1)
 	ld.w	$a3, $s0, 1032
 	blez	$a3, .LBB9_577
 # %bb.41:                               # %.lr.ph.preheader.i429
@@ -18958,8 +19816,10 @@ _Z8loopInitj:                           # @_Z8loopInitj
 	pcalau12i	$a2, %pc_hi20(.LCPI9_0)
 	addi.d	$a2, $a2, %pc_lo12(.LCPI9_0)
 	fldx.d	$fa0, $a2, $a0
-	ld.d	$a2, $s0, 472
+	ld.d	$a3, $s0, 472
 	ori	$a0, $zero, 4
+	lu12i.w	$a4, -419431
+	lu12i.w	$a2, -307024
 	bgeu	$a1, $a0, .LBB9_920
 # %bb.78:
 	move	$a0, $zero
@@ -19148,12 +20008,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.102:                              # %middle.block3802
 	beq	$a1, $a2, .LBB9_105
 .LBB9_103:                              # %.lr.ph.i183.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_104:                              # %.lr.ph.i183
                                         # =>This Inner Loop Header: Depth=1
@@ -19242,12 +20108,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.110:                              # %middle.block3818
 	beq	$a1, $a2, .LBB9_113
 .LBB9_111:                              # %.lr.ph.i191.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_112:                              # %.lr.ph.i191
                                         # =>This Inner Loop Header: Depth=1
@@ -19336,12 +20208,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.118:                              # %middle.block3834
 	beq	$a1, $a2, .LBB9_121
 .LBB9_119:                              # %.lr.ph.i199.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_120:                              # %.lr.ph.i199
                                         # =>This Inner Loop Header: Depth=1
@@ -19430,12 +20308,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.126:                              # %middle.block3850
 	beq	$a1, $a2, .LBB9_129
 .LBB9_127:                              # %.lr.ph.i207.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_128:                              # %.lr.ph.i207
                                         # =>This Inner Loop Header: Depth=1
@@ -19524,12 +20408,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.134:                              # %middle.block3866
 	beq	$a1, $a2, .LBB9_137
 .LBB9_135:                              # %.lr.ph.i215.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_136:                              # %.lr.ph.i215
                                         # =>This Inner Loop Header: Depth=1
@@ -19618,12 +20508,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.142:                              # %middle.block3882
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_143:                              # %.lr.ph.i223.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_144:                              # %.lr.ph.i223
                                         # =>This Inner Loop Header: Depth=1
@@ -19698,12 +20594,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.147:                              # %middle.block3546
 	beq	$a1, $a2, .LBB9_150
 .LBB9_148:                              # %.lr.ph.i231.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_149:                              # %.lr.ph.i231
                                         # =>This Inner Loop Header: Depth=1
@@ -19792,12 +20694,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.155:                              # %middle.block3562
 	beq	$a1, $a2, .LBB9_158
 .LBB9_156:                              # %.lr.ph.i239.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_157:                              # %.lr.ph.i239
                                         # =>This Inner Loop Header: Depth=1
@@ -19886,12 +20794,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.163:                              # %middle.block3578
 	beq	$a1, $a2, .LBB9_166
 .LBB9_164:                              # %.lr.ph.i247.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_165:                              # %.lr.ph.i247
                                         # =>This Inner Loop Header: Depth=1
@@ -19980,12 +20894,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.171:                              # %middle.block3594
 	beq	$a1, $a2, .LBB9_174
 .LBB9_172:                              # %.lr.ph.i255.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_173:                              # %.lr.ph.i255
                                         # =>This Inner Loop Header: Depth=1
@@ -20074,12 +20994,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.179:                              # %middle.block3610
 	beq	$a1, $a2, .LBB9_182
 .LBB9_180:                              # %.lr.ph.i263.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_181:                              # %.lr.ph.i263
                                         # =>This Inner Loop Header: Depth=1
@@ -20168,12 +21094,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.187:                              # %middle.block3626
 	beq	$a1, $a2, .LBB9_190
 .LBB9_188:                              # %.lr.ph.i271.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_189:                              # %.lr.ph.i271
                                         # =>This Inner Loop Header: Depth=1
@@ -20262,12 +21194,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.195:                              # %middle.block3642
 	beq	$a1, $a2, .LBB9_198
 .LBB9_196:                              # %.lr.ph.i279.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_197:                              # %.lr.ph.i279
                                         # =>This Inner Loop Header: Depth=1
@@ -20356,12 +21294,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.203:                              # %middle.block3658
 	beq	$a1, $a2, .LBB9_206
 .LBB9_204:                              # %.lr.ph.i287.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_205:                              # %.lr.ph.i287
                                         # =>This Inner Loop Header: Depth=1
@@ -20450,12 +21394,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.211:                              # %middle.block3674
 	beq	$a1, $a2, .LBB9_214
 .LBB9_212:                              # %.lr.ph.i295.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_213:                              # %.lr.ph.i295
                                         # =>This Inner Loop Header: Depth=1
@@ -20544,12 +21494,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.219:                              # %middle.block3690
 	beq	$a1, $a2, .LBB9_222
 .LBB9_220:                              # %.lr.ph.i303.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_221:                              # %.lr.ph.i303
                                         # =>This Inner Loop Header: Depth=1
@@ -20638,12 +21594,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.227:                              # %middle.block3706
 	beq	$a1, $a2, .LBB9_230
 .LBB9_228:                              # %.lr.ph.i311.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_229:                              # %.lr.ph.i311
                                         # =>This Inner Loop Header: Depth=1
@@ -20732,12 +21694,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.235:                              # %middle.block3722
 	beq	$a1, $a2, .LBB9_238
 .LBB9_236:                              # %.lr.ph.i319.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_237:                              # %.lr.ph.i319
                                         # =>This Inner Loop Header: Depth=1
@@ -20826,12 +21794,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.243:                              # %middle.block3738
 	beq	$a1, $a2, .LBB9_246
 .LBB9_244:                              # %.lr.ph.i327.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_245:                              # %.lr.ph.i327
                                         # =>This Inner Loop Header: Depth=1
@@ -20920,12 +21894,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.251:                              # %middle.block3754
 	beq	$a1, $a2, .LBB9_254
 .LBB9_252:                              # %.lr.ph.i335.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_253:                              # %.lr.ph.i335
                                         # =>This Inner Loop Header: Depth=1
@@ -21014,12 +21994,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.259:                              # %middle.block3770
 	beq	$a1, $a2, .LBB9_262
 .LBB9_260:                              # %.lr.ph.i343.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_261:                              # %.lr.ph.i343
                                         # =>This Inner Loop Header: Depth=1
@@ -21108,12 +22094,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.267:                              # %middle.block3786
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_268:                              # %.lr.ph.i351.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_269:                              # %.lr.ph.i351
                                         # =>This Inner Loop Header: Depth=1
@@ -21210,12 +22202,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.274:                              # %middle.block2005
 	beq	$a1, $a2, .LBB9_277
 .LBB9_275:                              # %.lr.ph.i1117.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_276:                              # %.lr.ph.i1117
                                         # =>This Inner Loop Header: Depth=1
@@ -21304,12 +22302,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.282:                              # %middle.block2021
 	beq	$a1, $a2, .LBB9_285
 .LBB9_283:                              # %.lr.ph.i1125.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_284:                              # %.lr.ph.i1125
                                         # =>This Inner Loop Header: Depth=1
@@ -21398,12 +22402,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.290:                              # %middle.block2037
 	beq	$a1, $a2, .LBB9_293
 .LBB9_291:                              # %.lr.ph.i1133.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_292:                              # %.lr.ph.i1133
                                         # =>This Inner Loop Header: Depth=1
@@ -21492,12 +22502,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.298:                              # %middle.block2053
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_299:                              # %.lr.ph.i1141.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_300:                              # %.lr.ph.i1141
                                         # =>This Inner Loop Header: Depth=1
@@ -21572,12 +22588,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.303:                              # %middle.block2869
 	beq	$a1, $a2, .LBB9_306
 .LBB9_304:                              # %.lr.ph.i691.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_305:                              # %.lr.ph.i691
                                         # =>This Inner Loop Header: Depth=1
@@ -21666,12 +22688,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.311:                              # %middle.block2885
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_312:                              # %.lr.ph.i699.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_313:                              # %.lr.ph.i699
                                         # =>This Inner Loop Header: Depth=1
@@ -21746,12 +22774,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.316:                              # %middle.block2933
 	beq	$a1, $a2, .LBB9_319
 .LBB9_317:                              # %.lr.ph.i659.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_318:                              # %.lr.ph.i659
                                         # =>This Inner Loop Header: Depth=1
@@ -21840,12 +22874,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.324:                              # %middle.block2949
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_325:                              # %.lr.ph.i667.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_326:                              # %.lr.ph.i667
                                         # =>This Inner Loop Header: Depth=1
@@ -21920,12 +22960,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.329:                              # %middle.block3045
 	beq	$a1, $a2, .LBB9_332
 .LBB9_330:                              # %.lr.ph.i578.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_331:                              # %.lr.ph.i578
                                         # =>This Inner Loop Header: Depth=1
@@ -22014,12 +23060,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.337:                              # %middle.block3061
 	beq	$a1, $a2, .LBB9_340
 .LBB9_338:                              # %.lr.ph.i586.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_339:                              # %.lr.ph.i586
                                         # =>This Inner Loop Header: Depth=1
@@ -22108,12 +23160,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.345:                              # %middle.block3077
 	beq	$a1, $a2, .LBB9_348
 .LBB9_346:                              # %.lr.ph.i594.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_347:                              # %.lr.ph.i594
                                         # =>This Inner Loop Header: Depth=1
@@ -22202,12 +23260,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.353:                              # %middle.block3093
 	beq	$a1, $a2, .LBB9_356
 .LBB9_354:                              # %.lr.ph.i602.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_355:                              # %.lr.ph.i602
                                         # =>This Inner Loop Header: Depth=1
@@ -22296,12 +23360,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.361:                              # %middle.block3109
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_362:                              # %.lr.ph.i610.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_363:                              # %.lr.ph.i610
                                         # =>This Inner Loop Header: Depth=1
@@ -22376,12 +23446,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.366:                              # %middle.block3029
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_367:                              # %.lr.ph.i619.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_368:                              # %.lr.ph.i619
                                         # =>This Inner Loop Header: Depth=1
@@ -22456,12 +23532,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.371:                              # %middle.block3898
 	beq	$a1, $a2, .LBB9_374
 .LBB9_372:                              # %.lr.ph.i.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_373:                              # %.lr.ph.i
                                         # =>This Inner Loop Header: Depth=1
@@ -22550,12 +23632,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.379:                              # %middle.block3914
 	beq	$a1, $a2, .LBB9_382
 .LBB9_380:                              # %.lr.ph.i167.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_381:                              # %.lr.ph.i167
                                         # =>This Inner Loop Header: Depth=1
@@ -22644,12 +23732,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.387:                              # %middle.block3930
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_388:                              # %.lr.ph.i175.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_389:                              # %.lr.ph.i175
                                         # =>This Inner Loop Header: Depth=1
@@ -22724,12 +23818,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.392:                              # %middle.block3205
 	beq	$a1, $a2, .LBB9_395
 .LBB9_393:                              # %.lr.ph.i498.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_394:                              # %.lr.ph.i498
                                         # =>This Inner Loop Header: Depth=1
@@ -22818,12 +23918,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.400:                              # %middle.block3221
 	beq	$a1, $a2, .LBB9_403
 .LBB9_401:                              # %.lr.ph.i506.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_402:                              # %.lr.ph.i506
                                         # =>This Inner Loop Header: Depth=1
@@ -22912,12 +24018,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.408:                              # %middle.block3237
 	beq	$a1, $a2, .LBB9_411
 .LBB9_409:                              # %.lr.ph.i514.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_410:                              # %.lr.ph.i514
                                         # =>This Inner Loop Header: Depth=1
@@ -23006,12 +24118,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.416:                              # %middle.block3253
 	beq	$a1, $a2, .LBB9_419
 .LBB9_417:                              # %.lr.ph.i522.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_418:                              # %.lr.ph.i522
                                         # =>This Inner Loop Header: Depth=1
@@ -23100,12 +24218,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.424:                              # %middle.block3269
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_425:                              # %.lr.ph.i530.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_426:                              # %.lr.ph.i530
                                         # =>This Inner Loop Header: Depth=1
@@ -23180,12 +24304,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.429:                              # %middle.block2245
 	beq	$a1, $a2, .LBB9_432
 .LBB9_430:                              # %.lr.ph.i943.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_431:                              # %.lr.ph.i943
                                         # =>This Inner Loop Header: Depth=1
@@ -23274,12 +24404,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.437:                              # %middle.block2261
 	beq	$a1, $a2, .LBB9_440
 .LBB9_438:                              # %.lr.ph.i951.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_439:                              # %.lr.ph.i951
                                         # =>This Inner Loop Header: Depth=1
@@ -23368,12 +24504,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.445:                              # %middle.block2277
 	beq	$a1, $a2, .LBB9_448
 .LBB9_446:                              # %.lr.ph.i959.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_447:                              # %.lr.ph.i959
                                         # =>This Inner Loop Header: Depth=1
@@ -23462,12 +24604,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.453:                              # %middle.block2293
 	beq	$a1, $a2, .LBB9_456
 .LBB9_454:                              # %.lr.ph.i967.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_455:                              # %.lr.ph.i967
                                         # =>This Inner Loop Header: Depth=1
@@ -23556,12 +24704,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.461:                              # %middle.block2309
 	beq	$a1, $a2, .LBB9_464
 .LBB9_462:                              # %.lr.ph.i975.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_463:                              # %.lr.ph.i975
                                         # =>This Inner Loop Header: Depth=1
@@ -23650,12 +24804,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.469:                              # %middle.block2325
 	beq	$a1, $a2, .LBB9_472
 .LBB9_470:                              # %.lr.ph.i983.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_471:                              # %.lr.ph.i983
                                         # =>This Inner Loop Header: Depth=1
@@ -23744,12 +24904,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.477:                              # %middle.block2341
 	beq	$a1, $a2, .LBB9_480
 .LBB9_478:                              # %.lr.ph.i991.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_479:                              # %.lr.ph.i991
                                         # =>This Inner Loop Header: Depth=1
@@ -23838,12 +25004,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.485:                              # %middle.block2357
 	beq	$a1, $a2, .LBB9_488
 .LBB9_486:                              # %.lr.ph.i999.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_487:                              # %.lr.ph.i999
                                         # =>This Inner Loop Header: Depth=1
@@ -23932,12 +25104,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.493:                              # %middle.block2373
 	beq	$a1, $a2, .LBB9_496
 .LBB9_494:                              # %.lr.ph.i1007.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_495:                              # %.lr.ph.i1007
                                         # =>This Inner Loop Header: Depth=1
@@ -24026,12 +25204,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.501:                              # %middle.block2389
 	beq	$a0, $a1, .LBB9_504
 .LBB9_502:                              # %.lr.ph.i1015.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_503:                              # %.lr.ph.i1015
                                         # =>This Inner Loop Header: Depth=1
@@ -24136,12 +25320,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.512:                              # %middle.block2405
 	beq	$a0, $a1, .LBB9_515
 .LBB9_513:                              # %.lr.ph.i891.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_514:                              # %.lr.ph.i891
                                         # =>This Inner Loop Header: Depth=1
@@ -24230,12 +25420,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.520:                              # %middle.block2421
 	beq	$a0, $a1, .LBB9_523
 .LBB9_521:                              # %.lr.ph.i899.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_522:                              # %.lr.ph.i899
                                         # =>This Inner Loop Header: Depth=1
@@ -24324,12 +25520,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.528:                              # %middle.block2437
 	beq	$a0, $a1, .LBB9_531
 .LBB9_529:                              # %.lr.ph.i907.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_530:                              # %.lr.ph.i907
                                         # =>This Inner Loop Header: Depth=1
@@ -24418,12 +25620,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.536:                              # %middle.block2453
 	beq	$a0, $a1, .LBB9_539
 .LBB9_537:                              # %.lr.ph.i915.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_538:                              # %.lr.ph.i915
                                         # =>This Inner Loop Header: Depth=1
@@ -24512,12 +25720,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.544:                              # %middle.block2469
 	beq	$a0, $a1, .LBB9_547
 .LBB9_545:                              # %.lr.ph.i923.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_546:                              # %.lr.ph.i923
                                         # =>This Inner Loop Header: Depth=1
@@ -24624,12 +25838,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.556:                              # %middle.block2485
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_557:                              # %.lr.ph.i935.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_558:                              # %.lr.ph.i935
                                         # =>This Inner Loop Header: Depth=1
@@ -24704,12 +25924,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.561:                              # %middle.block2901
 	beq	$a1, $a2, .LBB9_564
 .LBB9_562:                              # %.lr.ph.i675.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_563:                              # %.lr.ph.i675
                                         # =>This Inner Loop Header: Depth=1
@@ -24798,12 +26024,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.569:                              # %middle.block2917
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_570:                              # %.lr.ph.i683.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_571:                              # %.lr.ph.i683
                                         # =>This Inner Loop Header: Depth=1
@@ -24869,13 +26101,19 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.574:                              # %middle.block3318
 	beq	$a2, $a3, .LBB9_577
 .LBB9_575:                              # %.lr.ph.i431.preheader
-	pcalau12i	$a5, %pc_hi20(.LCPI9_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI9_2)
-	fld.d	$fa3, $a5, %pc_lo12(.LCPI9_2)
 	sub.d	$a3, $a3, $a2
 	alsl.d	$a4, $a2, $a4, 4
 	addi.d	$a4, $a4, 8
+	lu12i.w	$a5, -419431
+	ori	$a5, $a5, 2458
+	lu32i.d	$a5, 104857
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa2, $a5
+	lu12i.w	$a5, -307024
+	ori	$a5, $a5, 3880
+	lu32i.d	$a5, 129446
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa3, $a5
 	.p2align	4, , 16
 .LBB9_576:                              # %.lr.ph.i431
                                         # =>This Inner Loop Header: Depth=1
@@ -24959,13 +26197,19 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.582:                              # %middle.block3335
 	beq	$a2, $a3, .LBB9_585
 .LBB9_583:                              # %.lr.ph.i440.preheader
-	pcalau12i	$a5, %pc_hi20(.LCPI9_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI9_2)
-	fld.d	$fa3, $a5, %pc_lo12(.LCPI9_2)
 	sub.d	$a3, $a3, $a2
 	alsl.d	$a4, $a2, $a4, 4
 	addi.d	$a4, $a4, 8
+	lu12i.w	$a5, -419431
+	ori	$a5, $a5, 2458
+	lu32i.d	$a5, 104857
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa2, $a5
+	lu12i.w	$a5, -307024
+	ori	$a5, $a5, 3880
+	lu32i.d	$a5, 129446
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa3, $a5
 	.p2align	4, , 16
 .LBB9_584:                              # %.lr.ph.i440
                                         # =>This Inner Loop Header: Depth=1
@@ -25049,13 +26293,19 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.590:                              # %middle.block3352
 	beq	$a2, $a3, .LBB9_593
 .LBB9_591:                              # %.lr.ph.i451.preheader
-	pcalau12i	$a5, %pc_hi20(.LCPI9_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI9_2)
-	fld.d	$fa3, $a5, %pc_lo12(.LCPI9_2)
 	sub.d	$a3, $a3, $a2
 	alsl.d	$a4, $a2, $a4, 4
 	addi.d	$a4, $a4, 8
+	lu12i.w	$a5, -419431
+	ori	$a5, $a5, 2458
+	lu32i.d	$a5, 104857
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa2, $a5
+	lu12i.w	$a5, -307024
+	ori	$a5, $a5, 3880
+	lu32i.d	$a5, 129446
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa3, $a5
 	.p2align	4, , 16
 .LBB9_592:                              # %.lr.ph.i451
                                         # =>This Inner Loop Header: Depth=1
@@ -25139,13 +26389,19 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.598:                              # %middle.block3369
 	beq	$a2, $a3, .LBB9_601
 .LBB9_599:                              # %.lr.ph.i462.preheader
-	pcalau12i	$a5, %pc_hi20(.LCPI9_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI9_2)
-	fld.d	$fa3, $a5, %pc_lo12(.LCPI9_2)
 	sub.d	$a3, $a3, $a2
 	alsl.d	$a4, $a2, $a4, 4
 	addi.d	$a4, $a4, 8
+	lu12i.w	$a5, -419431
+	ori	$a5, $a5, 2458
+	lu32i.d	$a5, 104857
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa2, $a5
+	lu12i.w	$a5, -307024
+	ori	$a5, $a5, 3880
+	lu32i.d	$a5, 129446
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa3, $a5
 	.p2align	4, , 16
 .LBB9_600:                              # %.lr.ph.i462
                                         # =>This Inner Loop Header: Depth=1
@@ -25229,13 +26485,19 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.606:                              # %middle.block3386
 	beq	$a0, $a2, .LBB9_1187
 .LBB9_607:                              # %.lr.ph.i473.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa3, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a0
 	alsl.d	$a1, $a0, $a1, 4
 	addi.d	$a1, $a1, 8
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa3, $a3
 	.p2align	4, , 16
 .LBB9_608:                              # %.lr.ph.i473
                                         # =>This Inner Loop Header: Depth=1
@@ -25313,12 +26575,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.611:                              # %middle.block1621
 	beq	$a1, $a2, .LBB9_614
 .LBB9_612:                              # %.lr.ph.i1293.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_613:                              # %.lr.ph.i1293
                                         # =>This Inner Loop Header: Depth=1
@@ -25407,12 +26675,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.619:                              # %middle.block1637
 	beq	$a1, $a2, .LBB9_622
 .LBB9_620:                              # %.lr.ph.i1301.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_621:                              # %.lr.ph.i1301
                                         # =>This Inner Loop Header: Depth=1
@@ -25501,12 +26775,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.627:                              # %middle.block1653
 	beq	$a1, $a2, .LBB9_630
 .LBB9_628:                              # %.lr.ph.i1309.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_629:                              # %.lr.ph.i1309
                                         # =>This Inner Loop Header: Depth=1
@@ -25595,12 +26875,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.635:                              # %middle.block1669
 	beq	$a1, $a2, .LBB9_638
 .LBB9_636:                              # %.lr.ph.i1317.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_637:                              # %.lr.ph.i1317
                                         # =>This Inner Loop Header: Depth=1
@@ -25689,12 +26975,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.643:                              # %middle.block1685
 	beq	$a1, $a2, .LBB9_646
 .LBB9_644:                              # %.lr.ph.i1325.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_645:                              # %.lr.ph.i1325
                                         # =>This Inner Loop Header: Depth=1
@@ -25783,12 +27075,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.651:                              # %middle.block1701
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_652:                              # %.lr.ph.i1333.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_653:                              # %.lr.ph.i1333
                                         # =>This Inner Loop Header: Depth=1
@@ -25863,12 +27161,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.656:                              # %middle.block2821
 	beq	$a1, $a2, .LBB9_659
 .LBB9_657:                              # %.lr.ph.i707.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_658:                              # %.lr.ph.i707
                                         # =>This Inner Loop Header: Depth=1
@@ -25957,12 +27261,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.664:                              # %middle.block2837
 	beq	$a1, $a2, .LBB9_667
 .LBB9_665:                              # %.lr.ph.i715.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_666:                              # %.lr.ph.i715
                                         # =>This Inner Loop Header: Depth=1
@@ -26051,12 +27361,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.672:                              # %middle.block2853
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_673:                              # %.lr.ph.i723.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_674:                              # %.lr.ph.i723
                                         # =>This Inner Loop Header: Depth=1
@@ -26131,12 +27447,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.677:                              # %middle.block2597
 	beq	$a1, $a2, .LBB9_680
 .LBB9_678:                              # %.lr.ph.i827.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_679:                              # %.lr.ph.i827
                                         # =>This Inner Loop Header: Depth=1
@@ -26225,12 +27547,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.685:                              # %middle.block2613
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_686:                              # %.lr.ph.i835.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_687:                              # %.lr.ph.i835
                                         # =>This Inner Loop Header: Depth=1
@@ -26305,12 +27633,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.690:                              # %middle.block3482
 	beq	$a1, $a2, .LBB9_693
 .LBB9_691:                              # %.lr.ph.i359.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_692:                              # %.lr.ph.i359
                                         # =>This Inner Loop Header: Depth=1
@@ -26399,12 +27733,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.698:                              # %middle.block3498
 	beq	$a1, $a2, .LBB9_701
 .LBB9_699:                              # %.lr.ph.i367.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_700:                              # %.lr.ph.i367
                                         # =>This Inner Loop Header: Depth=1
@@ -26493,12 +27833,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.706:                              # %middle.block3514
 	beq	$a1, $a2, .LBB9_709
 .LBB9_707:                              # %.lr.ph.i375.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_708:                              # %.lr.ph.i375
                                         # =>This Inner Loop Header: Depth=1
@@ -26587,12 +27933,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.714:                              # %middle.block3530
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_715:                              # %.lr.ph.i383.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_716:                              # %.lr.ph.i383
                                         # =>This Inner Loop Header: Depth=1
@@ -26667,12 +28019,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.719:                              # %middle.block2565
 	beq	$a1, $a2, .LBB9_722
 .LBB9_720:                              # %.lr.ph.i843.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_721:                              # %.lr.ph.i843
                                         # =>This Inner Loop Header: Depth=1
@@ -26761,12 +28119,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.727:                              # %middle.block2581
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_728:                              # %.lr.ph.i851.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_729:                              # %.lr.ph.i851
                                         # =>This Inner Loop Header: Depth=1
@@ -26841,12 +28205,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.732:                              # %middle.block2965
 	beq	$a1, $a2, .LBB9_735
 .LBB9_733:                              # %.lr.ph.i627.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_734:                              # %.lr.ph.i627
                                         # =>This Inner Loop Header: Depth=1
@@ -26935,12 +28305,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.740:                              # %middle.block2981
 	beq	$a1, $a2, .LBB9_743
 .LBB9_741:                              # %.lr.ph.i635.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_742:                              # %.lr.ph.i635
                                         # =>This Inner Loop Header: Depth=1
@@ -27029,12 +28405,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.748:                              # %middle.block2997
 	beq	$a1, $a2, .LBB9_751
 .LBB9_749:                              # %.lr.ph.i643.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_750:                              # %.lr.ph.i643
                                         # =>This Inner Loop Header: Depth=1
@@ -27123,12 +28505,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.756:                              # %middle.block3013
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_757:                              # %.lr.ph.i651.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_758:                              # %.lr.ph.i651
                                         # =>This Inner Loop Header: Depth=1
@@ -27203,12 +28591,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.761:                              # %middle.block3402
 	beq	$a1, $a2, .LBB9_764
 .LBB9_762:                              # %.lr.ph.i391.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_763:                              # %.lr.ph.i391
                                         # =>This Inner Loop Header: Depth=1
@@ -27297,12 +28691,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.769:                              # %middle.block3418
 	beq	$a1, $a2, .LBB9_772
 .LBB9_770:                              # %.lr.ph.i399.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_771:                              # %.lr.ph.i399
                                         # =>This Inner Loop Header: Depth=1
@@ -27391,12 +28791,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.777:                              # %middle.block3434
 	beq	$a1, $a2, .LBB9_780
 .LBB9_778:                              # %.lr.ph.i407.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_779:                              # %.lr.ph.i407
                                         # =>This Inner Loop Header: Depth=1
@@ -27485,12 +28891,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.785:                              # %middle.block3450
 	beq	$a1, $a2, .LBB9_788
 .LBB9_786:                              # %.lr.ph.i415.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_787:                              # %.lr.ph.i415
                                         # =>This Inner Loop Header: Depth=1
@@ -27579,12 +28991,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.793:                              # %middle.block3466
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_794:                              # %.lr.ph.i423.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_795:                              # %.lr.ph.i423
                                         # =>This Inner Loop Header: Depth=1
@@ -27659,12 +29077,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.798:                              # %middle.block2741
 	beq	$a1, $a2, .LBB9_801
 .LBB9_799:                              # %.lr.ph.i731.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_800:                              # %.lr.ph.i731
                                         # =>This Inner Loop Header: Depth=1
@@ -27753,12 +29177,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.806:                              # %middle.block2757
 	beq	$a1, $a2, .LBB9_809
 .LBB9_807:                              # %.lr.ph.i739.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_808:                              # %.lr.ph.i739
                                         # =>This Inner Loop Header: Depth=1
@@ -27847,12 +29277,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.814:                              # %middle.block2773
 	beq	$a1, $a2, .LBB9_817
 .LBB9_815:                              # %.lr.ph.i747.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_816:                              # %.lr.ph.i747
                                         # =>This Inner Loop Header: Depth=1
@@ -27941,12 +29377,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.822:                              # %middle.block2789
 	beq	$a1, $a2, .LBB9_825
 .LBB9_823:                              # %.lr.ph.i755.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_824:                              # %.lr.ph.i755
                                         # =>This Inner Loop Header: Depth=1
@@ -28035,12 +29477,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.830:                              # %middle.block2805
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_831:                              # %.lr.ph.i763.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_832:                              # %.lr.ph.i763
                                         # =>This Inner Loop Header: Depth=1
@@ -28115,12 +29563,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.835:                              # %middle.block3125
 	beq	$a1, $a2, .LBB9_838
 .LBB9_836:                              # %.lr.ph.i538.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_837:                              # %.lr.ph.i538
                                         # =>This Inner Loop Header: Depth=1
@@ -28209,12 +29663,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.843:                              # %middle.block3141
 	beq	$a1, $a2, .LBB9_846
 .LBB9_844:                              # %.lr.ph.i546.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_845:                              # %.lr.ph.i546
                                         # =>This Inner Loop Header: Depth=1
@@ -28303,12 +29763,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.851:                              # %middle.block3157
 	beq	$a1, $a2, .LBB9_854
 .LBB9_852:                              # %.lr.ph.i554.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_853:                              # %.lr.ph.i554
                                         # =>This Inner Loop Header: Depth=1
@@ -28397,12 +29863,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.859:                              # %middle.block3173
 	beq	$a1, $a2, .LBB9_862
 .LBB9_860:                              # %.lr.ph.i562.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_861:                              # %.lr.ph.i562
                                         # =>This Inner Loop Header: Depth=1
@@ -28491,12 +29963,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.867:                              # %middle.block3189
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_868:                              # %.lr.ph.i570.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_869:                              # %.lr.ph.i570
                                         # =>This Inner Loop Header: Depth=1
@@ -28571,12 +30049,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.872:                              # %middle.block3285
 	beq	$a1, $a2, .LBB9_875
 .LBB9_873:                              # %.lr.ph.i482.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_874:                              # %.lr.ph.i482
                                         # =>This Inner Loop Header: Depth=1
@@ -28665,12 +30149,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.880:                              # %middle.block3301
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_881:                              # %.lr.ph.i490.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_882:                              # %.lr.ph.i490
                                         # =>This Inner Loop Header: Depth=1
@@ -28745,12 +30235,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.885:                              # %middle.block1717
 	beq	$a1, $a2, .LBB9_888
 .LBB9_886:                              # %.lr.ph.i1253.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_887:                              # %.lr.ph.i1253
                                         # =>This Inner Loop Header: Depth=1
@@ -28839,12 +30335,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.893:                              # %middle.block1733
 	beq	$a1, $a2, .LBB9_896
 .LBB9_894:                              # %.lr.ph.i1261.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_895:                              # %.lr.ph.i1261
                                         # =>This Inner Loop Header: Depth=1
@@ -28933,12 +30435,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.901:                              # %middle.block1749
 	beq	$a1, $a2, .LBB9_904
 .LBB9_902:                              # %.lr.ph.i1269.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_903:                              # %.lr.ph.i1269
                                         # =>This Inner Loop Header: Depth=1
@@ -29027,12 +30535,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.909:                              # %middle.block1765
 	beq	$a1, $a2, .LBB9_912
 .LBB9_910:                              # %.lr.ph.i1277.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_911:                              # %.lr.ph.i1277
                                         # =>This Inner Loop Header: Depth=1
@@ -29121,12 +30635,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.917:                              # %middle.block1781
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_918:                              # %.lr.ph.i1285.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_919:                              # %.lr.ph.i1285
                                         # =>This Inner Loop Header: Depth=1
@@ -29147,41 +30667,39 @@ _Z8loopInitj:                           # @_Z8loopInitj
 	bstrpick.d	$a0, $a1, 30, 2
 	slli.d	$a0, $a0, 2
 	vreplvei.d	$vr1, $vr0, 0
-	addi.d	$a3, $a2, 16
-	ori	$a4, $zero, 0
-	lu32i.d	$a4, 1
-	vreplgr2vr.d	$vr2, $a4
-	lu12i.w	$a4, -419431
-	ori	$a4, $a4, 2458
-	lu32i.d	$a4, 104857
-	lu52i.d	$a4, $a4, 1023
-	vreplgr2vr.d	$vr3, $a4
-	lu12i.w	$a4, -307024
-	ori	$a4, $a4, 3880
-	lu32i.d	$a4, 129446
-	lu52i.d	$a4, $a4, 1023
-	vreplgr2vr.d	$vr4, $a4
-	move	$a4, $a0
+	addi.d	$a5, $a3, 16
+	ori	$a6, $zero, 0
+	lu32i.d	$a6, 1
+	vreplgr2vr.d	$vr2, $a6
+	ori	$a6, $a4, 2458
+	lu32i.d	$a6, 104857
+	lu52i.d	$a6, $a6, 1023
+	vreplgr2vr.d	$vr3, $a6
+	ori	$a6, $a2, 3880
+	lu32i.d	$a6, 129446
+	lu52i.d	$a6, $a6, 1023
+	vreplgr2vr.d	$vr4, $a6
+	move	$a6, $a0
 	.p2align	4, , 16
 .LBB9_921:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vaddi.wu	$vr5, $vr2, 2
-	vpickve2gr.w	$a5, $vr2, 1
-	bstrpick.d	$a5, $a5, 31, 0
-	movgr2fr.d	$fa6, $a5
+	vpickve2gr.w	$a7, $vr2, 1
+	bstrpick.d	$a7, $a7, 31, 0
+	movgr2fr.d	$fa6, $a7
 	ffint.d.l	$fa6, $fa6
-	vpickve2gr.w	$a5, $vr2, 0
-	bstrpick.d	$a5, $a5, 31, 0
-	movgr2fr.d	$fa7, $a5
+	vpickve2gr.w	$a7, $vr2, 0
+	bstrpick.d	$a7, $a7, 31, 0
+	movgr2fr.d	$fa7, $a7
 	ffint.d.l	$fa7, $fa7
 	vextrins.d	$vr7, $vr6, 16
-	vpickve2gr.w	$a5, $vr5, 1
-	bstrpick.d	$a5, $a5, 31, 0
-	movgr2fr.d	$fa6, $a5
+	vpickve2gr.w	$a7, $vr5, 1
+	bstrpick.d	$a7, $a7, 31, 0
+	movgr2fr.d	$fa6, $a7
 	ffint.d.l	$fa6, $fa6
-	vpickve2gr.w	$a5, $vr5, 0
-	bstrpick.d	$a5, $a5, 31, 0
-	movgr2fr.d	$fa5, $a5
+	vpickve2gr.w	$a7, $vr5, 0
+	bstrpick.d	$a7, $a7, 31, 0
+	movgr2fr.d	$fa5, $a7
 	ffint.d.l	$fa5, $fa5
 	vextrins.d	$vr5, $vr6, 16
 	vfadd.d	$vr6, $vr7, $vr3
@@ -29192,34 +30710,38 @@ _Z8loopInitj:                           # @_Z8loopInitj
 	vfadd.d	$vr5, $vr5, $vr4
 	vfdiv.d	$vr6, $vr6, $vr7
 	vfdiv.d	$vr5, $vr8, $vr5
-	vst	$vr6, $a3, -16
-	vst	$vr5, $a3, 0
+	vst	$vr6, $a5, -16
+	vst	$vr5, $a5, 0
 	vaddi.wu	$vr2, $vr2, 4
-	addi.d	$a4, $a4, -4
-	addi.d	$a3, $a3, 32
-	bnez	$a4, .LBB9_921
+	addi.d	$a6, $a6, -4
+	addi.d	$a5, $a5, 32
+	bnez	$a6, .LBB9_921
 # %bb.922:                              # %middle.block
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_923:                              # %.lr.ph.i1341.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
-	alsl.d	$a2, $a0, $a2, 3
+	alsl.d	$a3, $a0, $a3, 3
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	ori	$a2, $a2, 3880
+	lu32i.d	$a2, 129446
+	lu52i.d	$a2, $a2, 1023
+	movgr2fr.d	$fa2, $a2
 	.p2align	4, , 16
 .LBB9_924:                              # %.lr.ph.i1341
                                         # =>This Inner Loop Header: Depth=1
-	bstrpick.d	$a3, $a0, 31, 0
-	movgr2fr.d	$fa3, $a3
+	bstrpick.d	$a2, $a0, 31, 0
+	movgr2fr.d	$fa3, $a2
 	ffint.d.l	$fa3, $fa3
 	fadd.d	$fa4, $fa3, $fa1
 	fmul.d	$fa4, $fa0, $fa4
 	fadd.d	$fa3, $fa3, $fa2
 	fdiv.d	$fa3, $fa4, $fa3
-	fst.d	$fa3, $a2, 0
+	fst.d	$fa3, $a3, 0
 	addi.d	$a1, $a1, -1
-	addi.d	$a2, $a2, 8
+	addi.d	$a3, $a3, 8
 	addi.w	$a0, $a0, 1
 	bnez	$a1, .LBB9_924
 	b	.LBB9_1187
@@ -29281,12 +30803,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.927:                              # %middle.block2533
 	beq	$a1, $a2, .LBB9_930
 .LBB9_928:                              # %.lr.ph.i859.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_929:                              # %.lr.ph.i859
                                         # =>This Inner Loop Header: Depth=1
@@ -29375,12 +30903,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.935:                              # %middle.block2549
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_936:                              # %.lr.ph.i867.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_937:                              # %.lr.ph.i867
                                         # =>This Inner Loop Header: Depth=1
@@ -29455,12 +30989,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.940:                              # %middle.block2629
 	beq	$a1, $a2, .LBB9_943
 .LBB9_941:                              # %.lr.ph.i771.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_942:                              # %.lr.ph.i771
                                         # =>This Inner Loop Header: Depth=1
@@ -29549,12 +31089,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.948:                              # %middle.block2645
 	beq	$a1, $a2, .LBB9_951
 .LBB9_949:                              # %.lr.ph.i779.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_950:                              # %.lr.ph.i779
                                         # =>This Inner Loop Header: Depth=1
@@ -29643,12 +31189,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.956:                              # %middle.block2661
 	beq	$a1, $a2, .LBB9_959
 .LBB9_957:                              # %.lr.ph.i787.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_958:                              # %.lr.ph.i787
                                         # =>This Inner Loop Header: Depth=1
@@ -29737,12 +31289,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.964:                              # %middle.block2677
 	beq	$a1, $a2, .LBB9_967
 .LBB9_965:                              # %.lr.ph.i795.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_966:                              # %.lr.ph.i795
                                         # =>This Inner Loop Header: Depth=1
@@ -29831,12 +31389,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.972:                              # %middle.block2693
 	beq	$a1, $a2, .LBB9_975
 .LBB9_973:                              # %.lr.ph.i803.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_974:                              # %.lr.ph.i803
                                         # =>This Inner Loop Header: Depth=1
@@ -29925,12 +31489,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.980:                              # %middle.block2709
 	beq	$a1, $a2, .LBB9_983
 .LBB9_981:                              # %.lr.ph.i811.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_982:                              # %.lr.ph.i811
                                         # =>This Inner Loop Header: Depth=1
@@ -30019,12 +31589,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.988:                              # %middle.block2725
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_989:                              # %.lr.ph.i819.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_990:                              # %.lr.ph.i819
                                         # =>This Inner Loop Header: Depth=1
@@ -30099,12 +31675,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.993:                              # %middle.block2501
 	beq	$a1, $a2, .LBB9_996
 .LBB9_994:                              # %.lr.ph.i875.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_995:                              # %.lr.ph.i875
                                         # =>This Inner Loop Header: Depth=1
@@ -30193,12 +31775,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1001:                             # %middle.block2517
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_1002:                             # %.lr.ph.i883.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_1003:                             # %.lr.ph.i883
                                         # =>This Inner Loop Header: Depth=1
@@ -30273,12 +31861,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1006:                             # %middle.block1845
 	beq	$a1, $a2, .LBB9_1009
 .LBB9_1007:                             # %.lr.ph.i1149.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1008:                             # %.lr.ph.i1149
                                         # =>This Inner Loop Header: Depth=1
@@ -30367,12 +31961,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1014:                             # %middle.block1861
 	beq	$a1, $a2, .LBB9_1017
 .LBB9_1015:                             # %.lr.ph.i1157.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1016:                             # %.lr.ph.i1157
                                         # =>This Inner Loop Header: Depth=1
@@ -30461,12 +32061,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1022:                             # %middle.block1877
 	beq	$a1, $a2, .LBB9_1025
 .LBB9_1023:                             # %.lr.ph.i1165.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1024:                             # %.lr.ph.i1165
                                         # =>This Inner Loop Header: Depth=1
@@ -30555,12 +32161,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1030:                             # %middle.block1893
 	beq	$a1, $a2, .LBB9_1033
 .LBB9_1031:                             # %.lr.ph.i1173.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1032:                             # %.lr.ph.i1173
                                         # =>This Inner Loop Header: Depth=1
@@ -30649,12 +32261,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1038:                             # %middle.block1909
 	beq	$a1, $a2, .LBB9_1041
 .LBB9_1039:                             # %.lr.ph.i1181.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1040:                             # %.lr.ph.i1181
                                         # =>This Inner Loop Header: Depth=1
@@ -30743,12 +32361,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1046:                             # %middle.block1925
 	beq	$a1, $a2, .LBB9_1049
 .LBB9_1047:                             # %.lr.ph.i1189.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1048:                             # %.lr.ph.i1189
                                         # =>This Inner Loop Header: Depth=1
@@ -30837,12 +32461,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1054:                             # %middle.block1941
 	beq	$a1, $a2, .LBB9_1057
 .LBB9_1055:                             # %.lr.ph.i1197.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1056:                             # %.lr.ph.i1197
                                         # =>This Inner Loop Header: Depth=1
@@ -30931,12 +32561,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1062:                             # %middle.block1957
 	beq	$a1, $a2, .LBB9_1065
 .LBB9_1063:                             # %.lr.ph.i1205.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1064:                             # %.lr.ph.i1205
                                         # =>This Inner Loop Header: Depth=1
@@ -31025,12 +32661,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1070:                             # %middle.block1973
 	beq	$a1, $a2, .LBB9_1073
 .LBB9_1071:                             # %.lr.ph.i1213.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1072:                             # %.lr.ph.i1213
                                         # =>This Inner Loop Header: Depth=1
@@ -31119,12 +32761,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1078:                             # %middle.block1989
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_1079:                             # %.lr.ph.i1221.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_1080:                             # %.lr.ph.i1221
                                         # =>This Inner Loop Header: Depth=1
@@ -31199,12 +32847,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1083:                             # %middle.block1797
 	beq	$a1, $a2, .LBB9_1086
 .LBB9_1084:                             # %.lr.ph.i1229.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1085:                             # %.lr.ph.i1229
                                         # =>This Inner Loop Header: Depth=1
@@ -31293,12 +32947,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1091:                             # %middle.block1813
 	beq	$a1, $a2, .LBB9_1094
 .LBB9_1092:                             # %.lr.ph.i1237.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1093:                             # %.lr.ph.i1237
                                         # =>This Inner Loop Header: Depth=1
@@ -31387,12 +33047,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1099:                             # %middle.block1829
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_1100:                             # %.lr.ph.i1245.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_1101:                             # %.lr.ph.i1245
                                         # =>This Inner Loop Header: Depth=1
@@ -31467,12 +33133,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1104:                             # %middle.block2069
 	beq	$a1, $a2, .LBB9_1107
 .LBB9_1105:                             # %.lr.ph.i1029.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1106:                             # %.lr.ph.i1029
                                         # =>This Inner Loop Header: Depth=1
@@ -31561,12 +33233,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1112:                             # %middle.block2085
 	beq	$a1, $a2, .LBB9_1115
 .LBB9_1113:                             # %.lr.ph.i1037.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1114:                             # %.lr.ph.i1037
                                         # =>This Inner Loop Header: Depth=1
@@ -31655,12 +33333,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1120:                             # %middle.block2101
 	beq	$a1, $a2, .LBB9_1123
 .LBB9_1121:                             # %.lr.ph.i1045.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1122:                             # %.lr.ph.i1045
                                         # =>This Inner Loop Header: Depth=1
@@ -31749,12 +33433,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1128:                             # %middle.block2117
 	beq	$a1, $a2, .LBB9_1131
 .LBB9_1129:                             # %.lr.ph.i1053.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1130:                             # %.lr.ph.i1053
                                         # =>This Inner Loop Header: Depth=1
@@ -31843,12 +33533,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1136:                             # %middle.block2133
 	beq	$a1, $a2, .LBB9_1139
 .LBB9_1137:                             # %.lr.ph.i1061.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1138:                             # %.lr.ph.i1061
                                         # =>This Inner Loop Header: Depth=1
@@ -31937,12 +33633,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1144:                             # %middle.block2149
 	beq	$a1, $a2, .LBB9_1147
 .LBB9_1145:                             # %.lr.ph.i1069.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1146:                             # %.lr.ph.i1069
                                         # =>This Inner Loop Header: Depth=1
@@ -32031,12 +33733,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1152:                             # %middle.block2165
 	beq	$a1, $a2, .LBB9_1155
 .LBB9_1153:                             # %.lr.ph.i1077.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1154:                             # %.lr.ph.i1077
                                         # =>This Inner Loop Header: Depth=1
@@ -32125,12 +33833,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1160:                             # %middle.block2181
 	beq	$a1, $a2, .LBB9_1163
 .LBB9_1161:                             # %.lr.ph.i1085.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1162:                             # %.lr.ph.i1085
                                         # =>This Inner Loop Header: Depth=1
@@ -32219,12 +33933,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1168:                             # %middle.block2197
 	beq	$a1, $a2, .LBB9_1171
 .LBB9_1169:                             # %.lr.ph.i1093.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1170:                             # %.lr.ph.i1093
                                         # =>This Inner Loop Header: Depth=1
@@ -32313,12 +34033,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1176:                             # %middle.block2213
 	beq	$a1, $a2, .LBB9_1179
 .LBB9_1177:                             # %.lr.ph.i1101.preheader
-	pcalau12i	$a4, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI9_2)
 	sub.d	$a2, $a2, $a1
 	alsl.d	$a3, $a1, $a3, 3
+	lu12i.w	$a4, -419431
+	ori	$a4, $a4, 2458
+	lu32i.d	$a4, 104857
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa1, $a4
+	lu12i.w	$a4, -307024
+	ori	$a4, $a4, 3880
+	lu32i.d	$a4, 129446
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa2, $a4
 	.p2align	4, , 16
 .LBB9_1178:                             # %.lr.ph.i1101
                                         # =>This Inner Loop Header: Depth=1
@@ -32407,12 +34133,18 @@ _Z8loopInitj:                           # @_Z8loopInitj
 # %bb.1184:                             # %middle.block2229
 	beq	$a0, $a1, .LBB9_1187
 .LBB9_1185:                             # %.lr.ph.i1109.preheader
-	pcalau12i	$a3, %pc_hi20(.LCPI9_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI9_2)
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a0, $a2, 3
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, -307024
+	ori	$a3, $a3, 3880
+	lu32i.d	$a3, 129446
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa2, $a3
 	.p2align	4, , 16
 .LBB9_1186:                             # %.lr.ph.i1109
                                         # =>This Inner Loop Header: Depth=1

@@ -1,10 +1,6 @@
 	.file	"QCS.cc"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN3QCSC2EPK9InputFileP5Hydro
-.LCPI0_0:
-	.dword	0x3ffaaaaaaaaaaaab              # double 1.6666666666666667
 	.text
-	.globl	_ZN3QCSC2EPK9InputFileP5Hydro
+	.globl	_ZN3QCSC2EPK9InputFileP5Hydro   # -- Begin function _ZN3QCSC2EPK9InputFileP5Hydro
 	.p2align	5
 	.type	_ZN3QCSC2EPK9InputFileP5Hydro,@function
 _ZN3QCSC2EPK9InputFileP5Hydro:          # @_ZN3QCSC2EPK9InputFileP5Hydro
@@ -40,8 +36,11 @@ _ZN3QCSC2EPK9InputFileP5Hydro:          # @_ZN3QCSC2EPK9InputFileP5Hydro
 	st.d	$a0, $sp, 16
 	st.b	$zero, $sp, 30
 .Ltmp0:                                 # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, -349526
+	ori	$a0, $a0, 2731
+	lu32i.d	$a0, -349526
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa0, $a0
 	addi.d	$a1, $sp, 8
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZNK9InputFile9getDoubleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd)
@@ -296,12 +295,7 @@ _ZN3QCS9calcForceEP7double2ii:          # @_ZN3QCS9calcForceEP7double2ii
 .Lfunc_end2:
 	.size	_ZN3QCS9calcForceEP7double2ii, .Lfunc_end2-_ZN3QCS9calcForceEP7double2ii
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii
-.LCPI3_0:
-	.dword	0x3d719799812dea11              # double 9.9999999999999998E-13
-	.text
-	.globl	_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii
+	.globl	_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii # -- Begin function _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii
 	.p2align	5
 	.type	_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii,@function
 _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii: # @_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii
@@ -461,9 +455,12 @@ _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii: # @_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_i
 	alsl.d	$s7, $a6, $t8, 2
 	alsl.d	$s5, $a6, $ra, 2
 	vldi	$vr23, -928
-	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
-	fld.d	$ft12, $a1, %pc_lo12(.LCPI3_0)
-	movgr2fr.d	$ft13, $zero
+	movgr2fr.d	$ft12, $zero
+	lu12i.w	$a1, -519458
+	ori	$a1, $a1, 2577
+	lu32i.d	$a1, 104345
+	lu52i.d	$a1, $a1, 983
+	movgr2fr.d	$ft13, $a1
 	vldi	$vr22, -944
 	.p2align	4, , 16
 .LBB3_10:                               # =>This Inner Loop Header: Depth=1
@@ -524,8 +521,8 @@ _ZN3QCS12setCornerDivEPdS0_S0_S0_S0_ii: # @_ZN3QCS12setCornerDivEPdS0_S0_S0_S0_i
 	fcmp.clt.d	$fcc0, $ft10, $ft9
 	fsel	$ft11, $ft9, $ft10, $fcc0
 	fst.d	$ft11, $sp, 112                 # 8-byte Folded Spill
-	fcmp.clt.d	$fcc0, $ft11, $ft12
-	fmov.d	$ft11, $ft13
+	fcmp.clt.d	$fcc0, $ft11, $ft13
+	fmov.d	$ft11, $ft12
 	bcnez	$fcc0, .LBB3_12
 # %bb.11:                               #   in Loop: Header=BB3_10 Depth=1
 	fsub.d	$ft11, $fa4, $fa1
@@ -940,12 +937,7 @@ _ZN3QCS11setQCnForceEPKdS1_S1_P7double2ii: # @_ZN3QCS11setQCnForceEPKdS1_S1_P7do
 	.size	_ZN3QCS11setQCnForceEPKdS1_S1_P7double2ii, .Lfunc_end4-_ZN3QCS11setQCnForceEPKdS1_S1_P7double2ii
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN3QCS8setForceEPKdPK7double2PdPS2_ii
-.LCPI5_0:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-	.text
-	.globl	_ZN3QCS8setForceEPKdPK7double2PdPS2_ii
+	.globl	_ZN3QCS8setForceEPKdPK7double2PdPS2_ii # -- Begin function _ZN3QCS8setForceEPKdPK7double2PdPS2_ii
 	.p2align	5
 	.type	_ZN3QCS8setForceEPKdPK7double2PdPS2_ii,@function
 _ZN3QCS8setForceEPKdPK7double2PdPS2_ii: # @_ZN3QCS8setForceEPKdPK7double2PdPS2_ii
@@ -989,10 +981,13 @@ _ZN3QCS8setForceEPKdPK7double2PdPS2_ii: # @_ZN3QCS8setForceEPKdPK7double2PdPS2_i
 	jirl	$ra, $ra, 0
 	bge	$fp, $s2, .LBB5_7
 # %bb.1:                                # %.lr.ph.preheader
-	pcalau12i	$a1, %pc_hi20(.LCPI5_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI5_0)
-	vldi	$vr1, -912
-	movgr2fr.d	$fa2, $zero
+	vldi	$vr0, -912
+	movgr2fr.d	$fa1, $zero
+	lu12i.w	$a1, -85564
+	ori	$a1, $a1, 813
+	lu32i.d	$a1, -379166
+	lu52i.d	$a1, $a1, 1009
+	movgr2fr.d	$fa2, $a1
 	move	$a1, $s0
 	move	$a2, $a0
 	b	.LBB5_3
@@ -1010,10 +1005,10 @@ _ZN3QCS8setForceEPKdPK7double2PdPS2_ii: # @_ZN3QCS8setForceEPKdPK7double2PdPS2_i
                                         # =>This Inner Loop Header: Depth=1
 	fld.d	$fa3, $a1, 0
 	fneg.d	$fa4, $fa3
-	fmadd.d	$fa5, $fa4, $fa3, $fa1
-	fcmp.clt.d	$fcc0, $fa5, $fa0
-	fmov.d	$fa4, $fa2
-	fmov.d	$fa6, $fa2
+	fmadd.d	$fa5, $fa4, $fa3, $fa0
+	fcmp.clt.d	$fcc0, $fa5, $fa2
+	fmov.d	$fa4, $fa1
+	fmov.d	$fa6, $fa1
 	bcnez	$fcc0, .LBB5_2
 # %bb.4:                                #   in Loop: Header=BB5_3 Depth=1
 	fld.d	$fa4, $s4, 0

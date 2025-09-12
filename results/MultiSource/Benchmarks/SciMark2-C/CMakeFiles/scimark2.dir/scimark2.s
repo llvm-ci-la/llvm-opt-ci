@@ -1,10 +1,6 @@
 	.file	"scimark2.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x416312d000000000              # double 1.0E+7
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -126,20 +122,20 @@ main:                                   # @main
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(kernel_measureFFT)
 	jirl	$ra, $ra, 0
-	fmov.d	$fs1, $fa0
+	fmov.d	$fs2, $fa0
 	move	$a0, $s0
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
                                         # kill: def $f0_64 killed $f0_64 killed $vr0
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(kernel_measureSOR)
 	jirl	$ra, $ra, 0
-	fmov.d	$fs2, $fa0
+	fmov.d	$fs3, $fa0
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
                                         # kill: def $f0_64 killed $f0_64 killed $vr0
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(kernel_measureMonteCarlo)
 	jirl	$ra, $ra, 0
-	fmov.d	$fs3, $fa0
+	fmov.d	$fs4, $fa0
 	move	$a0, $s1
 	move	$a1, $s2
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
@@ -147,7 +143,7 @@ main:                                   # @main
 	move	$a2, $fp
 	pcaddu18i	$ra, %call36(kernel_measureSparseMatMult)
 	jirl	$ra, $ra, 0
-	fmov.d	$fs4, $fa0
+	fmov.d	$fs1, $fa0
 	move	$a0, $s0
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
                                         # kill: def $f0_64 killed $f0_64 killed $vr0
@@ -155,9 +151,9 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(kernel_measureLU)
 	jirl	$ra, $ra, 0
 	fmov.d	$fs0, $fa0
-	fadd.d	$fa0, $fs1, $fs2
-	fadd.d	$fa0, $fa0, $fs3
+	fadd.d	$fa0, $fs2, $fs3
 	fadd.d	$fa0, $fa0, $fs4
+	fadd.d	$fa0, $fa0, $fs1
 	fadd.d	$fa0, $fa0, $fs0
 	vldi	$vr1, -1004
 	fdiv.d	$fs5, $fa0, $fa1
@@ -165,22 +161,24 @@ main:                                   # @main
 	addi.d	$a0, $a0, %pc_lo12(.Lstr)
 	pcaddu18i	$ra, %call36(puts)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs6, $a0, %pc_lo12(.LCPI0_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 201424
+	lu52i.d	$a0, $a0, 1046
+	movgr2fr.d	$fs6, $a0
 	fdiv.d	$fa0, $fs5, $fs6
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.6)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.6)
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	fdiv.d	$fa0, $fs1, $fs6
+	fdiv.d	$fa0, $fs2, $fs6
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.7)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.7)
 	move	$a2, $s3
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	fdiv.d	$fa0, $fs2, $fs6
+	fdiv.d	$fa0, $fs3, $fs6
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.8)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.8)
@@ -188,13 +186,13 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	fdiv.d	$fa0, $fs3, $fs6
+	fdiv.d	$fa0, $fs4, $fs6
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.9)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.9)
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	fdiv.d	$fa0, $fs4, $fs6
+	fdiv.d	$fa0, $fs1, $fs6
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.10)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.10)

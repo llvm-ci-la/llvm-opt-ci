@@ -1,12 +1,6 @@
 	.file	"searchAlgorithms.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function doMultiSearches
-.LCPI0_0:
-	.dword	0x40ac200000000000              # double 3600
-.LCPI0_1:
-	.dword	0x404e000000000000              # double 60
 	.text
-	.globl	doMultiSearches
+	.globl	doMultiSearches                 # -- Begin function doMultiSearches
 	.p2align	5
 	.type	doMultiSearches,@function
 doMultiSearches:                        # @doMultiSearches
@@ -210,8 +204,11 @@ doMultiSearches:                        # @doMultiSearches
 	bstrpick.d	$a1, $a0, 31, 31
 	srai.d	$a0, $a0, 11
 	add.d	$fp, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -253952
+	lu52i.d	$a0, $a0, 1034
+	movgr2fr.d	$fa1, $a0
+	ori	$s1, $zero, 0
 	pcaddu18i	$ra, %call36(fmod)
 	jirl	$ra, $ra, 0
 	ftintrz.w.d	$fa1, $fa0
@@ -224,8 +221,9 @@ doMultiSearches:                        # @doMultiSearches
 	bstrpick.d	$a1, $a0, 31, 31
 	srai.d	$a0, $a0, 5
 	add.d	$s0, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
+	lu32i.d	$s1, -131072
+	lu52i.d	$a0, $s1, 1028
+	movgr2fr.d	$fa1, $a0
 	pcaddu18i	$ra, %call36(fmod)
 	jirl	$ra, $ra, 0
 	movfr2gr.d	$a3, $fa0
@@ -812,14 +810,7 @@ findAndRecordAllPaths:                  # @findAndRecordAllPaths
 .Lfunc_end3:
 	.size	findAndRecordAllPaths, .Lfunc_end3-findAndRecordAllPaths
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function findAllPossibleLegs
-.LCPI4_0:
-	.dword	0x40ac200000000000              # double 3600
-.LCPI4_1:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	findAllPossibleLegs
+	.globl	findAllPossibleLegs             # -- Begin function findAllPossibleLegs
 	.p2align	5
 	.type	findAllPossibleLegs,@function
 findAllPossibleLegs:                    # @findAllPossibleLegs
@@ -1057,8 +1048,11 @@ findAllPossibleLegs:                    # @findAllPossibleLegs
 	bstrpick.d	$a1, $a0, 31, 31
 	srai.d	$a0, $a0, 11
 	add.d	$s1, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -253952
+	lu52i.d	$a0, $a0, 1034
+	movgr2fr.d	$fa1, $a0
+	ori	$fp, $zero, 0
 	pcaddu18i	$ra, %call36(fmod)
 	jirl	$ra, $ra, 0
 	ftintrz.w.d	$fa1, $fa0
@@ -1071,8 +1065,9 @@ findAllPossibleLegs:                    # @findAllPossibleLegs
 	bstrpick.d	$a1, $a0, 31, 31
 	srai.d	$a0, $a0, 5
 	add.d	$s2, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_1)
+	lu32i.d	$fp, -131072
+	lu52i.d	$a0, $fp, 1028
+	movgr2fr.d	$fa1, $a0
 	pcaddu18i	$ra, %call36(fmod)
 	jirl	$ra, $ra, 0
 	movfr2gr.d	$s3, $fa0
@@ -1123,14 +1118,7 @@ findAllPossibleLegs:                    # @findAllPossibleLegs
 .Lfunc_end4:
 	.size	findAllPossibleLegs, .Lfunc_end4-findAllPossibleLegs
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function findAndLogAllPossibleLegs
-.LCPI5_0:
-	.dword	0x40ac200000000000              # double 3600
-.LCPI5_1:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	findAndLogAllPossibleLegs
+	.globl	findAndLogAllPossibleLegs       # -- Begin function findAndLogAllPossibleLegs
 	.p2align	5
 	.type	findAndLogAllPossibleLegs,@function
 findAndLogAllPossibleLegs:              # @findAndLogAllPossibleLegs
@@ -1164,25 +1152,25 @@ findAndLogAllPossibleLegs:              # @findAndLogAllPossibleLegs
 	ori	$a2, $zero, 1
 	pcaddu18i	$ra, %call36(fwrite)
 	jirl	$ra, $ra, 0
-	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
 	st.b	$zero, $fp, 4
 	ori	$a0, $zero, 16
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	move	$fp, $a0
+	move	$s0, $a0
 	st.d	$zero, $a0, 8
 	ori	$a0, $zero, 64
 	pcaddu18i	$ra, %call36(NodeVecVec_new)
 	jirl	$ra, $ra, 0
-	st.d	$fp, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 16                    # 8-byte Folded Spill
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
-	st.d	$a0, $fp, 0
+	st.d	$a0, $s0, 0
 	pcalau12i	$a0, %pc_hi20(.Lstr.1)
 	addi.d	$a0, $a0, %pc_lo12(.Lstr.1)
 	pcaddu18i	$ra, %call36(puts)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s1, 32
 	ld.w	$a1, $a0, 0
+	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
 	blez	$a1, .LBB5_16
 # %bb.2:                                # %.preheader.preheader
 	vrepli.b	$vr0, 0
@@ -1190,12 +1178,12 @@ findAndLogAllPossibleLegs:              # @findAndLogAllPossibleLegs
 	pcalau12i	$a2, %pc_hi20(.L__const.findAndLogAllPossibleLegs.fullIntSignature)
 	addi.d	$s8, $a2, %pc_lo12(.L__const.findAndLogAllPossibleLegs.fullIntSignature)
 	move	$s0, $zero
-	move	$fp, $zero
+	move	$s6, $zero
 	b	.LBB5_5
 	.p2align	4, , 16
 .LBB5_3:                                # %.lr.ph74.split.us
                                         #   in Loop: Header=BB5_5 Depth=1
-	add.w	$fp, $fp, $a1
+	add.w	$s6, $s6, $a1
 .LBB5_4:                                # %._crit_edge75
                                         #   in Loop: Header=BB5_5 Depth=1
 	addi.d	$s0, $s0, 1
@@ -1221,11 +1209,11 @@ findAndLogAllPossibleLegs:              # @findAndLogAllPossibleLegs
 .LBB5_8:                                # %._crit_edge.loopexit
                                         #   in Loop: Header=BB5_10 Depth=2
 	ld.w	$a1, $a0, 0
-	ld.d	$fp, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 24                    # 8-byte Folded Reload
 .LBB5_9:                                # %._crit_edge
                                         #   in Loop: Header=BB5_10 Depth=2
 	addi.d	$s4, $s4, 1
-	addi.w	$fp, $fp, 1
+	addi.w	$s6, $s6, 1
 	bge	$s4, $a1, .LBB5_4
 .LBB5_10:                               # %.lr.ph74.split
                                         #   Parent Loop BB5_5 Depth=1
@@ -1238,7 +1226,7 @@ findAndLogAllPossibleLegs:              # @findAndLogAllPossibleLegs
 	blez	$a2, .LBB5_9
 # %bb.11:                               # %.lr.ph
                                         #   in Loop: Header=BB5_10 Depth=2
-	st.d	$fp, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 24                    # 8-byte Folded Spill
 	move	$s5, $zero
 	move	$fp, $zero
 	addi.d	$a1, $a0, 8
@@ -1311,7 +1299,7 @@ findAndLogAllPossibleLegs:              # @findAndLogAllPossibleLegs
 	move	$s1, $zero
 	b	.LBB5_24
 .LBB5_16:
-	move	$fp, $zero
+	move	$s6, $zero
 .LBB5_17:                               # %._crit_edge79
 	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	ld.w	$s1, $a0, 0
@@ -1328,8 +1316,11 @@ findAndLogAllPossibleLegs:              # @findAndLogAllPossibleLegs
 	bstrpick.d	$a1, $a0, 31, 31
 	srai.d	$a0, $a0, 11
 	add.d	$s3, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -253952
+	lu52i.d	$a0, $a0, 1034
+	movgr2fr.d	$fa1, $a0
+	ori	$fp, $zero, 0
 	pcaddu18i	$ra, %call36(fmod)
 	jirl	$ra, $ra, 0
 	ftintrz.w.d	$fa1, $fa0
@@ -1342,15 +1333,16 @@ findAndLogAllPossibleLegs:              # @findAndLogAllPossibleLegs
 	bstrpick.d	$a1, $a0, 31, 31
 	srai.d	$a0, $a0, 5
 	add.d	$s4, $a0, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI5_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_1)
+	lu32i.d	$fp, -131072
+	lu52i.d	$a0, $fp, 1028
+	movgr2fr.d	$fa1, $a0
 	pcaddu18i	$ra, %call36(fmod)
 	jirl	$ra, $ra, 0
 	movfr2gr.d	$s5, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.7)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.7)
 	move	$a1, $s1
-	move	$a2, $fp
+	move	$a2, $s6
 	move	$a3, $s3
 	move	$a4, $s4
 	move	$a5, $s5

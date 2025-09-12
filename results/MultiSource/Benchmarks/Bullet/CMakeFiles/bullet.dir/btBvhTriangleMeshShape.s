@@ -811,12 +811,8 @@ _ZN21btNodeOverlapCallbackD2Ev:         # @_ZN21btNodeOverlapCallbackD2Ev
 .Lfunc_end10:
 	.size	_ZN21btNodeOverlapCallbackD2Ev, .Lfunc_end10-_ZN21btNodeOverlapCallbackD2Ev
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3
-.LCPI11_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
-	.globl	_ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3
+	.globl	_ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3 # -- Begin function _ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3
 	.p2align	5
 	.type	_ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3,@function
 _ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3: # @_ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3
@@ -845,12 +841,12 @@ _ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3: # @_ZN22btBvhTriangle
 	fsub.s	$fa0, $fa0, $fa1
 	fsub.s	$fa1, $fa2, $fa3
 	fsub.s	$fa2, $fa4, $fa5
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI11_0)
 	fmul.s	$fa1, $fa1, $fa1
 	fmadd.s	$fa0, $fa0, $fa0, $fa1
 	fmadd.s	$fa0, $fa2, $fa2, $fa0
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa1, $a0
+	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB11_4
 # %bb.1:
 	move	$a0, $fp
@@ -895,12 +891,7 @@ _ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3: # @_ZN22btBvhTriangle
 	.size	_ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3, .Lfunc_end11-_ZN22btBvhTriangleMeshShape15setLocalScalingERK9btVector3
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3
-.LCPI12_0:
-	.word	0x34000000                      # float 1.1920929E-7
-	.text
-	.globl	_ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3
+	.globl	_ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3 # -- Begin function _ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3
 	.p2align	5
 	.type	_ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3,@function
 _ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3: # @_ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3
@@ -931,12 +922,12 @@ _ZN22btBvhTriangleMeshShape15setOptimizedBvhEP14btOptimizedBvhRK9btVector3: # @_
 	fsub.s	$fa0, $fa0, $fa1
 	fsub.s	$fa1, $fa2, $fa3
 	fsub.s	$fa2, $fa4, $fa5
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI12_0)
 	fmul.s	$fa1, $fa1, $fa1
 	fmadd.s	$fa0, $fa0, $fa0, $fa1
 	fmadd.s	$fa0, $fa2, $fa2, $fa0
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa1, $a0
+	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB12_2
 # %bb.1:
 	move	$a0, $fp

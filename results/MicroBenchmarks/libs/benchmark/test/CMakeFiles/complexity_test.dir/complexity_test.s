@@ -3,12 +3,8 @@
 	.globl	_ZSt21ios_base_library_initv
 
                                         # End of file scope inline assembly
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z16BM_Complexity_O1RN9benchmark5StateE
-.LCPI0_0:
-	.dword	0x3e668c6fa0b2f9a4              # double 4.2000000000000006E-8
 	.text
-	.hidden	_Z16BM_Complexity_O1RN9benchmark5StateE
+	.hidden	_Z16BM_Complexity_O1RN9benchmark5StateE # -- Begin function _Z16BM_Complexity_O1RN9benchmark5StateE
 	.globl	_Z16BM_Complexity_O1RN9benchmark5StateE
 	.p2align	5
 	.type	_Z16BM_Complexity_O1RN9benchmark5StateE,@function
@@ -43,11 +39,14 @@ _Z16BM_Complexity_O1RN9benchmark5StateE: # @_Z16BM_Complexity_O1RN9benchmark5Sta
 	beqz	$s0, .LBB0_16
 # %bb.2:
 	addi.d	$s1, $sp, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	movgr2fr.d	$fs1, $zero
 	addi.w	$s2, $zero, -1
 	addi.d	$s3, $sp, 16
+	lu12i.w	$a0, -390353
+	ori	$a0, $a0, 2468
+	lu32i.d	$a0, 429167
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB0_3:                                # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_9 Depth 2
@@ -3921,14 +3920,8 @@ GCC_except_table1:
 .Lttbase0:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z17BM_Complexity_O_NRN9benchmark5StateE
-.LCPI2_0:
-	.dword	0x4045000000000000              # double 42
-.LCPI2_1:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
 	.text
-	.hidden	_Z17BM_Complexity_O_NRN9benchmark5StateE
+	.hidden	_Z17BM_Complexity_O_NRN9benchmark5StateE # -- Begin function _Z17BM_Complexity_O_NRN9benchmark5StateE
 	.globl	_Z17BM_Complexity_O_NRN9benchmark5StateE
 	.p2align	5
 	.type	_Z17BM_Complexity_O_NRN9benchmark5StateE,@function
@@ -3965,13 +3958,18 @@ _Z17BM_Complexity_O_NRN9benchmark5StateE: # @_Z17BM_Complexity_O_NRN9benchmark5S
 	beqz	$s0, .LBB2_17
 # %bb.2:
 	addi.d	$s1, $sp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI2_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI2_1)
-	movgr2fr.d	$fs2, $zero
+	movgr2fr.d	$fs0, $zero
 	addi.w	$s2, $zero, -1
 	addi.d	$s3, $sp, 8
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 327680
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fs2, $a0
 	.p2align	4, , 16
 .LBB2_3:                                # =>This Loop Header: Depth=1
                                         #     Child Loop BB2_9 Depth 2
@@ -3989,7 +3987,7 @@ _Z17BM_Complexity_O_NRN9benchmark5StateE: # @_Z17BM_Complexity_O_NRN9benchmark5S
 	#APP
 	#NO_APP
 	ld.bu	$a0, $fp, 24
-	fmov.d	$fa0, $fs2
+	fmov.d	$fa0, $fs0
 	beqz	$a0, .LBB2_7
 # %bb.6:                                #   in Loop: Header=BB2_3 Depth=1
 	ld.d	$a0, $fp, 16
@@ -4026,7 +4024,7 @@ _Z17BM_Complexity_O_NRN9benchmark5StateE: # @_Z17BM_Complexity_O_NRN9benchmark5S
 	#APP
 	#NO_APP
 	ld.bu	$a1, $fp, 24
-	fmov.d	$fa0, $fs2
+	fmov.d	$fa0, $fs0
 	beqz	$a1, .LBB2_12
 # %bb.11:                               #   in Loop: Header=BB2_9 Depth=2
 	ld.d	$a1, $fp, 16
@@ -4056,8 +4054,8 @@ _Z17BM_Complexity_O_NRN9benchmark5StateE: # @_Z17BM_Complexity_O_NRN9benchmark5S
 	ld.d	$a0, $a0, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	fmul.d	$fa0, $fa0, $fs0
 	fmul.d	$fa0, $fa0, $fs1
+	fmul.d	$fa0, $fa0, $fs2
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16SetIterationTimeEd)
 	jirl	$ra, $ra, 0
@@ -4114,16 +4112,7 @@ _Z17BM_Complexity_O_NRN9benchmark5StateE: # @_Z17BM_Complexity_O_NRN9benchmark5S
 	.size	_Z17BM_Complexity_O_NRN9benchmark5StateE, .Lfunc_end2-_Z17BM_Complexity_O_NRN9benchmark5StateE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE
-.LCPI3_0:
-	.dword	0x3ff71547652b82fe              # double 1.4426950408889634
-.LCPI3_1:
-	.dword	0x4045000000000000              # double 42
-.LCPI3_2:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE
 	.type	_ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE,@function
 _ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE: # @_ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE
 	.cfi_startproc
@@ -4162,15 +4151,23 @@ _ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE: # @_ZL23BM_Complexity_O_N_log_N
 	beqz	$s0, .LBB3_17
 # %bb.2:
 	addi.d	$s1, $sp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI3_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI3_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI3_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI3_2)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	addi.w	$s2, $zero, -1
 	addi.d	$s3, $sp, 8
+	lu12i.w	$a0, 414392
+	ori	$a0, $a0, 766
+	lu32i.d	$a0, 464199
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fs1, $a0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 327680
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fs3, $a0
 	.p2align	4, , 16
 .LBB3_3:                                # =>This Loop Header: Depth=1
                                         #     Child Loop BB3_9 Depth 2
@@ -4188,7 +4185,7 @@ _ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE: # @_ZL23BM_Complexity_O_N_log_N
 	#APP
 	#NO_APP
 	ld.bu	$a0, $fp, 24
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	beqz	$a0, .LBB3_7
 # %bb.6:                                #   in Loop: Header=BB3_3 Depth=1
 	ld.d	$a0, $fp, 16
@@ -4225,7 +4222,7 @@ _ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE: # @_ZL23BM_Complexity_O_N_log_N
 	#APP
 	#NO_APP
 	ld.bu	$a1, $fp, 24
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	beqz	$a1, .LBB3_12
 # %bb.11:                               #   in Loop: Header=BB3_9 Depth=2
 	ld.d	$a1, $fp, 16
@@ -4255,12 +4252,12 @@ _ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE: # @_ZL23BM_Complexity_O_N_log_N
 	ld.d	$a0, $a0, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	fmul.d	$fs4, $fa0, $fs0
+	fmul.d	$fs4, $fa0, $fs1
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0
 	fmul.d	$fa0, $fa0, $fs4
-	fmul.d	$fa0, $fa0, $fs1
 	fmul.d	$fa0, $fa0, $fs2
+	fmul.d	$fa0, $fa0, $fs3
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16SetIterationTimeEd)
 	jirl	$ra, $ra, 0
@@ -4319,14 +4316,7 @@ _ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE: # @_ZL23BM_Complexity_O_N_log_N
 	.size	_ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE, .Lfunc_end3-_ZL23BM_Complexity_O_N_log_NRN9benchmark5StateE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi
-.LCPI4_0:
-	.dword	0x4045000000000000              # double 42
-.LCPI4_1:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
-	.text
-	.hidden	_Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi
+	.hidden	_Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi # -- Begin function _Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi
 	.globl	_Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi
 	.p2align	5
 	.type	_Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi,@function
@@ -4366,13 +4356,18 @@ _Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi: # @_Z24BM_ComplexityCaptureArg
 	beqz	$s1, .LBB4_17
 # %bb.2:
 	addi.d	$s2, $sp, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI4_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI4_1)
-	movgr2fr.d	$fs2, $zero
+	movgr2fr.d	$fs0, $zero
 	addi.w	$s3, $zero, -1
 	addi.d	$s4, $sp, 16
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 327680
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fs2, $a0
 	.p2align	4, , 16
 .LBB4_3:                                # =>This Loop Header: Depth=1
                                         #     Child Loop BB4_9 Depth 2
@@ -4390,7 +4385,7 @@ _Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi: # @_Z24BM_ComplexityCaptureArg
 	#APP
 	#NO_APP
 	ld.bu	$a0, $fp, 24
-	fmov.d	$fa0, $fs2
+	fmov.d	$fa0, $fs0
 	beqz	$a0, .LBB4_7
 # %bb.6:                                #   in Loop: Header=BB4_3 Depth=1
 	ld.d	$a0, $fp, 16
@@ -4427,7 +4422,7 @@ _Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi: # @_Z24BM_ComplexityCaptureArg
 	#APP
 	#NO_APP
 	ld.bu	$a1, $fp, 24
-	fmov.d	$fa0, $fs2
+	fmov.d	$fa0, $fs0
 	beqz	$a1, .LBB4_12
 # %bb.11:                               #   in Loop: Header=BB4_9 Depth=2
 	ld.d	$a1, $fp, 16
@@ -4457,8 +4452,8 @@ _Z24BM_ComplexityCaptureArgsRN9benchmark5StateEi: # @_Z24BM_ComplexityCaptureArg
 	ld.d	$a0, $a0, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	fmul.d	$fa0, $fa0, $fs0
 	fmul.d	$fa0, $fa0, $fs1
+	fmul.d	$fa0, $fa0, $fs2
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16SetIterationTimeEd)
 	jirl	$ra, $ra, 0
@@ -5403,22 +5398,20 @@ _ZN3$_18__invokeEl:                     # @"_ZN3$_18__invokeEl"
 .Lfunc_end15:
 	.size	_ZN3$_18__invokeEl, .Lfunc_end15-_ZN3$_18__invokeEl
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN3$_28__invokeEl
-.LCPI16_0:
-	.dword	0x3ff71547652b82fe              # double 1.4426950408889634
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZN3$_28__invokeEl
 	.type	_ZN3$_28__invokeEl,@function
 _ZN3$_28__invokeEl:                     # @"_ZN3$_28__invokeEl"
 # %bb.0:
 	addi.d	$sp, $sp, -16
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 0                    # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI16_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI16_0)
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 414392
+	ori	$a0, $a0, 766
+	lu32i.d	$a0, 464199
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0

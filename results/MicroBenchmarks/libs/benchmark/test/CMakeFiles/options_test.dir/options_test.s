@@ -420,22 +420,12 @@ main:                                   # @main
 .LCPI5_1:
 	.dword	64                              # 0x40
 	.dword	512                             # 0x200
-.LCPI5_6:
+.LCPI5_2:
 	.dword	-64                             # 0xffffffffffffffc0
 	.dword	1                               # 0x1
-.LCPI5_7:
+.LCPI5_3:
 	.dword	-8                              # 0xfffffffffffffff8
 	.dword	-1                              # 0xffffffffffffffff
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI5_2:
-	.dword	0x3fe6666666666666              # double 0.69999999999999996
-.LCPI5_3:
-	.dword	0x3fe999999999999a              # double 0.80000000000000004
-.LCPI5_4:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-.LCPI5_5:
-	.dword	0x3fc999999999999a              # double 0.20000000000000001
 	.section	.text.startup,"ax",@progbits
 	.p2align	5
 	.type	_GLOBAL__sub_I_options_test.cc,@function
@@ -1058,8 +1048,11 @@ _GLOBAL__sub_I_options_test.cc:         # @_GLOBAL__sub_I_options_test.cc
 .Ltmp96:                                # EH_LABEL
 # %bb.67:
 .Ltmp97:                                # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI5_2)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI5_2)
+	lu12i.w	$a1, 419430
+	ori	$a1, $a1, 1638
+	lu32i.d	$a1, 419430
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fa0, $a1
 	move	$s4, $zero
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal9Benchmark7MinTimeEd)
 	jirl	$ra, $ra, 0
@@ -1084,7 +1077,7 @@ _GLOBAL__sub_I_options_test.cc:         # @_GLOBAL__sub_I_options_test.cc
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
 	vst	$vr0, $sp, 72
 	st.b	$zero, $sp, 88
-	ori	$s4, $zero, 1
+	ori	$s5, $zero, 1
 .Ltmp100:                               # EH_LABEL
 	addi.d	$a1, $sp, 64
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal9BenchmarkC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
@@ -1094,16 +1087,19 @@ _GLOBAL__sub_I_options_test.cc:         # @_GLOBAL__sub_I_options_test.cc
 	st.d	$s2, $s0, 0
 	st.d	$s3, $s0, 224
 .Ltmp102:                               # EH_LABEL
-	move	$s4, $zero
+	move	$s5, $zero
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal25RegisterBenchmarkInternalEPNS0_9BenchmarkE)
 	jirl	$ra, $ra, 0
 .Ltmp103:                               # EH_LABEL
 # %bb.72:
 .Ltmp104:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI5_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI5_3)
-	move	$s4, $zero
+	lu12i.w	$a1, -419431
+	ori	$s4, $a1, 2458
+	lu32i.d	$s4, -419431
+	lu52i.d	$a1, $s4, 1022
+	movgr2fr.d	$fa0, $a1
+	move	$s5, $zero
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal9Benchmark13MinWarmUpTimeEd)
 	jirl	$ra, $ra, 0
 .Ltmp105:                               # EH_LABEL
@@ -1127,7 +1123,7 @@ _GLOBAL__sub_I_options_test.cc:         # @_GLOBAL__sub_I_options_test.cc
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
 	vst	$vr0, $sp, 72
 	st.b	$zero, $sp, 88
-	ori	$s4, $zero, 1
+	ori	$s5, $zero, 1
 .Ltmp107:                               # EH_LABEL
 	addi.d	$a1, $sp, 64
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal9BenchmarkC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
@@ -1137,24 +1133,24 @@ _GLOBAL__sub_I_options_test.cc:         # @_GLOBAL__sub_I_options_test.cc
 	st.d	$s2, $s0, 0
 	st.d	$s3, $s0, 224
 .Ltmp109:                               # EH_LABEL
-	move	$s4, $zero
+	move	$s5, $zero
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal25RegisterBenchmarkInternalEPNS0_9BenchmarkE)
 	jirl	$ra, $ra, 0
 .Ltmp110:                               # EH_LABEL
 # %bb.77:
 .Ltmp111:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI5_4)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI5_4)
-	move	$s4, $zero
+	lu52i.d	$a1, $s4, 1019
+	movgr2fr.d	$fa0, $a1
+	move	$s5, $zero
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal9Benchmark7MinTimeEd)
 	jirl	$ra, $ra, 0
 .Ltmp112:                               # EH_LABEL
 # %bb.78:
 .Ltmp113:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI5_5)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI5_5)
-	move	$s4, $zero
+	lu52i.d	$a1, $s4, 1020
+	movgr2fr.d	$fa0, $a1
+	move	$s5, $zero
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal9Benchmark13MinWarmUpTimeEd)
 	jirl	$ra, $ra, 0
 .Ltmp114:                               # EH_LABEL
@@ -1558,10 +1554,10 @@ _GLOBAL__sub_I_options_test.cc:         # @_GLOBAL__sub_I_options_test.cc
 .Ltmp182:                               # EH_LABEL
 # %bb.126:
 	st.d	$a0, $sp, 40
-	pcalau12i	$a1, %pc_hi20(.LCPI5_6)
-	vld	$vr0, $a1, %pc_lo12(.LCPI5_6)
-	pcalau12i	$a1, %pc_hi20(.LCPI5_7)
-	vld	$vr1, $a1, %pc_lo12(.LCPI5_7)
+	pcalau12i	$a1, %pc_hi20(.LCPI5_2)
+	vld	$vr0, $a1, %pc_lo12(.LCPI5_2)
+	pcalau12i	$a1, %pc_hi20(.LCPI5_3)
+	vld	$vr1, $a1, %pc_lo12(.LCPI5_3)
 	addi.d	$a1, $a0, 32
 	st.d	$a1, $sp, 56
 	vst	$vr0, $a0, 0
@@ -1717,7 +1713,7 @@ _GLOBAL__sub_I_options_test.cc:         # @_GLOBAL__sub_I_options_test.cc
 .LBB5_143:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.thread.i
 .Ltmp196:                               # EH_LABEL
 	move	$fp, $a0
-	b	.LBB5_181
+	b	.LBB5_183
 .LBB5_144:
 .Ltmp186:                               # EH_LABEL
 	b	.LBB5_149
@@ -1749,198 +1745,207 @@ _GLOBAL__sub_I_options_test.cc:         # @_GLOBAL__sub_I_options_test.cc
 	move	$fp, $a0
 .LBB5_153:                              # %.thread.i
 	ld.d	$a0, $sp, 64
-	beq	$a0, $s1, .LBB5_183
+	beq	$a0, $s1, .LBB5_185
 # %bb.154:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.thread33.i
 	ld.d	$a1, $sp, 80
 	addi.d	$a1, $a1, 1
-	b	.LBB5_182
+	b	.LBB5_184
 .LBB5_155:
 .Ltmp180:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_156:
 .Ltmp86:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_157:
 .Ltmp75:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_158:
 .Ltmp4:                                 # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	bne	$a2, $s1, .LBB5_178
-	b	.LBB5_180
+	bne	$a2, $s1, .LBB5_180
+	b	.LBB5_182
 .LBB5_159:
 .Ltmp203:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
 	bne	$a2, $s1, .LBB5_161
 # %bb.160:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i132
-	bnez	$s3, .LBB5_181
-	b	.LBB5_183
+	bnez	$s3, .LBB5_183
+	b	.LBB5_185
 .LBB5_161:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i131
 	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	bnez	$s3, .LBB5_181
-	b	.LBB5_183
+	bnez	$s3, .LBB5_183
+	b	.LBB5_185
 .LBB5_162:
 .Ltmp193:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_163:
 .Ltmp175:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_164:
 .Ltmp159:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_165:
 .Ltmp143:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_166:
 .Ltmp136:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_167:
 .Ltmp129:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_168:
 .Ltmp122:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
 .LBB5_169:
 .Ltmp106:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
-.LBB5_170:
+	beq	$a2, $s1, .LBB5_178
+.LBB5_170:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i60
+	ld.d	$a0, $sp, 80
+	addi.d	$a1, $a0, 1
+	move	$a0, $a2
+	pcaddu18i	$ra, %call36(_ZdlPvm)
+	jirl	$ra, $ra, 0
+	bnez	$s5, .LBB5_183
+	b	.LBB5_185
+.LBB5_171:
 .Ltmp99:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
-.LBB5_171:
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
+.LBB5_172:
 .Ltmp70:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
-.LBB5_172:
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
+.LBB5_173:
 .Ltmp54:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
-.LBB5_173:
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
+.LBB5_174:
 .Ltmp11:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
-.LBB5_174:
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
+.LBB5_175:
 .Ltmp168:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
-.LBB5_175:
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
+.LBB5_176:
 .Ltmp152:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
-.LBB5_176:
+	beq	$a2, $s1, .LBB5_182
+	b	.LBB5_180
+.LBB5_177:
 .Ltmp115:                               # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-	b	.LBB5_178
-.LBB5_177:
+	bne	$a2, $s1, .LBB5_170
+.LBB5_178:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i61
+	bnez	$s5, .LBB5_183
+	b	.LBB5_185
+.LBB5_179:
 .Ltmp63:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_180
-.LBB5_178:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i
+	beq	$a2, $s1, .LBB5_182
+.LBB5_180:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i
 	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	beqz	$s4, .LBB5_183
-	b	.LBB5_181
-.LBB5_179:
+	beqz	$s4, .LBB5_185
+	b	.LBB5_183
+.LBB5_181:
 .Ltmp47:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	bne	$a2, $s1, .LBB5_178
-.LBB5_180:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i
-	beqz	$s4, .LBB5_183
-.LBB5_181:
+	bne	$a2, $s1, .LBB5_180
+.LBB5_182:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i
+	beqz	$s4, .LBB5_185
+.LBB5_183:
 	ori	$a1, $zero, 232
 	move	$a0, $s0
-.LBB5_182:                              # %common.resume
+.LBB5_184:                              # %common.resume
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-.LBB5_183:                              # %common.resume
+.LBB5_185:                              # %common.resume
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_Unwind_Resume)
 	jirl	$ra, $ra, 0
-.LBB5_184:
+.LBB5_186:
 .Ltmp38:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	bne	$a2, $s1, .LBB5_186
-	b	.LBB5_188
-.LBB5_185:
+	bne	$a2, $s1, .LBB5_188
+	b	.LBB5_190
+.LBB5_187:
 .Ltmp29:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	beq	$a2, $s1, .LBB5_188
-.LBB5_186:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i7
+	beq	$a2, $s1, .LBB5_190
+.LBB5_188:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i7
 	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	bnez	$s7, .LBB5_181
-	b	.LBB5_183
-.LBB5_187:
+	bnez	$s7, .LBB5_183
+	b	.LBB5_185
+.LBB5_189:
 .Ltmp20:                                # EH_LABEL
 	ld.d	$a2, $sp, 64
 	move	$fp, $a0
-	bne	$a2, $s1, .LBB5_186
-.LBB5_188:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i8
-	bnez	$s7, .LBB5_181
-	b	.LBB5_183
+	bne	$a2, $s1, .LBB5_188
+.LBB5_190:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i8
+	bnez	$s7, .LBB5_183
+	b	.LBB5_185
 .Lfunc_end5:
 	.size	_GLOBAL__sub_I_options_test.cc, .Lfunc_end5-_GLOBAL__sub_I_options_test.cc
 	.cfi_endproc

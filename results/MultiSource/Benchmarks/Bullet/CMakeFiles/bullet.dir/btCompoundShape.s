@@ -1337,12 +1337,7 @@ _ZNK15btCompoundShape21calculateLocalInertiaEfR9btVector3: # @_ZNK15btCompoundSh
 	.size	_ZNK15btCompoundShape21calculateLocalInertiaEfR9btVector3, .Lfunc_end11-_ZNK15btCompoundShape21calculateLocalInertiaEfR9btVector3
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3
-.LCPI12_0:
-	.word	0x3727c5ac                      # float 9.99999974E-6
-	.text
-	.globl	_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3
+	.globl	_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3 # -- Begin function _ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3
 	.p2align	5
 	.type	_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3,@function
 _ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3: # @_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3
@@ -1572,8 +1567,9 @@ _ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVecto
 	addi.d	$s2, $s2, 4
 	bne	$s4, $s3, .LBB12_6
 .LBB12_7:                               # %._crit_edge221
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI12_0)
+	lu12i.w	$a0, 225916
+	ori	$a0, $a0, 1452
+	movgr2fr.w	$fa0, $a0
 	addi.d	$a0, $sp, 40
 	ori	$a2, $zero, 20
 	move	$a1, $s0
@@ -1607,14 +1603,8 @@ _ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVecto
 	.size	_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3, .Lfunc_end12-_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPfR11btTransformR9btVector3
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN11btMatrix3x311diagonalizeERS_fi
-.LCPI13_0:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI13_1:
-	.word	0x4ca00000                      # float 83886080
 	.section	.text._ZN11btMatrix3x311diagonalizeERS_fi,"axG",@progbits,_ZN11btMatrix3x311diagonalizeERS_fi,comdat
-	.weak	_ZN11btMatrix3x311diagonalizeERS_fi
+	.weak	_ZN11btMatrix3x311diagonalizeERS_fi # -- Begin function _ZN11btMatrix3x311diagonalizeERS_fi
 	.p2align	5
 	.type	_ZN11btMatrix3x311diagonalizeERS_fi,@function
 _ZN11btMatrix3x311diagonalizeERS_fi:    # @_ZN11btMatrix3x311diagonalizeERS_fi
@@ -1632,15 +1622,15 @@ _ZN11btMatrix3x311diagonalizeERS_fi:    # @_ZN11btMatrix3x311diagonalizeERS_fi
 	addi.d	$a3, $a1, 16
 	addi.d	$a4, $a1, 32
 	ori	$a5, $zero, 2
-	pcalau12i	$a6, %pc_hi20(.LCPI13_1)
-	fld.s	$fa1, $a6, %pc_lo12(.LCPI13_1)
+	lu12i.w	$a6, 313856
+	movgr2fr.w	$fa1, $a6
 	vldi	$vr2, -1168
 	movgr2fr.w	$fa3, $zero
 	ori	$a6, $zero, 1
 	vldi	$vr4, -1184
 	vldi	$vr5, -1280
 	vldi	$vr6, -1056
-	pcalau12i	$a7, %pc_hi20(.LCPI13_0)
+	lu12i.w	$a7, 212992
 	b	.LBB13_4
 	.p2align	4, , 16
 .LBB13_2:                               #   in Loop: Header=BB13_4 Depth=1
@@ -1742,7 +1732,7 @@ _ZN11btMatrix3x311diagonalizeERS_fi:    # @_ZN11btMatrix3x311diagonalizeERS_fi
 	fcmp.cult.s	$fcc0, $ft0, $fa7
 	bcnez	$fcc0, .LBB13_9
 # %bb.8:                                #   in Loop: Header=BB13_4 Depth=1
-	fld.s	$ft1, $a7, %pc_lo12(.LCPI13_0)
+	movgr2fr.w	$ft1, $a7
 	fmul.s	$ft0, $ft0, $ft1
 	fcmp.cle.s	$fcc0, $fa7, $ft0
 	ori	$a2, $zero, 1

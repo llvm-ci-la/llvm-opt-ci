@@ -535,12 +535,7 @@ _ZN16btCollisionWorld18addCollisionObjectEP17btCollisionObjectss: # @_ZN16btColl
 	.size	_ZN16btCollisionWorld18addCollisionObjectEP17btCollisionObjectss, .Lfunc_end5-_ZN16btCollisionWorld18addCollisionObjectEP17btCollisionObjectss
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject
-.LCPI6_0:
-	.word	0x5368d4a5                      # float 9.99999995E+11
-	.text
-	.globl	_ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject
+	.globl	_ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject # -- Begin function _ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject
 	.p2align	5
 	.type	_ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject,@function
 _ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject: # @_ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject
@@ -593,12 +588,13 @@ _ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject: # @_ZN16btCollisio
 	fsub.s	$fa0, $fa3, $fa0
 	fsub.s	$fa1, $fa4, $fa1
 	fsub.s	$fa2, $fa5, $fa2
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.s	$fa3, $a1, %pc_lo12(.LCPI6_0)
 	fmul.s	$fa1, $fa1, $fa1
 	fmadd.s	$fa0, $fa0, $fa0, $fa1
 	fmadd.s	$fa0, $fa2, $fa2, $fa0
-	fcmp.cule.s	$fcc0, $fa3, $fa0
+	lu12i.w	$a1, 341645
+	ori	$a1, $a1, 1189
+	movgr2fr.w	$fa1, $a1
+	fcmp.cule.s	$fcc0, $fa1, $fa0
 	bcnez	$fcc0, .LBB6_4
 .LBB6_2:                                # %.critedge
 	ld.d	$a2, $a0, 0
@@ -1058,12 +1054,7 @@ _ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject: # @_ZN16btCol
 	.size	_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject, .Lfunc_end9-_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN16btCollisionWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RNS_17RayResultCallbackE
-.LCPI10_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
-	.text
-	.globl	_ZN16btCollisionWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RNS_17RayResultCallbackE
+	.globl	_ZN16btCollisionWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RNS_17RayResultCallbackE # -- Begin function _ZN16btCollisionWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RNS_17RayResultCallbackE
 	.p2align	5
 	.type	_ZN16btCollisionWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RNS_17RayResultCallbackE,@function
 _ZN16btCollisionWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RNS_17RayResultCallbackE: # @_ZN16btCollisionWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16btCollisionShapeS2_RNS_17RayResultCallbackE
@@ -1149,15 +1140,16 @@ _ZN16btCollisionWorld13rayTestSingleERK11btTransformS2_P17btCollisionObjectPK16b
 # %bb.3:
 	beqz	$a0, .LBB10_7
 # %bb.4:
-	fld.s	$fa1, $sp, 600
 	fld.s	$fa2, $sp, 604
+	fld.s	$fa1, $sp, 600
 	fld.s	$fa3, $sp, 608
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI10_0)
-	fmul.s	$fa4, $fa2, $fa2
-	fmadd.s	$fa4, $fa1, $fa1, $fa4
-	fmadd.s	$fa4, $fa3, $fa3, $fa4
-	fcmp.cule.s	$fcc0, $fa4, $fa0
+	fmul.s	$fa0, $fa2, $fa2
+	fmadd.s	$fa0, $fa1, $fa1, $fa0
+	fmadd.s	$fa0, $fa3, $fa3, $fa0
+	lu12i.w	$a0, 232731
+	ori	$a0, $a0, 1815
+	movgr2fr.w	$fa4, $a0
+	fcmp.cule.s	$fcc0, $fa0, $fa4
 	bcnez	$fcc0, .LBB10_7
 # %bb.5:
 	fld.s	$fa0, $sp, 632
@@ -1783,12 +1775,8 @@ _ZN12btConvexCast10CastResultD2Ev:      # @_ZN12btConvexCast10CastResultD2Ev
 .Lfunc_end11:
 	.size	_ZN12btConvexCast10CastResultD2Ev, .Lfunc_end11-_ZN12btConvexCast10CastResultD2Ev
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN16btCollisionWorld17objectQuerySingleEPK13btConvexShapeRK11btTransformS5_P17btCollisionObjectPK16btCollisionShapeS5_RNS_20ConvexResultCallbackEf
-.LCPI12_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
 	.text
-	.globl	_ZN16btCollisionWorld17objectQuerySingleEPK13btConvexShapeRK11btTransformS5_P17btCollisionObjectPK16btCollisionShapeS5_RNS_20ConvexResultCallbackEf
+	.globl	_ZN16btCollisionWorld17objectQuerySingleEPK13btConvexShapeRK11btTransformS5_P17btCollisionObjectPK16btCollisionShapeS5_RNS_20ConvexResultCallbackEf # -- Begin function _ZN16btCollisionWorld17objectQuerySingleEPK13btConvexShapeRK11btTransformS5_P17btCollisionObjectPK16btCollisionShapeS5_RNS_20ConvexResultCallbackEf
 	.p2align	5
 	.type	_ZN16btCollisionWorld17objectQuerySingleEPK13btConvexShapeRK11btTransformS5_P17btCollisionObjectPK16btCollisionShapeS5_RNS_20ConvexResultCallbackEf,@function
 _ZN16btCollisionWorld17objectQuerySingleEPK13btConvexShapeRK11btTransformS5_P17btCollisionObjectPK16btCollisionShapeS5_RNS_20ConvexResultCallbackEf: # @_ZN16btCollisionWorld17objectQuerySingleEPK13btConvexShapeRK11btTransformS5_P17btCollisionObjectPK16btCollisionShapeS5_RNS_20ConvexResultCallbackEf
@@ -1885,36 +1873,37 @@ _ZN16btCollisionWorld17objectQuerySingleEPK13btConvexShapeRK11btTransformS5_P17b
 # %bb.3:
 	beqz	$a0, .LBB12_7
 # %bb.4:
-	fld.s	$fa2, $sp, 672
-	fld.s	$fa1, $sp, 676
-	fld.s	$fa3, $sp, 680
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI12_0)
-	fmul.s	$fa4, $fa1, $fa1
-	fmadd.s	$fa4, $fa2, $fa2, $fa4
-	fmadd.s	$fa4, $fa3, $fa3, $fa4
-	fcmp.cule.s	$fcc0, $fa4, $fa0
+	fld.s	$fa0, $sp, 676
+	fld.s	$fa3, $sp, 672
+	fld.s	$fa2, $sp, 680
+	fmul.s	$fa1, $fa0, $fa0
+	fmadd.s	$fa1, $fa3, $fa3, $fa1
+	fmadd.s	$fa4, $fa2, $fa2, $fa1
+	lu12i.w	$a0, 232731
+	ori	$a0, $a0, 1815
+	movgr2fr.w	$fa1, $a0
+	fcmp.cule.s	$fcc0, $fa4, $fa1
 	bcnez	$fcc0, .LBB12_7
 # %bb.5:
-	fld.s	$fa0, $sp, 704
+	fld.s	$fa1, $sp, 704
 	fld.s	$fa5, $s0, 8
-	fcmp.cule.s	$fcc0, $fa5, $fa0
+	fcmp.cule.s	$fcc0, $fa5, $fa1
 	bcnez	$fcc0, .LBB12_7
 # %bb.6:
 	addi.d	$a0, $sp, 672
 	frsqrt.s	$fa4, $fa4
-	fmul.s	$fa2, $fa2, $fa4
-	fst.s	$fa2, $sp, 672
-	fmul.s	$fa1, $fa1, $fa4
-	fst.s	$fa1, $sp, 676
-	fmul.s	$fa1, $fa3, $fa4
-	fst.s	$fa1, $sp, 680
-	vld	$vr1, $a0, 0
+	fmul.s	$fa3, $fa3, $fa4
+	fst.s	$fa3, $sp, 672
+	fmul.s	$fa0, $fa0, $fa4
+	fst.s	$fa0, $sp, 676
+	fmul.s	$fa0, $fa2, $fa4
+	fst.s	$fa0, $sp, 680
+	vld	$vr0, $a0, 0
 	vld	$vr2, $sp, 688
 	ld.d	$a0, $s0, 0
-	vst	$vr1, $sp, 96
+	vst	$vr0, $sp, 96
 	vst	$vr2, $sp, 112
-	fst.s	$fa0, $sp, 128
+	fst.s	$fa1, $sp, 128
 	ld.d	$a3, $a0, 24
 	st.d	$s1, $sp, 80
 	st.d	$zero, $sp, 88
@@ -2575,12 +2564,8 @@ GCC_except_table12:
 .Lttbase5:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE
-.LCPI13_0:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
 	.text
-	.globl	_ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE
+	.globl	_ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE # -- Begin function _ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE
 	.p2align	5
 	.type	_ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE,@function
 _ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE: # @_ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE
@@ -2630,33 +2615,34 @@ _ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE: # @_ZNK1
 	fmul.s	$fa1, $fa1, $fa4
 	fmul.s	$fa2, $fa2, $fa4
 	fmul.s	$fa3, $fa3, $fa4
-	pcalau12i	$a3, %pc_hi20(.LCPI13_0)
-	fld.s	$fa4, $a3, %pc_lo12(.LCPI13_0)
-	frecip.s	$fa5, $fa1
-	movgr2fr.w	$fa6, $zero
-	fcmp.ceq.s	$fcc0, $fa1, $fa6
-	fsel	$fa5, $fa5, $fa4, $fcc0
-	fst.s	$fa5, $sp, 56
+	frecip.s	$fa4, $fa1
+	movgr2fr.w	$fa5, $zero
+	fcmp.ceq.s	$fcc0, $fa1, $fa5
+	lu12i.w	$a3, 382432
+	ori	$a3, $a3, 2923
+	movgr2fr.w	$fa6, $a3
+	fsel	$fa4, $fa4, $fa6, $fcc0
+	fst.s	$fa4, $sp, 56
 	frecip.s	$fa7, $fa2
-	fcmp.ceq.s	$fcc0, $fa2, $fa6
-	fsel	$fa7, $fa7, $fa4, $fcc0
+	fcmp.ceq.s	$fcc0, $fa2, $fa5
+	fsel	$fa7, $fa7, $fa6, $fcc0
 	fst.s	$fa7, $sp, 60
 	frecip.s	$ft0, $fa3
-	fcmp.ceq.s	$fcc0, $fa3, $fa6
-	fsel	$fa4, $ft0, $fa4, $fcc0
-	fcmp.clt.s	$fcc0, $fa5, $fa6
-	fst.s	$fa4, $sp, 64
+	fcmp.ceq.s	$fcc0, $fa3, $fa5
+	fsel	$fa6, $ft0, $fa6, $fcc0
+	fcmp.clt.s	$fcc0, $fa4, $fa5
+	fst.s	$fa6, $sp, 64
 	movcf2gr	$a3, $fcc0
-	fcmp.clt.s	$fcc0, $fa7, $fa6
+	fcmp.clt.s	$fcc0, $fa7, $fa5
 	st.w	$a3, $sp, 72
 	movcf2gr	$a3, $fcc0
-	fld.s	$fa5, $sp, 104
+	fld.s	$fa4, $sp, 104
 	fld.s	$fa7, $sp, 88
-	fcmp.clt.s	$fcc0, $fa4, $fa6
+	fcmp.clt.s	$fcc0, $fa6, $fa5
 	st.w	$a3, $sp, 76
 	movcf2gr	$a3, $fcc0
 	st.w	$a3, $sp, 80
-	fsub.s	$fa4, $fa5, $fa7
+	fsub.s	$fa4, $fa4, $fa7
 	fld.s	$fa5, $sp, 108
 	fld.s	$fa6, $sp, 92
 	fld.s	$fa7, $sp, 112
@@ -2683,12 +2669,7 @@ _ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE: # @_ZNK1
 	.size	_ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE, .Lfunc_end13-_ZNK16btCollisionWorld7rayTestERK9btVector3S2_RNS_17RayResultCallbackE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf
-.LCPI14_0:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.text
-	.globl	_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf
+	.globl	_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf # -- Begin function _ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf
 	.p2align	5
 	.type	_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf,@function
 _ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf: # @_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf
@@ -2882,27 +2863,28 @@ _ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_2
 	fmul.s	$fa4, $fa0, $fa3
 	fmul.s	$fa5, $fa1, $fa3
 	fmul.s	$fa3, $fa2, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI14_0)
-	frecip.s	$fa7, $fa4
-	movgr2fr.w	$ft0, $zero
-	fcmp.ceq.s	$fcc0, $fa4, $ft0
-	fsel	$fa7, $fa7, $fa6, $fcc0
-	fst.s	$fa7, $sp, 24
+	frecip.s	$fa6, $fa4
+	movgr2fr.w	$fa7, $zero
+	fcmp.ceq.s	$fcc0, $fa4, $fa7
+	lu12i.w	$a0, 382432
+	ori	$a0, $a0, 2923
+	movgr2fr.w	$ft0, $a0
+	fsel	$fa6, $fa6, $ft0, $fcc0
+	fst.s	$fa6, $sp, 24
 	frecip.s	$ft1, $fa5
-	fcmp.ceq.s	$fcc0, $fa5, $ft0
-	fsel	$ft1, $ft1, $fa6, $fcc0
+	fcmp.ceq.s	$fcc0, $fa5, $fa7
+	fsel	$ft1, $ft1, $ft0, $fcc0
 	fst.s	$ft1, $sp, 28
 	frecip.s	$ft2, $fa3
-	fcmp.ceq.s	$fcc0, $fa3, $ft0
-	fsel	$fa6, $ft2, $fa6, $fcc0
-	fcmp.clt.s	$fcc0, $fa7, $ft0
-	fst.s	$fa6, $sp, 32
+	fcmp.ceq.s	$fcc0, $fa3, $fa7
+	fsel	$ft0, $ft2, $ft0, $fcc0
+	fcmp.clt.s	$fcc0, $fa6, $fa7
+	fst.s	$ft0, $sp, 32
 	movcf2gr	$a0, $fcc0
-	fcmp.clt.s	$fcc0, $ft1, $ft0
+	fcmp.clt.s	$fcc0, $ft1, $fa7
 	st.w	$a0, $sp, 40
 	movcf2gr	$a0, $fcc0
-	fcmp.clt.s	$fcc0, $fa6, $ft0
+	fcmp.clt.s	$fcc0, $ft0, $fa7
 	st.w	$a0, $sp, 44
 	movcf2gr	$a0, $fcc0
 	st.w	$a0, $sp, 48
@@ -3588,12 +3570,8 @@ _ZN19btSingleRayCallback7processEPK17btBroadphaseProxy: # @_ZN19btSingleRayCallb
 	.size	_ZN19btSingleRayCallback7processEPK17btBroadphaseProxy, .Lfunc_end30-_ZN19btSingleRayCallback7processEPK17btBroadphaseProxy
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf
-.LCPI31_0:
-	.word	0x28800000                      # float 1.42108547E-14
 	.section	.text._ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf,"axG",@progbits,_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf,comdat
-	.weak	_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf
+	.weak	_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf # -- Begin function _ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf
 	.p2align	5
 	.type	_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf,@function
 _ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf: # @_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf
@@ -3730,11 +3708,11 @@ _ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf: # 
 	jirl	$ra, $ra, 0
 	fadd.s	$fa0, $fa0, $fa0
 	fst.s	$fa0, $s0, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI31_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI31_0)
 	fmul.s	$fa0, $fs1, $fs1
 	fmadd.s	$fa0, $fs0, $fs0, $fa0
 	fmadd.s	$fa0, $fs2, $fs2, $fa0
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	st.w	$zero, $fp, 12
 	bceqz	$fcc0, .LBB31_2

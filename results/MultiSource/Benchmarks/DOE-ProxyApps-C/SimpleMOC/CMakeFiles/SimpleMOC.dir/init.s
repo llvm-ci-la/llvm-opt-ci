@@ -1,23 +1,22 @@
 	.file	"init.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function calculate_derived_inputs
-.LCPI0_0:
-	.dword	0x3ff6a09e667f3bcd              # double 1.4142135623730951
 	.text
-	.globl	calculate_derived_inputs
+	.globl	calculate_derived_inputs        # -- Begin function calculate_derived_inputs
 	.p2align	5
 	.type	calculate_derived_inputs,@function
 calculate_derived_inputs:               # @calculate_derived_inputs
 # %bb.0:
 	ld.wu	$a1, $a0, 28
 	srli.d	$a2, $a1, 31
+	fld.s	$fa0, $a0, 56
 	add.w	$a1, $a1, $a2
 	srai.d	$a1, $a1, 1
-	fld.s	$fa0, $a0, 56
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI0_0)
 	st.w	$a1, $a0, 28
 	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a2, 419827
+	ori	$a2, $a2, 3021
+	lu32i.d	$a2, 434334
+	lu52i.d	$a2, $a2, 1023
+	movgr2fr.d	$fa1, $a2
 	fld.s	$fa2, $a0, 20
 	fmul.d	$fa0, $fa0, $fa1
 	movgr2fr.w	$fa1, $a1

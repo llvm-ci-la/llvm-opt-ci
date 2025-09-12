@@ -451,27 +451,23 @@ imp_match_init_strict:                  # @imp_match_init_strict
 .Lfunc_end2:
 	.size	imp_match_init_strict, .Lfunc_end2-imp_match_init_strict
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function A__align
-.LCPI3_0:
-	.dword	0x3ff4cccccccccccd              # double 1.3
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI3_1:
+	.p2align	4, 0x0                          # -- Begin function A__align
+.LCPI3_0:
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
 	.word	4                               # 0x4
-.LCPI3_2:
+.LCPI3_1:
 	.dword	3                               # 0x3
 	.dword	4                               # 0x4
-.LCPI3_3:
+.LCPI3_2:
 	.dword	1                               # 0x1
 	.dword	2                               # 0x2
-.LCPI3_4:
+.LCPI3_3:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-.LCPI3_5:
+.LCPI3_4:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -659,22 +655,25 @@ A__align:                               # @A__align
 .LBB3_7:
 	ld.d	$s1, $sp, 256                   # 8-byte Folded Reload
 .LBB3_8:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_0)
 	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -209716
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, 314572
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s4
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $s4, $a1
 	or	$s4, $a1, $a0
 	addi.w	$s0, $s4, 100
-	movgr2fr.w	$fa1, $s1
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $s1
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s7
@@ -1481,8 +1480,8 @@ A__align:                               # @A__align
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 1, 0
 	vreplgr2vr.w	$vr0, $a0
-	pcalau12i	$a5, %pc_hi20(.LCPI3_1)
-	vld	$vr1, $a5, %pc_lo12(.LCPI3_1)
+	pcalau12i	$a5, %pc_hi20(.LCPI3_0)
+	vld	$vr1, $a5, %pc_lo12(.LCPI3_0)
 	addi.d	$a5, $s5, 4
 	lu52i.d	$a6, $zero, -1026
 	vreplgr2vr.d	$vr2, $a6
@@ -1577,8 +1576,8 @@ A__align:                               # @A__align
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 1, 0
 	vreplgr2vr.w	$vr0, $a0
-	pcalau12i	$a5, %pc_hi20(.LCPI3_1)
-	vld	$vr1, $a5, %pc_lo12(.LCPI3_1)
+	pcalau12i	$a5, %pc_hi20(.LCPI3_0)
+	vld	$vr1, $a5, %pc_lo12(.LCPI3_0)
 	ld.d	$a5, $sp, 312                   # 8-byte Folded Reload
 	addi.d	$a5, $a5, 4
 	lu52i.d	$a6, $zero, -1026
@@ -1996,10 +1995,10 @@ A__align:                               # @A__align
 	bstrins.d	$a3, $a5, 1, 0
 	vreplgr2vr.w	$vr0, $a0
 	vreplgr2vr.d	$vr1, $t3
+	pcalau12i	$a5, %pc_hi20(.LCPI3_1)
+	vld	$vr2, $a5, %pc_lo12(.LCPI3_1)
 	pcalau12i	$a5, %pc_hi20(.LCPI3_2)
-	vld	$vr2, $a5, %pc_lo12(.LCPI3_2)
-	pcalau12i	$a5, %pc_hi20(.LCPI3_3)
-	vld	$vr3, $a5, %pc_lo12(.LCPI3_3)
+	vld	$vr3, $a5, %pc_lo12(.LCPI3_2)
 	addi.d	$a5, $s5, 4
 	lu52i.d	$a6, $zero, -1026
 	vreplgr2vr.d	$vr4, $a6
@@ -2321,8 +2320,8 @@ A__align:                               # @A__align
 	move	$a3, $zero
 	b	.LBB3_152
 .LBB3_149:                              # %vector.ph765
-	pcalau12i	$a4, %pc_hi20(.LCPI3_4)
-	vld	$vr0, $a4, %pc_lo12(.LCPI3_4)
+	pcalau12i	$a4, %pc_hi20(.LCPI3_3)
+	vld	$vr0, $a4, %pc_lo12(.LCPI3_3)
 	bstrpick.d	$a3, $a3, 31, 2
 	slli.d	$a3, $a3, 2
 	addi.d	$a4, $s8, 16
@@ -2377,8 +2376,8 @@ A__align:                               # @A__align
 .LBB3_157:                              # %vector.ph780
 	bstrpick.d	$a5, $a5, 31, 3
 	slli.d	$a5, $a5, 3
-	pcalau12i	$a6, %pc_hi20(.LCPI3_5)
-	vld	$vr0, $a6, %pc_lo12(.LCPI3_5)
+	pcalau12i	$a6, %pc_hi20(.LCPI3_4)
+	vld	$vr0, $a6, %pc_lo12(.LCPI3_4)
 	addi.d	$a6, $a3, 16
 	vrepli.b	$vr1, -1
 	vrepli.w	$vr2, -5
@@ -3767,27 +3766,23 @@ Atracking:                              # @Atracking
 .Lfunc_end5:
 	.size	Atracking, .Lfunc_end5-Atracking
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function A__align_gapmap
-.LCPI6_0:
-	.dword	0x3ff4cccccccccccd              # double 1.3
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI6_1:
+	.p2align	4, 0x0                          # -- Begin function A__align_gapmap
+.LCPI6_0:
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
 	.word	4                               # 0x4
-.LCPI6_2:
+.LCPI6_1:
 	.dword	3                               # 0x3
 	.dword	4                               # 0x4
-.LCPI6_3:
+.LCPI6_2:
 	.dword	1                               # 0x1
 	.dword	2                               # 0x2
-.LCPI6_4:
+.LCPI6_3:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-.LCPI6_5:
+.LCPI6_4:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -3895,7 +3890,7 @@ A__align_gapmap:                        # @A__align_gapmap
 # %bb.3:
 	bge	$s3, $s8, .LBB6_9
 .LBB6_4:
-	pcalau12i	$fp, %pc_hi20(A__align_gapmap.match)
+	pcalau12i	$s6, %pc_hi20(A__align_gapmap.match)
 	blez	$s4, .LBB6_7
 # %bb.5:
 	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
@@ -3909,7 +3904,7 @@ A__align_gapmap:                        # @A__align_gapmap
 	ld.d	$a0, $a0, %pc_lo12(A__align_gapmap.w2)
 	pcaddu18i	$ra, %call36(FreeFloatVec)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $fp, %pc_lo12(A__align_gapmap.match)
+	ld.d	$a0, $s6, %pc_lo12(A__align_gapmap.match)
 	pcaddu18i	$ra, %call36(FreeFloatVec)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 240                   # 8-byte Folded Reload
@@ -3969,22 +3964,25 @@ A__align_gapmap:                        # @A__align_gapmap
 .LBB6_7:
 	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
 .LBB6_8:
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI6_0)
-	movgr2fr.w	$fa1, $s0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $s0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -209716
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, 314572
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s4
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $s4, $a1
 	or	$s4, $a1, $a0
 	addi.w	$s0, $s4, 100
 	ld.d	$a0, $sp, 216                   # 8-byte Folded Reload
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s3
@@ -4008,7 +4006,7 @@ A__align_gapmap:                        # @A__align_gapmap
 	move	$a0, $s5
 	pcaddu18i	$ra, %call36(AllocateFloatVec)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $fp, %pc_lo12(A__align_gapmap.match)
+	st.d	$a0, $s6, %pc_lo12(A__align_gapmap.match)
 	addi.w	$s6, $s4, 102
 	move	$a0, $s6
 	pcaddu18i	$ra, %call36(AllocateFloatVec)
@@ -4478,8 +4476,8 @@ A__align_gapmap:                        # @A__align_gapmap
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 1, 0
 	vreplgr2vr.w	$vr0, $a0
-	pcalau12i	$a5, %pc_hi20(.LCPI6_1)
-	vld	$vr1, $a5, %pc_lo12(.LCPI6_1)
+	pcalau12i	$a5, %pc_hi20(.LCPI6_0)
+	vld	$vr1, $a5, %pc_lo12(.LCPI6_0)
 	addi.d	$a5, $s5, 4
 	lu52i.d	$a6, $zero, -1026
 	vreplgr2vr.d	$vr2, $a6
@@ -4648,8 +4646,8 @@ A__align_gapmap:                        # @A__align_gapmap
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 1, 0
 	vreplgr2vr.w	$vr0, $a0
-	pcalau12i	$a5, %pc_hi20(.LCPI6_1)
-	vld	$vr1, $a5, %pc_lo12(.LCPI6_1)
+	pcalau12i	$a5, %pc_hi20(.LCPI6_0)
+	vld	$vr1, $a5, %pc_lo12(.LCPI6_0)
 	ld.d	$a5, $sp, 280                   # 8-byte Folded Reload
 	addi.d	$a5, $a5, 4
 	lu52i.d	$a6, $zero, -1026
@@ -5011,10 +5009,10 @@ A__align_gapmap:                        # @A__align_gapmap
 	vreplgr2vr.w	$vr0, $a0
 	ld.d	$a5, $sp, 216                   # 8-byte Folded Reload
 	vreplgr2vr.d	$vr1, $a5
+	pcalau12i	$a5, %pc_hi20(.LCPI6_1)
+	vld	$vr2, $a5, %pc_lo12(.LCPI6_1)
 	pcalau12i	$a5, %pc_hi20(.LCPI6_2)
-	vld	$vr2, $a5, %pc_lo12(.LCPI6_2)
-	pcalau12i	$a5, %pc_hi20(.LCPI6_3)
-	vld	$vr3, $a5, %pc_lo12(.LCPI6_3)
+	vld	$vr3, $a5, %pc_lo12(.LCPI6_2)
 	addi.d	$a5, $s5, 4
 	lu52i.d	$a6, $zero, -1026
 	vreplgr2vr.d	$vr4, $a6
@@ -5337,8 +5335,8 @@ A__align_gapmap:                        # @A__align_gapmap
 	move	$a3, $zero
 	b	.LBB6_132
 .LBB6_129:                              # %vector.ph689
-	pcalau12i	$a4, %pc_hi20(.LCPI6_4)
-	vld	$vr0, $a4, %pc_lo12(.LCPI6_4)
+	pcalau12i	$a4, %pc_hi20(.LCPI6_3)
+	vld	$vr0, $a4, %pc_lo12(.LCPI6_3)
 	bstrpick.d	$a3, $a3, 31, 2
 	slli.d	$a3, $a3, 2
 	addi.d	$a4, $s2, 16
@@ -5394,8 +5392,8 @@ A__align_gapmap:                        # @A__align_gapmap
 .LBB6_137:                              # %vector.ph704
 	bstrpick.d	$a5, $a5, 31, 3
 	slli.d	$a5, $a5, 3
-	pcalau12i	$a6, %pc_hi20(.LCPI6_5)
-	vld	$vr0, $a6, %pc_lo12(.LCPI6_5)
+	pcalau12i	$a6, %pc_hi20(.LCPI6_4)
+	vld	$vr0, $a6, %pc_lo12(.LCPI6_4)
 	addi.d	$a6, $a3, 16
 	vrepli.b	$vr1, -1
 	vrepli.w	$vr2, -5

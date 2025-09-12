@@ -1,12 +1,6 @@
 	.file	"lmathlib.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function luaopen_math
-.LCPI0_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI0_1:
-	.dword	0x7ff0000000000000              # double +Inf
 	.text
-	.globl	luaopen_math
+	.globl	luaopen_math                    # -- Begin function luaopen_math
 	.p2align	5
 	.type	luaopen_math,@function
 luaopen_math:                           # @luaopen_math
@@ -23,8 +17,11 @@ luaopen_math:                           # @luaopen_math
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(luaL_register)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa0, $a0
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(lua_pushnumber)
 	jirl	$ra, $ra, 0
@@ -35,8 +32,8 @@ luaopen_math:                           # @luaopen_math
 	move	$a1, $s0
 	pcaddu18i	$ra, %call36(lua_setfield)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu52i.d	$a0, $zero, 2047
+	movgr2fr.d	$fa0, $a0
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(lua_pushnumber)
 	jirl	$ra, $ra, 0
@@ -269,12 +266,7 @@ math_cos:                               # @math_cos
 .Lfunc_end8:
 	.size	math_cos, .Lfunc_end8-math_cos
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function math_deg
-.LCPI9_0:
-	.dword	0x3f91df46a2529d39              # double 0.017453292519943295
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function math_deg
 	.type	math_deg,@function
 math_deg:                               # @math_deg
 # %bb.0:
@@ -285,8 +277,11 @@ math_deg:                               # @math_deg
 	ori	$a1, $zero, 1
 	pcaddu18i	$ra, %call36(luaL_checknumber)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI9_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI9_0)
+	lu12i.w	$a0, -383703
+	ori	$a0, $a0, 3385
+	lu32i.d	$a0, 122694
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(lua_pushnumber)
@@ -657,12 +652,7 @@ math_pow:                               # @math_pow
 .Lfunc_end20:
 	.size	math_pow, .Lfunc_end20-math_pow
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function math_rad
-.LCPI21_0:
-	.dword	0x3f91df46a2529d39              # double 0.017453292519943295
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function math_rad
 	.type	math_rad,@function
 math_rad:                               # @math_rad
 # %bb.0:
@@ -673,8 +663,11 @@ math_rad:                               # @math_rad
 	ori	$a1, $zero, 1
 	pcaddu18i	$ra, %call36(luaL_checknumber)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI21_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI21_0)
+	lu12i.w	$a0, -383703
+	ori	$a0, $a0, 3385
+	lu32i.d	$a0, 122694
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(lua_pushnumber)
@@ -687,12 +680,7 @@ math_rad:                               # @math_rad
 .Lfunc_end21:
 	.size	math_rad, .Lfunc_end21-math_rad
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function math_random
-.LCPI22_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function math_random
 	.type	math_random,@function
 math_random:                            # @math_random
 # %bb.0:
@@ -713,12 +701,13 @@ math_random:                            # @math_random
 	add.d	$a1, $a1, $a2
 	slli.d	$a2, $a1, 31
 	add.d	$a1, $a2, $a1
-	pcalau12i	$a2, %pc_hi20(.LCPI22_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI22_0)
 	add.d	$a0, $a0, $a1
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fs0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs0, $fa0, $fa1
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(lua_gettop)
 	jirl	$ra, $ra, 0

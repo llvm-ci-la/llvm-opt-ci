@@ -158,12 +158,7 @@ _ZNK18btStaticPlaneShape7getAabbERK11btTransformR9btVector3S4_: # @_ZNK18btStati
 .Lfunc_end3:
 	.size	_ZNK18btStaticPlaneShape7getAabbERK11btTransformR9btVector3S4_, .Lfunc_end3-_ZNK18btStaticPlaneShape7getAabbERK11btTransformR9btVector3S4_
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_
-.LCPI4_0:
-	.word	0x3f3504f3                      # float 0.707106769
-	.text
-	.globl	_ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_
+	.globl	_ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_ # -- Begin function _ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_
 	.p2align	5
 	.type	_ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_,@function
 _ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_: # @_ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_
@@ -195,8 +190,6 @@ _ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S
 	.cfi_offset 59, -80
 	.cfi_offset 60, -88
 	.cfi_offset 61, -96
-	pcalau12i	$a4, %pc_hi20(.LCPI4_0)
-	fld.s	$fa7, $a4, %pc_lo12(.LCPI4_0)
 	fld.s	$fa0, $a3, 0
 	fld.s	$fa2, $a2, 0
 	fld.s	$fa1, $a3, 4
@@ -204,8 +197,11 @@ _ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S
 	fld.s	$fa3, $a2, 4
 	fld.s	$fa4, $a3, 8
 	fld.s	$fa6, $a2, 8
-	fabs.s	$ft0, $fa5
-	fcmp.cule.s	$fcc0, $ft0, $fa7
+	fabs.s	$fa7, $fa5
+	lu12i.w	$a2, 258896
+	ori	$a2, $a2, 1267
+	movgr2fr.w	$ft0, $a2
+	fcmp.cule.s	$fcc0, $fa7, $ft0
 	move	$fp, $a1
 	bcnez	$fcc0, .LBB4_2
 # %bb.1:

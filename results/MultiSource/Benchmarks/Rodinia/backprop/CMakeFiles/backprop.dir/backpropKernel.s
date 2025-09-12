@@ -1,10 +1,6 @@
 	.file	"backpropKernel.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function bpnn_train_kernel
-.LCPI0_0:
-	.dword	0x3fd3333333333333              # double 0.29999999999999999
 	.text
-	.globl	bpnn_train_kernel
+	.globl	bpnn_train_kernel               # -- Begin function bpnn_train_kernel
 	.p2align	5
 	.type	bpnn_train_kernel,@function
 bpnn_train_kernel:                      # @bpnn_train_kernel
@@ -67,8 +63,11 @@ bpnn_train_kernel:                      # @bpnn_train_kernel
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
 	addi.d	$a0, $s4, -1
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, 209715
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$t2, 260096
 	movgr2fr.w	$fs1, $zero
 	movgr2fr.d	$fs2, $zero

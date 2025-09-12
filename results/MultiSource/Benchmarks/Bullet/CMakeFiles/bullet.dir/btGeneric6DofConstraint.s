@@ -345,14 +345,7 @@ _ZN22btRotationalLimitMotor14testLimitValueEf: # @_ZN22btRotationalLimitMotor14t
 .Lfunc_end4:
 	.size	_ZN22btRotationalLimitMotor14testLimitValueEf, .Lfunc_end4-_ZN22btRotationalLimitMotor14testLimitValueEf
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12btSolverBodyS3_S5_
-.LCPI5_0:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI5_1:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.text
-	.globl	_ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12btSolverBodyS3_S5_
+	.globl	_ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12btSolverBodyS3_S5_ # -- Begin function _ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12btSolverBodyS3_S5_
 	.p2align	5
 	.type	_ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12btSolverBodyS3_S5_,@function
 _ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12btSolverBodyS3_S5_: # @_ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12btSolverBodyS3_S5_
@@ -414,23 +407,23 @@ _ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12bt
 	fadd.s	$fa7, $ft4, $ft5
 .LBB5_10:                               # %_ZNK12btSolverBody18getAngularVelocityER9btVector3.exit63
 	fsub.s	$fa6, $fa6, $ft1
+	fld.s	$ft1, $a1, 4
 	fsub.s	$fa5, $fa5, $ft0
-	fld.s	$ft0, $a1, 4
 	fsub.s	$fa4, $fa4, $fa7
 	fld.s	$fa7, $a1, 0
-	fld.s	$ft1, $a1, 8
-	fmul.s	$fa5, $fa5, $ft0
-	fld.s	$ft0, $a0, 20
+	fmul.s	$fa5, $fa5, $ft1
+	fld.s	$ft0, $a1, 8
+	fld.s	$ft1, $a0, 20
 	fmadd.s	$fa5, $fa7, $fa6, $fa5
-	fmadd.s	$fa4, $ft1, $fa4, $fa5
-	fld.s	$fa5, $a0, 24
-	fneg.s	$fa6, $ft0
-	pcalau12i	$a7, %pc_hi20(.LCPI5_0)
-	fld.s	$fa7, $a7, %pc_lo12(.LCPI5_0)
-	fmadd.s	$fa3, $fa6, $fa4, $fa3
-	fmul.s	$fa3, $fa5, $fa3
+	fld.s	$fa6, $a0, 24
+	fmadd.s	$fa4, $ft0, $fa4, $fa5
+	fneg.s	$fa5, $ft1
+	fmadd.s	$fa3, $fa5, $fa4, $fa3
+	fmul.s	$fa3, $fa6, $fa3
 	fabs.s	$fa4, $fa3
-	fcmp.clt.s	$fcc0, $fa4, $fa7
+	lu12i.w	$a7, 212992
+	movgr2fr.w	$fa5, $a7
+	fcmp.clt.s	$fcc0, $fa4, $fa5
 	bceqz	$fcc0, .LBB5_12
 # %bb.11:
 	ret
@@ -454,11 +447,12 @@ _ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyR12bt
 .LBB5_15:
 	fsel	$fa0, $fa0, $fa2, $fcc0
 	fld.s	$fa2, $a0, 52
-	pcalau12i	$a6, %pc_hi20(.LCPI5_1)
-	fld.s	$fa3, $a6, %pc_lo12(.LCPI5_1)
 	fadd.s	$fa0, $fa0, $fa2
-	fabs.s	$fa4, $fa0
-	fcmp.clt.s	$fcc0, $fa3, $fa4
+	fabs.s	$fa3, $fa0
+	lu12i.w	$a6, 382432
+	ori	$a6, $a6, 2923
+	movgr2fr.w	$fa4, $a6
+	fcmp.clt.s	$fcc0, $fa4, $fa3
 	fsel	$fa0, $fa0, $fa1, $fcc0
 	fst.s	$fa0, $a0, 52
 	fsub.s	$fa0, $fa0, $fa2
@@ -610,14 +604,7 @@ _ZN25btTranslationalLimitMotor14testLimitValueEif: # @_ZN25btTranslationalLimitM
 .Lfunc_end6:
 	.size	_ZN25btTranslationalLimitMotor14testLimitValueEif, .Lfunc_end6-_ZN25btTranslationalLimitMotor14testLimitValueEif
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyRK9btVector3S1_S3_S6_iS6_S6_
-.LCPI7_0:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-.LCPI7_1:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.text
-	.globl	_ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyRK9btVector3S1_S3_S6_iS6_S6_
+	.globl	_ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyRK9btVector3S1_S3_S6_iS6_S6_ # -- Begin function _ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyRK9btVector3S1_S3_S6_iS6_S6_
 	.p2align	5
 	.type	_ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyRK9btVector3S1_S3_S6_iS6_S6_,@function
 _ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyRK9btVector3S1_S3_S6_iS6_S6_: # @_ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyRK9btVector3S1_S3_S6_iS6_S6_
@@ -717,40 +704,43 @@ _ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyR
 	fld.s	$ft7, $t0, 4
 	fld.s	$ft8, $a3, 0
 	fld.s	$ft9, $a6, 0
-	fld.s	$ft11, $a3, 4
-	fld.s	$ft12, $a6, 4
-	fld.s	$ft13, $a3, 8
-	fld.s	$ft14, $a6, 8
-	fld.s	$ft10, $t0, 8
-	fsub.s	$ft15, $ft8, $ft9
-	fsub.s	$ft8, $ft11, $ft12
-	fsub.s	$ft11, $ft13, $ft14
-	fmul.s	$ft14, $ft7, $ft8
+	fld.s	$ft10, $a3, 4
+	fld.s	$ft11, $a6, 4
+	fld.s	$ft12, $a3, 8
+	fld.s	$ft13, $a6, 8
+	fsub.s	$ft8, $ft8, $ft9
+	fld.s	$ft9, $t0, 8
+	fsub.s	$ft10, $ft10, $ft11
+	fsub.s	$ft11, $ft12, $ft13
+	fmul.s	$ft10, $ft7, $ft10
+	fmadd.s	$ft8, $ft8, $ft6, $ft10
+	fnmadd.s	$ft10, $ft11, $ft9, $ft8
 	alsl.d	$a3, $a7, $a0, 2
 	slli.d	$a6, $a7, 2
 	fldx.s	$ft12, $a0, $a6
 	fld.s	$ft13, $a3, 16
-	pcalau12i	$a3, %pc_hi20(.LCPI7_0)
-	fld.s	$ft8, $a3, %pc_lo12(.LCPI7_0)
-	pcalau12i	$a3, %pc_hi20(.LCPI7_1)
-	fld.s	$ft9, $a3, %pc_lo12(.LCPI7_1)
-	fmadd.s	$ft14, $ft15, $ft6, $ft14
+	lu12i.w	$a3, 382432
+	ori	$a3, $a3, 2923
+	movgr2fr.w	$ft8, $a3
+	lu12i.w	$a3, -141856
+	ori	$a3, $a3, 2923
+	lu32i.d	$a3, 0
 	fcmp.cule.s	$fcc0, $ft13, $ft12
-	fnmadd.s	$ft11, $ft11, $ft10, $ft14
+	movgr2fr.w	$ft11, $a3
 	bcnez	$fcc0, .LBB7_9
 # %bb.5:
-	fcmp.cule.s	$fcc0, $ft11, $ft13
+	fcmp.cule.s	$fcc0, $ft10, $ft13
 	bcnez	$fcc0, .LBB7_7
 # %bb.6:
-	fsub.s	$ft11, $ft11, $ft13
-	movgr2fr.w	$ft8, $zero
+	fsub.s	$ft10, $ft10, $ft13
+	movgr2fr.w	$ft11, $zero
 	b	.LBB7_9
 .LBB7_7:
-	fcmp.cule.s	$fcc0, $ft12, $ft11
+	fcmp.cule.s	$fcc0, $ft12, $ft10
 	bcnez	$fcc0, .LBB7_10
 # %bb.8:
-	fsub.s	$ft11, $ft11, $ft12
-	movgr2fr.w	$ft9, $zero
+	fsub.s	$ft10, $ft10, $ft12
+	movgr2fr.w	$ft8, $zero
 .LBB7_9:
 	fsub.s	$ft3, $ft3, $ft5
 	fsub.s	$ft2, $ft2, $ft4
@@ -758,10 +748,10 @@ _ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyR
 	fmul.s	$ft1, $ft2, $ft7
 	fmadd.s	$ft1, $ft6, $ft3, $ft1
 	fld.s	$ft2, $a0, 56
-	fmadd.s	$ft0, $ft10, $ft0, $ft1
+	fmadd.s	$ft0, $ft9, $ft0, $ft1
 	fld.s	$ft1, $a0, 52
 	fld.s	$ft3, $a0, 48
-	fmul.s	$ft2, $ft11, $ft2
+	fmul.s	$ft2, $ft10, $ft2
 	fdiv.s	$fa0, $ft2, $fa0
 	fneg.s	$ft1, $ft1
 	alsl.d	$a0, $a7, $a0, 2
@@ -770,10 +760,10 @@ _ZN25btTranslationalLimitMotor15solveLinearAxisEffR11btRigidBodyR12btSolverBodyR
 	fmul.s	$fa0, $ft3, $fa0
 	fmul.s	$fa0, $fa1, $fa0
 	fadd.s	$fa0, $ft2, $fa0
-	fcmp.clt.s	$fcc0, $fa0, $ft8
+	fcmp.clt.s	$fcc0, $fa0, $ft11
 	movgr2fr.w	$fa1, $zero
 	fsel	$ft0, $fa0, $fa1, $fcc0
-	fcmp.clt.s	$fcc0, $ft9, $fa0
+	fcmp.clt.s	$fcc0, $ft8, $fa0
 	fsel	$fa0, $ft0, $fa1, $fcc0
 	fst.s	$fa0, $a0, 32
 	fld.s	$ft0, $t0, 4
@@ -1817,18 +1807,8 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi: # @_ZN23btGeneric6DofCons
 	.size	_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi, .Lfunc_end14-_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z21btAdjustAngleToLimitsfff
-.LCPI15_0:
-	.word	0x40c90fdb                      # float 6.28318548
-.LCPI15_1:
-	.word	0xc0490fdb                      # float -3.14159274
-.LCPI15_2:
-	.word	0x40490fdb                      # float 3.14159274
-.LCPI15_3:
-	.word	0xc0c90fdb                      # float -6.28318548
 	.section	.text._Z21btAdjustAngleToLimitsfff,"axG",@progbits,_Z21btAdjustAngleToLimitsfff,comdat
-	.weak	_Z21btAdjustAngleToLimitsfff
+	.weak	_Z21btAdjustAngleToLimitsfff    # -- Begin function _Z21btAdjustAngleToLimitsfff
 	.p2align	5
 	.type	_Z21btAdjustAngleToLimitsfff,@function
 _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
@@ -1861,14 +1841,17 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 # %bb.2:
 	fmov.s	$fs4, $fa2
 	fsub.s	$fa0, $fa1, $fs0
-	pcalau12i	$a0, %pc_hi20(.LCPI15_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI15_0)
+	lu12i.w	$a0, 265360
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fs1, $a0
 	fmov.s	$fa1, $fs1
 	pcaddu18i	$ra, %call36(fmodf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI15_1)
-	fld.s	$fs3, $a0, %pc_lo12(.LCPI15_1)
 	fmov.s	$fs2, $fa0
+	lu12i.w	$a0, -260976
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs3, $a0
 	fcmp.cule.s	$fcc0, $fs3, $fa0
 	bcnez	$fcc0, .LBB15_7
 # %bb.3:
@@ -1880,29 +1863,35 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 # %bb.5:
 	fmov.s	$fs4, $fa1
 	fsub.s	$fa0, $fs0, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI15_0)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI15_0)
+	lu12i.w	$a0, 265360
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fs2, $a0
 	fmov.s	$fa1, $fs2
 	pcaddu18i	$ra, %call36(fmodf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI15_1)
-	fld.s	$fs3, $a0, %pc_lo12(.LCPI15_1)
 	fmov.s	$fs1, $fa0
+	lu12i.w	$a0, -260976
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs3, $a0
 	fcmp.cule.s	$fcc0, $fs3, $fa0
-	pcalau12i	$s0, %pc_hi20(.LCPI15_2)
-	pcalau12i	$fp, %pc_hi20(.LCPI15_3)
+	lu12i.w	$s0, 263312
+	lu12i.w	$fp, -258928
 	bcnez	$fcc0, .LBB15_14
 # %bb.6:
 	fadd.s	$fs1, $fs1, $fs2
 	b	.LBB15_16
 .LBB15_7:
-	pcalau12i	$a0, %pc_hi20(.LCPI15_2)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI15_2)
+	lu12i.w	$a0, 263312
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa0, $a0
 	fcmp.cule.s	$fcc0, $fs2, $fa0
 	bcnez	$fcc0, .LBB15_9
 # %bb.8:
-	pcalau12i	$a0, %pc_hi20(.LCPI15_3)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI15_3)
+	lu12i.w	$a0, -258928
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa0, $a0
 	fadd.s	$fs2, $fs2, $fa0
 .LBB15_9:                               # %_Z16btNormalizeAnglef.exit
 	fsub.s	$fa0, $fs4, $fs0
@@ -1915,13 +1904,16 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 	fadd.s	$fa0, $fa0, $fs1
 	b	.LBB15_13
 .LBB15_11:
-	pcalau12i	$a0, %pc_hi20(.LCPI15_2)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI15_2)
+	lu12i.w	$a0, 263312
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa1, $a0
 	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB15_13
 # %bb.12:
-	pcalau12i	$a0, %pc_hi20(.LCPI15_3)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI15_3)
+	lu12i.w	$a0, -258928
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
 	fadd.s	$fa0, $fa0, $fa1
 .LBB15_13:                              # %_Z16btNormalizeAnglef.exit29
 	fabs.s	$fa0, $fa0
@@ -1930,11 +1922,14 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 	fsel	$fs0, $fa1, $fs0, $fcc0
 	b	.LBB15_21
 .LBB15_14:
-	fld.s	$fa0, $s0, %pc_lo12(.LCPI15_2)
+	ori	$a0, $s0, 4059
+	movgr2fr.w	$fa0, $a0
 	fcmp.cule.s	$fcc0, $fs1, $fa0
 	bcnez	$fcc0, .LBB15_16
 # %bb.15:
-	fld.s	$fa0, $fp, %pc_lo12(.LCPI15_3)
+	ori	$a0, $fp, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa0, $a0
 	fadd.s	$fs1, $fs1, $fa0
 .LBB15_16:                              # %_Z16btNormalizeAnglef.exit31
 	fsub.s	$fa0, $fs0, $fs4
@@ -1947,15 +1942,20 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 	fadd.s	$fa0, $fa0, $fs2
 	b	.LBB15_20
 .LBB15_18:
-	fld.s	$fa1, $s0, %pc_lo12(.LCPI15_2)
+	ori	$a0, $s0, 4059
+	movgr2fr.w	$fa1, $a0
 	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB15_20
 # %bb.19:
-	fld.s	$fa1, $fp, %pc_lo12(.LCPI15_3)
+	ori	$a0, $fp, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
 	fadd.s	$fa0, $fa0, $fa1
 .LBB15_20:                              # %_Z16btNormalizeAnglef.exit33
-	fld.s	$fa1, $fp, %pc_lo12(.LCPI15_3)
 	fabs.s	$fa0, $fa0
+	ori	$a0, $fp, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
 	fadd.s	$fa1, $fs0, $fa1
 	fcmp.clt.s	$fcc0, $fa0, $fs1
 	fsel	$fs0, $fs0, $fa1, $fcc0
@@ -3030,14 +3030,7 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
 	.size	_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_, .Lfunc_end23-_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_i
-.LCPI24_0:
-	.word	0xff7fffff                      # float -3.40282347E+38
-.LCPI24_1:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-	.text
-	.globl	_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_i
+	.globl	_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_i # -- Begin function _ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_i
 	.p2align	5
 	.type	_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_i,@function
 _ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_i: # @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_i
@@ -3241,19 +3234,22 @@ _ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK1
 	addi.d	$a0, $t1, -1
 	sltui	$a0, $a0, 1
 	ld.d	$a3, $s0, 64
-	pcalau12i	$t4, %pc_hi20(.LCPI24_0)
-	fld.s	$fa0, $t4, %pc_lo12(.LCPI24_0)
-	pcalau12i	$t4, %pc_hi20(.LCPI24_1)
-	fld.s	$fa2, $t4, %pc_lo12(.LCPI24_1)
-	movgr2fr.w	$fa1, $zero
+	lu12i.w	$t4, -2049
+	ori	$t4, $t4, 4095
+	lu32i.d	$t4, 0
+	movgr2fr.w	$fa1, $t4
+	movgr2fr.w	$fa0, $zero
 	movgr2cf	$fcc0, $a0
-	ld.d	$a0, $s0, 72
-	fsel	$fa0, $fa0, $fa1, $fcc0
-	fsel	$fa2, $fa1, $fa2, $fcc0
-	fstx.s	$fa0, $a3, $fp
-	fstx.s	$fa2, $a0, $fp
-	fld.s	$fa0, $a1, 32
-	fcmp.cule.s	$fcc0, $fa0, $fa1
+	fsel	$fa1, $fa1, $fa0, $fcc0
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	ld.d	$t4, $s0, 72
+	movgr2fr.w	$fa2, $a0
+	fsel	$fa2, $fa0, $fa2, $fcc0
+	fstx.s	$fa1, $a3, $fp
+	fstx.s	$fa2, $t4, $fp
+	fld.s	$fa1, $a1, 32
+	fcmp.cule.s	$fcc0, $fa1, $fa0
 	ori	$a0, $zero, 1
 	bcnez	$fcc0, .LBB24_17
 # %bb.19:
@@ -3282,23 +3278,23 @@ _ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK1
 	fsub.s	$fa2, $fa5, $fa2
 	bne	$t1, $a0, .LBB24_22
 # %bb.20:
-	fcmp.cule.s	$fcc0, $fa1, $fa2
+	fcmp.cule.s	$fcc0, $fa0, $fa2
 	bcnez	$fcc0, .LBB24_17
 # %bb.21:
-	fldx.s	$fa1, $a2, $fp
-	fneg.s	$fa0, $fa0
+	fldx.s	$fa3, $a2, $fp
+	fneg.s	$fa0, $fa1
 	fmul.s	$fa0, $fa2, $fa0
-	fcmp.cule.s	$fcc0, $fa0, $fa1
+	fcmp.cule.s	$fcc0, $fa0, $fa3
 	bceqz	$fcc0, .LBB24_24
 	b	.LBB24_17
 .LBB24_22:
-	fcmp.cule.s	$fcc0, $fa2, $fa1
+	fcmp.cule.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB24_17
 # %bb.23:
-	fldx.s	$fa1, $a2, $fp
-	fneg.s	$fa0, $fa0
+	fldx.s	$fa3, $a2, $fp
+	fneg.s	$fa0, $fa1
 	fmul.s	$fa0, $fa2, $fa0
-	fcmp.cule.s	$fcc0, $fa1, $fa0
+	fcmp.cule.s	$fcc0, $fa3, $fa0
 	bcnez	$fcc0, .LBB24_17
 .LBB24_24:
 	alsl.d	$a1, $t0, $a2, 2

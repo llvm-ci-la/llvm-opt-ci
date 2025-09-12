@@ -845,14 +845,7 @@ PRINT_ADDRESS:                          # @PRINT_ADDRESS
 .Lfunc_end11:
 	.size	PRINT_ADDRESS, .Lfunc_end11-PRINT_ADDRESS
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function PRINT_CONSTANT
-.LCPI12_0:
-	.dword	0x40062e42fefa39ef              # double 2.7725887222397811
-.LCPI12_1:
-	.dword	0x40026bb1bbb55516              # double 2.3025850929940459
-	.text
-	.globl	PRINT_CONSTANT
+	.globl	PRINT_CONSTANT                  # -- Begin function PRINT_CONSTANT
 	.p2align	5
 	.type	PRINT_CONSTANT,@function
 PRINT_CONSTANT:                         # @PRINT_CONSTANT
@@ -876,8 +869,11 @@ PRINT_CONSTANT:                         # @PRINT_CONSTANT
 	ffint.d.w	$fa0, $fa0
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI12_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI12_1)
+	lu12i.w	$a0, -279723
+	ori	$a0, $a0, 1302
+	lu32i.d	$a0, 158641
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
@@ -890,8 +886,11 @@ PRINT_CONSTANT:                         # @PRINT_CONSTANT
 	ffint.d.w	$fa0, $fa0
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI12_0)
+	lu12i.w	$a0, -4189
+	ori	$a0, $a0, 2543
+	lu32i.d	$a0, 405058
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0

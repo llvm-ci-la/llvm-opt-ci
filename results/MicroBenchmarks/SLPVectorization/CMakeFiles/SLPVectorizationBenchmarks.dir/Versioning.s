@@ -1483,18 +1483,8 @@ _Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj4EdEvRN9benchmark5S
 	.size	_Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj4EdEvRN9benchmark5StateE, .Lfunc_end20-_Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj4EdEvRN9benchmark5StateE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZL9init_dataIiEvPT_j
-.LCPI21_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI21_1:
-	.dword	0x41f0000000000000              # double 4294967296
-.LCPI21_2:
-	.dword	0xc059000000000000              # double -100
-.LCPI21_3:
-	.dword	0x4069000000000000              # double 200
 	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL9init_dataIiEvPT_j
 	.type	_ZL9init_dataIiEvPT_j,@function
 _ZL9init_dataIiEvPT_j:                  # @_ZL9init_dataIiEvPT_j
 # %bb.0:
@@ -1511,8 +1501,10 @@ _ZL9init_dataIiEvPT_j:                  # @_ZL9init_dataIiEvPT_j
 	st.d	$s7, $sp, 1952                  # 8-byte Folded Spill
 	st.d	$s8, $sp, 1944                  # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 1936                 # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 1928                 # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 1920                 # 8-byte Folded Spill
 	addi.d	$sp, $sp, -2048
-	addi.d	$sp, $sp, -1152
+	addi.d	$sp, $sp, -1168
 	st.d	$a1, $sp, 128                   # 8-byte Folded Spill
 	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
 	lu12i.w	$a0, 3
@@ -1597,7 +1589,12 @@ _ZL9init_dataIiEvPT_j:                  # @_ZL9init_dataIiEvPT_j
 	lu12i.w	$s3, -66464
 	lu32i.d	$s3, 0
 	lu52i.d	$t3, $zero, 1107
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$t4, 275200
+	lu52i.d	$a0, $zero, 1055
+	movgr2fr.d	$fs2, $a0
 	vldi	$vr11, -912
 	ori	$s8, $zero, 624
 	ld.d	$a5, $sp, 128                   # 8-byte Folded Reload
@@ -1631,20 +1628,16 @@ _ZL9init_dataIiEvPT_j:                  # @_ZL9init_dataIiEvPT_j
 	xor	$a1, $a2, $a1
 	srli.d	$a2, $a1, 18
 	xor	$a1, $a2, $a1
-	pcalau12i	$a2, %pc_hi20(.LCPI21_0)
-	fld.d	$fa2, $a2, %pc_lo12(.LCPI21_0)
 	srli.d	$a2, $a1, 32
 	or	$a2, $a2, $t3
-	movgr2fr.d	$fa3, $a2
-	fsub.d	$fa2, $fa3, $fa2
+	movgr2fr.d	$fa2, $a2
+	fsub.d	$fa2, $fa2, $fs1
 	bstrins.d	$a1, $t4, 63, 32
 	movgr2fr.d	$fa3, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI21_1)
-	fld.d	$fa4, $a1, %pc_lo12(.LCPI21_1)
 	fadd.d	$fa2, $fa3, $fa2
 	fmadd.d	$fa1, $fa2, $fa0, $fa1
 	addi.d	$a0, $a0, -1
-	fmul.d	$fa0, $fa0, $fa4
+	fmul.d	$fa0, $fa0, $fs2
 	beqz	$a0, .LBB21_11
 .LBB21_5:                               # %select.unfold.i.i.i.i
                                         #   Parent Loop BB21_3 Depth=1
@@ -1755,10 +1748,12 @@ _ZL9init_dataIiEvPT_j:                  # @_ZL9init_dataIiEvPT_j
 	bceqz	$fcc0, .LBB21_13
 .LBB21_12:                              # %_ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_.exit
                                         #   in Loop: Header=BB21_3 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI21_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI21_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI21_3)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI21_3)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a1, $a0, -1019
+	movgr2fr.d	$fa1, $a1
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa2, $a0
 	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
@@ -1797,7 +1792,9 @@ _ZL9init_dataIiEvPT_j:                  # @_ZL9init_dataIiEvPT_j
 	b	.LBB21_12
 .LBB21_14:
 	addi.d	$sp, $sp, 2032
-	addi.d	$sp, $sp, 1168
+	addi.d	$sp, $sp, 1184
+	fld.d	$fs2, $sp, 1920                 # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 1928                 # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 1936                 # 8-byte Folded Reload
 	ld.d	$s8, $sp, 1944                  # 8-byte Folded Reload
 	ld.d	$s7, $sp, 1952                  # 8-byte Folded Reload
@@ -2055,18 +2052,8 @@ _Z10do_add_xorILj16EiEvPT0_S1_S1_:      # @_Z10do_add_xorILj16EiEvPT0_S1_S1_
 .Lfunc_end25:
 	.size	_Z10do_add_xorILj16EiEvPT0_S1_S1_, .Lfunc_end25-_Z10do_add_xorILj16EiEvPT0_S1_S1_
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZL9init_dataIdEvPT_j
-.LCPI26_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI26_1:
-	.dword	0x41f0000000000000              # double 4294967296
-.LCPI26_2:
-	.dword	0xc059000000000000              # double -100
-.LCPI26_3:
-	.dword	0x4069000000000000              # double 200
 	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL9init_dataIdEvPT_j
 	.type	_ZL9init_dataIdEvPT_j,@function
 _ZL9init_dataIdEvPT_j:                  # @_ZL9init_dataIdEvPT_j
 # %bb.0:
@@ -2083,8 +2070,10 @@ _ZL9init_dataIdEvPT_j:                  # @_ZL9init_dataIdEvPT_j
 	st.d	$s7, $sp, 1952                  # 8-byte Folded Spill
 	st.d	$s8, $sp, 1944                  # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 1936                 # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 1928                 # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 1920                 # 8-byte Folded Spill
 	addi.d	$sp, $sp, -2048
-	addi.d	$sp, $sp, -1152
+	addi.d	$sp, $sp, -1168
 	st.d	$a1, $sp, 128                   # 8-byte Folded Spill
 	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
 	lu12i.w	$a0, 3
@@ -2169,7 +2158,12 @@ _ZL9init_dataIdEvPT_j:                  # @_ZL9init_dataIdEvPT_j
 	lu12i.w	$s3, -66464
 	lu32i.d	$s3, 0
 	lu52i.d	$t3, $zero, 1107
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$t4, 275200
+	lu52i.d	$a0, $zero, 1055
+	movgr2fr.d	$fs2, $a0
 	vldi	$vr11, -912
 	ori	$s8, $zero, 624
 	ld.d	$a5, $sp, 128                   # 8-byte Folded Reload
@@ -2203,20 +2197,16 @@ _ZL9init_dataIdEvPT_j:                  # @_ZL9init_dataIdEvPT_j
 	xor	$a1, $a2, $a1
 	srli.d	$a2, $a1, 18
 	xor	$a1, $a2, $a1
-	pcalau12i	$a2, %pc_hi20(.LCPI26_0)
-	fld.d	$fa2, $a2, %pc_lo12(.LCPI26_0)
 	srli.d	$a2, $a1, 32
 	or	$a2, $a2, $t3
-	movgr2fr.d	$fa3, $a2
-	fsub.d	$fa2, $fa3, $fa2
+	movgr2fr.d	$fa2, $a2
+	fsub.d	$fa2, $fa2, $fs1
 	bstrins.d	$a1, $t4, 63, 32
 	movgr2fr.d	$fa3, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI26_1)
-	fld.d	$fa4, $a1, %pc_lo12(.LCPI26_1)
 	fadd.d	$fa2, $fa3, $fa2
 	fmadd.d	$fa1, $fa2, $fa0, $fa1
 	addi.d	$a0, $a0, -1
-	fmul.d	$fa0, $fa0, $fa4
+	fmul.d	$fa0, $fa0, $fs2
 	beqz	$a0, .LBB26_11
 .LBB26_5:                               # %select.unfold.i.i.i.i
                                         #   Parent Loop BB26_3 Depth=1
@@ -2327,10 +2317,12 @@ _ZL9init_dataIdEvPT_j:                  # @_ZL9init_dataIdEvPT_j
 	bceqz	$fcc0, .LBB26_13
 .LBB26_12:                              # %_ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_.exit
                                         #   in Loop: Header=BB26_3 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI26_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI26_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI26_3)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI26_3)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a1, $a0, -1019
+	movgr2fr.d	$fa1, $a1
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa2, $a0
 	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	slli.d	$a0, $t0, 3
 	addi.d	$t0, $t0, 1
@@ -2367,7 +2359,9 @@ _ZL9init_dataIdEvPT_j:                  # @_ZL9init_dataIdEvPT_j
 	b	.LBB26_12
 .LBB26_14:
 	addi.d	$sp, $sp, 2032
-	addi.d	$sp, $sp, 1168
+	addi.d	$sp, $sp, 1184
+	fld.d	$fs2, $sp, 1920                 # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 1928                 # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 1936                 # 8-byte Folded Reload
 	ld.d	$s8, $sp, 1944                  # 8-byte Folded Reload
 	ld.d	$s7, $sp, 1952                  # 8-byte Folded Reload

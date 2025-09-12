@@ -1,10 +1,6 @@
 	.file	"usite1.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function usite1
-.LCPI0_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
-	.globl	usite1
+	.globl	usite1                          # -- Begin function usite1
 	.p2align	5
 	.type	usite1,@function
 usite1:                                 # @usite1
@@ -151,12 +147,13 @@ usite1:                                 # @usite1
 	lu12i.w	$a2, 3
 	ori	$a2, $a2, 57
 	add.d	$a1, $a1, $a2
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI0_0)
 	bstrpick.d	$a2, $a1, 30, 0
-	movgr2fr.w	$fa2, $a2
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa1, $fa2, $fa1
+	movgr2fr.w	$fa1, $a2
+	ffint.d.w	$fa1, $fa1
+	lu12i.w	$a2, -1024
+	lu52i.d	$a2, $a2, 1053
+	movgr2fr.d	$fa2, $a2
+	fdiv.d	$fa1, $fa1, $fa2
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	st.w	$a1, $a0, 0
 	bcnez	$fcc0, .LBB0_12

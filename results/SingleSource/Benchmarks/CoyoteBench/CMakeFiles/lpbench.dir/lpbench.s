@@ -1,10 +1,6 @@
 	.file	"lpbench.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function matgen
-.LCPI0_0:
-	.dword	0x3e00000000200fe1              # double 4.65661287525E-10
 	.text
-	.globl	matgen
+	.globl	matgen                          # -- Begin function matgen
 	.p2align	5
 	.type	matgen,@function
 matgen:                                 # @matgen
@@ -36,10 +32,12 @@ matgen:                                 # @matgen
 	ori	$a7, $a7, 423
 	lu12i.w	$t0, -1
 	ori	$t0, $t0, 1260
-	pcalau12i	$t1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $t1, %pc_lo12(.LCPI0_0)
 	lu12i.w	$t1, 524287
 	ori	$t1, $t1, 4095
+	lu12i.w	$t2, 512
+	ori	$t2, $t2, 4065
+	lu52i.d	$t2, $t2, 992
+	movgr2fr.d	$fa0, $t2
 	ori	$t2, $zero, 2000
 	.p2align	4, , 16
 .LBB0_1:                                # %.preheader23
@@ -936,12 +934,7 @@ dgesl:                                  # @dgesl
 .Lfunc_end5:
 	.size	dgesl, .Lfunc_end5-dgesl
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI6_0:
-	.dword	0x3e00000000200fe1              # double 4.65661287525E-10
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -1021,10 +1014,12 @@ main:                                   # @main
 	ori	$a7, $a7, 423
 	lu12i.w	$t0, -1
 	ori	$t0, $t0, 1260
-	pcalau12i	$t1, %pc_hi20(.LCPI6_0)
-	fld.d	$fa0, $t1, %pc_lo12(.LCPI6_0)
 	lu12i.w	$t1, 524287
 	ori	$t1, $t1, 4095
+	lu12i.w	$t2, 512
+	ori	$t2, $t2, 4065
+	lu52i.d	$t2, $t2, 992
+	movgr2fr.d	$fa0, $t2
 	ori	$t2, $zero, 2000
 	.p2align	4, , 16
 .LBB6_6:                                # %.preheader23.i

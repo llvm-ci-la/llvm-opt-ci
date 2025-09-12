@@ -75,22 +75,7 @@ jinit_forward_dct:                      # @jinit_forward_dct
 .Lfunc_end0:
 	.size	jinit_forward_dct, .Lfunc_end0-jinit_forward_dct
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function start_pass_fdctmgr
-.LCPI1_0:
-	.dword	0x3ff63150b14861ef              # double 1.3870398450000001
-.LCPI1_1:
-	.dword	0x3ff4e7ae914d6fca              # double 1.3065629649999999
-.LCPI1_2:
-	.dword	0x3ff2d062ef6c11aa              # double 1.1758756020000001
-.LCPI1_3:
-	.dword	0x3fe92469c0a7bf3b              # double 0.785694958
-.LCPI1_4:
-	.dword	0x3fe1517a7bc720bb              # double 0.54119609999999996
-.LCPI1_5:
-	.dword	0x3fd1a855de72ab5d              # double 0.275899379
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function start_pass_fdctmgr
 	.type	start_pass_fdctmgr,@function
 start_pass_fdctmgr:                     # @start_pass_fdctmgr
 # %bb.0:
@@ -126,18 +111,36 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	addi.d	$s8, $a0, %pc_lo12(start_pass_fdctmgr.aanscalefactor)
 	move	$s5, $zero
 	vldi	$vr5, -992
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI1_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_4)
-	fld.d	$fs4, $a0, %pc_lo12(.LCPI1_4)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_5)
-	fld.d	$fs5, $a0, %pc_lo12(.LCPI1_5)
+	lu12i.w	$a0, -322426
+	ori	$a0, $a0, 495
+	lu32i.d	$a0, 405840
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fs0, $a0
+	lu12i.w	$a0, -453418
+	ori	$a0, $a0, 4042
+	lu32i.d	$a0, 321454
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -67903
+	ori	$a0, $a0, 426
+	lu32i.d	$a0, 184418
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -259461
+	ori	$a0, $a0, 3899
+	lu32i.d	$a0, -449431
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, 506994
+	ori	$a0, $a0, 187
+	lu32i.d	$a0, 86394
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs4, $a0
+	lu12i.w	$a0, -137430
+	ori	$a0, $a0, 2909
+	lu32i.d	$a0, 108629
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fs5, $a0
 	ori	$s2, $zero, 64
 	vrepli.b	$vr6, 0
 	ori	$a0, $zero, 1024

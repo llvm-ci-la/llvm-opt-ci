@@ -47,52 +47,24 @@ UMHEX_DefineThreshold:                  # @UMHEX_DefineThreshold
 .Lfunc_end0:
 	.size	UMHEX_DefineThreshold, .Lfunc_end0-UMHEX_DefineThreshold
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function UMHEX_DefineThresholdMB
-.LCPI1_0:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-.LCPI1_2:
-	.dword	0xbfeccccccccccccd              # double -0.90000000000000002
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI1_1:
-	.word	0x424c0000                      # float 51
-.LCPI1_3:
-	.word	0x41b3851f                      # float 22.4400005
-.LCPI1_4:
-	.word	0x43800000                      # float 256
-.LCPI1_5:
-	.word	0x43960000                      # float 300
-.LCPI1_6:
-	.word	0x42f00000                      # float 120
-.LCPI1_10:
-	.word	0x42a00000                      # float 80
-.LCPI1_11:
-	.word	0x43c80000                      # float 400
-.LCPI1_12:
-	.word	0x437a0000                      # float 250
-.LCPI1_13:
-	.word	0x42200000                      # float 40
-.LCPI1_14:
-	.word	0x43480000                      # float 200
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI1_7:
+	.p2align	4, 0x0                          # -- Begin function UMHEX_DefineThresholdMB
+.LCPI1_0:
 	.word	0x443b8000                      # float 750
 	.word	0x43af0000                      # float 350
 	.word	0x43af0000                      # float 350
 	.word	0x432a0000                      # float 170
-.LCPI1_8:
+.LCPI1_1:
 	.word	0x453b8000                      # float 3000
 	.word	0x44bb8000                      # float 1500
 	.word	0x44bb8000                      # float 1500
 	.word	0x44480000                      # float 800
-.LCPI1_9:
+.LCPI1_2:
 	.word	0x45098000                      # float 2200
 	.word	0x447a0000                      # float 1000
 	.word	0x447a0000                      # float 1000
 	.word	0x43fa0000                      # float 500
-.LCPI1_15:
+.LCPI1_3:
 	.word	0x42700000                      # float 60
 	.word	0x41f00000                      # float 30
 	.word	0x41f00000                      # float 30
@@ -119,13 +91,16 @@ UMHEX_DefineThresholdMB:                # @UMHEX_DefineThresholdMB
 	sub.w	$a3, $a1, $a3
 	addi.d	$a2, $a2, 15
 	movgr2fr.w	$fa0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
 	ffint.d.w	$fa0, $fa0
-	fneg.d	$fa2, $fa0
-	vldi	$vr3, -912
-	fmadd.d	$fa2, $fa2, $fa1, $fa3
-	fmul.d	$fa0, $fa0, $fa1
+	fneg.d	$fa1, $fa0
+	vldi	$vr2, -912
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fa3, $a0
+	fmadd.d	$fa1, $fa1, $fa3, $fa2
+	fmul.d	$fa0, $fa0, $fa3
 	pcalau12i	$a0, %got_pc_hi20(img)
 	ld.d	$a0, $a0, %got_pc_lo12(img)
 	ld.d	$a0, $a0, 0
@@ -136,19 +111,22 @@ UMHEX_DefineThresholdMB:                # @UMHEX_DefineThresholdMB
 	srli.d	$a4, $a0, 63
 	srai.d	$a0, $a0, 37
 	add.d	$a0, $a0, $a4
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
-	movgr2fr.w	$fa1, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI1_1)
-	ffint.s.w	$fa1, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI1_2)
-	fdiv.s	$fa1, $fa1, $fa2
+	movgr2fr.w	$fa3, $a0
+	ffint.d.w	$fa3, $fa3
+	fmadd.d	$fa0, $fa0, $fa3, $fa1
 	fcvt.s.d	$fa0, $fa0
+	movgr2fr.w	$fa1, $a1
+	ffint.s.w	$fa1, $fa1
+	lu12i.w	$a0, 271552
+	movgr2fr.w	$fa3, $a0
+	fdiv.s	$fa1, $fa1, $fa3
 	fcvt.d.s	$fa1, $fa1
-	fmadd.d	$fa1, $fa1, $fa4, $fa3
+	lu12i.w	$a0, -209716
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, -209716
+	lu52i.d	$a0, $a0, -1026
+	movgr2fr.d	$fa3, $a0
+	fmadd.d	$fa1, $fa1, $fa3, $fa2
 	fcvt.s.d	$fa1, $fa1
 	ori	$a0, $zero, 1
 	sll.w	$a0, $a0, $a2
@@ -165,15 +143,16 @@ UMHEX_DefineThresholdMB:                # @UMHEX_DefineThresholdMB
 	ldx.w	$a1, $a2, $a1
 	div.w	$a0, $a0, $a1
 	movgr2fr.w	$fa2, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI1_3)
 	ffint.s.w	$fa2, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI1_4)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI1_4)
+	lu12i.w	$a0, 269112
+	ori	$a0, $a0, 1311
+	movgr2fr.w	$fa3, $a0
 	fdiv.s	$fa2, $fa2, $fa3
 	fadd.s	$fa2, $fa2, $fa2
 	fmul.s	$fa2, $fa2, $fa0
-	fmul.s	$fa2, $fa2, $fa4
+	lu12i.w	$a0, 276480
+	movgr2fr.w	$fa3, $a0
+	fmul.s	$fa2, $fa2, $fa3
 	pcalau12i	$a0, %pc_hi20(Bsize)
 	addi.d	$a0, $a0, %pc_lo12(Bsize)
 	fst.s	$fa2, $a0, 28
@@ -185,26 +164,26 @@ UMHEX_DefineThresholdMB:                # @UMHEX_DefineThresholdMB
 	fst.s	$fa2, $a0, 16
 	fmul.s	$fa2, $fa2, $fa3
 	fst.s	$fa2, $a0, 12
-	pcalau12i	$a1, %pc_hi20(.LCPI1_5)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI1_5)
 	fst.s	$fa2, $a0, 8
 	fmul.s	$fa2, $fa2, $fa3
 	fst.s	$fa2, $a0, 4
-	fmul.s	$fa2, $fa0, $fa4
+	lu12i.w	$a0, 276832
+	movgr2fr.w	$fa2, $a0
+	fmul.s	$fa2, $fa0, $fa2
 	fmul.s	$fa2, $fa2, $fa1
 	ftintrz.w.s	$fa2, $fa2
 	movfr2gr.s	$a1, $fa2
 	pcalau12i	$a0, %pc_hi20(Multi_Ref_Thd_MB)
 	addi.d	$a0, $a0, %pc_lo12(Multi_Ref_Thd_MB)
-	pcalau12i	$a2, %pc_hi20(.LCPI1_6)
-	fld.s	$fa2, $a2, %pc_lo12(.LCPI1_6)
 	st.w	$a1, $a0, 4
+	lu12i.w	$a1, 274176
+	movgr2fr.w	$fa2, $a1
 	fmul.s	$fa2, $fa0, $fa2
 	fmul.s	$fa2, $fa2, $fa1
 	ftintrz.w.s	$fa2, $fa2
 	movfr2gr.s	$a1, $fa2
-	pcalau12i	$a2, %pc_hi20(.LCPI1_7)
-	vld	$vr3, $a2, %pc_lo12(.LCPI1_7)
+	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
+	vld	$vr3, $a2, %pc_lo12(.LCPI1_0)
 	st.w	$a1, $a0, 8
 	st.w	$a1, $a0, 12
 	vreplvei.w	$vr2, $vr0, 0
@@ -213,64 +192,64 @@ UMHEX_DefineThresholdMB:                # @UMHEX_DefineThresholdMB
 	vfmul.s	$vr4, $vr4, $vr3
 	vftintrz.w.s	$vr4, $vr4
 	pcalau12i	$a2, %pc_hi20(Median_Pred_Thd_MB)
-	addi.d	$a3, $a2, %pc_lo12(Median_Pred_Thd_MB)
-	pcalau12i	$a2, %pc_hi20(.LCPI1_8)
-	vld	$vr5, $a2, %pc_lo12(.LCPI1_8)
-	vst	$vr4, $a3, 4
+	addi.d	$a2, $a2, %pc_lo12(Median_Pred_Thd_MB)
+	pcalau12i	$a3, %pc_hi20(.LCPI1_1)
+	vld	$vr5, $a3, %pc_lo12(.LCPI1_1)
+	vst	$vr4, $a2, 4
 	vfmul.s	$vr4, $vr2, $vr5
 	vfmul.s	$vr4, $vr4, $vr3
 	vftintrz.w.s	$vr4, $vr4
-	pcalau12i	$a2, %pc_hi20(Big_Hexagon_Thd_MB)
-	addi.d	$a2, $a2, %pc_lo12(Big_Hexagon_Thd_MB)
-	pcalau12i	$a4, %pc_hi20(.LCPI1_9)
-	vld	$vr5, $a4, %pc_lo12(.LCPI1_9)
-	vst	$vr4, $a2, 4
+	pcalau12i	$a3, %pc_hi20(Big_Hexagon_Thd_MB)
+	addi.d	$a3, $a3, %pc_lo12(Big_Hexagon_Thd_MB)
+	pcalau12i	$a4, %pc_hi20(.LCPI1_2)
+	vld	$vr5, $a4, %pc_lo12(.LCPI1_2)
+	vst	$vr4, $a3, 4
 	vfmul.s	$vr4, $vr2, $vr5
 	vfmul.s	$vr4, $vr4, $vr3
 	vftintrz.w.s	$vr4, $vr4
 	pcalau12i	$a4, %pc_hi20(Threshold_DSR_MB)
 	addi.d	$a4, $a4, %pc_lo12(Threshold_DSR_MB)
-	pcalau12i	$a5, %pc_hi20(.LCPI1_10)
-	fld.s	$fa5, $a5, %pc_lo12(.LCPI1_10)
 	vst	$vr4, $a4, 4
-	fmul.s	$fa4, $fa0, $fa5
-	pcalau12i	$a5, %pc_hi20(.LCPI1_11)
-	fld.s	$fa5, $a5, %pc_lo12(.LCPI1_11)
+	lu12i.w	$a5, 272896
+	movgr2fr.w	$fa4, $a5
+	fmul.s	$fa4, $fa0, $fa4
 	fmul.s	$fa4, $fa4, $fa1
 	ftintrz.w.s	$fa4, $fa4
 	movfr2gr.s	$a5, $fa4
-	fmul.s	$fa4, $fa0, $fa5
-	pcalau12i	$a6, %pc_hi20(.LCPI1_12)
-	fld.s	$fa5, $a6, %pc_lo12(.LCPI1_12)
+	st.w	$a5, $a2, 20
+	lu12i.w	$a6, 277632
+	movgr2fr.w	$fa4, $a6
+	fmul.s	$fa4, $fa0, $fa4
 	fmul.s	$fa4, $fa4, $fa1
 	ftintrz.w.s	$fa4, $fa4
 	movfr2gr.s	$a6, $fa4
-	fmul.s	$fa4, $fa0, $fa5
+	st.w	$a6, $a3, 20
+	lu12i.w	$a7, 276384
+	movgr2fr.w	$fa4, $a7
+	fmul.s	$fa4, $fa0, $fa4
 	fmul.s	$fa4, $fa4, $fa1
 	ftintrz.w.s	$fa4, $fa4
-	pcalau12i	$a7, %pc_hi20(.LCPI1_13)
-	fld.s	$fa5, $a7, %pc_lo12(.LCPI1_13)
 	movfr2gr.s	$a7, $fa4
-	st.w	$a5, $a3, 20
-	st.w	$a5, $a3, 24
-	fmul.s	$fa4, $fa0, $fa5
+	st.w	$a7, $a4, 20
+	st.w	$a5, $a2, 24
+	st.w	$a6, $a3, 24
+	st.w	$a7, $a4, 24
+	lu12i.w	$a5, 270848
+	movgr2fr.w	$fa4, $a5
+	fmul.s	$fa4, $fa0, $fa4
 	fmul.s	$fa4, $fa4, $fa1
 	ftintrz.w.s	$fa4, $fa4
 	movfr2gr.s	$a5, $fa4
-	pcalau12i	$t0, %pc_hi20(.LCPI1_14)
-	fld.s	$fa4, $t0, %pc_lo12(.LCPI1_14)
-	st.w	$a6, $a2, 20
-	st.w	$a7, $a4, 20
-	st.w	$a6, $a2, 24
-	st.w	$a7, $a4, 24
-	st.w	$a5, $a3, 28
+	st.w	$a5, $a2, 28
+	lu12i.w	$a2, 275584
+	movgr2fr.w	$fa4, $a2
 	fmul.s	$fa0, $fa0, $fa4
 	fmul.s	$fa0, $fa0, $fa1
-	pcalau12i	$a3, %pc_hi20(.LCPI1_15)
-	vld	$vr1, $a3, %pc_lo12(.LCPI1_15)
+	pcalau12i	$a2, %pc_hi20(.LCPI1_3)
+	vld	$vr1, $a2, %pc_lo12(.LCPI1_3)
 	ftintrz.w.s	$fa0, $fa0
-	movfr2gr.s	$a3, $fa0
-	st.w	$a3, $a2, 28
+	movfr2gr.s	$a2, $fa0
+	st.w	$a2, $a3, 28
 	vfmul.s	$vr0, $vr2, $vr1
 	vfmul.s	$vr0, $vr0, $vr3
 	vftintrz.w.s	$vr0, $vr0

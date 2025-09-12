@@ -1003,12 +1003,8 @@ array_equal:                            # @array_equal
 	.word	.LBB8_5-.LJTI8_0
 	.word	.LBB8_3-.LJTI8_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function array_sxhash
-.LCPI9_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
 	.text
-	.globl	array_sxhash
+	.globl	array_sxhash                    # -- Begin function array_sxhash
 	.p2align	5
 	.type	array_sxhash,@function
 array_sxhash:                           # @array_sxhash
@@ -1071,10 +1067,10 @@ array_sxhash:                           # @array_sxhash
 	ld.d	$a1, $s0, 8
 	blez	$a1, .LBB9_7
 # %bb.10:                               # %.lr.ph61.preheader
-	ld.d	$a2, $s0, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI9_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI9_0)
 	move	$a0, $zero
+	ld.d	$a2, $s0, 16
+	lu52i.d	$a3, $zero, 1086
+	movgr2fr.d	$fa0, $a3
 	lu52i.d	$a3, $zero, -2048
 	.p2align	4, , 16
 .LBB9_11:                               # %.lr.ph61
@@ -3655,12 +3651,8 @@ nlength:                                # @nlength
 	.word	.LBB37_5-.LJTI37_0
 	.word	.LBB37_3-.LJTI37_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function c_sxhash
-.LCPI38_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
 	.text
-	.globl	c_sxhash
+	.globl	c_sxhash                        # -- Begin function c_sxhash
 	.p2align	5
 	.type	c_sxhash,@function
 c_sxhash:                               # @c_sxhash
@@ -3735,8 +3727,8 @@ c_sxhash:                               # @c_sxhash
 	b	.LBB38_21
 .LBB38_11:
 	fld.d	$fa0, $a1, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI38_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI38_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	fsub.d	$fa1, $fa0, $fa1
 	ftintrz.l.d	$fa1, $fa1
@@ -5515,12 +5507,7 @@ lfflush:                                # @lfflush
 .Lfunc_end55:
 	.size	lfflush, .Lfunc_end55-lfflush
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function string_length
-.LCPI56_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	string_length
+	.globl	string_length                   # -- Begin function string_length
 	.p2align	5
 	.type	string_length,@function
 string_length:                          # @string_length
@@ -5545,12 +5532,13 @@ string_length:                          # @string_length
 	pcaddu18i	$ra, %call36(strlen)
 	jirl	$ra, $ra, 0
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI56_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI56_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -5901,14 +5889,7 @@ number2string:                          # @number2string
 .Lfunc_end59:
 	.size	number2string, .Lfunc_end59-number2string
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function string2number
-.LCPI60_0:
-	.dword	0xc048000000000000              # double -48
-.LCPI60_1:
-	.dword	0xc050400000000000              # double -65
-	.text
-	.globl	string2number
+	.globl	string2number                   # -- Begin function string2number
 	.p2align	5
 	.type	string2number,@function
 string2number:                          # @string2number
@@ -6004,12 +5985,16 @@ string2number:                          # @string2number
 	ld.d	$fp, $a0, 0
 	movgr2fr.d	$fa0, $s0
 	ffint.d.l	$fs0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI60_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI60_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI60_0)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI60_0)
 	addi.d	$s0, $s2, 1
 	movgr2fr.d	$fa0, $zero
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 16384
+	lu52i.d	$a1, $a1, -1019
+	movgr2fr.d	$fs1, $a1
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fs2, $a0
 	b	.LBB60_17
 	.p2align	4, , 16
 .LBB60_15:                              #   in Loop: Header=BB60_17 Depth=1
@@ -9142,12 +9127,7 @@ listn:                                  # @listn
 .Lfunc_end98:
 	.size	listn, .Lfunc_end98-listn
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fast_load
-.LCPI99_0:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.globl	fast_load
+	.globl	fast_load                       # -- Begin function fast_load
 	.p2align	5
 	.type	fast_load,@function
 fast_load:                              # @fast_load
@@ -9188,8 +9168,10 @@ fast_load:                              # @fast_load
 	pcaddu18i	$ra, %call36(fopen_c)
 	jirl	$ra, $ra, 0
 	move	$fp, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI99_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI99_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
 	pcaddu18i	$ra, %call36(flocons)
 	jirl	$ra, $ra, 0
 	move	$a1, $zero
@@ -9290,12 +9272,7 @@ fast_load:                              # @fast_load
 .Lfunc_end99:
 	.size	fast_load, .Lfunc_end99-fast_load
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fast_save
-.LCPI100_0:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.globl	fast_save
+	.globl	fast_save                       # -- Begin function fast_save
 	.p2align	5
 	.type	fast_save,@function
 fast_save:                              # @fast_save
@@ -9361,8 +9338,10 @@ fast_save:                              # @fast_save
 	move	$s0, $a0
 	bnez	$fp, .LBB100_4
 .LBB100_6:
-	pcalau12i	$a0, %pc_hi20(.LCPI100_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI100_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
 	pcaddu18i	$ra, %call36(flocons)
 	jirl	$ra, $ra, 0
 	move	$a1, $zero
@@ -11279,12 +11258,7 @@ leval_cond:                             # @leval_cond
 .Lfunc_end133:
 	.size	leval_cond, .Lfunc_end133-leval_cond
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lstrspn
-.LCPI134_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	lstrspn
+	.globl	lstrspn                         # -- Begin function lstrspn
 	.p2align	5
 	.type	lstrspn,@function
 lstrspn:                                # @lstrspn
@@ -11305,12 +11279,13 @@ lstrspn:                                # @lstrspn
 	pcaddu18i	$ra, %call36(strspn)
 	jirl	$ra, $ra, 0
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI134_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI134_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -11324,12 +11299,7 @@ lstrspn:                                # @lstrspn
 .Lfunc_end134:
 	.size	lstrspn, .Lfunc_end134-lstrspn
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lstrcspn
-.LCPI135_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	lstrcspn
+	.globl	lstrcspn                        # -- Begin function lstrcspn
 	.p2align	5
 	.type	lstrcspn,@function
 lstrcspn:                               # @lstrcspn
@@ -11350,12 +11320,13 @@ lstrcspn:                               # @lstrcspn
 	pcaddu18i	$ra, %call36(strcspn)
 	jirl	$ra, $ra, 0
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI135_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI135_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -11676,13 +11647,9 @@ set_eval_history:                       # @set_eval_history
 .Lfunc_end138:
 	.size	set_eval_history, .Lfunc_end138-set_eval_history
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function init_subrs_a
-.LCPI139_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI139_1:
+	.p2align	4, 0x0                          # -- Begin function init_subrs_a
+.LCPI139_0:
 	.byte	0                               # 0x0
 	.byte	1                               # 0x1
 	.byte	2                               # 0x2
@@ -11699,7 +11666,7 @@ set_eval_history:                       # @set_eval_history
 	.byte	13                              # 0xd
 	.byte	14                              # 0xe
 	.byte	15                              # 0xf
-.LCPI139_2:
+.LCPI139_1:
 	.byte	26                              # 0x1a
 	.byte	27                              # 0x1b
 	.byte	28                              # 0x1c
@@ -12264,8 +12231,11 @@ init_subrs_a:                           # @init_subrs_a
 	pcaddu18i	$ra, %call36(cintern)
 	jirl	$ra, $ra, 0
 	move	$s1, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI139_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI139_0)
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa0, $a0
 	pcaddu18i	$ra, %call36(flocons)
 	jirl	$ra, $ra, 0
 	move	$a1, $a0
@@ -12284,16 +12254,16 @@ init_subrs_a:                           # @init_subrs_a
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI139_1)
-	vld	$vr0, $a0, %pc_lo12(.LCPI139_1)
+	pcalau12i	$a0, %pc_hi20(.LCPI139_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI139_0)
 	vst	$vr0, $s1, 65
 	lu12i.w	$a0, 78113
 	ori	$a0, $a0, 272
 	lu32i.d	$a0, 398612
 	lu52i.d	$a0, $a0, 369
 	st.d	$a0, $s1, 81
-	pcalau12i	$a0, %pc_hi20(.LCPI139_2)
-	vld	$vr0, $a0, %pc_lo12(.LCPI139_2)
+	pcalau12i	$a0, %pc_hi20(.LCPI139_1)
+	vld	$vr0, $a0, %pc_lo12(.LCPI139_1)
 	lu12i.w	$a0, 1
 	ori	$a0, $a0, 2328
 	st.h	$a0, $s1, 89
@@ -12514,20 +12484,17 @@ init_subrs_a:                           # @init_subrs_a
 .Lfunc_end139:
 	.size	init_subrs_a, .Lfunc_end139-init_subrs_a
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function parser_fasl
-.LCPI140_0:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function parser_fasl
 	.type	parser_fasl,@function
 parser_fasl:                            # @parser_fasl
 # %bb.0:
 	addi.d	$sp, $sp, -16
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	st.d	$fp, $sp, 0                     # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI140_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI140_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
 	pcaddu18i	$ra, %call36(flocons)
 	jirl	$ra, $ra, 0
 	move	$a1, $zero

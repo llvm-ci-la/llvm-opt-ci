@@ -1805,12 +1805,7 @@ main:                                   # @main
 .Lfunc_end23:
 	.size	main, .Lfunc_end23-main
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function get_points
-.LCPI24_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
-	.text
-	.globl	get_points
+	.globl	get_points                      # -- Begin function get_points
 	.p2align	5
 	.type	get_points,@function
 get_points:                             # @get_points
@@ -1878,11 +1873,12 @@ get_points:                             # @get_points
 	mul.d	$a0, $a0, $s8
 	add.d	$a0, $a0, $a1
 	addi.d	$a0, $a0, 1
-	pcalau12i	$a1, %pc_hi20(.LCPI24_0)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI24_0)
 	addi.w	$s3, $a0, 0
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs1, $a0
 	fdiv.d	$fa0, $fa0, $fs1
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0

@@ -133,27 +133,21 @@ _ZN19btContactConstraint23solveConstraintObsoleteER12btSolverBodyS1_f: # @_ZN19b
 .Lfunc_end8:
 	.size	_ZN19btContactConstraint23solveConstraintObsoleteER12btSolverBodyS1_f, .Lfunc_end8-_ZN19btContactConstraint23solveConstraintObsoleteER12btSolverBodyS1_f
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff
-.LCPI9_0:
-	.word	0x3f8ccccd                      # float 1.10000002
-.LCPI9_1:
-	.word	0xbe4ccccd                      # float -0.200000003
-	.text
-	.globl	_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff
+	.globl	_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff # -- Begin function _Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff
 	.p2align	5
 	.type	_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff,@function
 _Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff: # @_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff
 # %bb.0:
-	fld.s	$fa1, $a4, 0
 	fld.s	$fa2, $a4, 4
+	fld.s	$fa1, $a4, 0
 	fld.s	$fa0, $a4, 8
-	pcalau12i	$a4, %pc_hi20(.LCPI9_0)
-	fld.s	$fa3, $a4, %pc_lo12(.LCPI9_0)
-	fmul.s	$fa4, $fa2, $fa2
-	fmadd.s	$fa4, $fa1, $fa1, $fa4
-	fmadd.s	$fa4, $fa0, $fa0, $fa4
-	fcmp.clt.s	$fcc0, $fa3, $fa4
+	fmul.s	$fa3, $fa2, $fa2
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	lu12i.w	$a4, 260300
+	ori	$a4, $a4, 3277
+	movgr2fr.w	$fa4, $a4
+	fcmp.clt.s	$fcc0, $fa4, $fa3
 	bceqz	$fcc0, .LBB9_2
 # %bb.1:
 	movgr2fr.w	$fa0, $zero
@@ -190,18 +184,18 @@ _Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff: # @_Z22resolv
 	fneg.s	$fa3, $ft1
 	fmul.s	$fa3, $fa6, $fa3
 	fmadd.s	$fa3, $fa7, $ft3, $fa3
-	fld.s	$fa6, $a2, 352
-	fld.s	$ft7, $a2, 348
-	fneg.s	$fa7, $ft4
-	fld.s	$ft8, $a2, 344
-	fmul.s	$fa7, $fa6, $fa7
-	fmadd.s	$fa7, $ft7, $ft5, $fa7
-	fneg.s	$ft0, $ft5
-	fmul.s	$ft0, $ft8, $ft0
-	fmadd.s	$ft0, $fa6, $ft2, $ft0
-	fneg.s	$fa6, $ft2
-	fmul.s	$fa6, $ft7, $fa6
-	fmadd.s	$fa6, $ft8, $ft4, $fa6
+	fld.s	$fa7, $a2, 352
+	fld.s	$ft0, $a2, 348
+	fneg.s	$fa6, $ft4
+	fld.s	$ft7, $a2, 344
+	fmul.s	$fa6, $fa7, $fa6
+	fmadd.s	$fa6, $ft0, $ft5, $fa6
+	fneg.s	$ft8, $ft5
+	fmul.s	$ft8, $ft7, $ft8
+	fmadd.s	$fa7, $fa7, $ft2, $ft8
+	fneg.s	$ft8, $ft2
+	fmul.s	$ft0, $ft0, $ft8
+	fmadd.s	$ft0, $ft7, $ft4, $ft0
 	fld.s	$ft7, $a0, 8
 	fld.s	$ft8, $a0, 24
 	fld.s	$ft9, $a0, 12
@@ -260,42 +254,44 @@ _Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff: # @_Z22resolv
 	fmul.s	$ft7, $ft7, $ft8
 	fld.s	$ft8, $a0, 436
 	fmadd.s	$ft3, $ft5, $ft3, $ft7
-	fld.s	$ft5, $a2, 428
-	fld.s	$ft7, $a2, 432
+	fld.s	$ft5, $a0, 328
+	fld.s	$ft7, $a0, 332
 	fmul.s	$ft8, $ft1, $ft8
 	fmadd.s	$ft1, $ft8, $ft1, $ft3
-	fmul.s	$ft3, $ft6, $ft5
-	fmul.s	$ft5, $ft4, $ft7
+	fld.s	$ft3, $a2, 428
+	fld.s	$ft8, $a2, 432
+	fadd.s	$fa4, $fa4, $ft5
+	fadd.s	$fa5, $ft7, $fa5
+	fmul.s	$ft3, $ft6, $ft3
+	fmul.s	$ft5, $ft4, $ft8
 	fmul.s	$ft4, $ft4, $ft5
 	fld.s	$ft5, $a2, 436
 	fmadd.s	$ft3, $ft3, $ft6, $ft4
-	fld.s	$ft4, $a0, 328
-	fld.s	$ft6, $a0, 332
+	fld.s	$ft4, $a0, 336
+	fld.s	$ft6, $a2, 328
 	fmul.s	$ft5, $ft2, $ft5
 	fmadd.s	$ft2, $ft5, $ft2, $ft3
-	fld.s	$ft3, $a2, 328
-	fld.s	$ft5, $a2, 332
-	fadd.s	$fa4, $fa4, $ft4
-	fadd.s	$fa5, $ft6, $fa5
-	fadd.s	$fa7, $fa7, $ft3
-	fadd.s	$ft0, $ft5, $ft0
-	fsub.s	$fa4, $fa4, $fa7
-	fld.s	$fa7, $a0, 336
-	fsub.s	$fa5, $fa5, $ft0
-	fld.s	$ft0, $a2, 336
+	fld.s	$ft3, $a2, 332
+	fld.s	$ft5, $a2, 336
+	fadd.s	$fa3, $fa3, $ft4
+	fadd.s	$fa6, $fa6, $ft6
+	fadd.s	$fa7, $ft3, $fa7
+	fadd.s	$ft0, $ft0, $ft5
+	fsub.s	$fa4, $fa4, $fa6
+	fsub.s	$fa5, $fa5, $fa7
 	fmul.s	$fa2, $fa2, $fa5
 	fmadd.s	$fa1, $fa1, $fa4, $fa2
-	fadd.s	$fa2, $fa3, $fa7
-	fadd.s	$fa3, $fa6, $ft0
-	fsub.s	$fa2, $fa2, $fa3
-	fld.s	$fa3, $a0, 360
-	fmadd.s	$fa0, $fa0, $fa2, $fa1
-	fld.s	$fa1, $a2, 360
-	pcalau12i	$a0, %pc_hi20(.LCPI9_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI9_1)
-	fadd.s	$fa3, $fa3, $ft1
-	fadd.s	$fa1, $fa1, $fa3
+	fld.s	$fa2, $a0, 360
+	fld.s	$fa4, $a2, 360
+	fsub.s	$fa3, $fa3, $ft0
+	fmadd.s	$fa0, $fa0, $fa3, $fa1
+	fadd.s	$fa1, $fa2, $ft1
+	fadd.s	$fa1, $fa4, $fa1
 	fadd.s	$fa1, $fa1, $ft2
+	lu12i.w	$a0, -269108
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa2, $a0
 	fmul.s	$fa0, $fa0, $fa2
 	frecip.s	$fa1, $fa1
 	fmul.s	$fa0, $fa0, $fa1

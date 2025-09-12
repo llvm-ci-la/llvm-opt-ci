@@ -106,17 +106,9 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .Lfunc_end6:
 	.size	polybench_alloc_data, .Lfunc_end6-polybench_alloc_data
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI7_1:
-	.dword	0x4056800000000000              # double 90
-.LCPI7_3:
-	.dword	0x3ff3333333333333              # double 1.2
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI7_2:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI7_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
 	.text
@@ -194,22 +186,22 @@ main:                                   # @main
 	move	$a1, $zero
 	sub.d	$a2, $s0, $fp
 	lu52i.d	$a3, $zero, 1107
-	pcalau12i	$a4, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a4, 256
+	lu52i.d	$a4, $a4, 1107
+	movgr2fr.d	$fa0, $a4
 	lu12i.w	$a4, 275200
-	pcalau12i	$a5, %pc_hi20(.LCPI7_1)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI7_1)
+	ori	$a5, $zero, 0
+	lu32i.d	$a5, 425984
+	lu52i.d	$t1, $a5, 1029
+	movgr2fr.d	$fa1, $t1
 	ori	$a5, $zero, 15
 	lu12i.w	$a6, -302922
 	ori	$a6, $a6, 183
 	lu32i.d	$a6, 0
+	pcalau12i	$a7, %pc_hi20(.LCPI7_0)
+	vld	$vr2, $a7, %pc_lo12(.LCPI7_0)
 	ori	$a7, $zero, 90
 	ori	$t0, $zero, 720
-	pcalau12i	$t1, %pc_hi20(.LCPI7_2)
-	vld	$vr2, $t1, %pc_lo12(.LCPI7_2)
-	ori	$t1, $zero, 0
-	lu32i.d	$t1, 425984
-	lu52i.d	$t1, $t1, 1029
 	vreplgr2vr.d	$vr3, $t1
 	move	$t1, $fp
 	move	$t2, $s0
@@ -318,10 +310,13 @@ main:                                   # @main
 .LBB7_17:                               # %init_array.exit.preheader
 	move	$a0, $zero
 	move	$a1, $zero
-	pcalau12i	$a2, %pc_hi20(.LCPI7_3)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI7_3)
 	ori	$a2, $zero, 720
-	vldi	$vr1, -904
+	vldi	$vr0, -904
+	lu12i.w	$a3, 209715
+	ori	$a3, $a3, 819
+	lu32i.d	$a3, 209715
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa1, $a3
 	ori	$a3, $zero, 90
 	.p2align	4, , 16
 .LBB7_18:                               # %init_array.exit
@@ -354,8 +349,8 @@ main:                                   # @main
 	bne	$a6, $a2, .LBB7_19
 # %bb.20:                               #   in Loop: Header=BB7_18 Depth=1
 	fld.d	$fa3, $a5, 0
-	fmul.d	$fa3, $fa3, $fa1
-	fmul.d	$fa2, $fa2, $fa0
+	fmul.d	$fa3, $fa3, $fa0
+	fmul.d	$fa2, $fa2, $fa1
 	fadd.d	$fa2, $fa2, $fa3
 	fst.d	$fa2, $a4, 0
 	addi.d	$a1, $a1, 1

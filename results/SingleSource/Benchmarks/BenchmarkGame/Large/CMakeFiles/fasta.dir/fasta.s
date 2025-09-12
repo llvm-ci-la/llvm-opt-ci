@@ -1,10 +1,6 @@
 	.file	"fasta.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.word	0x4808b000                      # float 139968
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -166,9 +162,9 @@ main:                                   # @main
 	lu32i.d	$a0, -86783
 	lu52i.d	$s4, $a0, 958
 	lu12i.w	$a0, 34
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI0_0)
 	ori	$s5, $a0, 704
+	lu12i.w	$a0, 295051
+	movgr2fr.w	$fs0, $a0
 	addi.d	$s7, $sp, 19
 	.p2align	4, , 16
 .LBB0_3:                                # =>This Loop Header: Depth=1

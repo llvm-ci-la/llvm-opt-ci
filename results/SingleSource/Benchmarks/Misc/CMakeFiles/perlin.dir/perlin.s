@@ -1,27 +1,7 @@
 	.file	"perlin.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0xc0c62c48f5c28f5c              # double -11352.57
-.LCPI0_1:
-	.dword	0xc075a1f9db22d0e5              # double -346.12349999999998
-.LCPI0_2:
-	.dword	0x40373c083126e979              # double 23.234500000000001
-.LCPI0_4:
-	.dword	0x3fed2c62745753ff              # double 0.91166804049373684
-.LCPI0_5:
-	.dword	0x400399999999999a              # double 2.4500000000000002
-.LCPI0_6:
-	.dword	0x3ff6eb851eb851ec              # double 1.4325000000000001
-.LCPI0_7:
-	.dword	0x405f07ef9db22d0e              # double 124.124
-.LCPI0_8:
-	.dword	0x3fbf9db22d0e5604              # double 0.1235
-.LCPI0_9:
-	.dword	0x40d702647ae147ae              # double 23561.57
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_3:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI0_0:
 	.dword	0x3fe87ae147ae1400              # double 0.76499999999998636
 	.dword	0xbfce147ae147b000              # double -0.23500000000001364
 	.text
@@ -30,17 +10,13 @@
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -96
-	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 72                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 64                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 56                   # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 48                   # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 40                   # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 32                   # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 24                   # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 16                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -48
+	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 16                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 8                    # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 0                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(p)
 	addi.d	$fp, $a0, %pc_lo12(p)
 	pcalau12i	$a0, %pc_hi20(permutation)
@@ -56,260 +32,287 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(memcpy)
 	jirl	$ra, $ra, 0
 	movgr2fr.d	$fa0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, -41944
+	ori	$a0, $a0, 3932
+	lu32i.d	$a0, 404552
+	lu52i.d	$a0, $a0, -1012
+	movgr2fr.d	$fa1, $a0
 	vldi	$vr2, -850
 	vldi	$vr3, -1000
 	vldi	$vr4, -988
 	vldi	$vr5, -784
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa6, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa7, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, -150995
+	ori	$a0, $a0, 229
+	lu32i.d	$a0, 369145
+	lu52i.d	$a0, $a0, -1017
+	movgr2fr.d	$fa6, $a0
+	lu12i.w	$a0, 201326
+	ori	$a0, $a0, 2425
+	lu32i.d	$a0, 474120
+	lu52i.d	$a0, $a0, 1027
+	movgr2fr.d	$fa7, $a0
 	vrepli.w	$vr8, 15
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	vld	$vr9, $a0, %pc_lo12(.LCPI0_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$ft2, $a0, %pc_lo12(.LCPI0_4)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$ft3, $a0, %pc_lo12(.LCPI0_5)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$ft4, $a0, %pc_lo12(.LCPI0_6)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.d	$ft5, $a0, %pc_lo12(.LCPI0_7)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_8)
-	fld.d	$ft6, $a0, %pc_lo12(.LCPI0_8)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_9)
-	fld.d	$ft7, $a0, %pc_lo12(.LCPI0_9)
-	vrepli.w	$vr16, 13
-	vrepli.w	$vr17, 1
-	vrepli.w	$vr18, 2
+	vrepli.w	$vr9, 13
+	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
+	vld	$vr10, $a0, %pc_lo12(.LCPI0_0)
+	vrepli.w	$vr11, 1
+	vrepli.w	$vr12, 2
+	lu12i.w	$a0, 476533
+	ori	$a0, $a0, 1023
+	lu32i.d	$a0, -185246
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$ft5, $a0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 235929
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$ft6, $a0
+	lu12i.w	$a0, 125829
+	ori	$a0, $a0, 492
+	lu32i.d	$a0, 453509
+	lu52i.d	$a0, $a0, 1023
+	lu12i.w	$a1, -402654
+	ori	$a1, $a1, 3342
+	lu32i.d	$a1, -63505
+	lu52i.d	$a1, $a1, 1029
+	lu12i.w	$a2, 184549
+	ori	$a2, $a2, 1540
+	lu32i.d	$a2, -25166
+	lu52i.d	$a2, $a2, 1019
+	lu12i.w	$a3, 503316
+	ori	$a3, $a3, 1966
+	lu32i.d	$a3, 459364
+	lu52i.d	$a3, $a3, 1037
 	b	.LBB0_2
 	.p2align	4, , 16
 .LBB0_1:                                #   in Loop: Header=BB0_2 Depth=1
-	fadd.d	$fa1, $fa1, $ft6
+	movgr2fr.d	$ft7, $a2
+	fadd.d	$fa1, $fa1, $ft7
+	movgr2fr.d	$ft7, $a3
 	fcmp.clt.d	$fcc0, $fa1, $ft7
 	bceqz	$fcc0, .LBB0_7
 .LBB0_2:                                # %.preheader14
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_4 Depth 2
                                         #       Child Loop BB0_6 Depth 3
-	vreplvei.d	$vr19, $vr1, 0
-	vfrintrm.d	$vr19, $vr19
-	ftintrz.w.d	$ft12, $ft11
-	movfr2gr.s	$a0, $ft12
-	andi	$a0, $a0, 255
-	fsub.d	$ft13, $fa1, $ft11
-	fmul.d	$ft11, $ft13, $ft13
-	fmul.d	$ft11, $ft13, $ft11
-	fmadd.d	$ft12, $ft13, $fa3, $fa2
-	fmadd.d	$ft12, $ft13, $ft12, $fa4
-	fmul.d	$ft11, $ft11, $ft12
-	alsl.d	$a0, $a0, $fp, 2
-	fadd.d	$ft12, $ft13, $fa5
-	vreplvei.d	$vr19, $vr19, 0
-	vreplvei.d	$vr20, $vr20, 0
-	vreplvei.d	$vr21, $vr21, 0
-	fmov.d	$ft14, $fa6
+	vreplvei.d	$vr15, $vr1, 0
+	vfrintrm.d	$vr15, $vr15
+	ftintrz.w.d	$ft8, $ft7
+	movfr2gr.s	$a4, $ft8
+	andi	$a4, $a4, 255
+	fsub.d	$ft9, $fa1, $ft7
+	fmul.d	$ft7, $ft9, $ft9
+	fmul.d	$ft7, $ft9, $ft7
+	fmadd.d	$ft8, $ft9, $fa3, $fa2
+	fmadd.d	$ft8, $ft9, $ft8, $fa4
+	fmul.d	$ft7, $ft7, $ft8
+	alsl.d	$a4, $a4, $fp, 2
+	fadd.d	$ft8, $ft9, $fa5
+	vreplvei.d	$vr15, $vr15, 0
+	vreplvei.d	$vr16, $vr16, 0
+	vreplvei.d	$vr17, $vr17, 0
+	fmov.d	$ft10, $fa6
 	b	.LBB0_4
 	.p2align	4, , 16
 .LBB0_3:                                # %._crit_edge
                                         #   in Loop: Header=BB0_4 Depth=2
-	fadd.d	$ft14, $ft14, $ft4
-	fcmp.clt.d	$fcc0, $ft14, $ft5
+	movgr2fr.d	$ft11, $a0
+	fadd.d	$ft10, $ft10, $ft11
+	movgr2fr.d	$ft11, $a1
+	fcmp.clt.d	$fcc0, $ft10, $ft11
 	bceqz	$fcc0, .LBB0_1
 .LBB0_4:                                # %.preheader
                                         #   Parent Loop BB0_2 Depth=1
                                         # =>  This Loop Header: Depth=2
                                         #       Child Loop BB0_6 Depth 3
-	fcmp.cule.d	$fcc0, $fa7, $ft14
+	fcmp.cule.d	$fcc0, $fa7, $ft10
 	bcnez	$fcc0, .LBB0_3
 # %bb.5:                                # %.lr.ph
                                         #   in Loop: Header=BB0_4 Depth=2
-	ld.w	$a1, $a0, 0
-	ld.w	$a2, $a0, 4
+	ld.w	$a5, $a4, 0
+	ld.w	$a6, $a4, 4
 	.p2align	4, , 16
 .LBB0_6:                                #   Parent Loop BB0_2 Depth=1
                                         #     Parent Loop BB0_4 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	vreplvei.d	$vr23, $vr22, 0
-	vfrintrm.d	$vr23, $vr23
-	ftintrz.w.d	$fs0, $ft15
-	movfr2gr.s	$a3, $fs0
-	andi	$a3, $a3, 255
-	fsub.d	$fs1, $ft14, $ft15
-	fmul.d	$ft15, $fs1, $fs1
-	fmul.d	$ft15, $fs1, $ft15
-	fmadd.d	$fs0, $fs1, $fa3, $fa2
-	fmadd.d	$fs0, $fs1, $fs0, $fa4
-	fmul.d	$ft15, $ft15, $fs0
-	add.w	$a4, $a1, $a3
-	alsl.d	$a5, $a4, $fp, 2
-	slli.d	$a4, $a4, 2
-	ldx.w	$a4, $fp, $a4
-	ld.w	$a5, $a5, 4
-	add.w	$a3, $a2, $a3
-	slli.d	$a6, $a3, 2
-	ldx.w	$a6, $fp, $a6
-	alsl.d	$a3, $a3, $fp, 2
-	ld.w	$a3, $a3, 4
-	alsl.d	$a4, $a4, $fp, 2
-	alsl.d	$a6, $a6, $fp, 2
-	ld.d	$a7, $a4, 396
-	alsl.d	$a4, $a5, $fp, 2
-	fadd.d	$fs0, $fs1, $fa5
-	alsl.d	$a3, $a3, $fp, 2
-	vinsgr2vr.d	$vr26, $a7, 0
-	vand.v	$vr27, $vr26, $vr8
-	vslti.wu	$vr28, $vr27, 4
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
-	vand.v	$vr29, $vr26, $vr16
-	vseqi.w	$vr29, $vr29, 12
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
-	vbitsel.v	$vr29, $vr9, $vr21, $vr29
-	vreplvei.d	$vr25, $vr25, 0
-	vbitsel.v	$vr28, $vr29, $vr25, $vr28
-	vslti.wu	$vr27, $vr27, 8
-	vshuf4i.w	$vr27, $vr27, 16
-	vslli.d	$vr27, $vr27, 32
-	vsrai.d	$vr27, $vr27, 32
-	vbitsel.v	$vr27, $vr25, $vr21, $vr27
-	vand.v	$vr29, $vr26, $vr17
-	vseqi.w	$vr29, $vr29, 0
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
-	vbitrevi.d	$vr30, $vr27, 63
-	vbitsel.v	$vr27, $vr30, $vr27, $vr29
-	vand.v	$vr26, $vr26, $vr18
-	vseqi.w	$vr26, $vr26, 0
+	vreplvei.d	$vr19, $vr18, 0
+	vfrintrm.d	$vr19, $vr19
+	ftintrz.w.d	$ft12, $ft11
+	movfr2gr.s	$a7, $ft12
+	andi	$a7, $a7, 255
+	fsub.d	$ft13, $ft10, $ft11
+	fmul.d	$ft11, $ft13, $ft13
+	fmul.d	$ft11, $ft13, $ft11
+	fmadd.d	$ft12, $ft13, $fa3, $fa2
+	fmadd.d	$ft12, $ft13, $ft12, $fa4
+	fmul.d	$ft11, $ft11, $ft12
+	add.w	$t0, $a5, $a7
+	alsl.d	$t1, $t0, $fp, 2
+	slli.d	$t0, $t0, 2
+	ldx.w	$t0, $fp, $t0
+	ld.w	$t1, $t1, 4
+	add.w	$a7, $a6, $a7
+	slli.d	$t2, $a7, 2
+	ldx.w	$t2, $fp, $t2
+	alsl.d	$a7, $a7, $fp, 2
+	ld.w	$a7, $a7, 4
+	alsl.d	$t0, $t0, $fp, 2
+	alsl.d	$t2, $t2, $fp, 2
+	ld.d	$t3, $t0, 396
+	alsl.d	$t0, $t1, $fp, 2
+	fadd.d	$ft12, $ft13, $fa5
+	alsl.d	$a7, $a7, $fp, 2
+	vinsgr2vr.d	$vr22, $t3, 0
+	vand.v	$vr23, $vr22, $vr8
+	vslti.wu	$vr24, $vr23, 4
+	vshuf4i.w	$vr24, $vr24, 16
+	vslli.d	$vr24, $vr24, 32
+	vsrai.d	$vr24, $vr24, 32
+	vand.v	$vr25, $vr22, $vr9
+	vseqi.w	$vr25, $vr25, 12
+	vshuf4i.w	$vr25, $vr25, 16
+	vslli.d	$vr25, $vr25, 32
+	vsrai.d	$vr25, $vr25, 32
+	vbitsel.v	$vr25, $vr10, $vr17, $vr25
+	vreplvei.d	$vr21, $vr21, 0
+	vbitsel.v	$vr24, $vr25, $vr21, $vr24
+	vslti.wu	$vr23, $vr23, 8
+	vshuf4i.w	$vr23, $vr23, 16
+	vslli.d	$vr23, $vr23, 32
+	vsrai.d	$vr23, $vr23, 32
+	vbitsel.v	$vr23, $vr21, $vr17, $vr23
+	vand.v	$vr25, $vr22, $vr11
+	vseqi.w	$vr25, $vr25, 0
+	vshuf4i.w	$vr25, $vr25, 16
+	vslli.d	$vr25, $vr25, 32
+	vsrai.d	$vr25, $vr25, 32
+	vbitrevi.d	$vr26, $vr23, 63
+	vbitsel.v	$vr23, $vr26, $vr23, $vr25
+	vand.v	$vr22, $vr22, $vr12
+	vseqi.w	$vr22, $vr22, 0
+	vshuf4i.w	$vr22, $vr22, 16
+	vslli.d	$vr22, $vr22, 32
+	vsrai.d	$vr22, $vr22, 32
+	ld.d	$t1, $t2, 396
+	vbitrevi.d	$vr25, $vr24, 63
+	vbitsel.v	$vr22, $vr25, $vr24, $vr22
+	vfadd.d	$vr22, $vr23, $vr22
+	vinsgr2vr.d	$vr23, $t1, 0
+	vand.v	$vr24, $vr23, $vr8
+	vslti.wu	$vr25, $vr24, 4
+	vshuf4i.w	$vr25, $vr25, 16
+	vslli.d	$vr25, $vr25, 32
+	vsrai.d	$vr25, $vr25, 32
+	vand.v	$vr26, $vr23, $vr9
+	vseqi.w	$vr26, $vr26, 12
 	vshuf4i.w	$vr26, $vr26, 16
 	vslli.d	$vr26, $vr26, 32
 	vsrai.d	$vr26, $vr26, 32
-	ld.d	$a5, $a6, 396
-	vbitrevi.d	$vr29, $vr28, 63
-	vbitsel.v	$vr26, $vr29, $vr28, $vr26
-	vfadd.d	$vr26, $vr27, $vr26
-	vinsgr2vr.d	$vr27, $a5, 0
-	vand.v	$vr28, $vr27, $vr8
-	vslti.wu	$vr29, $vr28, 4
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
-	vand.v	$vr30, $vr27, $vr16
-	vseqi.w	$vr30, $vr30, 12
-	vshuf4i.w	$vr30, $vr30, 16
-	vslli.d	$vr30, $vr30, 32
-	vsrai.d	$vr30, $vr30, 32
-	vbitsel.v	$vr30, $vr9, $vr20, $vr30
-	vbitsel.v	$vr29, $vr30, $vr25, $vr29
-	vslti.wu	$vr28, $vr28, 8
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
-	vbitsel.v	$vr25, $vr25, $vr20, $vr28
-	vand.v	$vr28, $vr27, $vr17
-	vseqi.w	$vr28, $vr28, 0
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
-	vbitrevi.d	$vr30, $vr25, 63
-	vbitsel.v	$vr25, $vr30, $vr25, $vr28
-	vand.v	$vr27, $vr27, $vr18
-	vseqi.w	$vr27, $vr27, 0
-	vshuf4i.w	$vr27, $vr27, 16
-	vslli.d	$vr27, $vr27, 32
-	vsrai.d	$vr27, $vr27, 32
-	vbitrevi.d	$vr28, $vr29, 63
-	vbitsel.v	$vr27, $vr28, $vr29, $vr27
-	ld.d	$a4, $a4, 396
-	vfadd.d	$vr25, $vr25, $vr27
-	vfsub.d	$vr25, $vr25, $vr26
-	vfmadd.d	$vr25, $vr19, $vr25, $vr26
-	vinsgr2vr.d	$vr26, $a4, 0
-	vand.v	$vr27, $vr26, $vr8
-	vslti.wu	$vr28, $vr27, 4
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
-	vand.v	$vr29, $vr26, $vr16
-	vseqi.w	$vr29, $vr29, 12
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
-	vbitsel.v	$vr29, $vr9, $vr21, $vr29
-	vreplvei.d	$vr24, $vr24, 0
-	vbitsel.v	$vr28, $vr29, $vr24, $vr28
-	vslti.wu	$vr27, $vr27, 8
-	vshuf4i.w	$vr27, $vr27, 16
-	vslli.d	$vr27, $vr27, 32
-	vsrai.d	$vr27, $vr27, 32
-	vbitsel.v	$vr27, $vr24, $vr21, $vr27
-	vand.v	$vr29, $vr26, $vr17
-	vseqi.w	$vr29, $vr29, 0
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
-	vbitrevi.d	$vr30, $vr27, 63
-	vbitsel.v	$vr27, $vr30, $vr27, $vr29
-	vand.v	$vr26, $vr26, $vr18
-	vseqi.w	$vr26, $vr26, 0
+	vbitsel.v	$vr26, $vr10, $vr16, $vr26
+	vbitsel.v	$vr25, $vr26, $vr21, $vr25
+	vslti.wu	$vr24, $vr24, 8
+	vshuf4i.w	$vr24, $vr24, 16
+	vslli.d	$vr24, $vr24, 32
+	vsrai.d	$vr24, $vr24, 32
+	vbitsel.v	$vr21, $vr21, $vr16, $vr24
+	vand.v	$vr24, $vr23, $vr11
+	vseqi.w	$vr24, $vr24, 0
+	vshuf4i.w	$vr24, $vr24, 16
+	vslli.d	$vr24, $vr24, 32
+	vsrai.d	$vr24, $vr24, 32
+	vbitrevi.d	$vr26, $vr21, 63
+	vbitsel.v	$vr21, $vr26, $vr21, $vr24
+	vand.v	$vr23, $vr23, $vr12
+	vseqi.w	$vr23, $vr23, 0
+	vshuf4i.w	$vr23, $vr23, 16
+	vslli.d	$vr23, $vr23, 32
+	vsrai.d	$vr23, $vr23, 32
+	vbitrevi.d	$vr24, $vr25, 63
+	vbitsel.v	$vr23, $vr24, $vr25, $vr23
+	ld.d	$t0, $t0, 396
+	vfadd.d	$vr21, $vr21, $vr23
+	vfsub.d	$vr21, $vr21, $vr22
+	vfmadd.d	$vr21, $vr15, $vr21, $vr22
+	vinsgr2vr.d	$vr22, $t0, 0
+	vand.v	$vr23, $vr22, $vr8
+	vslti.wu	$vr24, $vr23, 4
+	vshuf4i.w	$vr24, $vr24, 16
+	vslli.d	$vr24, $vr24, 32
+	vsrai.d	$vr24, $vr24, 32
+	vand.v	$vr25, $vr22, $vr9
+	vseqi.w	$vr25, $vr25, 12
+	vshuf4i.w	$vr25, $vr25, 16
+	vslli.d	$vr25, $vr25, 32
+	vsrai.d	$vr25, $vr25, 32
+	vbitsel.v	$vr25, $vr10, $vr17, $vr25
+	vreplvei.d	$vr20, $vr20, 0
+	vbitsel.v	$vr24, $vr25, $vr20, $vr24
+	vslti.wu	$vr23, $vr23, 8
+	vshuf4i.w	$vr23, $vr23, 16
+	vslli.d	$vr23, $vr23, 32
+	vsrai.d	$vr23, $vr23, 32
+	vbitsel.v	$vr23, $vr20, $vr17, $vr23
+	vand.v	$vr25, $vr22, $vr11
+	vseqi.w	$vr25, $vr25, 0
+	vshuf4i.w	$vr25, $vr25, 16
+	vslli.d	$vr25, $vr25, 32
+	vsrai.d	$vr25, $vr25, 32
+	vbitrevi.d	$vr26, $vr23, 63
+	vbitsel.v	$vr23, $vr26, $vr23, $vr25
+	vand.v	$vr22, $vr22, $vr12
+	vseqi.w	$vr22, $vr22, 0
+	vshuf4i.w	$vr22, $vr22, 16
+	vslli.d	$vr22, $vr22, 32
+	vsrai.d	$vr22, $vr22, 32
+	ld.d	$a7, $a7, 396
+	vbitrevi.d	$vr25, $vr24, 63
+	vbitsel.v	$vr22, $vr25, $vr24, $vr22
+	vfadd.d	$vr22, $vr23, $vr22
+	vinsgr2vr.d	$vr23, $a7, 0
+	vand.v	$vr24, $vr23, $vr8
+	vslti.wu	$vr25, $vr24, 4
+	vshuf4i.w	$vr25, $vr25, 16
+	vslli.d	$vr25, $vr25, 32
+	vsrai.d	$vr25, $vr25, 32
+	vand.v	$vr26, $vr23, $vr9
+	vseqi.w	$vr26, $vr26, 12
 	vshuf4i.w	$vr26, $vr26, 16
 	vslli.d	$vr26, $vr26, 32
 	vsrai.d	$vr26, $vr26, 32
-	ld.d	$a3, $a3, 396
-	vbitrevi.d	$vr29, $vr28, 63
-	vbitsel.v	$vr26, $vr29, $vr28, $vr26
-	vfadd.d	$vr26, $vr27, $vr26
-	vinsgr2vr.d	$vr27, $a3, 0
-	vand.v	$vr28, $vr27, $vr8
-	vslti.wu	$vr29, $vr28, 4
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
-	vand.v	$vr30, $vr27, $vr16
-	vseqi.w	$vr30, $vr30, 12
-	vshuf4i.w	$vr30, $vr30, 16
-	vslli.d	$vr30, $vr30, 32
-	vsrai.d	$vr30, $vr30, 32
-	vbitsel.v	$vr30, $vr9, $vr20, $vr30
-	vbitsel.v	$vr29, $vr30, $vr24, $vr29
-	vslti.wu	$vr28, $vr28, 8
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
-	vbitsel.v	$vr24, $vr24, $vr20, $vr28
-	vand.v	$vr28, $vr27, $vr17
-	vseqi.w	$vr28, $vr28, 0
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
-	vbitrevi.d	$vr30, $vr24, 63
-	vbitsel.v	$vr24, $vr30, $vr24, $vr28
-	vand.v	$vr27, $vr27, $vr18
-	vseqi.w	$vr27, $vr27, 0
-	vshuf4i.w	$vr27, $vr27, 16
-	vslli.d	$vr27, $vr27, 32
-	vsrai.d	$vr27, $vr27, 32
-	vbitrevi.d	$vr28, $vr29, 63
-	vbitsel.v	$vr27, $vr28, $vr29, $vr27
-	vfadd.d	$vr24, $vr24, $vr27
-	vfsub.d	$vr24, $vr24, $vr26
-	vfmadd.d	$vr24, $vr19, $vr24, $vr26
-	vfsub.d	$vr24, $vr24, $vr25
-	vreplvei.d	$vr23, $vr23, 0
-	vfmadd.d	$vr23, $vr23, $vr24, $vr25
-	vreplvei.d	$vr24, $vr23, 0
-	vreplvei.d	$vr23, $vr23, 1
-	fsub.d	$ft15, $ft15, $fs0
-	fmadd.d	$ft15, $ft15, $ft2, $fs0
-	fadd.d	$ft14, $ft14, $ft3
-	fcmp.clt.d	$fcc0, $ft14, $fa7
-	fadd.d	$fa0, $fa0, $ft15
+	vbitsel.v	$vr26, $vr10, $vr16, $vr26
+	vbitsel.v	$vr25, $vr26, $vr20, $vr25
+	vslti.wu	$vr24, $vr24, 8
+	vshuf4i.w	$vr24, $vr24, 16
+	vslli.d	$vr24, $vr24, 32
+	vsrai.d	$vr24, $vr24, 32
+	vbitsel.v	$vr20, $vr20, $vr16, $vr24
+	vand.v	$vr24, $vr23, $vr11
+	vseqi.w	$vr24, $vr24, 0
+	vshuf4i.w	$vr24, $vr24, 16
+	vslli.d	$vr24, $vr24, 32
+	vsrai.d	$vr24, $vr24, 32
+	vbitrevi.d	$vr26, $vr20, 63
+	vbitsel.v	$vr20, $vr26, $vr20, $vr24
+	vand.v	$vr23, $vr23, $vr12
+	vseqi.w	$vr23, $vr23, 0
+	vshuf4i.w	$vr23, $vr23, 16
+	vslli.d	$vr23, $vr23, 32
+	vsrai.d	$vr23, $vr23, 32
+	vbitrevi.d	$vr24, $vr25, 63
+	vbitsel.v	$vr23, $vr24, $vr25, $vr23
+	vfadd.d	$vr20, $vr20, $vr23
+	vfsub.d	$vr20, $vr20, $vr22
+	vfmadd.d	$vr20, $vr15, $vr20, $vr22
+	vfsub.d	$vr20, $vr20, $vr21
+	vreplvei.d	$vr19, $vr19, 0
+	vfmadd.d	$vr19, $vr19, $vr20, $vr21
+	vreplvei.d	$vr20, $vr19, 0
+	vreplvei.d	$vr19, $vr19, 1
+	fsub.d	$ft11, $ft11, $ft12
+	fmadd.d	$ft11, $ft11, $ft5, $ft12
+	fadd.d	$ft10, $ft10, $ft6
+	fcmp.clt.d	$fcc0, $ft10, $fa7
+	fadd.d	$fa0, $fa0, $ft11
 	bcnez	$fcc0, .LBB0_6
 	b	.LBB0_3
 .LBB0_7:
@@ -319,17 +322,13 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	fld.d	$fs6, $sp, 16                   # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 24                   # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 32                   # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 40                   # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 48                   # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 56                   # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 64                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 88                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 96
+	fld.d	$fs2, $sp, 0                    # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 8                    # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 16                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 48
 	ret
 .Lfunc_end0:
 	.size	main, .Lfunc_end0-main

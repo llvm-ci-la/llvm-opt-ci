@@ -1,22 +1,6 @@
 	.file	"distray.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x406fe00000000000              # double 255
-.LCPI0_1:
-	.dword	0x407e000000000000              # double 480
-.LCPI0_2:
-	.dword	0x4084000000000000              # double 640
-.LCPI0_3:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-.LCPI0_4:
-	.dword	0x3f4999999999999a              # double 7.8125000000000004E-4
-.LCPI0_5:
-	.dword	0x3f51111111111111              # double 0.0010416666666666667
-.LCPI0_6:
-	.dword	0x41cfffffff800000              # double 1073741823
 	.section	.text.unlikely.,"ax",@progbits
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -117,46 +101,62 @@ main:                                   # @main
 	addi.d	$s7, $a0, %pc_lo12(memory)
 	blez	$s2, .LBB0_11
 # %bb.2:                                # %.split45.i.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -131072
+	lu52i.d	$a1, $a1, 1031
+	movgr2fr.d	$fa0, $a1
 	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_2)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 262144
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa0, $a1
 	fst.d	$fa0, $sp, 80                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(Cameraright)
-	addi.d	$a0, $a0, %pc_lo12(Cameraright)
-	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(Cameradir)
-	addi.d	$a0, $a0, %pc_lo12(Cameradir)
-	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(Cameraup)
-	addi.d	$s8, $a0, %pc_lo12(Cameraup)
+	pcalau12i	$a1, %pc_hi20(Cameraright)
+	addi.d	$a1, $a1, %pc_lo12(Cameraright)
+	st.d	$a1, $sp, 72                    # 8-byte Folded Spill
+	pcalau12i	$a1, %pc_hi20(Cameradir)
+	addi.d	$a1, $a1, %pc_lo12(Cameradir)
+	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
+	pcalau12i	$a1, %pc_hi20(Cameraup)
+	addi.d	$s8, $a1, %pc_lo12(Cameraup)
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 112                  # 16-byte Folded Spill
 	movgr2fr.d	$ft0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_3)
+	lu12i.w	$a1, -487882
+	ori	$a1, $a1, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa0, $a1
 	fst.d	$fa0, $sp, 56                   # 8-byte Folded Spill
 	vldi	$vr10, -912
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_4)
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a1, $a1, 1012
+	movgr2fr.d	$fa0, $a1
 	fst.d	$fa0, $sp, 48                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_5)
+	lu12i.w	$a1, 69905
+	ori	$a1, $a1, 273
+	lu32i.d	$a1, 69905
+	lu52i.d	$a1, $a1, 1013
+	movgr2fr.d	$fa0, $a1
 	fst.d	$fa0, $sp, 40                   # 8-byte Folded Spill
 	pcalau12i	$s5, %pc_hi20(rnd)
-	lu12i.w	$a0, 269412
-	pcalau12i	$a1, %pc_hi20(.LCPI0_6)
-	fld.d	$ft3, $a1, %pc_lo12(.LCPI0_6)
-	ori	$s4, $a0, 3693
-	lu12i.w	$a0, 3
-	ori	$s1, $a0, 57
-	pcalau12i	$a0, %pc_hi20(Camerapos)
-	addi.d	$s0, $a0, %pc_lo12(Camerapos)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
-	fst.d	$fa0, $sp, 96                   # 8-byte Folded Spill
+	lu12i.w	$a1, 269412
+	ori	$s4, $a1, 3693
+	lu12i.w	$a1, 3
+	ori	$s1, $a1, 57
+	lu12i.w	$a1, -2048
+	lu52i.d	$a1, $a1, 1052
+	movgr2fr.d	$ft3, $a1
+	pcalau12i	$a1, %pc_hi20(Camerapos)
+	addi.d	$s0, $a1, %pc_lo12(Camerapos)
 	move	$a1, $zero
+	lu32i.d	$a0, -8192
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa0, $a0
+	fst.d	$fa0, $sp, 96                   # 8-byte Folded Spill
 	fst.d	$ft0, $sp, 144                  # 8-byte Folded Spill
 	fst.d	$ft3, $sp, 136                  # 8-byte Folded Spill
 	b	.LBB0_5
@@ -372,11 +372,13 @@ main:                                   # @main
 .LBB0_11:                               # %.split45.us.i
 	movgr2fr.w	$fa0, $s2
 	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	frecip.d	$fa0, $fa0
-	movgr2fr.d	$fa2, $zero
-	fmul.d	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa1, $zero
+	fmul.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -8192
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
@@ -445,16 +447,8 @@ main:                                   # @main
 .Lfunc_end0:
 	.size	main, .Lfunc_end0-main
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function TraceLine
-.LCPI1_0:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-.LCPI1_1:
-	.dword	0x3fe45f306c8462a6              # double 0.63661977000000003
-.LCPI1_2:
-	.dword	0x41cfffffff800000              # double 1073741823
 	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function TraceLine
 	.type	TraceLine,@function
 TraceLine:                              # @TraceLine
 # %bb.0:
@@ -491,8 +485,11 @@ TraceLine:                              # @TraceLine
 	addi.d	$a4, $sp, 160
 	pcaddu18i	$ra, %call36(IntersectObjs)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs4, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, -487882
+	ori	$a0, $a0, 2289
+	lu32i.d	$a0, 325813
+	lu52i.d	$a0, $a0, 1006
+	movgr2fr.d	$fs4, $a0
 	fcmp.cule.d	$fcc0, $fa0, $fs4
 	bcnez	$fcc0, .LBB1_7
 # %bb.2:
@@ -576,9 +573,10 @@ TraceLine:                              # @TraceLine
 	fmul.d	$fs0, $fa0, $fa1
 	pcalau12i	$s5, %pc_hi20(rnd)
 	lu12i.w	$a0, 269412
-	pcalau12i	$a1, %pc_hi20(.LCPI1_2)
-	fld.d	$fs7, $a1, %pc_lo12(.LCPI1_2)
 	ori	$s6, $a0, 3693
+	lu12i.w	$a0, -2048
+	lu52i.d	$a0, $a0, 1052
+	movgr2fr.d	$fs7, $a0
 	lu12i.w	$a0, 3
 	ori	$s7, $a0, 57
 	.p2align	4, , 16
@@ -661,8 +659,11 @@ TraceLine:                              # @TraceLine
 	fdiv.d	$fa0, $fa1, $fa0
 	pcaddu18i	$ra, %call36(atan)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_1)
+	lu12i.w	$a0, 444486
+	ori	$a0, $a0, 678
+	lu32i.d	$a0, 286512
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa2, $fa0, $fa1
 	b	.LBB1_10
 .LBB1_9:
@@ -875,9 +876,10 @@ TraceLine:                              # @TraceLine
 	vrepli.b	$vr3, 0
 	pcalau12i	$s4, %pc_hi20(rnd)
 	lu12i.w	$a0, 269412
-	pcalau12i	$a1, %pc_hi20(.LCPI1_2)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI1_2)
 	ori	$s5, $a0, 3693
+	lu12i.w	$a0, -2048
+	lu52i.d	$a0, $a0, 1052
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$a0, 3
 	ori	$s6, $a0, 57
 	fmov.d	$fs7, $fs3
@@ -1004,14 +1006,7 @@ TraceLine:                              # @TraceLine
 .Lfunc_end1:
 	.size	TraceLine, .Lfunc_end1-TraceLine
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function IntersectObjs
-.LCPI2_0:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-.LCPI2_1:
-	.dword	0x40f86a0000000000              # double 1.0E+5
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function IntersectObjs
 	.type	IntersectObjs,@function
 IntersectObjs:                          # @IntersectObjs
 # %bb.0:
@@ -1032,9 +1027,12 @@ IntersectObjs:                          # @IntersectObjs
 	fst.d	$fs6, $sp, 80                   # 8-byte Folded Spill
 	fst.d	$fs7, $sp, 72                   # 8-byte Folded Spill
 	fld.d	$fs1, $a1, 16
-	pcalau12i	$a5, %pc_hi20(.LCPI2_0)
-	fld.d	$fa5, $a5, %pc_lo12(.LCPI2_0)
 	fabs.d	$fa0, $fs1
+	lu12i.w	$a5, -487882
+	ori	$a5, $a5, 2289
+	lu32i.d	$a5, 325813
+	lu52i.d	$a5, $a5, 1006
+	movgr2fr.d	$fa5, $a5
 	fcmp.cule.d	$fcc0, $fa0, $fa5
 	bcnez	$fcc0, .LBB2_4
 # %bb.1:
@@ -1046,8 +1044,10 @@ IntersectObjs:                          # @IntersectObjs
 	fcmp.cule.d	$fcc0, $ft2, $fa5
 	bcnez	$fcc0, .LBB2_4
 # %bb.2:
-	pcalau12i	$a5, %pc_hi20(.LCPI2_1)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI2_1)
+	ori	$a5, $zero, 0
+	lu32i.d	$a5, -497152
+	lu52i.d	$a6, $a5, 1039
+	movgr2fr.d	$fa1, $a6
 	fcmp.cule.d	$fcc0, $fa1, $ft2
 	bcnez	$fcc0, .LBB2_4
 # %bb.3:
@@ -1063,11 +1063,9 @@ IntersectObjs:                          # @IntersectObjs
 	fst.d	$fa0, $a2, 16
 	vrepli.b	$vr0, 0
 	vst	$vr0, $a3, 0
-	lu52i.d	$a5, $zero, 1023
-	st.d	$a5, $a3, 16
+	lu52i.d	$a6, $zero, 1023
+	st.d	$a6, $a3, 16
 	vld	$vr0, $a2, 0
-	ori	$a5, $zero, 0
-	lu32i.d	$a5, -497152
 	lu52i.d	$a5, $a5, 1038
 	vreplgr2vr.d	$vr1, $a5
 	vfadd.d	$vr0, $vr0, $vr1

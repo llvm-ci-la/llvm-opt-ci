@@ -1,49 +1,40 @@
 	.file	"util.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function my_rand
-.LCPI0_0:
-	.dword	0x40d069c000000000              # double 16807
-.LCPI0_1:
-	.dword	0x41dfffffffc00000              # double 2147483647
-.LCPI0_2:
-	.dword	0xc1dfffffffc00000              # double -2147483647
 	.text
-	.globl	my_rand
+	.globl	my_rand                         # -- Begin function my_rand
 	.p2align	5
 	.type	my_rand,@function
 my_rand:                                # @my_rand
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -912
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_1)
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_2)
-	fdiv.d	$fa2, $fa0, $fa3
-	vreplvei.d	$vr2, $vr2, 0
-	vfrintrm.d	$vr2, $vr2
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
+	vldi	$vr1, -912
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 27072
+	lu52i.d	$a0, $a0, 1037
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -1024
+	lu52i.d	$a1, $a0, 1053
+	movgr2fr.d	$fa1, $a1
+	fdiv.d	$fa1, $fa0, $fa1
+	vreplvei.d	$vr1, $vr1, 0
+	vfrintrm.d	$vr1, $vr1
+	lu52i.d	$a0, $a0, -995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
 	ret
 .Lfunc_end0:
 	.size	my_rand, .Lfunc_end0-my_rand
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function xrand
-.LCPI1_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
-	.text
-	.globl	xrand
+	.globl	xrand                           # -- Begin function xrand
 	.p2align	5
 	.type	xrand,@function
 xrand:                                  # @xrand
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI1_0)
 	fsub.d	$fa1, $fa1, $fa0
 	fmul.d	$fa1, $fa1, $fa2
-	fdiv.d	$fa1, $fa1, $fa3
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fa2, $a0
+	fdiv.d	$fa1, $fa1, $fa2
 	fadd.d	$fa0, $fa0, $fa1
 	ret
 .Lfunc_end1:

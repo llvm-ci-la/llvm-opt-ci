@@ -1,26 +1,10 @@
 	.file	"utemp.c"
-	.section	.rodata.cst8,"aM",@progbits,8
+	.section	.rodata.cst16,"aM",@progbits,16
 	.p2align	3, 0x0                          # -- Begin function utemp
 .LCPI0_0:
-	.dword	0x40f86a0000000000              # double 1.0E+5
-.LCPI0_1:
-	.dword	0x40a7700000000000              # double 3000
-.LCPI0_2:
-	.dword	0x4069000000000000              # double 200
-.LCPI0_4:
-	.dword	0x3fec28f5c28f5c29              # double 0.88
-.LCPI0_5:
-	.dword	0x3fee8f5c28f5c28f              # double 0.95499999999999996
-.LCPI0_7:
-	.dword	0x3fe999999999999a              # double 0.80000000000000004
-.LCPI0_8:
-	.dword	0x3fc999999999999a              # double 0.20000000000000001
-	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	3, 0x0
-.LCPI0_3:
 	.dword	0x3fea3d70a3d70a3d              # double 0.81999999999999995
 	.dword	0x3fe6666666666666              # double 0.69999999999999996
-.LCPI0_6:
+.LCPI0_1:
 	.dword	0x3fe999999999999a              # double 0.80000000000000004
 	.dword	0x3feb333333333333              # double 0.84999999999999998
 	.text
@@ -52,19 +36,25 @@ utemp:                                  # @utemp
 	pcalau12i	$a0, %got_pc_hi20(Tsave)
 	ld.d	$a0, $a0, %got_pc_lo12(Tsave)
 	fld.d	$fa0, $a0, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -497152
+	lu52i.d	$a1, $a1, 1039
+	movgr2fr.d	$fa1, $a1
 	fdiv.d	$fa0, $fa0, $fa1
 	pcalau12i	$s8, %pc_hi20(count)
 	st.w	$zero, $s8, %pc_lo12(count)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_2)
-	vldi	$vr3, -988
-	fmul.d	$fs0, $fa0, $fa3
+	vldi	$vr1, -988
+	fmul.d	$fs0, $fa0, $fa1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 487424
+	lu52i.d	$a1, $a1, 1034
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fs1, $fa0, $fa1
-	fmul.d	$fa1, $fa0, $fa2
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa1, $fa0, $fa1
 	fst.d	$fa1, $sp, 32                   # 8-byte Folded Spill
 	vldi	$vr1, -972
 	fmul.d	$fa1, $fa0, $fa1
@@ -77,12 +67,18 @@ utemp:                                  # @utemp
 	ld.w	$a0, $a0, 0
 	pcalau12i	$a1, %got_pc_hi20(T)
 	ld.d	$s2, $a1, %got_pc_lo12(T)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_4)
-	fld.d	$fs2, $a1, %pc_lo12(.LCPI0_4)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_5)
-	fld.d	$fs6, $a1, %pc_lo12(.LCPI0_5)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_6)
-	addi.d	$a1, $a1, %pc_lo12(.LCPI0_6)
+	lu12i.w	$a1, -251659
+	ori	$a1, $a1, 3113
+	lu32i.d	$a1, -251659
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fs2, $a1
+	lu12i.w	$a1, 167772
+	ori	$a1, $a1, 655
+	lu32i.d	$a1, -94372
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fs6, $a1
+	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
+	addi.d	$a1, $a1, %pc_lo12(.LCPI0_1)
 	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	pcalau12i	$a1, %got_pc_hi20(fpo)
 	ld.d	$s7, $a1, %got_pc_lo12(fpo)
@@ -130,12 +126,15 @@ utemp:                                  # @utemp
 	ld.d	$s5, $a1, %got_pc_lo12(stdout)
 	pcalau12i	$a1, %got_pc_hi20(doCompaction)
 	ld.d	$s4, $a1, %got_pc_lo12(doCompaction)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_7)
-	fld.d	$fs7, $a1, %pc_lo12(.LCPI0_7)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_8)
-	fld.d	$fs3, $a1, %pc_lo12(.LCPI0_8)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	addi.d	$a1, $a1, %pc_lo12(.LCPI0_3)
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a2, $a1, 1022
+	movgr2fr.d	$fs7, $a2
+	lu52i.d	$a1, $a1, 1020
+	movgr2fr.d	$fs3, $a1
+	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
+	addi.d	$a1, $a1, %pc_lo12(.LCPI0_0)
 	st.d	$a1, $sp, 40                    # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1

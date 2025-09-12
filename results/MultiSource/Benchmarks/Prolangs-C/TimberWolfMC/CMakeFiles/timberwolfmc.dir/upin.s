@@ -1,12 +1,6 @@
 	.file	"upin.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function upin
-.LCPI0_0:
-	.dword	0x40f86a0000000000              # double 1.0E+5
-.LCPI0_1:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
-	.globl	upin
+	.globl	upin                            # -- Begin function upin
 	.p2align	5
 	.type	upin,@function
 upin:                                   # @upin
@@ -143,8 +137,10 @@ upin:                                   # @upin
 	st.d	$t5, $sp, 16                    # 8-byte Folded Spill
 	blez	$t8, .LBB0_57
 # %bb.16:                               # %.lr.ph274
-	pcalau12i	$a3, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI0_0)
+	ori	$a3, $zero, 0
+	lu32i.d	$a3, -497152
+	lu52i.d	$a3, $a3, 1039
+	movgr2fr.d	$fa1, $a3
 	fdiv.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -988
 	fmul.d	$fa1, $fa0, $fa1
@@ -476,12 +472,13 @@ upin:                                   # @upin
 	lu12i.w	$a2, 3
 	ori	$a2, $a2, 57
 	add.d	$a1, $a1, $a2
-	pcalau12i	$a2, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI0_1)
 	bstrpick.d	$a2, $a1, 30, 0
-	movgr2fr.w	$fa2, $a2
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa1, $fa2, $fa1
+	movgr2fr.w	$fa1, $a2
+	ffint.d.w	$fa1, $fa1
+	lu12i.w	$a2, -1024
+	lu52i.d	$a2, $a2, 1053
+	movgr2fr.d	$fa2, $a2
+	fdiv.d	$fa1, $fa1, $fa2
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	st.w	$a1, $a0, 0
 	bcnez	$fcc0, .LBB0_73

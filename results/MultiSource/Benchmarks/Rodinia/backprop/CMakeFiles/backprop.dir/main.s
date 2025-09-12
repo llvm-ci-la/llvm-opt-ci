@@ -1,10 +1,6 @@
 	.file	"main.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.word	0x30000000                      # float 4.65661287E-10
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -68,10 +64,10 @@ main:                                   # @main
 	ori	$a0, $zero, 8
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI0_0)
 	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
 	move	$fp, $zero
+	lu12i.w	$a0, 196608
+	movgr2fr.w	$fs0, $a0
 	st.d	$s0, $sp, 160                   # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB0_1:                                # %.preheader81
@@ -462,7 +458,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$s5, $zero
 	move	$a1, $zero
-	move	$s8, $zero
+	move	$fp, $zero
 	st.d	$s3, $sp, 104                   # 8-byte Folded Spill
 	addi.d	$a0, $s3, 32
 	st.d	$a0, $sp, 144                   # 8-byte Folded Spill
@@ -500,7 +496,7 @@ main:                                   # @main
 	.p2align	4, , 16
 .LBB0_5:                                # %._crit_edge.i
                                         #   in Loop: Header=BB0_6 Depth=1
-	addi.d	$s8, $s8, 68
+	addi.d	$fp, $fp, 68
 	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	addi.w	$a1, $a1, 17
 	addi.w	$s5, $s5, -17
@@ -543,7 +539,7 @@ main:                                   # @main
 	addi.w	$a0, $a0, 17
 	st.d	$a0, $sp, 248                   # 8-byte Folded Spill
 	ld.d	$a0, $sp, 160                   # 8-byte Folded Reload
-	beq	$s8, $a0, .LBB0_40
+	beq	$fp, $a0, .LBB0_40
 .LBB0_6:                                # %.preheader34.i
                                         # =>This Inner Loop Header: Depth=1
 	st.d	$a1, $sp, 152                   # 8-byte Folded Spill
@@ -553,10 +549,10 @@ main:                                   # @main
 	addi.d	$a1, $zero, -1000
 	mul.w	$a0, $a0, $a1
 	ld.d	$a1, $sp, 144                   # 8-byte Folded Reload
-	add.d	$fp, $a1, $s8
+	add.d	$s8, $a1, $fp
 	bne	$a0, $s5, .LBB0_8
 # %bb.7:                                #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, -32
+	fld.s	$fa0, $s8, -32
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -572,7 +568,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_10
 # %bb.9:                                #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, -28
+	fld.s	$fa0, $s8, -28
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -588,7 +584,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_12
 # %bb.11:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, -24
+	fld.s	$fa0, $s8, -24
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -604,7 +600,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_14
 # %bb.13:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, -20
+	fld.s	$fa0, $s8, -20
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -621,7 +617,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_16
 # %bb.15:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, -16
+	fld.s	$fa0, $s8, -16
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -638,7 +634,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_18
 # %bb.17:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, -12
+	fld.s	$fa0, $s8, -12
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -655,7 +651,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_20
 # %bb.19:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, -8
+	fld.s	$fa0, $s8, -8
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -672,7 +668,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_22
 # %bb.21:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, -4
+	fld.s	$fa0, $s8, -4
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -690,7 +686,7 @@ main:                                   # @main
 	bne	$a0, $s5, .LBB0_24
 # %bb.23:                               #   in Loop: Header=BB0_6 Depth=1
 	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
-	fldx.s	$fa0, $a0, $s8
+	fldx.s	$fa0, $a0, $fp
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -707,7 +703,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_26
 # %bb.25:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, 4
+	fld.s	$fa0, $s8, 4
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -724,7 +720,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_28
 # %bb.27:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, 8
+	fld.s	$fa0, $s8, 8
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -741,7 +737,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_30
 # %bb.29:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, 12
+	fld.s	$fa0, $s8, 12
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -758,7 +754,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_32
 # %bb.31:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, 16
+	fld.s	$fa0, $s8, 16
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -775,7 +771,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_34
 # %bb.33:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, 20
+	fld.s	$fa0, $s8, 20
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -792,7 +788,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_36
 # %bb.35:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, 24
+	fld.s	$fa0, $s8, 24
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -808,7 +804,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_38
 # %bb.37:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, 28
+	fld.s	$fa0, $s8, 28
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -824,7 +820,7 @@ main:                                   # @main
 	sub.w	$a0, $a1, $a0
 	bne	$a0, $s5, .LBB0_5
 # %bb.39:                               #   in Loop: Header=BB0_6 Depth=1
-	fld.s	$fa0, $fp, 32
+	fld.s	$fa0, $s8, 32
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)

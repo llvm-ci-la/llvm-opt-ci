@@ -3774,12 +3774,7 @@ _ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii:  # @_ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii
 	.size	_ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii, .Lfunc_end9-_ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii
-.LCPI10_0:
-	.dword	0x3fd5555555555555              # double 0.33333333333333331
-	.text
-	.globl	_ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii
+	.globl	_ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii # -- Begin function _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii
 	.p2align	5
 	.type	_ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii,@function
 _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii: # @_ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii
@@ -3809,7 +3804,7 @@ _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii: # @_ZN4Mesh8calcVolsEPK7double2S2_
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
-	move	$fp, $a0
+	move	$t5, $a0
 	ld.d	$s8, $sp, 112
 	ld.d	$s5, $a0, 104
 	ld.w	$a0, $a0, 72
@@ -3818,13 +3813,14 @@ _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii: # @_ZN4Mesh8calcVolsEPK7double2S2_
 	ldx.w	$s6, $s5, $a7
 	slt	$a0, $s8, $a0
 	alsl.d	$a7, $s8, $s5, 2
-	addi.d	$t0, $fp, 68
+	addi.d	$t0, $t5, 68
 	maskeqz	$a7, $a7, $a0
 	masknez	$a0, $t0, $a0
 	or	$a0, $a7, $a0
 	ld.w	$a7, $a0, 0
 	move	$s0, $a6
 	move	$s1, $a5
+	move	$fp, $a3
 	move	$s2, $a2
 	move	$s3, $a1
 	beq	$s6, $a7, .LBB10_2
@@ -3835,7 +3831,7 @@ _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii: # @_ZN4Mesh8calcVolsEPK7double2S2_
 	move	$a1, $zero
 	move	$a2, $s7
 	st.d	$a4, $sp, 16                    # 8-byte Folded Spill
-	st.d	$a3, $sp, 8                     # 8-byte Folded Spill
+	st.d	$t5, $sp, 8                     # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	alsl.d	$a0, $s6, $s1, 3
@@ -3843,29 +3839,32 @@ _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii: # @_ZN4Mesh8calcVolsEPK7double2S2_
 	move	$a2, $s7
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
-	ld.d	$a3, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$t5, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
 .LBB10_2:                               # %_ZSt4fillIPddEvT_S1_RKT0_.exit57
 	bge	$s4, $s8, .LBB10_7
 # %bb.3:                                # %.lr.ph
-	ld.d	$a1, $fp, 88
-	ld.d	$a2, $fp, 96
+	ld.d	$a1, $t5, 88
+	ld.d	$a2, $t5, 96
 	move	$a0, $zero
 	alsl.d	$a1, $s4, $a1, 2
 	alsl.d	$a2, $s4, $a2, 2
-	alsl.d	$t5, $s4, $s5, 2
-	alsl.d	$t4, $s4, $a3, 3
+	alsl.d	$t6, $s4, $s5, 2
+	alsl.d	$t4, $s4, $fp, 3
 	alsl.d	$a5, $s4, $a4, 3
-	pcalau12i	$a6, %pc_hi20(.LCPI10_0)
-	fld.d	$fa0, $a6, %pc_lo12(.LCPI10_0)
 	sub.d	$a6, $s8, $s4
+	lu12i.w	$a7, 349525
+	ori	$a7, $a7, 1365
+	lu32i.d	$a7, 349525
+	lu52i.d	$a7, $a7, 1021
+	movgr2fr.d	$fa0, $a7
 	vldi	$vr1, -928
 	movgr2fr.d	$fa2, $zero
 	.p2align	4, , 16
 .LBB10_4:                               # =>This Inner Loop Header: Depth=1
 	ld.w	$a7, $a2, 0
 	ld.w	$t0, $a1, 0
-	ld.w	$t1, $t5, 0
+	ld.w	$t1, $t6, 0
 	alsl.d	$t2, $a7, $s3, 4
 	slli.d	$a7, $a7, 4
 	alsl.d	$t3, $t0, $s3, 4
@@ -3904,7 +3903,7 @@ _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii: # @_ZN4Mesh8calcVolsEPK7double2S2_
 	add.w	$a0, $a0, $a7
 	addi.d	$a1, $a1, 4
 	addi.d	$a2, $a2, 4
-	addi.d	$t5, $t5, 4
+	addi.d	$t6, $t6, 4
 	addi.d	$t4, $t4, 8
 	addi.d	$a6, $a6, -1
 	addi.d	$a5, $a5, 8
@@ -3912,9 +3911,9 @@ _ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii: # @_ZN4Mesh8calcVolsEPK7double2S2_
 # %bb.5:                                # %._crit_edge
 	beqz	$a0, .LBB10_7
 # %bb.6:
-	ld.w	$a1, $fp, 80
+	ld.w	$a1, $t5, 80
 	add.d	$a0, $a1, $a0
-	st.w	$a0, $fp, 80
+	st.w	$a0, $t5, 80
 .LBB10_7:                               # %._crit_edge.thread
 	ld.d	$s8, $sp, 24                    # 8-byte Folded Reload
 	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
@@ -4246,12 +4245,7 @@ _ZN4Mesh5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidPKdS9_S9_
 	.size	_ZN4Mesh5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidPKdS9_S9_, .Lfunc_end14-_ZN4Mesh5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidPKdS9_S9_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4Mesh9getXPlaneEd
-.LCPI15_0:
-	.dword	0x3d719799812dea11              # double 9.9999999999999998E-13
-	.text
-	.globl	_ZN4Mesh9getXPlaneEd
+	.globl	_ZN4Mesh9getXPlaneEd            # -- Begin function _ZN4Mesh9getXPlaneEd
 	.p2align	5
 	.type	_ZN4Mesh9getXPlaneEd,@function
 _ZN4Mesh9getXPlaneEd:                   # @_ZN4Mesh9getXPlaneEd
@@ -4303,8 +4297,11 @@ _ZN4Mesh9getXPlaneEd:                   # @_ZN4Mesh9getXPlaneEd
 	move	$a1, $zero
 	move	$s6, $zero
 	move	$s1, $zero
-	pcalau12i	$a2, %pc_hi20(.LCPI15_0)
-	fld.d	$fs1, $a2, %pc_lo12(.LCPI15_0)
+	lu12i.w	$a2, -519458
+	ori	$a2, $a2, 2577
+	lu32i.d	$a2, 104345
+	lu52i.d	$a2, $a2, 983
+	movgr2fr.d	$fs1, $a2
 	addi.w	$a2, $zero, -4
 	lu52i.d	$a2, $a2, 2047
 	st.d	$a2, $sp, 16                    # 8-byte Folded Spill
@@ -4467,12 +4464,8 @@ GCC_except_table15:
 .Lcst_end4:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4Mesh9getYPlaneEd
-.LCPI16_0:
-	.dword	0x3d719799812dea11              # double 9.9999999999999998E-13
 	.text
-	.globl	_ZN4Mesh9getYPlaneEd
+	.globl	_ZN4Mesh9getYPlaneEd            # -- Begin function _ZN4Mesh9getYPlaneEd
 	.p2align	5
 	.type	_ZN4Mesh9getYPlaneEd,@function
 _ZN4Mesh9getYPlaneEd:                   # @_ZN4Mesh9getYPlaneEd
@@ -4524,8 +4517,11 @@ _ZN4Mesh9getYPlaneEd:                   # @_ZN4Mesh9getYPlaneEd
 	move	$s5, $zero
 	move	$s1, $zero
 	ori	$s6, $zero, 8
-	pcalau12i	$a2, %pc_hi20(.LCPI16_0)
-	fld.d	$fs1, $a2, %pc_lo12(.LCPI16_0)
+	lu12i.w	$a2, -519458
+	ori	$a2, $a2, 2577
+	lu32i.d	$a2, 104345
+	lu52i.d	$a2, $a2, 983
+	movgr2fr.d	$fs1, $a2
 	addi.w	$a2, $zero, -4
 	lu52i.d	$a2, $a2, 2047
 	st.d	$a2, $sp, 16                    # 8-byte Folded Spill

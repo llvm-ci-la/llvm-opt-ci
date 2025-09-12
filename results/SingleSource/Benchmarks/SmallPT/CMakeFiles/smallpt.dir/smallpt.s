@@ -1,22 +1,6 @@
 	.file	"smallpt.cpp"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z8radianceRK3RayiPt
-.LCPI0_0:
-	.dword	0x4415af1d78b58c40              # double 1.0E+20
-.LCPI0_1:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI0_2:
-	.dword	0x401921fb54442d18              # double 6.2831853071795862
-.LCPI0_3:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-.LCPI0_4:
-	.dword	0x3fe5555555555555              # double 0.66666666666666663
-.LCPI0_5:
-	.dword	0x3feeb851eb851eb8              # double 0.95999999999999996
-.LCPI0_6:
-	.dword	0x3fa47ae147ae147b              # double 0.040000000000000001
 	.text
-	.globl	_Z8radianceRK3RayiPt
+	.globl	_Z8radianceRK3RayiPt            # -- Begin function _Z8radianceRK3RayiPt
 	.p2align	5
 	.type	_Z8radianceRK3RayiPt,@function
 _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
@@ -63,36 +47,42 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs7, $fs7, $fa0
 	fmadd.d	$fa0, $fa1, $fa1, $fa0
-	pcalau12i	$s1, %pc_hi20(.LCPI0_0)
+	lu12i.w	$a0, 494424
+	ori	$a0, $a0, 3136
+	lu32i.d	$a0, 372509
+	lu52i.d	$s1, $a0, 1089
 	movgr2fr.d	$fs3, $zero
 	fcmp.clt.d	$fcc0, $fa0, $fs3
-	pcalau12i	$s2, %pc_hi20(.LCPI0_1)
+	lu12i.w	$s2, -85564
 	bceqz	$fcc0, .LBB0_2
 # %bb.1:
-	fld.d	$fs7, $s1, %pc_lo12(.LCPI0_0)
 	move	$s3, $zero
+	movgr2fr.d	$fs7, $s1
 	b	.LBB0_4
 .LBB0_2:                                # %_ZNK6Sphere9intersectERK3Ray.exit.i
 	fsqrt.d	$fa1, $fa0
 	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_54
 .LBB0_3:                                # %_ZNK6Sphere9intersectERK3Ray.exit.i.split
-	fld.d	$fa0, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs7, $fa1
+	fsub.d	$fa0, $fs7, $fa1
 	fadd.d	$fa1, $fs7, $fa1
-	fcmp.clt.d	$fcc0, $fa0, $fa1
-	fcmp.clt.d	$fcc1, $fa0, $fa2
-	fld.d	$fa0, $s1, %pc_lo12(.LCPI0_0)
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
 	fsel	$fa1, $fs3, $fa1, $fcc0
-	fsel	$fa1, $fa1, $fa2, $fcc1
-	fcmp.cune.d	$fcc0, $fa1, $fs3
-	fcmp.clt.d	$fcc1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
+	fcmp.cune.d	$fcc0, $fa0, $fs3
+	movgr2fr.d	$fa1, $s1
+	fcmp.clt.d	$fcc1, $fa0, $fa1
 	movcf2gr	$a0, $fcc0
 	movcf2gr	$a4, $fcc1
 	and	$a0, $a0, $a4
 	slli.d	$s3, $a0, 3
 	movgr2cf	$fcc0, $a0
-	fsel	$fs7, $fa0, $fa1, $fcc0
+	fsel	$fs7, $fa1, $fa0, $fcc0
 .LBB0_4:                                # %_ZNK6Sphere9intersectERK3Ray.exit.thread.i
 	fld.d	$fa0, $s0, 624
 	fld.d	$fa1, $s0, 632
@@ -108,21 +98,24 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fs0, $fa2, $fs1, $fa3
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fa1, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fs3
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_7
 # %bb.5:                                # %_ZNK6Sphere9intersectERK3Ray.exit.i.1
-	fsqrt.d	$fa0, $fa1
-	fcmp.cor.d	$fcc0, $fa0, $fa0
+	fsqrt.d	$fa1, $fa0
+	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_55
 .LBB0_6:                                # %_ZNK6Sphere9intersectERK3Ray.exit.i.1.split
-	fld.d	$fa1, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs0, $fa0
-	fadd.d	$fa0, $fs0, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fs3, $fa0, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fsub.d	$fa0, $fs0, $fa1
+	fadd.d	$fa1, $fs0, $fa1
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fs3, $fa1, $fcc0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
 	fcmp.cune.d	$fcc0, $fa0, $fs3
 	fcmp.clt.d	$fcc1, $fa0, $fs7
 	movcf2gr	$a0, $fcc0
@@ -149,21 +142,24 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fs0, $fa2, $fs1, $fa3
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fa1, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fs3
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_10
 # %bb.8:                                # %_ZNK6Sphere9intersectERK3Ray.exit.i.2
-	fsqrt.d	$fa0, $fa1
-	fcmp.cor.d	$fcc0, $fa0, $fa0
+	fsqrt.d	$fa1, $fa0
+	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_56
 .LBB0_9:                                # %_ZNK6Sphere9intersectERK3Ray.exit.i.2.split
-	fld.d	$fa1, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs0, $fa0
-	fadd.d	$fa0, $fs0, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fs3, $fa0, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fsub.d	$fa0, $fs0, $fa1
+	fadd.d	$fa1, $fs0, $fa1
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fs3, $fa1, $fcc0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
 	fcmp.cune.d	$fcc0, $fa0, $fs3
 	fcmp.clt.d	$fcc1, $fa0, $fs7
 	movcf2gr	$a0, $fcc0
@@ -190,21 +186,24 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fs0, $fa2, $fs1, $fa3
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fa1, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fs3
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_13
 # %bb.11:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.3
-	fsqrt.d	$fa0, $fa1
-	fcmp.cor.d	$fcc0, $fa0, $fa0
+	fsqrt.d	$fa1, $fa0
+	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_57
 .LBB0_12:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.3.split
-	fld.d	$fa1, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs0, $fa0
-	fadd.d	$fa0, $fs0, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fs3, $fa0, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fsub.d	$fa0, $fs0, $fa1
+	fadd.d	$fa1, $fs0, $fa1
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fs3, $fa1, $fcc0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
 	fcmp.cune.d	$fcc0, $fa0, $fs3
 	fcmp.clt.d	$fcc1, $fa0, $fs7
 	movcf2gr	$a0, $fcc0
@@ -231,21 +230,24 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fs0, $fa2, $fs1, $fa3
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fa1, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fs3
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_16
 # %bb.14:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.4
-	fsqrt.d	$fa0, $fa1
-	fcmp.cor.d	$fcc0, $fa0, $fa0
+	fsqrt.d	$fa1, $fa0
+	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_58
 .LBB0_15:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.4.split
-	fld.d	$fa1, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs0, $fa0
-	fadd.d	$fa0, $fs0, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fs3, $fa0, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fsub.d	$fa0, $fs0, $fa1
+	fadd.d	$fa1, $fs0, $fa1
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fs3, $fa1, $fcc0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
 	fcmp.cune.d	$fcc0, $fa0, $fs3
 	fcmp.clt.d	$fcc1, $fa0, $fs7
 	movcf2gr	$a0, $fcc0
@@ -272,21 +274,24 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fs0, $fa2, $fs1, $fa3
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fa1, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fs3
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_19
 # %bb.17:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.5
-	fsqrt.d	$fa0, $fa1
-	fcmp.cor.d	$fcc0, $fa0, $fa0
+	fsqrt.d	$fa1, $fa0
+	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_59
 .LBB0_18:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.5.split
-	fld.d	$fa1, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs0, $fa0
-	fadd.d	$fa0, $fs0, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fs3, $fa0, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fsub.d	$fa0, $fs0, $fa1
+	fadd.d	$fa1, $fs0, $fa1
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fs3, $fa1, $fcc0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
 	fcmp.cune.d	$fcc0, $fa0, $fs3
 	fcmp.clt.d	$fcc1, $fa0, $fs7
 	movcf2gr	$a0, $fcc0
@@ -313,21 +318,24 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fs0, $fa2, $fs1, $fa3
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fa1, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fs3
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_22
 # %bb.20:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.6
-	fsqrt.d	$fa0, $fa1
-	fcmp.cor.d	$fcc0, $fa0, $fa0
+	fsqrt.d	$fa1, $fa0
+	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_60
 .LBB0_21:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.6.split
-	fld.d	$fa1, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs0, $fa0
-	fadd.d	$fa0, $fs0, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fs3, $fa0, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fsub.d	$fa0, $fs0, $fa1
+	fadd.d	$fa1, $fs0, $fa1
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fs3, $fa1, $fcc0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
 	fcmp.cune.d	$fcc0, $fa0, $fs3
 	fcmp.clt.d	$fcc1, $fa0, $fs7
 	movcf2gr	$a0, $fcc0
@@ -354,21 +362,24 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fs0, $fa2, $fs1, $fa3
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fa1, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fs3
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_25
 # %bb.23:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.7
-	fsqrt.d	$fa0, $fa1
-	fcmp.cor.d	$fcc0, $fa0, $fa0
+	fsqrt.d	$fa1, $fa0
+	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_61
 .LBB0_24:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.7.split
-	fld.d	$fa1, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs0, $fa0
-	fadd.d	$fa0, $fs0, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fs3, $fa0, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fsub.d	$fa0, $fs0, $fa1
+	fadd.d	$fa1, $fs0, $fa1
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fs3, $fa1, $fcc0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
 	fcmp.cune.d	$fcc0, $fa0, $fs3
 	fcmp.clt.d	$fcc1, $fa0, $fs7
 	movcf2gr	$a0, $fcc0
@@ -395,21 +406,24 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmadd.d	$fs0, $fa2, $fs1, $fa3
 	fmadd.d	$fa0, $fa2, $fa2, $fa0
 	fmsub.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fa1, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fs3
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_28
 # %bb.26:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.8
-	fsqrt.d	$fa0, $fa1
-	fcmp.cor.d	$fcc0, $fa0, $fa0
+	fsqrt.d	$fa1, $fa0
+	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bceqz	$fcc0, .LBB0_62
 .LBB0_27:                               # %_ZNK6Sphere9intersectERK3Ray.exit.i.8.split
-	fld.d	$fa1, $s2, %pc_lo12(.LCPI0_1)
-	fsub.d	$fa2, $fs0, $fa0
-	fadd.d	$fa0, $fs0, $fa0
-	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fs3, $fa0, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fsub.d	$fa0, $fs0, $fa1
+	fadd.d	$fa1, $fs0, $fa1
+	ori	$a0, $s2, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fs3, $fa1, $fcc0
+	fcmp.clt.d	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa1, $fa0, $fcc0
 	fcmp.cune.d	$fcc0, $fa0, $fs3
 	fcmp.clt.d	$fcc1, $fa0, $fs7
 	movcf2gr	$a0, $fcc0
@@ -419,7 +433,7 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	movgr2cf	$fcc0, $a0
 	fsel	$fs7, $fs7, $fa0, $fcc0
 .LBB0_28:                               # %_ZNK6Sphere9intersectERK3Ray.exit.thread.i.8
-	fld.d	$fa0, $s1, %pc_lo12(.LCPI0_0)
+	movgr2fr.d	$fa0, $s1
 	fcmp.clt.d	$fcc0, $fs7, $fa0
 	bceqz	$fcc0, .LBB0_33
 # %bb.29:
@@ -527,8 +541,11 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$s2, $a3
 	pcaddu18i	$ra, %call36(erand48)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1025
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs7, $fa0, $fa1
 	move	$s1, $s2
 	move	$a0, $s2
@@ -539,10 +556,13 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fcmp.cor.d	$fcc0, $fs2, $fs2
 	bceqz	$fcc0, .LBB0_63
 .LBB0_38:                               # %.split
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_3)
-	fabs.d	$fa1, $fs6
-	fcmp.clt.d	$fcc0, $fa0, $fa1
+	fabs.d	$fa0, $fs6
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fa1, $a0
+	fcmp.clt.d	$fcc0, $fa1, $fa0
 	vldi	$vr1, -912
 	fsel	$fa0, $fa1, $fs3, $fcc0
 	fsel	$fa1, $fs3, $fa1, $fcc0
@@ -688,11 +708,14 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fst.d	$fa4, $sp, 264
 	fmul.d	$fa0, $fs7, $fs1
 	fmadd.d	$fa0, $fs6, $fs0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_4)
 	fmadd.d	$fa0, $fs5, $fs4, $fa0
 	fcmp.clt.d	$fcc1, $fs3, $fa0
 	vldi	$vr0, -904
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa4, $a0
 	fsel	$fs2, $fa0, $fa4, $fcc1
 	fmul.d	$fa0, $fs1, $fa1
 	fmadd.d	$fa0, $fa3, $fs0, $fa0
@@ -776,17 +799,23 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmul.d	$fa0, $fs7, $fs1
 	fmadd.d	$fa0, $fs2, $fs6, $fa0
 	fmadd.d	$fa0, $fs0, $fs5, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_5)
 	fsel	$fa0, $fa0, $fs4, $fcc1
 	vldi	$vr3, -912
 	fsub.d	$fa0, $fa3, $fa0
+	lu12i.w	$a0, -83887
+	ori	$a0, $a0, 3768
+	lu32i.d	$a0, -83887
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa1, $fa0, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_6)
 	fmul.d	$fa1, $fa0, $fa1
 	fmul.d	$fa1, $fa0, $fa1
 	fmul.d	$fa1, $fa0, $fa1
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
 	fmadd.d	$fa2, $fa1, $fa0, $fa2
 	ori	$a0, $zero, 2
 	fsub.d	$fa0, $fa3, $fa2
@@ -909,7 +938,6 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	fmov.d	$fa1, $fa0
 	b	.LBB0_3
 .LBB0_55:                               # %call.sqrt349
-	fmov.d	$fa0, $fa1
 	move	$s4, $a3
 	move	$s6, $a2
 	move	$s5, $a1
@@ -920,9 +948,9 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$a1, $s5
 	move	$a2, $s6
 	move	$a3, $s4
+	fmov.d	$fa1, $fa0
 	b	.LBB0_6
 .LBB0_56:                               # %call.sqrt350
-	fmov.d	$fa0, $fa1
 	move	$s4, $a3
 	move	$s6, $a2
 	move	$s5, $a1
@@ -933,9 +961,9 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$a1, $s5
 	move	$a2, $s6
 	move	$a3, $s4
+	fmov.d	$fa1, $fa0
 	b	.LBB0_9
 .LBB0_57:                               # %call.sqrt351
-	fmov.d	$fa0, $fa1
 	move	$s4, $a3
 	move	$s6, $a2
 	move	$s5, $a1
@@ -946,9 +974,9 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$a1, $s5
 	move	$a2, $s6
 	move	$a3, $s4
+	fmov.d	$fa1, $fa0
 	b	.LBB0_12
 .LBB0_58:                               # %call.sqrt352
-	fmov.d	$fa0, $fa1
 	move	$s4, $a3
 	move	$s6, $a2
 	move	$s5, $a1
@@ -959,9 +987,9 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$a1, $s5
 	move	$a2, $s6
 	move	$a3, $s4
+	fmov.d	$fa1, $fa0
 	b	.LBB0_15
 .LBB0_59:                               # %call.sqrt353
-	fmov.d	$fa0, $fa1
 	move	$s4, $a3
 	move	$s6, $a2
 	move	$s5, $a1
@@ -972,9 +1000,9 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$a1, $s5
 	move	$a2, $s6
 	move	$a3, $s4
+	fmov.d	$fa1, $fa0
 	b	.LBB0_18
 .LBB0_60:                               # %call.sqrt354
-	fmov.d	$fa0, $fa1
 	move	$s4, $a3
 	move	$s6, $a2
 	move	$s5, $a1
@@ -985,9 +1013,9 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$a1, $s5
 	move	$a2, $s6
 	move	$a3, $s4
+	fmov.d	$fa1, $fa0
 	b	.LBB0_21
 .LBB0_61:                               # %call.sqrt355
-	fmov.d	$fa0, $fa1
 	move	$s4, $a3
 	move	$s6, $a2
 	move	$s5, $a1
@@ -998,9 +1026,9 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$a1, $s5
 	move	$a2, $s6
 	move	$a3, $s4
+	fmov.d	$fa1, $fa0
 	b	.LBB0_24
 .LBB0_62:                               # %call.sqrt356
-	fmov.d	$fa0, $fa1
 	move	$s4, $a3
 	move	$s6, $a2
 	move	$s5, $a1
@@ -1011,6 +1039,7 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 	move	$a1, $s5
 	move	$a2, $s6
 	move	$a3, $s4
+	fmov.d	$fa1, $fa0
 	b	.LBB0_27
 .LBB0_63:                               # %call.sqrt357
 	fld.d	$fa0, $sp, 48                   # 8-byte Folded Reload
@@ -1041,34 +1070,18 @@ _Z8radianceRK3RayiPt:                   # @_Z8radianceRK3RayiPt
 .Lfunc_end0:
 	.size	_Z8radianceRK3RayiPt, .Lfunc_end0-_Z8radianceRK3RayiPt
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI1_1:
-	.dword	0x3f50000000000000              # double 9.765625E-4
-.LCPI1_2:
-	.dword	0x4088000000000000              # double 768
-.LCPI1_3:
-	.dword	0xbf9662d746dc5a9d              # double -0.021861423206326881
-.LCPI1_7:
-	.dword	0xbfeff8929a5e7d34              # double -0.99909334325994914
-.LCPI1_8:
-	.dword	0x4061800000000000              # double 140
-.LCPI1_10:
-	.dword	0x407279999999999a              # double 295.60000000000002
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI1_4:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI1_0:
 	.dword	0x3fe5e8ca11bfd44f              # double 0.68466666666666665
 	.dword	0x0000000000000000              # double 0
-.LCPI1_5:
+.LCPI1_1:
 	.dword	0x0000000000000000              # double 0
 	.dword	0x3fe06ac72f44be81              # double 0.513034431763984
-.LCPI1_6:
+.LCPI1_2:
 	.dword	0x0000000000000000              # double 0
 	.dword	0xbfa5cc2d1960285f              # double -0.042573365542992951
-.LCPI1_9:
+.LCPI1_3:
 	.dword	0x4049000000000000              # double 50
 	.dword	0x404a000000000000              # double 52
 	.section	.text.unlikely.,"ax",@progbits
@@ -1119,7 +1132,7 @@ main:                                   # @main
 	.cfi_offset 62, -144
 	.cfi_offset 63, -152
 	ori	$a2, $zero, 2
-	ori	$fp, $zero, 1
+	ori	$s0, $zero, 1
 	bne	$a0, $a2, .LBB1_2
 # %bb.1:
 	ld.d	$a0, $a1, 8
@@ -1130,123 +1143,133 @@ main:                                   # @main
 	addi.w	$a1, $a0, 0
 	bstrpick.d	$a1, $a1, 62, 61
 	add.w	$a0, $a0, $a1
-	srai.d	$fp, $a0, 2
+	srai.d	$s0, $a0, 2
 .LBB1_2:
-	lu12i.w	$s0, 4608
-	move	$a0, $s0
+	lu12i.w	$fp, 4608
+	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_Znam)
 	jirl	$ra, $ra, 0
 	move	$s1, $a0
 	move	$a1, $zero
-	move	$a2, $s0
+	move	$a2, $fp
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %got_pc_hi20(stderr)
 	ld.d	$a0, $a0, %got_pc_lo12(stderr)
 	ld.d	$a0, $a0, 0
-	slli.d	$a2, $fp, 2
+	slli.d	$a2, $s0, 2
 	pcalau12i	$a1, %pc_hi20(.L.str)
 	addi.d	$a1, $a1, %pc_lo12(.L.str)
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
 	lu12i.w	$a2, 4602
 	vrepli.b	$vr3, 0
-	blez	$fp, .LBB1_41
+	blez	$s0, .LBB1_41
 # %bb.3:                                # %.split148.us.us.preheader
-	move	$a1, $zero
 	move	$a3, $zero
-	movgr2fr.w	$fa0, $fp
+	move	$a4, $zero
+	movgr2fr.w	$fa0, $s0
 	ffint.d.w	$fa0, $fa0
 	frecip.d	$fa0, $fa0
 	vst	$vr0, $sp, 272                  # 16-byte Folded Spill
 	vreplvei.d	$vr0, $vr0, 0
 	vst	$vr0, $sp, 256                  # 16-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_0)
-	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fa0, $a0
+	fst.d	$fa0, $sp, 8                    # 8-byte Folded Spill
 	ori	$a0, $a2, 16
-	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
 	movgr2fr.d	$fa0, $zero
 	fst.d	$fa0, $sp, 56                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_1)
+	lu52i.d	$a0, $zero, 1013
+	movgr2fr.d	$fa0, $a0
 	fst.d	$fa0, $sp, 248                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_2)
-	fst.d	$fa0, $sp, 240                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
-	fld.d	$fs4, $a0, %pc_lo12(.LCPI1_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_4)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_4)
-	vst	$vr0, $sp, 224                  # 16-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_5)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_5)
-	vst	$vr0, $sp, 208                  # 16-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_6)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_6)
-	vst	$vr0, $sp, 192                  # 16-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_7)
-	fld.d	$fs5, $a0, %pc_lo12(.LCPI1_7)
 	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -524288
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa0, $a1
+	fst.d	$fa0, $sp, 240                  # 8-byte Folded Spill
+	lu12i.w	$a1, 290245
+	ori	$a1, $a1, 2717
+	lu32i.d	$a1, 418519
+	lu52i.d	$a1, $a1, -1031
+	movgr2fr.d	$fs4, $a1
+	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
+	vld	$vr0, $a1, %pc_lo12(.LCPI1_0)
+	vst	$vr0, $sp, 224                  # 16-byte Folded Spill
+	pcalau12i	$a1, %pc_hi20(.LCPI1_1)
+	vld	$vr0, $a1, %pc_lo12(.LCPI1_1)
+	vst	$vr0, $sp, 208                  # 16-byte Folded Spill
+	pcalau12i	$a1, %pc_hi20(.LCPI1_2)
+	vld	$vr0, $a1, %pc_lo12(.LCPI1_2)
+	vst	$vr0, $sp, 192                  # 16-byte Folded Spill
+	lu12i.w	$a1, -416281
+	ori	$a1, $a1, 3380
+	lu32i.d	$a1, -1902
+	lu52i.d	$a1, $a1, -1026
+	movgr2fr.d	$fs5, $a1
 	lu32i.d	$a0, 98304
-	lu52i.d	$a0, $a0, 1030
-	vreplgr2vr.d	$vr0, $a0
+	lu52i.d	$s7, $a0, 1030
+	vreplgr2vr.d	$vr0, $s7
 	vst	$vr0, $sp, 176                  # 16-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_8)
-	fld.d	$fs6, $a0, %pc_lo12(.LCPI1_8)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_9)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_9)
+	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
+	vld	$vr0, $a0, %pc_lo12(.LCPI1_3)
 	vst	$vr0, $sp, 160                  # 16-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_10)
-	fld.d	$fs7, $a0, %pc_lo12(.LCPI1_10)
-	lu52i.d	$s7, $zero, 1023
-	lu52i.d	$s8, $zero, 1021
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 162201
+	lu52i.d	$s8, $a0, 1031
+	lu52i.d	$s4, $zero, 1023
+	lu52i.d	$s5, $zero, 1021
 	vst	$vr3, $sp, 64                   # 16-byte Folded Spill
+	st.d	$s1, $sp, 40                    # 8-byte Folded Spill
 	b	.LBB1_5
 	.p2align	4, , 16
 .LBB1_4:                                # %.split150.us.us
                                         #   in Loop: Header=BB1_5 Depth=1
-	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
-	addi.d	$a1, $a1, 1
 	ld.d	$a3, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$a3, $a3, 1
+	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
+	addi.d	$a4, $a4, 1
 	ori	$a0, $zero, 768
-	beq	$a1, $a0, .LBB1_45
+	beq	$a3, $a0, .LBB1_45
 .LBB1_5:                                # %.split148.us.us
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB1_7 Depth 2
                                         #       Child Loop BB1_9 Depth 3
                                         #         Child Loop BB1_13 Depth 4
                                         #         Child Loop BB1_29 Depth 4
-	move	$s5, $zero
+	move	$s2, $zero
 	st.w	$zero, $sp, 386
-	st.d	$a3, $sp, 24                    # 8-byte Folded Spill
-	mul.d	$a0, $a3, $a3
-	mul.d	$a0, $a0, $a1
+	st.d	$a4, $sp, 16                    # 8-byte Folded Spill
+	mul.d	$a0, $a4, $a4
+	mul.d	$a0, $a0, $a3
 	st.h	$a0, $sp, 390
-	slli.d	$a0, $a1, 10
+	slli.d	$a0, $a3, 10
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
-	srli.d	$a0, $a1, 32
-	lu52i.d	$a3, $zero, 1107
-	or	$a0, $a0, $a3
+	srli.d	$a0, $a3, 32
+	lu52i.d	$a1, $zero, 1107
+	or	$a0, $a0, $a1
 	movgr2fr.d	$fa0, $a0
-	fld.d	$fa1, $sp, 16                   # 8-byte Folded Reload
+	fld.d	$fa1, $sp, 8                    # 8-byte Folded Reload
 	fsub.d	$fa0, $fa0, $fa1
-	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
-	move	$a0, $a1
+	st.d	$a3, $sp, 24                    # 8-byte Folded Spill
+	move	$a0, $a3
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
-	fadd.d	$fs0, $fa1, $fa0
+	fadd.d	$fs6, $fa1, $fa0
 	b	.LBB1_7
 	.p2align	4, , 16
 .LBB1_6:                                # %.split141.us.us.us
                                         #   in Loop: Header=BB1_7 Depth=2
-	addi.d	$s5, $s5, 1
-	move	$s1, $s6
-	move	$a2, $s3
+	addi.d	$s2, $s2, 1
+	ld.d	$s1, $sp, 40                    # 8-byte Folded Reload
+	lu12i.w	$a2, 4602
 	ori	$a0, $zero, 1024
-	beq	$s5, $a0, .LBB1_4
+	beq	$s2, $a0, .LBB1_4
 .LBB1_7:                                # %.split139.us.us.us
                                         #   Parent Loop BB1_5 Depth=1
                                         # =>  This Loop Header: Depth=2
@@ -1254,19 +1277,17 @@ main:                                   # @main
                                         #         Child Loop BB1_13 Depth 4
                                         #         Child Loop BB1_29 Depth 4
 	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
-	sub.d	$a0, $s5, $a0
-	bstrpick.d	$a1, $s5, 15, 0
+	sub.d	$a0, $s2, $a0
+	bstrpick.d	$a1, $s2, 15, 0
 	movgr2fr.w	$fa0, $a1
-	ffint.d.w	$fs1, $fa0
+	ffint.d.w	$fs7, $fa0
 	slli.d	$a1, $a0, 4
 	alsl.d	$a0, $a0, $a1, 3
-	move	$s6, $s1
 	add.d	$a0, $s1, $a0
-	move	$s3, $a2
-	add.d	$s2, $a0, $a2
-	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
-	add.d	$s0, $a0, $a1
-	ori	$s4, $zero, 1
+	add.d	$s3, $a0, $a2
+	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
+	add.d	$fp, $a0, $a1
+	ori	$s6, $zero, 1
 	vldi	$vr0, -928
 	vst	$vr0, $sp, 288                  # 16-byte Folded Spill
 	b	.LBB1_9
@@ -1293,12 +1314,12 @@ main:                                   # @main
 	vand.v	$vr0, $vr0, $vr1
 	vld	$vr1, $sp, 96                   # 16-byte Folded Reload
 	vfadd.d	$vr0, $vr0, $vr1
-	vst	$vr0, $s2, 0
-	fst.d	$fa2, $s0, 0
-	andi	$a0, $s4, 1
+	vst	$vr0, $s3, 0
+	fst.d	$fa2, $fp, 0
+	andi	$a0, $s6, 1
 	vldi	$vr0, -904
 	vst	$vr0, $sp, 288                  # 16-byte Folded Spill
-	move	$s4, $zero
+	move	$s6, $zero
 	vld	$vr3, $sp, 64                   # 16-byte Folded Reload
 	beqz	$a0, .LBB1_6
 .LBB1_9:                                # %.preheader126.us.us.us
@@ -1307,7 +1328,7 @@ main:                                   # @main
                                         # =>    This Loop Header: Depth=3
                                         #         Child Loop BB1_13 Depth 4
                                         #         Child Loop BB1_29 Depth 4
-	move	$s1, $fp
+	move	$s1, $s0
 	fld.d	$fs3, $sp, 56                   # 8-byte Folded Reload
 	b	.LBB1_13
 	.p2align	4, , 16
@@ -1321,9 +1342,9 @@ main:                                   # @main
 	fadd.d	$fa0, $fa1, $fa0
 .LBB1_12:                               #   in Loop: Header=BB1_13 Depth=4
 	vldi	$vr2, -928
-	fadd.d	$fa1, $fs2, $fa2
+	fadd.d	$fa1, $fs0, $fa2
 	fmul.d	$fa1, $fa1, $fa2
-	fadd.d	$fa1, $fa1, $fs1
+	fadd.d	$fa1, $fa1, $fs7
 	fld.d	$fa3, $sp, 248                  # 8-byte Folded Reload
 	fmul.d	$fa1, $fa1, $fa3
 	vldi	$vr3, -800
@@ -1331,7 +1352,7 @@ main:                                   # @main
 	vld	$vr4, $sp, 288                  # 16-byte Folded Reload
 	fadd.d	$fa0, $fa4, $fa0
 	fmul.d	$fa0, $fa0, $fa2
-	fadd.d	$fa0, $fa0, $fs0
+	fadd.d	$fa0, $fa0, $fs6
 	fld.d	$fa2, $sp, 240                  # 8-byte Folded Reload
 	fdiv.d	$fa0, $fa0, $fa2
 	fadd.d	$fa0, $fa0, $fa3
@@ -1350,10 +1371,12 @@ main:                                   # @main
 	fadd.d	$fa1, $fa1, $fs5
 	vld	$vr2, $sp, 176                  # 16-byte Folded Reload
 	vfmul.d	$vr2, $vr0, $vr2
-	fmul.d	$fa3, $fa1, $fs6
+	movgr2fr.d	$fs0, $s7
+	fmul.d	$fa3, $fa1, $fs0
 	vld	$vr4, $sp, 160                  # 16-byte Folded Reload
 	vfadd.d	$vr2, $vr2, $vr4
-	fadd.d	$fa3, $fa3, $fs7
+	movgr2fr.d	$fs1, $s8
+	fadd.d	$fa3, $fa3, $fs1
 	vreplvei.d	$vr4, $vr0, 1
 	fmul.d	$fa5, $fa4, $fa4
 	vreplvei.d	$vr0, $vr0, 0
@@ -1404,7 +1427,7 @@ main:                                   # @main
 .LBB1_15:                               # %.split210
                                         #   in Loop: Header=BB1_13 Depth=4
 	vldi	$vr0, -784
-	fadd.d	$fs2, $fa1, $fa0
+	fadd.d	$fs0, $fa1, $fa0
 	b	.LBB1_18
 	.p2align	4, , 16
 .LBB1_16:                               #   in Loop: Header=BB1_13 Depth=4
@@ -1415,7 +1438,7 @@ main:                                   # @main
 	bceqz	$fcc0, .LBB1_23
 .LBB1_17:                               # %.split
                                         #   in Loop: Header=BB1_13 Depth=4
-	fsub.d	$fs2, $fa2, $fa0
+	fsub.d	$fs0, $fa2, $fa0
 .LBB1_18:                               #   in Loop: Header=BB1_13 Depth=4
 	addi.d	$a0, $sp, 386
 	pcaddu18i	$ra, %call36(erand48)
@@ -1465,7 +1488,7 @@ main:                                   # @main
 .LBB1_25:                               # %._crit_edge.us.us.us.us
                                         #   in Loop: Header=BB1_9 Depth=3
 	vrepli.b	$vr4, 0
-	vreplgr2vr.d	$vr2, $s7
+	vreplgr2vr.d	$vr2, $s4
 	vfcmp.clt.d	$vr0, $vr2, $vr3
 	vldi	$vr1, -912
 	fcmp.clt.d	$fcc0, $fa1, $fs3
@@ -1474,23 +1497,23 @@ main:                                   # @main
 	fcmp.clt.d	$fcc0, $fs3, $fs2
 	vst	$vr2, $sp, 128                  # 16-byte Folded Spill
 	vbitsel.v	$vr0, $vr3, $vr2, $vr0
-	vreplgr2vr.d	$vr2, $s8
+	vreplgr2vr.d	$vr2, $s5
 	vst	$vr2, $sp, 112                  # 16-byte Folded Spill
 	vfmul.d	$vr0, $vr0, $vr2
-	vld	$vr2, $s2, 0
+	vld	$vr2, $s3, 0
 	vfcmp.cule.d	$vr3, $vr4, $vr3
 	vand.v	$vr0, $vr3, $vr0
-	fld.d	$fa3, $s0, 0
+	fld.d	$fa3, $fp, 0
 	vfadd.d	$vr2, $vr0, $vr2
 	vldi	$vr0, -944
 	fmul.d	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa0, $fs2, $fcc0
 	fadd.d	$fa0, $fa0, $fa3
 	vst	$vr2, $sp, 96                   # 16-byte Folded Spill
-	vst	$vr2, $s2, 0
+	vst	$vr2, $s3, 0
 	fst.d	$fa0, $sp, 88                   # 8-byte Folded Spill
-	fst.d	$fa0, $s0, 0
-	move	$s1, $fp
+	fst.d	$fa0, $fp, 0
+	move	$s1, $s0
 	b	.LBB1_29
 	.p2align	4, , 16
 .LBB1_26:                               #   in Loop: Header=BB1_29 Depth=4
@@ -1506,7 +1529,7 @@ main:                                   # @main
 	fadd.d	$fa1, $fs3, $fa1
 	vldi	$vr2, -928
 	fmul.d	$fa1, $fa1, $fa2
-	fadd.d	$fa1, $fa1, $fs1
+	fadd.d	$fa1, $fa1, $fs7
 	fld.d	$fa3, $sp, 248                  # 8-byte Folded Reload
 	fmul.d	$fa1, $fa1, $fa3
 	vldi	$vr3, -800
@@ -1514,7 +1537,7 @@ main:                                   # @main
 	vld	$vr4, $sp, 288                  # 16-byte Folded Reload
 	fadd.d	$fa0, $fa4, $fa0
 	fmul.d	$fa0, $fa0, $fa2
-	fadd.d	$fa0, $fa0, $fs0
+	fadd.d	$fa0, $fa0, $fs6
 	fld.d	$fa2, $sp, 240                  # 8-byte Folded Reload
 	fdiv.d	$fa0, $fa0, $fa2
 	fadd.d	$fa0, $fa0, $fa3
@@ -1533,10 +1556,10 @@ main:                                   # @main
 	fadd.d	$fa1, $fa1, $fs5
 	vld	$vr2, $sp, 176                  # 16-byte Folded Reload
 	vfmul.d	$vr2, $vr0, $vr2
-	fmul.d	$fa3, $fa1, $fs6
+	fmul.d	$fa3, $fa1, $fs0
 	vld	$vr4, $sp, 160                  # 16-byte Folded Reload
 	vfadd.d	$vr2, $vr2, $vr4
-	fadd.d	$fa3, $fa3, $fs7
+	fadd.d	$fa3, $fa3, $fs1
 	vreplvei.d	$vr4, $vr0, 1
 	fmul.d	$fa5, $fa4, $fa4
 	vreplvei.d	$vr0, $vr0, 0

@@ -1,10 +1,6 @@
 	.file	"util.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function timer
-.LCPI0_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
-	.globl	timer
+	.globl	timer                           # -- Begin function timer
 	.p2align	5
 	.type	timer,@function
 timer:                                  # @timer
@@ -13,23 +9,20 @@ timer:                                  # @timer
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_0)
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
 	ret
 .Lfunc_end0:
 	.size	timer, .Lfunc_end0-timer
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ma_malloc
-.LCPI1_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	ma_malloc
+	.globl	ma_malloc                       # -- Begin function ma_malloc
 	.p2align	5
 	.type	ma_malloc,@function
 ma_malloc:                              # @ma_malloc
@@ -51,8 +44,9 @@ ma_malloc:                              # @ma_malloc
 	or	$a1, $a1, $a2
 	pcalau12i	$a2, %pc_hi20(counter_malloc)
 	movgr2fr.d	$fa0, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
+	movgr2fr.d	$fa1, $a1
 	lu12i.w	$a1, 275200
 	bstrins.d	$fp, $a1, 63, 32
 	ld.w	$a1, $a2, %pc_lo12(counter_malloc)

@@ -1,10 +1,6 @@
 	.file	"mincov.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function sm_minimum_cover
-.LCPI0_0:
-	.dword	0x4059000000000000              # double 100
 	.text
-	.globl	sm_minimum_cover
+	.globl	sm_minimum_cover                # -- Begin function sm_minimum_cover
 	.p2align	5
 	.type	sm_minimum_cover,@function
 sm_minimum_cover:                       # @sm_minimum_cover
@@ -138,10 +134,12 @@ sm_minimum_cover:                       # @sm_minimum_cover
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 .LBB0_12:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
 	ld.w	$a1, $fp, 48
 	ld.w	$a2, $fp, 72
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
 	fmul.d	$fa0, $fs0, $fa0
 	movfr2gr.d	$a4, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.2)

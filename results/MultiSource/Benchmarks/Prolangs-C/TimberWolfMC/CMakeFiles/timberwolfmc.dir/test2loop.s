@@ -1,12 +1,6 @@
 	.file	"test2loop.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test2loop
-.LCPI0_0:
-	.dword	0x3f50000000000000              # double 9.765625E-4
-.LCPI0_1:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
-	.globl	test2loop
+	.globl	test2loop                       # -- Begin function test2loop
 	.p2align	5
 	.type	test2loop,@function
 test2loop:                              # @test2loop
@@ -41,8 +35,8 @@ test2loop:                              # @test2loop
 	fadd.d	$fa0, $fa0, $fa0
 	pcaddu18i	$ra, %call36(exp2)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a0, $zero, 1013
+	movgr2fr.d	$fs0, $a0
 	fmul.d	$fa0, $fa0, $fs0
 	pcalau12i	$a0, %got_pc_hi20(bdxlength)
 	ld.d	$fp, $a0, %got_pc_lo12(bdxlength)
@@ -159,44 +153,47 @@ test2loop:                              # @test2loop
 	pcalau12i	$a0, %got_pc_hi20(blockt)
 	ld.d	$a0, $a0, %got_pc_lo12(blockt)
 	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
-	move	$a0, $zero
-	lu12i.w	$a1, 269412
-	ori	$s4, $a1, 3693
-	lu12i.w	$a1, 3
-	ori	$fp, $a1, 57
+	move	$a2, $zero
+	lu12i.w	$a0, 269412
+	ori	$s4, $a0, 3693
+	lu12i.w	$a0, 3
+	ori	$fp, $a0, 57
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs0, $a0
 	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
 	b	.LBB0_3
 	.p2align	4, , 16
 .LBB0_2:                                # %.outer.sink.split
                                         #   in Loop: Header=BB0_3 Depth=1
-	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
-	addi.w	$a0, $a0, 1
-	pcalau12i	$a1, %got_pc_hi20(funccost)
-	ld.d	$a1, $a1, %got_pc_lo12(funccost)
-	ld.w	$a2, $a1, 0
+	ld.d	$a2, $sp, 168                   # 8-byte Folded Reload
+	addi.w	$a2, $a2, 1
+	pcalau12i	$a0, %got_pc_hi20(funccost)
+	ld.d	$a0, $a0, %got_pc_lo12(funccost)
+	ld.w	$a0, $a0, 0
 	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
 	fld.d	$fa0, $a1, 0
-	movgr2fr.w	$fa1, $a2
+	movgr2fr.w	$fa1, $a0
 	ffint.d.w	$fa1, $fa1
 	fadd.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $a1, 0
-	pcalau12i	$a1, %got_pc_hi20(penalty)
-	ld.d	$a1, $a1, %got_pc_lo12(penalty)
-	ld.w	$a2, $a1, 0
+	pcalau12i	$a0, %got_pc_hi20(penalty)
+	ld.d	$a0, $a0, %got_pc_lo12(penalty)
+	ld.w	$a0, $a0, 0
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	fld.d	$fa0, $a1, 0
-	movgr2fr.w	$fa1, $a2
+	movgr2fr.w	$fa1, $a0
 	ffint.d.w	$fa1, $fa1
 	fadd.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $a1, 0
 	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$a1, $sp, 144                   # 8-byte Folded Reload
-	bge	$a0, $a1, .LBB0_40
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	bge	$a2, $a0, .LBB0_40
 .LBB0_3:                                # %.preheader240.lr.ph
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_5 Depth 2
                                         #       Child Loop BB0_6 Depth 3
-	st.d	$a0, $sp, 168                   # 8-byte Folded Spill
+	st.d	$a2, $sp, 168                   # 8-byte Folded Spill
 	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
 	ld.w	$a0, $a0, 0
 	ld.d	$a1, $sp, 176                   # 8-byte Folded Reload
@@ -229,15 +226,13 @@ test2loop:                              # @test2loop
                                         #       Child Loop BB0_6 Depth 3
 	mul.d	$a7, $a7, $s4
 	add.w	$a7, $a7, $fp
-	pcalau12i	$t0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $t0, %pc_lo12(.LCPI0_1)
 	bstrpick.d	$t0, $a7, 30, 0
-	movgr2fr.w	$fa3, $t0
-	ffint.d.w	$fa3, $fa3
-	fdiv.d	$fa3, $fa3, $fa2
-	fmul.d	$fa3, $fa3, $fa0
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$t0, $fa3
+	movgr2fr.w	$fa2, $t0
+	ffint.d.w	$fa2, $fa2
+	fdiv.d	$fa2, $fa2, $fs0
+	fmul.d	$fa2, $fa2, $fa0
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$t0, $fa2
 	beq	$a0, $t0, .LBB0_5
 	.p2align	4, , 16
 .LBB0_6:                                # %.preheader
@@ -247,12 +242,12 @@ test2loop:                              # @test2loop
 	mul.d	$a7, $a7, $s4
 	add.w	$a7, $a7, $fp
 	bstrpick.d	$t1, $a7, 30, 0
-	movgr2fr.w	$fa3, $t1
-	ffint.d.w	$fa3, $fa3
-	fdiv.d	$fa3, $fa3, $fa2
-	fmul.d	$fa3, $fa3, $fa1
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$t1, $fa3
+	movgr2fr.w	$fa2, $t1
+	ffint.d.w	$fa2, $fa2
+	fdiv.d	$fa2, $fa2, $fs0
+	fmul.d	$fa2, $fa2, $fa1
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$t1, $fa2
 	addi.w	$s7, $t1, 1
 	beq	$s7, $a1, .LBB0_6
 # %bb.7:                                #   in Loop: Header=BB0_5 Depth=2
@@ -330,29 +325,29 @@ test2loop:                              # @test2loop
 	div.w	$t5, $t5, $s7
 	sub.d	$t4, $t4, $t2
 	addi.d	$t4, $t4, 1
-	movgr2fr.w	$fa3, $t4
-	ffint.d.w	$fa3, $fa3
+	movgr2fr.w	$fa2, $t4
+	ffint.d.w	$fa2, $fa2
 	mul.d	$a7, $a7, $s4
 	add.d	$a7, $a7, $fp
 	bstrpick.d	$t4, $a7, 30, 0
-	movgr2fr.w	$fa4, $t4
-	ffint.d.w	$fa4, $fa4
-	fdiv.d	$fa4, $fa4, $fa2
-	fmul.d	$fa3, $fa4, $fa3
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$t4, $fa3
+	movgr2fr.w	$fa3, $t4
+	ffint.d.w	$fa3, $fa3
+	fdiv.d	$fa3, $fa3, $fs0
+	fmul.d	$fa2, $fa3, $fa2
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$t4, $fa2
 	add.w	$t2, $t2, $t4
 	sub.d	$t4, $t5, $t3
 	addi.d	$t4, $t4, 1
-	movgr2fr.w	$fa3, $t4
-	ffint.d.w	$fa3, $fa3
+	movgr2fr.w	$fa2, $t4
+	ffint.d.w	$fa2, $fa2
 	mul.d	$a7, $a7, $s4
 	add.w	$a7, $a7, $fp
 	bstrpick.d	$t4, $a7, 30, 0
-	movgr2fr.w	$fa4, $t4
-	ffint.d.w	$fa4, $fa4
-	fdiv.d	$fa2, $fa4, $fa2
-	fmul.d	$fa2, $fa2, $fa3
+	movgr2fr.w	$fa3, $t4
+	ffint.d.w	$fa3, $fa3
+	fdiv.d	$fa3, $fa3, $fs0
+	fmul.d	$fa2, $fa3, $fa2
 	ftintrz.w.d	$fa2, $fa2
 	movfr2gr.s	$t4, $fa2
 	add.w	$t3, $t3, $t4
@@ -598,13 +593,14 @@ test2loop:                              # @test2loop
 	bnez	$a0, .LBB0_2
 .LBB0_38:                               #   in Loop: Header=BB0_3 Depth=1
 	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$a1, $sp, 144                   # 8-byte Folded Reload
-	blt	$a0, $a1, .LBB0_3
+	ld.d	$a2, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	blt	$a2, $a0, .LBB0_3
 	b	.LBB0_40
 .LBB0_39:
-	move	$a0, $zero
+	move	$a2, $zero
 .LBB0_40:                               # %.outer._crit_edge
+	move	$a0, $a2
 	fld.d	$fs0, $sp, 192                  # 8-byte Folded Reload
 	ld.d	$s8, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$s7, $sp, 208                   # 8-byte Folded Reload

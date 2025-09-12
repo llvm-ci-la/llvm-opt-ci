@@ -562,12 +562,7 @@ _ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei: # @_ZL11fetc
 	.size	_ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei, .Lfunc_end7-_ZL11fetchleavesP6btDbvtP10btDbvtNodeR20btAlignedObjectArrayIS2_Ei
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZL8bottomupP6btDbvtR20btAlignedObjectArrayIP10btDbvtNodeE
-.LCPI8_0:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL8bottomupP6btDbvtR20btAlignedObjectArrayIP10btDbvtNodeE
 	.type	_ZL8bottomupP6btDbvtR20btAlignedObjectArrayIP10btDbvtNodeE,@function
 _ZL8bottomupP6btDbvtR20btAlignedObjectArrayIP10btDbvtNodeE: # @_ZL8bottomupP6btDbvtR20btAlignedObjectArrayIP10btDbvtNodeE
 	.cfi_startproc
@@ -600,9 +595,10 @@ _ZL8bottomupP6btDbvtR20btAlignedObjectArrayIP10btDbvtNodeE: # @_ZL8bottomupP6btD
 	blt	$a1, $s1, .LBB8_11
 # %bb.1:                                # %.preheader.lr.ph
 	move	$s0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI8_0)
 	addi.w	$s2, $zero, -1
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	movgr2fr.w	$fs0, $a0
 	vrepli.b	$vr13, 0
 	vst	$vr13, $sp, 16                  # 16-byte Folded Spill
 	b	.LBB8_4

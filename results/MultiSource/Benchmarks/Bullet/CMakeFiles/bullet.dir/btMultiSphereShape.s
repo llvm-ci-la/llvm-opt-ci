@@ -382,14 +382,8 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev: # @_ZN20btAlignedObjectArrayI9btVecto
 	.size	_ZN20btAlignedObjectArrayI9btVector3ED2Ev, .Lfunc_end3-_ZN20btAlignedObjectArrayI9btVector3ED2Ev
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3
-.LCPI4_0:
-	.word	0x28800000                      # float 1.42108547E-14
-.LCPI4_1:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
 	.text
-	.globl	_ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3
+	.globl	_ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3 # -- Begin function _ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3
 	.p2align	5
 	.type	_ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3,@function
 _ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3
@@ -425,14 +419,14 @@ _ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3: # 
 	.cfi_offset 61, -96
 	.cfi_offset 62, -104
 	.cfi_offset 63, -112
-	fld.s	$fa0, $a1, 0
-	fld.s	$fa1, $a1, 4
-	fld.s	$fa2, $a1, 8
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI4_0)
-	fmul.s	$fa3, $fa1, $fa1
-	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	fld.s	$fa0, $a1, 4
+	fld.s	$fa2, $a1, 0
+	fld.s	$fa1, $a1, 8
+	fmul.s	$fa3, $fa0, $fa0
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	lu12i.w	$a1, 165888
+	movgr2fr.w	$fa4, $a1
 	fcmp.clt.s	$fcc0, $fa3, $fa4
 	move	$fp, $a0
 	bceqz	$fcc0, .LBB4_3
@@ -449,20 +443,22 @@ _ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3: # 
 	b	.LBB4_9
 .LBB4_3:
 	frsqrt.s	$fa3, $fa3
-	fmul.s	$fa0, $fa0, $fa3
-	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
-	fmul.s	$fs0, $fa1, $fa3
-	fmul.s	$fs1, $fa2, $fa3
+	fmul.s	$fa2, $fa2, $fa3
+	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
+	fmul.s	$fs0, $fa0, $fa3
+	fmul.s	$fs1, $fa1, $fa3
 	ld.w	$s1, $fp, 108
 	blez	$s1, .LBB4_2
 .LBB4_4:                                # %.lr.ph
+	move	$s0, $zero
 	ld.d	$s2, $fp, 152
 	ld.d	$s3, $fp, 120
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.s	$fs3, $a0, %pc_lo12(.LCPI4_1)
 	movgr2fr.w	$fs2, $zero
-	move	$s0, $zero
-	fmov.s	$fs4, $fs2
+	lu12i.w	$a0, -141856
+	ori	$a0, $a0, 2923
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs4, $a0
+	fmov.s	$fs3, $fs2
 	b	.LBB4_6
 	.p2align	4, , 16
 .LBB4_5:                                #   in Loop: Header=BB4_6 Depth=1
@@ -503,16 +499,16 @@ _ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3: # 
 	fmul.s	$fa3, $fs0, $fa0
 	fmadd.s	$fa3, $fa5, $fa2, $fa3
 	fmadd.s	$fa3, $fs1, $fa1, $fa3
-	fcmp.cule.s	$fcc0, $fa3, $fs3
+	fcmp.cule.s	$fcc0, $fa3, $fs4
 	bcnez	$fcc0, .LBB4_5
 # %bb.7:                                #   in Loop: Header=BB4_6 Depth=1
 	movfr2gr.s	$s0, $fa2
-	fmov.s	$fs4, $fa0
+	fmov.s	$fs3, $fa0
 	fmov.s	$fs2, $fa1
-	fmov.s	$fs3, $fa3
+	fmov.s	$fs4, $fa3
 	b	.LBB4_5
 .LBB4_8:                                # %._crit_edge.loopexit
-	movfr2gr.s	$a0, $fs4
+	movfr2gr.s	$a0, $fs3
 	bstrins.d	$s0, $a0, 63, 32
 	movfr2gr.s	$a0, $fs2
 	bstrpick.d	$a1, $a0, 31, 0
@@ -538,12 +534,7 @@ _ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3: # 
 	.size	_ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3, .Lfunc_end4-_ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
-.LCPI5_0:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.text
-	.globl	_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
+	.globl	_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i # -- Begin function _ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
 	.p2align	5
 	.type	_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i,@function
 _ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i: # @_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
@@ -592,9 +583,11 @@ _ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9b
 	move	$fp, $a3
 	move	$s0, $a2
 	move	$s1, $a1
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI5_0)
 	move	$s4, $zero
+	lu12i.w	$a0, -141856
+	ori	$a0, $a0, 2923
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
 	blez	$s3, .LBB5_7
 	.p2align	4, , 16
 .LBB5_3:                                # %.lr.ph

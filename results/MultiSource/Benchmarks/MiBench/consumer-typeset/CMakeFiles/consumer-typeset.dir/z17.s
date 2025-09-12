@@ -1,26 +1,6 @@
 	.file	"z17.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function GetGap
-.LCPI0_0:
-	.word	0x43340000                      # float 180
-.LCPI0_1:
-	.word	0xc3b40000                      # float -360
-.LCPI0_2:
-	.word	0xc3340000                      # float -180
-.LCPI0_3:
-	.word	0x43b40000                      # float 360
-.LCPI0_4:
-	.word	0x43000000                      # float 128
-.LCPI0_5:
-	.word	0x45800000                      # float 4096
-.LCPI0_6:
-	.word	0x42f00000                      # float 120
-.LCPI0_7:
-	.word	0x44b40000                      # float 1440
-.LCPI0_8:
-	.word	0x440dc000                      # float 567
 	.text
-	.globl	GetGap
+	.globl	GetGap                          # -- Begin function GetGap
 	.p2align	5
 	.type	GetGap,@function
 GetGap:                                 # @GetGap
@@ -51,7 +31,7 @@ GetGap:                                 # @GetGap
 	bgeu	$a4, $a5, .LBB0_5
 # %bb.1:
 	ld.bu	$a4, $a0, 64
-	beqz	$a4, .LBB0_66
+	beqz	$a4, .LBB0_67
 # %bb.2:
 	move	$s4, $a1
 	move	$s3, $a2
@@ -127,11 +107,11 @@ GetGap:                                 # @GetGap
 	jr	$a0
 .LBB0_14:
 	fld.s	$fa0, $sp, 20
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_5)
+	lu12i.w	$a0, 284672
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	ori	$a0, $zero, 2048
-	b	.LBB0_45
+	b	.LBB0_46
 .LBB0_15:
 	pcalau12i	$a0, %pc_hi20(.L.str.2)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.2)
@@ -156,31 +136,29 @@ GetGap:                                 # @GetGap
 	move	$a4, $fp
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
-	b	.LBB0_66
+	b	.LBB0_67
 .LBB0_16:
 	fld.s	$fa0, $sp, 20
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_5)
+	lu12i.w	$a0, 284672
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	lu12i.w	$a0, 1
 	ori	$a0, $a0, 1024
-	b	.LBB0_45
+	b	.LBB0_46
 .LBB0_17:
 	fld.s	$fa0, $sp, 20
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_7)
-	b	.LBB0_43
+	lu12i.w	$a0, 281408
+	b	.LBB0_37
 .LBB0_18:
 	ld.h	$a0, $s4, 10
-	b	.LBB0_42
+	b	.LBB0_43
 .LBB0_19:
 	fld.s	$fa0, $sp, 20
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_6)
-	b	.LBB0_43
+	lu12i.w	$a0, 274176
+	b	.LBB0_37
 .LBB0_20:
 	ld.h	$a0, $s4, 8
-	b	.LBB0_42
+	b	.LBB0_43
 .LBB0_21:
 	fld.s	$fs0, $sp, 20
 	ld.wu	$a0, $s4, 12
@@ -192,13 +170,13 @@ GetGap:                                 # @GetGap
 	movgr2fr.w	$fa0, $a0
 	ffint.s.w	$fa0, $fa0
 	fmul.s	$fa0, $fs0, $fa0
-	b	.LBB0_44
+	b	.LBB0_45
 .LBB0_22:
 	pcalau12i	$a0, %pc_hi20(.L.str.9)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.9)
 	ori	$a0, $zero, 17
 	ori	$a1, $zero, 4
-	b	.LBB0_65
+	b	.LBB0_66
 .LBB0_23:
 	ld.w	$a0, $s5, 0
 	fld.s	$fa0, $sp, 20
@@ -208,15 +186,16 @@ GetGap:                                 # @GetGap
 	fneg.s	$fa0, $fa0
 	fst.s	$fa0, $sp, 20
 .LBB0_25:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	ori	$a0, $zero, 158
+	lu12i.w	$a2, 275264
+	movgr2fr.w	$fa1, $a2
 	fcmp.cule.s	$fcc0, $fa0, $fa1
 	st.w	$a0, $s5, 0
-	bcnez	$fcc0, .LBB0_32
+	bcnez	$fcc0, .LBB0_29
 # %bb.26:                               # %.lr.ph.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, -246976
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa2, $a0
 	.p2align	4, , 16
 .LBB0_27:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
@@ -225,15 +204,28 @@ GetGap:                                 # @GetGap
 	bcnez	$fcc0, .LBB0_27
 # %bb.28:                               # %.thread-pre-split_crit_edge
 	fst.s	$fa0, $sp, 20
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI0_2)
+.LBB0_29:                               # %thread-pre-split
+	lu12i.w	$a0, -249024
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa2, $a0
 	fcmp.cule.s	$fcc0, $fa2, $fa0
-	bceqz	$fcc0, .LBB0_33
-.LBB0_29:
+	bcnez	$fcc0, .LBB0_33
+# %bb.30:                               # %.lr.ph95.preheader
+	lu12i.w	$a0, 277312
+	movgr2fr.w	$fa3, $a0
+	.p2align	4, , 16
+.LBB0_31:                               # %.lr.ph95
+                                        # =>This Inner Loop Header: Depth=1
+	fadd.s	$fa0, $fa0, $fa3
+	fcmp.clt.s	$fcc0, $fa0, $fa2
+	bcnez	$fcc0, .LBB0_31
+# %bb.32:                               # %._crit_edge
+	fst.s	$fa0, $sp, 20
+.LBB0_33:
 	fabs.s	$fa2, $fa0
 	fcmp.cle.s	$fcc0, $fa2, $fa1
-	bcnez	$fcc0, .LBB0_31
-.LBB0_30:
+	bcnez	$fcc0, .LBB0_35
+# %bb.34:
 	pcalau12i	$a0, %got_pc_hi20(no_fpos)
 	ld.d	$a0, $a0, %got_pc_lo12(no_fpos)
 	ld.d	$a4, $a0, 0
@@ -248,46 +240,27 @@ GetGap:                                 # @GetGap
 	jirl	$ra, $ra, 0
 	move	$a1, $s3
 	fld.s	$fa0, $sp, 20
-.LBB0_31:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_4)
+.LBB0_35:
+	lu12i.w	$a0, 274432
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	lu12i.w	$a0, 1
-	b	.LBB0_45
-.LBB0_32:                               # %thread-pre-split
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI0_2)
-	fcmp.cule.s	$fcc0, $fa2, $fa0
-	bcnez	$fcc0, .LBB0_29
-.LBB0_33:                               # %.lr.ph95.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI0_3)
-	.p2align	4, , 16
-.LBB0_34:                               # %.lr.ph95
-                                        # =>This Inner Loop Header: Depth=1
-	fadd.s	$fa0, $fa0, $fa3
-	fcmp.clt.s	$fcc0, $fa0, $fa2
-	bcnez	$fcc0, .LBB0_34
-# %bb.35:                               # %._crit_edge
-	fst.s	$fa0, $sp, 20
-	fabs.s	$fa2, $fa0
-	fcmp.cle.s	$fcc0, $fa2, $fa1
-	bceqz	$fcc0, .LBB0_30
-	b	.LBB0_31
+	b	.LBB0_46
 .LBB0_36:
 	fld.s	$fa0, $sp, 20
-	pcalau12i	$a0, %pc_hi20(.LCPI0_8)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_8)
-	b	.LBB0_43
-.LBB0_37:
-	fld.s	$fa0, $sp, 20
-	vldi	$vr1, -1228
-	fmul.s	$fa0, $fa0, $fa1
+	lu12i.w	$a0, 278748
+.LBB0_37:                               # %.thread
+	movgr2fr.w	$fa1, $a0
 	b	.LBB0_44
 .LBB0_38:
 	fld.s	$fa0, $sp, 20
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_5)
+	vldi	$vr1, -1228
+	fmul.s	$fa0, $fa0, $fa1
+	b	.LBB0_45
+.LBB0_39:
+	fld.s	$fa0, $sp, 20
+	lu12i.w	$a0, 284672
+	movgr2fr.w	$fa1, $a0
 	ld.hu	$a0, $a1, 0
 	fmul.s	$fa0, $fa0, $fa1
 	lu12i.w	$a2, 14
@@ -299,8 +272,8 @@ GetGap:                                 # @GetGap
 	lu12i.w	$s2, 1
 	ori	$a3, $s2, 1
 	st.h	$a2, $a1, 0
-	blt	$a0, $a3, .LBB0_46
-# %bb.39:
+	blt	$a0, $a3, .LBB0_47
+# %bb.40:
 	fld.s	$fa0, $sp, 20
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a5, $fa0
@@ -314,21 +287,21 @@ GetGap:                                 # @GetGap
 	jirl	$ra, $ra, 0
 	move	$a1, $s3
 	move	$a0, $s2
-	b	.LBB0_46
-.LBB0_40:
-	ld.h	$a0, $s4, 2
-	b	.LBB0_42
+	b	.LBB0_47
 .LBB0_41:
+	ld.h	$a0, $s4, 2
+	b	.LBB0_43
+.LBB0_42:
 	ld.h	$a0, $s4, 6
-.LBB0_42:                               # %.thread
+.LBB0_43:                               # %.thread
 	fld.s	$fa0, $sp, 20
 	movgr2fr.w	$fa1, $a0
 	ffint.s.w	$fa1, $fa1
-.LBB0_43:                               # %.thread
-	fmul.s	$fa0, $fa0, $fa1
 .LBB0_44:                               # %.thread
-	ori	$a0, $zero, 1024
+	fmul.s	$fa0, $fa0, $fa1
 .LBB0_45:                               # %.thread
+	ori	$a0, $zero, 1024
+.LBB0_46:                               # %.thread
 	ld.hu	$a2, $a1, 0
 	lu12i.w	$a3, 14
 	ori	$a3, $a3, 1023
@@ -337,70 +310,70 @@ GetGap:                                 # @GetGap
 	st.h	$a0, $a1, 0
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
-.LBB0_46:
+.LBB0_47:
 	st.h	$a0, $a1, 2
 	ld.bu	$a0, $s1, 0
 	addi.d	$a2, $a0, -101
 	ori	$a3, $zero, 19
-	bltu	$a3, $a2, .LBB0_49
-# %bb.47:
+	bltu	$a3, $a2, .LBB0_50
+# %bb.48:
 	slli.d	$a0, $a2, 2
 	pcalau12i	$a2, %pc_hi20(.LJTI0_1)
 	addi.d	$a2, $a2, %pc_lo12(.LJTI0_1)
 	ldx.w	$a0, $a2, $a0
 	add.d	$a0, $a2, $a0
 	jr	$a0
-.LBB0_48:
+.LBB0_49:
 	ld.hu	$a0, $a1, 0
 	ori	$a2, $zero, 1
-	b	.LBB0_57
-.LBB0_49:
-	bnez	$a0, .LBB0_51
+	b	.LBB0_58
 .LBB0_50:
+	bnez	$a0, .LBB0_52
+.LBB0_51:
 	ld.hu	$a0, $a1, 0
 	ori	$a2, $zero, 1
 	bstrins.d	$a0, $a2, 63, 13
 	st.h	$a0, $a1, 0
-	b	.LBB0_58
-.LBB0_51:
+	b	.LBB0_59
+.LBB0_52:
 	pcalau12i	$a0, %pc_hi20(.L.str.11)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.11)
 	ori	$a0, $zero, 17
 	ori	$a1, $zero, 7
-	b	.LBB0_65
-.LBB0_52:
-	ld.hu	$a0, $a1, 0
-	ori	$a2, $zero, 3
-	b	.LBB0_57
+	b	.LBB0_66
 .LBB0_53:
 	ld.hu	$a0, $a1, 0
-	ori	$a2, $zero, 2
-	b	.LBB0_57
+	ori	$a2, $zero, 3
+	b	.LBB0_58
 .LBB0_54:
 	ld.hu	$a0, $a1, 0
-	ori	$a2, $zero, 5
-	b	.LBB0_57
+	ori	$a2, $zero, 2
+	b	.LBB0_58
 .LBB0_55:
 	ld.hu	$a0, $a1, 0
-	ori	$a2, $zero, 4
-	b	.LBB0_57
+	ori	$a2, $zero, 5
+	b	.LBB0_58
 .LBB0_56:
 	ld.hu	$a0, $a1, 0
-	ori	$a2, $zero, 6
+	ori	$a2, $zero, 4
+	b	.LBB0_58
 .LBB0_57:
+	ld.hu	$a0, $a1, 0
+	ori	$a2, $zero, 6
+.LBB0_58:
 	bstrins.d	$a0, $a2, 63, 13
 	st.h	$a0, $a1, 0
 	addi.d	$s1, $s1, 1
-.LBB0_58:
+.LBB0_59:
 	ld.bu	$a2, $s1, 0
 	ori	$a3, $zero, 117
-	bne	$a2, $a3, .LBB0_63
-# %bb.59:
+	bne	$a2, $a3, .LBB0_64
+# %bb.60:
 	lu12i.w	$a2, 14
 	and	$a2, $a0, $a2
 	lu12i.w	$a3, 4
-	bne	$a2, $a3, .LBB0_61
-# %bb.60:
+	bne	$a2, $a3, .LBB0_62
+# %bb.61:
 	pcalau12i	$a0, %pc_hi20(.L.str.12)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.12)
 	ori	$a0, $zero, 17
@@ -410,26 +383,26 @@ GetGap:                                 # @GetGap
 	move	$a5, $s0
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
-	b	.LBB0_62
-.LBB0_61:
+	b	.LBB0_63
+.LBB0_62:
 	ori	$a0, $a0, 128
 	st.h	$a0, $a1, 0
-.LBB0_62:
-	ld.bu	$a2, $s1, 1
 .LBB0_63:
-	beqz	$a2, .LBB0_66
-# %bb.64:
+	ld.bu	$a2, $s1, 1
+.LBB0_64:
+	beqz	$a2, .LBB0_67
+# %bb.65:
 	pcalau12i	$a0, %pc_hi20(.L.str.13)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.13)
 	ori	$a0, $zero, 17
 	ori	$a1, $zero, 8
-.LBB0_65:
+.LBB0_66:
 	ori	$a3, $zero, 2
 	move	$a4, $fp
 	move	$a5, $s0
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
-.LBB0_66:
+.LBB0_67:
 	fld.d	$fs0, $sp, 24                   # 8-byte Folded Reload
 	ld.d	$s5, $sp, 32                    # 8-byte Folded Reload
 	ld.d	$s4, $sp, 40                    # 8-byte Folded Reload
@@ -460,45 +433,41 @@ GetGap:                                 # @GetGap
 	.word	.LBB0_19-.LJTI0_0
 	.word	.LBB0_22-.LJTI0_0
 	.word	.LBB0_22-.LJTI0_0
-	.word	.LBB0_37-.LJTI0_0
-	.word	.LBB0_22-.LJTI0_0
 	.word	.LBB0_38-.LJTI0_0
+	.word	.LBB0_22-.LJTI0_0
+	.word	.LBB0_39-.LJTI0_0
+	.word	.LBB0_42-.LJTI0_0
+	.word	.LBB0_22-.LJTI0_0
+	.word	.LBB0_22-.LJTI0_0
 	.word	.LBB0_41-.LJTI0_0
-	.word	.LBB0_22-.LJTI0_0
-	.word	.LBB0_22-.LJTI0_0
-	.word	.LBB0_40-.LJTI0_0
 	.word	.LBB0_16-.LJTI0_0
 	.word	.LBB0_22-.LJTI0_0
 	.word	.LBB0_20-.LJTI0_0
 	.word	.LBB0_18-.LJTI0_0
 .LJTI0_1:
-	.word	.LBB0_48-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
-	.word	.LBB0_53-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
+	.word	.LBB0_49-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
 	.word	.LBB0_54-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
 	.word	.LBB0_55-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
 	.word	.LBB0_56-.LJTI0_1
-	.word	.LBB0_50-.LJTI0_1
-	.word	.LBB0_51-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_57-.LJTI0_1
 	.word	.LBB0_51-.LJTI0_1
 	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_52-.LJTI0_1
+	.word	.LBB0_53-.LJTI0_1
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function MinGap
-.LCPI1_0:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.text
-	.globl	MinGap
+	.globl	MinGap                          # -- Begin function MinGap
 	.p2align	5
 	.type	MinGap,@function
 MinGap:                                 # @MinGap
@@ -606,12 +575,15 @@ MinGap:                                 # @MinGap
 	add.w	$a0, $a1, $a0
 	beqz	$a3, .LBB1_16
 # %bb.12:
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI1_0)
 	addi.w	$a1, $a2, 0
-	movgr2fr.w	$fa1, $a2
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a2
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a2, -419431
+	ori	$a2, $a2, 2458
+	lu32i.d	$a2, -419431
+	lu52i.d	$a2, $a2, 1019
+	movgr2fr.d	$fa1, $a2
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a2, $fa0
 	add.w	$a0, $a0, $a2
@@ -657,12 +629,8 @@ MinGap:                                 # @MinGap
 	.word	.LBB1_10-.LJTI1_0
 	.word	.LBB1_8-.LJTI1_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ExtraGap
-.LCPI2_0:
-	.dword	0x3feccccccccccccd              # double 0.90000000000000002
 	.text
-	.globl	ExtraGap
+	.globl	ExtraGap                        # -- Begin function ExtraGap
 	.p2align	5
 	.type	ExtraGap,@function
 ExtraGap:                               # @ExtraGap
@@ -732,11 +700,14 @@ ExtraGap:                               # @ExtraGap
 	ld.w	$a2, $a2, 36
 	beqz	$a2, .LBB2_10
 # %bb.8:
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI2_0)
-	movgr2fr.w	$fa1, $a4
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a4
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a2, -209716
+	ori	$a2, $a2, 3277
+	lu32i.d	$a2, -209716
+	lu52i.d	$a2, $a2, 1022
+	movgr2fr.d	$fa1, $a2
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a2, $fa0
 	add.d	$a0, $a1, $a0
@@ -768,12 +739,8 @@ ExtraGap:                               # @ExtraGap
 	.word	.LBB2_4-.LJTI2_0
 	.word	.LBB2_4-.LJTI2_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ActualGap
-.LCPI3_0:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.text
-	.globl	ActualGap
+	.globl	ActualGap                       # -- Begin function ActualGap
 	.p2align	5
 	.type	ActualGap,@function
 ActualGap:                              # @ActualGap
@@ -931,12 +898,15 @@ ActualGap:                              # @ActualGap
 	add.w	$a0, $a1, $a0
 	beqz	$a3, .LBB3_16
 # %bb.14:
-	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI3_0)
 	addi.w	$a1, $a2, 0
-	movgr2fr.w	$fa1, $a2
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a2
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a2, -419431
+	ori	$a2, $a2, 2458
+	lu32i.d	$a2, -419431
+	lu52i.d	$a2, $a2, 1019
+	movgr2fr.d	$fa1, $a2
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a2, $fa0
 	add.w	$a0, $a0, $a2

@@ -28,18 +28,12 @@ sum_vec:                                # @sum_vec
 .Lfunc_end1:
 	.size	sum_vec, .Lfunc_end1-sum_vec
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI2_0:
-	.dword	0x3fe5555555555555              # double 0.66666666666666663
-.LCPI2_3:
-	.dword	0x414312d000000000              # double 2.5E+6
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI2_1:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI2_0:
 	.dword	0x3ff0000000000000              # double 1
 	.dword	0x4000000000000000              # double 2
-.LCPI2_2:
+.LCPI2_1:
 	.dword	0x3ff0000000000000              # double 1
 	.dword	0xbff0000000000000              # double -1
 	.text
@@ -61,8 +55,11 @@ main:                                   # @main
 	fst.d	$fs6, $sp, 96                   # 8-byte Folded Spill
 	move	$fp, $zero
 	movgr2fr.d	$fs5, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 610
 	ori	$s0, $a0, 1440
 	fmov.d	$fs4, $fs5
@@ -124,19 +121,21 @@ main:                                   # @main
 	fmov.d	$fa0, $fs1
 	b	.LBB2_2
 .LBB2_4:                                # %.preheader.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	vld	$vr0, $a0, %pc_lo12(.LCPI2_1)
+	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI2_0)
 	vrepli.b	$vr10, 0
 	lu52i.d	$a0, $zero, 1023
 	vreplgr2vr.d	$vr1, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
-	vld	$vr2, $a0, %pc_lo12(.LCPI2_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI2_3)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI2_3)
+	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
+	vld	$vr2, $a0, %pc_lo12(.LCPI2_1)
 	lu52i.d	$a0, $zero, -1025
-	vreplgr2vr.d	$vr4, $a0
+	vreplgr2vr.d	$vr3, $a0
 	lu52i.d	$a0, $zero, 1024
-	vreplgr2vr.d	$vr5, $a0
+	vreplgr2vr.d	$vr4, $a0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 201424
+	lu52i.d	$a0, $a0, 1044
+	movgr2fr.d	$fa5, $a0
 	vori.b	$vr11, $vr10, 0
 	vori.b	$vr12, $vr10, 0
 	vori.b	$vr9, $vr10, 0
@@ -155,10 +154,10 @@ main:                                   # @main
 	vfadd.d	$vr11, $vr6, $vr11
 	vfdiv.d	$vr6, $vr2, $vr0
 	vfadd.d	$vr9, $vr6, $vr9
-	vfmadd.d	$vr6, $vr0, $vr5, $vr4
-	vfadd.d	$vr0, $vr0, $vr5
+	vfmadd.d	$vr6, $vr0, $vr4, $vr3
+	vfadd.d	$vr0, $vr0, $vr4
 	vreplvei.d	$vr7, $vr0, 0
-	fcmp.cle.d	$fcc0, $fa7, $fa3
+	fcmp.cle.d	$fcc0, $fa7, $fa5
 	vfdiv.d	$vr6, $vr2, $vr6
 	vfadd.d	$vr8, $vr8, $vr6
 	bcnez	$fcc0, .LBB2_5

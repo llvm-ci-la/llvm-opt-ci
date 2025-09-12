@@ -41,10 +41,6 @@ add:                                    # @add
 .LCPI1_0:
 	.dword	0x7ff0000000000000              # double +Inf
 	.dword	0x4037000000000000              # double 23
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI1_1:
-	.dword	0x7ff0000000000000              # double +Inf
 	.text
 	.globl	main
 	.p2align	5
@@ -55,9 +51,9 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI1_0)
 	vst	$vr0, $sp, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_1)
 	ori	$a0, $zero, 1
+	lu52i.d	$a1, $zero, 2047
+	movgr2fr.d	$fa1, $a1
 	addi.d	$a1, $sp, 0
 	vldi	$vr0, -969
 	.p2align	4, , 16

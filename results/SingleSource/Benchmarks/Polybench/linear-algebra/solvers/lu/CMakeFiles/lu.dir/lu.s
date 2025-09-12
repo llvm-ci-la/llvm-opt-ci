@@ -106,12 +106,7 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .Lfunc_end6:
 	.size	polybench_alloc_data, .Lfunc_end6-polybench_alloc_data
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -366,39 +361,42 @@ main:                                   # @main
 .LBB7_30:                               # %.preheader.i.preheader
 	move	$a0, $zero
 	move	$a2, $zero
-	pcalau12i	$a1, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_0)
 	lu12i.w	$s4, -4
-	ori	$a1, $s4, 384
-	ori	$a4, $zero, 2000
+	ori	$a4, $s4, 384
+	lu12i.w	$a1, -487882
+	ori	$a1, $a1, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa0, $a1
+	ori	$a5, $zero, 2000
 	.p2align	4, , 16
 .LBB7_31:                               # %.preheader.i
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB7_32 Depth 2
 	move	$a3, $zero
-	add.d	$a5, $s0, $a0
-	add.d	$a6, $fp, $a0
-	move	$a7, $a1
+	add.d	$a6, $s0, $a0
+	add.d	$a7, $fp, $a0
+	move	$t0, $a4
 	.p2align	4, , 16
 .LBB7_32:                               #   Parent Loop BB7_31 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	add.d	$t0, $a6, $a7
-	fldx.d	$fa1, $t0, $s2
-	add.d	$t0, $a5, $a7
-	fldx.d	$fa2, $t0, $s2
+	add.d	$t1, $a7, $t0
+	fldx.d	$fa1, $t1, $s2
+	add.d	$t1, $a6, $t0
+	fldx.d	$fa2, $t1, $s2
 	fsub.d	$fa3, $fa1, $fa2
 	fabs.d	$fa3, $fa3
 	fcmp.cule.d	$fcc0, $fa3, $fa0
 	bceqz	$fcc0, .LBB7_40
 # %bb.33:                               # %.critedge.i
                                         #   in Loop: Header=BB7_32 Depth=2
-	addi.d	$a7, $a7, 8
+	addi.d	$t0, $t0, 8
 	addi.w	$a3, $a3, 1
-	bnez	$a7, .LBB7_32
+	bnez	$t0, .LBB7_32
 # %bb.34:                               #   in Loop: Header=BB7_31 Depth=1
 	addi.d	$a2, $a2, 1
 	add.d	$a0, $a0, $s2
-	bne	$a2, $a4, .LBB7_31
+	bne	$a2, $a5, .LBB7_31
 # %bb.35:                               # %check_FP.exit
 	lu12i.w	$s3, 7
 	ori	$a0, $s3, 3329
@@ -484,10 +482,6 @@ main:                                   # @main
 	pcalau12i	$a0, %got_pc_hi20(stderr)
 	ld.d	$a0, $a0, %got_pc_lo12(stderr)
 	ld.d	$a0, $a0, 0
-	lu12i.w	$a1, -487882
-	ori	$a1, $a1, 2289
-	lu32i.d	$a1, 325813
-	lu52i.d	$a1, $a1, 1006
 	st.d	$a1, $sp, 0
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a7, $fa2
@@ -528,12 +522,7 @@ main:                                   # @main
 .Lfunc_end7:
 	.size	main, .Lfunc_end7-main
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function init_array
-.LCPI8_0:
-	.dword	0x409f400000000000              # double 2000
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function init_array
 	.type	init_array,@function
 init_array:                             # @init_array
 # %bb.0:
@@ -560,21 +549,20 @@ init_array:                             # @init_array
 	ori	$s4, $a0, 3696
 	ori	$s2, $a0, 3712
 	ori	$a4, $zero, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI8_0)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs0, $a1
 	vldi	$vr4, -912
 	ori	$a5, $zero, 1998
 	lu52i.d	$s3, $zero, 1023
-	ori	$s7, $zero, 2000
-	ori	$a0, $zero, 0
 	lu32i.d	$a0, 1
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
-	ori	$a0, $zero, 0
+	ori	$s7, $zero, 2000
 	vrepli.w	$vr5, -2
-	lu32i.d	$a0, -49152
-	lu52i.d	$a0, $a0, 1033
-	vreplgr2vr.d	$vr6, $a0
+	vreplgr2vr.d	$vr6, $a1
 	vreplgr2vr.d	$vr7, $s3
 	move	$s6, $fp
 	vst	$vr5, $sp, 48                   # 16-byte Folded Spill

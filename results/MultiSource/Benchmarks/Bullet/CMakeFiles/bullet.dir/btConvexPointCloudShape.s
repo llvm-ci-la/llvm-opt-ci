@@ -14,84 +14,81 @@ _ZN23btConvexPointCloudShape15setLocalScalingERK9btVector3: # @_ZN23btConvexPoin
 	.size	_ZN23btConvexPointCloudShape15setLocalScalingERK9btVector3, .Lfunc_end0-_ZN23btConvexPointCloudShape15setLocalScalingERK9btVector3
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3
-.LCPI1_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
-.LCPI1_1:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.text
-	.globl	_ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3
+	.globl	_ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3 # -- Begin function _ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3
 	.p2align	5
 	.type	_ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3,@function
 _ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3
 # %bb.0:
-	fld.s	$fa0, $a1, 0
-	fld.s	$fa2, $a1, 4
-	fld.s	$fa3, $a1, 8
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI1_0)
-	fmul.s	$fa1, $fa2, $fa2
-	fmadd.s	$fa1, $fa0, $fa0, $fa1
-	fmadd.s	$fa1, $fa3, $fa3, $fa1
-	fcmp.clt.s	$fcc0, $fa1, $fa4
+	fld.s	$fa0, $a1, 4
+	fld.s	$fa1, $a1, 0
+	fld.s	$fa2, $a1, 8
+	fmul.s	$fa3, $fa0, $fa0
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	lu12i.w	$a1, 232731
+	ori	$a1, $a1, 1815
+	movgr2fr.w	$fa4, $a1
+	fcmp.clt.s	$fcc0, $fa3, $fa4
+	move	$a1, $a0
 	bceqz	$fcc0, .LBB1_3
 # %bb.1:
 	movgr2fr.w	$fa0, $zero
 	vldi	$vr1, -1168
 	fmov.s	$fa2, $fa0
-	ld.w	$a1, $a0, 112
-	bgtz	$a1, .LBB1_4
+	ld.w	$a2, $a1, 112
+	bgtz	$a2, .LBB1_4
 .LBB1_2:
 	move	$a1, $zero
 	move	$a0, $zero
 	ret
 .LBB1_3:
-	frsqrt.s	$fa4, $fa1
-	fmul.s	$fa1, $fa0, $fa4
-	fmul.s	$fa0, $fa2, $fa4
-	fmul.s	$fa2, $fa3, $fa4
-	ld.w	$a1, $a0, 112
-	blez	$a1, .LBB1_2
+	frsqrt.s	$fa3, $fa3
+	fmul.s	$fa1, $fa1, $fa3
+	fmul.s	$fa0, $fa0, $fa3
+	fmul.s	$fa2, $fa2, $fa3
+	ld.w	$a2, $a1, 112
+	blez	$a2, .LBB1_2
 .LBB1_4:                                # %.lr.ph
-	ld.d	$a2, $a0, 104
-	fld.s	$fa3, $a0, 24
-	fld.s	$fa4, $a0, 28
-	fld.s	$fa5, $a0, 32
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI1_1)
 	move	$a0, $zero
-	movgr2fr.w	$fa7, $zero
-	addi.d	$a2, $a2, 8
-	fmov.s	$ft0, $fa7
+	ld.d	$a3, $a1, 104
+	fld.s	$fa3, $a1, 24
+	fld.s	$fa4, $a1, 28
+	fld.s	$fa5, $a1, 32
+	addi.d	$a1, $a3, 8
+	movgr2fr.w	$fa6, $zero
+	lu12i.w	$a3, -141856
+	ori	$a3, $a3, 2923
+	lu32i.d	$a3, 0
+	movgr2fr.w	$ft0, $a3
+	fmov.s	$fa7, $fa6
 	b	.LBB1_6
 	.p2align	4, , 16
 .LBB1_5:                                #   in Loop: Header=BB1_6 Depth=1
-	addi.d	$a1, $a1, -1
-	addi.d	$a2, $a2, 16
-	beqz	$a1, .LBB1_8
+	addi.d	$a2, $a2, -1
+	addi.d	$a1, $a1, 16
+	beqz	$a2, .LBB1_8
 .LBB1_6:                                # =>This Inner Loop Header: Depth=1
-	fld.s	$ft1, $a2, -8
-	fld.s	$ft2, $a2, -4
-	fld.s	$ft4, $a2, 0
+	fld.s	$ft1, $a1, -8
+	fld.s	$ft2, $a1, -4
+	fld.s	$ft4, $a1, 0
 	fmul.s	$ft3, $ft1, $fa3
 	fmul.s	$ft1, $ft2, $fa4
 	fmul.s	$ft2, $ft4, $fa5
 	fmul.s	$ft4, $fa0, $ft1
 	fmadd.s	$ft4, $fa1, $ft3, $ft4
 	fmadd.s	$ft4, $fa2, $ft2, $ft4
-	fcmp.cule.s	$fcc0, $ft4, $fa6
+	fcmp.cule.s	$fcc0, $ft4, $ft0
 	bcnez	$fcc0, .LBB1_5
 # %bb.7:                                #   in Loop: Header=BB1_6 Depth=1
 	movfr2gr.s	$a0, $ft3
-	fmov.s	$ft0, $ft1
-	fmov.s	$fa7, $ft2
-	fmov.s	$fa6, $ft4
+	fmov.s	$fa7, $ft1
+	fmov.s	$fa6, $ft2
+	fmov.s	$ft0, $ft4
 	b	.LBB1_5
 .LBB1_8:                                # %._crit_edge.loopexit
-	movfr2gr.s	$a1, $ft0
-	bstrins.d	$a0, $a1, 63, 32
 	movfr2gr.s	$a1, $fa7
+	bstrins.d	$a0, $a1, 63, 32
+	movfr2gr.s	$a1, $fa6
 	bstrpick.d	$a1, $a1, 31, 0
 	ret
 .Lfunc_end1:
@@ -202,12 +199,7 @@ _ZNK23btConvexPointCloudShape49batchedUnitVectorGetSupportingVertexWithoutMargin
 .Lfunc_end2:
 	.size	_ZNK23btConvexPointCloudShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i, .Lfunc_end2-_ZNK23btConvexPointCloudShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3
-.LCPI3_0:
-	.word	0x28800000                      # float 1.42108547E-14
-	.text
-	.globl	_ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3
+	.globl	_ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3 # -- Begin function _ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3
 	.p2align	5
 	.type	_ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3,@function
 _ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3: # @_ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3
@@ -258,28 +250,28 @@ _ZNK23btConvexPointCloudShape24localGetSupportingVertexERK9btVector3: # @_ZNK23b
 # %bb.1:
 	movgr2fr.w	$fs0, $fp
 	movgr2fr.w	$fs1, $s3
-	movgr2fr.w	$fs2, $s1
-	fld.s	$fa0, $s2, 0
-	fld.s	$fa1, $s2, 4
+	fld.s	$fa0, $s2, 4
+	fld.s	$fa1, $s2, 0
 	fld.s	$fa2, $s2, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI3_0)
-	fmul.s	$fa4, $fa1, $fa1
-	fmadd.s	$fa4, $fa0, $fa0, $fa4
-	fmadd.s	$fa4, $fa2, $fa2, $fa4
-	fcmp.clt.s	$fcc0, $fa4, $fa3
+	movgr2fr.w	$fs2, $s1
+	fmul.s	$fa3, $fa0, $fa0
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa4, $a0
+	fcmp.clt.s	$fcc0, $fa3, $fa4
 	vldi	$vr3, -1040
-	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa1, $fa1, $fa3, $fcc0
+	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa2, $fa2, $fa3, $fcc0
-	fmul.s	$fa3, $fa1, $fa1
+	fmul.s	$fa3, $fa0, $fa0
 	ld.d	$a0, $s0, 0
-	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	frsqrt.s	$fa3, $fa3
 	ld.d	$a1, $a0, 88
-	fmul.s	$fs3, $fa0, $fa3
-	fmul.s	$fs4, $fa1, $fa3
+	fmul.s	$fs3, $fa1, $fa3
+	fmul.s	$fs4, $fa0, $fa3
 	fmul.s	$fs5, $fa2, $fa3
 	move	$a0, $s0
 	jirl	$ra, $a1, 0

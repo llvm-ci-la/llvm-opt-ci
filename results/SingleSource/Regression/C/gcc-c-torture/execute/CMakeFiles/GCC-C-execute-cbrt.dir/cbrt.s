@@ -1,22 +1,6 @@
 	.file	"cbrt.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function cbrtl
-.LCPI0_0:
-	.dword	0x4350000000000000              # double 18014398509481984
-.LCPI0_1:
-	.dword	0x3fe15f15f15f15f1              # double 0.54285714285714282
-.LCPI0_2:
-	.dword	0x3ff6a0ea0ea0ea0f              # double 1.4142857142857144
-.LCPI0_3:
-	.dword	0xbfe691de2532c834              # double -0.70530612244897961
-.LCPI0_4:
-	.dword	0x3ff9b6db6db6db6e              # double 1.6071428571428572
-.LCPI0_5:
-	.dword	0x3fd6db6db6db6db7              # double 0.35714285714285715
-.LCPI0_6:
-	.dword	0xbfd5555555555555              # double -0.33333333333333331
 	.text
-	.globl	cbrtl
+	.globl	cbrtl                           # -- Begin function cbrtl
 	.p2align	5
 	.type	cbrtl,@function
 cbrtl:                                  # @cbrtl
@@ -38,8 +22,8 @@ cbrtl:                                  # @cbrtl
 	fabs.d	$fa1, $fa0
 	bnez	$a2, .LBB0_5
 # %bb.4:
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a1, $zero, 1077
+	movgr2fr.d	$fa2, $a1
 	fmul.d	$fa2, $fa0, $fa2
 	movfr2gr.d	$a1, $fa2
 	srli.d	$a2, $a1, 32
@@ -70,24 +54,39 @@ cbrtl:                                  # @cbrtl
 .LBB0_6:
 	add.d	$a1, $a1, $a2
 	movgr2fr.d	$fa2, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fa3, $a1, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
-	fld.d	$fa4, $a1, %pc_lo12(.LCPI0_2)
-	fmul.d	$fa5, $fa2, $fa2
-	fdiv.d	$fa5, $fa5, $fa1
-	fmadd.d	$fa3, $fa5, $fa2, $fa3
+	fmul.d	$fa3, $fa2, $fa2
+	fdiv.d	$fa3, $fa3, $fa1
+	lu12i.w	$a1, -59919
+	ori	$a1, $a1, 1521
+	lu32i.d	$a1, 89877
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fa4, $a1
+	fmadd.d	$fa3, $fa3, $fa2, $fa4
+	lu12i.w	$a1, 59918
+	ori	$a1, $a1, 2575
+	lu32i.d	$a1, 434410
+	lu52i.d	$a1, $a1, 1023
+	movgr2fr.d	$fa4, $a1
 	fadd.d	$fa4, $fa3, $fa4
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.d	$fa5, $a1, %pc_lo12(.LCPI0_3)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_4)
-	fld.d	$fa6, $a1, %pc_lo12(.LCPI0_4)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_5)
-	fld.d	$fa7, $a1, %pc_lo12(.LCPI0_5)
+	lu12i.w	$a1, 152364
+	ori	$a1, $a1, 2100
+	lu32i.d	$a1, 430558
+	lu52i.d	$a1, $a1, -1026
+	movgr2fr.d	$fa5, $a1
 	fdiv.d	$fa3, $fa5, $fa3
 	fadd.d	$fa3, $fa4, $fa3
-	fdiv.d	$fa3, $fa6, $fa3
-	fadd.d	$fa3, $fa3, $fa7
+	lu12i.w	$a1, 449389
+	ori	$a1, $a1, 2926
+	lu32i.d	$a1, -411941
+	lu52i.d	$a1, $a1, 1023
+	movgr2fr.d	$fa4, $a1
+	fdiv.d	$fa3, $fa4, $fa3
+	lu12i.w	$a1, -299594
+	ori	$a1, $a1, 3511
+	lu32i.d	$a1, 449389
+	lu52i.d	$a1, $a1, 1021
+	movgr2fr.d	$fa4, $a1
+	fadd.d	$fa3, $fa3, $fa4
 	fmul.d	$fa2, $fa3, $fa2
 	movfr2gr.d	$a1, $fa2
 	bstrins.d	$a1, $zero, 31, 0
@@ -106,11 +105,14 @@ cbrtl:                                  # @cbrtl
 	bstrins.d	$a0, $zero, 62, 0
 	or	$a0, $a0, $a1
 	movgr2fr.d	$fa1, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_6)
-	fmul.d	$fa3, $fa1, $fa1
-	fdiv.d	$fa0, $fa0, $fa3
+	fmul.d	$fa2, $fa1, $fa1
+	fdiv.d	$fa0, $fa0, $fa2
 	fsub.d	$fa0, $fa1, $fa0
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, -1027
+	movgr2fr.d	$fa2, $a0
 	fmadd.d	$fa0, $fa0, $fa2, $fa1
 .LBB0_7:
 	ret

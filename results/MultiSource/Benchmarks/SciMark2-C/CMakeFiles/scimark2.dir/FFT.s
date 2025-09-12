@@ -116,12 +116,7 @@ FFT_transform:                          # @FFT_transform
 .Lfunc_end2:
 	.size	FFT_transform, .Lfunc_end2-FFT_transform
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function FFT_transform_internal
-.LCPI3_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function FFT_transform_internal
 	.type	FFT_transform_internal,@function
 FFT_transform_internal:                 # @FFT_transform_internal
 # %bb.0:
@@ -211,10 +206,13 @@ FFT_transform_internal:                 # @FFT_transform_internal
 	blez	$s1, .LBB3_17
 # %bb.14:                               # %.lr.ph114
 	movgr2fr.w	$fa0, $a2
-	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI3_0)
 	ffint.d.w	$fa0, $fa0
 	fadd.d	$fa0, $fa0, $fa0
+	lu12i.w	$a1, 345154
+	ori	$a1, $a1, 3352
+	lu32i.d	$a1, -450053
+	lu52i.d	$a1, $a1, 1024
+	movgr2fr.d	$fa1, $a1
 	ori	$s2, $zero, 1
 	fmul.d	$fs2, $fa0, $fa1
 	bge	$s2, $a0, .LBB3_16

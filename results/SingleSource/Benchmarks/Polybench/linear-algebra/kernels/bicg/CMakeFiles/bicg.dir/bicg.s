@@ -106,15 +106,9 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .Lfunc_end6:
 	.size	polybench_alloc_data, .Lfunc_end6-polybench_alloc_data
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI7_1:
-	.dword	0x40a0680000000000              # double 2100
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI7_2:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI7_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
 	.text
@@ -236,18 +230,18 @@ main:                                   # @main
 # %bb.12:                               # %.preheader.i.preheader
 	move	$a1, $zero
 	lu52i.d	$a2, $zero, 1107
-	pcalau12i	$a3, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a3, 256
+	lu52i.d	$a3, $a3, 1107
+	movgr2fr.d	$fa0, $a3
 	lu12i.w	$a3, 275200
-	pcalau12i	$a4, %pc_hi20(.LCPI7_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI7_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI7_2)
-	vld	$vr2, $a4, %pc_lo12(.LCPI7_2)
+	ori	$a4, $zero, 0
+	lu32i.d	$a4, 26624
+	lu52i.d	$a6, $a4, 1034
+	movgr2fr.d	$fa1, $a6
+	pcalau12i	$a4, %pc_hi20(.LCPI7_0)
+	vld	$vr2, $a4, %pc_lo12(.LCPI7_0)
 	ori	$a4, $s5, 1184
 	ori	$a5, $zero, 2100
-	ori	$a6, $zero, 0
-	lu32i.d	$a6, 26624
-	lu52i.d	$a6, $a6, 1034
 	vreplgr2vr.d	$vr3, $a6
 	move	$a6, $fp
 	.p2align	4, , 16

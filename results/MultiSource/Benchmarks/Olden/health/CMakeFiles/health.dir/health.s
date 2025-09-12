@@ -276,16 +276,7 @@ check_patients_inside:                  # @check_patients_inside
 .Lfunc_end2:
 	.size	check_patients_inside, .Lfunc_end2-check_patients_inside
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function check_patients_assess
-.LCPI3_0:
-	.word	0x4f000000                      # float 2.14748365E+9
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI3_1:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-	.text
-	.globl	check_patients_assess
+	.globl	check_patients_assess           # -- Begin function check_patients_assess
 	.p2align	5
 	.type	check_patients_assess,@function
 check_patients_assess:                  # @check_patients_assess
@@ -308,12 +299,15 @@ check_patients_assess:                  # @check_patients_assess
 	move	$s0, $a0
 	move	$s4, $zero
 	addi.d	$s1, $a0, 104
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI3_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI3_1)
-	addi.d	$s2, $s0, 152
-	addi.d	$s3, $s0, 128
+	addi.d	$s2, $a0, 152
+	addi.d	$s3, $a0, 128
+	lu12i.w	$a0, 323584
+	movgr2fr.w	$fs0, $a0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fs1, $a0
 	ori	$s6, $zero, 10
 	b	.LBB3_4
 .LBB3_2:                                #   in Loop: Header=BB3_4 Depth=1
@@ -501,16 +495,7 @@ put_in_hosp:                            # @put_in_hosp
 .Lfunc_end5:
 	.size	put_in_hosp, .Lfunc_end5-put_in_hosp
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function generate_patient
-.LCPI6_0:
-	.word	0x4f000000                      # float 2.14748365E+9
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI6_1:
-	.dword	0x3fe54fdf3b645a1d              # double 0.66600000000000004
-	.text
-	.globl	generate_patient
+	.globl	generate_patient                # -- Begin function generate_patient
 	.p2align	5
 	.type	generate_patient,@function
 generate_patient:                       # @generate_patient
@@ -522,13 +507,16 @@ generate_patient:                       # @generate_patient
 	ld.d	$a0, $a0, 184
 	pcaddu18i	$ra, %call36(my_rand)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI6_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI6_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI6_1)
+	lu12i.w	$a0, 323584
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa1, $fa0, $fa1
 	ftintrz.l.s	$fa1, $fa1
 	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a0, 243269
+	ori	$a0, $a0, 2589
+	lu32i.d	$a0, 348127
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
 	fcmp.cule.d	$fcc0, $fa0, $fa2
 	fst.d	$fa1, $fp, 184
 	bcnez	$fcc0, .LBB6_2
@@ -673,16 +661,7 @@ main:                                   # @main
 .Lfunc_end7:
 	.size	main, .Lfunc_end7-main
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function sim
-.LCPI8_0:
-	.word	0x4f000000                      # float 2.14748365E+9
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI8_1:
-	.dword	0x3fe54fdf3b645a1d              # double 0.66600000000000004
-	.text
-	.globl	sim
+	.globl	sim                             # -- Begin function sim
 	.p2align	5
 	.type	sim,@function
 sim:                                    # @sim
@@ -979,13 +958,16 @@ sim:                                    # @sim
 	ld.d	$a0, $fp, 184
 	pcaddu18i	$ra, %call36(my_rand)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI8_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI8_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI8_1)
+	lu12i.w	$a0, 323584
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa1, $fa0, $fa1
 	ftintrz.l.s	$fa1, $fa1
 	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a0, 243269
+	ori	$a0, $a0, 2589
+	lu32i.d	$a0, 348127
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
 	fcmp.cule.d	$fcc0, $fa0, $fa2
 	fst.d	$fa1, $fp, 184
 	bcnez	$fcc0, .LBB8_46

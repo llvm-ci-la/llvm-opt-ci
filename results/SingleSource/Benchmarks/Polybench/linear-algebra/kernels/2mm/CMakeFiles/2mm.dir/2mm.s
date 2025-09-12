@@ -579,14 +579,6 @@ init_array:                             # @init_array
 .LCPI8_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI8_1:
-	.dword	0x4044000000000000              # double 40
-.LCPI8_2:
-	.dword	0x4049000000000000              # double 50
-.LCPI8_3:
-	.dword	0x3ff3333333333333              # double 1.2
 	.text
 	.globl	main
 	.p2align	5
@@ -671,16 +663,15 @@ main:                                   # @main
 	ori	$a3, $zero, 40
 	ori	$a4, $zero, 0
 	lu32i.d	$a4, 262144
-	lu52i.d	$a4, $a4, 1028
-	vreplgr2vr.d	$vr1, $a4
+	lu52i.d	$a7, $a4, 1028
+	vreplgr2vr.d	$vr1, $a7
 	ori	$a4, $zero, 544
 	addi.w	$a5, $zero, -3
 	lu32i.d	$a5, 0
-	pcalau12i	$a6, %pc_hi20(.LCPI8_1)
-	fld.d	$fa2, $a6, %pc_lo12(.LCPI8_1)
 	lu12i.w	$a6, -209716
 	ori	$a6, $a6, 3277
 	lu32i.d	$a6, 0
+	movgr2fr.d	$fa2, $a7
 	move	$a7, $s0
 	.p2align	4, , 16
 .LBB8_11:                               # %.preheader67.us.i
@@ -770,13 +761,12 @@ main:                                   # @main
 	ori	$a3, $zero, 50
 	ori	$a4, $zero, 0
 	lu32i.d	$a4, -458752
-	lu52i.d	$a4, $a4, 1028
-	vreplgr2vr.d	$vr1, $a4
+	lu52i.d	$a6, $a4, 1028
+	vreplgr2vr.d	$vr1, $a6
 	ori	$a4, $zero, 384
 	lu12i.w	$a5, 335544
 	ori	$a5, $a5, 1311
-	pcalau12i	$a6, %pc_hi20(.LCPI8_2)
-	fld.d	$fa2, $a6, %pc_lo12(.LCPI8_2)
+	movgr2fr.d	$fa2, $a6
 	lu12i.w	$a6, -377488
 	ori	$a6, $a6, 2622
 	lu32i.d	$a6, 0
@@ -1034,8 +1024,11 @@ main:                                   # @main
 	bne	$a0, $a4, .LBB8_27
 # %bb.32:                               # %.preheader.i.preheader
 	move	$a0, $zero
-	pcalau12i	$a1, %pc_hi20(.LCPI8_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI8_3)
+	lu12i.w	$a1, 209715
+	ori	$a1, $a1, 819
+	lu32i.d	$a1, 209715
+	lu52i.d	$a1, $a1, 1023
+	movgr2fr.d	$fa0, $a1
 	ori	$a1, $zero, 400
 	ori	$a2, $zero, 80
 	ori	$a3, $zero, 40

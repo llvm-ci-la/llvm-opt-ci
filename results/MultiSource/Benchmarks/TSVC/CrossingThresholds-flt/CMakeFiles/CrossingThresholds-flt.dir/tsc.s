@@ -12327,12 +12327,7 @@ s291:                                   # @s291
 .Lfunc_end8:
 	.size	s291, .Lfunc_end8-s291
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function s292
-.LCPI9_0:
-	.word	0x3eaa7efa                      # float 0.333000004
-	.text
-	.globl	s292
+	.globl	s292                            # -- Begin function s292
 	.p2align	5
 	.type	s292,@function
 s292:                                   # @s292
@@ -12371,8 +12366,9 @@ s292:                                   # @s292
 	lu12i.w	$a0, 31
 	ori	$a1, $a0, 1040
 	add.d	$s0, $fp, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI9_0)
-	fld.s	$fs1, $a1, %pc_lo12(.LCPI9_0)
+	lu12i.w	$a1, 256679
+	ori	$a1, $a1, 3834
+	movgr2fr.w	$fs1, $a1
 	ori	$s8, $a0, 1024
 	lu12i.w	$a0, 62
 	ori	$a0, $a0, 2096

@@ -1,21 +1,17 @@
 	.file	"hsfcsort.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function hsfc2sort
-.LCPI0_0:
-	.dword	0x41efffffffe00000              # double 4294967295
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_1:
+	.p2align	4, 0x0                          # -- Begin function hsfc2sort
+.LCPI0_0:
 	.word	1                               # 0x1
 	.word	3                               # 0x3
 	.word	5                               # 0x5
 	.word	7                               # 0x7
-.LCPI0_2:
+.LCPI0_1:
 	.word	0                               # 0x0
 	.word	3                               # 0x3
 	.word	6                               # 0x6
 	.word	9                               # 0x9
-.LCPI0_3:
+.LCPI0_2:
 	.word	2                               # 0x2
 	.word	5                               # 0x5
 	.word	8                               # 0x8
@@ -52,11 +48,12 @@ hsfc2sort:                              # @hsfc2sort
 	move	$s2, $a0
 	beqz	$s3, .LBB0_6
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	move	$s6, $zero
 	move	$s7, $zero
 	bstrpick.d	$s8, $s3, 31, 0
+	lu12i.w	$a0, -512
+	lu52i.d	$a0, $a0, 1054
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB0_2:                                # =>This Inner Loop Header: Depth=1
 	fld.d	$fa0, $s5, 0
@@ -201,8 +198,8 @@ hsfc2sort:                              # @hsfc2sort
 	bstrpick.d	$a0, $s3, 29, 2
 	slli.w	$a1, $a0, 2
 	slli.d	$a2, $a0, 3
-	pcalau12i	$a3, %pc_hi20(.LCPI0_3)
-	vld	$vr0, $a3, %pc_lo12(.LCPI0_3)
+	pcalau12i	$a3, %pc_hi20(.LCPI0_2)
+	vld	$vr0, $a3, %pc_lo12(.LCPI0_2)
 	alsl.w	$a0, $a0, $a2, 2
 	addi.w	$a0, $a0, 2
 	vreplgr2vr.w	$vr1, $s1
@@ -257,10 +254,10 @@ hsfc2sort:                              # @hsfc2sort
 # %bb.27:                               # %vector.ph
 	move	$a2, $s3
 	bstrins.d	$a2, $zero, 1, 0
+	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_0)
 	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_2)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_1)
 	alsl.w	$a1, $a2, $a2, 1
 	slli.d	$a0, $a2, 1
 	addi.w	$a0, $a0, 1
@@ -344,23 +341,19 @@ ui2comp:                                # @ui2comp
 .Lfunc_end1:
 	.size	ui2comp, .Lfunc_end1-ui2comp
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function hsfc3sort
-.LCPI2_0:
-	.dword	0x41efffffffe00000              # double 4294967295
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI2_1:
+	.p2align	4, 0x0                          # -- Begin function hsfc3sort
+.LCPI2_0:
 	.word	1                               # 0x1
 	.word	3                               # 0x3
 	.word	5                               # 0x5
 	.word	7                               # 0x7
-.LCPI2_2:
+.LCPI2_1:
 	.word	0                               # 0x0
 	.word	4                               # 0x4
 	.word	8                               # 0x8
 	.word	12                              # 0xc
-.LCPI2_3:
+.LCPI2_2:
 	.word	3                               # 0x3
 	.word	7                               # 0x7
 	.word	11                              # 0xb
@@ -397,12 +390,13 @@ hsfc3sort:                              # @hsfc3sort
 	move	$s2, $a0
 	beqz	$s3, .LBB2_6
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI2_0)
 	move	$s7, $zero
 	move	$s8, $zero
 	st.d	$s3, $sp, 8                     # 8-byte Folded Spill
 	bstrpick.d	$s3, $s3, 31, 0
+	lu12i.w	$a0, -512
+	lu52i.d	$a0, $a0, 1054
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB2_2:                                # =>This Inner Loop Header: Depth=1
 	fld.d	$fa0, $s6, 0
@@ -497,10 +491,10 @@ hsfc3sort:                              # @hsfc3sort
 # %bb.13:                               # %vector.ph
 	bstrpick.d	$a1, $s3, 29, 2
 	slli.w	$a2, $a1, 2
+	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI2_0)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	vld	$vr0, $a0, %pc_lo12(.LCPI2_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
-	vld	$vr1, $a0, %pc_lo12(.LCPI2_2)
+	vld	$vr1, $a0, %pc_lo12(.LCPI2_1)
 	slli.w	$a0, $a1, 4
 	slli.d	$a1, $a1, 3
 	addi.w	$a1, $a1, 1
@@ -639,8 +633,8 @@ hsfc3sort:                              # @hsfc3sort
 # %bb.28:                               # %vector.ph147
 	bstrpick.d	$a0, $s3, 29, 2
 	slli.w	$a1, $a0, 2
-	pcalau12i	$a2, %pc_hi20(.LCPI2_3)
-	vld	$vr0, $a2, %pc_lo12(.LCPI2_3)
+	pcalau12i	$a2, %pc_hi20(.LCPI2_2)
+	vld	$vr0, $a2, %pc_lo12(.LCPI2_2)
 	slli.d	$a0, $a0, 4
 	addi.w	$a0, $a0, 3
 	vreplgr2vr.w	$vr1, $s1

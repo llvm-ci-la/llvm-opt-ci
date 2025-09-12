@@ -1,10 +1,6 @@
 	.file	"findcost.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function findcost
-.LCPI0_0:
-	.dword	0x40f86a0000000000              # double 1.0E+5
 	.text
-	.globl	findcost
+	.globl	findcost                        # -- Begin function findcost
 	.p2align	5
 	.type	findcost,@function
 findcost:                               # @findcost
@@ -292,8 +288,10 @@ findcost:                               # @findcost
 	st.w	$zero, $a0, 0
 	blez	$a1, .LBB0_48
 # %bb.40:                               # %.lr.ph179
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_0)
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -497152
+	lu52i.d	$a2, $a2, 1039
+	movgr2fr.d	$fa0, $a2
 	fdiv.d	$fa0, $fs0, $fa0
 	pcalau12i	$a2, %got_pc_hi20(cellarray)
 	ld.d	$a3, $a2, %got_pc_lo12(cellarray)

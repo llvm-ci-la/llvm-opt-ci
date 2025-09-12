@@ -1,23 +1,22 @@
 	.file	"rotate.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function rotate
-.LCPI0_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI0_1:
-	.dword	0x4066800000000000              # double 180
 	.text
-	.globl	rotate
+	.globl	rotate                          # -- Begin function rotate
 	.p2align	5
 	.type	rotate,@function
 rotate:                                 # @rotate
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
-	movgr2fr.w	$fa2, $a2
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa2, $fa0
+	movgr2fr.w	$fa0, $a2
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 425984
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	pcalau12i	$a0, %pc_hi20(text_rotation)

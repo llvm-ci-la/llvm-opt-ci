@@ -1,10 +1,6 @@
 	.file	"floatunsisf-1.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.word	0x4f000001                      # float 2.1474839E+9
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -15,12 +11,13 @@ main:                                   # @main
 	ld.wu	$a0, $a0, %pc_lo12(u)
 	movgr2fr.d	$fa0, $a0
 	ffint.s.l	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	pcalau12i	$a0, %pc_hi20(f1)
 	fst.s	$fa0, $a0, %pc_lo12(f1)
 	pcalau12i	$a1, %pc_hi20(f2)
-	fst.s	$fa1, $a1, %pc_lo12(f2)
+	lu12i.w	$a2, 323584
+	ori	$a2, $a2, 1
+	movgr2fr.w	$fa0, $a2
+	fst.s	$fa0, $a1, %pc_lo12(f2)
 	fld.s	$fa0, $a0, %pc_lo12(f1)
 	fld.s	$fa1, $a1, %pc_lo12(f2)
 	fcmp.ceq.s	$fcc0, $fa0, $fa1

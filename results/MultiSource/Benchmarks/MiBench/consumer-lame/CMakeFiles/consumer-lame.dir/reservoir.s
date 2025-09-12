@@ -45,12 +45,7 @@ ResvFrameBegin:                         # @ResvFrameBegin
 .Lfunc_end0:
 	.size	ResvFrameBegin, .Lfunc_end0-ResvFrameBegin
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ResvMaxBits
-.LCPI1_0:
-	.dword	0x402e666666666666              # double 15.199999999999999
-	.text
-	.globl	ResvMaxBits
+	.globl	ResvMaxBits                     # -- Begin function ResvMaxBits
 	.p2align	5
 	.type	ResvMaxBits,@function
 ResvMaxBits:                            # @ResvMaxBits
@@ -71,12 +66,15 @@ ResvMaxBits:                            # @ResvMaxBits
 	add.d	$a0, $a5, $a0
 	b	.LBB1_3
 .LBB1_2:
-	pcalau12i	$a5, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI1_0)
 	move	$a5, $zero
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a6, 419430
+	ori	$a6, $a6, 1638
+	lu32i.d	$a6, -104858
+	lu52i.d	$a6, $a6, 1026
+	movgr2fr.d	$fa1, $a6
+	fdiv.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a6, $fa0
 	sub.d	$a0, $a0, $a6

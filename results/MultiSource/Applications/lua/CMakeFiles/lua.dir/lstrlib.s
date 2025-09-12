@@ -322,12 +322,7 @@ str_find:                               # @str_find
 .Lfunc_end4:
 	.size	str_find, .Lfunc_end4-str_find
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function str_format
-.LCPI5_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function str_format
 	.type	str_format,@function
 str_format:                             # @str_format
 # %bb.0:
@@ -343,24 +338,25 @@ str_format:                             # @str_format
 	st.d	$s6, $sp, 1960                  # 8-byte Folded Spill
 	st.d	$s7, $sp, 1952                  # 8-byte Folded Spill
 	st.d	$s8, $sp, 1944                  # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 1936                 # 8-byte Folded Spill
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 2752
 	sub.d	$sp, $sp, $a1
 	move	$fp, $a0
 	ori	$a1, $zero, 1
 	lu12i.w	$a2, 2
-	ori	$a2, $a2, 584
+	ori	$a2, $a2, 576
 	add.d	$a2, $sp, $a2
 	ori	$s5, $zero, 1
 	pcaddu18i	$ra, %call36(luaL_checklstring)
 	jirl	$ra, $ra, 0
 	lu12i.w	$a1, 2
-	ori	$a1, $a1, 584
+	ori	$a1, $a1, 576
 	add.d	$a1, $sp, $a1
 	ld.d	$s0, $a1, 0
 	move	$s3, $a0
-	addi.d	$a1, $sp, 560
-	addi.d	$s1, $sp, 560
+	addi.d	$a1, $sp, 552
+	addi.d	$s1, $sp, 552
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(luaL_buffinit)
 	jirl	$ra, $ra, 0
@@ -373,7 +369,9 @@ str_format:                             # @str_format
 	ori	$s8, $zero, 37
 	pcalau12i	$a0, %pc_hi20(.L.str.30)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.30)
-	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	ori	$s1, $zero, 63
 	ori	$s2, $zero, 1
 	b	.LBB5_4
@@ -381,7 +379,7 @@ str_format:                             # @str_format
 .LBB5_2:                                #   in Loop: Header=BB5_4 Depth=1
 	addi.d	$s3, $s3, 1
 	addi.d	$a2, $a1, 1
-	st.d	$a2, $sp, 560
+	st.d	$a2, $sp, 552
 	st.b	$a0, $a1, 0
 .LBB5_3:                                # %.backedge
                                         #   in Loop: Header=BB5_4 Depth=1
@@ -396,31 +394,31 @@ str_format:                             # @str_format
 	addi.d	$s4, $s3, 1
 	bne	$s0, $s8, .LBB5_11
 # %bb.6:                                #   in Loop: Header=BB5_4 Depth=1
-	ld.d	$a0, $sp, 560
+	ld.d	$a0, $sp, 552
 	ori	$a1, $zero, 37
 	bltu	$a0, $s7, .LBB5_8
 # %bb.7:                                #   in Loop: Header=BB5_4 Depth=1
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_prepbuffer)
 	jirl	$ra, $ra, 0
 	ld.bu	$a1, $s4, 0
-	ld.d	$a0, $sp, 560
+	ld.d	$a0, $sp, 552
 .LBB5_8:                                #   in Loop: Header=BB5_4 Depth=1
 	addi.d	$s3, $s3, 2
 	addi.d	$a2, $a0, 1
-	st.d	$a2, $sp, 560
+	st.d	$a2, $sp, 552
 	st.b	$a1, $a0, 0
 	b	.LBB5_3
 	.p2align	4, , 16
 .LBB5_9:                                #   in Loop: Header=BB5_4 Depth=1
-	ld.d	$a1, $sp, 560
+	ld.d	$a1, $sp, 552
 	bltu	$a1, $s7, .LBB5_2
 # %bb.10:                               #   in Loop: Header=BB5_4 Depth=1
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_prepbuffer)
 	jirl	$ra, $ra, 0
 	ld.bu	$a0, $s3, 0
-	ld.d	$a1, $sp, 560
+	ld.d	$a1, $sp, 552
 	b	.LBB5_2
 	.p2align	4, , 16
 .LBB5_11:                               #   in Loop: Header=BB5_4 Depth=1
@@ -459,7 +457,7 @@ str_format:                             # @str_format
 	bltu	$a0, $a1, .LBB5_19
 .LBB5_18:                               #   in Loop: Header=BB5_4 Depth=1
 	move	$a0, $fp
-	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(luaL_error)
 	jirl	$ra, $ra, 0
 	ld.bu	$s0, $s3, 0
@@ -512,10 +510,10 @@ str_format:                             # @str_format
 .LBB5_23:                               # %scanformat.exit
                                         #   in Loop: Header=BB5_4 Depth=1
 	move	$s8, $fp
-	st.b	$s3, $sp, 542
+	st.b	$s3, $sp, 534
 	sub.d	$a0, $s0, $s4
 	addi.d	$s3, $a0, 1
-	addi.d	$fp, $sp, 543
+	addi.d	$fp, $sp, 535
 	move	$a0, $fp
 	move	$a1, $s4
 	move	$a2, $s3
@@ -550,10 +548,10 @@ str_format:                             # @str_format
 	bltu	$a0, $a1, .LBB5_19
 	b	.LBB5_18
 .LBB5_27:                               #   in Loop: Header=BB5_4 Depth=1
-	addi.d	$a0, $sp, 542
+	addi.d	$a0, $sp, 534
 	pcaddu18i	$ra, %call36(strlen)
 	jirl	$ra, $ra, 0
-	addi.d	$a3, $sp, 542
+	addi.d	$a3, $sp, 534
 	add.d	$a1, $a3, $a0
 	ld.b	$a2, $a1, -1
 	ori	$a4, $zero, 108
@@ -565,14 +563,12 @@ str_format:                             # @str_format
 	move	$a1, $s2
 	pcaddu18i	$ra, %call36(luaL_checknumber)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_0)
-	fcmp.clt.d	$fcc0, $fa0, $fa1
-	ftintrz.l.d	$fa2, $fa0
-	movfr2gr.d	$a0, $fa2
+	fcmp.clt.d	$fcc0, $fa0, $fs0
+	ftintrz.l.d	$fa1, $fa0
+	movfr2gr.d	$a0, $fa1
 	movcf2gr	$a1, $fcc0
 	maskeqz	$a0, $a0, $a1
-	fsub.d	$fa0, $fa0, $fa1
+	fsub.d	$fa0, $fa0, $fs0
 	ftintrz.l.d	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
 	lu52i.d	$a3, $zero, -2048
@@ -581,10 +577,10 @@ str_format:                             # @str_format
 	or	$a2, $a0, $a1
 	b	.LBB5_30
 .LBB5_28:                               #   in Loop: Header=BB5_4 Depth=1
-	addi.d	$a0, $sp, 542
+	addi.d	$a0, $sp, 534
 	pcaddu18i	$ra, %call36(strlen)
 	jirl	$ra, $ra, 0
-	addi.d	$a3, $sp, 542
+	addi.d	$a3, $sp, 534
 	add.d	$a1, $a3, $a0
 	ld.b	$a2, $a1, -1
 	ori	$a4, $zero, 108
@@ -602,25 +598,25 @@ str_format:                             # @str_format
 	movfr2gr.d	$a2, $fa0
 .LBB5_30:                               # %.thread49
                                         #   in Loop: Header=BB5_4 Depth=1
-	addi.d	$a0, $sp, 30
-	addi.d	$a1, $sp, 542
+	addi.d	$a0, $sp, 22
+	addi.d	$a1, $sp, 534
 .LBB5_31:                               # %.thread49
                                         #   in Loop: Header=BB5_4 Depth=1
 	pcaddu18i	$ra, %call36(sprintf)
 	jirl	$ra, $ra, 0
 	ori	$s8, $zero, 37
-	addi.d	$a0, $sp, 30
+	addi.d	$a0, $sp, 22
 	pcaddu18i	$ra, %call36(strlen)
 	jirl	$ra, $ra, 0
 	move	$a2, $a0
-	addi.d	$a0, $sp, 560
-	addi.d	$a1, $sp, 30
+	addi.d	$a0, $sp, 552
+	addi.d	$a1, $sp, 22
 	pcaddu18i	$ra, %call36(luaL_addlstring)
 	jirl	$ra, $ra, 0
 	b	.LBB5_3
 .LBB5_32:                               #   in Loop: Header=BB5_4 Depth=1
 	lu12i.w	$a0, 2
-	ori	$a0, $a0, 592
+	ori	$a0, $a0, 584
 	add.d	$a2, $sp, $a0
 	move	$fp, $s8
 	move	$a0, $s8
@@ -628,14 +624,14 @@ str_format:                             # @str_format
 	pcaddu18i	$ra, %call36(luaL_checklstring)
 	jirl	$ra, $ra, 0
 	move	$s4, $a0
-	addi.d	$a0, $sp, 542
+	addi.d	$a0, $sp, 534
 	ori	$a1, $zero, 46
 	pcaddu18i	$ra, %call36(strchr)
 	jirl	$ra, $ra, 0
 	bnez	$a0, .LBB5_56
 # %bb.33:                               #   in Loop: Header=BB5_4 Depth=1
 	lu12i.w	$a0, 2
-	ori	$a0, $a0, 592
+	ori	$a0, $a0, 584
 	add.d	$a0, $sp, $a0
 	ld.d	$a0, $a0, 0
 	ori	$a1, $zero, 99
@@ -645,57 +641,57 @@ str_format:                             # @str_format
 	move	$a1, $s2
 	pcaddu18i	$ra, %call36(lua_pushvalue)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_addvalue)
 	jirl	$ra, $ra, 0
 	ori	$s8, $zero, 37
 	b	.LBB5_3
 .LBB5_35:                               #   in Loop: Header=BB5_4 Depth=1
 	lu12i.w	$a0, 2
-	ori	$a0, $a0, 592
+	ori	$a0, $a0, 584
 	add.d	$a2, $sp, $a0
 	move	$fp, $s8
 	move	$a0, $s8
 	move	$a1, $s2
 	pcaddu18i	$ra, %call36(luaL_checklstring)
 	jirl	$ra, $ra, 0
-	ld.d	$a1, $sp, 560
+	ld.d	$a1, $sp, 552
 	move	$s4, $a0
 	bltu	$a1, $s7, .LBB5_37
 # %bb.36:                               #   in Loop: Header=BB5_4 Depth=1
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_prepbuffer)
 	jirl	$ra, $ra, 0
-	ld.d	$a1, $sp, 560
+	ld.d	$a1, $sp, 552
 .LBB5_37:                               #   in Loop: Header=BB5_4 Depth=1
 	addi.d	$a0, $a1, 1
-	st.d	$a0, $sp, 560
+	st.d	$a0, $sp, 552
 	ori	$a0, $zero, 34
 	st.b	$a0, $a1, 0
 	lu12i.w	$a0, 2
-	ori	$a0, $a0, 592
+	ori	$a0, $a0, 584
 	add.d	$a0, $sp, $a0
 	ld.d	$a0, $a0, 0
 	addi.d	$a1, $a0, -1
 	lu12i.w	$a2, 2
-	ori	$a2, $a2, 592
+	ori	$a2, $a2, 584
 	add.d	$a2, $sp, $a2
 	st.d	$a1, $a2, 0
 	ori	$s8, $zero, 37
 	bnez	$a0, .LBB5_43
 .LBB5_38:                               # %._crit_edge.i
                                         #   in Loop: Header=BB5_4 Depth=1
-	ld.d	$a0, $sp, 560
+	ld.d	$a0, $sp, 552
 	bltu	$a0, $s7, .LBB5_40
 # %bb.39:                               #   in Loop: Header=BB5_4 Depth=1
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_prepbuffer)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 560
+	ld.d	$a0, $sp, 552
 .LBB5_40:                               # %addquoted.exit
                                         #   in Loop: Header=BB5_4 Depth=1
 	addi.d	$a1, $a0, 1
-	st.d	$a1, $sp, 560
+	st.d	$a1, $sp, 552
 	ori	$a1, $zero, 34
 	st.b	$a1, $a0, 0
 	b	.LBB5_3
@@ -703,17 +699,17 @@ str_format:                             # @str_format
 .LBB5_41:                               #   in Loop: Header=BB5_43 Depth=2
 	ld.b	$a1, $s4, 0
 	addi.d	$a2, $a0, 1
-	st.d	$a2, $sp, 560
+	st.d	$a2, $sp, 552
 	st.b	$a1, $a0, 0
 .LBB5_42:                               #   in Loop: Header=BB5_43 Depth=2
 	lu12i.w	$a0, 2
-	ori	$a0, $a0, 592
+	ori	$a0, $a0, 584
 	add.d	$a0, $sp, $a0
 	ld.d	$a0, $a0, 0
 	addi.d	$s4, $s4, 1
 	addi.d	$a1, $a0, -1
 	lu12i.w	$a2, 2
-	ori	$a2, $a2, 592
+	ori	$a2, $a2, 584
 	add.d	$a2, $sp, $a2
 	st.d	$a1, $a2, 0
 	beqz	$a0, .LBB5_38
@@ -734,7 +730,7 @@ str_format:                             # @str_format
 .LBB5_45:                               #   in Loop: Header=BB5_43 Depth=2
 	pcalau12i	$a0, %pc_hi20(.L.str.34)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.34)
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	ori	$a2, $zero, 4
 	pcaddu18i	$ra, %call36(luaL_addlstring)
 	jirl	$ra, $ra, 0
@@ -745,44 +741,44 @@ str_format:                             # @str_format
 	ori	$a1, $zero, 92
 	bne	$a0, $a1, .LBB5_51
 .LBB5_47:                               #   in Loop: Header=BB5_43 Depth=2
-	ld.d	$a0, $sp, 560
+	ld.d	$a0, $sp, 552
 	bltu	$a0, $s7, .LBB5_49
 # %bb.48:                               #   in Loop: Header=BB5_43 Depth=2
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_prepbuffer)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 560
+	ld.d	$a0, $sp, 552
 .LBB5_49:                               #   in Loop: Header=BB5_43 Depth=2
 	addi.d	$a1, $a0, 1
-	st.d	$a1, $sp, 560
+	st.d	$a1, $sp, 552
 	ori	$a1, $zero, 92
 	st.b	$a1, $a0, 0
-	ld.d	$a0, $sp, 560
+	ld.d	$a0, $sp, 552
 	bltu	$a0, $s7, .LBB5_41
 # %bb.50:                               #   in Loop: Header=BB5_43 Depth=2
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_prepbuffer)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 560
+	ld.d	$a0, $sp, 552
 	b	.LBB5_41
 .LBB5_51:                               #   in Loop: Header=BB5_43 Depth=2
-	ld.d	$a1, $sp, 560
+	ld.d	$a1, $sp, 552
 	bltu	$a1, $s7, .LBB5_53
 # %bb.52:                               #   in Loop: Header=BB5_43 Depth=2
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_prepbuffer)
 	jirl	$ra, $ra, 0
 	ld.bu	$a0, $s4, 0
-	ld.d	$a1, $sp, 560
+	ld.d	$a1, $sp, 552
 .LBB5_53:                               #   in Loop: Header=BB5_43 Depth=2
 	addi.d	$a2, $a1, 1
-	st.d	$a2, $sp, 560
+	st.d	$a2, $sp, 552
 	st.b	$a0, $a1, 0
 	b	.LBB5_42
 .LBB5_54:                               #   in Loop: Header=BB5_43 Depth=2
 	pcalau12i	$a0, %pc_hi20(.L.str.33)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.33)
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	ori	$a2, $zero, 2
 	pcaddu18i	$ra, %call36(luaL_addlstring)
 	jirl	$ra, $ra, 0
@@ -798,12 +794,12 @@ str_format:                             # @str_format
 	b	.LBB5_30
 .LBB5_56:                               # %.thread
                                         #   in Loop: Header=BB5_4 Depth=1
-	addi.d	$a0, $sp, 30
-	addi.d	$a1, $sp, 542
+	addi.d	$a0, $sp, 22
+	addi.d	$a1, $sp, 534
 	move	$a2, $s4
 	b	.LBB5_31
 .LBB5_57:                               # %._crit_edge
-	addi.d	$a0, $sp, 560
+	addi.d	$a0, $sp, 552
 	pcaddu18i	$ra, %call36(luaL_pushresult)
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 1
@@ -811,6 +807,7 @@ str_format:                             # @str_format
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 2752
 	add.d	$sp, $sp, $a1
+	fld.d	$fs0, $sp, 1936                 # 8-byte Folded Reload
 	ld.d	$s8, $sp, 1944                  # 8-byte Folded Reload
 	ld.d	$s7, $sp, 1952                  # 8-byte Folded Reload
 	ld.d	$s6, $sp, 1960                  # 8-byte Folded Reload

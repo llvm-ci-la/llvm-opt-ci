@@ -1,40 +1,6 @@
 	.file	"xs_kernel.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fast_nuclear_W
-.LCPI0_0:
-	.dword	0xbfd19dc7afdb7b46              # double -0.27525512860841095
-.LCPI0_1:
-	.dword	0x3fe065c77cdfff0d              # double 0.51242422475476845
-.LCPI0_2:
-	.dword	0xc005cc470a049097              # double -2.7247448713915889
-.LCPI0_3:
-	.dword	0x3faa80fd3629c600              # double 0.051765358792987826
-.LCPI0_4:
-	.dword	0x4062000000000000              # double 144
-.LCPI0_5:
-	.dword	0x4023bd3cbc48f10b              # double 9.8696040000000007
-.LCPI0_6:
-	.dword	0x4043bd3cddd6e04c              # double 39.47842
-.LCPI0_7:
-	.dword	0x405634e4649906cd              # double 88.826440000000005
-.LCPI0_8:
-	.dword	0x4063bd3d07c84b5e              # double 157.91370000000001
-.LCPI0_9:
-	.dword	0x406ed7aee631f8a1              # double 246.74010000000001
-.LCPI0_10:
-	.dword	0x407634e48e8a71de              # double 355.30579999999998
-.LCPI0_11:
-	.dword	0x407e39c504816f00              # double 483.61059999999998
-.LCPI0_12:
-	.dword	0x4083bd3cd35a8588              # double 631.65470000000005
-.LCPI0_13:
-	.dword	0x4088fb810624dd2f              # double 799.43799999999999
-.LCPI0_14:
-	.dword	0x408ed7aee631f8a1              # double 986.96040000000005
-.LCPI0_15:
-	.dword	0x40544f923a29c77a              # double 81.243300000000005
 	.text
-	.globl	fast_nuclear_W
+	.globl	fast_nuclear_W                  # -- Begin function fast_nuclear_W
 	.p2align	5
 	.type	fast_nuclear_W,@function
 fast_nuclear_W:                         # @fast_nuclear_W
@@ -96,12 +62,14 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs2
 	pcaddu18i	$ra, %call36(__divdc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_4)
 	fst.d	$fa0, $sp, 248                  # 8-byte Folded Spill
 	fst.d	$fa1, $sp, 256                  # 8-byte Folded Spill
-	fmul.d	$fs6, $fs1, $fa2
-	fmul.d	$fs7, $fs0, $fa2
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 131072
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa0, $a0
+	fmul.d	$fs6, $fs1, $fa0
+	fmul.d	$fs7, $fs0, $fa0
 	fmul.d	$fa0, $fs1, $fs6
 	fmul.d	$fa1, $fs0, $fs7
 	fmul.d	$fa2, $fs6, $fs0
@@ -120,11 +88,14 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_5)
 	fneg.d	$fa1, $fa1
-	vldi	$vr3, -784
-	fsub.d	$fa0, $fa3, $fa0
+	vldi	$vr2, -784
+	fsub.d	$fa0, $fa2, $fa0
+	lu12i.w	$a0, -277361
+	ori	$a0, $a0, 267
+	lu32i.d	$a0, 245052
+	lu52i.d	$a0, $a0, 1026
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -137,10 +108,13 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_6)
-	vldi	$vr3, -784
-	fadd.d	$fa0, $fa0, $fa3
+	vldi	$vr2, -784
+	fadd.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -139922
+	ori	$a0, $a0, 76
+	lu32i.d	$a0, 245052
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -171,11 +145,14 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_7)
 	fneg.d	$fa1, $fa1
-	vldi	$vr3, -784
-	fsub.d	$fa0, $fa3, $fa0
+	vldi	$vr2, -784
+	fsub.d	$fa0, $fa2, $fa0
+	lu12i.w	$a0, 412048
+	ori	$a0, $a0, 1741
+	lu32i.d	$a0, 406756
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -194,10 +171,13 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_8)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_8)
-	vldi	$vr3, -784
-	fadd.d	$fa0, $fa0, $fa3
+	vldi	$vr2, -784
+	fadd.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, 31876
+	ori	$a0, $a0, 2910
+	lu32i.d	$a0, 245053
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -210,11 +190,14 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_9)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_9)
 	fneg.d	$fa1, $fa1
-	vldi	$vr3, -784
-	fsub.d	$fa0, $fa3, $fa0
+	vldi	$vr2, -784
+	fsub.d	$fa0, $fa2, $fa0
+	lu12i.w	$a0, -105697
+	ori	$fp, $a0, 2209
+	lu32i.d	$fp, -75858
+	lu52i.d	$a0, $fp, 1030
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -227,10 +210,13 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_10)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_10)
-	vldi	$vr3, -784
-	fadd.d	$fa0, $fa0, $fa3
+	vldi	$vr2, -784
+	fadd.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -464729
+	ori	$a0, $a0, 478
+	lu32i.d	$a0, 406756
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -243,11 +229,14 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_11)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_11)
 	fneg.d	$fa1, $fa1
-	vldi	$vr3, -784
-	fsub.d	$fa0, $fa3, $fa0
+	vldi	$vr2, -784
+	fsub.d	$fa0, $fa2, $fa0
+	lu12i.w	$a0, 18454
+	ori	$a0, $a0, 3840
+	lu32i.d	$a0, -116283
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -260,10 +249,13 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_12)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_12)
-	vldi	$vr3, -784
-	fadd.d	$fa0, $fa0, $fa3
+	vldi	$vr2, -784
+	fadd.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -182872
+	ori	$a0, $a0, 1416
+	lu32i.d	$a0, 245052
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -276,11 +268,14 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_13)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_13)
 	fneg.d	$fa1, $fa1
-	vldi	$vr3, -784
-	fsub.d	$fa0, $fa3, $fa0
+	vldi	$vr2, -784
+	fsub.d	$fa0, $fa2, $fa0
+	lu12i.w	$a0, 25165
+	ori	$a0, $a0, 3375
+	lu32i.d	$a0, -459903
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -293,10 +288,10 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fs4
 	pcaddu18i	$ra, %call36(cexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_14)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_14)
-	vldi	$vr3, -784
-	fadd.d	$fa0, $fa0, $fa3
+	vldi	$vr2, -784
+	fadd.d	$fa0, $fa0, $fa2
+	lu52i.d	$a0, $fp, 1032
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fs2
 	fmov.d	$fa3, $fs6
 .LBB0_6:                                # %.split56.us
@@ -376,8 +371,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	vfmul.d	$vr0, $vr1, $vr0
 	vfadd.d	$vr6, $vr2, $vr0
 .LBB0_7:                                # %.split56.us
-	pcalau12i	$a0, %pc_hi20(.LCPI0_15)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_15)
+	lu12i.w	$a0, 238236
+	ori	$a0, $a0, 1914
+	lu32i.d	$a0, 282514
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa2, $a0
 	fmul.d	$fa0, $fs0, $fa2
 	fmul.d	$fa1, $fs1, $fa2
 	fld.d	$fa3, $sp, 272                  # 8-byte Folded Reload
@@ -423,11 +421,17 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fadd.d	$fs4, $fa2, $fa2
 	bceqz	$fcc0, .LBB0_32
 .LBB0_12:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, -328265
+	ori	$a0, $a0, 2886
+	lu32i.d	$a0, 105927
+	lu52i.d	$a0, $a0, -1027
+	movgr2fr.d	$fa0, $a0
 	fadd.d	$fa2, $fs5, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, 511487
+	ori	$a0, $a0, 3853
+	lu32i.d	$a0, 26055
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa0, $a0
 	movgr2fr.d	$fa1, $zero
 	fmov.d	$fa3, $fs4
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -435,11 +439,17 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fs6, $fa0
 	fmov.d	$fs7, $fa1
 .LBB0_13:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, 41033
+	ori	$a0, $a0, 151
+	lu32i.d	$a0, 379975
+	lu52i.d	$a0, $a0, -1024
+	movgr2fr.d	$fa0, $a0
 	fadd.d	$fa2, $fs5, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_3)
+	lu12i.w	$a0, 221852
+	ori	$a0, $a0, 1536
+	lu32i.d	$a0, -360195
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa0, $a0
 	movgr2fr.d	$fa1, $zero
 	fmov.d	$fa3, $fs4
 	pcaddu18i	$ra, %call36(__divdc3)
@@ -641,12 +651,18 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_0)
 	fmov.d	$fa3, $fa1
-	fadd.d	$fa2, $fa0, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, -328265
+	ori	$a0, $a0, 2886
+	lu32i.d	$a0, 105927
+	lu52i.d	$a0, $a0, -1027
+	movgr2fr.d	$fa1, $a0
+	fadd.d	$fa2, $fa0, $fa1
+	lu12i.w	$a0, 511487
+	ori	$a0, $a0, 3853
+	lu32i.d	$a0, 26055
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa0, $a0
 	movgr2fr.d	$fa1, $zero
 	pcaddu18i	$ra, %call36(__divdc3)
 	jirl	$ra, $ra, 0
@@ -687,8 +703,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_5)
+	lu12i.w	$a0, -277361
+	ori	$a0, $a0, 267
+	lu32i.d	$a0, 245052
+	lu52i.d	$a0, $a0, 1026
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -712,8 +731,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_6)
+	lu12i.w	$a0, -139922
+	ori	$a0, $a0, 76
+	lu32i.d	$a0, 245052
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -755,8 +777,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_7)
+	lu12i.w	$a0, 412048
+	ori	$a0, $a0, 1741
+	lu32i.d	$a0, 406756
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -786,8 +811,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_8)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_8)
+	lu12i.w	$a0, 31876
+	ori	$a0, $a0, 2910
+	lu32i.d	$a0, 245053
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -811,8 +839,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_9)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_9)
+	lu12i.w	$a0, -105697
+	ori	$fp, $a0, 2209
+	lu32i.d	$fp, -75858
+	lu52i.d	$a0, $fp, 1030
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -836,8 +867,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_10)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_10)
+	lu12i.w	$a0, -464729
+	ori	$a0, $a0, 478
+	lu32i.d	$a0, 406756
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -861,8 +895,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_11)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_11)
+	lu12i.w	$a0, 18454
+	ori	$a0, $a0, 3840
+	lu32i.d	$a0, -116283
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -886,8 +923,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_12)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_12)
+	lu12i.w	$a0, -182872
+	ori	$a0, $a0, 1416
+	lu32i.d	$a0, 245052
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -911,8 +951,11 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_13)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_13)
+	lu12i.w	$a0, 25165
+	ori	$a0, $a0, 3375
+	lu32i.d	$a0, -459903
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs3
@@ -936,8 +979,8 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa3, $fs0
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_14)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_14)
+	lu52i.d	$a0, $fp, 1032
+	movgr2fr.d	$fa2, $a0
 	fsub.d	$fa2, $fa2, $fa0
 	fneg.d	$fa3, $fa1
 	fmov.d	$fa0, $fs5

@@ -184,12 +184,7 @@ _ZN25btHeightfieldTerrainShape10initializeEiiPvfffi14PHY_ScalarTypeb: # @_ZN25bt
 .Lfunc_end1:
 	.size	_ZN25btHeightfieldTerrainShape10initializeEiiPvfffi14PHY_ScalarTypeb, .Lfunc_end1-_ZN25btHeightfieldTerrainShape10initializeEiiPvfffi14PHY_ScalarTypeb
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN25btHeightfieldTerrainShapeC2EiiPvfibb
-.LCPI2_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	_ZN25btHeightfieldTerrainShapeC2EiiPvfibb
+	.globl	_ZN25btHeightfieldTerrainShapeC2EiiPvfibb # -- Begin function _ZN25btHeightfieldTerrainShapeC2EiiPvfibb
 	.p2align	5
 	.type	_ZN25btHeightfieldTerrainShapeC2EiiPvfibb,@function
 _ZN25btHeightfieldTerrainShapeC2EiiPvfibb: # @_ZN25btHeightfieldTerrainShapeC2EiiPvfibb
@@ -227,8 +222,9 @@ _ZN25btHeightfieldTerrainShapeC2EiiPvfibb: # @_ZN25btHeightfieldTerrainShapeC2Ei
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(_ZTV25btHeightfieldTerrainShape+16)
 	addi.d	$a0, $a0, %pc_lo12(_ZTV25btHeightfieldTerrainShape+16)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a1, 292863
+	ori	$a1, $a1, 3840
+	movgr2fr.w	$fa0, $a1
 	ori	$a1, $zero, 5
 	masknez	$a5, $a1, $s0
 	fdiv.s	$fa0, $fs0, $fa0

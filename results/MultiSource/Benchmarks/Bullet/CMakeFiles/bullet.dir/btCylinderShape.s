@@ -845,12 +845,8 @@ _ZNK21btConvexInternalShape9getMarginEv: # @_ZNK21btConvexInternalShape9getMargi
 .Lfunc_end16:
 	.size	_ZNK21btConvexInternalShape9getMarginEv, .Lfunc_end16-_ZNK21btConvexInternalShape9getMarginEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3
-.LCPI17_0:
-	.word	0x28800000                      # float 1.42108547E-14
 	.section	.text._ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3,"axG",@progbits,_ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3,comdat
-	.weak	_ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3
+	.weak	_ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3 # -- Begin function _ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3
 	.p2align	5
 	.type	_ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3,@function
 _ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3: # @_ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3
@@ -901,28 +897,28 @@ _ZNK15btCylinderShape24localGetSupportingVertexERK9btVector3: # @_ZNK15btCylinde
 # %bb.1:
 	movgr2fr.w	$fs0, $fp
 	movgr2fr.w	$fs1, $s3
-	movgr2fr.w	$fs2, $s1
-	fld.s	$fa0, $s2, 0
-	fld.s	$fa1, $s2, 4
+	fld.s	$fa0, $s2, 4
+	fld.s	$fa1, $s2, 0
 	fld.s	$fa2, $s2, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI17_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI17_0)
-	fmul.s	$fa4, $fa1, $fa1
-	fmadd.s	$fa4, $fa0, $fa0, $fa4
-	fmadd.s	$fa4, $fa2, $fa2, $fa4
-	fcmp.clt.s	$fcc0, $fa4, $fa3
+	movgr2fr.w	$fs2, $s1
+	fmul.s	$fa3, $fa0, $fa0
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa4, $a0
+	fcmp.clt.s	$fcc0, $fa3, $fa4
 	vldi	$vr3, -1040
-	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa1, $fa1, $fa3, $fcc0
+	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa2, $fa2, $fa3, $fcc0
-	fmul.s	$fa3, $fa1, $fa1
+	fmul.s	$fa3, $fa0, $fa0
 	ld.d	$a0, $s0, 0
-	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	frsqrt.s	$fa3, $fa3
 	ld.d	$a1, $a0, 88
-	fmul.s	$fs3, $fa0, $fa3
-	fmul.s	$fs4, $fa1, $fa3
+	fmul.s	$fs3, $fa1, $fa3
+	fmul.s	$fs4, $fa0, $fa3
 	fmul.s	$fs5, $fa2, $fa3
 	move	$a0, $s0
 	jirl	$ra, $a1, 0

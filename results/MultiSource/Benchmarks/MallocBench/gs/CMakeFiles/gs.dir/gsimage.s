@@ -62,12 +62,7 @@ gs_image_init:                          # @gs_image_init
 .Lfunc_end0:
 	.size	gs_image_init, .Lfunc_end0-gs_image_init
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function image_init
-.LCPI1_0:
-	.word	0x45800000                      # float 4096
-	.text
-	.globl	image_init
+	.globl	image_init                      # -- Begin function image_init
 	.p2align	5
 	.type	image_init,@function
 image_init:                             # @image_init
@@ -129,15 +124,15 @@ image_init:                             # @image_init
 	st.w	$s6, $s7, 0
 	move	$t1, $s5
 	st.w	$s5, $s7, 4
-	fld.s	$fa0, $sp, 16
-	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
-	fld.s	$fa2, $a2, %pc_lo12(.LCPI1_0)
 	move	$a2, $s4
 	st.w	$s4, $s7, 8
 	move	$a5, $s3
 	st.w	$s3, $s7, 12
+	fld.s	$fa0, $sp, 16
 	move	$a3, $s2
 	st.w	$s2, $s7, 16
+	lu12i.w	$t0, 284672
+	movgr2fr.w	$fa2, $t0
 	fmul.s	$fa0, $fa0, $fa2
 	fld.s	$fa1, $sp, 64
 	ftintrz.l.s	$fa0, $fa0

@@ -1,18 +1,14 @@
 	.file	"pr23941.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3800000000000000              # double 5.8774717541114375E-39
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
 	pcalau12i	$a0, %pc_hi20(d)
 	fld.d	$fa0, $a0, %pc_lo12(d)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a0, $zero, 896
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB0_2
 # %bb.1:

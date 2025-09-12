@@ -1,14 +1,6 @@
 	.file	"Main.cpp"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z10printStatsR6Solver
-.LCPI0_0:
-	.word	0x42c80000                      # float 100
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.globl	_Z10printStatsR6Solver
+	.globl	_Z10printStatsR6Solver          # -- Begin function _Z10printStatsR6Solver
 	.p2align	5
 	.type	_Z10printStatsR6Solver,@function
 _Z10printStatsR6Solver:                 # @_Z10printStatsR6Solver
@@ -95,12 +87,12 @@ _Z10printStatsR6Solver:                 # @_Z10printStatsR6Solver
 	ffint.s.l	$fa0, $fa0
 	fadd.s	$fa0, $fa0, $fa0
 	slti	$a3, $a1, 0
-	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a4, %pc_lo12(.LCPI0_0)
-	movgr2fr.d	$fa2, $a1
-	ffint.s.l	$fa2, $fa2
+	movgr2fr.d	$fa1, $a1
+	ffint.s.l	$fa1, $fa1
 	movgr2cf	$fcc0, $a3
-	fsel	$fa0, $fa2, $fa0, $fcc0
+	fsel	$fa0, $fa1, $fa0, $fcc0
+	lu12i.w	$a1, 273536
+	movgr2fr.w	$fa1, $a1
 	fmul.s	$fa0, $fa0, $fa1
 	srli.d	$a1, $a2, 1
 	andi	$a3, $a2, 1
@@ -145,27 +137,28 @@ _Z10printStatsR6Solver:                 # @_Z10printStatsR6Solver
 	ori	$a4, $zero, 100
 	mul.d	$a3, $a3, $a4
 	srli.d	$a4, $a3, 32
-	pcalau12i	$a5, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI0_1)
 	lu52i.d	$a5, $zero, 1107
 	or	$a4, $a4, $a5
+	movgr2fr.d	$fa0, $a4
+	lu12i.w	$a4, 256
+	lu52i.d	$a4, $a4, 1107
 	movgr2fr.d	$fa1, $a4
-	fsub.d	$fa1, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	bstrpick.d	$a3, $a3, 31, 2
 	slli.d	$a3, $a3, 2
 	lu52i.d	$a4, $zero, 1075
 	or	$a3, $a3, $a4
 	movgr2fr.d	$fa2, $a3
-	fadd.d	$fa1, $fa2, $fa1
+	fadd.d	$fa0, $fa2, $fa0
 	srli.d	$a3, $a1, 32
 	or	$a3, $a3, $a5
 	movgr2fr.d	$fa2, $a3
-	fsub.d	$fa0, $fa2, $fa0
+	fsub.d	$fa1, $fa2, $fa1
 	lu12i.w	$a3, 275200
 	bstrins.d	$a1, $a3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fadd.d	$fa0, $fa2, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a3, $fa0
 	pcalau12i	$a1, %pc_hi20(.L.str.8)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.8)

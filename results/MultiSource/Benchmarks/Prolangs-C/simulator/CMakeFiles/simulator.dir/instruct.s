@@ -1026,14 +1026,7 @@ LDX_P:                                  # @LDX_P
 .Lfunc_end15:
 	.size	LDX_P, .Lfunc_end15-LDX_P
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function MUL_P
-.LCPI16_0:
-	.dword	0x4160000000000000              # double 8388608
-.LCPI16_1:
-	.dword	0x3e70000000000000              # double 5.9604644775390625E-8
-	.text
-	.globl	MUL_P
+	.globl	MUL_P                           # -- Begin function MUL_P
 	.p2align	5
 	.type	MUL_P,@function
 MUL_P:                                  # @MUL_P
@@ -1064,11 +1057,11 @@ MUL_P:                                  # @MUL_P
 # %bb.2:
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a5, %pc_hi20(.LCPI16_0)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI16_0)
-	movgr2fr.w	$fa2, $a2
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a2
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	lu52i.d	$a5, $zero, 1046
+	movgr2fr.d	$fa1, $a5
 	fcmp.cle.d	$fcc0, $fa1, $fa0
 	ori	$a5, $zero, 1
 	bcnez	$fcc0, .LBB16_4
@@ -1086,9 +1079,7 @@ MUL_P:                                  # @MUL_P
 	sub.d	$a6, $a6, $a1
 	movgr2fr.w	$fa0, $a6
 	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a6, %pc_hi20(.LCPI16_1)
-	fld.d	$fa1, $a6, %pc_lo12(.LCPI16_1)
-	movgr2fr.w	$fa2, $a2
+	movgr2fr.w	$fa1, $a2
 	b	.LBB16_8
 .LBB16_6:
 	xori	$a6, $a3, 1
@@ -1099,21 +1090,21 @@ MUL_P:                                  # @MUL_P
 	ffint.d.w	$fa0, $fa0
 	lu12i.w	$a6, 4096
 	sub.d	$a6, $a6, $a2
-	pcalau12i	$a7, %pc_hi20(.LCPI16_1)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI16_1)
-	movgr2fr.w	$fa2, $a6
+	movgr2fr.w	$fa1, $a6
 .LBB16_8:
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa2, $fa0
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa0, $fa1, $fa0
+	lu52i.d	$a6, $zero, 999
+	movgr2fr.d	$fa1, $a6
 	fmul.d	$fa1, $fa0, $fa1
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a6, $fa1
 	slli.d	$a6, $a6, 24
-	pcalau12i	$a7, %pc_hi20(.LCPI16_0)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI16_0)
-	movgr2fr.w	$fa2, $a6
-	ffint.d.w	$fa2, $fa2
-	fsub.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a6
+	ffint.d.w	$fa1, $fa1
+	fsub.d	$fa0, $fa0, $fa1
+	lu52i.d	$a6, $zero, 1046
+	movgr2fr.d	$fa1, $a6
 	fcmp.clt.d	$fcc0, $fa1, $fa0
 	ori	$a6, $zero, 1
 	bcnez	$fcc0, .LBB16_11
@@ -1134,11 +1125,11 @@ MUL_P:                                  # @MUL_P
 	movgr2fr.w	$fa0, $a4
 	ffint.d.w	$fa0, $fa0
 	sub.d	$a2, $a3, $a2
-	pcalau12i	$a3, %pc_hi20(.LCPI16_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI16_0)
-	movgr2fr.w	$fa2, $a2
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa2, $fa0
+	movgr2fr.w	$fa1, $a2
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa0, $fa1, $fa0
+	lu52i.d	$a2, $zero, 1046
+	movgr2fr.d	$fa1, $a2
 	fcmp.cle.d	$fcc0, $fa1, $fa0
 	ori	$s0, $zero, 1
 	bcnez	$fcc0, .LBB16_15

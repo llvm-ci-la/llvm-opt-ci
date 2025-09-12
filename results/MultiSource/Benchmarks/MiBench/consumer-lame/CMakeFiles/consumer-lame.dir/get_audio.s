@@ -39,16 +39,7 @@ lame_init_infile:                       # @lame_init_infile
 .Lfunc_end0:
 	.size	lame_init_infile, .Lfunc_end0-lame_init_infile
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function OpenSndFile
-.LCPI1_0:
-	.dword	0x408f400000000000              # double 1000
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI1_1:
-	.word	0x5f000000                      # float 9.22337203E+18
-	.text
-	.globl	OpenSndFile
+	.globl	OpenSndFile                     # -- Begin function OpenSndFile
 	.p2align	5
 	.type	OpenSndFile,@function
 OpenSndFile:                            # @OpenSndFile
@@ -163,23 +154,25 @@ OpenSndFile:                            # @OpenSndFile
 	bne	$a1, $a2, .LBB1_15
 # %bb.13:
 	movgr2fr.d	$fa0, $a0
+	ld.w	$a0, $s6, %pc_lo12(input_bitrate)
 	ffint.d.l	$fa0, $fa0
 	vldi	$vr1, -992
-	ld.w	$a0, $s6, %pc_lo12(input_bitrate)
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI1_0)
 	fmul.d	$fa0, $fa0, $fa1
 	movgr2fr.w	$fa1, $a0
 	ffint.d.w	$fa1, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	ld.w	$a0, $s3, %pc_lo12(samp_freq)
 	fmul.d	$fa1, $fa1, $fa2
 	fdiv.d	$fa0, $fa0, $fa1
-	ld.w	$a0, $s3, %pc_lo12(samp_freq)
 	fcvt.s.d	$fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_1)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI1_1)
-	movgr2fr.w	$fa2, $a0
-	ffint.s.w	$fa2, $fa2
-	fmul.s	$fa0, $fa2, $fa0
+	movgr2fr.w	$fa1, $a0
+	ffint.s.w	$fa1, $fa1
+	fmul.s	$fa0, $fa1, $fa0
+	lu12i.w	$a0, 389120
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	ftintrz.l.s	$fa2, $fa0
 	movfr2gr.d	$a0, $fa2

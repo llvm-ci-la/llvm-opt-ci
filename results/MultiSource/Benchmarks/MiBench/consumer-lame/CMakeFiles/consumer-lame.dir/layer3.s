@@ -1,559 +1,539 @@
 	.file	"layer3.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function init_layer3
-.LCPI0_0:
-	.dword	0x3ff5555555555555              # double 1.3333333333333333
-.LCPI0_1:
-	.dword	0x3fa657184ae74487              # double 0.043633231299858237
-.LCPI0_2:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI0_3:
-	.dword	0x4052000000000000              # double 72
-.LCPI0_16:
-	.dword	0x3fc0c152382d7365              # double 0.1308996938995747
-.LCPI0_17:
-	.dword	0x7ff0000000000000              # double +Inf
-.LCPI0_25:
-	.dword	0x3ff6a09e667f3bcd              # double 1.4142135623730951
-.LCPI0_26:
-	.dword	0x3feae89f995ad3ad              # double 0.8408964152537145
-.LCPI0_27:
-	.dword	0x3fe6a09e667f3bcd              # double 0.70710678118654757
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_4:
+	.p2align	4, 0x0                          # -- Begin function init_layer3
+.LCPI0_0:
 	.dword	0xbfe5b3935c0c9409              # double -0.67817085245462849
 	.dword	0xbfe42ae51f3af2b9              # double -0.63023620700513228
-.LCPI0_5:
+.LCPI0_1:
 	.dword	0xbffa9aa4bcad1baf              # double -1.6627547617115217
 	.dword	0xbff4e7ae9144f0fc              # double -1.3065629648763766
-.LCPI0_6:
+.LCPI0_2:
 	.dword	0xbfe03f8e65fdf0fc              # double -0.50775833053879138
 	.dword	0xbfddd1ba8e917e2b              # double -0.46592582628906837
-.LCPI0_7:
+.LCPI0_3:
 	.dword	0x3fd34c45a2782fb5              # double 0.30153027406845051
 	.dword	0x3ff7746ea3a45f90              # double 1.4659258262890695
-.LCPI0_8:
+.LCPI0_4:
 	.dword	0xbfe2f895141f4826              # double -0.59284452371708052
 	.dword	0xbfe209c1a6fe449c              # double -0.56369097343317121
-.LCPI0_9:
+.LCPI0_5:
 	.dword	0xbff1535055b4bd6a              # double -1.0828402851000996
 	.dword	0xbfedc74ea7f7f7fc              # double -0.93057949835178943
-.LCPI0_10:
+.LCPI0_6:
 	.dword	0xbfd969579af13b11              # double -0.3970545781239006
 	.dword	0xbfd37fb982271a06              # double -0.30467069349506948
-.LCPI0_11:
+.LCPI0_7:
 	.dword	0x401be994a779f926              # double 6.9781061332890086
 	.dword	0xc0223026a975a6c3              # double -9.0940449672810981
-.LCPI0_12:
+.LCPI0_8:
 	.dword	0xbfe1517a7bdb3895              # double -0.54119610014619701
 	.dword	0xbfe0c6c679d621e4              # double -0.52426456257040543
-.LCPI0_13:
+.LCPI0_9:
 	.dword	0xbfea486a6fff9fc1              # double -0.82133981585229077
 	.dword	0xbfe7aed8ced5b9bd              # double -0.74009361646113059
-.LCPI0_14:
+.LCPI0_10:
 	.dword	0xbfc8b3fcea414726              # double -0.19299279630882288
 	.dword	0xbfb11ced80d03287              # double -0.066847652386238562
-.LCPI0_15:
+.LCPI0_11:
 	.dword	0xc00c4ffda58811f0              # double -3.5390580112600603
 	.dword	0xc00252a2ed14a1b7              # double -2.2903498193665786
-.LCPI0_18:
+.LCPI0_12:
 	.dword	0xbfe5b3935c0c9409              # double -0.67817085245462849
 	.dword	0x3fe42ae51f3af2b9              # double 0.63023620700513228
-.LCPI0_19:
+.LCPI0_13:
 	.dword	0xbfe2f895141f4826              # double -0.59284452371708052
 	.dword	0x3fe209c1a6fe449c              # double 0.56369097343317121
-.LCPI0_20:
+.LCPI0_14:
 	.dword	0xbfe1517a7bdb3895              # double -0.54119610014619701
 	.dword	0x3fe0c6c679d621e4              # double 0.52426456257040543
-.LCPI0_21:
+.LCPI0_15:
 	.dword	0xbfe03f8e65fdf0fc              # double -0.50775833053879138
 	.dword	0x3fddd1ba8e917e2b              # double 0.46592582628906837
-.LCPI0_22:
+.LCPI0_16:
 	.dword	0xbfd969579af13b11              # double -0.3970545781239006
 	.dword	0x3fd37fb982271a06              # double 0.30467069349506948
-.LCPI0_23:
+.LCPI0_17:
 	.dword	0xbfc8b3fcea414726              # double -0.19299279630882288
 	.dword	0x3fb11ced80d03287              # double 0.066847652386238562
-.LCPI0_24:
+.LCPI0_18:
 	.dword	0x0000000000000000              # double 0
 	.dword	0x8000000000000000              # double -0
-.LCPI0_28:
+.LCPI0_19:
 	.word	12288                           # 0x3000
 	.word	12352                           # 0x3040
 	.word	12416                           # 0x3080
 	.word	12480                           # 0x30c0
-.LCPI0_29:
+.LCPI0_20:
 	.word	12544                           # 0x3100
 	.word	12608                           # 0x3140
 	.word	12296                           # 0x3008
 	.word	12360                           # 0x3048
-.LCPI0_30:
+.LCPI0_21:
 	.word	12424                           # 0x3088
 	.word	12488                           # 0x30c8
 	.word	12552                           # 0x3108
 	.word	12616                           # 0x3148
-.LCPI0_31:
+.LCPI0_22:
 	.word	12304                           # 0x3010
 	.word	12368                           # 0x3050
 	.word	12432                           # 0x3090
 	.word	12496                           # 0x30d0
-.LCPI0_32:
+.LCPI0_23:
 	.word	12560                           # 0x3110
 	.word	12624                           # 0x3150
 	.word	12312                           # 0x3018
 	.word	12376                           # 0x3058
-.LCPI0_33:
+.LCPI0_24:
 	.word	12440                           # 0x3098
 	.word	12504                           # 0x30d8
 	.word	12568                           # 0x3118
 	.word	12632                           # 0x3158
-.LCPI0_34:
+.LCPI0_25:
 	.word	12320                           # 0x3020
 	.word	12384                           # 0x3060
 	.word	12448                           # 0x30a0
 	.word	12512                           # 0x30e0
-.LCPI0_35:
+.LCPI0_26:
 	.word	12576                           # 0x3120
 	.word	12640                           # 0x3160
 	.word	12328                           # 0x3028
 	.word	12392                           # 0x3068
-.LCPI0_36:
+.LCPI0_27:
 	.word	12456                           # 0x30a8
 	.word	12520                           # 0x30e8
 	.word	12584                           # 0x3128
 	.word	12648                           # 0x3168
-.LCPI0_37:
+.LCPI0_28:
 	.word	12289                           # 0x3001
 	.word	12353                           # 0x3041
 	.word	12417                           # 0x3081
 	.word	12481                           # 0x30c1
-.LCPI0_38:
+.LCPI0_29:
 	.word	12545                           # 0x3101
 	.word	12609                           # 0x3141
 	.word	12297                           # 0x3009
 	.word	12361                           # 0x3049
-.LCPI0_39:
+.LCPI0_30:
 	.word	12425                           # 0x3089
 	.word	12489                           # 0x30c9
 	.word	12553                           # 0x3109
 	.word	12617                           # 0x3149
-.LCPI0_40:
+.LCPI0_31:
 	.word	12305                           # 0x3011
 	.word	12369                           # 0x3051
 	.word	12433                           # 0x3091
 	.word	12497                           # 0x30d1
-.LCPI0_41:
+.LCPI0_32:
 	.word	12561                           # 0x3111
 	.word	12625                           # 0x3151
 	.word	12313                           # 0x3019
 	.word	12377                           # 0x3059
-.LCPI0_42:
+.LCPI0_33:
 	.word	12441                           # 0x3099
 	.word	12505                           # 0x30d9
 	.word	12569                           # 0x3119
 	.word	12633                           # 0x3159
-.LCPI0_43:
+.LCPI0_34:
 	.word	12321                           # 0x3021
 	.word	12385                           # 0x3061
 	.word	12449                           # 0x30a1
 	.word	12513                           # 0x30e1
-.LCPI0_44:
+.LCPI0_35:
 	.word	12577                           # 0x3121
 	.word	12641                           # 0x3161
 	.word	12329                           # 0x3029
 	.word	12393                           # 0x3069
-.LCPI0_45:
+.LCPI0_36:
 	.word	12457                           # 0x30a9
 	.word	12521                           # 0x30e9
 	.word	12585                           # 0x3129
 	.word	12649                           # 0x3169
-.LCPI0_46:
+.LCPI0_37:
 	.word	12290                           # 0x3002
 	.word	12354                           # 0x3042
 	.word	12418                           # 0x3082
 	.word	12482                           # 0x30c2
-.LCPI0_47:
+.LCPI0_38:
 	.word	12546                           # 0x3102
 	.word	12610                           # 0x3142
 	.word	12298                           # 0x300a
 	.word	12362                           # 0x304a
-.LCPI0_48:
+.LCPI0_39:
 	.word	12426                           # 0x308a
 	.word	12490                           # 0x30ca
 	.word	12554                           # 0x310a
 	.word	12618                           # 0x314a
-.LCPI0_49:
+.LCPI0_40:
 	.word	12306                           # 0x3012
 	.word	12370                           # 0x3052
 	.word	12434                           # 0x3092
 	.word	12498                           # 0x30d2
-.LCPI0_50:
+.LCPI0_41:
 	.word	12562                           # 0x3112
 	.word	12626                           # 0x3152
 	.word	12314                           # 0x301a
 	.word	12378                           # 0x305a
-.LCPI0_51:
+.LCPI0_42:
 	.word	12442                           # 0x309a
 	.word	12506                           # 0x30da
 	.word	12570                           # 0x311a
 	.word	12634                           # 0x315a
-.LCPI0_52:
+.LCPI0_43:
 	.word	12322                           # 0x3022
 	.word	12386                           # 0x3062
 	.word	12450                           # 0x30a2
 	.word	12514                           # 0x30e2
-.LCPI0_53:
+.LCPI0_44:
 	.word	12578                           # 0x3122
 	.word	12642                           # 0x3162
 	.word	12330                           # 0x302a
 	.word	12394                           # 0x306a
-.LCPI0_54:
+.LCPI0_45:
 	.word	12458                           # 0x30aa
 	.word	12522                           # 0x30ea
 	.word	12586                           # 0x312a
 	.word	12650                           # 0x316a
-.LCPI0_55:
+.LCPI0_46:
 	.word	12291                           # 0x3003
 	.word	12355                           # 0x3043
 	.word	12419                           # 0x3083
 	.word	12483                           # 0x30c3
-.LCPI0_56:
+.LCPI0_47:
 	.word	12547                           # 0x3103
 	.word	12611                           # 0x3143
 	.word	12299                           # 0x300b
 	.word	12363                           # 0x304b
-.LCPI0_57:
+.LCPI0_48:
 	.word	12427                           # 0x308b
 	.word	12491                           # 0x30cb
 	.word	12555                           # 0x310b
 	.word	12619                           # 0x314b
-.LCPI0_58:
+.LCPI0_49:
 	.word	12307                           # 0x3013
 	.word	12371                           # 0x3053
 	.word	12435                           # 0x3093
 	.word	12499                           # 0x30d3
-.LCPI0_59:
+.LCPI0_50:
 	.word	12563                           # 0x3113
 	.word	12627                           # 0x3153
 	.word	12315                           # 0x301b
 	.word	12379                           # 0x305b
-.LCPI0_60:
+.LCPI0_51:
 	.word	12443                           # 0x309b
 	.word	12507                           # 0x30db
 	.word	12571                           # 0x311b
 	.word	12635                           # 0x315b
-.LCPI0_61:
+.LCPI0_52:
 	.word	12323                           # 0x3023
 	.word	12387                           # 0x3063
 	.word	12451                           # 0x30a3
 	.word	12515                           # 0x30e3
-.LCPI0_62:
+.LCPI0_53:
 	.word	12579                           # 0x3123
 	.word	12643                           # 0x3163
 	.word	12331                           # 0x302b
 	.word	12395                           # 0x306b
-.LCPI0_63:
+.LCPI0_54:
 	.word	12459                           # 0x30ab
 	.word	12523                           # 0x30eb
 	.word	12587                           # 0x312b
 	.word	12651                           # 0x316b
-.LCPI0_64:
+.LCPI0_55:
 	.word	12292                           # 0x3004
 	.word	12356                           # 0x3044
 	.word	12420                           # 0x3084
 	.word	12484                           # 0x30c4
-.LCPI0_65:
+.LCPI0_56:
 	.word	12548                           # 0x3104
 	.word	12612                           # 0x3144
 	.word	12300                           # 0x300c
 	.word	12364                           # 0x304c
-.LCPI0_66:
+.LCPI0_57:
 	.word	12428                           # 0x308c
 	.word	12492                           # 0x30cc
 	.word	12556                           # 0x310c
 	.word	12620                           # 0x314c
-.LCPI0_67:
+.LCPI0_58:
 	.word	12308                           # 0x3014
 	.word	12372                           # 0x3054
 	.word	12436                           # 0x3094
 	.word	12500                           # 0x30d4
-.LCPI0_68:
+.LCPI0_59:
 	.word	12564                           # 0x3114
 	.word	12628                           # 0x3154
 	.word	12316                           # 0x301c
 	.word	12380                           # 0x305c
-.LCPI0_69:
+.LCPI0_60:
 	.word	12444                           # 0x309c
 	.word	12508                           # 0x30dc
 	.word	12572                           # 0x311c
 	.word	12636                           # 0x315c
-.LCPI0_70:
+.LCPI0_61:
 	.word	12324                           # 0x3024
 	.word	12388                           # 0x3064
 	.word	12452                           # 0x30a4
 	.word	12516                           # 0x30e4
-.LCPI0_71:
+.LCPI0_62:
 	.word	12580                           # 0x3124
 	.word	12644                           # 0x3164
 	.word	12332                           # 0x302c
 	.word	12396                           # 0x306c
-.LCPI0_72:
+.LCPI0_63:
 	.word	12460                           # 0x30ac
 	.word	12524                           # 0x30ec
 	.word	12588                           # 0x312c
 	.word	12652                           # 0x316c
-.LCPI0_73:
+.LCPI0_64:
 	.word	16384                           # 0x4000
 	.word	16448                           # 0x4040
 	.word	16512                           # 0x4080
 	.word	16576                           # 0x40c0
-.LCPI0_74:
+.LCPI0_65:
 	.word	16392                           # 0x4008
 	.word	16456                           # 0x4048
 	.word	16520                           # 0x4088
 	.word	16584                           # 0x40c8
-.LCPI0_75:
+.LCPI0_66:
 	.word	16400                           # 0x4010
 	.word	16464                           # 0x4050
 	.word	16528                           # 0x4090
 	.word	16592                           # 0x40d0
-.LCPI0_76:
+.LCPI0_67:
 	.word	16408                           # 0x4018
 	.word	16472                           # 0x4058
 	.word	16536                           # 0x4098
 	.word	16600                           # 0x40d8
-.LCPI0_77:
+.LCPI0_68:
 	.word	16385                           # 0x4001
 	.word	16449                           # 0x4041
 	.word	16513                           # 0x4081
 	.word	16577                           # 0x40c1
-.LCPI0_78:
+.LCPI0_69:
 	.word	16393                           # 0x4009
 	.word	16457                           # 0x4049
 	.word	16521                           # 0x4089
 	.word	16585                           # 0x40c9
-.LCPI0_79:
+.LCPI0_70:
 	.word	16401                           # 0x4011
 	.word	16465                           # 0x4051
 	.word	16529                           # 0x4091
 	.word	16593                           # 0x40d1
-.LCPI0_80:
+.LCPI0_71:
 	.word	16409                           # 0x4019
 	.word	16473                           # 0x4059
 	.word	16537                           # 0x4099
 	.word	16601                           # 0x40d9
-.LCPI0_81:
+.LCPI0_72:
 	.word	16386                           # 0x4002
 	.word	16450                           # 0x4042
 	.word	16514                           # 0x4082
 	.word	16578                           # 0x40c2
-.LCPI0_82:
+.LCPI0_73:
 	.word	16394                           # 0x400a
 	.word	16458                           # 0x404a
 	.word	16522                           # 0x408a
 	.word	16586                           # 0x40ca
-.LCPI0_83:
+.LCPI0_74:
 	.word	16402                           # 0x4012
 	.word	16466                           # 0x4052
 	.word	16530                           # 0x4092
 	.word	16594                           # 0x40d2
-.LCPI0_84:
+.LCPI0_75:
 	.word	16410                           # 0x401a
 	.word	16474                           # 0x405a
 	.word	16538                           # 0x409a
 	.word	16602                           # 0x40da
-.LCPI0_85:
+.LCPI0_76:
 	.word	16387                           # 0x4003
 	.word	16451                           # 0x4043
 	.word	16515                           # 0x4083
 	.word	16579                           # 0x40c3
-.LCPI0_86:
+.LCPI0_77:
 	.word	16395                           # 0x400b
 	.word	16459                           # 0x404b
 	.word	16523                           # 0x408b
 	.word	16587                           # 0x40cb
-.LCPI0_87:
+.LCPI0_78:
 	.word	16403                           # 0x4013
 	.word	16467                           # 0x4053
 	.word	16531                           # 0x4093
 	.word	16595                           # 0x40d3
-.LCPI0_88:
+.LCPI0_79:
 	.word	16411                           # 0x401b
 	.word	16475                           # 0x405b
 	.word	16539                           # 0x409b
 	.word	16603                           # 0x40db
-.LCPI0_89:
+.LCPI0_80:
 	.word	20480                           # 0x5000
 	.word	20488                           # 0x5008
 	.word	20496                           # 0x5010
 	.word	20481                           # 0x5001
-.LCPI0_90:
+.LCPI0_81:
 	.word	40960                           # 0xa000
 	.word	40968                           # 0xa008
 	.word	40976                           # 0xa010
 	.word	40961                           # 0xa001
-.LCPI0_91:
+.LCPI0_82:
 	.word	20489                           # 0x5009
 	.word	20497                           # 0x5011
 	.word	20482                           # 0x5002
 	.word	20490                           # 0x500a
-.LCPI0_92:
+.LCPI0_83:
 	.word	40969                           # 0xa009
 	.word	40977                           # 0xa011
 	.word	40962                           # 0xa002
 	.word	40970                           # 0xa00a
-.LCPI0_93:
+.LCPI0_84:
 	.word	20498                           # 0x5012
 	.word	20483                           # 0x5003
 	.word	20491                           # 0x500b
 	.word	20499                           # 0x5013
-.LCPI0_94:
+.LCPI0_85:
 	.word	40978                           # 0xa012
 	.word	40963                           # 0xa003
 	.word	40971                           # 0xa00b
 	.word	40979                           # 0xa013
-.LCPI0_95:
+.LCPI0_86:
 	.word	0                               # 0x0
 	.word	512                             # 0x200
 	.word	1024                            # 0x400
 	.word	1536                            # 0x600
-.LCPI0_96:
+.LCPI0_87:
 	.word	64                              # 0x40
 	.word	576                             # 0x240
 	.word	1088                            # 0x440
 	.word	1600                            # 0x640
-.LCPI0_97:
+.LCPI0_88:
 	.word	128                             # 0x80
 	.word	640                             # 0x280
 	.word	1152                            # 0x480
 	.word	1664                            # 0x680
-.LCPI0_98:
+.LCPI0_89:
 	.word	192                             # 0xc0
 	.word	704                             # 0x2c0
 	.word	1216                            # 0x4c0
 	.word	1728                            # 0x6c0
-.LCPI0_99:
+.LCPI0_90:
 	.word	4096                            # 0x1000
 	.word	4160                            # 0x1040
 	.word	4224                            # 0x1080
 	.word	4288                            # 0x10c0
-.LCPI0_100:
+.LCPI0_91:
 	.word	4104                            # 0x1008
 	.word	4168                            # 0x1048
 	.word	4232                            # 0x1088
 	.word	4296                            # 0x10c8
-.LCPI0_101:
+.LCPI0_92:
 	.word	4112                            # 0x1010
 	.word	4176                            # 0x1050
 	.word	4240                            # 0x1090
 	.word	4304                            # 0x10d0
-.LCPI0_102:
+.LCPI0_93:
 	.word	4120                            # 0x1018
 	.word	4184                            # 0x1058
 	.word	4248                            # 0x1098
 	.word	4312                            # 0x10d8
-.LCPI0_103:
+.LCPI0_94:
 	.word	4128                            # 0x1020
 	.word	4192                            # 0x1060
 	.word	4256                            # 0x10a0
 	.word	4320                            # 0x10e0
-.LCPI0_104:
+.LCPI0_95:
 	.word	4097                            # 0x1001
 	.word	4161                            # 0x1041
 	.word	4225                            # 0x1081
 	.word	4289                            # 0x10c1
-.LCPI0_105:
+.LCPI0_96:
 	.word	4105                            # 0x1009
 	.word	4169                            # 0x1049
 	.word	4233                            # 0x1089
 	.word	4297                            # 0x10c9
-.LCPI0_106:
+.LCPI0_97:
 	.word	4113                            # 0x1011
 	.word	4177                            # 0x1051
 	.word	4241                            # 0x1091
 	.word	4305                            # 0x10d1
-.LCPI0_107:
+.LCPI0_98:
 	.word	4121                            # 0x1019
 	.word	4185                            # 0x1059
 	.word	4249                            # 0x1099
 	.word	4313                            # 0x10d9
-.LCPI0_108:
+.LCPI0_99:
 	.word	4129                            # 0x1021
 	.word	4193                            # 0x1061
 	.word	4257                            # 0x10a1
 	.word	4321                            # 0x10e1
-.LCPI0_109:
+.LCPI0_100:
 	.word	4098                            # 0x1002
 	.word	4162                            # 0x1042
 	.word	4226                            # 0x1082
 	.word	4290                            # 0x10c2
-.LCPI0_110:
+.LCPI0_101:
 	.word	4106                            # 0x100a
 	.word	4170                            # 0x104a
 	.word	4234                            # 0x108a
 	.word	4298                            # 0x10ca
-.LCPI0_111:
+.LCPI0_102:
 	.word	4114                            # 0x1012
 	.word	4178                            # 0x1052
 	.word	4242                            # 0x1092
 	.word	4306                            # 0x10d2
-.LCPI0_112:
+.LCPI0_103:
 	.word	4122                            # 0x101a
 	.word	4186                            # 0x105a
 	.word	4250                            # 0x109a
 	.word	4314                            # 0x10da
-.LCPI0_113:
+.LCPI0_104:
 	.word	4130                            # 0x1022
 	.word	4194                            # 0x1062
 	.word	4258                            # 0x10a2
 	.word	4322                            # 0x10e2
-.LCPI0_114:
+.LCPI0_105:
 	.word	4099                            # 0x1003
 	.word	4163                            # 0x1043
 	.word	4227                            # 0x1083
 	.word	4291                            # 0x10c3
-.LCPI0_115:
+.LCPI0_106:
 	.word	4107                            # 0x100b
 	.word	4171                            # 0x104b
 	.word	4235                            # 0x108b
 	.word	4299                            # 0x10cb
-.LCPI0_116:
+.LCPI0_107:
 	.word	4115                            # 0x1013
 	.word	4179                            # 0x1053
 	.word	4243                            # 0x1093
 	.word	4307                            # 0x10d3
-.LCPI0_117:
+.LCPI0_108:
 	.word	4123                            # 0x101b
 	.word	4187                            # 0x105b
 	.word	4251                            # 0x109b
 	.word	4315                            # 0x10db
-.LCPI0_118:
+.LCPI0_109:
 	.word	4131                            # 0x1023
 	.word	4195                            # 0x1063
 	.word	4259                            # 0x10a3
 	.word	4323                            # 0x10e3
-.LCPI0_119:
+.LCPI0_110:
 	.word	4100                            # 0x1004
 	.word	4164                            # 0x1044
 	.word	4228                            # 0x1084
 	.word	4292                            # 0x10c4
-.LCPI0_120:
+.LCPI0_111:
 	.word	4108                            # 0x100c
 	.word	4172                            # 0x104c
 	.word	4236                            # 0x108c
 	.word	4300                            # 0x10cc
-.LCPI0_121:
+.LCPI0_112:
 	.word	4116                            # 0x1014
 	.word	4180                            # 0x1054
 	.word	4244                            # 0x1094
 	.word	4308                            # 0x10d4
-.LCPI0_122:
+.LCPI0_113:
 	.word	4124                            # 0x101c
 	.word	4188                            # 0x105c
 	.word	4252                            # 0x109c
 	.word	4316                            # 0x10dc
-.LCPI0_123:
+.LCPI0_114:
 	.word	4132                            # 0x1024
 	.word	4196                            # 0x1064
 	.word	4260                            # 0x10a4
@@ -604,11 +584,14 @@ init_layer3:                            # @init_layer3
 # %bb.2:                                # %.preheader344.preheader
 	pcalau12i	$a0, %pc_hi20(ispow)
 	addi.d	$s0, $a0, %pc_lo12(ispow)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	move	$s1, $zero
 	lu12i.w	$a0, 2
 	ori	$s2, $a0, 15
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB0_3:                                # %.preheader344
                                         # =>This Inner Loop Header: Depth=1
@@ -715,18 +698,26 @@ init_layer3:                            # @init_layer3
 	lu52i.d	$a1, $a1, 1022
 	st.d	$a1, $a0, %pc_lo12(aa_cs.7)
 	pcalau12i	$a0, %pc_hi20(aa_ca.7)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
-	fld.d	$fs3, $a1, %pc_lo12(.LCPI0_2)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI0_3)
 	lu12i.w	$a1, -233331
 	ori	$a1, $a1, 1012
 	lu32i.d	$a1, -110744
 	lu52i.d	$a1, $a1, -1034
 	st.d	$a1, $a0, %pc_lo12(aa_ca.7)
 	ori	$s1, $zero, 55
+	lu12i.w	$a0, 306804
+	ori	$a0, $a0, 1159
+	lu32i.d	$a0, 415512
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fs0, $a0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fs3, $a0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 131072
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(win)
 	addi.d	$s0, $a0, %pc_lo12(win)
 	move	$s2, $zero
@@ -778,46 +769,46 @@ init_layer3:                            # @init_layer3
 	addi.w	$s1, $s1, 2
 	bne	$s2, $s3, .LBB0_5
 # %bb.6:                                # %.preheader341.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_4)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_0)
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_5)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_1)
 	vst	$vr0, $s0, 432
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_6)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_2)
 	vst	$vr1, $s0, 960
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_7)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_3)
 	vst	$vr0, $s0, 480
 	vrepli.b	$vr0, 0
 	vst	$vr0, $s0, 864
 	vst	$vr1, $s0, 912
-	pcalau12i	$a0, %pc_hi20(.LCPI0_8)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_8)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_9)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_9)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_10)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_10)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_4)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_5)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_6)
 	vst	$vr0, $s0, 528
 	vst	$vr1, $s0, 448
 	vst	$vr2, $s0, 976
 	vst	$vr3, $s0, 496
 	vst	$vr0, $s0, 880
+	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_7)
+	vst	$vr0, $s0, 544
+	pcalau12i	$a0, %pc_hi20(.LCPI0_8)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_8)
+	vst	$vr1, $s0, 928
+	pcalau12i	$a0, %pc_hi20(.LCPI0_9)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_9)
+	vst	$vr2, $s0, 464
+	pcalau12i	$a0, %pc_hi20(.LCPI0_10)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_10)
+	vst	$vr1, $s0, 992
 	pcalau12i	$a0, %pc_hi20(.LCPI0_11)
 	vld	$vr1, $a0, %pc_lo12(.LCPI0_11)
-	vst	$vr0, $s0, 544
-	pcalau12i	$a0, %pc_hi20(.LCPI0_12)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_12)
-	vst	$vr1, $s0, 928
-	pcalau12i	$a0, %pc_hi20(.LCPI0_13)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_13)
-	vst	$vr2, $s0, 464
-	pcalau12i	$a0, %pc_hi20(.LCPI0_14)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_14)
-	vst	$vr1, $s0, 992
-	pcalau12i	$a0, %pc_hi20(.LCPI0_15)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_15)
 	vst	$vr2, $s0, 512
 	vst	$vr0, $s0, 896
 	vst	$vr0, $s0, 560
@@ -941,10 +932,13 @@ init_layer3:                            # @init_layer3
 	ori	$s6, $zero, 49
 	ori	$s7, $zero, 35
 	ori	$s8, $zero, 21
-	pcalau12i	$a0, %pc_hi20(.LCPI0_16)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_16)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_17)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_17)
+	lu12i.w	$a0, 230103
+	ori	$a0, $a0, 869
+	lu32i.d	$a0, 49490
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fs1, $a0
+	lu52i.d	$a0, $zero, 2047
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB0_7:                                # =>This Inner Loop Header: Depth=1
 	bstrpick.d	$s1, $s3, 31, 0
@@ -1195,24 +1189,24 @@ init_layer3:                            # @init_layer3
 	fneg.d	$fa0, $fa0
 	fst.d	$fa0, $a0, 408
 	fneg.d	$fa0, $fa2
-	pcalau12i	$a1, %pc_hi20(.LCPI0_18)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_18)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_19)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_19)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_20)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_20)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_12)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_12)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_13)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_13)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_14)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_14)
 	fst.d	$fa0, $a0, 424
 	vst	$vr1, $a0, 432
 	vst	$vr2, $a0, 448
 	vst	$vr3, $a0, 464
-	pcalau12i	$a1, %pc_hi20(.LCPI0_21)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_21)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_22)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_22)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_23)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_23)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_24)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_24)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_15)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_15)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_16)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_16)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_17)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_17)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_18)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_18)
 	vst	$vr0, $a0, 480
 	vst	$vr1, $a0, 496
 	vst	$vr2, $a0, 512
@@ -1353,12 +1347,12 @@ init_layer3:                            # @init_layer3
 	st.d	$a0, $sp, 168                   # 8-byte Folded Spill
 	st.d	$zero, $a0, 0
 	pcalau12i	$a0, %pc_hi20(tan2_2)
-	addi.d	$a1, $a0, %pc_lo12(tan2_2)
-	ori	$a0, $fp, 3021
-	lu32i.d	$a0, 434334
-	lu52i.d	$fp, $a0, 1023
-	st.d	$a1, $sp, 160                   # 8-byte Folded Spill
-	st.d	$fp, $a1, 0
+	addi.d	$a0, $a0, %pc_lo12(tan2_2)
+	ori	$s3, $fp, 3021
+	lu32i.d	$s3, 434334
+	lu52i.d	$fp, $s3, 1023
+	st.d	$a0, $sp, 160                   # 8-byte Folded Spill
+	st.d	$fp, $a0, 0
 	vldi	$vr0, -816
 	pcaddu18i	$ra, %call36(exp2)
 	jirl	$ra, $ra, 0
@@ -1381,16 +1375,18 @@ init_layer3:                            # @init_layer3
 	st.d	$s2, $s7, 128
 	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
 	st.d	$fp, $s1, 128
-	st.d	$fp, $sp, 152                   # 8-byte Folded Spill
 	st.d	$fp, $s0, 128
 	ori	$s4, $zero, 1
 	ori	$s2, $zero, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI0_25)
-	fld.d	$fs4, $a0, %pc_lo12(.LCPI0_25)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_26)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_26)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_27)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_27)
+	st.d	$fp, $sp, 152                   # 8-byte Folded Spill
+	movgr2fr.d	$fs4, $fp
+	lu12i.w	$a0, -420435
+	ori	$a0, $a0, 941
+	lu32i.d	$a0, -333665
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs0, $a0
+	lu52i.d	$a0, $s3, 1022
+	movgr2fr.d	$fs1, $a0
 	ori	$s8, $zero, 128
 	b	.LBB0_23
 	.p2align	4, , 16
@@ -2423,193 +2419,193 @@ init_layer3:                            # @init_layer3
 	addi.d	$a2, $a2, 56
 	bne	$a0, $a6, .LBB0_28
 # %bb.29:                               # %.preheader328.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_28)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_28)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_19)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_19)
 	pcalau12i	$a0, %pc_hi20(i_slen2)
 	addi.d	$a0, $a0, %pc_lo12(i_slen2)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_29)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_29)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_30)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_30)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_20)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_20)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_21)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_21)
 	vst	$vr0, $a0, 0
 	vst	$vr1, $a0, 16
 	vst	$vr2, $a0, 32
-	pcalau12i	$a1, %pc_hi20(.LCPI0_31)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_31)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_32)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_32)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_33)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_33)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_34)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_34)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_22)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_22)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_23)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_23)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_24)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_24)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_25)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_25)
 	vst	$vr0, $a0, 48
 	vst	$vr1, $a0, 64
 	vst	$vr2, $a0, 80
 	vst	$vr3, $a0, 96
-	pcalau12i	$a1, %pc_hi20(.LCPI0_35)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_35)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_36)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_36)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_37)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_37)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_38)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_38)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_26)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_26)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_27)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_27)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_28)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_28)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_29)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_29)
 	vst	$vr0, $a0, 112
 	vst	$vr1, $a0, 128
 	vst	$vr2, $a0, 144
 	vst	$vr3, $a0, 160
-	pcalau12i	$a1, %pc_hi20(.LCPI0_39)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_39)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_40)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_40)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_41)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_41)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_42)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_42)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_30)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_30)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_31)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_31)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_32)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_32)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_33)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_33)
 	vst	$vr0, $a0, 176
 	vst	$vr1, $a0, 192
 	vst	$vr2, $a0, 208
 	vst	$vr3, $a0, 224
-	pcalau12i	$a1, %pc_hi20(.LCPI0_43)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_43)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_44)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_44)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_45)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_45)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_46)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_46)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_34)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_34)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_35)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_35)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_36)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_36)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_37)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_37)
 	vst	$vr0, $a0, 240
 	vst	$vr1, $a0, 256
 	vst	$vr2, $a0, 272
 	vst	$vr3, $a0, 288
-	pcalau12i	$a1, %pc_hi20(.LCPI0_47)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_47)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_48)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_48)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_49)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_49)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_50)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_50)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_38)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_38)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_39)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_39)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_40)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_40)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_41)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_41)
 	vst	$vr0, $a0, 304
 	vst	$vr1, $a0, 320
 	vst	$vr2, $a0, 336
 	vst	$vr3, $a0, 352
-	pcalau12i	$a1, %pc_hi20(.LCPI0_51)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_51)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_52)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_52)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_53)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_53)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_54)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_54)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_42)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_42)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_43)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_43)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_44)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_44)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_45)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_45)
 	vst	$vr0, $a0, 368
 	vst	$vr1, $a0, 384
 	vst	$vr2, $a0, 400
 	vst	$vr3, $a0, 416
-	pcalau12i	$a1, %pc_hi20(.LCPI0_55)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_55)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_56)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_56)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_57)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_57)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_58)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_58)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_46)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_46)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_47)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_47)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_48)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_48)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_49)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_49)
 	vst	$vr0, $a0, 432
 	vst	$vr1, $a0, 448
 	vst	$vr2, $a0, 464
 	vst	$vr3, $a0, 480
-	pcalau12i	$a1, %pc_hi20(.LCPI0_59)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_59)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_60)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_60)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_61)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_61)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_62)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_62)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_50)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_50)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_51)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_51)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_52)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_52)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_53)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_53)
 	vst	$vr0, $a0, 496
 	vst	$vr1, $a0, 512
 	vst	$vr2, $a0, 528
 	vst	$vr3, $a0, 544
-	pcalau12i	$a1, %pc_hi20(.LCPI0_63)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_63)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_64)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_64)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_65)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_65)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_66)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_66)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_54)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_54)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_55)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_55)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_56)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_56)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_57)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_57)
 	vst	$vr0, $a0, 560
 	vst	$vr1, $a0, 576
 	vst	$vr2, $a0, 592
 	vst	$vr3, $a0, 608
-	pcalau12i	$a1, %pc_hi20(.LCPI0_67)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_67)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_68)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_68)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_69)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_69)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_70)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_70)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_58)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_58)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_59)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_59)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_60)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_60)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_61)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_61)
 	vst	$vr0, $a0, 624
 	vst	$vr1, $a0, 640
 	vst	$vr2, $a0, 656
 	vst	$vr3, $a0, 672
-	pcalau12i	$a1, %pc_hi20(.LCPI0_71)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_71)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_72)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_72)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_73)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_73)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_74)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_74)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_62)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_62)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_63)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_63)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_64)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_64)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_65)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_65)
 	vst	$vr0, $a0, 688
 	vst	$vr1, $a0, 704
 	vst	$vr2, $a0, 720
 	vst	$vr3, $a0, 736
-	pcalau12i	$a1, %pc_hi20(.LCPI0_75)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_75)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_76)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_76)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_77)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_77)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_78)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_78)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_66)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_66)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_67)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_67)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_68)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_68)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_69)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_69)
 	vst	$vr0, $a0, 752
 	vst	$vr1, $a0, 768
 	vst	$vr2, $a0, 784
 	vst	$vr3, $a0, 800
-	pcalau12i	$a1, %pc_hi20(.LCPI0_79)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_79)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_80)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_80)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_81)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_81)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_82)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_82)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_70)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_70)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_71)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_71)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_72)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_72)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_73)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_73)
 	vst	$vr0, $a0, 816
 	vst	$vr1, $a0, 832
 	vst	$vr2, $a0, 848
 	vst	$vr3, $a0, 864
-	pcalau12i	$a1, %pc_hi20(.LCPI0_83)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_83)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_84)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_84)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_85)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_85)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_86)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_86)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_74)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_74)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_75)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_75)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_76)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_76)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_77)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_77)
 	vst	$vr0, $a0, 880
 	vst	$vr1, $a0, 896
 	vst	$vr2, $a0, 912
 	vst	$vr3, $a0, 928
-	pcalau12i	$a1, %pc_hi20(.LCPI0_87)
-	vld	$vr0, $a1, %pc_lo12(.LCPI0_87)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_88)
-	vld	$vr1, $a1, %pc_lo12(.LCPI0_88)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_89)
-	vld	$vr2, $a1, %pc_lo12(.LCPI0_89)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_90)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_90)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_78)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_78)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_79)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_79)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_80)
+	vld	$vr2, $a1, %pc_lo12(.LCPI0_80)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_81)
+	vld	$vr3, $a1, %pc_lo12(.LCPI0_81)
 	vst	$vr0, $a0, 944
 	vst	$vr1, $a0, 960
 	vst	$vr2, $a0, 976
@@ -2618,14 +2614,14 @@ init_layer3:                            # @init_layer3
 	move	$a2, $zero
 	move	$a3, $zero
 	vst	$vr3, $a1, 2000
-	pcalau12i	$a4, %pc_hi20(.LCPI0_91)
-	vld	$vr0, $a4, %pc_lo12(.LCPI0_91)
-	pcalau12i	$a4, %pc_hi20(.LCPI0_92)
-	vld	$vr1, $a4, %pc_lo12(.LCPI0_92)
-	pcalau12i	$a4, %pc_hi20(.LCPI0_93)
-	vld	$vr2, $a4, %pc_lo12(.LCPI0_93)
-	pcalau12i	$a4, %pc_hi20(.LCPI0_94)
-	vld	$vr3, $a4, %pc_lo12(.LCPI0_94)
+	pcalau12i	$a4, %pc_hi20(.LCPI0_82)
+	vld	$vr0, $a4, %pc_lo12(.LCPI0_82)
+	pcalau12i	$a4, %pc_hi20(.LCPI0_83)
+	vld	$vr1, $a4, %pc_lo12(.LCPI0_83)
+	pcalau12i	$a4, %pc_hi20(.LCPI0_84)
+	vld	$vr2, $a4, %pc_lo12(.LCPI0_84)
+	pcalau12i	$a4, %pc_hi20(.LCPI0_85)
+	vld	$vr3, $a4, %pc_lo12(.LCPI0_85)
 	vst	$vr0, $a0, 992
 	vst	$vr1, $a1, 2016
 	vst	$vr2, $a0, 1008
@@ -2635,18 +2631,18 @@ init_layer3:                            # @init_layer3
 	.p2align	4, , 16
 .LBB0_30:                               # %.preheader320
                                         # =>This Inner Loop Header: Depth=1
-	pcalau12i	$a5, %pc_hi20(.LCPI0_95)
-	vld	$vr0, $a5, %pc_lo12(.LCPI0_95)
-	pcalau12i	$a5, %pc_hi20(.LCPI0_96)
-	vld	$vr1, $a5, %pc_lo12(.LCPI0_96)
+	pcalau12i	$a5, %pc_hi20(.LCPI0_86)
+	vld	$vr0, $a5, %pc_lo12(.LCPI0_86)
+	pcalau12i	$a5, %pc_hi20(.LCPI0_87)
+	vld	$vr1, $a5, %pc_lo12(.LCPI0_87)
 	vreplgr2vr.w	$vr2, $a2
 	vadd.w	$vr3, $vr2, $vr0
 	vadd.w	$vr2, $vr2, $vr1
 	vst	$vr2, $a0, -144
-	pcalau12i	$a5, %pc_hi20(.LCPI0_97)
-	vld	$vr2, $a5, %pc_lo12(.LCPI0_97)
-	pcalau12i	$a5, %pc_hi20(.LCPI0_98)
-	vld	$vr4, $a5, %pc_lo12(.LCPI0_98)
+	pcalau12i	$a5, %pc_hi20(.LCPI0_88)
+	vld	$vr2, $a5, %pc_lo12(.LCPI0_88)
+	pcalau12i	$a5, %pc_hi20(.LCPI0_89)
+	vld	$vr4, $a5, %pc_lo12(.LCPI0_89)
 	vst	$vr3, $a0, -160
 	vreplgr2vr.w	$vr3, $a3
 	vadd.w	$vr5, $vr3, $vr2
@@ -2698,77 +2694,77 @@ init_layer3:                            # @init_layer3
 	addi.d	$a0, $a0, 320
 	bne	$a3, $a4, .LBB0_30
 # %bb.31:                               # %.preheader316.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_99)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_99)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_90)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_90)
 	vst	$vr0, $a1, 1600
-	pcalau12i	$a0, %pc_hi20(.LCPI0_100)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_100)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_101)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_101)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_102)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_102)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_103)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_103)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_91)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_91)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_92)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_92)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_93)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_93)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_94)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_94)
 	vst	$vr0, $a1, 1616
 	vst	$vr1, $a1, 1632
 	vst	$vr2, $a1, 1648
 	vst	$vr3, $a1, 1664
-	pcalau12i	$a0, %pc_hi20(.LCPI0_104)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_104)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_105)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_105)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_106)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_106)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_107)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_107)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_95)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_95)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_96)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_96)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_97)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_97)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_98)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_98)
 	vst	$vr0, $a1, 1680
 	vst	$vr1, $a1, 1696
 	vst	$vr2, $a1, 1712
 	vst	$vr3, $a1, 1728
-	pcalau12i	$a0, %pc_hi20(.LCPI0_108)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_108)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_109)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_109)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_110)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_110)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_111)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_111)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_99)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_99)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_100)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_100)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_101)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_101)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_102)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_102)
 	vst	$vr0, $a1, 1744
 	vst	$vr1, $a1, 1760
 	vst	$vr2, $a1, 1776
 	vst	$vr3, $a1, 1792
-	pcalau12i	$a0, %pc_hi20(.LCPI0_112)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_112)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_113)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_113)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_114)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_114)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_115)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_115)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_103)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_103)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_104)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_104)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_105)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_105)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_106)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_106)
 	vst	$vr0, $a1, 1808
 	vst	$vr1, $a1, 1824
 	vst	$vr2, $a1, 1840
 	vst	$vr3, $a1, 1856
-	pcalau12i	$a0, %pc_hi20(.LCPI0_116)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_116)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_117)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_117)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_118)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_118)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_119)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_119)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_107)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_107)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_108)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_108)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_109)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_109)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_110)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_110)
 	vst	$vr0, $a1, 1872
 	vst	$vr1, $a1, 1888
 	vst	$vr2, $a1, 1904
 	vst	$vr3, $a1, 1920
-	pcalau12i	$a0, %pc_hi20(.LCPI0_120)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_120)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_121)
-	vld	$vr1, $a0, %pc_lo12(.LCPI0_121)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_122)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_122)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_123)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_123)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_111)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_111)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_112)
+	vld	$vr1, $a0, %pc_lo12(.LCPI0_112)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_113)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_113)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_114)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_114)
 	vst	$vr0, $a1, 1936
 	vst	$vr1, $a1, 1952
 	vst	$vr2, $a1, 1968

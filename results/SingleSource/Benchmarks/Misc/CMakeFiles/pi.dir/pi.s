@@ -13,24 +13,7 @@ myadd:                                  # @myadd
 .Lfunc_end0:
 	.size	myadd, .Lfunc_end0-myadd
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.word	0x45b5a800                      # float 5813
-.LCPI1_1:
-	.word	0x47914780                      # float 74383
-.LCPI1_2:
-	.word	0x44a36000                      # float 1307
-.LCPI1_3:
-	.word	0x45aaf800                      # float 5471
-.LCPI1_4:
-	.word	0xc5aaf800                      # float -5471
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI1_5:
-	.dword	0x418312d000000000              # double 4.0E+7
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -47,26 +30,31 @@ main:                                   # @main
 	movgr2fr.w	$fs0, $zero
 	ori	$s0, $zero, 1
 	ori	$a1, $zero, 1907
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI1_0)
 	lu12i.w	$fp, 9765
 	ori	$a0, $fp, 2560
+	lu12i.w	$a2, 285530
+	ori	$a2, $a2, 2048
+	movgr2fr.w	$fa0, $a2
 	lu12i.w	$a2, 6
 	ori	$a2, $a2, 3035
 	lu12i.w	$a3, -277387
 	ori	$a3, $a3, 2603
 	lu32i.d	$a3, 434130
 	lu52i.d	$a3, $a3, 1804
-	pcalau12i	$a4, %pc_hi20(.LCPI1_1)
-	fld.s	$fa1, $a4, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI1_2)
-	fld.s	$fa2, $a4, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a4, %pc_hi20(.LCPI1_3)
-	fld.s	$fa3, $a4, %pc_lo12(.LCPI1_3)
-	pcalau12i	$a4, %pc_hi20(.LCPI1_4)
-	fld.s	$fa4, $a4, %pc_lo12(.LCPI1_4)
 	lu12i.w	$a4, 18
 	ori	$a4, $a4, 655
+	lu12i.w	$a5, 293140
+	ori	$a5, $a5, 1920
+	movgr2fr.w	$fa1, $a5
+	lu12i.w	$a5, 281142
+	movgr2fr.w	$fa2, $a5
+	lu12i.w	$a5, 285359
+	ori	$a5, $a5, 2048
+	movgr2fr.w	$fa3, $a5
+	lu12i.w	$a5, -238929
+	ori	$a5, $a5, 2048
+	lu32i.d	$a5, 0
+	movgr2fr.w	$fa4, $a5
 	vldi	$vr5, -1168
 	.p2align	4, , 16
 .LBB1_1:                                # =>This Inner Loop Header: Depth=1
@@ -107,11 +95,13 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	movgr2fr.d	$fa0, $s0
 	ffint.s.l	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_5)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_5)
 	fcvt.d.s	$fa0, $fa0
-	vldi	$vr2, -1008
-	fmul.d	$fa0, $fa0, $fa2
+	vldi	$vr1, -1008
+	fmul.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 201424
+	lu52i.d	$a0, $a0, 1048
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0

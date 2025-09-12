@@ -364,12 +364,8 @@ GCC_except_table3:
 .Lttbase2:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
-.LCPI4_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
-	.globl	_ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
+	.globl	_ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult # -- Begin function _ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
 	.p2align	5
 	.type	_ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult,@function
 _ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult: # @_ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
@@ -407,9 +403,9 @@ _ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVector3S3_RKS2_f)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI4_0)
 	ld.d	$a0, $s0, 24
+	lu12i.w	$a1, 212992
+	movgr2fr.w	$fa1, $a1
 	fcmp.cule.s	$fcc0, $fa1, $fa0
 	st.d	$a0, $fp, 8
 	bcnez	$fcc0, .LBB4_3
@@ -478,14 +474,7 @@ _ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16
 	.size	_ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult, .Lfunc_end4-_ZN29btSphereBoxCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVector3S3_RKS2_f
-.LCPI5_0:
-	.word	0x4b189680                      # float 1.0E+7
-.LCPI5_1:
-	.word	0x34000000                      # float 1.1920929E-7
-	.text
-	.globl	_ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVector3S3_RKS2_f
+	.globl	_ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVector3S3_RKS2_f # -- Begin function _ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVector3S3_RKS2_f
 	.p2align	5
 	.type	_ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVector3S3_RKS2_f,@function
 _ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVector3S3_RKS2_f: # @_ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVector3S3_RKS2_f
@@ -795,12 +784,12 @@ _ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVe
 	fsub.s	$fa0, $fa3, $fa0
 	fsub.s	$fa2, $fa4, $fa2
 	fsub.s	$fa1, $fa5, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI5_1)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI5_1)
 	fmul.s	$fa2, $fa2, $fa2
 	fmadd.s	$fa0, $fa0, $fa0, $fa2
 	fmadd.s	$fa0, $fa1, $fa1, $fa0
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa1, $a0
+	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB5_19
 # %bb.16:
 	fsqrt.s	$fa0, $fa0
@@ -823,8 +812,9 @@ _ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEP17btCollisionObjectR9btVe
 	vldi	$vr0, -1168
 	b	.LBB5_21
 .LBB5_19:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI5_0)
+	lu12i.w	$a0, 307593
+	ori	$a0, $a0, 1664
+	movgr2fr.w	$fa0, $a0
 	b	.LBB5_21
 .LBB5_20:
 	fsub.s	$fa0, $fa0, $fs2
@@ -855,18 +845,13 @@ _ZN29btSphereBoxCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1
 .Lfunc_end6:
 	.size	_ZN29btSphereBoxCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult, .Lfunc_end6-_ZN29btSphereBoxCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9btVector3S3_RKS2_fS5_S5_
-.LCPI7_0:
-	.word	0xcb189680                      # float -1.0E+7
-	.text
-	.globl	_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9btVector3S3_RKS2_fS5_S5_
+	.globl	_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9btVector3S3_RKS2_fS5_S5_ # -- Begin function _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9btVector3S3_RKS2_fS5_S5_
 	.p2align	5
 	.type	_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9btVector3S3_RKS2_fS5_S5_,@function
 _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9btVector3S3_RKS2_fS5_S5_: # @_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9btVector3S3_RKS2_fS5_S5_
 # %bb.0:
-	fld.s	$ft2, $a5, 0
-	fld.s	$ft3, $a5, 4
+	fld.s	$ft0, $a5, 0
+	fld.s	$ft1, $a5, 4
 	fld.s	$fa1, $a4, 0
 	fld.s	$fa2, $a1, 56
 	fld.s	$fa3, $a4, 4
@@ -881,47 +866,49 @@ _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9b
 	fld.s	$fa2, $a1, 24
 	fld.s	$fa5, $a1, 40
 	fld.s	$fa6, $a1, 12
-	fld.s	$ft0, $a1, 28
-	fld.s	$ft1, $a1, 44
+	fld.s	$ft2, $a1, 28
+	fld.s	$ft3, $a1, 44
 	fld.s	$ft4, $a1, 16
 	fld.s	$ft6, $a1, 32
 	fld.s	$ft7, $a1, 48
 	fmul.s	$fa2, $fa3, $fa2
 	fmadd.s	$fa1, $fa1, $fa7, $fa2
 	fmadd.s	$fa1, $fa5, $fa4, $fa1
-	fmul.s	$fa2, $fa3, $ft0
+	fmul.s	$fa2, $fa3, $ft2
 	fmadd.s	$fa2, $fa6, $fa7, $fa2
-	fmadd.s	$fa2, $ft1, $fa4, $fa2
+	fmadd.s	$fa2, $ft3, $fa4, $fa2
 	fmul.s	$fa3, $fa3, $ft6
 	fmadd.s	$fa3, $ft4, $fa7, $fa3
 	fmadd.s	$fa3, $ft7, $fa4, $fa3
-	fsub.s	$ft0, $fa1, $ft2
-	fsub.s	$ft8, $fa2, $ft3
+	fsub.s	$ft2, $fa1, $ft0
+	fsub.s	$ft8, $fa2, $ft1
 	fsub.s	$ft6, $fa3, $ft5
 	movgr2fr.w	$fa5, $zero
 	fmul.s	$ft7, $ft8, $fa5
-	fsub.s	$fa4, $ft7, $ft0
+	fsub.s	$fa4, $ft7, $ft2
 	fmadd.s	$fa4, $ft6, $fa5, $fa4
 	fsub.s	$ft9, $fa4, $fa0
 	fcmp.clt.s	$fcc0, $fa5, $ft9
 	bcnez	$fcc0, .LBB7_18
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a0, -216695
+	ori	$a0, $a0, 1664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa6, $a0
 	fcmp.cule.s	$fcc0, $ft9, $fa6
 	fmov.s	$fa4, $fa5
 	fmov.s	$fa7, $fa5
-	fmov.s	$ft1, $fa5
+	fmov.s	$ft3, $fa5
 	fmov.s	$ft4, $fa5
 	bcnez	$fcc0, .LBB7_3
 # %bb.2:
 	vldi	$vr4, -1040
 	fmov.s	$fa6, $ft9
-	fmov.s	$fa7, $ft2
-	fmov.s	$ft1, $ft3
+	fmov.s	$fa7, $ft0
+	fmov.s	$ft3, $ft1
 	fmov.s	$ft4, $ft5
 .LBB7_3:
-	fmsub.s	$ft8, $ft0, $fa5, $ft8
+	fmsub.s	$ft8, $ft2, $fa5, $ft8
 	fmadd.s	$ft8, $ft6, $fa5, $ft8
 	fsub.s	$ft9, $ft8, $fa0
 	fcmp.clt.s	$fcc0, $fa5, $ft9
@@ -935,13 +922,13 @@ _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9b
 	movgr2fr.w	$fa4, $zero
 	vldi	$vr5, -1040
 	fmov.s	$fa6, $ft9
-	fmov.s	$fa7, $ft2
-	fmov.s	$ft1, $ft3
+	fmov.s	$fa7, $ft0
+	fmov.s	$ft3, $ft1
 	fmov.s	$ft4, $ft5
 .LBB7_6:
-	fmadd.s	$ft0, $ft0, $ft8, $ft7
-	fsub.s	$ft0, $ft0, $ft6
-	fsub.s	$ft9, $ft0, $fa0
+	fmadd.s	$ft2, $ft2, $ft8, $ft7
+	fsub.s	$ft2, $ft2, $ft6
+	fsub.s	$ft9, $ft2, $fa0
 	fcmp.clt.s	$fcc0, $ft8, $ft9
 	bcnez	$fcc0, .LBB7_18
 # %bb.7:
@@ -950,43 +937,43 @@ _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9b
 	fld.s	$ft8, $a6, 8
 	movgr2fr.w	$ft11, $zero
 	fcmp.cule.s	$fcc0, $ft9, $fa6
-	fmov.s	$ft0, $ft11
+	fmov.s	$ft2, $ft11
 	bcnez	$fcc0, .LBB7_9
 # %bb.8:
 	movgr2fr.w	$fa4, $zero
-	vldi	$vr8, -1040
+	vldi	$vr10, -1040
 	fmov.s	$fa6, $ft9
 	fmov.s	$fa5, $fa4
-	fmov.s	$fa7, $ft2
-	fmov.s	$ft1, $ft3
+	fmov.s	$fa7, $ft0
+	fmov.s	$ft3, $ft1
 	fmov.s	$ft4, $ft5
 .LBB7_9:
-	fsub.s	$ft3, $fa1, $ft6
+	fsub.s	$ft1, $fa1, $ft6
 	fsub.s	$ft10, $fa2, $ft7
 	fsub.s	$ft5, $fa3, $ft8
 	fmul.s	$ft9, $ft10, $ft11
-	fadd.s	$ft2, $ft3, $ft9
-	fmadd.s	$ft2, $ft5, $ft11, $ft2
-	fsub.s	$ft2, $ft2, $fa0
-	fcmp.clt.s	$fcc0, $ft11, $ft2
+	fadd.s	$ft0, $ft1, $ft9
+	fmadd.s	$ft0, $ft5, $ft11, $ft0
+	fsub.s	$ft0, $ft0, $fa0
+	fcmp.clt.s	$fcc0, $ft11, $ft0
 	bcnez	$fcc0, .LBB7_18
 # %bb.10:
-	fcmp.cule.s	$fcc0, $ft2, $fa6
+	fcmp.cule.s	$fcc0, $ft0, $fa6
 	bcnez	$fcc0, .LBB7_12
 # %bb.11:
 	movgr2fr.w	$fa5, $zero
 	vldi	$vr4, -1168
-	fmov.s	$fa6, $ft2
-	fmov.s	$ft0, $fa5
+	fmov.s	$fa6, $ft0
+	fmov.s	$ft2, $fa5
 	fmov.s	$fa7, $ft6
-	fmov.s	$ft1, $ft7
+	fmov.s	$ft3, $ft7
 	fmov.s	$ft4, $ft8
 .LBB7_12:
-	movgr2fr.w	$ft2, $zero
-	fmadd.s	$ft10, $ft3, $ft2, $ft10
-	fmadd.s	$ft10, $ft5, $ft2, $ft10
+	movgr2fr.w	$ft0, $zero
+	fmadd.s	$ft10, $ft1, $ft0, $ft10
+	fmadd.s	$ft10, $ft5, $ft0, $ft10
 	fsub.s	$ft10, $ft10, $fa0
-	fcmp.clt.s	$fcc0, $ft2, $ft10
+	fcmp.clt.s	$fcc0, $ft0, $ft10
 	bcnez	$fcc0, .LBB7_18
 # %bb.13:
 	fcmp.cule.s	$fcc0, $ft10, $fa6
@@ -995,22 +982,22 @@ _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9b
 	movgr2fr.w	$fa4, $zero
 	vldi	$vr5, -1168
 	fmov.s	$fa6, $ft10
-	fmov.s	$ft0, $fa4
+	fmov.s	$ft2, $fa4
 	fmov.s	$fa7, $ft6
-	fmov.s	$ft1, $ft7
+	fmov.s	$ft3, $ft7
 	fmov.s	$ft4, $ft8
 .LBB7_15:
-	fmadd.s	$ft3, $ft3, $ft2, $ft9
-	fadd.s	$ft3, $ft5, $ft3
-	fsub.s	$fa0, $ft3, $fa0
-	fcmp.clt.s	$fcc0, $ft2, $fa0
+	fmadd.s	$ft1, $ft1, $ft0, $ft9
+	fadd.s	$ft1, $ft5, $ft1
+	fsub.s	$fa0, $ft1, $fa0
+	fcmp.clt.s	$fcc0, $ft0, $fa0
 	bcnez	$fcc0, .LBB7_18
 # %bb.16:
 	fcmp.clt.s	$fcc0, $fa6, $fa0
 	bceqz	$fcc0, .LBB7_19
 # %bb.17:
-	vldi	$vr8, -1168
-	fmov.s	$fa5, $ft2
+	vldi	$vr10, -1168
+	fmov.s	$fa5, $ft0
 	b	.LBB7_20
 .LBB7_18:
 	vldi	$vr0, -1168
@@ -1018,17 +1005,17 @@ _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9b
 	ret
 .LBB7_19:                               # %..critedge83_crit_edge
 	fsub.s	$fa0, $fa1, $fa7
-	fsub.s	$fa7, $fa2, $ft1
-	fsub.s	$ft1, $fa3, $ft4
+	fsub.s	$fa7, $fa2, $ft3
+	fsub.s	$ft0, $fa3, $ft4
 	fmul.s	$fa7, $fa5, $fa7
 	fmadd.s	$fa0, $fa4, $fa0, $fa7
-	fmadd.s	$ft3, $ft0, $ft1, $fa0
+	fmadd.s	$ft1, $ft2, $ft0, $fa0
 	fmov.s	$fa0, $fa6
-	fmov.s	$ft2, $fa4
+	fmov.s	$ft0, $fa4
 .LBB7_20:                               # %.critedge83
-	fmul.s	$fa4, $ft2, $ft3
-	fmul.s	$fa6, $fa5, $ft3
-	fmul.s	$fa7, $ft0, $ft3
+	fmul.s	$fa4, $ft0, $ft1
+	fmul.s	$fa6, $fa5, $ft1
+	fmul.s	$fa7, $ft2, $ft1
 	fsub.s	$fa1, $fa1, $fa4
 	fsub.s	$fa2, $fa2, $fa6
 	fsub.s	$fa3, $fa3, $fa7
@@ -1039,9 +1026,9 @@ _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationEP17btCollisionObjectR9b
 	bstrpick.d	$a4, $a4, 31, 0
 	st.d	$a0, $a2, 0
 	st.d	$a4, $a2, 8
-	fmul.s	$fa4, $fa0, $ft2
+	fmul.s	$fa4, $fa0, $ft0
 	fmul.s	$fa5, $fa0, $fa5
-	fmul.s	$fa6, $fa0, $ft0
+	fmul.s	$fa6, $fa0, $ft2
 	fadd.s	$fa1, $fa4, $fa1
 	fadd.s	$fa2, $fa5, $fa2
 	fadd.s	$fa3, $fa6, $fa3

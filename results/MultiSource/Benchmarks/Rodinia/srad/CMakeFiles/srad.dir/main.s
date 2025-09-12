@@ -1,10 +1,6 @@
 	.file	"main.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.word	0x30000000                      # float 4.65661287E-10
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -62,9 +58,9 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(glibc_compat_srand)
 	jirl	$ra, $ra, 0
 	move	$fp, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	lu12i.w	$s0, -1
+	lu12i.w	$a0, 196608
+	movgr2fr.w	$fs0, $a0
 	lu12i.w	$s7, 1
 	ori	$s1, $zero, 2048
 	move	$s2, $s8
@@ -221,12 +217,7 @@ main:                                   # @main
 .Lfunc_end0:
 	.size	main, .Lfunc_end0-main
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function random_matrix
-.LCPI1_0:
-	.word	0x30000000                      # float 4.65661287E-10
-	.text
-	.globl	random_matrix
+	.globl	random_matrix                   # -- Begin function random_matrix
 	.p2align	5
 	.type	random_matrix,@function
 random_matrix:                          # @random_matrix
@@ -245,9 +236,9 @@ random_matrix:                          # @random_matrix
 	pcaddu18i	$ra, %call36(glibc_compat_srand)
 	jirl	$ra, $ra, 0
 	move	$s0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI1_0)
 	lu12i.w	$s1, -1
+	lu12i.w	$a0, 196608
+	movgr2fr.w	$fs0, $a0
 	lu12i.w	$s2, 1
 	ori	$s3, $zero, 2048
 	.p2align	4, , 16

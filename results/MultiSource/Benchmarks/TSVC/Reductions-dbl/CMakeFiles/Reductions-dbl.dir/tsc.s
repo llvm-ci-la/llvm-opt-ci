@@ -17688,12 +17688,7 @@ s316:                                   # @s316
 .Lfunc_end13:
 	.size	s316, .Lfunc_end13-s316
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function s317
-.LCPI14_0:
-	.dword	0x3fefae147ae147ae              # double 0.98999999999999999
-	.text
-	.globl	s317
+	.globl	s317                            # -- Begin function s317
 	.p2align	5
 	.type	s317,@function
 s317:                                   # @s317
@@ -17720,10 +17715,13 @@ s317:                                   # @s317
 	ld.w	$a0, $a0, %pc_lo12(ntimes)
 	blez	$a0, .LBB14_5
 # %bb.1:                                # %.preheader.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI14_0)
 	lu12i.w	$a0, 3
 	ori	$s8, $a0, 3712
+	lu12i.w	$a0, 503316
+	ori	$a0, $a0, 1966
+	lu32i.d	$a0, -20972
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(global_data)
 	addi.d	$fp, $a0, %pc_lo12(global_data)
 	move	$s7, $zero
@@ -18268,12 +18266,7 @@ s3110:                                  # @s3110
 .Lfunc_end17:
 	.size	s3110, .Lfunc_end17-s3110
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function s13110
-.LCPI18_0:
-	.dword	0x7ff8000000000000              # double NaN
-	.text
-	.globl	s13110
+	.globl	s13110                          # -- Begin function s13110
 	.p2align	5
 	.type	s13110,@function
 s13110:                                 # @s13110
@@ -18390,8 +18383,10 @@ s13110:                                 # @s13110
 	fadd.d	$fs0, $fa1, $fa0
 	b	.LBB18_9
 .LBB18_8:
-	pcalau12i	$a0, %pc_hi20(.LCPI18_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI18_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fs0, $a0
 .LBB18_9:                               # %._crit_edge
 	pcalau12i	$a0, %pc_hi20(.L.str.148)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.148)
@@ -19436,12 +19431,7 @@ set:                                    # @set
 .Lfunc_end23:
 	.size	set, .Lfunc_end23-set
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI24_0:
-	.dword	0x3fefae147ae147ae              # double 0.98999999999999999
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -19619,11 +19609,14 @@ main:                                   # @main
 	ld.w	$a0, $a0, %pc_lo12(ntimes)
 	blez	$a0, .LBB24_15
 # %bb.11:                               # %.preheader.i4.preheader
-	move	$s8, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI24_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI24_0)
+	move	$s7, $zero
+	lu12i.w	$a0, 503316
+	ori	$a0, $a0, 1966
+	lu32i.d	$a0, -20972
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 3
-	ori	$s7, $a0, 3712
+	ori	$s8, $a0, 3712
 	lu12i.w	$a0, 62
 	ori	$a0, $a0, 2080
 	add.d	$s0, $fp, $a0
@@ -19650,7 +19643,7 @@ main:                                   # @main
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB24_13 Depth 2
 	vldi	$vr0, -912
-	move	$a0, $s7
+	move	$a0, $s8
 	.p2align	4, , 16
 .LBB24_13:                              #   Parent Loop BB24_12 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -19672,9 +19665,9 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
 	ld.w	$a0, $a0, %pc_lo12(ntimes)
-	addi.w	$s8, $s8, 1
+	addi.w	$s7, $s7, 1
 	alsl.w	$a0, $a0, $a0, 2
-	blt	$s8, $a0, .LBB24_12
+	blt	$s7, $a0, .LBB24_12
 	b	.LBB24_16
 .LBB24_15:
                                         # implicit-def: $f0_64

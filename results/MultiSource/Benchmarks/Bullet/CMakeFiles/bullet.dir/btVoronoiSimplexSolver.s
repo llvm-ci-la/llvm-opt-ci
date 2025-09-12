@@ -843,14 +843,7 @@ _ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSu
 .Lfunc_end5:
 	.size	_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult, .Lfunc_end5-_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult
-.LCPI6_0:
-	.word	0x322bcc76                      # float 9.99999905E-9
-.LCPI6_1:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-	.text
-	.globl	_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult
+	.globl	_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult # -- Begin function _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult
 	.p2align	5
 	.type	_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult,@function
 _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult: # @_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult
@@ -885,22 +878,22 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	ori	$a0, $a7, 15
 	st.b	$a0, $a6, 16
 	fld.s	$fa0, $a3, 0
-	fld.s	$fa2, $a2, 0
-	fld.s	$fa4, $a3, 4
-	fld.s	$fa5, $a2, 4
+	fld.s	$fa1, $a2, 0
+	fld.s	$fa2, $a3, 4
+	fld.s	$fa4, $a2, 4
 	move	$s3, $a5
 	move	$s2, $a4
-	fsub.s	$ft1, $fa0, $fa2
-	fsub.s	$ft4, $fa4, $fa5
-	fld.s	$fa1, $a3, 8
-	fld.s	$fa3, $a2, 8
+	fsub.s	$ft1, $fa0, $fa1
+	fsub.s	$ft4, $fa2, $fa4
+	fld.s	$fa3, $a3, 8
+	fld.s	$fa5, $a2, 8
 	fld.s	$fa6, $a4, 0
 	fld.s	$fa7, $a4, 4
 	fld.s	$ft0, $a4, 8
-	fsub.s	$ft2, $fa1, $fa3
-	fsub.s	$ft5, $fa6, $fa2
-	fsub.s	$ft6, $fa7, $fa5
-	fsub.s	$ft3, $ft0, $fa3
+	fsub.s	$ft2, $fa3, $fa5
+	fsub.s	$ft5, $fa6, $fa1
+	fsub.s	$ft6, $fa7, $fa4
+	fsub.s	$ft3, $ft0, $fa5
 	fneg.s	$ft7, $ft6
 	fmul.s	$ft7, $ft2, $ft7
 	fmadd.s	$ft13, $ft4, $ft3, $ft7
@@ -909,16 +902,16 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	fld.s	$fs1, $a1, 4
 	fmul.s	$ft7, $ft1, $ft7
 	fmadd.s	$ft14, $ft2, $ft5, $ft7
-	fsub.s	$ft10, $fs0, $fa2
-	fsub.s	$ft11, $fs1, $fa5
+	fsub.s	$ft10, $fs0, $fa1
+	fsub.s	$ft11, $fs1, $fa4
 	fmul.s	$ft12, $ft11, $ft14
 	fld.s	$ft7, $a5, 0
 	fld.s	$ft8, $a5, 4
 	fld.s	$ft9, $a5, 8
 	fmadd.s	$ft12, $ft10, $ft13, $ft12
-	fsub.s	$ft15, $ft7, $fa2
-	fsub.s	$fs2, $ft8, $fa5
-	fsub.s	$fs3, $ft9, $fa3
+	fsub.s	$ft15, $ft7, $fa1
+	fsub.s	$fs2, $ft8, $fa4
+	fsub.s	$fs3, $ft9, $fa5
 	fmul.s	$ft14, $ft14, $fs2
 	fmadd.s	$ft13, $ft15, $ft13, $ft14
 	fneg.s	$ft14, $fs2
@@ -952,18 +945,18 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	fmul.s	$ft1, $ft6, $ft1
 	fmadd.s	$ft1, $ft5, $fs4, $ft1
 	fmadd.s	$ft5, $fs3, $fs7, $ft13
-	fsub.s	$ft6, $fs2, $fa3
+	fsub.s	$ft6, $fs2, $fa5
 	fmadd.s	$ft11, $ft6, $fs7, $ft12
 	fmadd.s	$ft2, $ft2, $fs5, $ft14
 	fmadd.s	$ft12, $ft6, $fs5, $fs6
 	fmadd.s	$ft6, $ft6, $ft4, $ft10
 	fmadd.s	$ft1, $ft3, $ft4, $ft1
 	fsub.s	$ft3, $ft7, $fa0
-	fsub.s	$ft4, $ft8, $fa4
-	fsub.s	$ft7, $ft9, $fa1
+	fsub.s	$ft4, $ft8, $fa2
+	fsub.s	$ft7, $ft9, $fa3
 	fsub.s	$fa6, $fa6, $fa0
-	fsub.s	$fa7, $fa7, $fa4
-	fsub.s	$ft0, $ft0, $fa1
+	fsub.s	$fa7, $fa7, $fa2
+	fsub.s	$ft0, $ft0, $fa3
 	fneg.s	$ft8, $fa7
 	fmul.s	$ft8, $ft7, $ft8
 	fmadd.s	$ft8, $ft4, $ft0, $ft8
@@ -974,35 +967,36 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	fmul.s	$fa6, $ft4, $fa6
 	fmadd.s	$fa6, $ft3, $fa7, $fa6
 	fsub.s	$fa7, $fs0, $fa0
-	fsub.s	$ft3, $fs1, $fa4
+	fsub.s	$ft3, $fs1, $fa2
 	fmul.s	$ft3, $ft3, $ft0
 	fmadd.s	$fa7, $fa7, $ft8, $ft3
-	fsub.s	$fa0, $fa2, $fa0
-	fsub.s	$fa2, $fa5, $fa4
-	fmul.s	$fa2, $fa2, $ft0
-	fmadd.s	$fa0, $fa0, $ft8, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fsub.s	$fa2, $fs2, $fa1
-	fmadd.s	$fa2, $fa2, $fa6, $fa7
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI6_0)
-	fsub.s	$fa1, $fa3, $fa1
-	fmadd.s	$fa0, $fa1, $fa6, $fa0
-	fmul.s	$fa1, $ft5, $ft5
-	fcmp.clt.s	$fcc1, $fa1, $fa4
-	fmul.s	$fa1, $ft2, $ft2
-	fcmp.clt.s	$fcc2, $fa1, $fa4
-	fmul.s	$fa1, $ft1, $ft1
-	fcmp.clt.s	$fcc3, $fa1, $fa4
-	fmul.s	$fa1, $fa0, $fa0
-	fcmp.clt.s	$fcc0, $fa1, $fa4
-	fmul.s	$fa1, $ft11, $ft5
+	fsub.s	$fa0, $fa1, $fa0
+	fsub.s	$fa1, $fa4, $fa2
+	fmul.s	$fa1, $fa1, $ft0
+	fmadd.s	$fa0, $fa0, $ft8, $fa1
+	fsub.s	$fa1, $fs2, $fa3
+	fmadd.s	$fa1, $fa1, $fa6, $fa7
+	fsub.s	$fa2, $fa5, $fa3
+	fmadd.s	$fa0, $fa2, $fa6, $fa0
+	fmul.s	$fa2, $ft5, $ft5
+	lu12i.w	$a0, 205500
+	ori	$a0, $a0, 3190
+	movgr2fr.w	$fa3, $a0
+	fcmp.clt.s	$fcc1, $fa2, $fa3
+	fmul.s	$fa2, $ft2, $ft2
+	fcmp.clt.s	$fcc2, $fa2, $fa3
+	fmul.s	$fa2, $ft1, $ft1
+	fcmp.clt.s	$fcc3, $fa2, $fa3
+	fmul.s	$fa2, $fa0, $fa0
+	fcmp.clt.s	$fcc0, $fa2, $fa3
+	fmul.s	$fa2, $ft11, $ft5
 	movgr2fr.w	$fa3, $zero
-	fcmp.clt.s	$fcc5, $fa1, $fa3
-	fmul.s	$fa1, $ft12, $ft2
-	fcmp.clt.s	$fcc6, $fa1, $fa3
-	fmul.s	$fa1, $ft6, $ft1
-	fcmp.clt.s	$fcc7, $fa1, $fa3
-	fmul.s	$fa0, $fa2, $fa0
+	fcmp.clt.s	$fcc5, $fa2, $fa3
+	fmul.s	$fa2, $ft12, $ft2
+	fcmp.clt.s	$fcc6, $fa2, $fa3
+	fmul.s	$fa2, $ft6, $ft1
+	fcmp.clt.s	$fcc7, $fa2, $fa3
+	fmul.s	$fa0, $fa1, $fa0
 	fcmp.clt.s	$fcc4, $fa0, $fa3
 	movcf2gr	$a0, $fcc5
 	movcf2gr	$a1, $fcc1
@@ -1033,7 +1027,8 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 # %bb.1:
 	beqz	$a1, .LBB6_7
 # %bb.2:
-	pcalau12i	$s5, %pc_hi20(.LCPI6_1)
+	lu12i.w	$a1, 522239
+	ori	$s5, $a1, 4095
 	beqz	$a0, .LBB6_8
 # %bb.3:
 	st.d	$a7, $sp, 8                     # 8-byte Folded Spill
@@ -1050,10 +1045,10 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	fsub.s	$fa0, $fa1, $fs0
 	fsub.s	$fa4, $fa2, $fs1
 	fsub.s	$fa5, $fa3, $fs2
-	fld.s	$fs0, $s5, %pc_lo12(.LCPI6_1)
 	fmul.s	$fa4, $fa4, $fa4
 	fmadd.s	$fa0, $fa0, $fa0, $fa4
 	fmadd.s	$fa0, $fa5, $fa5, $fa0
+	movgr2fr.w	$fs0, $s5
 	fcmp.cule.s	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB6_5
 # %bb.4:
@@ -1086,7 +1081,7 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	move	$a0, $zero
 	b	.LBB6_18
 .LBB6_8:
-	fld.s	$fs0, $s5, %pc_lo12(.LCPI6_1)
+	movgr2fr.w	$fs0, $s5
 	beqz	$s8, .LBB6_11
 .LBB6_9:
 	addi.d	$a5, $sp, 16
@@ -1451,12 +1446,7 @@ _ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_: # @_ZN22btVoronoiSim
 .Lfunc_end13:
 	.size	_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_, .Lfunc_end13-_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_
-.LCPI14_0:
-	.word	0x322bcc76                      # float 9.99999905E-9
-	.text
-	.globl	_ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_
+	.globl	_ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_ # -- Begin function _ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_
 	.p2align	5
 	.type	_ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_,@function
 _ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_: # @_ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_
@@ -1501,12 +1491,13 @@ _ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_: # @_Z
 	fsub.s	$fa3, $ft0, $fa3
 	fsub.s	$fa5, $ft2, $fa5
 	fmul.s	$fa3, $fa4, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI14_0)
 	fmadd.s	$fa1, $fa1, $ft1, $fa3
 	fmadd.s	$fa0, $fa5, $fa0, $fa1
 	fmul.s	$fa1, $fa0, $fa0
-	fcmp.clt.s	$fcc0, $fa1, $fa4
+	lu12i.w	$a0, 205500
+	ori	$a0, $a0, 3190
+	movgr2fr.w	$fa3, $a0
+	fcmp.clt.s	$fcc0, $fa1, $fa3
 	fmul.s	$fa0, $fa2, $fa0
 	movgr2fr.w	$fa1, $zero
 	fcmp.clt.s	$fcc1, $fa0, $fa1

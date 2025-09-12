@@ -17,14 +17,7 @@ emit:                                   # @emit
 .Lfunc_end0:
 	.size	emit, .Lfunc_end0-emit
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function mandel
-.LCPI1_0:
-	.dword	0x40b3880000000000              # double 5000
-.LCPI1_1:
-	.dword	0xc0b3880000000000              # double -5000
-	.text
-	.globl	mandel
+	.globl	mandel                          # -- Begin function mandel
 	.p2align	5
 	.type	mandel,@function
 mandel:                                 # @mandel
@@ -45,10 +38,12 @@ mandel:                                 # @mandel
 	fst.d	$fs5, $sp, 24                   # 8-byte Folded Spill
 	fst.d	$fs6, $sp, 16                   # 8-byte Folded Spill
 	fst.d	$fs7, $sp, 8                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI1_1)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 231424
+	lu52i.d	$a1, $a0, 1035
+	movgr2fr.d	$fs2, $a1
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs3, $a0
 	movgr2fr.d	$fs4, $zero
 	ori	$fp, $zero, 9
 	pcalau12i	$a0, %pc_hi20(accum)

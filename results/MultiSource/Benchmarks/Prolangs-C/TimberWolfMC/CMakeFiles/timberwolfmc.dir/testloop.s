@@ -1,12 +1,6 @@
 	.file	"testloop.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function testloop
-.LCPI0_0:
-	.dword	0x3f50000000000000              # double 9.765625E-4
-.LCPI0_1:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
-	.globl	testloop
+	.globl	testloop                        # -- Begin function testloop
 	.p2align	5
 	.type	testloop,@function
 testloop:                               # @testloop
@@ -37,8 +31,8 @@ testloop:                               # @testloop
 	fadd.d	$fa0, $fa0, $fa0
 	pcaddu18i	$ra, %call36(exp2)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a0, $zero, 1013
+	movgr2fr.d	$fs0, $a0
 	fmul.d	$fa0, $fa0, $fs0
 	pcalau12i	$a0, %got_pc_hi20(bdxlength)
 	ld.d	$fp, $a0, %got_pc_lo12(bdxlength)
@@ -160,6 +154,9 @@ testloop:                               # @testloop
 	ori	$s4, $a1, 3693
 	lu12i.w	$a1, 3
 	ori	$fp, $a1, 57
+	lu12i.w	$a1, -1024
+	lu52i.d	$a1, $a1, 1053
+	movgr2fr.d	$fs0, $a1
 	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
 	b	.LBB0_3
 	.p2align	4, , 16
@@ -216,15 +213,13 @@ testloop:                               # @testloop
                                         #       Child Loop BB0_6 Depth 3
 	mul.d	$a7, $a7, $s4
 	add.w	$a7, $a7, $fp
-	pcalau12i	$t0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $t0, %pc_lo12(.LCPI0_1)
 	bstrpick.d	$t0, $a7, 30, 0
-	movgr2fr.w	$fa3, $t0
-	ffint.d.w	$fa3, $fa3
-	fdiv.d	$fa3, $fa3, $fa2
-	fmul.d	$fa3, $fa3, $fa0
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$t0, $fa3
+	movgr2fr.w	$fa2, $t0
+	ffint.d.w	$fa2, $fa2
+	fdiv.d	$fa2, $fa2, $fs0
+	fmul.d	$fa2, $fa2, $fa0
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$t0, $fa2
 	beq	$a0, $t0, .LBB0_5
 	.p2align	4, , 16
 .LBB0_6:                                # %.preheader
@@ -234,12 +229,12 @@ testloop:                               # @testloop
 	mul.d	$a7, $a7, $s4
 	add.w	$a7, $a7, $fp
 	bstrpick.d	$t1, $a7, 30, 0
-	movgr2fr.w	$fa3, $t1
-	ffint.d.w	$fa3, $fa3
-	fdiv.d	$fa3, $fa3, $fa2
-	fmul.d	$fa3, $fa3, $fa1
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$t1, $fa3
+	movgr2fr.w	$fa2, $t1
+	ffint.d.w	$fa2, $fa2
+	fdiv.d	$fa2, $fa2, $fs0
+	fmul.d	$fa2, $fa2, $fa1
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$t1, $fa2
 	addi.w	$s7, $t1, 1
 	beq	$s7, $a1, .LBB0_6
 # %bb.7:                                #   in Loop: Header=BB0_5 Depth=2
@@ -317,29 +312,29 @@ testloop:                               # @testloop
 	div.w	$t5, $t5, $s7
 	sub.d	$t4, $t4, $t2
 	addi.d	$t4, $t4, 1
-	movgr2fr.w	$fa3, $t4
-	ffint.d.w	$fa3, $fa3
+	movgr2fr.w	$fa2, $t4
+	ffint.d.w	$fa2, $fa2
 	mul.d	$a7, $a7, $s4
 	add.d	$a7, $a7, $fp
 	bstrpick.d	$t4, $a7, 30, 0
-	movgr2fr.w	$fa4, $t4
-	ffint.d.w	$fa4, $fa4
-	fdiv.d	$fa4, $fa4, $fa2
-	fmul.d	$fa3, $fa4, $fa3
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$t4, $fa3
+	movgr2fr.w	$fa3, $t4
+	ffint.d.w	$fa3, $fa3
+	fdiv.d	$fa3, $fa3, $fs0
+	fmul.d	$fa2, $fa3, $fa2
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$t4, $fa2
 	add.w	$t2, $t2, $t4
 	sub.d	$t4, $t5, $t3
 	addi.d	$t4, $t4, 1
-	movgr2fr.w	$fa3, $t4
-	ffint.d.w	$fa3, $fa3
+	movgr2fr.w	$fa2, $t4
+	ffint.d.w	$fa2, $fa2
 	mul.d	$a7, $a7, $s4
 	add.w	$a7, $a7, $fp
 	bstrpick.d	$t4, $a7, 30, 0
-	movgr2fr.w	$fa4, $t4
-	ffint.d.w	$fa4, $fa4
-	fdiv.d	$fa2, $fa4, $fa2
-	fmul.d	$fa2, $fa2, $fa3
+	movgr2fr.w	$fa3, $t4
+	ffint.d.w	$fa3, $fa3
+	fdiv.d	$fa3, $fa3, $fs0
+	fmul.d	$fa2, $fa3, $fa2
 	ftintrz.w.d	$fa2, $fa2
 	movfr2gr.s	$t4, $fa2
 	add.w	$t3, $t3, $t4

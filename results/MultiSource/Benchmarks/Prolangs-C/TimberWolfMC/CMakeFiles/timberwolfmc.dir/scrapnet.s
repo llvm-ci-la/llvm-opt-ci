@@ -1,10 +1,6 @@
 	.file	"scrapnet.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function scrapnet
-.LCPI0_0:
-	.dword	0x3fe6666666666666              # double 0.69999999999999996
 	.text
-	.globl	scrapnet
+	.globl	scrapnet                        # -- Begin function scrapnet
 	.p2align	5
 	.type	scrapnet,@function
 scrapnet:                               # @scrapnet
@@ -33,11 +29,14 @@ scrapnet:                               # @scrapnet
 	ld.w	$a0, $a0, 0
 	blez	$a0, .LBB0_22
 # %bb.1:                                # %.preheader.lr.ph
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_0)
-	movgr2fr.w	$fa1, $s2
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $s2
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a1, 419430
+	ori	$a1, $a1, 1638
+	lu32i.d	$a1, 419430
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
 	ori	$a2, $zero, 8

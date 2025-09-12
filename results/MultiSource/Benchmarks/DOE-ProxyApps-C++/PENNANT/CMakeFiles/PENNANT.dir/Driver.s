@@ -3,15 +3,9 @@
 	.globl	_ZSt21ios_base_library_initv
 
                                         # End of file scope inline assembly
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6DriverC2EPK9InputFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
-.LCPI0_0:
-	.dword	0x547d42aea2879f2e              # double 9.9999999999999997E+98
-.LCPI0_1:
-	.dword	0x3ff3333333333333              # double 1.2
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_2:
+	.p2align	4, 0x0                          # -- Begin function _ZN6DriverC2EPK9InputFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+.LCPI0_0:
 	.dword	8                               # 0x8
 	.dword	8390891584273675364             # 0x74726f7065727464
 	.text
@@ -332,8 +326,11 @@ _ZN6DriverC2EPK9InputFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE:
 	st.d	$a0, $sp, 16
 	st.b	$zero, $sp, 29
 .Ltmp41:                                # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, -382855
+	ori	$a0, $a0, 3886
+	lu32i.d	$a0, -179538
+	lu52i.d	$a0, $a0, 1351
+	movgr2fr.d	$fs0, $a0
 	addi.d	$a1, $sp, 8
 	move	$a0, $s1
 	fmov.d	$fa0, $fs0
@@ -422,8 +419,11 @@ _ZN6DriverC2EPK9InputFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE:
 	st.d	$a0, $sp, 16
 	st.b	$zero, $sp, 29
 .Ltmp50:                                # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, 209715
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa0, $a0
 	addi.d	$a1, $sp, 8
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(_ZNK9InputFile9getDoubleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd)
@@ -439,8 +439,8 @@ _ZN6DriverC2EPK9InputFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE:
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB0_55:                               # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_2)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_0)
 	st.d	$s7, $sp, 8
 	vst	$vr0, $sp, 16
 	st.b	$zero, $sp, 32

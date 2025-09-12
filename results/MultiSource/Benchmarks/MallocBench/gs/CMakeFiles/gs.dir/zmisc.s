@@ -128,14 +128,7 @@ zbind:                                  # @zbind
 .Lfunc_end0:
 	.size	zbind, .Lfunc_end0-zbind
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function zcurrenttime
-.LCPI1_0:
-	.dword	0x40ed4c0000000000              # double 6.0E+4
-.LCPI1_1:
-	.dword	0x4096800000000000              # double 1440
-	.text
-	.globl	zcurrenttime
+	.globl	zcurrenttime                    # -- Begin function zcurrenttime
 	.p2align	5
 	.type	zcurrenttime,@function
 zcurrenttime:                           # @zcurrenttime
@@ -163,23 +156,27 @@ zcurrenttime:                           # @zcurrenttime
 	addi.d	$sp, $sp, 32
 	ret
 .LBB1_2:
-	move	$a0, $zero
 	ld.d	$a1, $sp, 0
 	ld.d	$a2, $sp, 8
-	pcalau12i	$a3, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI1_0)
-	movgr2fr.d	$fa1, $a1
-	movgr2fr.d	$fa2, $a2
-	ffint.d.l	$fa2, $fa2
-	fdiv.d	$fa0, $fa2, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_1)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI1_1)
-	ori	$a1, $zero, 44
-	st.h	$a1, $fp, 24
+	move	$a0, $zero
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	movgr2fr.d	$fa1, $a2
 	ffint.d.l	$fa1, $fa1
-	fmadd.d	$fa0, $fa1, $fa2, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -177152
+	lu52i.d	$a1, $a1, 1038
+	movgr2fr.d	$fa2, $a1
+	ori	$a1, $zero, 0
+	fdiv.d	$fa1, $fa1, $fa2
+	lu32i.d	$a1, 425984
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fa2, $a1
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	fcvt.s.d	$fa0, $fa0
 	fst.s	$fa0, $fp, 16
+	ori	$a1, $zero, 44
+	st.h	$a1, $fp, 24
 	ld.d	$fp, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32

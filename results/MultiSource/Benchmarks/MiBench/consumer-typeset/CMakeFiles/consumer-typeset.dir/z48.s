@@ -4463,14 +4463,7 @@ PDFFile_Cleanup:                        # @PDFFile_Cleanup
 .Lfunc_end26:
 	.size	PDFFile_Cleanup, .Lfunc_end26-PDFFile_Cleanup
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function PDFPage_EvalExpr
-.LCPI27_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI27_1:
-	.dword	0x4066800000000000              # double 180
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function PDFPage_EvalExpr
 	.type	PDFPage_EvalExpr,@function
 PDFPage_EvalExpr:                       # @PDFPage_EvalExpr
 # %bb.0:
@@ -4897,13 +4890,18 @@ PDFPage_EvalExpr:                       # @PDFPage_EvalExpr
 	b	.LBB27_11
 .LBB27_66:
 	fld.s	$fa0, $sp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI27_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI27_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI27_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI27_1)
 	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
-	fdiv.d	$fa0, $fa0, $fa2
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 425984
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(sin)
 	jirl	$ra, $ra, 0
 	fcvt.s.d	$fa0, $fa0
@@ -4942,13 +4940,18 @@ PDFPage_EvalExpr:                       # @PDFPage_EvalExpr
 	b	.LBB27_11
 .LBB27_72:
 	fld.s	$fa0, $sp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI27_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI27_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI27_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI27_1)
 	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
-	fdiv.d	$fa0, $fa0, $fa2
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 425984
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	fcvt.s.d	$fa0, $fa0

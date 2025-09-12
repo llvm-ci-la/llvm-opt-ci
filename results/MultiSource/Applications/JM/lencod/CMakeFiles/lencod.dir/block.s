@@ -8507,12 +8507,7 @@ dct_chroma:                             # @dct_chroma
 .Lfunc_end4:
 	.size	dct_chroma, .Lfunc_end4-dct_chroma
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function dct_luma_sp
-.LCPI5_0:
-	.dword	0x3feb333333333333              # double 0.84999999999999998
-	.text
-	.globl	dct_luma_sp
+	.globl	dct_luma_sp                     # -- Begin function dct_luma_sp
 	.p2align	5
 	.type	dct_luma_sp,@function
 dct_luma_sp:                            # @dct_luma_sp
@@ -8844,11 +8839,14 @@ dct_luma_sp:                            # @dct_luma_sp
 	st.w	$a3, $sp, 424
 	alsl.d	$a3, $a2, $a4, 1
 	st.w	$a3, $sp, 420
-	pcalau12i	$a3, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI5_0)
 	slli.d	$a3, $a4, 1
 	sub.d	$a2, $a2, $a3
 	st.w	$a2, $sp, 428
+	lu12i.w	$a2, 209715
+	ori	$a2, $a2, 819
+	lu32i.d	$a2, -314573
+	lu52i.d	$a2, $a2, 1022
+	movgr2fr.d	$fa1, $a2
 	fmul.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -1008
 	fmul.d	$fs0, $fa0, $fa1
@@ -9546,23 +9544,19 @@ dct_luma_sp:                            # @dct_luma_sp
 .Lfunc_end5:
 	.size	dct_luma_sp, .Lfunc_end5-dct_luma_sp
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function dct_chroma_sp
-.LCPI6_0:
-	.dword	0x3feb333333333333              # double 0.84999999999999998
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI6_1:
+	.p2align	4, 0x0                          # -- Begin function dct_chroma_sp
+.LCPI6_0:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	4                               # 0x4
-.LCPI6_2:
+.LCPI6_1:
 	.word	0                               # 0x0
 	.word	4                               # 0x4
 	.word	5                               # 0x5
 	.word	4294967295                      # 0xffffffff
-.LCPI6_3:
+.LCPI6_2:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -9613,7 +9607,10 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	fdiv.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(exp2)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, -314573
+	lu52i.d	$a0, $a0, 1022
 	ld.d	$s7, $fp, 0
 	lu12i.w	$a6, 3
 	pcalau12i	$a1, %pc_hi20(active_pps)
@@ -9622,7 +9619,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	ldx.w	$a2, $s7, $a2
 	ld.w	$a3, $s0, 8
 	ld.w	$a1, $a1, 208
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI6_0)
+	movgr2fr.d	$fa2, $a0
 	vldi	$vr1, -1008
 	sub.w	$a2, $zero, $a2
 	add.w	$a0, $a1, $a3
@@ -9793,8 +9790,8 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	ldptr.d	$a0, $s7, 12720
 	addi.d	$a1, $sp, 744
 	vstelm.w	$vr8, $a1, 0, 3
-	pcalau12i	$a1, %pc_hi20(.LCPI6_1)
-	vld	$vr1, $a1, %pc_lo12(.LCPI6_1)
+	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
+	vld	$vr1, $a1, %pc_lo12(.LCPI6_0)
 	vinsgr2vr.d	$vr7, $a0, 0
 	vilvl.h	$vr7, $vr0, $vr7
 	vpackev.w	$vr3, $vr4, $vr3
@@ -10788,7 +10785,6 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	ld.d	$a0, $sp, 440                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 0
 	ldptr.w	$a0, $a0, 4008
-	ld.d	$ra, $sp, 320                   # 8-byte Folded Reload
 	ld.d	$s3, $sp, 472                   # 8-byte Folded Reload
 	beqz	$a0, .LBB6_21
 # %bb.19:                               #   in Loop: Header=BB6_12 Depth=1
@@ -10825,6 +10821,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	sll.w	$a0, $a0, $t2
 	srai.d	$a0, $a0, 5
 	addi.d	$a6, $zero, -1
+	ld.d	$ra, $sp, 320                   # 8-byte Folded Reload
 	b	.LBB6_23
 	.p2align	4, , 16
 .LBB6_21:                               #   in Loop: Header=BB6_12 Depth=1
@@ -10842,6 +10839,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	bnez	$s2, .LBB6_20
 .LBB6_22:                               #   in Loop: Header=BB6_12 Depth=1
 	move	$a0, $zero
+	ld.d	$ra, $sp, 320                   # 8-byte Folded Reload
 	move	$a6, $s6
 .LBB6_23:                               #   in Loop: Header=BB6_12 Depth=1
 	add.w	$a0, $a0, $fp
@@ -11002,7 +11000,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	ori	$a3, $zero, 1
 	sll.d	$a2, $a3, $a2
 	st.d	$a2, $sp, 328                   # 8-byte Folded Spill
-	addi.d	$s7, $zero, -1
+	addi.d	$s8, $zero, -1
 	st.d	$s1, $sp, 432                   # 8-byte Folded Spill
 	b	.LBB6_32
 	.p2align	4, , 16
@@ -11054,7 +11052,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	add.d	$a2, $a2, $s2
 	ld.bu	$fp, $a2, 2
 	ld.bu	$a6, $a2, 3
-	addi.w	$s7, $s7, 1
+	addi.w	$s8, $s8, 1
 	add.d	$a5, $s1, $fp
 	slli.d	$a2, $a5, 5
 	addi.d	$a3, $sp, 512
@@ -11089,13 +11087,13 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	maskeqz	$a2, $a2, $a3
 	masknez	$a3, $a4, $a3
 	or	$a2, $a2, $a3
-	add.w	$s8, $a2, $a1
+	add.w	$s7, $a2, $a1
 	ld.d	$a2, $sp, 376                   # 8-byte Folded Reload
 	alsl.d	$a2, $fp, $a2, 4
 	move	$s0, $a6
 	ldx.w	$a2, $a2, $a6
-	srai.d	$a3, $s8, 31
-	xor	$a4, $s8, $a3
+	srai.d	$a3, $s7, 31
+	xor	$a4, $s7, $a3
 	sub.d	$a3, $a4, $a3
 	mul.d	$a3, $a3, $a2
 	ld.d	$a6, $sp, 400                   # 8-byte Folded Reload
@@ -11119,7 +11117,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	beqz	$s3, .LBB6_36
 # %bb.35:                               # %.thread614
                                         #   in Loop: Header=BB6_32 Depth=3
-	slti	$a0, $s8, 0
+	slti	$a0, $s7, 0
 	srai.d	$a2, $s3, 31
 	xor	$a3, $s3, $a2
 	sub.w	$a7, $a3, $a2
@@ -11142,7 +11140,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	addi.d	$a2, $sp, 492
 	addi.d	$a3, $sp, 488
 	move	$a0, $s3
-	move	$a1, $s7
+	move	$a1, $s8
 	st.d	$a5, $sp, 368                   # 8-byte Folded Spill
 	st.d	$a6, $sp, 360                   # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(levrun_linfo_inter)
@@ -11179,7 +11177,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	addi.d	$a2, $sp, 492
 	addi.d	$a3, $sp, 488
 	move	$a0, $s2
-	move	$a1, $s7
+	move	$a1, $s8
 	pcaddu18i	$ra, %call36(levrun_linfo_inter)
 	jirl	$ra, $ra, 0
 	ld.d	$a6, $sp, 360                   # 8-byte Folded Reload
@@ -11219,7 +11217,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	xor	$a0, $s2, $s3
 	sltui	$a0, $a0, 1
 	masknez	$a1, $s1, $a0
-	maskeqz	$a0, $s8, $a0
+	maskeqz	$a0, $s7, $a0
 	or	$s1, $a0, $a1
 	b	.LBB6_40
 	.p2align	4, , 16
@@ -11227,7 +11225,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	bne	$s3, $s2, .LBB6_38
 # %bb.37:                               #   in Loop: Header=BB6_32 Depth=3
 	move	$s2, $s3
-	move	$s1, $s8
+	move	$s1, $s7
 	b	.LBB6_39
 	.p2align	4, , 16
 .LBB6_38:                               #   in Loop: Header=BB6_32 Depth=3
@@ -11251,7 +11249,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	ld.d	$a3, $sp, 344                   # 8-byte Folded Reload
 	stx.w	$a1, $a3, $a2
 	ld.d	$a3, $sp, 336                   # 8-byte Folded Reload
-	stx.w	$s7, $a3, $a2
+	stx.w	$s8, $a3, $a2
 	ldx.w	$a2, $a5, $s0
 	alsl.d	$a3, $fp, $a6, 4
 	ldx.w	$a3, $a3, $s0
@@ -11262,7 +11260,7 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	mul.d	$a0, $a0, $a3
 	sll.w	$a0, $a0, $t2
 	srai.d	$a1, $a0, 6
-	addi.d	$s7, $zero, -1
+	addi.d	$s8, $zero, -1
 	ori	$a0, $zero, 2
 	b	.LBB6_42
 	.p2align	4, , 16
@@ -11326,10 +11324,10 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	add.d	$a6, $a1, $a6
 	ld.d	$a7, $sp, 24                    # 8-byte Folded Reload
 	add.d	$a7, $a1, $a7
+	pcalau12i	$t0, %pc_hi20(.LCPI6_1)
+	vld	$vr0, $t0, %pc_lo12(.LCPI6_1)
 	pcalau12i	$t0, %pc_hi20(.LCPI6_2)
-	vld	$vr0, $t0, %pc_lo12(.LCPI6_2)
-	pcalau12i	$t0, %pc_hi20(.LCPI6_3)
-	vld	$vr1, $t0, %pc_lo12(.LCPI6_3)
+	vld	$vr1, $t0, %pc_lo12(.LCPI6_2)
 	ori	$t1, $zero, 1
 	lu12i.w	$t0, 3
 	ori	$t0, $t0, 3236

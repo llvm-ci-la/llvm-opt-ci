@@ -3,14 +3,8 @@
 	.globl	_ZSt21ios_base_library_initv
 
                                         # End of file scope inline assembly
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x4059000000000000              # double 100
-.LCPI0_1:
-	.dword	0x4101160000000000              # double 139968
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -42,10 +36,10 @@ main:                                   # @main
 	ori	$a0, $a0, 1024
 .LBB0_4:                                # %.lr.ph.preheader
 	pcalau12i	$a1, %pc_hi20(_ZZ10gen_randomdE4last)
-	ld.d	$a2, $a1, %pc_lo12(_ZZ10gen_randomdE4last)
-	ori	$a3, $zero, 3877
-	lu12i.w	$a4, 7
-	ori	$a4, $a4, 901
+	ld.d	$a4, $a1, %pc_lo12(_ZZ10gen_randomdE4last)
+	ori	$a2, $zero, 3877
+	lu12i.w	$a3, 7
+	ori	$a3, $a3, 901
 	lu12i.w	$a5, -10549
 	ori	$a5, $a5, 3729
 	lu32i.d	$a5, -86783
@@ -56,24 +50,28 @@ main:                                   # @main
 .LBB0_5:                                # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
 	addi.w	$a0, $a0, -1
-	mul.d	$a2, $a2, $a3
-	add.d	$a2, $a2, $a4
-	mulh.d	$a7, $a2, $a5
+	mul.d	$a4, $a4, $a2
+	add.d	$a4, $a4, $a3
+	mulh.d	$a7, $a4, $a5
 	srli.d	$t0, $a7, 63
 	srai.d	$a7, $a7, 15
 	add.d	$a7, $a7, $t0
 	mul.d	$a7, $a7, $a6
-	sub.d	$a2, $a2, $a7
+	sub.d	$a4, $a4, $a7
 	bnez	$a0, .LBB0_5
 # %bb.6:                                # %._crit_edge
-	st.d	$a2, $a1, %pc_lo12(_ZZ10gen_randomdE4last)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
-	movgr2fr.d	$fa2, $a2
-	ffint.d.l	$fa2, $fa2
-	fmul.d	$fa0, $fa2, $fa0
+	st.d	$a4, $a1, %pc_lo12(_ZZ10gen_randomdE4last)
+	movgr2fr.d	$fa0, $a4
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
+	lu32i.d	$a0, 71168
+	lu52i.d	$a0, $a0, 1040
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 .LBB0_7:
 	pcalau12i	$a0, %got_pc_hi20(_ZSt4cout)

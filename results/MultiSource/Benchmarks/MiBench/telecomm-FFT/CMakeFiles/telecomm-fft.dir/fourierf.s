@@ -4,22 +4,6 @@
 .LCPI0_0:
 	.dword	0xc01921fb54442d18              # double -6.2831853071795862
 	.dword	0x401921fb54442d18              # double 6.2831853071795862
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x3fe6a09e667f3bcd              # double 0.70710678118654757
-.LCPI0_2:
-	.dword	0x3fe6a09e667f3bcc              # double 0.70710678118654746
-.LCPI0_3:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-.LCPI0_4:
-	.dword	0x3fc921fb54442d18              # double 0.19634954084936207
-.LCPI0_5:
-	.dword	0x3fc8f8b83c69a60a              # double 0.19509032201612825
-.LCPI0_6:
-	.dword	0xbfe921fb54442d18              # double -0.78539816339744828
-.LCPI0_7:
-	.dword	0xbfc921fb54442d18              # double -0.19634954084936207
 	.text
 	.globl	fft_float
 	.p2align	5
@@ -162,26 +146,37 @@ fft_float:                              # @fft_float
 	addi.d	$a1, $a1, %pc_lo12(.LCPI0_0)
 	fldx.d	$fa0, $a1, $a0
 	fst.d	$fa0, $sp, 56                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs6, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fs7, $a0, %pc_lo12(.LCPI0_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_3)
-	fst.d	$fa0, $sp, 48                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_6)
-	fst.d	$fa0, $sp, 40                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_7)
-	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_5)
-	fst.d	$fa0, $sp, 32                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_4)
-	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
 	ori	$a0, $zero, 2
+	lu12i.w	$a1, 419827
+	ori	$a2, $a1, 3021
+	lu32i.d	$a2, 434334
+	lu52i.d	$a2, $a2, 1022
+	movgr2fr.d	$fs6, $a2
+	ori	$a1, $a1, 3020
+	lu32i.d	$a1, 434334
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fs7, $a1
+	lu12i.w	$a1, 345154
+	ori	$a1, $a1, 3352
+	lu32i.d	$a1, -450053
+	lu52i.d	$a2, $a1, 1022
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 48                   # 8-byte Folded Spill
+	lu52i.d	$a2, $a1, -1026
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 40                   # 8-byte Folded Spill
+	lu52i.d	$a2, $a1, -1028
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
+	lu12i.w	$a2, 247450
+	ori	$a2, $a2, 1546
+	lu32i.d	$a2, -460616
+	lu52i.d	$a2, $a2, 1020
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 32                   # 8-byte Folded Spill
+	lu52i.d	$a1, $a1, 1020
+	movgr2fr.d	$fa0, $a1
+	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
 	b	.LBB0_17
 	.p2align	4, , 16
 .LBB0_16:                               # %._crit_edge124
@@ -388,22 +383,6 @@ fft_float:                              # @fft_float
 .LCPI1_0:
 	.dword	0xc01921fb54442d18              # double -6.2831853071795862
 	.dword	0x401921fb54442d18              # double 6.2831853071795862
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI1_1:
-	.dword	0x3fe6a09e667f3bcd              # double 0.70710678118654757
-.LCPI1_2:
-	.dword	0x3fe6a09e667f3bcc              # double 0.70710678118654746
-.LCPI1_3:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-.LCPI1_4:
-	.dword	0x3fc921fb54442d18              # double 0.19634954084936207
-.LCPI1_5:
-	.dword	0x3fc8f8b83c69a60a              # double 0.19509032201612825
-.LCPI1_6:
-	.dword	0xbfe921fb54442d18              # double -0.78539816339744828
-.LCPI1_7:
-	.dword	0xbfc921fb54442d18              # double -0.19634954084936207
 	.text
 	.globl	fft_float_StrictFP
 	.p2align	5
@@ -546,26 +525,37 @@ fft_float_StrictFP:                     # @fft_float_StrictFP
 	addi.d	$a1, $a1, %pc_lo12(.LCPI1_0)
 	fldx.d	$fa0, $a1, $a0
 	fst.d	$fa0, $sp, 56                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fs6, $a0, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fs7, $a0, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_3)
-	fst.d	$fa0, $sp, 48                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_6)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_6)
-	fst.d	$fa0, $sp, 40                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_7)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_7)
-	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_5)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_5)
-	fst.d	$fa0, $sp, 32                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_4)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_4)
-	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
 	ori	$a0, $zero, 2
+	lu12i.w	$a1, 419827
+	ori	$a2, $a1, 3021
+	lu32i.d	$a2, 434334
+	lu52i.d	$a2, $a2, 1022
+	movgr2fr.d	$fs6, $a2
+	ori	$a1, $a1, 3020
+	lu32i.d	$a1, 434334
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fs7, $a1
+	lu12i.w	$a1, 345154
+	ori	$a1, $a1, 3352
+	lu32i.d	$a1, -450053
+	lu52i.d	$a2, $a1, 1022
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 48                   # 8-byte Folded Spill
+	lu52i.d	$a2, $a1, -1026
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 40                   # 8-byte Folded Spill
+	lu52i.d	$a2, $a1, -1028
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
+	lu12i.w	$a2, 247450
+	ori	$a2, $a2, 1546
+	lu32i.d	$a2, -460616
+	lu52i.d	$a2, $a2, 1020
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 32                   # 8-byte Folded Spill
+	lu52i.d	$a1, $a1, 1020
+	movgr2fr.d	$fa0, $a1
+	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
 	b	.LBB1_17
 	.p2align	4, , 16
 .LBB1_16:                               # %._crit_edge124

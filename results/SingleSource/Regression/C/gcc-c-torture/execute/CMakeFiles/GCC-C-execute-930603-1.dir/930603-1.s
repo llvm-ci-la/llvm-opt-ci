@@ -1,18 +1,17 @@
 	.file	"930603-1.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fx
-.LCPI0_0:
-	.dword	0x40026bb1bbb58975              # double 2.3025850929999998
 	.text
-	.globl	fx
+	.globl	fx                              # -- Begin function fx
 	.p2align	5
 	.type	fx,@function
 fx:                                     # @fx
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	fcvt.s.d	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a0, -279720
+	ori	$a0, $a0, 2421
+	lu32i.d	$a0, 158641
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -1016
 	fdiv.d	$fa0, $fa1, $fa0

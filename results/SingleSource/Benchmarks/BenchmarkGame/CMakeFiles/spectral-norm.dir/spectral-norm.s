@@ -223,12 +223,7 @@ eval_AtA_times_u:                       # @eval_AtA_times_u
 .Lfunc_end3:
 	.size	eval_AtA_times_u, .Lfunc_end3-eval_AtA_times_u
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI4_0:
-	.dword	0x7ff8000000000000              # double NaN
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -432,8 +427,10 @@ main:                                   # @main
 	fdiv.d	$fa0, $fa1, $fa0
 	b	.LBB4_17
 .LBB4_16:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI4_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fa0, $a0
 .LBB4_17:                               # %._crit_edge
 	fsqrt.d	$fa1, $fa0
 	fcmp.cor.d	$fcc0, $fa1, $fa1

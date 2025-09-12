@@ -15,25 +15,23 @@ fpEq:                                   # @fpEq
 .Lfunc_end0:
 	.size	fpEq, .Lfunc_end0-fpEq
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fpTest
-.LCPI1_0:
-	.dword	0x4059000000000000              # double 100
-.LCPI1_1:
-	.dword	0x4053d55555555556              # double 79.333333333333343
-	.text
-	.globl	fpTest
+	.globl	fpTest                          # -- Begin function fpTest
 	.p2align	5
 	.type	fpTest,@function
 fpTest:                                 # @fpTest
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI1_1)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa2, $a0
 	fmul.d	$fa0, $fa0, $fa2
 	fdiv.d	$fa0, $fa0, $fa1
-	fcmp.ceq.d	$fcc0, $fa0, $fa3
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1366
+	lu32i.d	$a0, 251221
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa1, $a0
+	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB1_2
 # %bb.1:                                # %fpEq.exit
 	ret

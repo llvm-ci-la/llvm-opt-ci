@@ -416,22 +416,7 @@ _ZN23btConvexConvexAlgorithm19setLowLevelOfDetailEb: # @_ZN23btConvexConvexAlgor
 .Lfunc_end7:
 	.size	_ZN23btConvexConvexAlgorithm19setLowLevelOfDetailEb, .Lfunc_end7-_ZN23btConvexConvexAlgorithm19setLowLevelOfDetailEb
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
-.LCPI8_0:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-.LCPI8_1:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI8_2:
-	.word	0x3f3504f3                      # float 0.707106769
-.LCPI8_3:
-	.word	0x3ec90fdb                      # float 0.392699093
-.LCPI8_4:
-	.word	0x40c90fdb                      # float 6.28318548
-.LCPI8_5:
-	.word	0x28800000                      # float 1.42108547E-14
-	.text
-	.globl	_ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
+	.globl	_ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult # -- Begin function _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
 	.p2align	5
 	.type	_ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult,@function
 _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult: # @_ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
@@ -633,8 +618,9 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	st.d	$s6, $sp, 664
 	beqz	$a0, .LBB8_16
 # %bb.15:
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI8_0)
+	lu12i.w	$a0, 382432
+	ori	$a0, $a0, 2923
+	movgr2fr.w	$fa0, $a0
 	b	.LBB8_17
 .LBB8_16:
 	ld.d	$a0, $s7, 0
@@ -683,11 +669,11 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	pcaddu18i	$ra, %call36(_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb)
 	jirl	$ra, $ra, 0
 	ld.bu	$a0, $s3, 40
-	pcalau12i	$a3, %pc_hi20(.LCPI8_1)
+	lu12i.w	$a3, 212992
 	beqz	$a0, .LBB8_21
 # %bb.18:
 	fld.s	$fa6, $sp, 692
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI8_1)
+	movgr2fr.w	$fa0, $a3
 	fcmp.cule.s	$fcc0, $fa6, $fa0
 	bcnez	$fcc0, .LBB8_22
 # %bb.19:
@@ -698,24 +684,25 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	fmul.s	$fa4, $fa0, $fa0
 	fmadd.s	$fa4, $fa1, $fa1, $fa4
 	fmadd.s	$fa4, $fa2, $fa2, $fa4
-	pcalau12i	$a1, %pc_hi20(.LCPI8_2)
-	fld.s	$fa5, $a1, %pc_lo12(.LCPI8_2)
 	frsqrt.s	$fa4, $fa4
-	fmul.s	$fs7, $fa2, $fa4
-	fabs.s	$fa2, $fs7
+	fmul.s	$fs4, $fa2, $fa4
+	fabs.s	$fa2, $fs4
+	lu12i.w	$a1, 258896
+	ori	$a1, $a1, 1267
+	movgr2fr.w	$fa5, $a1
 	fcmp.cule.s	$fcc0, $fa2, $fa5
 	fmul.s	$fs0, $fa1, $fa4
-	fmul.s	$fs4, $fa0, $fa4
+	fmul.s	$fs7, $fa0, $fa4
 	fadd.s	$fa6, $fa6, $fa3
 	bcnez	$fcc0, .LBB8_39
 # %bb.20:
-	fmul.s	$fa0, $fs7, $fs7
-	fmadd.s	$fa0, $fs4, $fs4, $fa0
+	fmul.s	$fa0, $fs4, $fs4
+	fmadd.s	$fa0, $fs7, $fs7, $fa0
 	frsqrt.s	$fa0, $fa0
-	fneg.s	$fa1, $fs7
+	fneg.s	$fa1, $fs4
 	fmul.s	$fa1, $fa0, $fa1
 	fst.s	$fa1, $sp, 140                  # 4-byte Folded Spill
-	fmul.s	$fa0, $fs4, $fa0
+	fmul.s	$fa0, $fs7, $fa0
 	fst.s	$fa0, $sp, 136                  # 4-byte Folded Spill
 	movgr2fr.w	$fa0, $zero
 	fst.s	$fa0, $sp, 144                  # 4-byte Folded Spill
@@ -723,9 +710,9 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 .LBB8_21:
 	movgr2fr.w	$fa6, $zero
 .LBB8_22:
-                                        # implicit-def: $f31
-                                        # implicit-def: $f24
                                         # implicit-def: $f28
+                                        # implicit-def: $f24
+                                        # implicit-def: $f31
                                         # implicit-def: $f0
                                         # kill: killed $f0
                                         # implicit-def: $f0
@@ -742,7 +729,6 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	st.d	$a4, $sp, 72                    # 8-byte Folded Spill
 	bge	$a1, $a2, .LBB8_31
 # %bb.24:
-	st.d	$a3, $sp, 16                    # 8-byte Folded Spill
 	fst.s	$fa6, $sp, 28                   # 4-byte Folded Spill
 	ld.d	$a0, $s7, 0
 	addi.d	$s4, $sp, 776
@@ -795,12 +781,13 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	addi.d	$a0, $s0, 24
 	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI8_3)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI8_3)
 	addi.d	$a0, $s0, 40
 	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
-	fsel	$fa3, $fa0, $fs1, $fcc0
-	fdiv.s	$fa1, $fa1, $fa3
+	fsel	$fa2, $fa0, $fs1, $fcc0
+	fdiv.s	$fa1, $fa1, $fa2
+	lu12i.w	$a0, 257168
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa2, $a0
 	fcmp.clt.s	$fcc1, $fa2, $fa1
 	fsel	$fa1, $fa1, $fa2, $fcc1
 	fld.s	$fa2, $sp, 140                  # 4-byte Folded Reload
@@ -814,14 +801,15 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	vldi	$vr2, -1184
 	fmul.s	$fa1, $fa1, $fa2
 	fst.s	$fa1, $sp, 116                  # 4-byte Folded Spill
-	fmul.s	$fa1, $fs4, $fs4
+	fmul.s	$fa1, $fs7, $fs7
 	fmadd.s	$fa1, $fs0, $fs0, $fa1
-	fmadd.s	$fa1, $fs7, $fs7, $fa1
+	fmadd.s	$fa1, $fs4, $fs4, $fa1
 	fsqrt.s	$fa1, $fa1
 	fst.s	$fa1, $sp, 112                  # 4-byte Folded Spill
 	movcf2gr	$s7, $fcc0
-	pcalau12i	$a0, %pc_hi20(.LCPI8_4)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI8_4)
+	lu12i.w	$a0, 265360
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa1, $a0
 	fst.s	$fa1, $sp, 108                  # 4-byte Folded Spill
 	fcmp.cule.s	$fcc0, $fa0, $fs1
 	movcf2gr	$a0, $fcc0
@@ -829,9 +817,9 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	pcalau12i	$a0, %pc_hi20(_ZTV24btPerturbedContactResult+16)
 	addi.d	$s6, $a0, %pc_lo12(_ZTV24btPerturbedContactResult+16)
 	move	$s4, $zero
-	fst.s	$fs7, $sp, 132                  # 4-byte Folded Spill
+	fst.s	$fs4, $sp, 132                  # 4-byte Folded Spill
 	fst.s	$fs0, $sp, 128                  # 4-byte Folded Spill
-	fst.s	$fs4, $sp, 124                  # 4-byte Folded Spill
+	fst.s	$fs7, $sp, 124                  # 4-byte Folded Spill
 	b	.LBB8_28
 	.p2align	4, , 16
 .LBB8_26:                               #   in Loop: Header=BB8_28 Depth=1
@@ -853,7 +841,7 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	fmul.s	$fa5, $fs1, $fa1
 	fmadd.s	$fa5, $fa0, $fs3, $fa5
 	fmadd.s	$fa5, $fa4, $fs5, $fa5
-	fmadd.s	$fa6, $fs7, $fs6, $fa5
+	fmadd.s	$fa6, $fs4, $fs6, $fa5
 	fmul.s	$fa4, $fs1, $fa4
 	fmadd.s	$fa4, $fa0, $fs6, $fa4
 	fmadd.s	$fa4, $fa3, $fs3, $fa4
@@ -861,29 +849,29 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	fmul.s	$fa3, $fs1, $fa3
 	fmadd.s	$fa3, $fa0, $fs5, $fa3
 	fmadd.s	$fa3, $fa1, $fs6, $fa3
-	fmadd.s	$ft0, $fs4, $fs3, $fa3
+	fmadd.s	$ft0, $fs7, $fs3, $fa3
 	fmadd.s	$fa2, $fa0, $fs1, $fa2
-	fmadd.s	$fa2, $fs4, $fs6, $fa2
-	fmadd.s	$fa2, $fs7, $fs5, $fa2
+	fmadd.s	$fa2, $fs7, $fs6, $fa2
+	fmadd.s	$fa2, $fs4, $fs5, $fa2
 	fmul.s	$ft1, $fa0, $fa6
 	fmadd.s	$ft1, $fa2, $fs0, $ft1
-	fmadd.s	$ft1, $fa7, $fs7, $ft1
-	fnmadd.s	$fa3, $fs4, $fs3, $fa3
-	fmadd.s	$ft1, $fa3, $fs4, $ft1
+	fmadd.s	$ft1, $fa7, $fs4, $ft1
+	fnmadd.s	$fa3, $fs7, $fs3, $fa3
+	fmadd.s	$ft1, $fa3, $fs7, $ft1
 	fmul.s	$fa7, $fa0, $fa7
-	fmadd.s	$fa7, $fa2, $fs4, $fa7
-	fmadd.s	$fa7, $ft0, $fs0, $fa7
-	fnmadd.s	$fa5, $fs7, $fs6, $fa5
-	fmadd.s	$fa5, $fa5, $fs7, $fa7
-	fmul.s	$fa7, $fa0, $ft0
 	fmadd.s	$fa7, $fa2, $fs7, $fa7
-	fmadd.s	$fa7, $fa6, $fs4, $fa7
+	fmadd.s	$fa7, $ft0, $fs0, $fa7
+	fnmadd.s	$fa5, $fs4, $fs6, $fa5
+	fmadd.s	$fa5, $fa5, $fs4, $fa7
+	fmul.s	$fa7, $fa0, $ft0
+	fmadd.s	$fa7, $fa2, $fs4, $fa7
+	fmadd.s	$fa7, $fa6, $fs7, $fa7
 	fnmadd.s	$fa4, $fs0, $fs5, $fa4
 	fmadd.s	$fa7, $fa4, $fs0, $fa7
 	fmul.s	$fa1, $fa6, $fa1
 	fmadd.s	$fa0, $fa2, $fa0, $fa1
-	fmadd.s	$fa0, $fa4, $fs4, $fa0
-	fmadd.s	$fa0, $fa3, $fs7, $fa0
+	fmadd.s	$fa0, $fa4, $fs7, $fa0
+	fmadd.s	$fa0, $fa3, $fs4, $fa0
 	fmul.s	$fa1, $fa5, $fa5
 	fmadd.s	$fa1, $ft1, $ft1, $fa1
 	fmadd.s	$fa1, $fa7, $fa7, $fa1
@@ -1018,9 +1006,9 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $s1, 148
 	addi.w	$s4, $s4, 1
-	fld.s	$fs7, $sp, 132                  # 4-byte Folded Reload
+	fld.s	$fs4, $sp, 132                  # 4-byte Folded Reload
 	fld.s	$fs0, $sp, 128                  # 4-byte Folded Reload
-	fld.s	$fs4, $sp, 124                  # 4-byte Folded Reload
+	fld.s	$fs7, $sp, 124                  # 4-byte Folded Reload
 	bge	$s4, $a0, .LBB8_30
 .LBB8_28:                               # =>This Inner Loop Header: Depth=1
 	fld.s	$fs1, $sp, 116                  # 4-byte Folded Reload
@@ -1056,14 +1044,14 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	fld.s	$fa1, $sp, 112                  # 4-byte Folded Reload
 	fdiv.s	$fa0, $fa0, $fa1
 	fmul.s	$fs0, $fs0, $fa0
-	fmul.s	$fs4, $fs4, $fa0
 	fmul.s	$fs7, $fs7, $fa0
+	fmul.s	$fs4, $fs4, $fa0
 	fmov.s	$fa0, $fs2
 	pcaddu18i	$ra, %call36(cosf)
 	jirl	$ra, $ra, 0
 	fneg.s	$fa1, $fs0
-	fneg.s	$fa4, $fs4
-	fneg.s	$fa3, $fs7
+	fneg.s	$fa4, $fs7
+	fneg.s	$fa3, $fs4
 	fmul.s	$fa2, $fs3, $fs0
 	ld.d	$a0, $sp, 96
 	movgr2cf	$fcc0, $a0
@@ -1072,7 +1060,7 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	fmul.s	$fa5, $fs1, $fa1
 	fmadd.s	$fa5, $fa0, $fs3, $fa5
 	fmadd.s	$fa5, $fa4, $fs5, $fa5
-	fmadd.s	$fa6, $fs7, $fs6, $fa5
+	fmadd.s	$fa6, $fs4, $fs6, $fa5
 	fmul.s	$fa4, $fs1, $fa4
 	fmadd.s	$fa4, $fa0, $fs6, $fa4
 	fmadd.s	$fa4, $fa3, $fs3, $fa4
@@ -1080,29 +1068,29 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	fmul.s	$fa3, $fs1, $fa3
 	fmadd.s	$fa3, $fa0, $fs5, $fa3
 	fmadd.s	$fa3, $fa1, $fs6, $fa3
-	fmadd.s	$ft0, $fs4, $fs3, $fa3
+	fmadd.s	$ft0, $fs7, $fs3, $fa3
 	fmadd.s	$fa2, $fa0, $fs1, $fa2
-	fmadd.s	$fa2, $fs4, $fs6, $fa2
-	fmadd.s	$fa2, $fs7, $fs5, $fa2
+	fmadd.s	$fa2, $fs7, $fs6, $fa2
+	fmadd.s	$fa2, $fs4, $fs5, $fa2
 	fmul.s	$ft1, $fa0, $fa6
 	fmadd.s	$ft1, $fa2, $fs0, $ft1
-	fmadd.s	$ft1, $fa7, $fs7, $ft1
-	fnmadd.s	$fa3, $fs4, $fs3, $fa3
-	fmadd.s	$ft1, $fa3, $fs4, $ft1
+	fmadd.s	$ft1, $fa7, $fs4, $ft1
+	fnmadd.s	$fa3, $fs7, $fs3, $fa3
+	fmadd.s	$ft1, $fa3, $fs7, $ft1
 	fmul.s	$fa7, $fa0, $fa7
-	fmadd.s	$fa7, $fa2, $fs4, $fa7
-	fmadd.s	$fa7, $ft0, $fs0, $fa7
-	fnmadd.s	$fa5, $fs7, $fs6, $fa5
-	fmadd.s	$fa5, $fa5, $fs7, $fa7
-	fmul.s	$fa7, $fa0, $ft0
 	fmadd.s	$fa7, $fa2, $fs7, $fa7
-	fmadd.s	$fa7, $fa6, $fs4, $fa7
+	fmadd.s	$fa7, $ft0, $fs0, $fa7
+	fnmadd.s	$fa5, $fs4, $fs6, $fa5
+	fmadd.s	$fa5, $fa5, $fs4, $fa7
+	fmul.s	$fa7, $fa0, $ft0
+	fmadd.s	$fa7, $fa2, $fs4, $fa7
+	fmadd.s	$fa7, $fa6, $fs7, $fa7
 	fnmadd.s	$fa4, $fs0, $fs5, $fa4
 	fmadd.s	$fa7, $fa4, $fs0, $fa7
 	fmul.s	$fa1, $fa6, $fa1
 	fmadd.s	$fa0, $fa2, $fa0, $fa1
-	fmadd.s	$fa0, $fa4, $fs4, $fa0
-	fmadd.s	$fa0, $fa3, $fs7, $fa0
+	fmadd.s	$fa0, $fa4, $fs7, $fa0
+	fmadd.s	$fa0, $fa3, $fs4, $fa0
 	fmul.s	$fa1, $fa5, $fa5
 	fmadd.s	$fa1, $ft1, $ft1, $fa1
 	fmadd.s	$fa1, $fa7, $fa7, $fa1
@@ -1203,12 +1191,12 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 .LBB8_30:                               # %._crit_edge
 	ld.b	$a0, $s3, 40
 	fld.s	$fa6, $sp, 28                   # 4-byte Folded Reload
-	ld.d	$a3, $sp, 16                    # 8-byte Folded Reload
+	lu12i.w	$a3, 212992
 .LBB8_31:
 	andi	$a0, $a0, 1
 	beqz	$a0, .LBB8_34
 # %bb.32:
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI8_1)
+	movgr2fr.w	$fa0, $a3
 	fcmp.cule.s	$fcc0, $fa6, $fa0
 	bcnez	$fcc0, .LBB8_34
 # %bb.33:                               # %.noexc
@@ -1255,10 +1243,10 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	fmov.s	$ft9, $fa1
 	b	.LBB8_41
 .LBB8_39:
-	fmul.s	$fa0, $fs4, $fs4
+	fmul.s	$fa0, $fs7, $fs7
 	fmadd.s	$fa0, $fs0, $fs0, $fa0
 	frsqrt.s	$fa0, $fa0
-	fneg.s	$fa1, $fs4
+	fneg.s	$fa1, $fs7
 	fmul.s	$fa1, $fa0, $fa1
 	fst.s	$fa1, $sp, 144                  # 4-byte Folded Spill
 	fmul.s	$fa0, $fs0, $fa0
@@ -1290,8 +1278,8 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB8_48
 # %bb.42:
-	pcalau12i	$a0, %pc_hi20(.LCPI8_5)
-	fld.s	$ft8, $a0, %pc_lo12(.LCPI8_5)
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$ft8, $a0
 	fcmp.cult.s	$fcc0, $ft8, $ft9
 	bceqz	$fcc0, .LBB8_44
 # %bb.43:
@@ -1309,10 +1297,11 @@ _ZN23btConvexConvexAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDisp
 	st.d	$a1, $sp, 168
 	b	.LBB8_47
 .LBB8_44:
-	pcalau12i	$a0, %pc_hi20(.LCPI8_2)
-	fld.s	$ft4, $a0, %pc_lo12(.LCPI8_2)
-	fabs.s	$ft5, $ft0
-	fcmp.cule.s	$fcc0, $ft5, $ft4
+	fabs.s	$ft4, $ft0
+	lu12i.w	$a0, 258896
+	ori	$a0, $a0, 1267
+	movgr2fr.w	$ft5, $a0
+	fcmp.cule.s	$fcc0, $ft4, $ft5
 	bcnez	$fcc0, .LBB8_46
 # %bb.45:
 	fmul.s	$fa7, $ft0, $ft0
@@ -2492,12 +2481,8 @@ _ZNK11btMatrix3x311getRotationER12btQuaternion: # @_ZNK11btMatrix3x311getRotatio
 	.size	_ZNK11btMatrix3x311getRotationER12btQuaternion, .Lfunc_end15-_ZNK11btMatrix3x311getRotationER12btQuaternion
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf
-.LCPI16_0:
-	.word	0x28800000                      # float 1.42108547E-14
 	.section	.text._ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf,"axG",@progbits,_ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf,comdat
-	.weak	_ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf
+	.weak	_ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf # -- Begin function _ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf
 	.p2align	5
 	.type	_ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf,@function
 _ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf: # @_ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVector3Rf
@@ -2595,11 +2580,11 @@ _ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVe
 	jirl	$ra, $ra, 0
 	fadd.s	$fa0, $fa0, $fa0
 	fst.s	$fa0, $s0, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI16_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI16_0)
 	fmul.s	$fa0, $fs1, $fs1
 	fmadd.s	$fa0, $fs0, $fs0, $fa0
 	fmadd.s	$fa0, $fs2, $fs2, $fa0
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	st.w	$zero, $fp, 12
 	bceqz	$fcc0, .LBB16_5

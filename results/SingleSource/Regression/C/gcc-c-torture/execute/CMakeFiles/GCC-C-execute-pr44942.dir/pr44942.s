@@ -40,12 +40,7 @@ test2:                                  # @test2
 .Lfunc_end1:
 	.size	test2, .Lfunc_end1-test2
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test3
-.LCPI2_0:
-	.dword	0x4093480000000000              # double 1234
-	.text
-	.globl	test3
+	.globl	test3                           # -- Begin function test3
 	.p2align	5
 	.type	test3,@function
 test3:                                  # @test3
@@ -60,8 +55,10 @@ test3:                                  # @test3
 	addi.d	$a0, $sp, 24
 	st.d	$a0, $sp, 8
 	fld.d	$fa0, $sp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 215040
+	lu52i.d	$a0, $a0, 1033
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB2_2
 # %bb.1:
@@ -73,12 +70,7 @@ test3:                                  # @test3
 .Lfunc_end2:
 	.size	test3, .Lfunc_end2-test3
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test4
-.LCPI3_0:
-	.dword	0x4093480000000000              # double 1234
-	.text
-	.globl	test4
+	.globl	test4                           # -- Begin function test4
 	.p2align	5
 	.type	test4,@function
 test4:                                  # @test4
@@ -87,8 +79,10 @@ test4:                                  # @test4
 	addi.d	$a0, $sp, 40
 	st.d	$a0, $sp, 8
 	fld.d	$fa0, $sp, 32
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 215040
+	lu52i.d	$a0, $a0, 1033
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB3_2
 # %bb.1:

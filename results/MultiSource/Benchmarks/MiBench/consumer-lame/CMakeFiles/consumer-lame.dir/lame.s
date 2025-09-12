@@ -1,39 +1,17 @@
 	.file	"lame.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lame_init_params
-.LCPI0_0:
-	.dword	0x408f400000000000              # double 1000
-.LCPI0_1:
-	.dword	0x402a000010000000              # double 13.000000476837158
-.LCPI0_2:
-	.dword	0x40c3880000000000              # double 1.0E+4
-.LCPI0_3:
-	.dword	0x4026000010000000              # double 11.000000476837158
-.LCPI0_4:
-	.dword	0x401199999999999a              # double 4.4000000000000004
-.LCPI0_5:
-	.dword	0x4021fffff0000000              # double 8.9999995231628418
-.LCPI0_6:
-	.dword	0x3fb0000000000000              # double 0.0625
-.LCPI0_7:
-	.dword	0xb690000000000000              # double -7.0064923216240854E-46
-.LCPI0_8:
-	.dword	0x3ff921fb54442d18              # double 1.5707963267948966
-.LCPI0_9:
-	.dword	0x3f964bf964bf964c              # double 0.021774193548387097
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_10:
+	.p2align	4, 0x0                          # -- Begin function lame_init_params
+.LCPI0_0:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	1                               # 0x1
 	.word	1                               # 0x1
-.LCPI0_11:
+.LCPI0_1:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	1                               # 0x1
 	.word	0                               # 0x0
-.LCPI0_12:
+.LCPI0_2:
 	.word	0                               # 0x0
 	.word	0                               # 0x0
 	.word	1                               # 0x1
@@ -76,146 +54,157 @@ lame_init_params:                       # @lame_init_params
 	pcaddu18i	$ra, %call36(InitFormatBitStream)
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $fp, 8
-	ori	$a6, $zero, 1
-	bne	$a0, $a6, .LBB0_2
+	ori	$a5, $zero, 1
+	bne	$a0, $a5, .LBB0_6
 # %bb.1:                                # %.thread431
 	move	$a0, $zero
 	ori	$a1, $zero, 3
 	st.w	$a1, $fp, 36
-	b	.LBB0_3
-.LBB0_2:
+	ld.w	$a1, $fp, 16
+	st.w	$a5, $fp, 204
+	lu12i.w	$a3, 5
+	beqz	$a1, .LBB0_7
+.LBB0_2:                                # %._crit_edge395
+	ld.w	$a2, $fp, 48
+.LBB0_3:
+	ori	$a3, $a3, 3520
+	slt	$a4, $a3, $a1
+	addi.d	$a3, $a4, 1
+	st.w	$a3, $fp, 200
+	ori	$a3, $zero, 800
+	st.w	$a3, $fp, 184
+	ori	$a3, $zero, 576
+	sll.w	$a3, $a3, $a4
+	st.w	$a3, $fp, 188
+	beqz	$a2, .LBB0_9
+# %bb.4:
+	ld.w	$a4, $fp, 12
+	lu12i.w	$a5, 260096
+	st.w	$a5, $fp, 216
+	bne	$a1, $a4, .LBB0_10
+.LBB0_5:
+	vldi	$vr0, -1168
+	b	.LBB0_11
+.LBB0_6:
 	ld.w	$a0, $fp, 36
 	addi.d	$a0, $a0, -3
 	sltu	$a0, $zero, $a0
-	addi.d	$a6, $a0, 1
-.LBB0_3:
-	ld.w	$a2, $fp, 16
-	st.w	$a6, $fp, 204
-	lu12i.w	$a4, 5
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	beqz	$a2, .LBB0_8
-# %bb.4:                                # %._crit_edge395
-	ld.w	$a3, $fp, 48
-.LBB0_5:
-	ori	$a4, $a4, 3520
-	slt	$a5, $a4, $a2
-	addi.d	$a4, $a5, 1
-	st.w	$a4, $fp, 200
-	ori	$a4, $zero, 800
-	st.w	$a4, $fp, 184
-	ori	$a4, $zero, 576
-	sll.w	$a4, $a4, $a5
-	st.w	$a4, $fp, 188
-	beqz	$a3, .LBB0_10
-# %bb.6:
-	ld.w	$a5, $fp, 12
-	lu12i.w	$a6, 260096
-	st.w	$a6, $fp, 216
-	bne	$a2, $a5, .LBB0_11
+	addi.d	$a5, $a0, 1
+	ld.w	$a1, $fp, 16
+	st.w	$a5, $fp, 204
+	lu12i.w	$a3, 5
+	bnez	$a1, .LBB0_2
 .LBB0_7:
-	vldi	$vr0, -1168
-	b	.LBB0_12
-.LBB0_8:
-	ld.w	$a2, $fp, 12
-	lu12i.w	$a5, 11
-	ori	$a3, $a5, 2943
-	bge	$a3, $a2, .LBB0_44
-# %bb.9:
-	ori	$a2, $a5, 2944
-	b	.LBB0_101
+	ld.w	$a1, $fp, 12
+	lu12i.w	$a4, 11
+	ori	$a2, $a4, 2943
+	bge	$a2, $a1, .LBB0_43
+# %bb.8:
+	ori	$a1, $a4, 2944
+	b	.LBB0_100
+.LBB0_9:
+	ori	$a2, $zero, 64
+	masknez	$a2, $a2, $a4
+	ori	$a5, $zero, 128
+	maskeqz	$a4, $a5, $a4
+	or	$a2, $a4, $a2
+	st.w	$a2, $fp, 48
+	ld.w	$a4, $fp, 12
+	lu12i.w	$a5, 260096
+	st.w	$a5, $fp, 216
+	beq	$a1, $a4, .LBB0_5
 .LBB0_10:
-	ori	$a3, $zero, 64
-	masknez	$a3, $a3, $a5
-	ori	$a6, $zero, 128
-	maskeqz	$a5, $a6, $a5
-	or	$a3, $a5, $a3
-	st.w	$a3, $fp, 48
-	ld.w	$a5, $fp, 12
-	lu12i.w	$a6, 260096
-	st.w	$a6, $fp, 216
-	beq	$a2, $a5, .LBB0_7
-.LBB0_11:
-	movgr2fr.w	$fa0, $a5
+	movgr2fr.w	$fa0, $a4
 	ffint.s.w	$fa0, $fa0
-	movgr2fr.w	$fa1, $a2
+	movgr2fr.w	$fa1, $a1
 	ffint.s.w	$fa1, $fa1
 	fdiv.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $fp, 216
-.LBB0_12:
-	ld.d	$a5, $fp, 0
-	srli.d	$a6, $a5, 1
-	andi	$a7, $a5, 1
-	or	$a6, $a7, $a6
-	movgr2fr.d	$fa1, $a6
+.LBB0_11:
+	ld.d	$a4, $fp, 0
+	srli.d	$a5, $a4, 1
+	andi	$a6, $a4, 1
+	or	$a5, $a6, $a5
+	movgr2fr.d	$fa1, $a5
 	ffint.s.l	$fa1, $fa1
 	fadd.s	$fa1, $fa1, $fa1
-	slti	$a6, $a5, 0
-	movgr2fr.d	$fa2, $a5
-	ffint.s.l	$fa2, $fa2
-	movgr2cf	$fcc0, $a6
-	fsel	$fa1, $fa2, $fa1, $fcc0
-	bstrpick.d	$a4, $a4, 31, 0
+	slti	$a5, $a4, 0
 	movgr2fr.d	$fa2, $a4
+	ffint.s.l	$fa2, $fa2
+	movgr2cf	$fcc0, $a5
+	fsel	$fa1, $fa2, $fa1, $fcc0
+	bstrpick.d	$a3, $a3, 31, 0
+	movgr2fr.d	$fa2, $a3
 	ffint.s.l	$fa2, $fa2
 	fmul.s	$fa0, $fa0, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	vldi	$vr1, -1280
 	fadd.s	$fa0, $fa0, $fa1
 	ftintrz.l.s	$fa0, $fa0
-	ori	$a4, $zero, 319
+	ori	$a3, $zero, 319
 	fst.d	$fa0, $fp, 176
-	bge	$a4, $a3, .LBB0_14
-# %bb.13:
-	move	$a4, $zero
+	bge	$a3, $a2, .LBB0_13
+# %bb.12:
+	move	$a3, $zero
 	st.w	$zero, $fp, 88
-	b	.LBB0_15
-.LBB0_14:                               # %._crit_edge398
-	ld.w	$a4, $fp, 88
-	sltu	$a4, $zero, $a4
-.LBB0_15:
-	slli.d	$a2, $a2, 4
-	sll.w	$a2, $a2, $a0
-	movgr2fr.w	$fa0, $a2
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_0)
+	b	.LBB0_14
+.LBB0_13:                               # %._crit_edge398
+	ld.w	$a3, $fp, 88
+	sltu	$a3, $zero, $a3
+.LBB0_14:
+	slli.d	$a1, $a1, 4
+	sll.w	$a1, $a1, $a0
+	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	movgr2fr.w	$fa2, $a3
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa1, $fa2, $fa1
-	fdiv.d	$fa0, $fa0, $fa1
-	beqz	$a4, .LBB0_18
-# %bb.16:
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_3)
-	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB0_18
-# %bb.17:
-	ld.w	$a1, $fp, 92
-	pcalau12i	$a2, %pc_hi20(.LCPI0_4)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_4)
-	movgr2fr.w	$fa1, $a1
+	movgr2fr.w	$fa1, $a2
 	ffint.d.w	$fa1, $fa1
-	fadd.d	$fa0, $fa1, $fa0
-.LBB0_18:
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa2, $a1
+	fmul.d	$fa1, $fa1, $fa2
+	fdiv.d	$fa0, $fa0, $fa1
+	beqz	$a3, .LBB0_17
+# %bb.15:
+	lu12i.w	$a1, 65536
+	lu32i.d	$a1, 393216
+	lu52i.d	$a1, $a1, 1026
+	movgr2fr.d	$fa1, $a1
+	fcmp.cule.d	$fcc0, $fa0, $fa1
+	bcnez	$fcc0, .LBB0_17
+# %bb.16:
+	ld.w	$a1, $fp, 92
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, 104857
+	lu52i.d	$a1, $a1, 1025
+	movgr2fr.d	$fa1, $a1
+	fadd.d	$fa0, $fa0, $fa1
+.LBB0_17:
 	ld.w	$a1, $fp, 40
 	sltu	$a1, $zero, $a1
 	xori	$a0, $a0, 1
 	or	$a0, $a1, $a0
-	bnez	$a0, .LBB0_21
-# %bb.19:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_5)
+	bnez	$a0, .LBB0_20
+# %bb.18:
+	lu12i.w	$a0, -65536
+	lu32i.d	$a0, 131071
+	lu52i.d	$a0, $a0, 1026
+	movgr2fr.d	$fa1, $a0
 	fcmp.cule.d	$fcc0, $fa1, $fa0
-	bcnez	$fcc0, .LBB0_21
-# %bb.20:
+	bcnez	$fcc0, .LBB0_20
+# %bb.19:
 	st.w	$zero, $fp, 36
-.LBB0_21:
+.LBB0_20:
 	ld.w	$a0, $fp, 104
-	bnez	$a0, .LBB0_24
-# %bb.22:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_6)
+	bnez	$a0, .LBB0_23
+# %bb.21:
 	fcvt.s.d	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
+	lu52i.d	$a0, $zero, 1019
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0
@@ -229,8 +218,8 @@ lame_init_params:                       # @lame_init_params
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	ori	$a1, $zero, 30
-	blt	$a1, $a0, .LBB0_24
-# %bb.23:
+	blt	$a1, $a0, .LBB0_23
+# %bb.22:
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
 	vldi	$vr1, -961
@@ -238,10 +227,10 @@ lame_init_params:                       # @lame_init_params
 	fcvt.s.d	$fa0, $fa0
 	fst.s	$fa0, $fp, 232
 	fst.s	$fa0, $fp, 236
-.LBB0_24:
+.LBB0_23:
 	ld.w	$a0, $fp, 108
-	blez	$a0, .LBB0_28
-# %bb.25:
+	blez	$a0, .LBB0_27
+# %bb.24:
 	slli.d	$a1, $a0, 1
 	bstrpick.d	$a1, $a1, 31, 1
 	ld.w	$a2, $fp, 16
@@ -254,8 +243,8 @@ lame_init_params:                       # @lame_init_params
 	fdiv.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	fmov.s	$fa2, $fa0
-	bltz	$a1, .LBB0_27
-# %bb.26:
+	bltz	$a1, .LBB0_26
+# %bb.25:
 	add.d	$a0, $a1, $a0
 	slli.d	$a0, $a0, 1
 	bstrpick.d	$a0, $a0, 31, 1
@@ -264,7 +253,7 @@ lame_init_params:                       # @lame_init_params
 	ffint.d.l	$fa2, $fa2
 	fdiv.d	$fa1, $fa2, $fa1
 	fcvt.s.d	$fa2, $fa1
-.LBB0_27:
+.LBB0_26:
 	vldi	$vr1, -1168
 	fcmp.clt.s	$fcc0, $fa1, $fa0
 	fsel	$fa0, $fa0, $fa1, $fcc0
@@ -272,10 +261,10 @@ lame_init_params:                       # @lame_init_params
 	fcmp.clt.s	$fcc0, $fa1, $fa2
 	fsel	$fa0, $fa2, $fa1, $fcc0
 	fst.s	$fa0, $fp, 244
-.LBB0_28:
+.LBB0_27:
 	ld.w	$a0, $fp, 104
-	blez	$a0, .LBB0_34
-# %bb.29:
+	blez	$a0, .LBB0_33
+# %bb.28:
 	slli.d	$a1, $a0, 1
 	bstrpick.d	$a1, $a1, 31, 1
 	ld.w	$a2, $fp, 16
@@ -284,44 +273,44 @@ lame_init_params:                       # @lame_init_params
 	ffint.d.l	$fa0, $fa0
 	movgr2fr.w	$fa1, $a2
 	ld.w	$a1, $fp, 112
-	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa0, $fa0, $fa1
+	ffint.d.w	$fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa2
 	fcvt.s.d	$fa0, $fa0
-	fmov.s	$fa2, $fa0
-	bltz	$a1, .LBB0_33
-# %bb.30:
+	fmov.s	$fa1, $fa0
+	bltz	$a1, .LBB0_32
+# %bb.29:
 	sub.d	$a0, $a0, $a1
-	movgr2fr.w	$fa2, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_7)
-	ffint.d.w	$fa2, $fa2
-	fadd.d	$fa2, $fa2, $fa2
-	fdiv.d	$fa1, $fa2, $fa1
-	fcmp.cule.d	$fcc0, $fa3, $fa1
-	bcnez	$fcc0, .LBB0_32
-# %bb.31:
-	movgr2fr.w	$fa2, $zero
-	b	.LBB0_33
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	fadd.d	$fa1, $fa1, $fa1
+	fdiv.d	$fa1, $fa1, $fa2
+	lu52i.d	$a0, $zero, -1175
+	movgr2fr.d	$fa2, $a0
+	fcmp.cule.d	$fcc0, $fa2, $fa1
+	bcnez	$fcc0, .LBB0_31
+# %bb.30:
+	movgr2fr.w	$fa1, $zero
+	b	.LBB0_32
+.LBB0_31:
+	fcvt.s.d	$fa1, $fa1
 .LBB0_32:
-	fcvt.s.d	$fa2, $fa1
-.LBB0_33:
-	vldi	$vr1, -1168
-	fcmp.clt.s	$fcc0, $fa1, $fa2
-	fsel	$fa2, $fa2, $fa1, $fcc0
-	fst.s	$fa2, $fp, 232
-	fcmp.clt.s	$fcc0, $fa1, $fa0
-	fsel	$fa0, $fa0, $fa1, $fcc0
+	vldi	$vr2, -1168
+	fcmp.clt.s	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa1, $fa2, $fcc0
+	fst.s	$fa1, $fp, 232
+	fcmp.clt.s	$fcc0, $fa2, $fa0
+	fsel	$fa0, $fa0, $fa2, $fcc0
 	fst.s	$fa0, $fp, 236
-.LBB0_34:
+.LBB0_33:
 	ld.w	$a0, $fp, 256
-	bnez	$a0, .LBB0_59
-# %bb.35:
+	bnez	$a0, .LBB0_58
+# %bb.34:
 	fld.s	$fa0, $fp, 232
 	movgr2fr.w	$fs0, $zero
 	fcmp.cule.s	$fcc0, $fa0, $fs0
-	pcalau12i	$s0, %pc_hi20(.LCPI0_8)
-	bcnez	$fcc0, .LBB0_47
-# %bb.36:                               # %.preheader382
+	lu12i.w	$s0, 345154
+	bcnez	$fcc0, .LBB0_46
+# %bb.35:                               # %.preheader382
 	fld.s	$fa1, $fp, 236
 	move	$s1, $zero
 	fcvt.d.s	$fs1, $fa1
@@ -330,35 +319,38 @@ lame_init_params:                       # @lame_init_params
 	fcvt.d.s	$fs3, $fa0
 	movgr2fr.d	$fs4, $zero
 	ori	$s2, $zero, 999
-	fld.d	$fs5, $s0, %pc_lo12(.LCPI0_8)
 	vldi	$vr2, -961
+	ori	$a0, $s0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fs5, $a0
 	vldi	$vr3, -912
 	ori	$s3, $zero, 32
-	b	.LBB0_38
+	b	.LBB0_37
 	.p2align	4, , 16
-.LBB0_37:                               # %cdce.end
-                                        #   in Loop: Header=BB0_38 Depth=1
+.LBB0_36:                               # %cdce.end
+                                        #   in Loop: Header=BB0_37 Depth=1
 	addi.w	$s1, $s1, 1
 	fadd.d	$fs4, $fs4, $fa3
-	beq	$s1, $s3, .LBB0_46
-.LBB0_38:                               # =>This Inner Loop Header: Depth=1
+	beq	$s1, $s3, .LBB0_45
+.LBB0_37:                               # =>This Inner Loop Header: Depth=1
 	fdiv.d	$fa0, $fs4, $fa2
 	fcmp.cult.d	$fcc0, $fa0, $fs1
-	bcnez	$fcc0, .LBB0_40
-# %bb.39:                               #   in Loop: Header=BB0_38 Depth=1
+	bcnez	$fcc0, .LBB0_39
+# %bb.38:                               #   in Loop: Header=BB0_37 Depth=1
 	ld.w	$a0, $fp, 248
 	slt	$a1, $a0, $s1
 	masknez	$a2, $s1, $a1
 	maskeqz	$a0, $a0, $a1
 	or	$a0, $a0, $a2
 	st.w	$a0, $fp, 248
-.LBB0_40:                               #   in Loop: Header=BB0_38 Depth=1
+.LBB0_39:                               #   in Loop: Header=BB0_37 Depth=1
 	fcmp.cule.d	$fcc0, $fa0, $fs2
-	bcnez	$fcc0, .LBB0_37
-# %bb.41:                               #   in Loop: Header=BB0_38 Depth=1
+	bcnez	$fcc0, .LBB0_36
+# %bb.40:                               #   in Loop: Header=BB0_37 Depth=1
 	fcmp.cule.d	$fcc0, $fs1, $fa0
-	bcnez	$fcc0, .LBB0_37
-# %bb.42:                               #   in Loop: Header=BB0_38 Depth=1
+	bcnez	$fcc0, .LBB0_36
+# %bb.41:                               #   in Loop: Header=BB0_37 Depth=1
 	slt	$a0, $s2, $s1
 	masknez	$a1, $s1, $a0
 	maskeqz	$a0, $s2, $a0
@@ -371,22 +363,22 @@ lame_init_params:                       # @lame_init_params
 	sltu	$a2, $zero, $a2
 	andi	$a2, $a2, 1
 	or	$s2, $a0, $a1
-	beqz	$a2, .LBB0_37
-# %bb.43:                               # %cdce.call
-                                        #   in Loop: Header=BB0_38 Depth=1
+	beqz	$a2, .LBB0_36
+# %bb.42:                               # %cdce.call
+                                        #   in Loop: Header=BB0_37 Depth=1
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	vldi	$vr3, -912
 	vldi	$vr2, -961
-	b	.LBB0_37
-.LBB0_44:
-	lu12i.w	$a3, 10
-	ori	$a7, $a3, 3139
-	bge	$a7, $a2, .LBB0_96
-# %bb.45:
-	ori	$a2, $a3, 3140
-	b	.LBB0_101
-.LBB0_46:
+	b	.LBB0_36
+.LBB0_43:
+	lu12i.w	$a2, 10
+	ori	$a6, $a2, 3139
+	bge	$a6, $a1, .LBB0_95
+# %bb.44:
+	ori	$a1, $a2, 3140
+	b	.LBB0_100
+.LBB0_45:
 	ld.w	$a0, $fp, 248
 	addi.d	$a1, $s2, -999
 	sltui	$a1, $a1, 1
@@ -406,20 +398,23 @@ lame_init_params:                       # @lame_init_params
 	fdiv.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	fst.s	$fa0, $fp, 236
-.LBB0_47:
+.LBB0_46:
 	fld.s	$fa0, $fp, 244
 	fcmp.cule.s	$fcc0, $fa0, $fs0
-	bcnez	$fcc0, .LBB0_49
-# %bb.48:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_9)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_9)
-	fcvt.d.s	$fa2, $fa0
-	fcmp.cule.d	$fcc0, $fa1, $fa2
-	bceqz	$fcc0, .LBB0_111
-.LBB0_49:
+	bcnez	$fcc0, .LBB0_48
+# %bb.47:
+	fcvt.d.s	$fa1, $fa0
+	lu12i.w	$a0, 412665
+	ori	$a0, $a0, 1612
+	lu32i.d	$a0, 412665
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fcmp.cule.d	$fcc0, $fa2, $fa1
+	bceqz	$fcc0, .LBB0_110
+.LBB0_48:
 	fcmp.cule.s	$fcc0, $fa0, $fs0
-	bcnez	$fcc0, .LBB0_59
-.LBB0_50:                               # %.preheader381
+	bcnez	$fcc0, .LBB0_58
+.LBB0_49:                               # %.preheader381
 	fld.s	$fa1, $fp, 240
 	move	$s1, $zero
 	fcvt.d.s	$fs0, $fa1
@@ -428,35 +423,38 @@ lame_init_params:                       # @lame_init_params
 	fcvt.d.s	$fs2, $fa0
 	movgr2fr.d	$fs3, $zero
 	addi.w	$s2, $zero, -1
-	fld.d	$fs4, $s0, %pc_lo12(.LCPI0_8)
 	vldi	$vr2, -961
+	ori	$a0, $s0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fs4, $a0
 	vldi	$vr3, -912
 	ori	$s0, $zero, 32
-	b	.LBB0_52
+	b	.LBB0_51
 	.p2align	4, , 16
-.LBB0_51:                               # %cdce.end379
-                                        #   in Loop: Header=BB0_52 Depth=1
+.LBB0_50:                               # %cdce.end379
+                                        #   in Loop: Header=BB0_51 Depth=1
 	addi.w	$s1, $s1, 1
 	fadd.d	$fs3, $fs3, $fa3
-	beq	$s1, $s0, .LBB0_58
-.LBB0_52:                               # =>This Inner Loop Header: Depth=1
+	beq	$s1, $s0, .LBB0_57
+.LBB0_51:                               # =>This Inner Loop Header: Depth=1
 	fdiv.d	$fa0, $fs3, $fa2
 	fcmp.cult.d	$fcc0, $fs0, $fa0
-	bcnez	$fcc0, .LBB0_54
-# %bb.53:                               #   in Loop: Header=BB0_52 Depth=1
+	bcnez	$fcc0, .LBB0_53
+# %bb.52:                               #   in Loop: Header=BB0_51 Depth=1
 	ld.w	$a0, $fp, 252
 	slt	$a1, $s1, $a0
 	masknez	$a2, $s1, $a1
 	maskeqz	$a0, $a0, $a1
 	or	$a0, $a0, $a2
 	st.w	$a0, $fp, 252
-.LBB0_54:                               #   in Loop: Header=BB0_52 Depth=1
+.LBB0_53:                               #   in Loop: Header=BB0_51 Depth=1
 	fcmp.cule.d	$fcc0, $fa0, $fs0
-	bcnez	$fcc0, .LBB0_51
-# %bb.55:                               #   in Loop: Header=BB0_52 Depth=1
+	bcnez	$fcc0, .LBB0_50
+# %bb.54:                               #   in Loop: Header=BB0_51 Depth=1
 	fcmp.cule.d	$fcc0, $fs1, $fa0
-	bcnez	$fcc0, .LBB0_51
-# %bb.56:                               #   in Loop: Header=BB0_52 Depth=1
+	bcnez	$fcc0, .LBB0_50
+# %bb.55:                               #   in Loop: Header=BB0_51 Depth=1
 	slt	$a0, $s1, $s2
 	masknez	$a1, $s1, $a0
 	maskeqz	$a0, $s2, $a0
@@ -469,15 +467,15 @@ lame_init_params:                       # @lame_init_params
 	sltu	$a2, $zero, $a2
 	andi	$a2, $a2, 1
 	or	$s2, $a0, $a1
-	beqz	$a2, .LBB0_51
-# %bb.57:                               # %cdce.call378
-                                        #   in Loop: Header=BB0_52 Depth=1
+	beqz	$a2, .LBB0_50
+# %bb.56:                               # %cdce.call378
+                                        #   in Loop: Header=BB0_51 Depth=1
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	vldi	$vr3, -912
 	vldi	$vr2, -961
-	b	.LBB0_51
-.LBB0_58:                               # %.sink.split
+	b	.LBB0_50
+.LBB0_57:                               # %.sink.split
 	ld.w	$a0, $fp, 252
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
@@ -496,7 +494,7 @@ lame_init_params:                       # @lame_init_params
 	fdiv.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	fst.s	$fa0, $fp, 244
-.LBB0_59:
+.LBB0_58:
 	ld.w	$a0, $fp, 36
 	st.w	$zero, $fp, 228
 	addi.d	$a0, $a0, -3
@@ -509,43 +507,43 @@ lame_init_params:                       # @lame_init_params
 	pcaddu18i	$ra, %call36(SmpFrqIndex)
 	jirl	$ra, $ra, 0
 	st.w	$a0, $fp, 224
-	bltz	$a0, .LBB0_112
-# %bb.60:
+	bltz	$a0, .LBB0_111
+# %bb.59:
 	ld.w	$a0, $fp, 48
 	ld.w	$a1, $fp, 192
 	ld.w	$a2, $fp, 16
 	pcaddu18i	$ra, %call36(BitrateIndex)
 	jirl	$ra, $ra, 0
 	st.w	$a0, $fp, 220
-	bltz	$a0, .LBB0_112
-# %bb.61:
+	bltz	$a0, .LBB0_111
+# %bb.60:
 	ld.w	$a0, $fp, 88
 	ori	$s0, $zero, 1
-	beqz	$a0, .LBB0_68
-# %bb.62:
+	beqz	$a0, .LBB0_67
+# %bb.61:
 	ld.w	$a0, $fp, 100
-	beqz	$a0, .LBB0_82
-# %bb.63:
+	beqz	$a0, .LBB0_81
+# %bb.62:
 	ld.w	$a1, $fp, 192
 	ld.w	$a2, $fp, 16
 	pcaddu18i	$ra, %call36(BitrateIndex)
 	jirl	$ra, $ra, 0
 	st.w	$a0, $fp, 212
-	bltz	$a0, .LBB0_112
-# %bb.64:                               # %._crit_edge402
+	bltz	$a0, .LBB0_111
+# %bb.63:                               # %._crit_edge402
 	ld.w	$a0, $fp, 96
-	beqz	$a0, .LBB0_83
-.LBB0_65:
+	beqz	$a0, .LBB0_82
+.LBB0_64:
 	ld.w	$a1, $fp, 192
 	ld.w	$a2, $fp, 16
 	pcaddu18i	$ra, %call36(BitrateIndex)
 	jirl	$ra, $ra, 0
 	st.w	$a0, $fp, 208
-	bltz	$a0, .LBB0_112
-# %bb.66:
+	bltz	$a0, .LBB0_111
+# %bb.65:
 	ld.w	$a0, $fp, 88
-	beqz	$a0, .LBB0_68
-.LBB0_67:
+	beqz	$a0, .LBB0_67
+.LBB0_66:
 	ld.w	$a0, $fp, 28
 	move	$s0, $zero
 	slti	$a1, $a0, 2
@@ -554,63 +552,63 @@ lame_init_params:                       # @lame_init_params
 	maskeqz	$a0, $a0, $a1
 	or	$a0, $a0, $a2
 	st.w	$a0, $fp, 28
-.LBB0_68:                               # %.thread
+.LBB0_67:                               # %.thread
 	ld.w	$a0, $fp, 36
 	ori	$a1, $zero, 3
-	beq	$a0, $a1, .LBB0_71
-# %bb.69:
-	bnez	$s0, .LBB0_72
-.LBB0_70:
+	beq	$a0, $a1, .LBB0_70
+# %bb.68:
+	bnez	$s0, .LBB0_71
+.LBB0_69:
 	ld.d	$a0, $fp, 136
-	bnez	$a0, .LBB0_73
-	b	.LBB0_75
-.LBB0_71:
+	bnez	$a0, .LBB0_72
+	b	.LBB0_74
+.LBB0_70:
 	st.w	$zero, $fp, 44
-	beqz	$s0, .LBB0_70
-.LBB0_72:
+	beqz	$s0, .LBB0_69
+.LBB0_71:
 	st.w	$zero, $fp, 24
 	ld.d	$a0, $fp, 136
-	beqz	$a0, .LBB0_75
-.LBB0_73:
+	beqz	$a0, .LBB0_74
+.LBB0_72:
 	ld.bu	$a2, $a0, 0
 	ori	$a1, $zero, 45
-	bne	$a2, $a1, .LBB0_76
-# %bb.74:
+	bne	$a2, $a1, .LBB0_75
+# %bb.73:
 	st.w	$zero, $fp, 24
 	ld.bu	$a0, $a0, 0
-	bne	$a0, $a1, .LBB0_76
-.LBB0_75:
+	bne	$a0, $a1, .LBB0_75
+.LBB0_74:
 	pcalau12i	$a0, %got_pc_hi20(id3tag)
 	ld.d	$a0, $a0, %got_pc_lo12(id3tag)
 	st.w	$zero, $a0, 0
-.LBB0_76:                               # %.thread361
+.LBB0_75:                               # %.thread361
 	ld.w	$a0, $fp, 20
-	beqz	$a0, .LBB0_78
-# %bb.77:
+	beqz	$a0, .LBB0_77
+# %bb.76:
 	st.w	$zero, $fp, 24
-.LBB0_78:
+.LBB0_77:
 	pcalau12i	$a0, %pc_hi20(bs)
 	addi.d	$a0, $a0, %pc_lo12(bs)
 	pcaddu18i	$ra, %call36(init_bit_stream_w)
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $fp, 28
 	ori	$a1, $zero, 9
-	bltu	$a1, $a0, .LBB0_93
-# %bb.79:
+	bltu	$a1, $a0, .LBB0_92
+# %bb.78:
 	slli.d	$a0, $a0, 2
 	pcalau12i	$a1, %pc_hi20(.LJTI0_0)
 	addi.d	$a1, $a1, %pc_lo12(.LJTI0_0)
 	ldx.w	$a0, $a1, $a0
 	add.d	$a0, $a1, $a0
 	jr	$a0
-.LBB0_80:                               # %.thread376.sink.split
+.LBB0_79:                               # %.thread376.sink.split
 	ori	$a0, $zero, 2
 	st.w	$a0, $fp, 28
-.LBB0_81:                               # %.thread376
-	pcalau12i	$a0, %pc_hi20(.LCPI0_11)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_11)
-	b	.LBB0_88
-.LBB0_82:
+.LBB0_80:                               # %.thread376
+	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_1)
+	b	.LBB0_87
+.LBB0_81:
 	ld.w	$a0, $fp, 96
 	ld.w	$a1, $fp, 92
 	ori	$a2, $zero, 255
@@ -631,46 +629,46 @@ lame_init_params:                       # @lame_init_params
 	maskeqz	$a1, $a3, $a1
 	or	$a1, $a1, $a2
 	st.w	$a1, $fp, 212
-	bnez	$a0, .LBB0_65
-.LBB0_83:
+	bnez	$a0, .LBB0_64
+.LBB0_82:
 	ori	$a0, $zero, 1
 	st.w	$a0, $fp, 208
 	ld.w	$a0, $fp, 88
-	bnez	$a0, .LBB0_67
-	b	.LBB0_68
-.LBB0_84:                               # %.thread433
+	bnez	$a0, .LBB0_66
+	b	.LBB0_67
+.LBB0_83:                               # %.thread433
 	addi.d	$a0, $fp, 256
 	st.d	$zero, $a0, 16
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
 	vst	$vr0, $a0, 0
-	b	.LBB0_93
-.LBB0_85:                               # %.thread364
+	b	.LBB0_92
+.LBB0_84:                               # %.thread364
 	ori	$a0, $zero, 7
 	st.w	$a0, $fp, 28
-.LBB0_86:                               # %.thread365
+.LBB0_85:                               # %.thread365
 	ori	$a0, $zero, 1
 	st.d	$a0, $fp, 272
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
-	b	.LBB0_92
-.LBB0_87:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_10)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_10)
-.LBB0_88:                               # %.preheader380.preheader
+	b	.LBB0_91
+.LBB0_86:
+	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_0)
+.LBB0_87:                               # %.preheader380.preheader
 	ori	$a0, $zero, 1
 	lu32i.d	$a0, 1
-	b	.LBB0_91
-.LBB0_89:                               # %.thread368
+	b	.LBB0_90
+.LBB0_88:                               # %.thread368
 	ori	$a0, $zero, 5
 	st.w	$a0, $fp, 28
-.LBB0_90:                               # %.thread369
-	pcalau12i	$a0, %pc_hi20(.LCPI0_12)
-	vld	$vr0, $a0, %pc_lo12(.LCPI0_12)
+.LBB0_89:                               # %.thread369
+	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
+	vld	$vr0, $a0, %pc_lo12(.LCPI0_2)
 	ori	$a0, $zero, 1
-.LBB0_91:                               # %.preheader380.preheader
+.LBB0_90:                               # %.preheader380.preheader
 	st.d	$a0, $fp, 272
-.LBB0_92:                               # %.preheader380.preheader
+.LBB0_91:                               # %.preheader380.preheader
 	vst	$vr0, $fp, 256
-.LBB0_93:                               # %.preheader380.preheader
+.LBB0_92:                               # %.preheader380.preheader
 	ld.w	$a0, $fp, 192
 	ld.w	$a1, $fp, 224
 	alsl.d	$a0, $a0, $a0, 1
@@ -709,8 +707,8 @@ lame_init_params:                       # @lame_init_params
 	st.w	$a1, $a5, 144
 	ld.w	$a1, $fp, 24
 	vst	$vr0, $a5, 0
-	beqz	$a1, .LBB0_95
-# %bb.94:
+	beqz	$a1, .LBB0_94
+# %bb.93:
 	ld.w	$a2, $fp, 36
 	ori	$a1, $zero, 1
 	sub.w	$a1, $a1, $a0
@@ -731,7 +729,7 @@ lame_init_params:                       # @lame_init_params
 	addi.d	$sp, $sp, 128
 	pcaddu18i	$t8, %call36(InitVbrTag)
 	jr	$t8
-.LBB0_95:
+.LBB0_94:
 	fld.d	$fs5, $sp, 32                   # 8-byte Folded Reload
 	fld.d	$fs4, $sp, 40                   # 8-byte Folded Reload
 	fld.d	$fs3, $sp, 48                   # 8-byte Folded Reload
@@ -746,83 +744,90 @@ lame_init_params:                       # @lame_init_params
 	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
 	addi.d	$sp, $sp, 128
 	ret
-.LBB0_96:
-	lu12i.w	$a3, 7
-	ori	$a7, $a3, 3327
-	bge	$a7, $a2, .LBB0_98
-# %bb.97:
-	ori	$a2, $a3, 3328
-	b	.LBB0_101
-.LBB0_98:
-	ori	$a3, $a4, 3519
-	bge	$a3, $a2, .LBB0_100
-# %bb.99:
-	ori	$a2, $a4, 3520
-	b	.LBB0_101
+.LBB0_95:
+	lu12i.w	$a2, 7
+	ori	$a6, $a2, 3327
+	bge	$a6, $a1, .LBB0_97
+# %bb.96:
+	ori	$a1, $a2, 3328
+	b	.LBB0_100
+.LBB0_97:
+	ori	$a2, $a3, 3519
+	bge	$a2, $a1, .LBB0_99
+# %bb.98:
+	ori	$a1, $a3, 3520
+	b	.LBB0_100
+.LBB0_99:
+	ori	$a2, $a3, 1570
+	slt	$a1, $a1, $a2
+	masknez	$a2, $a2, $a1
+	lu12i.w	$a6, 3
+	ori	$a6, $a6, 3712
+	maskeqz	$a1, $a6, $a1
+	or	$a1, $a1, $a2
 .LBB0_100:
-	ori	$a3, $a4, 1570
-	slt	$a2, $a2, $a3
-	masknez	$a3, $a3, $a2
-	lu12i.w	$a7, 3
-	ori	$a7, $a7, 3712
-	maskeqz	$a2, $a7, $a2
-	or	$a2, $a2, $a3
-.LBB0_101:
-	ld.w	$a3, $fp, 48
-	st.w	$a2, $fp, 16
-	blez	$a3, .LBB0_5
+	ld.w	$a2, $fp, 48
+	st.w	$a1, $fp, 16
+	blez	$a2, .LBB0_3
+# %bb.101:
+	ld.w	$a6, $fp, 88
+	bnez	$a6, .LBB0_3
 # %bb.102:
-	ld.w	$a7, $fp, 88
-	bnez	$a7, .LBB0_5
-# %bb.103:
-	slli.d	$a7, $a2, 4
-	sll.w	$a7, $a7, $a0
-	bstrpick.d	$a7, $a7, 31, 0
-	movgr2fr.d	$fa0, $a7
+	slli.d	$a6, $a1, 4
+	sll.w	$a6, $a6, $a0
+	bstrpick.d	$a6, $a6, 31, 0
+	movgr2fr.d	$fa0, $a6
 	ffint.d.l	$fa1, $fa0
-	bstrpick.d	$a7, $a3, 31, 0
-	movgr2fr.d	$fa0, $a7
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a7, %pc_hi20(.LCPI0_1)
-	fld.d	$fa3, $a7, %pc_lo12(.LCPI0_1)
+	bstrpick.d	$a6, $a2, 31, 0
+	movgr2fr.d	$fa0, $a6
 	ffint.d.l	$fa0, $fa0
+	ori	$a6, $zero, 0
+	lu32i.d	$a6, -49152
+	lu52i.d	$a6, $a6, 1032
+	movgr2fr.d	$fa2, $a6
 	fmul.d	$fa2, $fa0, $fa2
 	fdiv.d	$fa1, $fa1, $fa2
-	fcmp.cule.d	$fcc0, $fa1, $fa3
-	bcnez	$fcc0, .LBB0_5
-# %bb.104:
-	pcalau12i	$a2, %pc_hi20(.LCPI0_2)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a6, 65536
+	lu32i.d	$a6, -393216
+	lu52i.d	$a6, $a6, 1026
+	movgr2fr.d	$fa2, $a6
+	fcmp.cule.d	$fcc0, $fa1, $fa2
+	bcnez	$fcc0, .LBB0_3
+# %bb.103:
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 231424
+	lu52i.d	$a1, $a1, 1036
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
-	slli.d	$a2, $a6, 4
-	movgr2fr.w	$fa1, $a2
+	slli.d	$a1, $a5, 4
+	movgr2fr.w	$fa1, $a1
 	ffint.d.w	$fa1, $fa1
 	fdiv.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a6, $fa0
-	lu12i.w	$a2, 3
-	ori	$a2, $a2, 3712
-	bge	$a2, $a6, .LBB0_110
+	movfr2gr.s	$a5, $fa0
+	lu12i.w	$a1, 3
+	ori	$a1, $a1, 3712
+	bge	$a1, $a5, .LBB0_109
+# %bb.104:
+	ori	$a1, $a3, 1570
+	bgeu	$a1, $a5, .LBB0_109
 # %bb.105:
-	ori	$a2, $a4, 1570
-	bgeu	$a2, $a6, .LBB0_110
+	ori	$a1, $a3, 3520
+	bgeu	$a1, $a5, .LBB0_109
 # %bb.106:
-	ori	$a2, $a4, 3520
-	bgeu	$a2, $a6, .LBB0_110
+	lu12i.w	$a1, 7
+	ori	$a1, $a1, 3328
+	bgeu	$a1, $a5, .LBB0_109
 # %bb.107:
-	lu12i.w	$a2, 7
-	ori	$a2, $a2, 3328
-	bgeu	$a2, $a6, .LBB0_110
+	lu12i.w	$a1, 10
+	ori	$a1, $a1, 3140
+	bgeu	$a1, $a5, .LBB0_109
 # %bb.108:
-	lu12i.w	$a2, 10
-	ori	$a2, $a2, 3140
-	bgeu	$a2, $a6, .LBB0_110
-# %bb.109:
-	ori	$a2, $a5, 2944
+	ori	$a1, $a4, 2944
+.LBB0_109:
+	st.w	$a1, $fp, 16
+	b	.LBB0_3
 .LBB0_110:
-	st.w	$a2, $fp, 16
-	b	.LBB0_5
-.LBB0_111:
 	st.d	$zero, $fp, 240
 	pcalau12i	$a0, %got_pc_hi20(stderr)
 	ld.d	$a0, $a0, %got_pc_lo12(stderr)
@@ -835,9 +840,9 @@ lame_init_params:                       # @lame_init_params
 	jirl	$ra, $ra, 0
 	fld.s	$fa0, $fp, 244
 	fcmp.cule.s	$fcc0, $fa0, $fs0
-	bceqz	$fcc0, .LBB0_50
-	b	.LBB0_59
-.LBB0_112:
+	bceqz	$fcc0, .LBB0_49
+	b	.LBB0_58
+.LBB0_111:
 	pcalau12i	$a0, %got_pc_hi20(stderr)
 	ld.d	$a0, $a0, %got_pc_lo12(stderr)
 	ld.d	$a0, $a0, 0
@@ -846,7 +851,7 @@ lame_init_params:                       # @lame_init_params
 	ori	$a0, $zero, 1
 	pcaddu18i	$ra, %call36(exit)
 	jirl	$ra, $ra, 0
-.LBB0_113:
+.LBB0_112:
 	ori	$a0, $zero, 1
 	ori	$a1, $zero, 1
 	lu32i.d	$a1, 1
@@ -864,27 +869,19 @@ lame_init_params:                       # @lame_init_params
 	.section	.rodata,"a",@progbits
 	.p2align	2, 0x0
 .LJTI0_0:
-	.word	.LBB0_113-.LJTI0_0
-	.word	.LBB0_87-.LJTI0_0
-	.word	.LBB0_81-.LJTI0_0
-	.word	.LBB0_80-.LJTI0_0
-	.word	.LBB0_80-.LJTI0_0
-	.word	.LBB0_90-.LJTI0_0
-	.word	.LBB0_89-.LJTI0_0
+	.word	.LBB0_112-.LJTI0_0
 	.word	.LBB0_86-.LJTI0_0
+	.word	.LBB0_80-.LJTI0_0
+	.word	.LBB0_79-.LJTI0_0
+	.word	.LBB0_79-.LJTI0_0
+	.word	.LBB0_89-.LJTI0_0
+	.word	.LBB0_88-.LJTI0_0
 	.word	.LBB0_85-.LJTI0_0
 	.word	.LBB0_84-.LJTI0_0
+	.word	.LBB0_83-.LJTI0_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lame_print_config
-.LCPI1_0:
-	.dword	0x408f400000000000              # double 1000
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI1_1:
-	.word	0x43fa0000                      # float 500
 	.text
-	.globl	lame_print_config
+	.globl	lame_print_config               # -- Begin function lame_print_config
 	.p2align	5
 	.type	lame_print_config,@function
 lame_print_config:                      # @lame_print_config
@@ -900,17 +897,18 @@ lame_print_config:                      # @lame_print_config
 	st.d	$s5, $sp, 32                    # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 24                   # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 16                   # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 8                    # 8-byte Folded Spill
 	move	$fp, $a0
 	ld.w	$a0, $a0, 16
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI1_0)
-	fld.s	$fs2, $fp, 216
-	ld.w	$s5, $fp, 204
-	ld.w	$s4, $fp, 48
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fs1, $fa0, $fs0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	fld.s	$fs1, $fp, 216
+	ld.w	$s5, $fp, 204
+	ld.w	$s4, $fp, 48
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs0, $fa0, $fa1
 	pcalau12i	$a0, %got_pc_hi20(stderr)
 	ld.d	$s3, $a0, %got_pc_lo12(stderr)
 	ld.d	$a0, $s3, 0
@@ -935,14 +933,14 @@ lame_print_config:                      # @lame_print_config
 	fld.s	$fa0, $fp, 216
 	vldi	$vr1, -1168
 	fcmp.ceq.s	$fcc0, $fa0, $fa1
-	fcvt.s.d	$fs1, $fs1
+	fcvt.s.d	$fs0, $fs0
 	bcnez	$fcc0, .LBB1_5
 # %bb.4:
-	fmul.s	$fa0, $fs2, $fs1
+	fmul.s	$fa0, $fs1, $fs0
 	ld.d	$a0, $s3, 0
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a2, $fa0
-	ftintrz.w.s	$fa0, $fs1
+	ftintrz.w.s	$fa0, $fs0
 	movfr2gr.s	$a3, $fa0
 	pcalau12i	$a1, %pc_hi20(.L.str.6)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.6)
@@ -950,13 +948,13 @@ lame_print_config:                      # @lame_print_config
 	jirl	$ra, $ra, 0
 .LBB1_5:
 	fld.s	$fa0, $fp, 244
-	movgr2fr.w	$fs2, $zero
-	fcmp.cule.s	$fcc0, $fa0, $fs2
-	pcalau12i	$s0, %pc_hi20(.LCPI1_1)
+	movgr2fr.w	$fs1, $zero
+	fcmp.cule.s	$fcc0, $fa0, $fs1
+	lu12i.w	$s0, 278432
 	bceqz	$fcc0, .LBB1_11
 # %bb.6:
 	fld.s	$fa0, $fp, 232
-	fcmp.cule.s	$fcc0, $fa0, $fs2
+	fcmp.cule.s	$fcc0, $fa0, $fs1
 	bceqz	$fcc0, .LBB1_12
 .LBB1_7:
 	ld.w	$a0, $fp, 20
@@ -980,12 +978,12 @@ lame_print_config:                      # @lame_print_config
 	b	.LBB1_17
 .LBB1_11:
 	fld.s	$fa1, $fp, 240
-	fld.s	$fa2, $s0, %pc_lo12(.LCPI1_1)
 	ld.d	$a0, $s3, 0
-	fmul.s	$fa1, $fa1, $fs1
+	fmul.s	$fa1, $fa1, $fs0
+	movgr2fr.w	$fa2, $s0
 	fmul.s	$fa1, $fa1, $fa2
 	fcvt.d.s	$fa1, $fa1
-	fmul.s	$fa0, $fa0, $fs1
+	fmul.s	$fa0, $fa0, $fs0
 	fmul.s	$fa0, $fa0, $fa2
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a3, $fa0
@@ -995,17 +993,17 @@ lame_print_config:                      # @lame_print_config
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
 	fld.s	$fa0, $fp, 232
-	fcmp.cule.s	$fcc0, $fa0, $fs2
+	fcmp.cule.s	$fcc0, $fa0, $fs1
 	bcnez	$fcc0, .LBB1_7
 .LBB1_12:
-	fld.s	$fa1, $s0, %pc_lo12(.LCPI1_1)
 	ld.d	$a0, $s3, 0
-	fld.s	$fa2, $fp, 236
-	fmul.s	$fa0, $fa0, $fs1
-	fmul.s	$fa0, $fa0, $fa1
+	fmul.s	$fa0, $fa0, $fs0
+	fld.s	$fa1, $fp, 236
+	movgr2fr.w	$fa2, $s0
+	fmul.s	$fa0, $fa0, $fa2
 	fcvt.d.s	$fa0, $fa0
-	fmul.s	$fa2, $fa2, $fs1
-	fmul.s	$fa1, $fa2, $fa1
+	fmul.s	$fa1, $fa1, $fs0
+	fmul.s	$fa1, $fa1, $fa2
 	fcvt.d.s	$fa1, $fa1
 	movfr2gr.d	$a2, $fa0
 	movfr2gr.d	$a3, $fa1
@@ -1066,17 +1064,21 @@ lame_print_config:                      # @lame_print_config
 	ld.w	$a1, $fp, 16
 	ld.w	$a2, $fp, 88
 	ld.d	$a0, $s3, 0
-	ld.w	$a7, $fp, 28
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fa0, $fa0, $fs0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	ld.w	$a7, $fp, 28
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa1, $a1
+	fdiv.d	$fa0, $fa0, $fa1
 	bnez	$a2, .LBB1_20
 # %bb.19:
 	slli.d	$a1, $s5, 4
 	movgr2fr.w	$fa1, $a1
 	ffint.s.w	$fa1, $fa1
 	movgr2fr.w	$fa2, $s4
-	fmul.s	$fa1, $fs1, $fa1
+	fmul.s	$fa1, $fs0, $fa1
 	ld.w	$a1, $fp, 36
 	ld.w	$a3, $fp, 48
 	ffint.s.w	$fa2, $fa2
@@ -1114,7 +1116,6 @@ lame_print_config:                      # @lame_print_config
 	jirl	$ra, $ra, 0
 .LBB1_21:
 	ld.d	$a0, $s3, 0
-	fld.d	$fs2, $sp, 8                    # 8-byte Folded Reload
 	fld.d	$fs1, $sp, 16                   # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 24                   # 8-byte Folded Reload
 	ld.d	$s5, $sp, 32                    # 8-byte Folded Reload
@@ -1131,16 +1132,7 @@ lame_print_config:                      # @lame_print_config
 .Lfunc_end1:
 	.size	lame_print_config, .Lfunc_end1-lame_print_config
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lame_encode_frame
-.LCPI2_0:
-	.dword	0x408f400000000000              # double 1000
-.LCPI2_1:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
-.LCPI2_2:
-	.dword	0x3fd6666666666666              # double 0.34999999999999998
-	.text
-	.globl	lame_encode_frame
+	.globl	lame_encode_frame               # -- Begin function lame_encode_frame
 	.p2align	5
 	.type	lame_encode_frame,@function
 lame_encode_frame:                      # @lame_encode_frame
@@ -1209,21 +1201,26 @@ lame_encode_frame:                      # @lame_encode_frame
 .LBB2_6:
 	ld.w	$a0, $fp, 16
 	movgr2fr.w	$fa0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
 	ld.w	$a0, $fp, 48
 	ld.w	$a2, $fp, 188
 	ffint.d.w	$fa0, $fa0
 	fdiv.d	$fa0, $fa0, $fa1
 	st.d	$zero, $s5, %pc_lo12(lame_encode_frame.sentBits)
 	mul.d	$a0, $a2, $a0
-	vldi	$vr1, -992
-	fmul.d	$fa0, $fa0, $fa1
-	pcalau12i	$a2, %pc_hi20(.LCPI2_1)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI2_1)
-	movgr2fr.w	$fa2, $a0
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa0, $fa2, $fa0
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	vldi	$vr2, -992
+	fmul.d	$fa0, $fa0, $fa2
+	fdiv.d	$fa0, $fa1, $fa0
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa2, $fa0, $fa1
 	vreplvei.d	$vr2, $vr2, 0
 	vfrintrm.d	$vr2, $vr2
@@ -1648,15 +1645,18 @@ lame_encode_frame:                      # @lame_encode_frame
 	addi.d	$a0, $a0, %pc_lo12(lame_encode_frame.ms_ratio)
 	fld.d	$fa0, $a0, 0
 	fld.d	$fa1, $a0, 8
+	fld.d	$fa2, $sp, 96
 	fadd.d	$fa0, $fa0, $fa1
-	fld.d	$fa1, $sp, 96
 	fadd.d	$fa0, $fs0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI2_2)
-	fadd.d	$fa0, $fa1, $fa0
+	fadd.d	$fa0, $fa2, $fa0
 	vldi	$vr1, -944
 	fmul.d	$fa0, $fa0, $fa1
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	lu12i.w	$a0, 419430
+	ori	$a0, $a0, 1638
+	lu32i.d	$a0, 419430
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa1, $a0
+	fcmp.cule.d	$fcc0, $fa1, $fa0
 	bcnez	$fcc0, .LBB2_61
 # %bb.60:
 	ori	$a0, $zero, 2
@@ -1833,12 +1833,7 @@ lame_encode_frame:                      # @lame_encode_frame
 .Lfunc_end2:
 	.size	lame_encode_frame, .Lfunc_end2-lame_encode_frame
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fill_buffer_resample
-.LCPI3_0:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-	.text
-	.globl	fill_buffer_resample
+	.globl	fill_buffer_resample            # -- Begin function fill_buffer_resample
 	.p2align	5
 	.type	fill_buffer_resample,@function
 fill_buffer_resample:                   # @fill_buffer_resample
@@ -1875,12 +1870,15 @@ fill_buffer_resample:                   # @fill_buffer_resample
 	vreplvei.d	$vr2, $vr2, 0
 	vfrintrm.d	$vr2, $vr2
 	fsub.d	$fa1, $fa1, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI3_0)
-	fabs.d	$fa3, $fa1
+	fabs.d	$fa2, $fa1
 	fldx.d	$fa1, $a7, $t1
 	alsl.d	$a0, $a6, $t1, 1
-	fcmp.clt.d	$fcc0, $fa3, $fa2
+	lu12i.w	$t2, -85564
+	ori	$t2, $t2, 813
+	lu32i.d	$t2, -379166
+	lu52i.d	$t2, $t2, 1009
+	movgr2fr.d	$fa3, $t2
+	fcmp.clt.d	$fcc0, $fa2, $fa3
 	add.d	$t2, $t0, $a0
 	move	$a0, $zero
 	vldi	$vr2, -784

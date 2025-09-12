@@ -76,12 +76,7 @@ s2ld:                                   # @s2ld
 .Lfunc_end5:
 	.size	s2ld, .Lfunc_end5-s2ld
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function fnear
-.LCPI6_0:
-	.word	0x49742400                      # float 1.0E+6
-	.text
-	.globl	fnear
+	.globl	fnear                           # -- Begin function fnear
 	.p2align	5
 	.type	fnear,@function
 fnear:                                  # @fnear
@@ -94,21 +89,17 @@ fnear:                                  # @fnear
 # %bb.1:
 	ret
 .LBB6_2:
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI6_0)
 	fdiv.s	$fa0, $fa0, $fa1
-	fcmp.clt.s	$fcc0, $fa2, $fa0
+	lu12i.w	$a0, 300866
+	ori	$a0, $a0, 1024
+	movgr2fr.w	$fa1, $a0
+	fcmp.clt.s	$fcc0, $fa1, $fa0
 	movcf2gr	$a0, $fcc0
 	ret
 .Lfunc_end6:
 	.size	fnear, .Lfunc_end6-fnear
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function dnear
-.LCPI7_0:
-	.dword	0x42d6bcc41e900000              # double 1.0E+14
-	.text
-	.globl	dnear
+	.globl	dnear                           # -- Begin function dnear
 	.p2align	5
 	.type	dnear,@function
 dnear:                                  # @dnear
@@ -121,10 +112,12 @@ dnear:                                  # @dnear
 # %bb.1:
 	ret
 .LBB7_2:
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI7_0)
 	fdiv.d	$fa0, $fa0, $fa1
-	fcmp.clt.d	$fcc0, $fa2, $fa0
+	lu12i.w	$a0, 125184
+	lu32i.d	$a0, 441540
+	lu52i.d	$a0, $a0, 1069
+	movgr2fr.d	$fa1, $a0
+	fcmp.clt.d	$fcc0, $fa1, $fa0
 	movcf2gr	$a0, $fcc0
 	ret
 .Lfunc_end7:
@@ -210,23 +203,19 @@ ull2f:                                  # @ull2f
 .Lfunc_end10:
 	.size	ull2f, .Lfunc_end10-ull2f
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ull2d
-.LCPI11_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	ull2d
+	.globl	ull2d                           # -- Begin function ull2d
 	.p2align	5
 	.type	ull2d,@function
 ull2d:                                  # @ull2d
 # %bb.0:
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI11_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI11_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -384,18 +373,13 @@ test_float_to_integer:                  # @test_float_to_integer
 .Lfunc_end23:
 	.size	test_float_to_integer, .Lfunc_end23-test_float_to_integer
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function f2ull
-.LCPI24_0:
-	.word	0x5f000000                      # float 9.22337203E+18
-	.text
-	.globl	f2ull
+	.globl	f2ull                           # -- Begin function f2ull
 	.p2align	5
 	.type	f2ull,@function
 f2ull:                                  # @f2ull
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI24_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI24_0)
+	lu12i.w	$a0, 389120
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	fsub.s	$fa1, $fa0, $fa1
 	ftintrz.l.s	$fa1, $fa1
@@ -412,18 +396,13 @@ f2ull:                                  # @f2ull
 .Lfunc_end24:
 	.size	f2ull, .Lfunc_end24-f2ull
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function d2ull
-.LCPI25_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-	.text
-	.globl	d2ull
+	.globl	d2ull                           # -- Begin function d2ull
 	.p2align	5
 	.type	d2ull,@function
 d2ull:                                  # @d2ull
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI25_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI25_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	fsub.d	$fa1, $fa0, $fa1
 	ftintrz.l.d	$fa1, $fa1

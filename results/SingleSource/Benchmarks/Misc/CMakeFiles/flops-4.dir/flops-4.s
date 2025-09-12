@@ -1,12 +1,6 @@
 	.file	"flops-4.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x41a2a05f20000000              # double 1.5625E+8
-.LCPI0_1:
-	.dword	0x39b4484bfeebc2a0              # double 1.0000000000000001E-30
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -63,19 +57,21 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a1, %pc_hi20(A3)
 	fld.d	$fa0, $a1, %pc_lo12(A3)
+	pcalau12i	$a2, %pc_hi20(A5)
+	fld.d	$fa1, $a2, %pc_lo12(A5)
 	move	$a0, $zero
 	fneg.d	$fa0, $fa0
 	fst.d	$fa0, $a1, %pc_lo12(A3)
-	pcalau12i	$a1, %pc_hi20(A5)
-	fld.d	$fa1, $a1, %pc_lo12(A5)
-	fld.d	$fa3, $s2, %pc_lo12(three)
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a2, %pc_lo12(.LCPI0_0)
-	fld.d	$fa4, $s1, %pc_lo12(piref)
 	fneg.d	$fa1, $fa1
-	fst.d	$fa1, $a1, %pc_lo12(A5)
-	fmul.d	$fa2, $fa3, $fa2
-	fdiv.d	$fa2, $fa4, $fa2
+	fst.d	$fa1, $a2, %pc_lo12(A5)
+	fld.d	$fa3, $s1, %pc_lo12(piref)
+	fld.d	$fa4, $s2, %pc_lo12(three)
+	lu12i.w	$a1, 131072
+	lu32i.d	$a1, 172127
+	lu52i.d	$a1, $a1, 1050
+	movgr2fr.d	$fa2, $a1
+	fmul.d	$fa2, $fa4, $fa2
+	fdiv.d	$fa2, $fa3, $fa2
 	pcalau12i	$a1, %pc_hi20(B6)
 	fld.d	$fa5, $a1, %pc_lo12(B6)
 	pcalau12i	$a1, %pc_hi20(B5)
@@ -108,7 +104,7 @@ main:                                   # @main
 	fadd.d	$ft1, $fa6, $ft1
 	bne	$a0, $a1, .LBB0_1
 # %bb.2:
-	fdiv.d	$fa3, $fa4, $fa3
+	fdiv.d	$fa3, $fa3, $fa4
 	fmul.d	$fa4, $fa3, $fa3
 	fmadd.d	$fa5, $fa5, $fa4, $fa7
 	fmadd.d	$fa5, $fa4, $fa5, $ft2
@@ -142,11 +138,14 @@ main:                                   # @main
 	fmul.d	$fa0, $fa3, $fa0
 	pcalau12i	$a0, %pc_hi20(sb)
 	fst.d	$fa0, $a0, %pc_lo12(sb)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
 	fsub.d	$fa0, $fa2, $fa0
 	pcalau12i	$a0, %pc_hi20(sc)
 	fst.d	$fa0, $a0, %pc_lo12(sc)
+	lu12i.w	$a0, -4420
+	ori	$a0, $a0, 672
+	lu32i.d	$a0, 280651
+	lu52i.d	$a0, $a0, 923
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.4)

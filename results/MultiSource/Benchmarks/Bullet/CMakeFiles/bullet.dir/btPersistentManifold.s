@@ -67,12 +67,7 @@ _ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint: # @_ZN20btPersiste
 	.size	_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint, .Lfunc_end1-_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint
-.LCPI2_0:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.text
-	.globl	_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint
+	.globl	_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint # -- Begin function _ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint
 	.p2align	5
 	.type	_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint,@function
 _ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint: # @_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint
@@ -113,32 +108,32 @@ _ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint: # @_ZN20btPersi
 	fld.s	$fa7, $a0, 184
 	fld.s	$ft4, $a1, 4
 	fld.s	$ft0, $a0, 188
-	fsub.s	$fa0, $ft2, $fa7
+	fsub.s	$fa1, $ft2, $fa7
 	fsub.s	$ft3, $ft4, $ft0
 	fld.s	$ft5, $a1, 8
 	fld.s	$ft1, $a0, 192
 	fld.s	$fa4, $a0, 536
-	fld.s	$fa1, $a0, 360
+	fld.s	$fa0, $a0, 360
 	fld.s	$fa5, $a0, 540
 	fld.s	$fa2, $a0, 364
 	fld.s	$fa6, $a0, 544
 	fld.s	$fa3, $a0, 368
 	fsub.s	$ft11, $ft5, $ft1
-	fsub.s	$ft7, $fa4, $fa1
+	fsub.s	$ft7, $fa4, $fa0
 	fsub.s	$ft6, $fa5, $fa2
 	fsub.s	$ft8, $fa6, $fa3
 	fneg.s	$ft9, $ft6
 	fmul.s	$ft10, $ft11, $ft9
 	fmadd.s	$ft12, $ft3, $ft8, $ft10
 	fneg.s	$ft10, $ft8
-	fmul.s	$ft13, $fa0, $ft10
+	fmul.s	$ft13, $fa1, $ft10
 	fmadd.s	$ft13, $ft11, $ft7, $ft13
 	fneg.s	$ft11, $ft7
 	fmul.s	$ft3, $ft3, $ft11
-	fmadd.s	$fa0, $fa0, $ft6, $ft3
+	fmadd.s	$fa1, $fa1, $ft6, $ft3
 	fmul.s	$ft3, $ft13, $ft13
 	fmadd.s	$ft3, $ft12, $ft12, $ft3
-	fmadd.s	$fa0, $fa0, $fa0, $ft3
+	fmadd.s	$fa1, $fa1, $fa1, $ft3
 	bne	$a3, $a2, .LBB2_4
 # %bb.2:                                # %._crit_edge208
 	fld.s	$ft3, $a0, 8
@@ -152,19 +147,19 @@ _ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint: # @_ZN20btPersi
 .LBB2_3:                                # %._crit_edge
 	fld.s	$ft4, $a1, 4
 	fld.s	$fa4, $a0, 536
-	fld.s	$fa1, $a0, 360
+	fld.s	$fa0, $a0, 360
 	fld.s	$fa5, $a0, 540
 	fld.s	$fa2, $a0, 364
 	fld.s	$fa6, $a0, 544
 	fld.s	$fa3, $a0, 368
 	fld.s	$ft5, $a1, 8
-	fsub.s	$ft7, $fa4, $fa1
+	fsub.s	$ft7, $fa4, $fa0
 	fsub.s	$ft6, $fa5, $fa2
 	fsub.s	$ft8, $fa6, $fa3
 	fneg.s	$ft9, $ft6
 	fneg.s	$ft10, $ft8
 	fneg.s	$ft11, $ft7
-	movgr2fr.w	$fa0, $zero
+	movgr2fr.w	$fa1, $zero
 .LBB2_4:
 	fld.s	$fa7, $a0, 8
 	fld.s	$ft0, $a0, 12
@@ -208,7 +203,7 @@ _ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint: # @_ZN20btPersi
 	fmadd.s	$fa4, $fa4, $fa4, $fa5
 	bcnez	$fcc0, .LBB2_9
 .LBB2_8:                                # %._crit_edge222
-	fsub.s	$fa1, $fa1, $fa7
+	fsub.s	$fa0, $fa0, $fa7
 	fsub.s	$fa2, $fa2, $ft0
 	fsub.s	$fa3, $fa3, $ft1
 	fneg.s	$fa5, $fa2
@@ -216,41 +211,43 @@ _ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint: # @_ZN20btPersi
 	fmadd.s	$fa5, $ft4, $fa3, $fa5
 	fneg.s	$fa3, $fa3
 	fmul.s	$fa3, $ft3, $fa3
-	fmadd.s	$fa3, $ft5, $fa1, $fa3
-	fneg.s	$fa1, $fa1
-	fmul.s	$fa1, $ft4, $fa1
-	fmadd.s	$fa1, $ft3, $fa2, $fa1
+	fmadd.s	$fa3, $ft5, $fa0, $fa3
+	fneg.s	$fa0, $fa0
+	fmul.s	$fa0, $ft4, $fa0
+	fmadd.s	$fa0, $ft3, $fa2, $fa0
 	fmul.s	$fa2, $fa3, $fa3
 	fmadd.s	$fa2, $fa5, $fa5, $fa2
-	fmadd.s	$fa1, $fa1, $fa1, $fa2
-	fabs.s	$fa1, $fa1
+	fmadd.s	$fa0, $fa0, $fa0, $fa2
+	fabs.s	$fa0, $fa0
 	b	.LBB2_10
 .LBB2_9:
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
 .LBB2_10:
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI2_0)
-	fabs.s	$fa0, $fa0
-	fabs.s	$fa3, $ft2
-	fabs.s	$fa4, $fa4
-	fcmp.cule.s	$fcc0, $fa0, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	fabs.s	$fa1, $fa1
+	fabs.s	$fa2, $ft2
+	fabs.s	$fa3, $fa4
+	lu12i.w	$a0, -141856
+	ori	$a0, $a0, 2923
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa4, $a0
+	fcmp.cule.s	$fcc0, $fa1, $fa4
+	fsel	$fa1, $fa1, $fa4, $fcc0
 	movcf2gr	$a0, $fcc0
 	sub.d	$a0, $zero, $a0
-	fcmp.clt.s	$fcc0, $fa0, $fa3
-	fsel	$fa0, $fa0, $fa3, $fcc0
+	fcmp.clt.s	$fcc0, $fa1, $fa2
+	fsel	$fa1, $fa1, $fa2, $fcc0
 	movcf2gr	$a1, $fcc0
 	masknez	$a0, $a0, $a1
 	ori	$a2, $zero, 1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
-	fcmp.clt.s	$fcc0, $fa0, $fa4
-	fsel	$fa0, $fa0, $fa4, $fcc0
+	fcmp.clt.s	$fcc0, $fa1, $fa3
+	fsel	$fa1, $fa1, $fa3, $fcc0
 	movcf2gr	$a1, $fcc0
 	masknez	$a0, $a0, $a1
 	ori	$a2, $zero, 2
 	maskeqz	$a1, $a2, $a1
-	fcmp.clt.s	$fcc0, $fa0, $fa1
+	fcmp.clt.s	$fcc0, $fa1, $fa0
 	or	$a0, $a1, $a0
 	movcf2gr	$a1, $fcc0
 	masknez	$a0, $a0, $a1

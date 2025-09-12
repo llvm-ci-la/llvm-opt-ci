@@ -80,18 +80,7 @@ gs_currentlinejoin:                     # @gs_currentlinejoin
 .Lfunc_end5:
 	.size	gs_currentlinejoin, .Lfunc_end5-gs_currentlinejoin
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gs_setmiterlimit
-.LCPI6_0:
-	.word	0x49742400                      # float 1.0E+6
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI6_1:
-	.dword	0x400000346dc5d639              # double 2.0001000000000002
-.LCPI6_2:
-	.dword	0x3fffff972474538f              # double 1.9999
-	.text
-	.globl	gs_setmiterlimit
+	.globl	gs_setmiterlimit                # -- Begin function gs_setmiterlimit
 	.p2align	5
 	.type	gs_setmiterlimit,@function
 gs_setmiterlimit:                       # @gs_setmiterlimit
@@ -107,22 +96,29 @@ gs_setmiterlimit:                       # @gs_setmiterlimit
 	st.d	$ra, $sp, 24                    # 8-byte Folded Spill
 	st.d	$fp, $sp, 16                    # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 8                    # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI6_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI6_1)
+	fcvt.s.d	$fa1, $fa0
 	ld.d	$fp, $a0, 280
-	fcvt.s.d	$fa2, $fa0
 	fmul.d	$fs0, $fa0, $fa0
-	fcmp.cule.d	$fcc0, $fa1, $fs0
-	fst.s	$fa2, $fp, 12
+	lu12i.w	$a0, 449629
+	ori	$a0, $a0, 1593
+	lu32i.d	$a0, 52
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa0, $a0
+	fcmp.cule.d	$fcc0, $fa0, $fs0
+	fst.s	$fa1, $fp, 12
 	bcnez	$fcc0, .LBB6_5
 # %bb.3:
-	pcalau12i	$a0, %pc_hi20(.LCPI6_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI6_2)
+	lu12i.w	$a0, 149317
+	ori	$a0, $a0, 911
+	lu32i.d	$a0, -105
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa0, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fs0
 	bceqz	$fcc0, .LBB6_5
 # %bb.4:
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI6_0)
+	lu12i.w	$a0, 300866
+	ori	$a0, $a0, 1024
+	movgr2fr.w	$fa0, $a0
 	b	.LBB6_7
 .LBB6_5:
 	vldi	$vr0, -784

@@ -1,16 +1,6 @@
 	.file	"bilateralFilterKernel.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function bilateralFilterKernel
-.LCPI0_0:
-	.dword	0x4072000000000000              # double 288
-.LCPI0_1:
-	.dword	0x408c463abeccb2bb              # double 904.77868423386042
-.LCPI0_2:
-	.dword	0xbf60000000000000              # double -0.001953125
-.LCPI0_3:
-	.dword	0x409921fb54442d18              # double 1608.4954386379741
 	.text
-	.globl	bilateralFilterKernel
+	.globl	bilateralFilterKernel           # -- Begin function bilateralFilterKernel
 	.p2align	5
 	.type	bilateralFilterKernel,@function
 bilateralFilterKernel:                  # @bilateralFilterKernel
@@ -38,32 +28,40 @@ bilateralFilterKernel:                  # @bilateralFilterKernel
 	move	$s8, $a4
 	bstrpick.d	$a4, $a4, 31, 31
 	add.w	$a4, $s8, $a4
-	srai.d	$s5, $a4, 1
-	sub.w	$a0, $a0, $s5
+	srai.d	$s0, $a4, 1
+	sub.w	$a0, $a0, $s0
 	st.d	$a3, $sp, 16                    # 8-byte Folded Spill
 	st.d	$a2, $sp, 32                    # 8-byte Folded Spill
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
-	bge	$s5, $a0, .LBB0_11
+	bge	$s0, $a0, .LBB0_11
 # %bb.1:                                # %.preheader77.lr.ph
-	sub.w	$a0, $a1, $s5
+	sub.w	$a0, $a1, $s0
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
-	bge	$s5, $a0, .LBB0_11
+	bge	$s0, $a0, .LBB0_11
 # %bb.2:                                # %.preheader77.lr.ph
 	blez	$s8, .LBB0_11
 # %bb.3:                                # %.preheader77.us.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI0_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI0_3)
 	bstrpick.d	$a0, $a1, 31, 0
 	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
-	movgr2fr.d	$fs4, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 131072
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -267061
+	ori	$a0, $a0, 699
+	lu32i.d	$a0, -244166
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs2, $a0
+	lu52i.d	$a0, $zero, -1034
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1033
+	movgr2fr.d	$fs4, $a0
 	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	move	$a3, $s5
+	move	$a3, $s0
 	.p2align	4, , 16
 .LBB0_4:                                # %.preheader77.us.us
                                         # =>This Loop Header: Depth=1
@@ -81,7 +79,7 @@ bilateralFilterKernel:                  # @bilateralFilterKernel
 	alsl.d	$a0, $a0, $a1, 2
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
 	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
-	move	$s0, $s5
+	move	$s5, $s0
 	.p2align	4, , 16
 .LBB0_5:                                # %.preheader76.us.us.us
                                         #   Parent Loop BB0_4 Depth=1
@@ -90,21 +88,21 @@ bilateralFilterKernel:                  # @bilateralFilterKernel
                                         #         Child Loop BB0_7 Depth 4
 	move	$s3, $zero
 	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
-	alsl.d	$s1, $s0, $a0, 2
+	alsl.d	$s1, $s5, $a0, 2
 	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
-	fmov.d	$fs5, $fs4
-	fmov.d	$fs6, $fs4
+	fmov.d	$fs5, $fs0
+	fmov.d	$fs6, $fs0
 	.p2align	4, , 16
 .LBB0_6:                                # %.preheader.us.us.us.us
                                         #   Parent Loop BB0_4 Depth=1
                                         #     Parent Loop BB0_5 Depth=2
                                         # =>    This Loop Header: Depth=3
                                         #         Child Loop BB0_7 Depth 4
-	sub.d	$a0, $s5, $s3
+	sub.d	$a0, $s0, $s3
 	mul.d	$s4, $a0, $a0
 	move	$fp, $s8
 	move	$s6, $s7
-	move	$s2, $s5
+	move	$s2, $s0
 	.p2align	4, , 16
 .LBB0_7:                                #   Parent Loop BB0_4 Depth=1
                                         #     Parent Loop BB0_5 Depth=2
@@ -117,10 +115,10 @@ bilateralFilterKernel:                  # @bilateralFilterKernel
 	add.d	$a0, $a1, $a0
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fa0, $fa0, $fs0
+	fdiv.d	$fa0, $fa0, $fs1
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	fdiv.d	$fs7, $fa0, $fs1
+	fdiv.d	$fs7, $fa0, $fs2
 	mul.d	$a0, $s2, $s2
 	add.d	$a0, $a0, $s4
 	bstrpick.d	$a0, $a0, 31, 0
@@ -130,11 +128,11 @@ bilateralFilterKernel:                  # @bilateralFilterKernel
 	fcvt.s.d	$fa0, $fa0
 	fmul.s	$fa0, $fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fmul.d	$fa0, $fa0, $fs2
+	fmul.d	$fa0, $fa0, $fs3
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $s6, 0
-	fdiv.d	$fa0, $fa0, $fs3
+	fdiv.d	$fa0, $fa0, $fs4
 	fmul.d	$fa0, $fs7, $fa0
 	movgr2fr.w	$fa1, $a0
 	ffint.d.w	$fa1, $fa1
@@ -155,14 +153,14 @@ bilateralFilterKernel:                  # @bilateralFilterKernel
 	fdiv.d	$fa0, $fs6, $fs5
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
-	slli.d	$a1, $s0, 2
+	slli.d	$a1, $s5, 2
 	ld.d	$a2, $sp, 64                    # 8-byte Folded Reload
 	stx.w	$a0, $a2, $a1
-	addi.d	$s0, $s0, 1
+	addi.d	$s5, $s5, 1
 	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
 	addi.d	$s7, $s7, 4
 	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
-	bne	$s0, $a0, .LBB0_5
+	bne	$s5, $a0, .LBB0_5
 # %bb.10:                               # %._crit_edge.split.us.us.us
                                         #   in Loop: Header=BB0_4 Depth=1
 	ld.d	$a3, $sp, 40                    # 8-byte Folded Reload

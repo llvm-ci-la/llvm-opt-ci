@@ -565,12 +565,7 @@ _ZN4Boss7NewWeekEv:                     # @_ZN4Boss7NewWeekEv
 .Lfunc_end18:
 	.size	_ZN4Boss7NewWeekEv, .Lfunc_end18-_ZN4Boss7NewWeekEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18CommissionedWorkerC2EPKcS1_ff
-.LCPI19_0:
-	.word	0x42700000                      # float 60
-	.text
-	.globl	_ZN18CommissionedWorkerC2EPKcS1_ff
+	.globl	_ZN18CommissionedWorkerC2EPKcS1_ff # -- Begin function _ZN18CommissionedWorkerC2EPKcS1_ff
 	.p2align	5
 	.type	_ZN18CommissionedWorkerC2EPKcS1_ff,@function
 _ZN18CommissionedWorkerC2EPKcS1_ff:     # @_ZN18CommissionedWorkerC2EPKcS1_ff
@@ -631,12 +626,11 @@ _ZN18CommissionedWorkerC2EPKcS1_ff:     # @_ZN18CommissionedWorkerC2EPKcS1_ff
 	st.w	$zero, $fp, 32
 	b	.LBB19_5
 .LBB19_2:
-	pcalau12i	$a0, %pc_hi20(.LCPI19_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI19_0)
+	lu12i.w	$a0, 272128
+	movgr2fr.w	$fa0, $a0
 	fcmp.cule.s	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB19_4
 # %bb.3:
-	lu12i.w	$a0, 272128
 	st.w	$a0, $fp, 32
 	b	.LBB19_5
 .LBB19_4:
@@ -668,12 +662,7 @@ _ZN18CommissionedWorker15SetWeeklySalaryEf: # @_ZN18CommissionedWorker15SetWeekl
 .Lfunc_end20:
 	.size	_ZN18CommissionedWorker15SetWeeklySalaryEf, .Lfunc_end20-_ZN18CommissionedWorker15SetWeeklySalaryEf
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18CommissionedWorker17SetCommissionRateEf
-.LCPI21_0:
-	.word	0x42700000                      # float 60
-	.text
-	.globl	_ZN18CommissionedWorker17SetCommissionRateEf
+	.globl	_ZN18CommissionedWorker17SetCommissionRateEf # -- Begin function _ZN18CommissionedWorker17SetCommissionRateEf
 	.p2align	5
 	.type	_ZN18CommissionedWorker17SetCommissionRateEf,@function
 _ZN18CommissionedWorker17SetCommissionRateEf: # @_ZN18CommissionedWorker17SetCommissionRateEf
@@ -685,12 +674,11 @@ _ZN18CommissionedWorker17SetCommissionRateEf: # @_ZN18CommissionedWorker17SetCom
 	st.w	$zero, $a0, 32
 	ret
 .LBB21_2:
-	pcalau12i	$a1, %pc_hi20(.LCPI21_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI21_0)
+	lu12i.w	$a1, 272128
+	movgr2fr.w	$fa1, $a1
 	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB21_4
 # %bb.3:
-	lu12i.w	$a1, 272128
 	st.w	$a1, $a0, 32
 	ret
 .LBB21_4:
@@ -709,26 +697,23 @@ _ZN18CommissionedWorker13SalesThisWeekEf: # @_ZN18CommissionedWorker13SalesThisW
 .Lfunc_end22:
 	.size	_ZN18CommissionedWorker13SalesThisWeekEf, .Lfunc_end22-_ZN18CommissionedWorker13SalesThisWeekEf
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN18CommissionedWorker8EarningsEv
-.LCPI23_0:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.globl	_ZN18CommissionedWorker8EarningsEv
+	.globl	_ZN18CommissionedWorker8EarningsEv # -- Begin function _ZN18CommissionedWorker8EarningsEv
 	.p2align	5
 	.type	_ZN18CommissionedWorker8EarningsEv,@function
 _ZN18CommissionedWorker8EarningsEv:     # @_ZN18CommissionedWorker8EarningsEv
 # %bb.0:
-	fld.s	$fa0, $a0, 28
-	fld.s	$fa1, $a0, 32
-	pcalau12i	$a1, %pc_hi20(.LCPI23_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI23_0)
-	fld.s	$fa3, $a0, 36
+	fld.s	$fa0, $a0, 32
+	fld.s	$fa1, $a0, 28
 	fcvt.d.s	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	fld.s	$fa2, $a0, 36
+	movgr2fr.d	$fa3, $a1
+	fdiv.d	$fa0, $fa0, $fa3
 	fcvt.d.s	$fa1, $fa1
-	fdiv.d	$fa1, $fa1, $fa2
-	fcvt.d.s	$fa2, $fa3
-	fmadd.d	$fa0, $fa1, $fa2, $fa0
+	fcvt.d.s	$fa2, $fa2
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	fcvt.s.d	$fa0, $fa0
 	ret
 .Lfunc_end23:
@@ -836,34 +821,29 @@ _ZN18CommissionedWorker5PrintEv:        # @_ZN18CommissionedWorker5PrintEv
 	.size	_ZN18CommissionedWorker5PrintEv, .Lfunc_end24-_ZN18CommissionedWorker5PrintEv
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18CommissionedWorker5RaiseEi
-.LCPI25_0:
-	.word	0x42700000                      # float 60
-	.text
-	.globl	_ZN18CommissionedWorker5RaiseEi
+	.globl	_ZN18CommissionedWorker5RaiseEi # -- Begin function _ZN18CommissionedWorker5RaiseEi
 	.p2align	5
 	.type	_ZN18CommissionedWorker5RaiseEi,@function
 _ZN18CommissionedWorker5RaiseEi:        # @_ZN18CommissionedWorker5RaiseEi
 # %bb.0:
 	blez	$a1, .LBB25_2
 # %bb.1:                                # %_ZN18CommissionedWorker17SetCommissionRateEf.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI25_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI25_0)
-	fld.s	$fa1, $a0, 32
+	fld.s	$fa0, $a0, 32
 	bstrpick.d	$a1, $a1, 31, 0
-	movgr2fr.d	$fa2, $a1
-	ffint.s.l	$fa2, $fa2
-	fadd.s	$fa1, $fa1, $fa2
-	fcmp.clt.s	$fcc0, $fa0, $fa1
-	fsel	$fa0, $fa1, $fa0, $fcc0
+	movgr2fr.d	$fa1, $a1
+	ffint.s.l	$fa1, $fa1
+	fadd.s	$fa0, $fa0, $fa1
+	lu12i.w	$a1, 272128
+	movgr2fr.w	$fa2, $a1
+	fcmp.clt.s	$fcc0, $fa2, $fa0
+	fsel	$fa2, $fa0, $fa2, $fcc0
 	movgr2fr.w	$fa3, $zero
 	fld.s	$fa4, $a0, 24
 	fld.s	$fa5, $a0, 28
-	fcmp.clt.s	$fcc0, $fa1, $fa3
-	fsel	$fa0, $fa0, $fa3, $fcc0
+	fcmp.clt.s	$fcc0, $fa0, $fa3
+	fsel	$fa0, $fa2, $fa3, $fcc0
 	fst.s	$fa0, $a0, 32
-	fmadd.s	$fa0, $fa2, $fa4, $fa5
+	fmadd.s	$fa0, $fa1, $fa4, $fa5
 	fst.s	$fa0, $a0, 28
 .LBB25_2:
 	ret
@@ -1536,25 +1516,19 @@ _ZN20HourlyWorkerOvertimeC2EPKcS1_f:    # @_ZN20HourlyWorkerOvertimeC2EPKcS1_f
 	.size	_ZN20HourlyWorkerOvertimeC2EPKcS1_f, .Lfunc_end43-_ZN20HourlyWorkerOvertimeC2EPKcS1_f
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN20HourlyWorkerOvertime8EarningsEv
-.LCPI44_0:
-	.word	0x42200000                      # float 40
-.LCPI44_1:
-	.word	0xc2200000                      # float -40
-	.text
-	.globl	_ZN20HourlyWorkerOvertime8EarningsEv
+	.globl	_ZN20HourlyWorkerOvertime8EarningsEv # -- Begin function _ZN20HourlyWorkerOvertime8EarningsEv
 	.p2align	5
 	.type	_ZN20HourlyWorkerOvertime8EarningsEv,@function
 _ZN20HourlyWorkerOvertime8EarningsEv:   # @_ZN20HourlyWorkerOvertime8EarningsEv
 # %bb.0:
 	fld.s	$fa0, $a0, 32
-	pcalau12i	$a1, %pc_hi20(.LCPI44_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI44_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI44_1)
-	fld.s	$fa2, $a1, %pc_lo12(.LCPI44_1)
+	lu12i.w	$a1, 270848
+	movgr2fr.w	$fa1, $a1
 	fcmp.clt.s	$fcc0, $fa1, $fa0
-	fadd.s	$fa1, $fa0, $fa2
+	lu12i.w	$a1, -253440
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa1, $a1
+	fadd.s	$fa1, $fa0, $fa1
 	fld.s	$fa2, $a0, 28
 	fcvt.d.s	$fa1, $fa1
 	movgr2fr.d	$fa3, $zero

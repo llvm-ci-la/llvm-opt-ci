@@ -11,12 +11,7 @@ _ZN15btGjkEpaSolver220StackSizeRequirementEv: # @_ZN15btGjkEpaSolver220StackSize
 .Lfunc_end0:
 	.size	_ZN15btGjkEpaSolver220StackSizeRequirementEv, .Lfunc_end0-_ZN15btGjkEpaSolver220StackSizeRequirementEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE
-.LCPI1_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
-	.text
-	.globl	_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE
+	.globl	_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE # -- Begin function _ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE
 	.p2align	5
 	.type	_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE,@function
 _ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE: # @_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE
@@ -289,12 +284,13 @@ _ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3
 	fmul.s	$fa3, $fa1, $fa1
 	fmadd.s	$fa3, $fa0, $fa0, $fa3
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI1_0)
-	fsqrt.s	$fa5, $fa3
-	fst.s	$fa5, $fp, 52
+	fsqrt.s	$fa4, $fa3
+	fst.s	$fa4, $fp, 52
 	frsqrt.s	$fa3, $fa3
-	fcmp.clt.s	$fcc0, $fa4, $fa5
+	lu12i.w	$a0, 232731
+	ori	$a0, $a0, 1815
+	movgr2fr.w	$fa5, $a0
+	fcmp.clt.s	$fcc0, $fa5, $fa4
 	vldi	$vr4, -1168
 	fsel	$fa3, $fa4, $fa3, $fcc0
 	fmul.s	$fa0, $fa0, $fa3
@@ -493,14 +489,8 @@ _ZN12gjkepa2_implL10InitializeEPK13btConvexShapeRK11btTransformS2_S5_RN15btGjkEp
 .Lfunc_end2:
 	.size	_ZN12gjkepa2_implL10InitializeEPK13btConvexShapeRK11btTransformS2_S5_RN15btGjkEpaSolver28sResultsERNS_13MinkowskiDiffEb, .Lfunc_end2-_ZN12gjkepa2_implL10InitializeEPK13btConvexShapeRK11btTransformS2_S5_RN15btGjkEpaSolver28sResultsERNS_13MinkowskiDiffEb
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3
-.LCPI3_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
-.LCPI3_1:
-	.word	0xb8d1b717                      # float -9.99999974E-5
 	.section	.text._ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3,"axG",@progbits,_ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3,comdat
-	.weak	_ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3
+	.weak	_ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3 # -- Begin function _ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3
 	.p2align	5
 	.type	_ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3,@function
 _ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3: # @_ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3
@@ -636,9 +626,12 @@ _ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3: # @_ZN12gjkepa
 	fld.s	$fa0, $fp, 148
 	fld.s	$fs3, $fp, 152
 	ori	$s3, $zero, 56
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI3_0)
-	pcalau12i	$s4, %pc_hi20(.LCPI3_1)
+	lu12i.w	$a0, 232731
+	ori	$a0, $a0, 1815
+	movgr2fr.w	$fs2, $a0
+	lu12i.w	$a0, -291557
+	ori	$s4, $a0, 1815
+	lu32i.d	$s4, 0
 	b	.LBB3_2
 	.p2align	4, , 16
 .LBB3_1:                                # %._crit_edge
@@ -771,10 +764,10 @@ _ZN12gjkepa2_impl3GJK8EvaluateERKNS_13MinkowskiDiffERK9btVector3: # @_ZN12gjkepa
 	vld	$vr2, $a1, 0
 	fmadd.s	$fa0, $fa3, $fa1, $fa0
 	fdiv.s	$fa0, $fa0, $fs4
-	fld.s	$fa1, $s4, %pc_lo12(.LCPI3_1)
 	fcmp.clt.s	$fcc0, $fs1, $fa0
 	fsel	$fs1, $fs1, $fa0, $fcc0
 	fsub.s	$fa0, $fs4, $fs1
+	movgr2fr.w	$fa1, $s4
 	fmadd.s	$fa0, $fs4, $fa1, $fa0
 	movgr2fr.w	$fs3, $zero
 	fcmp.cult.s	$fcc0, $fs3, $fa0
@@ -1382,10 +1375,6 @@ _ZN15btGjkEpaSolver211PenetrationEPK13btConvexShapeRK11btTransformS2_S5_RK9btVec
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI5_1:
-	.word	0x38d1b717                      # float 9.99999974E-5
 	.section	.text._ZN12gjkepa2_impl3EPA8EvaluateERNS_3GJKERK9btVector3,"axG",@progbits,_ZN12gjkepa2_impl3EPA8EvaluateERNS_3GJKERK9btVector3,comdat
 	.weak	_ZN12gjkepa2_impl3EPA8EvaluateERNS_3GJKERK9btVector3
 	.p2align	5
@@ -1642,10 +1631,11 @@ _ZN12gjkepa2_impl3EPA8EvaluateERNS_3GJKERK9btVector3: # @_ZN12gjkepa2_impl3EPA8E
 	st.d	$s4, $a0, 56
 	st.w	$zero, $fp, 0
 	addi.d	$s3, $fp, 84
-	pcalau12i	$a0, %pc_hi20(.LCPI5_1)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI5_1)
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 80                   # 16-byte Folded Spill
+	lu12i.w	$a0, 232731
+	ori	$a0, $a0, 1815
+	movgr2fr.w	$fs2, $a0
 	lu12i.w	$a0, 3
 	ori	$a0, $a0, 2152
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
@@ -2003,12 +1993,6 @@ _ZN12gjkepa2_impl3EPA8EvaluateERNS_3GJKERK9btVector3: # @_ZN12gjkepa2_impl3EPA8E
 	.word	0x3f800000                      # float 1
 	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI6_1:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-.LCPI6_2:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
 	.globl	_ZN15btGjkEpaSolver214SignedDistanceERK9btVector3fPK13btConvexShapeRK11btTransformRNS_8sResultsE
 	.p2align	5
@@ -2107,10 +2091,11 @@ _ZN15btGjkEpaSolver214SignedDistanceERK9btVector3fPK13btConvexShapeRK11btTransfo
 	jirl	$ra, $ra, 0
 .Ltmp1:                                 # EH_LABEL
 # %bb.1:
-	pcalau12i	$a1, %pc_hi20(.LCPI6_1)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI6_1)
-	ori	$a1, $zero, 1
-	beq	$a0, $a1, .LBB6_12
+	lu12i.w	$a1, 522239
+	ori	$a1, $a1, 4095
+	ori	$a2, $zero, 1
+	movgr2fr.w	$fs0, $a1
+	beq	$a0, $a2, .LBB6_12
 # %bb.2:
 	bnez	$a0, .LBB6_21
 # %bb.3:                                # %.preheader
@@ -2275,11 +2260,11 @@ _ZN15btGjkEpaSolver214SignedDistanceERK9btVector3fPK13btConvexShapeRK11btTransfo
 	fsub.s	$fa2, $fa2, $fa3
 	fsub.s	$fa3, $fa4, $fa5
 	fmul.s	$fa0, $fa2, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI6_2)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI6_2)
 	fmadd.s	$fa0, $fa1, $fa1, $fa0
 	fmadd.s	$fa0, $fa3, $fa3, $fa0
 	fsqrt.s	$fa0, $fa0
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa4, $a0
 	fcmp.cult.s	$fcc0, $fa0, $fa4
 	bcnez	$fcc0, .LBB6_16
 # %bb.15:
@@ -4041,16 +4026,8 @@ _ZN12gjkepa2_impl3GJK13EncloseOriginEv: # @_ZN12gjkepa2_impl3GJK13EncloseOriginE
 	.word	.LBB12_8-.LJTI12_0
 	.word	.LBB12_13-.LJTI12_0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b
-.LCPI13_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
-.LCPI13_1:
-	.word	0xbc23d70a                      # float -0.00999999977
-.LCPI13_2:
-	.word	0xb727c5ac                      # float -9.99999974E-6
 	.section	.text._ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b,"axG",@progbits,_ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b,comdat
-	.weak	_ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b
+	.weak	_ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b # -- Begin function _ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b
 	.p2align	5
 	.type	_ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b,@function
 _ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b: # @_ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b
@@ -4188,22 +4165,25 @@ _ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b: # @_ZN12gjkepa2_impl3EPA7new
 	fmadd.s	$fa6, $ft4, $ft0, $fa6
 	fmadd.s	$fa4, $ft6, $fa4, $fa6
 	fcmp.clt.s	$fcc0, $ft2, $fa5
-	pcalau12i	$a2, %pc_hi20(.LCPI13_0)
-	fld.s	$fa6, $a2, %pc_lo12(.LCPI13_0)
 	fsel	$fa5, $fa5, $ft2, $fcc0
 	fcmp.clt.s	$fcc0, $fa5, $fa4
 	fsel	$fa4, $fa4, $fa5, $fcc0
-	fcmp.clt.s	$fcc0, $fa6, $fa3
-	pcalau12i	$a2, %pc_hi20(.LCPI13_1)
-	fld.s	$fa5, $a2, %pc_lo12(.LCPI13_1)
-	vldi	$vr7, -1168
-	fsel	$fa7, $fa7, $fa3, $fcc0
-	fdiv.s	$fa4, $fa4, $fa7
-	fcmp.cult.s	$fcc0, $fa4, $fa5
-	movgr2fr.w	$fa5, $zero
-	fsel	$fa4, $fa5, $fa4, $fcc0
+	lu12i.w	$a2, 232731
+	ori	$a2, $a2, 1815
+	movgr2fr.w	$fa5, $a2
+	fcmp.clt.s	$fcc0, $fa5, $fa3
+	vldi	$vr6, -1168
+	fsel	$fa6, $fa6, $fa3, $fcc0
+	fdiv.s	$fa4, $fa4, $fa6
+	lu12i.w	$a2, -277955
+	ori	$a2, $a2, 1802
+	lu32i.d	$a2, 0
+	movgr2fr.w	$fa6, $a2
+	fcmp.cult.s	$fcc0, $fa4, $fa6
+	movgr2fr.w	$fa6, $zero
+	fsel	$fa4, $fa6, $fa4, $fcc0
 	fst.s	$fa4, $a0, 20
-	fcmp.cule.s	$fcc0, $fa3, $fa6
+	fcmp.cule.s	$fcc0, $fa3, $fa5
 	ori	$a2, $zero, 2
 	bcnez	$fcc0, .LBB13_12
 # %bb.10:
@@ -4224,8 +4204,10 @@ _ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b: # @_ZN12gjkepa2_impl3EPA7new
 	fst.s	$fa0, $a0, 8
 	bnez	$a4, .LBB13_22
 # %bb.11:
-	pcalau12i	$a1, %pc_hi20(.LCPI13_2)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI13_2)
+	lu12i.w	$a1, -298372
+	ori	$a1, $a1, 1452
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa0, $a1
 	fcmp.cle.s	$fcc0, $fa0, $fa4
 	ori	$a2, $zero, 3
 	bcnez	$fcc0, .LBB13_22
@@ -4274,12 +4256,8 @@ _ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b: # @_ZN12gjkepa2_impl3EPA7new
 	.size	_ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b, .Lfunc_end13-_ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE
-.LCPI14_0:
-	.word	0xb727c5ac                      # float -9.99999974E-6
 	.section	.text._ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE,"axG",@progbits,_ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE,comdat
-	.weak	_ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE
+	.weak	_ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE # -- Begin function _ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE
 	.p2align	5
 	.type	_ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE,@function
 _ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE: # @_ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE
@@ -4316,21 +4294,23 @@ _ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE: # @_ZN1
 	slli.d	$a2, $s0, 2
 	pcalau12i	$a6, %pc_hi20(_ZZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonEE4i1m3)
 	addi.d	$a6, $a6, %pc_lo12(_ZZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonEE4i1m3)
-	fld.s	$fa0, $a3, 0
-	fld.s	$fa1, $a3, 4
-	fld.s	$fa2, $fp, 20
+	fld.s	$fa0, $a3, 4
+	fld.s	$fa1, $fp, 20
+	fld.s	$fa2, $a3, 0
 	fld.s	$fa3, $fp, 16
-	fmul.s	$fa1, $fa1, $fa2
-	fmadd.s	$fa0, $fa0, $fa3, $fa1
+	fmul.s	$fa0, $fa0, $fa1
 	fld.s	$fa1, $a3, 8
-	fld.s	$fa2, $fp, 24
-	fld.s	$fa3, $a3, 16
-	pcalau12i	$a7, %pc_hi20(.LCPI14_0)
-	fld.s	$fa4, $a7, %pc_lo12(.LCPI14_0)
-	fmadd.s	$fa0, $fa1, $fa2, $fa0
+	fld.s	$fa4, $fp, 24
+	fld.s	$fa5, $a3, 16
+	fmadd.s	$fa0, $fa2, $fa3, $fa0
 	ldx.wu	$a7, $a6, $a2
-	fsub.s	$fa0, $fa0, $fa3
-	fcmp.cule.s	$fcc0, $fa4, $fa0
+	fmadd.s	$fa0, $fa1, $fa4, $fa0
+	fsub.s	$fa0, $fa0, $fa5
+	lu12i.w	$a6, -298372
+	ori	$a6, $a6, 1452
+	lu32i.d	$a6, 0
+	movgr2fr.w	$fa1, $a6
+	fcmp.cule.s	$fcc0, $fa1, $fa0
 	bcnez	$fcc0, .LBB14_6
 # %bb.3:
 	move	$s3, $a4

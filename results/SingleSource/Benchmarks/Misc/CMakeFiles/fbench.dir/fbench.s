@@ -13,12 +13,6 @@
 .LCPI0_3:
 	.dword	0x40b0f47a1cac0831              # double 4340.4769999999999
 	.dword	0x40af00fced916873              # double 3968.4940000000001
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_4:
-	.dword	0x408f400000000000              # double 1000
-.LCPI0_5:
-	.dword	0x3f184647e2eda082              # double 9.2600000000000001E-5
 	.text
 	.globl	main
 	.p2align	5
@@ -94,11 +88,13 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $fp, %pc_lo12(niter)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_4)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_4)
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.2)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.2)
@@ -130,8 +126,11 @@ main:                                   # @main
 	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(aberr_lchrom)
 	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_5)
+	lu12i.w	$a0, -119078
+	ori	$a0, $a0, 130
+	lu32i.d	$a0, -506297
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$fp, %pc_hi20(max_lspher)
 	pcalau12i	$s6, %pc_hi20(max_osc)
 	lu12i.w	$a0, 293601

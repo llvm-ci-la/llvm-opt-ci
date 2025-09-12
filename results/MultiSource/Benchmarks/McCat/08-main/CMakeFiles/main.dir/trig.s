@@ -426,12 +426,7 @@ TranslateMatrix:                        # @TranslateMatrix
 .Lfunc_end4:
 	.size	TranslateMatrix, .Lfunc_end4-TranslateMatrix
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function RotateMatrix
-.LCPI5_0:
-	.dword	0x3f91df46a2529e84              # double 0.017453292519944444
-	.text
-	.globl	RotateMatrix
+	.globl	RotateMatrix                    # -- Begin function RotateMatrix
 	.p2align	5
 	.type	RotateMatrix,@function
 RotateMatrix:                           # @RotateMatrix
@@ -449,10 +444,13 @@ RotateMatrix:                           # @RotateMatrix
 	fst.d	$fs3, $sp, 48                   # 8-byte Folded Spill
 	fst.d	$fs4, $sp, 40                   # 8-byte Folded Spill
 	fst.d	$fs5, $sp, 32                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fs5, $a0, %pc_lo12(.LCPI5_0)
 	fmov.d	$fs3, $fa2
 	fmov.d	$fs2, $fa1
+	lu12i.w	$a0, -383703
+	ori	$a0, $a0, 3716
+	lu32i.d	$a0, 122694
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fs5, $a0
 	fmul.d	$fs1, $fa0, $fs5
 	fmov.d	$fa0, $fs1
 	pcaddu18i	$ra, %call36(cos)

@@ -44,12 +44,8 @@ _ZN9benchmark17BenchmarkReporterD0Ev:   # @_ZN9benchmark17BenchmarkReporterD0Ev
 .Lfunc_end2:
 	.size	_ZN9benchmark17BenchmarkReporterD0Ev, .Lfunc_end2-_ZN9benchmark17BenchmarkReporterD0Ev
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark17BenchmarkReporter17PrintBasicContextEPSoRKNS0_7ContextE
-.LCPI3_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
-	.hidden	_ZN9benchmark17BenchmarkReporter17PrintBasicContextEPSoRKNS0_7ContextE
+	.hidden	_ZN9benchmark17BenchmarkReporter17PrintBasicContextEPSoRKNS0_7ContextE # -- Begin function _ZN9benchmark17BenchmarkReporter17PrintBasicContextEPSoRKNS0_7ContextE
 	.globl	_ZN9benchmark17BenchmarkReporter17PrintBasicContextEPSoRKNS0_7ContextE
 	.p2align	5
 	.type	_ZN9benchmark17BenchmarkReporter17PrintBasicContextEPSoRKNS0_7ContextE,@function
@@ -185,8 +181,10 @@ _ZN9benchmark17BenchmarkReporter17PrintBasicContextEPSoRKNS0_7ContextE: # @_ZN9b
 	pcaddu18i	$ra, %call36(_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l)
 	jirl	$ra, $ra, 0
 	fld.d	$fa0, $s7, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)

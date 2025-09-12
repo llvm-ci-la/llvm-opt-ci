@@ -725,20 +725,15 @@ PDF_PrintInitialize:                    # @PDF_PrintInitialize
 .Lfunc_end8:
 	.size	PDF_PrintInitialize, .Lfunc_end8-PDF_PrintInitialize
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function PDF_PrintLength
-.LCPI9_0:
-	.word	0x440dc000                      # float 567
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function PDF_PrintLength
 	.type	PDF_PrintLength,@function
 PDF_PrintLength:                        # @PDF_PrintLength
 # %bb.0:
-	pcalau12i	$a2, %pc_hi20(.LCPI9_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI9_0)
+	movgr2fr.w	$fa0, $a1
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a1, 278748
 	movgr2fr.w	$fa1, $a1
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
 	pcalau12i	$a1, %pc_hi20(.L.str.12)
@@ -869,12 +864,7 @@ PDF_PrintMapping:                       # @PDF_PrintMapping
 .Lfunc_end12:
 	.size	PDF_PrintMapping, .Lfunc_end12-PDF_PrintMapping
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function PDF_PrintBeforeFirstPage
-.LCPI13_0:
-	.word	0x3d4ccccd                      # float 0.0500000007
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function PDF_PrintBeforeFirstPage
 	.type	PDF_PrintBeforeFirstPage,@function
 PDF_PrintBeforeFirstPage:               # @PDF_PrintBeforeFirstPage
 # %bb.0:
@@ -905,8 +895,9 @@ PDF_PrintBeforeFirstPage:               # @PDF_PrintBeforeFirstPage
 	pcaddu18i	$ra, %call36(FontPrintPageSetup)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, %pc_lo12(out_fp)
-	pcalau12i	$a1, %pc_hi20(.LCPI13_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI13_0)
+	lu12i.w	$a1, 251084
+	ori	$a1, $a1, 3277
+	movgr2fr.w	$fa0, $a1
 	ori	$a1, $zero, 10
 	pcaddu18i	$ra, %call36(PDFPage_Init)
 	jirl	$ra, $ra, 0
@@ -925,12 +916,7 @@ PDF_PrintBeforeFirstPage:               # @PDF_PrintBeforeFirstPage
 .Lfunc_end13:
 	.size	PDF_PrintBeforeFirstPage, .Lfunc_end13-PDF_PrintBeforeFirstPage
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function PDF_PrintBetweenPages
-.LCPI14_0:
-	.word	0x3d4ccccd                      # float 0.0500000007
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function PDF_PrintBetweenPages
 	.type	PDF_PrintBetweenPages,@function
 PDF_PrintBetweenPages:                  # @PDF_PrintBetweenPages
 # %bb.0:
@@ -942,8 +928,9 @@ PDF_PrintBetweenPages:                  # @PDF_PrintBetweenPages
 	pcaddu18i	$ra, %call36(PDFPage_Cleanup)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, %pc_lo12(out_fp)
-	pcalau12i	$a1, %pc_hi20(.LCPI14_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI14_0)
+	lu12i.w	$a1, 251084
+	ori	$a1, $a1, 3277
+	movgr2fr.w	$fa0, $a1
 	ori	$a1, $zero, 10
 	pcaddu18i	$ra, %call36(PDFPage_Init)
 	jirl	$ra, $ra, 0
@@ -1336,14 +1323,7 @@ PDF_PrintUnderline:                     # @PDF_PrintUnderline
 .Lfunc_end17:
 	.size	PDF_PrintUnderline, .Lfunc_end17-PDF_PrintUnderline
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function PDF_CoordRotate
-.LCPI18_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI18_1:
-	.dword	0x4066800000000000              # double 180
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function PDF_CoordRotate
 	.type	PDF_CoordRotate,@function
 PDF_CoordRotate:                        # @PDF_CoordRotate
 # %bb.0:
@@ -1367,13 +1347,18 @@ PDF_CoordRotate:                        # @PDF_CoordRotate
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(out_fp)
 	ld.d	$a0, $a0, %pc_lo12(out_fp)
-	pcalau12i	$a2, %pc_hi20(.LCPI18_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI18_0)
-	pcalau12i	$a2, %pc_hi20(.LCPI18_1)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI18_1)
-	movgr2fr.w	$fa2, $a1
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa2, $fa0
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a1, 345154
+	ori	$a1, $a1, 3352
+	lu32i.d	$a1, -450053
+	lu52i.d	$a1, $a1, 1024
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 425984
+	lu52i.d	$a1, $a1, 1030
+	movgr2fr.d	$fa1, $a1
 	fdiv.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	pcaddu18i	$ra, %call36(PDFPage_Rotate)
@@ -1387,25 +1372,24 @@ PDF_CoordRotate:                        # @PDF_CoordRotate
 .Lfunc_end18:
 	.size	PDF_CoordRotate, .Lfunc_end18-PDF_CoordRotate
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function PDF_CoordScale
-.LCPI19_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function PDF_CoordScale
 	.type	PDF_CoordScale,@function
 PDF_CoordScale:                         # @PDF_CoordScale
 # %bb.0:
-	fcvt.d.s	$fa3, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI19_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI19_0)
-	vldi	$vr4, -784
-	fadd.d	$fa3, $fa3, $fa4
-	fabs.d	$fa3, $fa3
+	fcvt.d.s	$fa2, $fa0
+	vldi	$vr3, -784
+	fadd.d	$fa2, $fa2, $fa3
+	fabs.d	$fa3, $fa2
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
 	fcmp.clt.d	$fcc0, $fa2, $fa3
 	bcnez	$fcc0, .LBB19_2
 # %bb.1:
 	fcvt.d.s	$fa3, $fa1
+	vldi	$vr4, -784
 	fadd.d	$fa3, $fa3, $fa4
 	fabs.d	$fa3, $fa3
 	fcmp.cule.d	$fcc0, $fa3, $fa2

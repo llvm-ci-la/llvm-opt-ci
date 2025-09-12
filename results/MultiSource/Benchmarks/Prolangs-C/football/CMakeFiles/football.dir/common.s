@@ -1078,12 +1078,7 @@ div_conf_rec:                           # @div_conf_rec
 .Lfunc_end6:
 	.size	div_conf_rec, .Lfunc_end6-div_conf_rec
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function break_net_points
-.LCPI7_0:
-	.dword	0xc0c3880000000000              # double -1.0E+4
-	.text
-	.globl	break_net_points
+	.globl	break_net_points                # -- Begin function break_net_points
 	.p2align	5
 	.type	break_net_points,@function
 break_net_points:                       # @break_net_points
@@ -1100,9 +1095,11 @@ break_net_points:                       # @break_net_points
 	ori	$a2, $zero, 1
 	beq	$fp, $a2, .LBB7_7
 # %bb.3:                                # %.lr.ph
-	pcalau12i	$a2, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI7_0)
 	addi.d	$a2, $sp, 16
+	ori	$a3, $zero, 0
+	lu32i.d	$a3, 231424
+	lu52i.d	$a3, $a3, -1012
+	movgr2fr.d	$fa0, $a3
 	ori	$a3, $zero, 92
 	bnez	$fp, .LBB7_9
 # %bb.4:                                # %.lr.ph.split.us42.preheader
@@ -1138,9 +1135,11 @@ break_net_points:                       # @break_net_points
 	move	$fp, $zero
 	b	.LBB7_16
 .LBB7_7:                                # %.lr.ph.split.us.preheader
-	pcalau12i	$a2, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI7_0)
 	addi.d	$a2, $sp, 16
+	ori	$a3, $zero, 0
+	lu32i.d	$a3, 231424
+	lu52i.d	$a3, $a3, -1012
+	movgr2fr.d	$fa0, $a3
 	ori	$a3, $zero, 92
 	pcalau12i	$a4, %got_pc_hi20(team_info_wi_div)
 	ld.d	$a4, $a4, %got_pc_lo12(team_info_wi_div)

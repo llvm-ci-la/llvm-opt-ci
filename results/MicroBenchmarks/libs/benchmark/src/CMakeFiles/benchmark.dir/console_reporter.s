@@ -510,14 +510,7 @@ _ZN9benchmark15ConsoleReporter10ReportRunsERKSt6vectorINS_17BenchmarkReporter3Ru
 	.size	_ZN9benchmark15ConsoleReporter10ReportRunsERKSt6vectorINS_17BenchmarkReporter3RunESaIS3_EE, .Lfunc_end2-_ZN9benchmark15ConsoleReporter10ReportRunsERKSt6vectorINS_17BenchmarkReporter3RunESaIS3_EE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE
-.LCPI3_0:
-	.dword	0x4059000000000000              # double 100
-.LCPI3_1:
-	.dword	0x4202a05f1ff80000              # double 9999999999
-	.text
-	.hidden	_ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE
+	.hidden	_ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE # -- Begin function _ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE
 	.globl	_ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE
 	.p2align	5
 	.type	_ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE,@function
@@ -652,8 +645,10 @@ _ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE: # @_
 	addi.d	$a1, $a0, %pc_lo12(.L.str.24)
 	b	.LBB3_14
 .LBB3_11:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
 	fcmp.clt.d	$fcc0, $fs0, $fa0
 	bceqz	$fcc0, .LBB3_13
 # %bb.12:
@@ -661,8 +656,10 @@ _ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE: # @_
 	addi.d	$a1, $a0, %pc_lo12(.L.str.25)
 	b	.LBB3_14
 .LBB3_13:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_1)
+	lu12i.w	$a0, 130944
+	lu32i.d	$a0, 172127
+	lu52i.d	$a0, $a0, 1056
+	movgr2fr.d	$fa0, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fs0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.27)
@@ -690,8 +687,10 @@ _ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE: # @_
 	addi.d	$s3, $a0, %pc_lo12(.L.str.24)
 	b	.LBB3_20
 .LBB3_17:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
 	fcmp.clt.d	$fcc0, $fs1, $fa0
 	bceqz	$fcc0, .LBB3_19
 # %bb.18:
@@ -699,8 +698,10 @@ _ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE: # @_
 	addi.d	$s3, $a0, %pc_lo12(.L.str.25)
 	b	.LBB3_20
 .LBB3_19:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_1)
+	lu12i.w	$a0, 130944
+	lu32i.d	$a0, 172127
+	lu52i.d	$a0, $a0, 1056
+	movgr2fr.d	$fa0, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fs1
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.27)
@@ -771,8 +772,10 @@ _ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE: # @_
 	pcalau12i	$a0, %pc_hi20(.L.str.11)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.11)
 .LBB3_31:                               # %.invoke
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
 	fmul.d	$fa1, $fs0, $fa0
 	fmul.d	$fa0, $fs1, $fa0
 	movfr2gr.d	$a3, $fa1
@@ -824,9 +827,11 @@ _ZN9benchmark15ConsoleReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE: # @_
 	beq	$s2, $s3, .LBB3_77
 # %bb.37:                               # %.lr.ph
 	addi.d	$s5, $sp, 56
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI3_0)
 	ori	$s4, $zero, 1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.17)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.17)
 	st.d	$a0, $sp, 32                    # 8-byte Folded Spill

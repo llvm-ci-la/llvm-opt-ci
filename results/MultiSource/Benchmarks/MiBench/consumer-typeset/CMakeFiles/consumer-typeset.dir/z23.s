@@ -1,10 +1,6 @@
 	.file	"z23.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function FixAndPrintObject
-.LCPI0_0:
-	.word	0x3c000000                      # float 0.0078125
 	.text
-	.globl	FixAndPrintObject
+	.globl	FixAndPrintObject               # -- Begin function FixAndPrintObject
 	.p2align	5
 	.type	FixAndPrintObject,@function
 FixAndPrintObject:                      # @FixAndPrintObject
@@ -498,7 +494,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	beqz	$a0, .LBB0_60
 .LBB0_66:
 	st.d	$s8, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
 	st.d	$s4, $sp, 144                   # 8-byte Folded Spill
 	ld.d	$s1, $s0, 8
 	beq	$s1, $fp, .LBB0_291
@@ -949,7 +945,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	ld.d	$a7, $sp, 192                   # 8-byte Folded Reload
 	b	.LBB0_115
 .LBB0_124:
-	move	$s7, $a4
+	st.d	$a4, $sp, 192                   # 8-byte Folded Spill
 	ld.d	$s5, $fp, 8
 	move	$s1, $zero
 	.p2align	4, , 16
@@ -965,12 +961,13 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	ld.w	$a1, $a0, 16
 	beqz	$a1, .LBB0_215
 # %bb.127:
-	beqz	$s7, .LBB0_261
+	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
+	beqz	$a1, .LBB0_261
 # %bb.128:
 	st.d	$s2, $sp, 176                   # 8-byte Folded Spill
 	st.d	$a6, $sp, 184                   # 8-byte Folded Spill
-	move	$s2, $s3
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	move	$s7, $s3
+	move	$s3, $s6
 	ld.w	$a1, $fp, 72
 	bgtz	$a1, .LBB0_130
 # %bb.129:
@@ -989,9 +986,9 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	ld.w	$a1, $fp, 72
 	ld.d	$a0, $s0, 0
 .LBB0_130:
-	slli.w	$a2, $s2, 7
+	slli.w	$a2, $s7, 7
 	ld.d	$a3, $a0, 160
-	div.w	$s3, $a2, $a1
+	div.w	$s2, $a2, $a1
 	slli.w	$a0, $s8, 7
 	div.w	$s6, $a0, $a1
 	move	$a0, $s5
@@ -1004,15 +1001,15 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	sub.w	$a1, $a1, $a3
 	jirl	$ra, $a2, 0
 	ld.d	$a0, $s0, 0
-	ld.d	$a0, $a0, 152
 	ld.w	$a1, $fp, 64
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI0_0)
-	ld.w	$a2, $fp, 72
+	ld.d	$a0, $a0, 152
 	movgr2fr.w	$fa0, $a1
 	ffint.s.w	$fa0, $fa0
+	ld.w	$a1, $fp, 72
+	lu12i.w	$a2, 245760
+	movgr2fr.w	$fa1, $a2
 	fmul.s	$fa0, $fa0, $fa1
-	movgr2fr.w	$fa2, $a2
+	movgr2fr.w	$fa2, $a1
 	ffint.s.w	$fa2, $fa2
 	fmul.s	$fa1, $fa2, $fa1
 	jirl	$ra, $a0, 0
@@ -1022,9 +1019,9 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	st.d	$a0, $sp, 0
 	move	$a0, $s5
 	move	$a1, $zero
-	move	$a2, $s3
+	move	$a2, $s2
 	move	$a3, $s6
-	move	$a4, $s7
+	ld.d	$a4, $sp, 192                   # 8-byte Folded Reload
 	move	$a5, $zero
 	move	$a6, $zero
 	move	$a7, $s1
@@ -1033,8 +1030,8 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	ld.d	$a0, $s0, 0
 	ld.d	$a0, $a0, 168
 	jirl	$ra, $a0, 0
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
-	move	$s3, $s2
+	move	$s6, $s3
+	move	$s3, $s7
 	b	.LBB0_276
 .LBB0_131:
 	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
@@ -1087,7 +1084,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	st.d	$a4, $sp, 192                   # 8-byte Folded Spill
 	beqz	$a4, .LBB0_218
 # %bb.136:                              # %.preheader2179
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
 	beq	$s0, $fp, .LBB0_563
 # %bb.137:                              # %.preheader2178.lr.ph
 	sub.w	$a0, $a6, $s2
@@ -1252,7 +1249,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	st.d	$s6, $sp, 0
 	b	.LBB0_39
 .LBB0_156:
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
 	st.d	$s4, $sp, 144                   # 8-byte Folded Spill
 	ld.d	$s3, $fp, 8
 	beq	$s3, $fp, .LBB0_278
@@ -1438,7 +1435,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	beqz	$a4, .LBB0_270
 # %bb.192:
 	st.d	$s3, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
 	ld.d	$s6, $fp, 8
 .LBB0_193:                              # =>This Inner Loop Header: Depth=1
 	ld.d	$s6, $s6, 16
@@ -1574,7 +1571,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	move	$a1, $s2
 	move	$a2, $s3
 	move	$a3, $s8
-	move	$a4, $s7
+	ld.d	$a4, $sp, 192                   # 8-byte Folded Reload
 	b	.LBB0_275
 .LBB0_218:
 	st.d	$s2, $sp, 176                   # 8-byte Folded Spill
@@ -1612,7 +1609,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	jirl	$ra, $ra, 0
 	beqz	$a0, .LBB0_221
 .LBB0_227:
-	st.d	$s6, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
 	ld.w	$a0, $s1, 48
 	ld.d	$s3, $s0, 8
 	ld.d	$a1, $sp, 160                   # 8-byte Folded Reload
@@ -2071,7 +2068,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	ld.d	$a0, $s0, 0
 	ld.d	$a0, $a0, 168
 	jirl	$ra, $a0, 0
-	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
 	ld.d	$s3, $sp, 160                   # 8-byte Folded Reload
 	b	.LBB0_276
 .LBB0_287:                              # %ScaleFactor.exit2106.thread
@@ -2178,7 +2175,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
 	alsl.d	$a2, $a0, $fp, 2
 	ld.w	$a0, $a2, 48
-	st.d	$zero, $sp, 104                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 112                 # 8-byte Folded Spill
 	ld.d	$a1, $sp, 168                   # 8-byte Folded Reload
 	add.w	$a1, $a0, $a1
 	st.d	$a1, $sp, 128                   # 8-byte Folded Spill
@@ -2198,7 +2195,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	ld.d	$a2, $sp, 192                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(FindAdjustIncrement)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
 .LBB0_310:
 	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
 	alsl.d	$a0, $a0, $s7, 2
@@ -2658,7 +2655,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
-	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
 	st.w	$zero, $a1, 0
 	ld.d	$s4, $sp, 144                   # 8-byte Folded Reload
 	st.w	$a0, $s4, 0
@@ -2666,7 +2663,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 .LBB0_374:                              # %._crit_edge2495
 	ld.w	$a1, $sp, 232
 	ld.w	$a0, $sp, 216
-	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 104                   # 8-byte Folded Reload
 	st.w	$a1, $a2, 0
 	st.w	$a0, $s4, 0
 	b	.LBB0_278
@@ -2745,7 +2742,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 .LBB0_384:                              #   in Loop: Header=BB0_381 Depth=1
 	ld.w	$a1, $a3, 56
 	ld.w	$a2, $a3, 48
-	ld.d	$a3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
 	add.w	$a3, $a1, $a3
 .LBB0_385:                              #   in Loop: Header=BB0_381 Depth=1
 	addi.d	$a1, $sp, 248
@@ -2877,7 +2874,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	masknez	$a2, $a2, $a1
 	maskeqz	$a0, $a0, $a1
 	or	$a0, $a0, $a2
-	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
 	st.w	$a0, $a1, 0
 	ld.w	$a1, $s0, 56
 	ld.d	$a2, $sp, 136                   # 8-byte Folded Reload
@@ -3091,14 +3088,14 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	ld.d	$a2, $fp, 0
 	bne	$a1, $a2, .LBB0_559
 # %bb.438:
-	addi.d	$s2, $a0, 32
 	ld.w	$a1, $s1, 64
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI0_0)
+	addi.d	$s2, $a0, 32
 	addi.d	$s6, $a0, 64
-	movgr2fr.w	$fa1, $a1
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a1
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 245760
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fs0, $fa0
 	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(EchoLength)
@@ -3553,7 +3550,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	pcalau12i	$a0, %got_pc_hi20(zz_lengths)
 	ld.d	$a0, $a0, %got_pc_lo12(zz_lengths)
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
-	st.d	$zero, $sp, 104                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 112                 # 8-byte Folded Spill
 	st.d	$zero, $sp, 88                  # 8-byte Folded Spill
 	st.d	$zero, $sp, 80                  # 8-byte Folded Spill
 	ori	$s0, $zero, 9
@@ -3600,7 +3597,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	lu12i.w	$a2, 262144
 	bne	$a1, $a2, .LBB0_523
 # %bb.509:                              #   in Loop: Header=BB0_508 Depth=1
-	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
 	bnez	$a1, .LBB0_511
 # %bb.510:                              #   in Loop: Header=BB0_508 Depth=1
 	ld.bu	$a1, $a0, 32
@@ -3624,7 +3621,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	lu12i.w	$a2, 393216
 	and	$a1, $a1, $a2
 	ori	$a2, $zero, 1
-	st.d	$a2, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a2, $sp, 112                   # 8-byte Folded Spill
 	lu12i.w	$a2, 131072
 	bne	$a1, $a2, .LBB0_523
 # %bb.512:                              #   in Loop: Header=BB0_508 Depth=1
@@ -3741,7 +3738,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	st.d	$s1, $a4, 0
 	bnez	$a1, .LBB0_522
 # %bb.520:                              #   in Loop: Header=BB0_508 Depth=1
-	st.d	$zero, $sp, 104                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 112                 # 8-byte Folded Spill
 	b	.LBB0_523
 .LBB0_521:                              # %.thread2771
                                         #   in Loop: Header=BB0_508 Depth=1
@@ -3751,7 +3748,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	pcalau12i	$a3, %got_pc_hi20(zz_tmp)
 	ld.d	$a3, $a3, %got_pc_lo12(zz_tmp)
 	ld.d	$a4, $a1, 16
-	st.d	$zero, $sp, 104                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 112                 # 8-byte Folded Spill
 	st.d	$a2, $a3, 0
 	st.d	$a4, $s1, 16
 	st.d	$s1, $a4, 24
@@ -3876,7 +3873,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	move	$s4, $zero
 	b	.LBB0_507
 .LBB0_541:                              # %._crit_edge2432.loopexit
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	sltui	$s0, $a0, 1
 	b	.LBB0_543
 .LBB0_542:
@@ -4079,12 +4076,12 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	pcaddu18i	$ra, %call36(EchoLength)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $s1, 64
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI0_0)
 	move	$s2, $a0
-	movgr2fr.w	$fa1, $a1
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a1
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 245760
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fs0, $fa0
 	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(EchoLength)
@@ -4119,7 +4116,7 @@ FixAndPrintObject:                      # @FixAndPrintObject
 	pcaddu18i	$ra, %call36(FixAndPrintObject)
 	jirl	$ra, $ra, 0
 .LBB0_563:                              # %.thread2121
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 160                   # 8-byte Folded Reload
 	st.w	$a1, $a0, 0
 	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload

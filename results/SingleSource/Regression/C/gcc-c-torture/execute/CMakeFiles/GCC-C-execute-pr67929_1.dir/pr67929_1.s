@@ -1,16 +1,13 @@
 	.file	"pr67929_1.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function foo
-.LCPI0_0:
-	.word	0x409ccccd                      # float 4.9000001
 	.text
-	.globl	foo
+	.globl	foo                             # -- Begin function foo
 	.p2align	5
 	.type	foo,@function
 foo:                                    # @foo
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 264652
+	ori	$a0, $a0, 3277
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0

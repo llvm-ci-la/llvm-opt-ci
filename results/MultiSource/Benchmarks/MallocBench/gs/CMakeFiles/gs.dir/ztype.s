@@ -449,16 +449,7 @@ zwcheck:                                # @zwcheck
 .Lfunc_end9:
 	.size	zwcheck, .Lfunc_end9-zwcheck
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function zcvi
-.LCPI10_0:
-	.word	0x4f000000                      # float 2.14748365E+9
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI10_1:
-	.dword	0xc1e0000000200000              # double -2147483649
-	.text
-	.globl	zcvi
+	.globl	zcvi                            # -- Begin function zcvi
 	.p2align	5
 	.type	zcvi,@function
 zcvi:                                   # @zcvi
@@ -480,16 +471,17 @@ zcvi:                                   # @zcvi
 # %bb.3:
 	fld.s	$fa0, $a0, 0
 .LBB10_4:
-	pcalau12i	$a1, %pc_hi20(.LCPI10_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI10_0)
+	lu12i.w	$a1, 323584
+	movgr2fr.w	$fa1, $a1
 	fcmp.cle.s	$fcc0, $fa1, $fa0
 	addi.w	$a1, $zero, -15
 	bcnez	$fcc0, .LBB10_16
 # %bb.5:
-	pcalau12i	$a2, %pc_hi20(.LCPI10_1)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI10_1)
-	fcvt.d.s	$fa2, $fa0
-	fcmp.cle.d	$fcc0, $fa2, $fa1
+	fcvt.d.s	$fa1, $fa0
+	lu12i.w	$a2, 512
+	lu52i.d	$a2, $a2, -994
+	movgr2fr.d	$fa2, $a2
+	fcmp.cle.d	$fcc0, $fa1, $fa2
 	bcnez	$fcc0, .LBB10_16
 # %bb.6:
 	move	$a1, $zero

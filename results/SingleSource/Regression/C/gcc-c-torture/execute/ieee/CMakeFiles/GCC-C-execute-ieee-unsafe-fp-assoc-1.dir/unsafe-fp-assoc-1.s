@@ -1,12 +1,6 @@
 	.file	"unsafe-fp-assoc-1.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function func
-.LCPI0_0:
-	.dword	0xc330000000000000              # double -4503599627370496
-.LCPI0_1:
-	.dword	0x4330000000000000              # double 4503599627370496
 	.text
-	.globl	func
+	.globl	func                            # -- Begin function func
 	.p2align	5
 	.type	func,@function
 func:                                   # @func
@@ -16,20 +10,20 @@ func:                                   # @func
 	ori	$a1, $zero, 1074
 	bltu	$a1, $a0, .LBB0_3
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_1)
-	fadd.d	$fa3, $fa0, $fa1
-	fadd.d	$fa3, $fa3, $fa2
-	fcmp.ceq.d	$fcc0, $fa3, $fa0
+	lu52i.d	$a0, $zero, -973
+	movgr2fr.d	$fa1, $a0
+	fadd.d	$fa2, $fa0, $fa1
+	lu52i.d	$a0, $zero, 1075
+	movgr2fr.d	$fa3, $a0
+	fadd.d	$fa2, $fa2, $fa3
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bceqz	$fcc0, .LBB0_4
 # %bb.2:
 	vldi	$vr4, -800
 	fadd.d	$fa0, $fa0, $fa4
 	fadd.d	$fa0, $fa0, $fa1
-	fadd.d	$fa0, $fa0, $fa2
-	fcmp.cune.d	$fcc0, $fa0, $fa3
+	fadd.d	$fa0, $fa0, $fa3
+	fcmp.cune.d	$fcc0, $fa0, $fa2
 	bceqz	$fcc0, .LBB0_4
 .LBB0_3:
 	ret

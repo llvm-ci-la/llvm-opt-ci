@@ -2031,14 +2031,7 @@ UpdateDecoders:                         # @UpdateDecoders
 .Lfunc_end4:
 	.size	UpdateDecoders, .Lfunc_end4-UpdateDecoders
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Build_Status_Map
-.LCPI5_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
-.LCPI5_1:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.globl	Build_Status_Map
+	.globl	Build_Status_Map                # -- Begin function Build_Status_Map
 	.p2align	5
 	.type	Build_Status_Map,@function
 Build_Status_Map:                       # @Build_Status_Map
@@ -2079,13 +2072,16 @@ Build_Status_Map:                       # @Build_Status_Map
 	addi.w	$s6, $zero, -1
 	pcalau12i	$a0, %got_pc_hi20(input)
 	ld.d	$s8, $a0, %got_pc_lo12(input)
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI5_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI5_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI5_1)
 	move	$a2, $zero
 	move	$a0, $zero
 	move	$a3, $zero
+	lu12i.w	$a1, -1024
+	lu52i.d	$a1, $a1, 1053
+	movgr2fr.d	$fs0, $a1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fs1, $a1
 	b	.LBB5_4
 	.p2align	4, , 16
 .LBB5_3:                                # %._crit_edge.us

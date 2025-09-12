@@ -1,14 +1,6 @@
 	.file	"casts.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.word	0x5f000000                      # float 9.22337203E+18
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -218,32 +210,32 @@ main:                                   # @main
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	fcvt.s.d	$fa2, $fa0
+	fcvt.s.d	$fa1, $fa0
 	ori	$a0, $zero, 5
 	bge	$s0, $a0, .LBB0_10
 .LBB0_8:
 	vldi	$vr0, -1024
 	b	.LBB0_11
 .LBB0_9:
-	vldi	$vr2, -1168
+	vldi	$vr1, -1168
 	ori	$a0, $zero, 5
 	blt	$s0, $a0, .LBB0_8
 .LBB0_10:
 	ld.d	$a0, $fp, 32
 	move	$a1, $zero
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
+	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
+	vld	$vr1, $sp, 16                   # 16-byte Folded Reload
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 .LBB0_11:
 	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI0_0)
-	ftintrz.l.s	$fa1, $fa2
-	movfr2gr.d	$s0, $fa1
-	fcmp.clt.s	$fcc0, $fa2, $fa0
-	fsub.s	$fa0, $fa2, $fa0
+	ftintrz.l.s	$fa0, $fa1
+	movfr2gr.d	$s0, $fa0
+	lu12i.w	$a0, 389120
+	movgr2fr.w	$fa0, $a0
+	fcmp.clt.s	$fcc0, $fa1, $fa0
+	fsub.s	$fa0, $fa1, $fa0
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a0, $fa0
 	lu52i.d	$fp, $zero, -2048
@@ -252,9 +244,9 @@ main:                                   # @main
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $s0, $a1
 	or	$s1, $a1, $a0
-	ftintrz.w.s	$fa0, $fa2
+	ftintrz.w.s	$fa0, $fa1
 	movfr2gr.s	$s2, $fa0
-	fcvt.d.s	$fa0, $fa2
+	fcvt.d.s	$fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.24)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.24)
@@ -290,8 +282,8 @@ main:                                   # @main
 	move	$a2, $s1
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu52i.d	$s0, $zero, 1086
+	movgr2fr.d	$fa0, $s0
 	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
 	fcmp.clt.d	$fcc0, $fa1, $fa0
 	fsub.d	$fa0, $fa1, $fa0
@@ -301,11 +293,11 @@ main:                                   # @main
 	movcf2gr	$a1, $fcc0
 	masknez	$a0, $a0, $a1
 	ftintrz.l.d	$fa0, $fa1
-	movfr2gr.d	$s1, $fa0
-	maskeqz	$a1, $s1, $a1
-	or	$s0, $a1, $a0
+	movfr2gr.d	$s2, $fa0
+	maskeqz	$a1, $s2, $a1
+	or	$s1, $a1, $a0
 	ftintrz.w.d	$fa0, $fa1
-	movfr2gr.s	$s2, $fa0
+	movfr2gr.s	$s3, $fa0
 	movfr2gr.d	$a1, $fa1
 	pcalau12i	$a0, %pc_hi20(.L.str.30)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.30)
@@ -313,29 +305,29 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.31)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.31)
-	move	$a1, $s1
-	move	$a2, $s1
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.L.str.32)
-	addi.d	$a0, $a0, %pc_lo12(.L.str.32)
 	move	$a1, $s2
 	move	$a2, $s2
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
+	pcalau12i	$a0, %pc_hi20(.L.str.32)
+	addi.d	$a0, $a0, %pc_lo12(.L.str.32)
+	move	$a1, $s3
+	move	$a2, $s3
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.33)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.33)
-	move	$a1, $s1
-	move	$a2, $s1
+	move	$a1, $s2
+	move	$a2, $s2
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.34)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.34)
-	move	$a1, $s1
-	move	$a2, $s1
+	move	$a1, $s2
+	move	$a2, $s2
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	addi.w	$a1, $s1, 0
+	addi.w	$a1, $s2, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.35)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.35)
 	move	$a2, $a1
@@ -343,71 +335,71 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.36)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.36)
-	move	$a1, $s0
-	move	$a2, $s0
+	move	$a1, $s1
+	move	$a2, $s1
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.37)
-	addi.d	$s0, $a0, %pc_lo12(.L.str.37)
+	addi.d	$s1, $a0, %pc_lo12(.L.str.37)
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -81920
-	lu52i.d	$s2, $a0, 1029
+	lu52i.d	$s3, $a0, 1029
 	ori	$a1, $zero, 123
-	ori	$s4, $zero, 0
-	move	$a0, $s0
-	move	$a2, $s2
+	ori	$s5, $zero, 0
+	move	$a0, $s1
+	move	$a2, $s3
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.38)
-	addi.d	$s1, $a0, %pc_lo12(.L.str.38)
+	addi.d	$s2, $a0, %pc_lo12(.L.str.38)
 	ori	$a1, $zero, 123
-	move	$a0, $s1
-	move	$a2, $s2
+	move	$a0, $s2
+	move	$a2, $s3
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	addi.w	$s2, $zero, -1
+	addi.w	$s3, $zero, -1
 	lu52i.d	$a2, $zero, -1025
-	move	$a0, $s0
-	move	$a1, $s2
+	move	$a0, $s1
+	move	$a1, $s3
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	lu52i.d	$s3, $zero, 1087
+	lu52i.d	$s4, $zero, 1087
+	move	$a0, $s2
+	move	$a1, $s3
+	move	$a2, $s4
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	lu32i.d	$s5, -262144
+	lu52i.d	$a2, $s5, -1022
+	addi.w	$s3, $zero, -14
 	move	$a0, $s1
-	move	$a1, $s2
+	move	$a1, $s3
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	move	$a0, $s2
+	move	$a1, $s3
+	move	$a2, $s4
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	lu52i.d	$s3, $s5, 1026
+	ori	$a1, $zero, 14
+	move	$a0, $s1
 	move	$a2, $s3
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	lu32i.d	$s4, -262144
-	lu52i.d	$a2, $s4, -1022
-	addi.w	$s2, $zero, -14
-	move	$a0, $s0
-	move	$a1, $s2
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	move	$a0, $s1
-	move	$a1, $s2
+	ori	$a1, $zero, 14
+	move	$a0, $s2
 	move	$a2, $s3
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	lu52i.d	$s2, $s4, 1026
-	ori	$a1, $zero, 14
-	move	$a0, $s0
-	move	$a2, $s2
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ori	$a1, $zero, 14
-	move	$a0, $s1
-	move	$a2, $s2
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	lu52i.d	$a2, $zero, -962
-	move	$a0, $s0
+	move	$a0, $s1
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	lu52i.d	$a2, $zero, 1086
-	move	$a0, $s1
+	move	$a0, $s2
 	move	$a1, $fp
+	move	$a2, $s0
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero

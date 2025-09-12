@@ -1,12 +1,6 @@
 	.file	"mandel-text.cpp"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3fa999999999999a              # double 0.050000000000000003
-.LCPI0_1:
-	.dword	0xc002666666666666              # double -2.2999999999999998
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -30,10 +24,16 @@ main:                                   # @main
 	fst.d	$fs4, $sp, 16                   # 8-byte Folded Spill
 	fst.d	$fs5, $sp, 8                    # 8-byte Folded Spill
 	movgr2fr.d	$fs0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, 419430
+	ori	$a0, $a0, 1638
+	lu32i.d	$a0, 157286
+	lu52i.d	$a0, $a0, -1024
+	movgr2fr.d	$fs2, $a0
 	ori	$fp, $zero, 255
 	ori	$s0, $zero, 2000
 	pcalau12i	$a0, %got_pc_hi20(stdout)

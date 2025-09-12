@@ -324,12 +324,7 @@ FreeFukusosuuMtx:                       # @FreeFukusosuuMtx
 .Lfunc_end7:
 	.size	FreeFukusosuuMtx, .Lfunc_end7-FreeFukusosuuMtx
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function getKouho
-.LCPI8_0:
-	.dword	0xc0c387f333333333              # double -9999.8999999999996
-	.text
-	.globl	getKouho
+	.globl	getKouho                        # -- Begin function getKouho
 	.p2align	5
 	.type	getKouho,@function
 getKouho:                               # @getKouho
@@ -344,12 +339,11 @@ getKouho:                               # @getKouho
 # %bb.2:                                # %.preheader.us.preheader
 	move	$a5, $zero
 	move	$a6, $zero
-	pcalau12i	$a7, %pc_hi20(.LCPI8_0)
-	fld.d	$fa0, $a7, %pc_lo12(.LCPI8_0)
 	lu12i.w	$a7, 209715
 	ori	$a7, $a7, 819
 	lu32i.d	$a7, 231411
 	lu52i.d	$a7, $a7, -1012
+	movgr2fr.d	$fa0, $a7
 	.p2align	4, , 16
 .LBB8_3:                                # %.preheader.us
                                         # =>This Loop Header: Depth=1
@@ -710,14 +704,7 @@ zurasu:                                 # @zurasu
 .Lfunc_end10:
 	.size	zurasu, .Lfunc_end10-zurasu
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function alignableReagion
-.LCPI11_0:
-	.dword	0x4059000000000000              # double 100
-.LCPI11_1:
-	.dword	0x4082c00000000000              # double 600
-	.text
-	.globl	alignableReagion
+	.globl	alignableReagion                # -- Begin function alignableReagion
 	.p2align	5
 	.type	alignableReagion,@function
 alignableReagion:                       # @alignableReagion
@@ -779,13 +766,17 @@ alignableReagion:                       # @alignableReagion
 	pcalau12i	$a1, %got_pc_hi20(fftThreshold)
 	ld.d	$a1, $a1, %got_pc_lo12(fftThreshold)
 	ld.w	$a1, $a1, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI11_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI11_0)
-	pcalau12i	$a2, %pc_hi20(.LCPI11_1)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI11_1)
-	movgr2fr.w	$fa2, $a1
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa0, $fa2, $fa0
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
+	ori	$a1, $zero, 0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -458752
+	lu52i.d	$a2, $a2, 1029
+	movgr2fr.d	$fa1, $a2
+	fdiv.d	$fa0, $fa0, $fa1
+	lu32i.d	$a1, 180224
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	movgr2fr.w	$fa1, $a0
 	ffint.d.w	$fa1, $fa1
@@ -1174,12 +1165,7 @@ alignableReagion:                       # @alignableReagion
 .Lfunc_end11:
 	.size	alignableReagion, .Lfunc_end11-alignableReagion
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function blockAlign
-.LCPI12_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	blockAlign
+	.globl	blockAlign                      # -- Begin function blockAlign
 	.p2align	5
 	.type	blockAlign,@function
 blockAlign:                             # @blockAlign
@@ -1308,8 +1294,9 @@ blockAlign:                             # @blockAlign
 	ld.d	$a1, $s7, %pc_lo12(blockAlign.track)
 	ori	$a2, $zero, 1
 	lu52i.d	$a3, $zero, 1107
-	pcalau12i	$a4, %pc_hi20(.LCPI12_0)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI12_0)
+	lu12i.w	$a4, 256
+	lu52i.d	$a4, $a4, 1107
+	movgr2fr.d	$fa0, $a4
 	lu12i.w	$a4, 275200
 	addi.d	$a5, $s3, 8
 	addi.d	$a6, $s4, 8

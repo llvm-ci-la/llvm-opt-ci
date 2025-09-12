@@ -105,12 +105,8 @@ _ZN9benchmark13GetBigOStringB5cxx11ENS_4BigOE: # @_ZN9benchmark13GetBigOStringB5
 	.word	.LBB1_3-.LJTI1_0
 	.word	.LBB1_8-.LJTI1_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE
-.LCPI2_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.hidden	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE
+	.hidden	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE # -- Begin function _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE
 	.globl	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE
 	.p2align	5
 	.type	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE,@function
@@ -215,12 +211,13 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE: # @_ZN9benc
 	movgr2fr.d	$fs1, $zero
 .LBB2_8:                                # %._crit_edge48
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI2_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -254,14 +251,7 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE: # @_ZN9benc
 	.size	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE, .Lfunc_end2-_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE
-.LCPI3_0:
-	.dword	0x7ff8000000000000              # double NaN
-.LCPI3_1:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.hidden	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE
+	.hidden	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE # -- Begin function _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE
 	.globl	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE
 	.p2align	5
 	.type	_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE,@function
@@ -421,12 +411,13 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	bltu	$s4, $a1, .LBB3_14
 # %bb.15:                               # %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit70.loopexit
 	srli.d	$a0, $a1, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI3_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI3_1)
 	lu52i.d	$a2, $zero, 1107
 	or	$a0, $a0, $a2
+	movgr2fr.d	$fa0, $a0
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
 	movgr2fr.d	$fa1, $a0
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a0, 275200
 	bstrins.d	$a1, $a0, 63, 32
 	movgr2fr.d	$fa1, $a1
@@ -445,12 +436,11 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	addi.d	$a0, $a0, %pc_lo12(.Lconstinit)
 	vld	$vr0, $a0, 0
 	ld.w	$a1, $a0, 16
-	vst	$vr0, $s2, 0
 	ld.d	$a0, $s1, 8
 	ld.d	$a2, $s1, 0
+	vst	$vr0, $s2, 0
 	st.w	$a1, $s2, 16
-	pcalau12i	$s4, %pc_hi20(.LCPI3_0)
-	pcalau12i	$s3, %pc_hi20(.LCPI3_1)
+	lu12i.w	$s4, 256
 	beq	$a0, $a2, .LBB3_28
 # %bb.18:                               # %.lr.ph.i.preheader
 	ld.d	$a1, $s0, 0
@@ -488,11 +478,12 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	bnez	$a2, .LBB3_21
 # %bb.22:                               # %.loopexit88.loopexit
 	srli.d	$a1, $a0, 32
-	fld.d	$fa1, $s3, %pc_lo12(.LCPI3_1)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa1, $a1
+	lu52i.d	$a1, $s4, 1107
 	movgr2fr.d	$fa3, $a1
-	fsub.d	$fa1, $fa3, $fa1
+	fsub.d	$fa1, $fa1, $fa3
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa3, $a0
@@ -505,9 +496,11 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	ld.d	$a0, $s1, 0
 	bne	$a1, $a0, .LBB3_10
 .LBB3_24:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI3_0)
 	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fs1, $a0
 	fmov.d	$fs2, $fs0
 	fmov.d	$fa2, $fs0
 .LBB3_25:                               # %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit70
@@ -544,8 +537,11 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	addi.d	$sp, $sp, 192
 	ret
 .LBB3_28:
-	fld.d	$fs0, $s4, %pc_lo12(.LCPI3_0)
 	movgr2fr.d	$fa2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fs0, $a0
 	fmov.d	$fa0, $fa2
 	fmov.d	$fa3, $fa2
 .LBB3_29:                               # %.loopexit88
@@ -564,11 +560,15 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	pcalau12i	$a0, %pc_hi20(.Lswitch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE)
 	addi.d	$s7, $a0, %pc_lo12(.Lswitch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE)
 	move	$s8, $zero
-	fld.d	$fs2, $s4, %pc_lo12(.LCPI3_0)
-	fld.d	$fa0, $s3, %pc_lo12(.LCPI3_1)
-	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs4, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fs3, $a0
 	ori	$s3, $zero, 20
+	lu52i.d	$a0, $s4, 1107
+	movgr2fr.d	$fa0, $a0
+	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
 	b	.LBB3_32
 	.p2align	4, , 16
 .LBB3_31:                               #   in Loop: Header=BB3_32 Depth=1
@@ -590,18 +590,18 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
                                         #   in Loop: Header=BB3_32 Depth=1
 	ld.d	$a1, $s1, 8
 	ld.d	$a0, $s1, 0
-	fmov.d	$fs6, $fs2
-	fmov.d	$fs5, $fs3
-	fmov.d	$fs7, $fs3
-	fmov.d	$fs4, $fs3
+	fmov.d	$fs6, $fs3
+	fmov.d	$fs5, $fs4
+	fmov.d	$fs7, $fs4
+	fmov.d	$fs2, $fs4
 	beq	$a1, $a0, .LBB3_43
 # %bb.35:                               # %.lr.ph.i26.preheader
                                         #   in Loop: Header=BB3_32 Depth=1
 	move	$s4, $zero
 	move	$s6, $zero
-	fmov.d	$fs6, $fs3
-	fmov.d	$fs5, $fs3
-	fmov.d	$fs7, $fs3
+	fmov.d	$fs6, $fs4
+	fmov.d	$fs5, $fs4
+	fmov.d	$fs7, $fs4
 	.p2align	4, , 16
 .LBB3_36:                               # %.lr.ph.i26
                                         #   Parent Loop BB3_32 Depth=1
@@ -632,7 +632,7 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
                                         #   in Loop: Header=BB3_32 Depth=1
 	move	$s4, $zero
 	move	$s6, $zero
-	fmov.d	$fs7, $fs3
+	fmov.d	$fs7, $fs4
 	.p2align	4, , 16
 .LBB3_40:                               # %.lr.ph47.i32
                                         #   Parent Loop BB3_32 Depth=1
@@ -667,16 +667,16 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	lu12i.w	$a0, 275200
 	bstrins.d	$a1, $a0, 63, 32
 	movgr2fr.d	$fa1, $a1
-	fadd.d	$fs4, $fa1, $fa0
+	fadd.d	$fs2, $fa1, $fa0
 .LBB3_43:                               # %.loopexit
                                         #   in Loop: Header=BB3_32 Depth=1
-	fdiv.d	$fa1, $fs7, $fs4
+	fdiv.d	$fa1, $fs7, $fs2
 	fsqrt.d	$fa0, $fa1
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB3_47
 .LBB3_44:                               # %.loopexit.split
                                         #   in Loop: Header=BB3_32 Depth=1
-	fdiv.d	$fa1, $fs5, $fs4
+	fdiv.d	$fa1, $fs5, $fs2
 	fdiv.d	$fa0, $fa0, $fa1
 	fcmp.cule.d	$fcc0, $fs1, $fa0
 	bcnez	$fcc0, .LBB3_31
@@ -688,9 +688,9 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	b	.LBB3_31
 	.p2align	4, , 16
 .LBB3_46:                               #   in Loop: Header=BB3_32 Depth=1
-	fmov.d	$fs7, $fs3
-	fmov.d	$fs4, $fs3
-	fdiv.d	$fa1, $fs7, $fs4
+	fmov.d	$fs7, $fs4
+	fmov.d	$fs2, $fs4
+	fdiv.d	$fa1, $fs7, $fs2
 	fsqrt.d	$fa0, $fa1
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bcnez	$fcc0, .LBB3_44
@@ -699,7 +699,7 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE: # @_ZN9
 	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
-	fdiv.d	$fa1, $fs5, $fs4
+	fdiv.d	$fa1, $fs5, $fs2
 	fdiv.d	$fa0, $fa0, $fa1
 	fcmp.cule.d	$fcc0, $fs1, $fa0
 	bcnez	$fcc0, .LBB3_31
@@ -829,14 +829,8 @@ GCC_except_table3:
 .Lcst_end0:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE
-.LCPI4_0:
-	.dword	0x7ff8000000000000              # double NaN
-.LCPI4_1:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.hidden	_ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE
+	.hidden	_ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE # -- Begin function _ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE
 	.globl	_ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE
 	.p2align	5
 	.type	_ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE,@function
@@ -1171,148 +1165,146 @@ _ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE: # @_
 	ori	$a0, $zero, 8
 	bne	$a3, $a0, .LBB4_53
 .LBB4_36:
-	ld.d	$fp, $sp, 1480
+	ld.d	$s1, $sp, 1480
 	ld.d	$s2, $s7, 464
-	pcalau12i	$s0, %pc_hi20(.LCPI4_0)
-	sub.d	$s5, $s8, $fp
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
-	beq	$s8, $fp, .LBB4_61
+	sub.d	$s4, $s8, $s1
+	beq	$s8, $s1, .LBB4_61
 # %bb.37:                               # %.lr.ph.i.preheader
-	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
-	ld.d	$s0, $sp, 1432
-	srai.d	$s4, $s5, 3
+	ld.d	$fp, $sp, 1432
+	srai.d	$s0, $s4, 3
 	movgr2fr.d	$fs0, $zero
-	move	$s1, $fp
-	move	$s7, $s0
-	move	$s6, $s4
+	move	$s7, $s1
+	move	$s6, $fp
+	move	$s5, $s0
 	fmov.d	$fs2, $fs0
 	fmov.d	$fs1, $fs0
 	.p2align	4, , 16
 .LBB4_38:                               # %.lr.ph.i
                                         # =>This Inner Loop Header: Depth=1
-	ld.d	$a0, $s1, 0
+	ld.d	$a0, $s7, 0
 .Ltmp35:                                # EH_LABEL
 	jirl	$ra, $s2, 0
 .Ltmp36:                                # EH_LABEL
 # %bb.39:                               # %.noexc71
                                         #   in Loop: Header=BB4_38 Depth=1
-	fld.d	$fa1, $s7, 0
+	fld.d	$fa1, $s6, 0
 	fmadd.d	$fs0, $fa0, $fa0, $fs0
 	fadd.d	$fs2, $fs2, $fa1
 	fmadd.d	$fs1, $fa1, $fa0, $fs1
-	addi.d	$s6, $s6, -1
+	addi.d	$s5, $s5, -1
+	addi.d	$s6, $s6, 8
 	addi.d	$s7, $s7, 8
-	addi.d	$s1, $s1, 8
-	bnez	$s6, .LBB4_38
+	bnez	$s5, .LBB4_38
 # %bb.40:                               # %._crit_edge.i
 	fdiv.d	$fs1, $fs1, $fs0
 	movgr2fr.d	$fs0, $zero
-	move	$s1, $fp
-	move	$s6, $s4
+	move	$s5, $s1
+	move	$s6, $s0
 	.p2align	4, , 16
 .LBB4_41:                               # %.lr.ph47.i
                                         # =>This Inner Loop Header: Depth=1
-	ld.d	$a0, $s1, 0
+	ld.d	$a0, $s5, 0
 .Ltmp38:                                # EH_LABEL
 	jirl	$ra, $s2, 0
 .Ltmp39:                                # EH_LABEL
 # %bb.42:                               # %.noexc72
                                         #   in Loop: Header=BB4_41 Depth=1
-	fld.d	$fa1, $s0, 0
+	fld.d	$fa1, $fp, 0
 	fmul.d	$fa0, $fs1, $fa0
 	fsub.d	$fa0, $fa1, $fa0
 	fmul.d	$fa0, $fa0, $fa0
 	fadd.d	$fs0, $fs0, $fa0
 	addi.d	$s6, $s6, -1
-	addi.d	$s0, $s0, 8
-	addi.d	$s1, $s1, 8
+	addi.d	$fp, $fp, 8
+	addi.d	$s5, $s5, 8
 	bnez	$s6, .LBB4_41
 # %bb.43:                               # %.loopexit172.loopexit
 	ld.d	$s6, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$a0, $s6, 0
 	ld.d	$s2, $a0, 464
-	srli.d	$a0, $s4, 32
-	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI4_1)
+	srli.d	$a0, $s0, 32
 	lu52i.d	$a1, $zero, 1107
 	or	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
 	movgr2fr.d	$fa1, $a0
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a0, 275200
-	bstrins.d	$s4, $a0, 63, 32
-	movgr2fr.d	$fa1, $s4
+	bstrins.d	$s0, $a0, 63, 32
+	movgr2fr.d	$fa1, $s0
 	fadd.d	$fs4, $fa1, $fa0
-	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 16                    # 8-byte Folded Reload
 	fdiv.d	$fa0, $fs0, $fs4
 	fsqrt.d	$fs0, $fa0
 	fcmp.cor.d	$fcc0, $fs0, $fs0
 	bceqz	$fcc0, .LBB4_62
 .LBB4_44:                               # %.loopexit172.split
-	beq	$s8, $fp, .LBB4_63
+	beq	$s8, $s1, .LBB4_63
 .LBB4_45:                               # %.lr.ph.i74.preheader
 	move	$s7, $s6
-	ld.d	$s6, $sp, 1456
-	srai.d	$s4, $s5, 3
+	ld.d	$s5, $sp, 1456
+	srai.d	$s4, $s4, 3
 	movgr2fr.d	$fs3, $zero
-	move	$s1, $fp
-	move	$s0, $s6
-	move	$s5, $s4
+	move	$s6, $s1
+	move	$fp, $s5
+	move	$s0, $s4
 	fmov.d	$fs5, $fs3
 	fmov.d	$fs6, $fs3
 	.p2align	4, , 16
 .LBB4_46:                               # %.lr.ph.i74
                                         # =>This Inner Loop Header: Depth=1
-	ld.d	$a0, $s1, 0
+	ld.d	$a0, $s6, 0
 .Ltmp41:                                # EH_LABEL
 	jirl	$ra, $s2, 0
 .Ltmp42:                                # EH_LABEL
 # %bb.47:                               # %.noexc92
                                         #   in Loop: Header=BB4_46 Depth=1
-	fld.d	$fa1, $s0, 0
+	fld.d	$fa1, $fp, 0
 	fmadd.d	$fs3, $fa0, $fa0, $fs3
 	fadd.d	$fs5, $fs5, $fa1
 	fmadd.d	$fs6, $fa1, $fa0, $fs6
-	addi.d	$s5, $s5, -1
-	addi.d	$s0, $s0, 8
-	addi.d	$s1, $s1, 8
-	bnez	$s5, .LBB4_46
+	addi.d	$s0, $s0, -1
+	addi.d	$fp, $fp, 8
+	addi.d	$s6, $s6, 8
+	bnez	$s0, .LBB4_46
 # %bb.48:                               # %._crit_edge.i79
 	fdiv.d	$fs3, $fs6, $fs3
 	movgr2fr.d	$fs6, $zero
-	move	$s0, $s4
-	ld.d	$s5, $sp, 16                    # 8-byte Folded Reload
+	move	$fp, $s4
+	move	$s6, $s7
 	.p2align	4, , 16
 .LBB4_49:                               # %.lr.ph47.i80
                                         # =>This Inner Loop Header: Depth=1
-	ld.d	$a0, $fp, 0
+	ld.d	$a0, $s1, 0
 .Ltmp44:                                # EH_LABEL
 	jirl	$ra, $s2, 0
 .Ltmp45:                                # EH_LABEL
 # %bb.50:                               # %.noexc93
                                         #   in Loop: Header=BB4_49 Depth=1
-	fld.d	$fa1, $s6, 0
+	fld.d	$fa1, $s5, 0
 	fmul.d	$fa0, $fs3, $fa0
 	fsub.d	$fa0, $fa1, $fa0
 	fmul.d	$fa0, $fa0, $fa0
 	fadd.d	$fs6, $fs6, $fa0
-	addi.d	$s0, $s0, -1
-	addi.d	$s6, $s6, 8
-	addi.d	$fp, $fp, 8
-	bnez	$s0, .LBB4_49
+	addi.d	$fp, $fp, -1
+	addi.d	$s5, $s5, 8
+	addi.d	$s1, $s1, 8
+	bnez	$fp, .LBB4_49
 # %bb.51:                               # %.loopexit166.loopexit
 	srli.d	$a0, $s4, 32
-	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI4_1)
 	lu52i.d	$a1, $zero, 1107
 	or	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
 	movgr2fr.d	$fa1, $a0
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a0, 275200
 	bstrins.d	$s4, $a0, 63, 32
 	movgr2fr.d	$fa1, $s4
 	fadd.d	$fa2, $fa1, $fa0
-	move	$s6, $s7
+	ld.d	$s5, $sp, 16                    # 8-byte Folded Reload
 	b	.LBB4_64
 .LBB4_52:
 	st.d	$zero, $sp, 48                  # 8-byte Folded Spill
@@ -1368,8 +1360,11 @@ _ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE: # @_
 	fld.d	$fs0, $sp, 624
 	b	.LBB4_66
 .LBB4_61:
-	fld.d	$fs1, $s0, %pc_lo12(.LCPI4_0)
 	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fs1, $a0
 	fmov.d	$fs0, $fs2
 	fmov.d	$fs4, $fs2
 	fdiv.d	$fa0, $fs0, $fs4
@@ -1380,13 +1375,15 @@ _ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE: # @_
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
 	fmov.d	$fs0, $fa0
-	bne	$s8, $fp, .LBB4_45
+	bne	$s8, $s1, .LBB4_45
 .LBB4_63:
-	fld.d	$fs3, $s0, %pc_lo12(.LCPI4_0)
 	movgr2fr.d	$fs5, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fs3, $a0
 	fmov.d	$fs6, $fs5
 	fmov.d	$fa2, $fs5
-	ld.d	$s5, $sp, 16                    # 8-byte Folded Reload
 .LBB4_64:                               # %.loopexit166
 	fdiv.d	$fs2, $fs2, $fs4
 	fdiv.d	$fa1, $fs6, $fa2

@@ -1,10 +1,6 @@
 	.file	"fuloop.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fuloop
-.LCPI0_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
-	.globl	fuloop
+	.globl	fuloop                          # -- Begin function fuloop
 	.p2align	5
 	.type	fuloop,@function
 fuloop:                                 # @fuloop
@@ -166,6 +162,9 @@ fuloop:                                 # @fuloop
 	ori	$s8, $a0, 3693
 	lu12i.w	$a0, 3
 	ori	$s4, $a0, 57
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %got_pc_hi20(gridGiven)
 	ld.d	$a0, $a0, %got_pc_lo12(gridGiven)
 	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
@@ -226,29 +225,29 @@ fuloop:                                 # @fuloop
 	div.w	$t4, $t4, $s2
 	sub.d	$t3, $t3, $t1
 	addi.d	$t3, $t3, 1
-	movgr2fr.w	$fa2, $t3
-	ffint.d.w	$fa2, $fa2
+	movgr2fr.w	$fa1, $t3
+	ffint.d.w	$fa1, $fa1
 	mul.d	$a6, $a6, $s8
 	add.d	$a6, $a6, $s4
 	bstrpick.d	$t3, $a6, 30, 0
-	movgr2fr.w	$fa3, $t3
-	ffint.d.w	$fa3, $fa3
-	fdiv.d	$fa3, $fa3, $fa1
-	fmul.d	$fa2, $fa3, $fa2
-	ftintrz.w.d	$fa2, $fa2
-	movfr2gr.s	$t3, $fa2
+	movgr2fr.w	$fa2, $t3
+	ffint.d.w	$fa2, $fa2
+	fdiv.d	$fa2, $fa2, $fs0
+	fmul.d	$fa1, $fa2, $fa1
+	ftintrz.w.d	$fa1, $fa1
+	movfr2gr.s	$t3, $fa1
 	add.w	$t1, $t1, $t3
 	sub.d	$t3, $t4, $t2
 	addi.d	$t3, $t3, 1
-	movgr2fr.w	$fa2, $t3
-	ffint.d.w	$fa2, $fa2
+	movgr2fr.w	$fa1, $t3
+	ffint.d.w	$fa1, $fa1
 	mul.d	$a6, $a6, $s8
 	add.w	$a6, $a6, $s4
 	bstrpick.d	$t3, $a6, 30, 0
-	movgr2fr.w	$fa3, $t3
-	ffint.d.w	$fa3, $fa3
-	fdiv.d	$fa1, $fa3, $fa1
-	fmul.d	$fa1, $fa1, $fa2
+	movgr2fr.w	$fa2, $t3
+	ffint.d.w	$fa2, $fa2
+	fdiv.d	$fa2, $fa2, $fs0
+	fmul.d	$fa1, $fa2, $fa1
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$t3, $fa1
 	add.w	$t2, $t2, $t3
@@ -260,15 +259,13 @@ fuloop:                                 # @fuloop
                                         # =>  This Inner Loop Header: Depth=2
 	mul.d	$a6, $a6, $s8
 	add.w	$a6, $a6, $s4
-	pcalau12i	$a7, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI0_0)
 	bstrpick.d	$a7, $a6, 30, 0
-	movgr2fr.w	$fa2, $a7
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa2, $fa2, $fa1
-	fmul.d	$fa2, $fa2, $fa0
-	ftintrz.w.d	$fa2, $fa2
-	movfr2gr.s	$a7, $fa2
+	movgr2fr.w	$fa1, $a7
+	ffint.d.w	$fa1, $fa1
+	fdiv.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fa0
+	ftintrz.w.d	$fa1, $fa1
+	movfr2gr.s	$a7, $fa1
 	beq	$a0, $a7, .LBB0_6
 # %bb.7:                                #   in Loop: Header=BB0_6 Depth=2
 	addi.w	$s6, $a7, 1

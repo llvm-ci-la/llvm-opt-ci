@@ -10,12 +10,7 @@ _ZNK11btWheelInfo23getSuspensionRestLengthEv: # @_ZNK11btWheelInfo23getSuspensio
 .Lfunc_end0:
 	.size	_ZNK11btWheelInfo23getSuspensionRestLengthEv, .Lfunc_end0-_ZNK11btWheelInfo23getSuspensionRestLengthEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE
-.LCPI1_0:
-	.word	0xbdcccccd                      # float -0.100000001
-	.text
-	.globl	_ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE
+	.globl	_ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE # -- Begin function _ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE
 	.p2align	5
 	.type	_ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE,@function
 _ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE: # @_ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE
@@ -29,12 +24,14 @@ _ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE: # @_ZN11btWheel
 	fld.s	$fa4, $a0, 56
 	fld.s	$fa2, $a0, 8
 	fld.s	$fa5, $a0, 60
-	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
-	fld.s	$fa6, $a2, %pc_lo12(.LCPI1_0)
 	fmul.s	$fa4, $fa1, $fa4
 	fmadd.s	$fa3, $fa0, $fa3, $fa4
 	fmadd.s	$fa3, $fa2, $fa5, $fa3
-	fcmp.cult.s	$fcc0, $fa3, $fa6
+	lu12i.w	$a2, -271156
+	ori	$a2, $a2, 3277
+	lu32i.d	$a2, 0
+	movgr2fr.w	$fa4, $a2
+	fcmp.cult.s	$fcc0, $fa3, $fa4
 	bceqz	$fcc0, .LBB1_4
 # %bb.2:
 	fld.s	$fa4, $a0, 20

@@ -62,12 +62,7 @@ _Z13record_resultdPKc:                  # @_Z13record_resultdPKc
 .Lfunc_end0:
 	.size	_Z13record_resultdPKc, .Lfunc_end0-_Z13record_resultdPKc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z9summarizePKciiii
-.LCPI1_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	_Z9summarizePKciiii
+	.globl	_Z9summarizePKciiii             # -- Begin function _Z9summarizePKciiii
 	.p2align	5
 	.type	_Z9summarizePKciiii,@function
 _Z9summarizePKciiii:                    # @_Z9summarizePKciiii
@@ -135,14 +130,16 @@ _Z9summarizePKciiii:                    # @_Z9summarizePKciiii
 # %bb.5:                                # %.lr.ph45.preheader
 	st.d	$s0, $sp, 8                     # 8-byte Folded Spill
 	st.d	$s5, $sp, 16                    # 8-byte Folded Spill
+	ori	$a0, $zero, 0
 	movgr2fr.w	$fa0, $s3
 	movgr2fr.w	$fa1, $s2
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI1_0)
+	lu32i.d	$a0, -97152
 	ffint.d.w	$fa0, $fa0
 	ffint.d.w	$fa1, $fa1
+	lu52i.d	$a0, $a0, 1042
 	fmul.d	$fa0, $fa0, $fa1
-	fdiv.d	$fs1, $fa0, $fa2
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(.L.str.4)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.4)
 	pcalau12i	$a0, %pc_hi20(.L.str.5)
@@ -409,12 +406,7 @@ _Z11start_timerv:                       # @_Z11start_timerv
 .Lfunc_end3:
 	.size	_Z11start_timerv, .Lfunc_end3-_Z11start_timerv
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z5timerv
-.LCPI4_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	_Z5timerv
+	.globl	_Z5timerv                       # -- Begin function _Z5timerv
 	.p2align	5
 	.type	_Z5timerv,@function
 _Z5timerv:                              # @_Z5timerv
@@ -426,12 +418,14 @@ _Z5timerv:                              # @_Z5timerv
 	pcalau12i	$a1, %pc_hi20(start_time)
 	ld.d	$a1, $a1, %pc_lo12(start_time)
 	pcalau12i	$a2, %pc_hi20(end_time)
-	pcalau12i	$a3, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI4_0)
 	sub.d	$a1, $a0, $a1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	st.d	$a0, $a2, %pc_lo12(end_time)
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16

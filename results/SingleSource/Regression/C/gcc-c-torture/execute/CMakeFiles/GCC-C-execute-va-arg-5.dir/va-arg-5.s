@@ -1,16 +1,6 @@
 	.file	"va-arg-5.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function va_double
-.LCPI0_0:
-	.dword	0x400921fafc8b007a              # double 3.1415920000000002
-.LCPI0_1:
-	.dword	0x4005bf04577d9557              # double 2.71827
-.LCPI0_2:
-	.dword	0x4001e3779131154c              # double 2.2360679000000001
-.LCPI0_3:
-	.dword	0x40012e0be1b5921e              # double 2.1474836000000002
 	.text
-	.globl	va_double
+	.globl	va_double                       # -- Begin function va_double
 	.p2align	5
 	.type	va_double,@function
 va_double:                              # @va_double
@@ -26,34 +16,46 @@ va_double:                              # @va_double
 	addi.d	$a0, $sp, 32
 	st.d	$a0, $sp, 8
 	fld.d	$fa0, $sp, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, -14160
+	ori	$a0, $a0, 122
+	lu32i.d	$a0, -450054
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB0_5
 # %bb.1:
 	addi.d	$a0, $sp, 24
-	fld.d	$fa0, $a0, 8
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_1)
 	addi.d	$a1, $a0, 16
+	fld.d	$fa0, $a0, 8
+	lu12i.w	$a2, 358361
+	ori	$a2, $a2, 1367
+	lu32i.d	$a2, 376580
+	lu52i.d	$a2, $a2, 1024
+	movgr2fr.d	$fa1, $a2
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	st.d	$a1, $sp, 8
 	bceqz	$fcc0, .LBB0_5
 # %bb.2:
-	fld.d	$fa0, $a0, 16
-	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_2)
 	addi.d	$a1, $a0, 24
+	fld.d	$fa0, $a0, 16
+	lu12i.w	$a2, -453871
+	ori	$a2, $a2, 1356
+	lu32i.d	$a2, 123767
+	lu52i.d	$a2, $a2, 1024
+	movgr2fr.d	$fa1, $a2
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	st.d	$a1, $sp, 8
 	bceqz	$fcc0, .LBB0_5
 # %bb.3:
+	addi.d	$a1, $a0, 32
 	fld.d	$fa0, $a0, 24
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_3)
-	addi.d	$a0, $a0, 32
+	lu12i.w	$a0, -124071
+	ori	$a0, $a0, 542
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
-	st.d	$a0, $sp, 8
+	st.d	$a1, $sp, 8
 	bceqz	$fcc0, .LBB0_5
 # %bb.4:
 	move	$a0, $zero
