@@ -1713,43 +1713,37 @@ _ZN6Solver11cancelUntilEi:              # @_ZN6Solver11cancelUntilEi
 	.size	_ZN6Solver11cancelUntilEi, .Lfunc_end10-_ZN6Solver11cancelUntilEi
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6Solver13pickBranchLitEid
-.LCPI11_0:
-	.dword	0x413534e400000000              # double 1389796
-.LCPI11_1:
-	.dword	0x41dfffffffc00000              # double 2147483647
-	.text
-	.globl	_ZN6Solver13pickBranchLitEid
+	.globl	_ZN6Solver13pickBranchLitEid    # -- Begin function _ZN6Solver13pickBranchLitEid
 	.p2align	5
 	.type	_ZN6Solver13pickBranchLitEid,@function
 _ZN6Solver13pickBranchLitEid:           # @_ZN6Solver13pickBranchLitEid
 	.cfi_startproc
 # %bb.0:
-	addi.d	$sp, $sp, -64
-	.cfi_def_cfa_offset 64
-	st.d	$ra, $sp, 56                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 16                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 8                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -48
+	.cfi_def_cfa_offset 48
+	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 0                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
 	.cfi_offset 25, -40
 	.cfi_offset 56, -48
-	.cfi_offset 57, -56
+	move	$s0, $a1
 	move	$fp, $a0
 	fld.d	$fa1, $a0, 448
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI11_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI11_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI11_1)
-	move	$s0, $a1
-	fmul.d	$fa1, $fa1, $fs1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 341220
+	lu52i.d	$a0, $a0, 1043
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa1, $fa1, $fa2
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs0, $a0
 	fdiv.d	$fa2, $fa1, $fs0
 	ftintrz.w.d	$fa2, $fa2
 	movfr2gr.s	$a0, $fa2
@@ -1768,7 +1762,11 @@ _ZN6Solver13pickBranchLitEid:           # @_ZN6Solver13pickBranchLitEid
 	move	$a0, $s2
 	beqz	$a1, .LBB11_5
 # %bb.2:
-	fmul.d	$fa0, $fa1, $fs1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 341220
+	lu52i.d	$a0, $a0, 1043
+	movgr2fr.d	$fa0, $a0
+	fmul.d	$fa0, $fa1, $fa0
 	fdiv.d	$fa1, $fa0, $fs0
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a0, $fa1
@@ -1839,7 +1837,11 @@ _ZN6Solver13pickBranchLitEid:           # @_ZN6Solver13pickBranchLitEid
 	b	.LBB11_17
 .LBB11_16:
 	fld.d	$fa0, $fp, 448
-	fmul.d	$fa0, $fa0, $fs1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 341220
+	lu52i.d	$a1, $a1, 1043
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 	fdiv.d	$fa1, $fa0, $fs0
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a1, $fa1
@@ -1864,14 +1866,13 @@ _ZN6Solver13pickBranchLitEid:           # @_ZN6Solver13pickBranchLitEid
 	maskeqz	$a1, $a1, $a2
 	or	$a0, $a1, $a0
 	bstrpick.d	$a0, $a0, 31, 0
-	fld.d	$fs1, $sp, 8                    # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 16                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 64
+	fld.d	$fs0, $sp, 0                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 48
 	ret
 .Lfunc_end11:
 	.size	_ZN6Solver13pickBranchLitEid, .Lfunc_end11-_ZN6Solver13pickBranchLitEid
@@ -1968,18 +1969,8 @@ _ZN4HeapIN6Solver10VarOrderLtEE9removeMinEv: # @_ZN4HeapIN6Solver10VarOrderLtEE9
 	.size	_ZN4HeapIN6Solver10VarOrderLtEE9removeMinEv, .Lfunc_end12-_ZN4HeapIN6Solver10VarOrderLtEE9removeMinEv
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi
-.LCPI13_0:
-	.dword	0x4415af1d78b58c40              # double 1.0E+20
-.LCPI13_1:
-	.dword	0x3bc79ca10c924223              # double 9.9999999999999995E-21
-.LCPI13_2:
-	.dword	0x54b249ad2594c37d              # double 1.0E+100
-.LCPI13_3:
-	.dword	0x2b2bff2ee48e0530              # double 1.0E-100
 	.text
-	.globl	_ZN6Solver7analyzeEP6ClauseR3vecI3LitERi
+	.globl	_ZN6Solver7analyzeEP6ClauseR3vecI3LitERi # -- Begin function _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi
 	.p2align	5
 	.type	_ZN6Solver7analyzeEP6ClauseR3vecI3LitERi,@function
 _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3LitERi
@@ -1998,13 +1989,16 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 48                   # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 40                   # 8-byte Folded Spill
-	move	$s1, $a2
+	fst.d	$fs2, $sp, 32                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 24                   # 8-byte Folded Spill
+	move	$ra, $a2
 	ld.w	$a4, $a2, 8
 	ld.w	$a5, $a2, 12
 	ld.d	$a2, $a2, 0
 	move	$s2, $a1
 	move	$fp, $a0
-	st.d	$a3, $sp, 32                    # 8-byte Folded Spill
+	st.d	$a3, $sp, 16                    # 8-byte Folded Spill
+	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	bne	$a4, $a5, .LBB13_2
 # %bb.1:
 	alsl.d	$a0, $a4, $a4, 1
@@ -2015,15 +2009,16 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	masknez	$a1, $a1, $a3
 	maskeqz	$a0, $a0, $a3
 	or	$a0, $a0, $a1
-	st.w	$a0, $s1, 12
+	st.w	$a0, $ra, 12
 	slli.d	$a1, $a0, 2
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(realloc)
 	jirl	$ra, $ra, 0
-	ld.d	$t8, $sp, 32                    # 8-byte Folded Reload
-	ld.w	$a4, $s1, 8
+	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$t8, $sp, 16                    # 8-byte Folded Reload
+	ld.w	$a4, $ra, 8
 	move	$a2, $a0
-	st.d	$a0, $s1, 0
+	st.d	$a0, $ra, 0
 	b	.LBB13_3
 .LBB13_2:
 	move	$t8, $a3
@@ -2031,7 +2026,7 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	move	$a1, $zero
 	addi.w	$a0, $zero, -2
 	addi.d	$a3, $a4, 1
-	st.w	$a3, $s1, 8
+	st.w	$a3, $ra, 8
 	ld.w	$a3, $fp, 320
 	slli.d	$a4, $a4, 2
 	move	$a5, $a0
@@ -2039,17 +2034,27 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	stx.w	$a5, $a2, $a4
 	addi.w	$s3, $a3, -1
 	st.w	$zero, $t8, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI13_2)
-	fld.d	$fs0, $a2, %pc_lo12(.LCPI13_2)
-	pcalau12i	$a2, %pc_hi20(.LCPI13_3)
-	fld.d	$fs1, $a2, %pc_lo12(.LCPI13_3)
+	lu12i.w	$a2, 153932
+	ori	$a2, $a2, 893
+	lu32i.d	$a2, 149933
+	lu52i.d	$a2, $a2, 1355
+	movgr2fr.d	$fs0, $a2
 	lu12i.w	$a2, -112416
 	ori	$a2, $a2, 1328
 	lu32i.d	$a2, -262354
-	lu52i.d	$a2, $a2, 690
-	vreplgr2vr.d	$vr4, $a2
-	ori	$s5, $zero, 1
-	vst	$vr4, $sp, 16                   # 16-byte Folded Spill
+	lu52i.d	$s5, $a2, 690
+	movgr2fr.d	$fs1, $s5
+	ori	$s6, $zero, 1
+	lu12i.w	$a2, 494424
+	ori	$a2, $a2, 3136
+	lu32i.d	$a2, 372509
+	lu52i.d	$a2, $a2, 1089
+	movgr2fr.d	$fs2, $a2
+	lu12i.w	$a2, 51492
+	ori	$a2, $a2, 547
+	lu32i.d	$a2, 498849
+	lu52i.d	$a2, $a2, 956
+	movgr2fr.d	$fs3, $a2
 	.p2align	4, , 16
 .LBB13_4:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB13_8 Depth 2
@@ -2065,74 +2070,69 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	fld.s	$fa1, $s2, 4
 	fld.d	$fa0, $fp, 216
 	fcvt.d.s	$fa1, $fa1
-	pcalau12i	$a3, %pc_hi20(.LCPI13_0)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI13_0)
 	fadd.d	$fa1, $fa0, $fa1
 	fcvt.s.d	$fa1, $fa1
-	fcvt.d.s	$fa3, $fa1
-	fcmp.cule.d	$fcc0, $fa3, $fa2
+	fcvt.d.s	$fa2, $fa1
+	fcmp.cule.d	$fcc0, $fa2, $fs2
 	fst.s	$fa1, $s2, 4
 	bcnez	$fcc0, .LBB13_10
 # %bb.6:                                # %.preheader.i
                                         #   in Loop: Header=BB13_4 Depth=1
 	ld.w	$a3, $fp, 208
-	pcalau12i	$a4, %pc_hi20(.LCPI13_1)
 	blez	$a3, .LBB13_9
 # %bb.7:                                # %.lr.ph.i
                                         #   in Loop: Header=BB13_4 Depth=1
-	ld.d	$a5, $fp, 200
+	ld.d	$a4, $fp, 200
 	.p2align	4, , 16
 .LBB13_8:                               #   Parent Loop BB13_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	ld.d	$a6, $a5, 0
-	fld.s	$fa1, $a6, 4
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI13_1)
+	ld.d	$a5, $a4, 0
+	fld.s	$fa1, $a5, 4
 	fcvt.d.s	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa2
+	fmul.d	$fa1, $fa1, $fs3
 	fcvt.s.d	$fa1, $fa1
-	fst.s	$fa1, $a6, 4
+	fst.s	$fa1, $a5, 4
 	addi.d	$a3, $a3, -1
-	addi.d	$a5, $a5, 8
+	addi.d	$a4, $a4, 8
 	bnez	$a3, .LBB13_8
 .LBB13_9:                               # %._crit_edge.i
                                         #   in Loop: Header=BB13_4 Depth=1
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI13_1)
-	fmul.d	$fa0, $fa0, $fa1
+	fmul.d	$fa0, $fa0, $fs3
 	fst.d	$fa0, $fp, 216
 .LBB13_10:                              # %_ZN6Solver15claBumpActivityER6Clause.exit
                                         #   in Loop: Header=BB13_4 Depth=1
 	addi.d	$a0, $a0, 2
-	sltu	$s8, $zero, $a0
+	sltu	$s4, $zero, $a0
 	srli.d	$a0, $a2, 3
-	bgeu	$s8, $a0, .LBB13_41
+	bgeu	$s4, $a0, .LBB13_41
 # %bb.11:                               # %.lr.ph
                                         #   in Loop: Header=BB13_4 Depth=1
-	addi.d	$s4, $s2, 8
-	move	$s7, $a1
+	addi.d	$s0, $s2, 8
+	move	$s8, $a1
 	b	.LBB13_14
 .LBB13_12:                              #   in Loop: Header=BB13_14 Depth=2
-	addi.w	$s7, $s7, 1
+	addi.w	$s8, $s8, 1
 	.p2align	4, , 16
 .LBB13_13:                              #   in Loop: Header=BB13_14 Depth=2
 	ld.wu	$a0, $s2, 0
-	addi.d	$s8, $s8, 1
+	addi.d	$s4, $s4, 1
 	srli.d	$a0, $a0, 3
-	bgeu	$s8, $a0, .LBB13_42
+	bgeu	$s4, $a0, .LBB13_42
 .LBB13_14:                              #   Parent Loop BB13_4 Depth=1
                                         # =>  This Loop Header: Depth=2
                                         #       Child Loop BB13_21 Depth 3
                                         #       Child Loop BB13_24 Depth 3
                                         #       Child Loop BB13_30 Depth 3
-	slli.d	$a0, $s8, 2
-	ldx.w	$s0, $s4, $a0
+	slli.d	$a0, $s4, 2
+	ldx.w	$s7, $s0, $a0
 	ld.d	$a0, $fp, 472
-	srai.d	$a1, $s0, 1
+	srai.d	$a1, $s7, 1
 	ldx.bu	$a2, $a0, $a1
 	bnez	$a2, .LBB13_13
 # %bb.15:                               #   in Loop: Header=BB13_14 Depth=2
 	ld.d	$a2, $fp, 360
-	slli.d	$s6, $a1, 2
-	ldx.w	$a2, $a2, $s6
+	slli.d	$s1, $a1, 2
+	ldx.w	$a2, $a2, $s1
 	blez	$a2, .LBB13_13
 # %bb.16:                               #   in Loop: Header=BB13_14 Depth=2
 	ld.d	$a2, $fp, 224
@@ -2167,8 +2167,9 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr0, $a5, -16
 	vld	$vr1, $a5, 0
-	vfmul.d	$vr0, $vr0, $vr4
-	vfmul.d	$vr1, $vr1, $vr4
+	vreplgr2vr.d	$vr2, $s5
+	vfmul.d	$vr0, $vr0, $vr2
+	vfmul.d	$vr1, $vr1, $vr2
 	vst	$vr0, $a5, -16
 	vst	$vr1, $a5, 0
 	addi.d	$a6, $a6, -4
@@ -2203,7 +2204,7 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 # %bb.27:                               # %_ZNK4HeapIN6Solver10VarOrderLtEE6inHeapEi.exit.i
                                         #   in Loop: Header=BB13_14 Depth=2
 	ld.d	$a2, $fp, 432
-	ldx.w	$a3, $a2, $s6
+	ldx.w	$a3, $a2, $s1
 	bltz	$a3, .LBB13_36
 # %bb.28:                               #   in Loop: Header=BB13_14 Depth=2
 	ld.d	$a5, $fp, 416
@@ -2235,7 +2236,7 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	slli.d	$t1, $t1, 2
 	stx.w	$a3, $a2, $t1
 	move	$a3, $a7
-	bltu	$s5, $t0, .LBB13_30
+	bltu	$s6, $t0, .LBB13_30
 # %bb.32:                               #   in Loop: Header=BB13_14 Depth=2
 	move	$a3, $a7
 	b	.LBB13_35
@@ -2251,15 +2252,15 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	stx.w	$a3, $a2, $a4
 .LBB13_36:                              # %_ZN6Solver15varBumpActivityEi.exit
                                         #   in Loop: Header=BB13_14 Depth=2
-	stx.b	$s5, $a0, $a1
+	stx.b	$s6, $a0, $a1
 	ld.d	$a1, $fp, 360
-	ldx.w	$a0, $a1, $s6
+	ldx.w	$a0, $a1, $s1
 	ld.w	$a2, $fp, 336
 	bge	$a0, $a2, .LBB13_12
 # %bb.37:                               #   in Loop: Header=BB13_14 Depth=2
-	ld.w	$a2, $s1, 8
-	ld.w	$a3, $s1, 12
-	ld.d	$a0, $s1, 0
+	ld.w	$a2, $ra, 8
+	ld.w	$a3, $ra, 12
+	ld.d	$a0, $ra, 0
 	bne	$a2, $a3, .LBB13_39
 # %bb.38:                               #   in Loop: Header=BB13_14 Depth=2
 	alsl.d	$a1, $a2, $a2, 1
@@ -2270,22 +2271,22 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	masknez	$a3, $a3, $a2
 	maskeqz	$a1, $a1, $a2
 	or	$a1, $a1, $a3
-	st.w	$a1, $s1, 12
+	st.w	$a1, $ra, 12
 	slli.d	$a1, $a1, 2
 	pcaddu18i	$ra, %call36(realloc)
 	jirl	$ra, $ra, 0
-	vld	$vr4, $sp, 16                   # 16-byte Folded Reload
-	ld.d	$t8, $sp, 32                    # 8-byte Folded Reload
-	ld.w	$a2, $s1, 8
+	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$t8, $sp, 16                    # 8-byte Folded Reload
+	ld.w	$a2, $ra, 8
 	ld.d	$a1, $fp, 360
-	st.d	$a0, $s1, 0
+	st.d	$a0, $ra, 0
 .LBB13_39:                              # %_ZN3vecI3LitE4pushERKS0_.exit
                                         #   in Loop: Header=BB13_14 Depth=2
 	addi.d	$a3, $a2, 1
-	st.w	$a3, $s1, 8
+	st.w	$a3, $ra, 8
 	slli.d	$a2, $a2, 2
-	stx.w	$s0, $a0, $a2
-	ldx.w	$a0, $a1, $s6
+	stx.w	$s7, $a0, $a2
+	ldx.w	$a0, $a1, $s1
 	ld.w	$a1, $t8, 0
 	bge	$a1, $a0, .LBB13_13
 # %bb.40:                               #   in Loop: Header=BB13_14 Depth=2
@@ -2293,7 +2294,7 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	b	.LBB13_13
 	.p2align	4, , 16
 .LBB13_41:                              #   in Loop: Header=BB13_4 Depth=1
-	move	$s7, $a1
+	move	$s8, $a1
 .LBB13_42:                              # %.preheader179
                                         #   in Loop: Header=BB13_4 Depth=1
 	ld.d	$a0, $fp, 312
@@ -2313,16 +2314,16 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	slli.d	$a4, $a3, 3
 	ldx.d	$s2, $a2, $a4
 	stx.b	$zero, $a1, $a3
-	addi.w	$a1, $s7, -1
-	blt	$s5, $s7, .LBB13_4
+	addi.w	$a1, $s8, -1
+	blt	$s6, $s8, .LBB13_4
 # %bb.45:
-	ld.d	$a2, $s1, 0
+	ld.d	$a2, $ra, 0
 	ld.bu	$a1, $fp, 88
 	xori	$a0, $a0, 1
 	st.w	$a0, $a2, 0
 	beqz	$a1, .LBB13_49
 # %bb.46:                               # %.preheader176
-	ld.w	$s3, $s1, 8
+	ld.w	$s3, $ra, 8
 	ori	$a0, $zero, 2
 	blt	$s3, $a0, .LBB13_54
 # %bb.47:                               # %.lr.ph201
@@ -2340,7 +2341,7 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 # %bb.50:                               # %.preheader.i.i141
 	move	$a1, $zero
 	st.w	$zero, $fp, 512
-	ld.w	$s3, $s1, 8
+	ld.w	$s3, $ra, 8
 	bge	$a1, $s3, .LBB13_56
 .LBB13_51:
 	ld.w	$a2, $fp, 516
@@ -2360,10 +2361,10 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	b	.LBB13_62
 .LBB13_55:                              # %._ZN3vecI3LitE5clearEb.exit_crit_edge.i162
 	ld.w	$a1, $fp, 512
-	ld.w	$s3, $s1, 8
+	ld.w	$s3, $ra, 8
 	blt	$a1, $s3, .LBB13_51
 .LBB13_56:                              # %_ZN3vecI3LitE6growToEi.exit.i144
-	ori	$s4, $zero, 1
+	ori	$s0, $zero, 1
 	bgtz	$s3, .LBB13_80
 	b	.LBB13_112
 .LBB13_57:                              # %vector.ph316
@@ -2461,7 +2462,7 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	beqz	$a0, .LBB13_67
 # %bb.63:                               # %.preheader.i.i
 	st.w	$zero, $fp, 512
-	ld.w	$s3, $s1, 8
+	ld.w	$s3, $ra, 8
 	move	$a1, $zero
 	bge	$a1, $s3, .LBB13_68
 .LBB13_64:
@@ -2481,7 +2482,7 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	ld.w	$a1, $fp, 512
 	blt	$a1, $s3, .LBB13_64
 .LBB13_68:                              # %_ZN3vecI3LitE6growToEi.exit.i
-	ori	$s4, $zero, 1
+	ori	$s0, $zero, 1
 	bgtz	$s3, .LBB13_102
 	b	.LBB13_112
 .LBB13_69:
@@ -2497,7 +2498,8 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $fp, 512
 	st.d	$a0, $fp, 504
-	ld.d	$t8, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$t8, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 .LBB13_71:                              # %_ZN3vecI3LitE4growEi.exit.i.i150
 	bge	$a1, $s3, .LBB13_79
 # %bb.72:                               # %.lr.ph.i.i153
@@ -2539,17 +2541,17 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	bnez	$a1, .LBB13_78
 .LBB13_79:                              # %._crit_edge.i.i151
 	st.w	$s3, $fp, 512
-	ld.w	$s3, $s1, 8
-	ori	$s4, $zero, 1
+	ld.w	$s3, $ra, 8
+	ori	$s0, $zero, 1
 	blez	$s3, .LBB13_112
 .LBB13_80:                              # %.lr.ph.i146
-	ld.d	$a1, $s1, 0
+	ld.d	$a1, $ra, 0
 	move	$a2, $zero
 	.p2align	4, , 16
 .LBB13_81:                              # =>This Inner Loop Header: Depth=1
 	ld.w	$a3, $a1, 0
 	st.w	$a3, $a0, 0
-	ld.w	$s3, $s1, 8
+	ld.w	$s3, $ra, 8
 	addi.d	$a2, $a2, 1
 	addi.d	$a1, $a1, 4
 	addi.d	$a0, $a0, 4
@@ -2558,21 +2560,21 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	ori	$a0, $zero, 2
 	blt	$s3, $a0, .LBB13_112
 # %bb.83:                               # %.lr.ph196
-	ld.d	$a0, $s1, 0
+	ld.d	$a0, $ra, 0
 	ld.d	$a1, $fp, 344
 	ld.d	$a2, $fp, 472
-	ori	$s0, $zero, 1
+	ori	$s1, $zero, 1
 	ori	$a3, $zero, 16
-	ori	$s4, $zero, 1
+	ori	$s0, $zero, 1
 	b	.LBB13_85
 	.p2align	4, , 16
 .LBB13_84:                              # %.loopexit177
                                         #   in Loop: Header=BB13_85 Depth=1
-	addi.d	$s0, $s0, 1
-	bge	$s0, $s3, .LBB13_113
+	addi.d	$s1, $s1, 1
+	bge	$s1, $s3, .LBB13_113
 .LBB13_85:                              # =>This Loop Header: Depth=1
                                         #     Child Loop BB13_88 Depth 2
-	slli.d	$a4, $s0, 2
+	slli.d	$a4, $s1, 2
 	ldx.w	$a4, $a0, $a4
 	slli.d	$a5, $a4, 2
 	bstrins.d	$a5, $zero, 2, 0
@@ -2602,10 +2604,10 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	ldx.w	$t0, $a5, $t0
 	blez	$t0, .LBB13_87
 # %bb.90:                               #   in Loop: Header=BB13_85 Depth=1
-	slli.d	$a5, $s4, 2
+	slli.d	$a5, $s0, 2
 	stx.w	$a4, $a0, $a5
-	ld.w	$s3, $s1, 8
-	addi.w	$s4, $s4, 1
+	ld.w	$s3, $ra, 8
+	addi.w	$s0, $s0, 1
 	b	.LBB13_84
 .LBB13_91:
 	ori	$a1, $zero, 2
@@ -2620,7 +2622,8 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $fp, 512
 	st.d	$a0, $fp, 504
-	ld.d	$t8, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$t8, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 .LBB13_93:                              # %_ZN3vecI3LitE4growEi.exit.i.i
 	bge	$a1, $s3, .LBB13_101
 # %bb.94:                               # %.lr.ph.i.i
@@ -2662,51 +2665,52 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	bnez	$a1, .LBB13_100
 .LBB13_101:                             # %._crit_edge.i.i
 	st.w	$s3, $fp, 512
-	ld.w	$s3, $s1, 8
-	ori	$s4, $zero, 1
+	ld.w	$s3, $ra, 8
+	ori	$s0, $zero, 1
 	blez	$s3, .LBB13_112
 .LBB13_102:                             # %.lr.ph.i134
-	ld.d	$a1, $s1, 0
+	ld.d	$a1, $ra, 0
 	move	$a2, $zero
 	.p2align	4, , 16
 .LBB13_103:                             # =>This Inner Loop Header: Depth=1
 	ld.w	$a3, $a1, 0
 	st.w	$a3, $a0, 0
-	ld.w	$s3, $s1, 8
+	ld.w	$s3, $ra, 8
 	addi.d	$a2, $a2, 1
 	addi.d	$a1, $a1, 4
 	addi.d	$a0, $a0, 4
 	blt	$a2, $s3, .LBB13_103
 # %bb.104:                              # %_ZNK3vecI3LitE6copyToERS1_.exit
 	ori	$a0, $zero, 2
-	ori	$s0, $zero, 1
+	ori	$s1, $zero, 1
 	blt	$s3, $a0, .LBB13_113
 # %bb.105:                              # %.lr.ph205.preheader
+	ori	$s1, $zero, 1
+	ori	$s4, $zero, 4
+	ori	$s5, $zero, 1
 	ori	$s0, $zero, 1
-	ori	$s5, $zero, 4
-	ori	$s6, $zero, 1
-	ori	$s4, $zero, 1
 	b	.LBB13_109
 	.p2align	4, , 16
 .LBB13_106:                             # %._crit_edge247
                                         #   in Loop: Header=BB13_109 Depth=1
-	ld.d	$a0, $s1, 0
-	ldx.w	$a1, $a0, $s5
-	ld.d	$t8, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$a0, $ra, 0
+	ldx.w	$a1, $a0, $s4
+	ld.d	$t8, $sp, 16                    # 8-byte Folded Reload
 .LBB13_107:                             #   in Loop: Header=BB13_109 Depth=1
-	slli.d	$a2, $s4, 2
-	addi.w	$s4, $s4, 1
+	slli.d	$a2, $s0, 2
+	addi.w	$s0, $s0, 1
 	stx.w	$a1, $a0, $a2
 .LBB13_108:                             #   in Loop: Header=BB13_109 Depth=1
-	ld.w	$s3, $s1, 8
-	addi.d	$s6, $s6, 1
-	addi.d	$s5, $s5, 4
-	addi.d	$s0, $s0, 1
-	bge	$s6, $s3, .LBB13_113
+	ld.w	$s3, $ra, 8
+	addi.d	$s5, $s5, 1
+	addi.d	$s4, $s4, 4
+	addi.d	$s1, $s1, 1
+	bge	$s5, $s3, .LBB13_113
 .LBB13_109:                             # %.lr.ph205
                                         # =>This Inner Loop Header: Depth=1
-	ld.d	$a0, $s1, 0
-	ldx.w	$a1, $a0, $s5
+	ld.d	$a0, $ra, 0
+	ldx.w	$a1, $a0, $s4
 	ld.d	$a2, $fp, 344
 	slli.d	$a3, $a1, 2
 	bstrins.d	$a3, $zero, 2, 0
@@ -2720,19 +2724,20 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	jirl	$ra, $ra, 0
 	beqz	$a0, .LBB13_106
 # %bb.111:                              #   in Loop: Header=BB13_109 Depth=1
-	ld.d	$t8, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$t8, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	b	.LBB13_108
 .LBB13_112:
-	ori	$s0, $zero, 1
+	ori	$s1, $zero, 1
 .LBB13_113:                             # %.loopexit
 	ld.d	$a0, $fp, 160
 	add.d	$a1, $a0, $s3
-	sub.w	$a0, $s0, $s4
+	sub.w	$a0, $s1, $s0
 	st.d	$a1, $fp, 160
 	blez	$a0, .LBB13_115
 # %bb.114:                              # %.lr.ph.i165
 	sub.w	$s3, $s3, $a0
-	st.w	$s3, $s1, 8
+	st.w	$s3, $ra, 8
 .LBB13_115:                             # %_ZN3vecI3LitE6shrinkEi.exit
 	ld.d	$a0, $fp, 168
 	add.d	$a0, $a0, $s3
@@ -2746,7 +2751,7 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	bgtz	$a0, .LBB13_121
 	b	.LBB13_123
 .LBB13_117:                             # %.preheader
-	ld.d	$a1, $s1, 0
+	ld.d	$a1, $ra, 0
 	ld.d	$a0, $fp, 360
 	ori	$a3, $zero, 3
 	blt	$s3, $a3, .LBB13_120
@@ -2802,6 +2807,8 @@ _ZN6Solver7analyzeEP6ClauseR3vecI3LitERi: # @_ZN6Solver7analyzeEP6ClauseR3vecI3L
 	addi.d	$a0, $a0, 4
 	blt	$a1, $a2, .LBB13_122
 .LBB13_123:                             # %._crit_edge216
+	fld.d	$fs3, $sp, 24                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 32                   # 8-byte Folded Reload
 	fld.d	$fs1, $sp, 40                   # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 48                   # 8-byte Folded Reload
 	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
@@ -3780,14 +3787,8 @@ _ZN4HeapIN6Solver10VarOrderLtEE6filterINS0_9VarFilterEEEvRKT_: # @_ZN4HeapIN6Sol
 	.size	_ZN4HeapIN6Solver10VarOrderLtEE6filterINS0_9VarFilterEEEvRKT_, .Lfunc_end19-_ZN4HeapIN6Solver10VarOrderLtEE6filterINS0_9VarFilterEEEvRKT_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6Solver6searchEii
-.LCPI20_0:
-	.dword	0x4415af1d78b58c40              # double 1.0E+20
-.LCPI20_1:
-	.dword	0x3bc79ca10c924223              # double 9.9999999999999995E-21
 	.text
-	.globl	_ZN6Solver6searchEii
+	.globl	_ZN6Solver6searchEii            # -- Begin function _ZN6Solver6searchEii
 	.p2align	5
 	.type	_ZN6Solver6searchEii,@function
 _ZN6Solver6searchEii:                   # @_ZN6Solver6searchEii
@@ -3839,6 +3840,16 @@ _ZN6Solver6searchEii:                   # @_ZN6Solver6searchEii
 	addi.d	$s0, $fp, 408
 	ori	$s7, $zero, 1
 	ori	$s8, $zero, 2
+	lu12i.w	$a0, 494424
+	ori	$a0, $a0, 3136
+	lu32i.d	$a0, 372509
+	lu52i.d	$a0, $a0, 1089
+	movgr2fr.d	$fs0, $a0
+	lu12i.w	$a0, 51492
+	ori	$a0, $a0, 547
+	lu32i.d	$a0, 498849
+	lu52i.d	$a0, $a0, 956
+	movgr2fr.d	$fs1, $a0
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN6Solver9propagateEv)
 	jirl	$ra, $ra, 0
@@ -4189,39 +4200,34 @@ _ZN6Solver6searchEii:                   # @_ZN6Solver6searchEii
 	fld.s	$fa1, $s4, 4
 	fld.d	$fa0, $fp, 216
 	fcvt.d.s	$fa1, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI20_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI20_0)
 	fadd.d	$fa1, $fa0, $fa1
 	fcvt.s.d	$fa1, $fa1
-	fcvt.d.s	$fa3, $fa1
-	fcmp.cule.d	$fcc0, $fa3, $fa2
+	fcvt.d.s	$fa2, $fa1
+	fcmp.cule.d	$fcc0, $fa2, $fs0
 	fst.s	$fa1, $s4, 4
 	bcnez	$fcc0, .LBB20_51
 # %bb.47:                               # %.preheader.i56
                                         #   in Loop: Header=BB20_24 Depth=1
 	ld.w	$a0, $fp, 208
-	pcalau12i	$a1, %pc_hi20(.LCPI20_1)
 	blez	$a0, .LBB20_50
 # %bb.48:                               # %.lr.ph.i58
                                         #   in Loop: Header=BB20_24 Depth=1
-	ld.d	$a2, $fp, 200
+	ld.d	$a1, $fp, 200
 	.p2align	4, , 16
 .LBB20_49:                              #   Parent Loop BB20_24 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	ld.d	$a3, $a2, 0
-	fld.s	$fa1, $a3, 4
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI20_1)
+	ld.d	$a2, $a1, 0
+	fld.s	$fa1, $a2, 4
 	fcvt.d.s	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa2
+	fmul.d	$fa1, $fa1, $fs1
 	fcvt.s.d	$fa1, $fa1
-	fst.s	$fa1, $a3, 4
+	fst.s	$fa1, $a2, 4
 	addi.d	$a0, $a0, -1
-	addi.d	$a2, $a2, 8
+	addi.d	$a1, $a1, 8
 	bnez	$a0, .LBB20_49
 .LBB20_50:                              # %._crit_edge.i57
                                         #   in Loop: Header=BB20_24 Depth=1
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI20_1)
-	fmul.d	$fa0, $fa0, $fa1
+	fmul.d	$fa0, $fa0, $fs1
 	fst.d	$fa0, $fp, 216
 .LBB20_51:                              # %_ZN6Solver15claBumpActivityER6Clause.exit
                                         #   in Loop: Header=BB20_24 Depth=1

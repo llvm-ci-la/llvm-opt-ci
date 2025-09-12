@@ -1,14 +1,6 @@
 	.file	"main.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function MakeSphere
-.LCPI0_0:
-	.dword	0x401921fb54442eea              # double 6.2831853071800001
-.LCPI0_1:
-	.dword	0xc00921fb54442eea              # double -3.1415926535900001
-.LCPI0_2:
-	.dword	0x400921fbda7bebf0              # double 3.1415936535900002
 	.text
-	.globl	MakeSphere
+	.globl	MakeSphere                      # -- Begin function MakeSphere
 	.p2align	5
 	.type	MakeSphere,@function
 MakeSphere:                             # @MakeSphere
@@ -24,29 +16,35 @@ MakeSphere:                             # @MakeSphere
 	fst.d	$fs5, $sp, 128                  # 8-byte Folded Spill
 	fst.d	$fs6, $sp, 120                  # 8-byte Folded Spill
 	fst.d	$fs7, $sp, 112                  # 8-byte Folded Spill
-	pcalau12i	$a3, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI0_0)
 	fmov.d	$fs0, $fa0
 	move	$fp, $a0
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3818
+	lu32i.d	$a0, -450053
+	lu52i.d	$a1, $a0, 1025
+	movgr2fr.d	$fa1, $a1
 	fdiv.d	$fa0, $fa1, $fa0
 	fst.d	$fa0, $sp, 8                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs6, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fs7, $a0, %pc_lo12(.LCPI0_2)
 	movgr2fr.w	$fa0, $a2
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fs5, $fa1, $fa0
-	fmov.d	$fs1, $fs6
+	fdiv.d	$fs6, $fa1, $fa0
+	lu52i.d	$a0, $a0, -1024
+	movgr2fr.d	$fs7, $a0
+	lu12i.w	$a0, -153666
+	ori	$a0, $a0, 3056
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fs5, $a0
+	fmov.d	$fs1, $fs7
 	.p2align	4, , 16
 .LBB0_1:                                # %.preheader
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_2 Depth 2
 	fld.d	$fa0, $sp, 8                    # 8-byte Folded Reload
 	fadd.d	$fs2, $fa0, $fs1
-	fmov.d	$fs3, $fs6
+	fmov.d	$fs3, $fs7
 	.p2align	4, , 16
 .LBB0_2:                                #   Parent Loop BB0_1 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -100,7 +98,7 @@ MakeSphere:                             # @MakeSphere
 	jirl	$ra, $ra, 0
 	fmul.d	$fa0, $fs0, $fa0
 	fst.d	$fa0, $sp, 56
-	fadd.d	$fs3, $fs5, $fs3
+	fadd.d	$fs3, $fs6, $fs3
 	fmov.d	$fa0, $fs3
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
@@ -157,10 +155,10 @@ MakeSphere:                             # @MakeSphere
 	move	$a3, $zero
 	pcaddu18i	$ra, %call36(InsertPoly4)
 	jirl	$ra, $ra, 0
-	fcmp.clt.d	$fcc0, $fs3, $fs7
+	fcmp.clt.d	$fcc0, $fs3, $fs5
 	bcnez	$fcc0, .LBB0_2
 # %bb.3:                                #   in Loop: Header=BB0_1 Depth=1
-	fcmp.clt.d	$fcc0, $fs2, $fs7
+	fcmp.clt.d	$fcc0, $fs2, $fs5
 	fmov.d	$fs1, $fs2
 	bcnez	$fcc0, .LBB0_1
 # %bb.4:

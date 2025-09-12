@@ -154,10 +154,6 @@ KDTree_AddElement:                      # @KDTree_AddElement
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI4_1:
-	.dword	0xcd384f03e93ff9f5              # double -1.0E+64
 	.text
 	.globl	KDTree_CreateTree
 	.p2align	5
@@ -253,9 +249,12 @@ KDTree_CreateTree:                      # @KDTree_CreateTree
 	addi.d	$s2, $s3, 4
 	ori	$s6, $zero, 3
 	ori	$s1, $zero, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI4_1)
 	lu32i.d	$s1, -3
+	lu12i.w	$a0, -93185
+	ori	$a0, $a0, 2549
+	lu32i.d	$a0, -504061
+	lu52i.d	$a0, $a0, -813
+	movgr2fr.d	$fs1, $a0
 	ori	$a0, $zero, 1
 	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	st.d	$a1, $sp, 72                    # 8-byte Folded Spill

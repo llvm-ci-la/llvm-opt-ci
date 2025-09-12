@@ -12091,12 +12091,7 @@ _Z17BM_RepeatTimeUnitRN9benchmark5StateE: # @_Z17BM_RepeatTimeUnitRN9benchmark5S
 	.size	_Z17BM_RepeatTimeUnitRN9benchmark5StateE, .Lfunc_end26-_Z17BM_RepeatTimeUnitRN9benchmark5StateE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z12BM_UserStatsRN9benchmark5StateE
-.LCPI27_0:
-	.dword	0x3e8421f5f40d8376              # double 1.4999999999999999E-7
-	.text
-	.hidden	_Z12BM_UserStatsRN9benchmark5StateE
+	.hidden	_Z12BM_UserStatsRN9benchmark5StateE # -- Begin function _Z12BM_UserStatsRN9benchmark5StateE
 	.globl	_Z12BM_UserStatsRN9benchmark5StateE
 	.p2align	5
 	.type	_Z12BM_UserStatsRN9benchmark5StateE,@function
@@ -12124,8 +12119,11 @@ _Z12BM_UserStatsRN9benchmark5StateE:    # @_Z12BM_UserStatsRN9benchmark5StateE
 # %bb.1:                                # %_ZN9benchmark5State13StateIteratorC2EPS0_.exit
 	beqz	$s0, .LBB27_5
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI27_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI27_0)
+	lu12i.w	$a0, -48936
+	ori	$a0, $a0, 886
+	lu32i.d	$a0, 270837
+	lu52i.d	$a0, $a0, 1000
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB27_3:                               # %_ZN9benchmark5State13StateIteratorppEv.exit
                                         # =>This Inner Loop Header: Depth=1
@@ -19095,12 +19093,8 @@ GCC_except_table28:
 .Lcst_end8:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z19BM_UserPercentStatsRN9benchmark5StateE
-.LCPI29_0:
-	.dword	0x3e8421f5f40d8376              # double 1.4999999999999999E-7
 	.text
-	.hidden	_Z19BM_UserPercentStatsRN9benchmark5StateE
+	.hidden	_Z19BM_UserPercentStatsRN9benchmark5StateE # -- Begin function _Z19BM_UserPercentStatsRN9benchmark5StateE
 	.globl	_Z19BM_UserPercentStatsRN9benchmark5StateE
 	.p2align	5
 	.type	_Z19BM_UserPercentStatsRN9benchmark5StateE,@function
@@ -19128,8 +19122,11 @@ _Z19BM_UserPercentStatsRN9benchmark5StateE: # @_Z19BM_UserPercentStatsRN9benchma
 # %bb.1:                                # %_ZN9benchmark5State13StateIteratorC2EPS0_.exit
 	beqz	$s0, .LBB29_5
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI29_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI29_0)
+	lu12i.w	$a0, -48936
+	ori	$a0, $a0, 886
+	lu32i.d	$a0, 270837
+	lu52i.d	$a0, $a0, 1000
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB29_3:                               # %_ZN9benchmark5State13StateIteratorppEv.exit
                                         # =>This Inner Loop Header: Depth=1
@@ -27058,17 +27055,15 @@ _ZN3$_08__invokeERKSt6vectorIdSaIdEE:   # @"_ZN3$_08__invokeERKSt6vectorIdSaIdEE
 .Lfunc_end40:
 	.size	_ZN3$_08__invokeERKSt6vectorIdSaIdEE, .Lfunc_end40-_ZN3$_08__invokeERKSt6vectorIdSaIdEE
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN3$_18__invokeERKSt6vectorIdSaIdEE
-.LCPI41_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZN3$_18__invokeERKSt6vectorIdSaIdEE
 	.type	_ZN3$_18__invokeERKSt6vectorIdSaIdEE,@function
 _ZN3$_18__invokeERKSt6vectorIdSaIdEE:   # @"_ZN3$_18__invokeERKSt6vectorIdSaIdEE"
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI41_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI41_0)
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa0, $a0
 	ret
 .Lfunc_end41:
 	.size	_ZN3$_18__invokeERKSt6vectorIdSaIdEE, .Lfunc_end41-_ZN3$_18__invokeERKSt6vectorIdSaIdEE

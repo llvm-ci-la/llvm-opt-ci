@@ -979,12 +979,8 @@ GCC_except_table16:
 .Lcst_end4:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN6Random8randRealEv
-.LCPI17_0:
-	.word	0x30000000                      # float 4.65661287E-10
 	.text
-	.globl	_ZN6Random8randRealEv
+	.globl	_ZN6Random8randRealEv           # -- Begin function _ZN6Random8randRealEv
 	.p2align	5
 	.type	_ZN6Random8randRealEv,@function
 _ZN6Random8randRealEv:                  # @_ZN6Random8randRealEv
@@ -993,11 +989,11 @@ _ZN6Random8randRealEv:                  # @_ZN6Random8randRealEv
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(random)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI17_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI17_0)
-	movgr2fr.d	$fa1, $a0
-	ffint.s.l	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $a0
+	ffint.s.l	$fa0, $fa0
+	lu12i.w	$a0, 196608
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
 	ret

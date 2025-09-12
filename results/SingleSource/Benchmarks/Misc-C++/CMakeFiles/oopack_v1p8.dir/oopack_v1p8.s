@@ -108,21 +108,18 @@ _ZNK12MaxBenchmark4initEv:              # @_ZNK12MaxBenchmark4initEv
 .Lfunc_end2:
 	.size	_ZNK12MaxBenchmark4initEv, .Lfunc_end2-_ZNK12MaxBenchmark4initEv
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZNK12MaxBenchmark5checkEiRdS0_
-.LCPI3_0:
-	.dword	0x408f400000000000              # double 1000
-	.text
-	.globl	_ZNK12MaxBenchmark5checkEiRdS0_
+	.globl	_ZNK12MaxBenchmark5checkEiRdS0_ # -- Begin function _ZNK12MaxBenchmark5checkEiRdS0_
 	.p2align	5
 	.type	_ZNK12MaxBenchmark5checkEiRdS0_,@function
 _ZNK12MaxBenchmark5checkEiRdS0_:        # @_ZNK12MaxBenchmark5checkEiRdS0_
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_0)
-	movgr2fr.w	$fa1, $a1
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $a2, 0
 	pcalau12i	$a0, %pc_hi20(MaxResult)
 	fld.d	$fa0, $a0, %pc_lo12(MaxResult)
@@ -307,12 +304,7 @@ _ZNK15MatrixBenchmark4initEv:           # @_ZNK15MatrixBenchmark4initEv
 .Lfunc_end6:
 	.size	_ZNK15MatrixBenchmark4initEv, .Lfunc_end6-_ZNK15MatrixBenchmark4initEv
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZNK15MatrixBenchmark5checkEiRdS0_
-.LCPI7_0:
-	.dword	0x410e848000000000              # double 2.5E+5
-	.text
-	.globl	_ZNK15MatrixBenchmark5checkEiRdS0_
+	.globl	_ZNK15MatrixBenchmark5checkEiRdS0_ # -- Begin function _ZNK15MatrixBenchmark5checkEiRdS0_
 	.p2align	5
 	.type	_ZNK15MatrixBenchmark5checkEiRdS0_,@function
 _ZNK15MatrixBenchmark5checkEiRdS0_:     # @_ZNK15MatrixBenchmark5checkEiRdS0_
@@ -332,11 +324,13 @@ _ZNK15MatrixBenchmark5checkEiRdS0_:     # @_ZNK15MatrixBenchmark5checkEiRdS0_
 	fadd.d	$fa0, $fa0, $fa1
 	bnez	$a0, .LBB7_1
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI7_0)
 	fst.d	$fa0, $a3, 0
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1040
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $a2, 0
 	ret
@@ -482,14 +476,7 @@ _ZNK17IteratorBenchmark5checkEiRdS0_:   # @_ZNK17IteratorBenchmark5checkEiRdS0_
 .Lfunc_end11:
 	.size	_ZNK17IteratorBenchmark5checkEiRdS0_, .Lfunc_end11-_ZNK17IteratorBenchmark5checkEiRdS0_
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZNK16ComplexBenchmark7c_styleEv
-.LCPI12_0:
-	.dword	0xbfebb67ae8584caa              # double -0.8660254037844386
-.LCPI12_1:
-	.dword	0x3febb67ae8584caa              # double 0.8660254037844386
-	.text
-	.globl	_ZNK16ComplexBenchmark7c_styleEv
+	.globl	_ZNK16ComplexBenchmark7c_styleEv # -- Begin function _ZNK16ComplexBenchmark7c_styleEv
 	.p2align	5
 	.type	_ZNK16ComplexBenchmark7c_styleEv,@function
 _ZNK16ComplexBenchmark7c_styleEv:       # @_ZNK16ComplexBenchmark7c_styleEv
@@ -502,12 +489,15 @@ _ZNK16ComplexBenchmark7c_styleEv:       # @_ZNK16ComplexBenchmark7c_styleEv
 	ori	$a2, $a4, 3712
 	pcalau12i	$a3, %pc_hi20(X)
 	addi.d	$a3, $a3, %pc_lo12(X)
-	pcalau12i	$a5, %pc_hi20(.LCPI12_0)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI12_0)
-	pcalau12i	$a5, %pc_hi20(.LCPI12_1)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI12_1)
-	vldi	$vr2, -928
+	vldi	$vr0, -928
 	ori	$a4, $a4, 3720
+	lu12i.w	$a5, -96892
+	ori	$a5, $a5, 3242
+	lu32i.d	$a5, -280966
+	lu52i.d	$a6, $a5, -1026
+	movgr2fr.d	$fa1, $a6
+	lu52i.d	$a5, $a5, 1022
+	movgr2fr.d	$fa2, $a5
 	.p2align	4, , 16
 .LBB12_1:                               # =>This Inner Loop Header: Depth=1
 	add.d	$a5, $a1, $a0
@@ -516,11 +506,11 @@ _ZNK16ComplexBenchmark7c_styleEv:       # @_ZNK16ComplexBenchmark7c_styleEv
 	fldx.d	$fa4, $a6, $a2
 	fldx.d	$fa5, $a6, $a4
 	fldx.d	$fa6, $a5, $a4
-	fmadd.d	$fa3, $fa4, $fa2, $fa3
-	fmadd.d	$fa3, $fa5, $fa0, $fa3
+	fmadd.d	$fa3, $fa4, $fa0, $fa3
+	fmadd.d	$fa3, $fa5, $fa1, $fa3
 	fstx.d	$fa3, $a5, $a2
-	fmadd.d	$fa3, $fa5, $fa2, $fa6
-	fmadd.d	$fa3, $fa4, $fa1, $fa3
+	fmadd.d	$fa3, $fa5, $fa0, $fa6
+	fmadd.d	$fa3, $fa4, $fa2, $fa3
 	addi.d	$a0, $a0, 16
 	fstx.d	$fa3, $a5, $a4
 	bnez	$a0, .LBB12_1
@@ -658,14 +648,7 @@ _ZNK16ComplexBenchmark5checkEiRdS0_:    # @_ZNK16ComplexBenchmark5checkEiRdS0_
 .Lfunc_end15:
 	.size	_ZNK16ComplexBenchmark5checkEiRdS0_, .Lfunc_end15-_ZNK16ComplexBenchmark5checkEiRdS0_
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZNK9Benchmark8time_oneEMS_KFvvEiRdS2_S2_
-.LCPI16_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI16_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	_ZNK9Benchmark8time_oneEMS_KFvvEiRdS2_S2_
+	.globl	_ZNK9Benchmark8time_oneEMS_KFvvEiRdS2_S2_ # -- Begin function _ZNK9Benchmark8time_oneEMS_KFvvEiRdS2_S2_
 	.p2align	5
 	.type	_ZNK9Benchmark8time_oneEMS_KFvvEiRdS2_S2_,@function
 _ZNK9Benchmark8time_oneEMS_KFvvEiRdS2_S2_: # @_ZNK9Benchmark8time_oneEMS_KFvvEiRdS2_S2_
@@ -763,15 +746,20 @@ _ZNK9Benchmark8time_oneEMS_KFvvEiRdS2_S2_: # @_ZNK9Benchmark8time_oneEMS_KFvvEiR
 	sub.d	$a0, $s4, $s6
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI16_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI16_0)
-	fld.d	$fa2, $sp, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI16_1)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI16_1)
-	fdiv.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	fld.d	$fa1, $sp, 8
+	movgr2fr.d	$fa2, $a0
+	fdiv.d	$fa0, $fa0, $fa2
 	fst.d	$fa0, $s0, 0
-	fdiv.d	$fa0, $fa2, $fa0
-	fmul.d	$fa0, $fa0, $fa3
+	fdiv.d	$fa0, $fa1, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $fp, 0
 	ld.d	$s7, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$s6, $sp, 24                    # 8-byte Folded Reload
@@ -849,12 +837,7 @@ _ZN9Benchmark4findEPKc:                 # @_ZN9Benchmark4findEPKc
 	.size	_ZN9Benchmark4findEPKc, .Lfunc_end17-_ZN9Benchmark4findEPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZNK9Benchmark9time_bothEi
-.LCPI18_0:
-	.dword	0x3d10000000000000              # double 1.4210854715202004E-14
-	.text
-	.globl	_ZNK9Benchmark9time_bothEi
+	.globl	_ZNK9Benchmark9time_bothEi      # -- Begin function _ZNK9Benchmark9time_bothEi
 	.p2align	5
 	.type	_ZNK9Benchmark9time_bothEi,@function
 _ZNK9Benchmark9time_bothEi:             # @_ZNK9Benchmark9time_bothEi
@@ -950,12 +933,12 @@ _ZNK9Benchmark9time_bothEi:             # @_ZNK9Benchmark9time_bothEi
 	fld.d	$fa1, $sp, 16
 	fsub.d	$fa2, $fa0, $fa1
 	fcmp.clt.d	$fcc0, $fa0, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI18_0)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI18_0)
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fdiv.d	$fs0, $fa2, $fa0
 	fabs.d	$fa0, $fs0
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	lu52i.d	$a0, $zero, 977
+	movgr2fr.d	$fa1, $a0
+	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB18_8
 # %bb.7:
 	ld.d	$a0, $s0, 0

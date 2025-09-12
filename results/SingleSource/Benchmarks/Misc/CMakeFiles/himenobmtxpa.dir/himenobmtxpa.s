@@ -16,10 +16,6 @@
 	.word	64                              # 0x40
 	.word	64                              # 0x40
 	.word	128                             # 0x80
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI0_3:
-	.word	0x45781000                      # float 3969
 	.text
 	.globl	main
 	.p2align	5
@@ -137,56 +133,56 @@ main:                                   # @main
 	addi.d	$s8, $a1, 256
 	st.d	$s1, $s5, 0
 	addi.d	$a1, $s6, 256
+	lu12i.w	$a2, 284545
+	movgr2fr.w	$fa0, $a2
 	lu12i.w	$s6, 8
 	.p2align	4, , 16
 .LBB0_1:                                # %.preheader25.us.us.i
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_2 Depth 2
-	pcalau12i	$a2, %pc_hi20(.LCPI0_3)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI0_3)
 	mul.d	$a2, $a0, $a0
 	movgr2fr.d	$fa1, $a2
 	ffint.s.l	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
-	vreplvei.w	$vr0, $vr0, 0
+	fdiv.s	$fa1, $fa1, $fa0
+	vreplvei.w	$vr1, $vr1, 0
 	move	$a2, $a1
 	ori	$a3, $zero, 64
 	.p2align	4, , 16
 .LBB0_2:                                # %.preheader.us.us.us.i
                                         #   Parent Loop BB0_1 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vst	$vr0, $a2, -256
-	vst	$vr0, $a2, -240
-	vst	$vr0, $a2, -224
-	vst	$vr0, $a2, -208
-	vst	$vr0, $a2, -192
-	vst	$vr0, $a2, -176
-	vst	$vr0, $a2, -160
-	vst	$vr0, $a2, -144
-	vst	$vr0, $a2, -128
-	vst	$vr0, $a2, -112
-	vst	$vr0, $a2, -96
-	vst	$vr0, $a2, -80
-	vst	$vr0, $a2, -64
-	vst	$vr0, $a2, -48
-	vst	$vr0, $a2, -32
-	vst	$vr0, $a2, -16
-	vst	$vr0, $a2, 0
-	vst	$vr0, $a2, 16
-	vst	$vr0, $a2, 32
-	vst	$vr0, $a2, 48
-	vst	$vr0, $a2, 64
-	vst	$vr0, $a2, 80
-	vst	$vr0, $a2, 96
-	vst	$vr0, $a2, 112
-	vst	$vr0, $a2, 128
-	vst	$vr0, $a2, 144
-	vst	$vr0, $a2, 160
-	vst	$vr0, $a2, 176
-	vst	$vr0, $a2, 192
-	vst	$vr0, $a2, 208
-	vst	$vr0, $a2, 224
-	vst	$vr0, $a2, 240
+	vst	$vr1, $a2, -256
+	vst	$vr1, $a2, -240
+	vst	$vr1, $a2, -224
+	vst	$vr1, $a2, -208
+	vst	$vr1, $a2, -192
+	vst	$vr1, $a2, -176
+	vst	$vr1, $a2, -160
+	vst	$vr1, $a2, -144
+	vst	$vr1, $a2, -128
+	vst	$vr1, $a2, -112
+	vst	$vr1, $a2, -96
+	vst	$vr1, $a2, -80
+	vst	$vr1, $a2, -64
+	vst	$vr1, $a2, -48
+	vst	$vr1, $a2, -32
+	vst	$vr1, $a2, -16
+	vst	$vr1, $a2, 0
+	vst	$vr1, $a2, 16
+	vst	$vr1, $a2, 32
+	vst	$vr1, $a2, 48
+	vst	$vr1, $a2, 64
+	vst	$vr1, $a2, 80
+	vst	$vr1, $a2, 96
+	vst	$vr1, $a2, 112
+	vst	$vr1, $a2, 128
+	vst	$vr1, $a2, 144
+	vst	$vr1, $a2, 160
+	vst	$vr1, $a2, 176
+	vst	$vr1, $a2, 192
+	vst	$vr1, $a2, 208
+	vst	$vr1, $a2, 224
+	vst	$vr1, $a2, 240
 	addi.d	$a3, $a3, -1
 	addi.d	$a2, $a2, 512
 	bnez	$a3, .LBB0_2
@@ -1628,12 +1624,7 @@ clearMat:                               # @clearMat
 .Lfunc_end5:
 	.size	clearMat, .Lfunc_end5-clearMat
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fflop
-.LCPI6_0:
-	.dword	0x4041000000000000              # double 34
-	.text
-	.globl	fflop
+	.globl	fflop                           # -- Begin function fflop
 	.p2align	5
 	.type	fflop,@function
 fflop:                                  # @fflop
@@ -1646,30 +1637,30 @@ fflop:                                  # @fflop
 	ffint.d.w	$fa1, $fa1
 	fmul.d	$fa0, $fa1, $fa0
 	addi.d	$a0, $a0, -2
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI6_0)
-	movgr2fr.w	$fa2, $a0
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 65536
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	ret
 .Lfunc_end6:
 	.size	fflop, .Lfunc_end6-fflop
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function mflops
-.LCPI7_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	mflops
+	.globl	mflops                          # -- Begin function mflops
 	.p2align	5
 	.type	mflops,@function
 mflops:                                 # @mflops
 # %bb.0:
-	pcalau12i	$a1, %pc_hi20(.LCPI7_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI7_0)
 	fdiv.d	$fa0, $fa1, $fa0
-	fmul.d	$fa0, $fa0, $fa2
+	lu12i.w	$a1, -390306
+	ori	$a1, $a1, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 	movgr2fr.w	$fa1, $a0
 	ffint.d.w	$fa1, $fa1
 	fmul.d	$fa0, $fa0, $fa1
@@ -1824,12 +1815,8 @@ set_param:                              # @set_param
 	.word	.LBB8_17-.LJTI8_0
 	.word	.LBB8_8-.LJTI8_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function second
-.LCPI9_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
-	.globl	second
+	.globl	second                          # -- Begin function second
 	.p2align	5
 	.type	second,@function
 second:                                 # @second
@@ -1840,32 +1827,34 @@ second:                                 # @second
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(gettimeofday)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(second.base_sec)
-	ld.w	$a3, $a1, %pc_lo12(second.base_sec)
-	pcalau12i	$a2, %pc_hi20(second.base_usec)
-	ld.w	$a0, $a2, %pc_lo12(second.base_usec)
-	ld.d	$a4, $sp, 8
-	or	$a5, $a3, $a0
+	pcalau12i	$a3, %pc_hi20(second.base_sec)
+	ld.w	$a1, $a3, %pc_lo12(second.base_sec)
+	pcalau12i	$a4, %pc_hi20(second.base_usec)
+	ld.w	$a0, $a4, %pc_lo12(second.base_usec)
+	ld.d	$a2, $sp, 8
+	or	$a5, $a1, $a0
 	bnez	$a5, .LBB9_2
 # %bb.1:
 	ld.d	$a0, $sp, 16
-	st.w	$a4, $a1, %pc_lo12(second.base_sec)
-	st.w	$a0, $a2, %pc_lo12(second.base_usec)
+	st.w	$a2, $a3, %pc_lo12(second.base_sec)
+	st.w	$a0, $a4, %pc_lo12(second.base_usec)
 	movgr2fr.d	$fa0, $zero
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32
 	ret
 .LBB9_2:
-	sub.d	$a1, $a4, $a3
+	ld.d	$a3, $sp, 16
+	sub.d	$a1, $a2, $a1
 	movgr2fr.d	$fa0, $a1
-	ld.d	$a1, $sp, 16
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a2, %pc_hi20(.LCPI9_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI9_0)
-	sub.d	$a0, $a1, $a0
+	sub.d	$a0, $a3, $a0
+	movgr2fr.d	$fa1, $a0
+	ffint.d.l	$fa1, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
 	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fdiv.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa1, $fa1, $fa2
 	fadd.d	$fa0, $fa1, $fa0
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32

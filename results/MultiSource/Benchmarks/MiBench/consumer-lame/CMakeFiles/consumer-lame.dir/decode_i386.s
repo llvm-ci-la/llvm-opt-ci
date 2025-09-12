@@ -93,14 +93,7 @@ synth_1to1_mono:                        # @synth_1to1_mono
 .Lfunc_end0:
 	.size	synth_1to1_mono, .Lfunc_end0-synth_1to1_mono
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function synth_1to1
-.LCPI1_0:
-	.dword	0x40dfffc000000000              # double 32767
-.LCPI1_1:
-	.dword	0xc0e0000000000000              # double -32768
-	.text
-	.globl	synth_1to1
+	.globl	synth_1to1                      # -- Begin function synth_1to1
 	.p2align	5
 	.type	synth_1to1,@function
 synth_1to1:                             # @synth_1to1
@@ -180,12 +173,14 @@ synth_1to1:                             # @synth_1to1
 	sub.d	$a1, $a1, $a3
 	add.d	$a1, $a1, $a2
 	addi.d	$t0, $a1, 8
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI1_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_1)
 	ori	$a7, $zero, 16
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -64
+	lu52i.d	$a1, $a1, 1037
+	movgr2fr.d	$fa1, $a1
 	ori	$a1, $s1, 4095
+	lu52i.d	$a2, $zero, -1010
+	movgr2fr.d	$fa0, $a2
 	lu12i.w	$a2, 8
 	b	.LBB1_7
 	.p2align	4, , 16
@@ -259,12 +254,12 @@ synth_1to1:                             # @synth_1to1
 	fmadd.d	$fa2, $fa5, $fa6, $fa2
 	fneg.d	$fa3, $fa7
 	fmadd.d	$fa2, $fa3, $ft0, $fa2
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	fcmp.cule.d	$fcc0, $fa2, $fa1
 	move	$t1, $a4
 	move	$a3, $t0
 	bceqz	$fcc0, .LBB1_4
 # %bb.8:                                #   in Loop: Header=BB1_7 Depth=1
-	fcmp.cule.d	$fcc0, $fa1, $fa2
+	fcmp.cule.d	$fcc0, $fa0, $fa2
 	bcnez	$fcc0, .LBB1_10
 # %bb.9:                                #   in Loop: Header=BB1_7 Depth=1
 	st.h	$a2, $t1, 0
@@ -276,51 +271,59 @@ synth_1to1:                             # @synth_1to1
 	st.h	$a4, $t1, 0
 	b	.LBB1_6
 .LBB1_11:
-	fld.d	$fa2, $a6, 256
-	fld.d	$fa3, $a5, 128
-	fld.d	$fa4, $a6, 272
-	fld.d	$fa5, $a5, 144
-	fld.d	$fa6, $a6, 288
-	fld.d	$fa7, $a5, 160
-	fld.d	$ft0, $a6, 304
-	fld.d	$ft1, $a5, 176
-	fmul.d	$fa2, $fa2, $fa3
-	fmadd.d	$fa2, $fa4, $fa5, $fa2
-	fmadd.d	$fa2, $fa6, $fa7, $fa2
-	fmadd.d	$fa2, $ft0, $ft1, $fa2
-	fld.d	$fa3, $a6, 320
-	fld.d	$fa4, $a5, 192
-	fld.d	$fa5, $a6, 336
-	fld.d	$fa6, $a5, 208
-	fld.d	$fa7, $a6, 352
-	fld.d	$ft0, $a5, 224
-	fld.d	$ft1, $a6, 368
-	fld.d	$ft2, $a5, 240
-	fmadd.d	$fa2, $fa3, $fa4, $fa2
-	fmadd.d	$fa2, $fa5, $fa6, $fa2
-	fmadd.d	$fa2, $fa7, $ft0, $fa2
-	fmadd.d	$fa2, $ft1, $ft2, $fa2
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	fld.d	$fa1, $a6, 256
+	fld.d	$fa2, $a5, 128
+	fld.d	$fa3, $a6, 272
+	fld.d	$fa4, $a5, 144
+	fld.d	$fa5, $a6, 288
+	fld.d	$fa6, $a5, 160
+	fld.d	$fa7, $a6, 304
+	fld.d	$ft0, $a5, 176
+	fmul.d	$fa1, $fa1, $fa2
+	fmadd.d	$fa1, $fa3, $fa4, $fa1
+	fmadd.d	$fa1, $fa5, $fa6, $fa1
+	fmadd.d	$fa1, $fa7, $ft0, $fa1
+	fld.d	$fa2, $a6, 320
+	fld.d	$fa3, $a5, 192
+	fld.d	$fa4, $a6, 336
+	fld.d	$fa5, $a5, 208
+	fld.d	$fa6, $a6, 352
+	fld.d	$fa7, $a5, 224
+	fld.d	$ft0, $a6, 368
+	fld.d	$ft1, $a5, 240
+	fmadd.d	$fa1, $fa2, $fa3, $fa1
+	fmadd.d	$fa1, $fa4, $fa5, $fa1
+	fmadd.d	$fa1, $fa6, $fa7, $fa1
+	fmadd.d	$fa1, $ft0, $ft1, $fa1
+	ori	$a5, $zero, 0
+	lu32i.d	$a5, -64
+	lu52i.d	$a5, $a5, 1037
+	movgr2fr.d	$fa2, $a5
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	bcnez	$fcc0, .LBB1_13
 # %bb.12:
 	st.h	$a1, $a4, 0
 	addi.w	$a0, $a0, 1
 	b	.LBB1_16
 .LBB1_13:
-	fcmp.cule.d	$fcc0, $fa1, $fa2
+	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_15
 # %bb.14:
 	st.h	$a2, $a4, 0
 	addi.w	$a0, $a0, 1
 	b	.LBB1_16
 .LBB1_15:
-	ftintrz.l.d	$fa2, $fa2
-	movfr2gr.d	$a5, $fa2
+	ftintrz.l.d	$fa1, $fa1
+	movfr2gr.d	$a5, $fa1
 	st.h	$a5, $a4, 0
 .LBB1_16:
 	addi.d	$a4, $t1, 8
 	addi.w	$a5, $zero, -128
 	addi.w	$a6, $zero, -15
+	ori	$a7, $zero, 0
+	lu32i.d	$a7, -64
+	lu52i.d	$a7, $a7, 1037
+	movgr2fr.d	$fa1, $a7
 	b	.LBB1_20
 	.p2align	4, , 16
 .LBB1_17:                               #   in Loop: Header=BB1_20 Depth=1
@@ -401,10 +404,10 @@ synth_1to1:                             # @synth_1to1
 	fmadd.d	$fa2, $fa3, $fa4, $fa2
 	fneg.d	$fa3, $fa5
 	fmadd.d	$fa2, $fa3, $fa6, $fa2
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	fcmp.cule.d	$fcc0, $fa2, $fa1
 	bceqz	$fcc0, .LBB1_17
 # %bb.21:                               #   in Loop: Header=BB1_20 Depth=1
-	fcmp.cule.d	$fcc0, $fa1, $fa2
+	fcmp.cule.d	$fcc0, $fa0, $fa2
 	bcnez	$fcc0, .LBB1_23
 # %bb.22:                               #   in Loop: Header=BB1_20 Depth=1
 	st.h	$a2, $a4, 0

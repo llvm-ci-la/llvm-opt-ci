@@ -1067,35 +1067,30 @@ lame_presets_info:                      # @lame_presets_info
 	.word	8                               # 0x8
 	.word	56                              # 0x38
 	.word	3700                            # 0xe74
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI3_7:
-	.dword	0x3690000000000000              # double 7.0064923216240854E-46
-.LCPI3_8:
-	.dword	0x408f400000000000              # double 1000
-.LCPI3_9:
-	.dword	0x3feffffff0000000              # double 0.99999997019767761
 	.text
 	.globl	lame_parse_args
 	.p2align	5
 	.type	lame_parse_args,@function
 lame_parse_args:                        # @lame_parse_args
 # %bb.0:
-	addi.d	$sp, $sp, -224
-	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 184                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 136                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -240
+	st.d	$ra, $sp, 232                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 216                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 152                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 144                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 136                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 128                  # 8-byte Folded Spill
 	move	$s4, $a2
 	ld.d	$a2, $a2, 0
-	st.d	$a2, $sp, 80                    # 8-byte Folded Spill
+	st.d	$a2, $sp, 72                    # 8-byte Folded Spill
 	move	$s5, $a1
 	move	$fp, $a0
 	pcalau12i	$a0, %pc_hi20(inPath)
@@ -1104,7 +1099,7 @@ lame_parse_args:                        # @lame_parse_args
 	pcalau12i	$a0, %pc_hi20(outPath)
 	addi.d	$s2, $a0, %pc_lo12(outPath)
 	st.b	$zero, $s2, 0
-	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 104                   # 8-byte Folded Spill
 	st.d	$a1, $fp, 128
 	st.d	$s2, $fp, 136
 	pcalau12i	$a0, %got_pc_hi20(id3tag)
@@ -1116,31 +1111,37 @@ lame_parse_args:                        # @lame_parse_args
 	st.w	$zero, $s1, 0
 	blt	$s5, $a0, .LBB3_159
 # %bb.1:                                # %.lr.ph420
-	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 64                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.L.str.110)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.110)
-	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$zero, $sp, 104                 # 8-byte Folded Spill
+	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
 	st.d	$zero, $sp, 96                  # 8-byte Folded Spill
+	st.d	$zero, $sp, 88                  # 8-byte Folded Spill
 	move	$s3, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs0, $a0
+	lu12i.w	$a0, -65536
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs1, $a0
 	ori	$a0, $zero, 160
 	lu32i.d	$a0, 12000
-	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	lu52i.d	$a0, $zero, 873
+	movgr2fr.d	$fs2, $a0
 	ori	$a0, $zero, 260
 	lu32i.d	$a0, 300
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	lu12i.w	$a0, 3
 	ori	$a0, $a0, 3712
-	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 	ori	$a0, $zero, 100
 	lu32i.d	$a0, 2000
-	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
 	lu12i.w	$a0, 5
 	ori	$a0, $a0, 3520
-	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, 1
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	ori	$s2, $zero, 57
 	ori	$s0, $zero, 1
@@ -1152,12 +1153,12 @@ lame_parse_args:                        # @lame_parse_args
 	ldx.d	$s8, $s4, $a0
 	ld.bu	$a0, $s8, 0
 	addi.d	$s1, $s8, 1
-	st.d	$s1, $sp, 128
+	st.d	$s1, $sp, 120
 	ori	$a1, $zero, 45
 	bne	$a0, $a1, .LBB3_6
 # %bb.3:                                #   in Loop: Header=BB3_2 Depth=1
 	addi.w	$a0, $s3, 2
-	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 112                   # 8-byte Folded Reload
 	blt	$a0, $s5, .LBB3_9
 # %bb.4:                                #   in Loop: Header=BB3_2 Depth=1
 	ld.bu	$a1, $s1, 0
@@ -1185,11 +1186,11 @@ lame_parse_args:                        # @lame_parse_args
 	ld.bu	$a1, $s1, 0
 	bnez	$a1, .LBB3_5
 .LBB3_10:                               #   in Loop: Header=BB3_2 Depth=1
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
 	ld.bu	$a1, $a0, 0
 	beqz	$a1, .LBB3_16
 # %bb.11:                               #   in Loop: Header=BB3_2 Depth=1
-	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 80                    # 8-byte Folded Reload
 	ld.bu	$a1, $a0, 0
 	beqz	$a1, .LBB3_16
 # %bb.12:                               # %thread-pre-split
@@ -1223,7 +1224,7 @@ lame_parse_args:                        # @lame_parse_args
 	ori	$a0, $zero, 45
 	bne	$a1, $a0, .LBB3_62
 # %bb.18:                               #   in Loop: Header=BB3_2 Depth=1
-	st.d	$s7, $sp, 128
+	st.d	$s7, $sp, 120
 	pcalau12i	$a0, %pc_hi20(.L.str.111)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.111)
 	move	$a0, $s7
@@ -1478,7 +1479,8 @@ lame_parse_args:                        # @lame_parse_args
 	lu32i.d	$a0, 0
 	st.w	$a0, $fp, 108
 	vst	$vr0, $fp, 92
-	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 1
 	st.d	$a0, $fp, 36
 	ori	$a0, $zero, 2
 	st.w	$a0, $fp, 28
@@ -1503,7 +1505,7 @@ lame_parse_args:                        # @lame_parse_args
 	ori	$a2, $zero, 9
 	masknez	$a1, $a2, $a1
 	or	$a0, $a0, $a1
-	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB3_64:                               #   in Loop: Header=BB3_66 Depth=2
 	xor	$a0, $s8, $s7
@@ -1571,7 +1573,7 @@ lame_parse_args:                        # @lame_parse_args
 	lu32i.d	$a0, 1
 	st.d	$a0, $fp, 36
 	ori	$a0, $zero, 1
-	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	b	.LBB3_65
 .LBB3_76:                               #   in Loop: Header=BB3_66 Depth=2
 	ori	$a0, $zero, 9
@@ -1674,12 +1676,14 @@ lame_parse_args:                        # @lame_parse_args
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_8)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_8)
 	fcvt.s.d	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	vldi	$vr2, -928
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -928
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	st.w	$a0, $fp, 12
@@ -1746,7 +1750,7 @@ lame_parse_args:                        # @lame_parse_args
 	ld.d	$a0, $a0, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.151)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.151)
-	ld.d	$a2, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	move	$a3, $s8
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
@@ -1758,7 +1762,7 @@ lame_parse_args:                        # @lame_parse_args
 	ext.w.b	$a3, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.153)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.153)
-	ld.d	$a2, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
 	ori	$s1, $zero, 1
@@ -1784,7 +1788,7 @@ lame_parse_args:                        # @lame_parse_args
 	pcalau12i	$a1, %pc_hi20(.L.str.150)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.150)
 .LBB3_113:                              #   in Loop: Header=BB3_66 Depth=2
-	ld.d	$a2, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	move	$a3, $s8
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
@@ -1795,18 +1799,14 @@ lame_parse_args:                        # @lame_parse_args
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_8)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_8)
-	fcvt.s.d	$fa2, $fa0
-	fcvt.d.s	$fa2, $fa2
-	vldi	$vr3, -928
-	fmadd.d	$fa1, $fa2, $fa1, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI3_9)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI3_9)
+	fcvt.s.d	$fa1, $fa0
+	fcvt.d.s	$fa1, $fa1
+	vldi	$vr2, -928
+	fmadd.d	$fa1, $fa1, $fs0, $fa2
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a0, $fa1
 	st.w	$a0, $fp, 16
-	fcmp.cule.d	$fcc0, $fa2, $fa0
+	fcmp.cule.d	$fcc0, $fs1, $fa0
 	ori	$s3, $zero, 1
 	bcnez	$fcc0, .LBB3_119
 	b	.LBB3_184
@@ -1817,7 +1817,7 @@ lame_parse_args:                        # @lame_parse_args
 	b	.LBB3_119
 .LBB3_116:                              #   in Loop: Header=BB3_2 Depth=1
 	move	$s3, $zero
-	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	st.d	$a0, $fp, 100
 	b	.LBB3_118
 .LBB3_117:                              #   in Loop: Header=BB3_2 Depth=1
@@ -1858,10 +1858,8 @@ lame_parse_args:                        # @lame_parse_args
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_8)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_8)
-	vldi	$vr2, -928
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -928
+	fmadd.d	$fa0, $fa0, $fs0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	st.w	$a0, $fp, 104
@@ -1873,10 +1871,8 @@ lame_parse_args:                        # @lame_parse_args
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_8)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_8)
-	vldi	$vr2, -928
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -928
+	fmadd.d	$fa0, $fa0, $fs0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	st.w	$a0, $fp, 112
@@ -1885,7 +1881,7 @@ lame_parse_args:                        # @lame_parse_args
 	b	.LBB3_186
 .LBB3_127:                              #   in Loop: Header=BB3_2 Depth=1
 	ori	$s3, $zero, 1
-	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	st.w	$s3, $a0, 0
 	addi.d	$a0, $a0, 8
 	b	.LBB3_134
@@ -1894,10 +1890,8 @@ lame_parse_args:                        # @lame_parse_args
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_8)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_8)
-	vldi	$vr2, -928
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -928
+	fmadd.d	$fa0, $fa0, $fs0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	st.w	$a0, $fp, 108
@@ -1906,13 +1900,13 @@ lame_parse_args:                        # @lame_parse_args
 	b	.LBB3_187
 .LBB3_129:                              #   in Loop: Header=BB3_2 Depth=1
 	ori	$s3, $zero, 1
-	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	st.w	$s3, $a0, 0
 	addi.d	$a0, $a0, 39
 	b	.LBB3_134
 .LBB3_130:                              #   in Loop: Header=BB3_2 Depth=1
 	ori	$s3, $zero, 1
-	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	st.w	$s3, $a0, 0
 	addi.d	$a0, $a0, 70
 	b	.LBB3_134
@@ -1921,10 +1915,8 @@ lame_parse_args:                        # @lame_parse_args
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_8)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_8)
-	vldi	$vr2, -928
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -928
+	fmadd.d	$fa0, $fa0, $fs0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	st.w	$a0, $fp, 116
@@ -1933,14 +1925,14 @@ lame_parse_args:                        # @lame_parse_args
 	b	.LBB3_188
 .LBB3_132:                              #   in Loop: Header=BB3_2 Depth=1
 	ori	$s3, $zero, 1
-	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	st.w	$s3, $a0, 0
 	addi.d	$a0, $a0, 101
 	ori	$a2, $zero, 4
 	b	.LBB3_135
 .LBB3_133:                              #   in Loop: Header=BB3_2 Depth=1
 	ori	$s3, $zero, 1
-	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	st.w	$s3, $a0, 0
 	addi.d	$a0, $a0, 106
 .LBB3_134:                              #   in Loop: Header=BB3_2 Depth=1
@@ -1955,17 +1947,15 @@ lame_parse_args:                        # @lame_parse_args
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(strtod)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_7)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_7)
-	fcvt.s.d	$fa2, $fa0
-	fst.s	$fa2, $fp, 152
-	fcmp.cult.d	$fcc0, $fa1, $fa0
+	fcvt.s.d	$fa1, $fa0
+	fst.s	$fa1, $fp, 152
+	fcmp.cult.d	$fcc0, $fs2, $fa0
 	ori	$s3, $zero, 1
 	bcnez	$fcc0, .LBB3_119
 	b	.LBB3_189
 .LBB3_137:                              #   in Loop: Header=BB3_2 Depth=1
 	ori	$s3, $zero, 1
-	ld.d	$s1, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 64                    # 8-byte Folded Reload
 	st.w	$s3, $s1, 0
 	ori	$a2, $zero, 10
 	move	$a0, $s6
@@ -1985,12 +1975,12 @@ lame_parse_args:                        # @lame_parse_args
 	st.b	$a0, $s1, 266
 	b	.LBB3_119
 .LBB3_138:                              #   in Loop: Header=BB3_2 Depth=1
-	addi.d	$a1, $sp, 128
+	addi.d	$a1, $sp, 120
 	ori	$a2, $zero, 10
 	move	$a0, $s6
 	pcaddu18i	$ra, %call36(strtol)
 	jirl	$ra, $ra, 0
-	ld.d	$a1, $sp, 128
+	ld.d	$a1, $sp, 120
 	move	$s7, $a0
 	pcalau12i	$a0, %got_pc_hi20(genre_last)
 	ld.d	$a0, $a0, %got_pc_lo12(genre_last)
@@ -2002,7 +1992,7 @@ lame_parse_args:                        # @lame_parse_args
 	blt	$s1, $a0, .LBB3_157
 .LBB3_140:                              #   in Loop: Header=BB3_2 Depth=1
 	ori	$s3, $zero, 1
-	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	st.w	$s3, $a0, 0
 	st.b	$s7, $a0, 265
 	b	.LBB3_119
@@ -2011,14 +2001,14 @@ lame_parse_args:                        # @lame_parse_args
 	vld	$vr0, $a0, %pc_lo12(.LCPI3_6)
 	ori	$a0, $zero, 16
 	st.w	$a0, $fp, 48
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
 	st.d	$a0, $fp, 108
 	ori	$a0, $zero, 40
 	st.w	$a0, $fp, 116
 	vst	$vr0, $fp, 92
 	ori	$s3, $zero, 1
 	st.w	$s3, $fp, 160
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	st.w	$a0, $fp, 16
 	ori	$a0, $zero, 3
 	b	.LBB3_155
@@ -2027,7 +2017,7 @@ lame_parse_args:                        # @lame_parse_args
 	vld	$vr0, $a0, %pc_lo12(.LCPI3_5)
 	ori	$a0, $zero, 56
 	st.w	$a0, $fp, 48
-	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	st.d	$a0, $fp, 108
 	ori	$a0, $zero, 20
 	st.w	$a0, $fp, 116
@@ -2037,7 +2027,7 @@ lame_parse_args:                        # @lame_parse_args
 	ori	$a0, $zero, 3
 	lu32i.d	$a0, 1
 	st.d	$a0, $fp, 36
-	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	st.w	$a0, $fp, 16
 	b	.LBB3_156
 .LBB3_143:                              # %.preheader
@@ -2105,7 +2095,7 @@ lame_parse_args:                        # @lame_parse_args
 	ld.d	$a0, $a0, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.148)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.148)
-	ld.d	$a2, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	move	$a3, $s7
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
@@ -2156,15 +2146,15 @@ lame_parse_args:                        # @lame_parse_args
 .LBB3_160:                              # %._crit_edge.loopexit.loopexit
 	sltu	$a0, $zero, $s1
 .LBB3_161:                              # %._crit_edge.loopexit
-	ld.d	$a1, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
 	sltui	$s0, $a1, 1
-	ld.d	$s1, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
 .LBB3_162:                              # %._crit_edge
 	bnez	$a0, .LBB3_183
 # %bb.163:                              # %._crit_edge
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
 	ld.bu	$a0, $a0, 0
 	beqz	$a0, .LBB3_183
 # %bb.164:
@@ -2194,7 +2184,7 @@ lame_parse_args:                        # @lame_parse_args
 	ori	$a1, $zero, 3
 	beq	$a0, $a1, .LBB3_172
 # %bb.171:
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 104                   # 8-byte Folded Reload
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(strlen)
 	jirl	$ra, $ra, 0
@@ -2248,18 +2238,21 @@ lame_parse_args:                        # @lame_parse_args
 .LBB3_178:
 	st.w	$s3, $fp, 28
 .LBB3_179:
-	ld.d	$s8, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 224
+	fld.d	$fs2, $sp, 128                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 136                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 144                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 232                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 240
 	ret
 .LBB3_180:
 	st.w	$zero, $s1, 0
@@ -2279,7 +2272,7 @@ lame_parse_args:                        # @lame_parse_args
 	ld.d	$a0, $a0, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.154)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.154)
-	ld.d	$a2, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	move	$a3, $s8
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
@@ -2287,11 +2280,11 @@ lame_parse_args:                        # @lame_parse_args
 	b	.LBB3_161
 .LBB3_182:
 	move	$a0, $fp
-	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(lame_help)
 	jirl	$ra, $ra, 0
 .LBB3_183:
-	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(lame_usage)
 	jirl	$ra, $ra, 0
 .LBB3_184:
@@ -2388,7 +2381,7 @@ lame_parse_args:                        # @lame_parse_args
 	ld.d	$a0, $a0, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.147)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.147)
-	ld.d	$a2, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	move	$a3, $s6
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0

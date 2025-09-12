@@ -418,12 +418,7 @@ luaB_assert:                            # @luaB_assert
 .Lfunc_end6:
 	.size	luaB_assert, .Lfunc_end6-luaB_assert
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function luaB_collectgarbage
-.LCPI7_0:
-	.dword	0x3f50000000000000              # double 9.765625E-4
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function luaB_collectgarbage
 	.type	luaB_collectgarbage,@function
 luaB_collectgarbage:                    # @luaB_collectgarbage
 # %bb.0:
@@ -469,12 +464,12 @@ luaB_collectgarbage:                    # @luaB_collectgarbage
 	pcaddu18i	$ra, %call36(lua_gc)
 	jirl	$ra, $ra, 0
 	movgr2fr.w	$fa0, $s0
-	pcalau12i	$a1, %pc_hi20(.LCPI7_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI7_0)
 	ffint.d.w	$fa0, $fa0
-	movgr2fr.w	$fa2, $a0
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa1, $fa2, $fa1
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	lu52i.d	$a0, $zero, 1013
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa1, $fa1, $fa2
 	fadd.d	$fa0, $fa1, $fa0
 	b	.LBB7_5
 .LBB7_3:
@@ -1327,12 +1322,7 @@ luaB_setmetatable:                      # @luaB_setmetatable
 .Lfunc_end23:
 	.size	luaB_setmetatable, .Lfunc_end23-luaB_setmetatable
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function luaB_tonumber
-.LCPI24_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function luaB_tonumber
 	.type	luaB_tonumber,@function
 luaB_tonumber:                          # @luaB_tonumber
 # %bb.0:
@@ -1414,12 +1404,13 @@ luaB_tonumber:                          # @luaB_tonumber
 	b	.LBB24_12
 .LBB24_10:                              # %.critedge
 	srli.d	$a0, $s0, 32
-	pcalau12i	$a1, %pc_hi20(.LCPI24_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI24_0)
 	lu52i.d	$a1, $zero, 1107
 	or	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
 	movgr2fr.d	$fa1, $a0
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a0, 275200
 	bstrins.d	$s0, $a0, 63, 32
 	movgr2fr.d	$fa1, $s0

@@ -1207,12 +1207,7 @@ call_binTM:                             # @call_binTM
 .Lfunc_end8:
 	.size	call_binTM, .Lfunc_end8-call_binTM
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function luaV_execute
-.LCPI9_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.hidden	luaV_execute
+	.hidden	luaV_execute                    # -- Begin function luaV_execute
 	.globl	luaV_execute
 	.p2align	5
 	.type	luaV_execute,@function
@@ -2531,12 +2526,13 @@ luaV_execute:                           # @luaV_execute
 	ld.d	$a0, $s4, 0
 	ld.d	$a0, $a0, 16
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI9_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI9_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0

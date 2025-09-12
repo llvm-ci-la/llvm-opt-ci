@@ -64,12 +64,7 @@ gen_uniform_double:                     # @gen_uniform_double
 .Lfunc_end3:
 	.size	gen_uniform_double, .Lfunc_end3-gen_uniform_double
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function check_percent
-.LCPI4_0:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.globl	check_percent
+	.globl	check_percent                   # -- Begin function check_percent
 	.p2align	5
 	.type	check_percent,@function
 check_percent:                          # @check_percent
@@ -80,16 +75,18 @@ check_percent:                          # @check_percent
 	move	$fp, $a0
 	pcaddu18i	$ra, %call36(drand48)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
-	pcalau12i	$a0, %pc_hi20(percentcheck)
-	ld.w	$a1, $a0, %pc_lo12(percentcheck)
-	movgr2fr.w	$fa2, $fp
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa1, $fa2, $fa1
-	addi.d	$a1, $a1, 1
+	movgr2fr.w	$fa1, $fp
+	ffint.d.w	$fa1, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	pcalau12i	$a1, %pc_hi20(percentcheck)
+	ld.w	$a2, $a1, %pc_lo12(percentcheck)
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa2, $a0
+	fdiv.d	$fa1, $fa1, $fa2
+	addi.d	$a0, $a2, 1
 	fcmp.cule.d	$fcc0, $fa1, $fa0
-	st.w	$a1, $a0, %pc_lo12(percentcheck)
+	st.w	$a0, $a1, %pc_lo12(percentcheck)
 	bcnez	$fcc0, .LBB4_2
 # %bb.1:
 	pcalau12i	$a0, %pc_hi20(numlocal)

@@ -111,12 +111,6 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .LCPI7_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI7_1:
-	.dword	0x408f400000000000              # double 1000
-.LCPI7_2:
-	.dword	0x4059000000000000              # double 100
 	.text
 	.globl	main
 	.p2align	5
@@ -183,24 +177,22 @@ main:                                   # @main
 	lu12i.w	$a5, 67108
 	ori	$a5, $a5, 3539
 	ori	$a6, $zero, 1000
-	pcalau12i	$a7, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a7, %pc_lo12(.LCPI7_1)
-	pcalau12i	$a7, %pc_hi20(.LCPI7_2)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI7_2)
-	vldi	$vr2, -988
-	lu12i.w	$a7, 2
-	ori	$s3, $a7, 1408
-	pcalau12i	$a7, %pc_hi20(.LCPI7_0)
-	vld	$vr3, $a7, %pc_lo12(.LCPI7_0)
 	ori	$a7, $zero, 0
 	ori	$t0, $zero, 0
 	lu32i.d	$t0, -49152
 	lu52i.d	$t0, $t0, 1032
+	movgr2fr.d	$fa0, $t0
+	pcalau12i	$t1, %pc_hi20(.LCPI7_0)
+	vld	$vr1, $t1, %pc_lo12(.LCPI7_0)
+	ori	$t1, $zero, 0
+	lu32i.d	$t1, -458752
+	lu52i.d	$t1, $t1, 1029
+	movgr2fr.d	$fa2, $t1
+	vldi	$vr3, -988
 	vreplgr2vr.d	$vr4, $t0
-	ori	$t0, $zero, 0
-	lu32i.d	$t0, -458752
-	lu52i.d	$t0, $t0, 1029
-	vreplgr2vr.d	$vr5, $t0
+	lu12i.w	$t0, 2
+	ori	$s3, $t0, 1408
+	vreplgr2vr.d	$vr5, $t1
 	lu32i.d	$a7, 262144
 	lu52i.d	$a7, $a7, 1026
 	vreplgr2vr.d	$vr6, $a7
@@ -238,8 +230,8 @@ main:                                   # @main
 	movgr2fr.d	$ft0, $t3
 	ffint.d.l	$ft0, $ft0
 	fdiv.d	$ft0, $ft0, $fa0
-	fmul.d	$ft0, $ft0, $fa1
-	fadd.d	$ft0, $ft0, $fa2
+	fmul.d	$ft0, $ft0, $fa2
+	fadd.d	$ft0, $ft0, $fa3
 	add.d	$t3, $a7, $t2
 	fstx.d	$ft0, $t3, $s3
 	add.d	$t3, $t0, $t2
@@ -253,7 +245,7 @@ main:                                   # @main
                                         #   in Loop: Header=BB7_8 Depth=1
 	vreplgr2vr.d	$vr8, $a1
 	move	$t1, $a4
-	vori.b	$vr9, $vr3, 0
+	vori.b	$vr9, $vr1, 0
 	.p2align	4, , 16
 .LBB7_12:                               # %vector.body
                                         #   Parent Loop BB7_8 Depth=1

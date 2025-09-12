@@ -19,12 +19,7 @@ bar:                                    # @bar
 .Lfunc_end1:
 	.size	bar, .Lfunc_end1-bar
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI2_0:
-	.word	0x42280000                      # float 42
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -32,8 +27,8 @@ main:                                   # @main
 	addi.d	$sp, $sp, -16
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 0                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a0, 270976
+	movgr2fr.w	$fs0, $a0
 	vldi	$vr0, -1246
 	fmov.s	$fa1, $fs0
 	pcaddu18i	$ra, %call36(bar)

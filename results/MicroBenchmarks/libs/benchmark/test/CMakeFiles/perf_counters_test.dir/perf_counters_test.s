@@ -1014,12 +1014,8 @@ GCC_except_table6:
 .Lcst_end2:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
-	.hidden	main
+	.hidden	main                            # -- Begin function main
 	.globl	main
 	.p2align	5
 	.type	main,@function
@@ -1032,12 +1028,10 @@ main:                                   # @main
 	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
 	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
 	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 8                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
-	.cfi_offset 56, -40
 	pcalau12i	$a2, %got_pc_hi20(_ZN9benchmark8internal12PerfCounters10kSupportedE)
 	ld.d	$a2, $a2, %got_pc_lo12(_ZN9benchmark8internal12PerfCounters10kSupportedE)
 	ld.bu	$a2, $a2, 0
@@ -1063,9 +1057,11 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$fp, %pc_hi20(withPauseResumeInstrCount)
 	fld.d	$fa0, $fp, %pc_lo12(withPauseResumeInstrCount)
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI7_0)
-	fcmp.cule.d	$fcc0, $fa0, $fs0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB7_8
 # %bb.2:
 	pcalau12i	$s0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
@@ -1075,7 +1071,11 @@ main:                                   # @main
 .LBB7_3:
 	pcalau12i	$s1, %pc_hi20(withoutPauseResumeInstrCount)
 	fld.d	$fa0, $s1, %pc_lo12(withoutPauseResumeInstrCount)
-	fcmp.cule.d	$fcc0, $fa0, $fs0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB7_11
 # %bb.4:
 	ld.b	$a0, $s0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
@@ -1094,7 +1094,6 @@ main:                                   # @main
 	beqz	$a0, .LBB7_15
 .LBB7_7:                                # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit17.thread
 	move	$a0, $zero
-	fld.d	$fs0, $sp, 8                    # 8-byte Folded Reload
 	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
 	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
@@ -1108,11 +1107,11 @@ main:                                   # @main
 	addi.d	$a2, $a0, %pc_lo12(.L.str.17)
 	pcalau12i	$a0, %pc_hi20(.L__func__.main)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__.main)
-	addi.d	$a0, $sp, 0
+	addi.d	$a0, $sp, 8
 	ori	$a4, $zero, 89
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 0
+	addi.d	$a0, $sp, 8
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .LBB7_9:
@@ -1137,11 +1136,11 @@ main:                                   # @main
 	addi.d	$a2, $a0, %pc_lo12(.L.str.17)
 	pcalau12i	$a0, %pc_hi20(.L__func__.main)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__.main)
-	addi.d	$a0, $sp, 0
+	addi.d	$a0, $sp, 8
 	ori	$a4, $zero, 90
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 0
+	addi.d	$a0, $sp, 8
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .LBB7_12:
@@ -1166,11 +1165,11 @@ main:                                   # @main
 	addi.d	$a2, $a0, %pc_lo12(.L.str.17)
 	pcalau12i	$a0, %pc_hi20(.L__func__.main)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__.main)
-	addi.d	$a0, $sp, 0
+	addi.d	$a0, $sp, 8
 	ori	$a4, $zero, 91
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 0
+	addi.d	$a0, $sp, 8
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .LBB7_15:

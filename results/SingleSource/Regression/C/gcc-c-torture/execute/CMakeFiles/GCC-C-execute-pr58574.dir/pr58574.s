@@ -1,1000 +1,6 @@
 	.file	"pr58574.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function foo
-.LCPI0_0:
-	.dword	0xc067600000000000              # double -187
-.LCPI0_1:
-	.dword	0x3dd0e94bd6e965b5              # double 6.1522999999999998E-11
-.LCPI0_2:
-	.dword	0x3d4e1c5c72814664              # double 2.1395000000000001E-13
-.LCPI0_3:
-	.dword	0x3e4a7d3ceb3a9a89              # double 1.2334999999999999E-8
-.LCPI0_4:
-	.dword	0x3ebea679caf3e3fb              # double 1.8269E-6
-.LCPI0_5:
-	.dword	0x3f2a78514a756f18              # double 2.0195E-4
-.LCPI0_6:
-	.dword	0x3f90a99b6f5caf2d              # double 0.016271999999999998
-.LCPI0_7:
-	.dword	0x3fe7ff6d330941c8              # double 0.74992999999999999
-.LCPI0_8:
-	.dword	0xc067200000000000              # double -185
-.LCPI0_9:
-	.dword	0x3dd0371f61e9bda6              # double 5.8991000000000003E-11
-.LCPI0_10:
-	.dword	0x3d4d471215b73735              # double 2.0803E-13
-.LCPI0_11:
-	.dword	0x3e4931bc36a06157              # double 1.1732E-8
-.LCPI0_12:
-	.dword	0x3ebd094cc631711f              # double 1.7307E-6
-.LCPI0_13:
-	.dword	0x3f29124ab0526db6              # double 1.9128E-4
-.LCPI0_14:
-	.dword	0x3f8fb71fbc5de9c0              # double 0.015486
-.LCPI0_15:
-	.dword	0x3fe6fb549f94855e              # double 0.71818000000000004
-.LCPI0_16:
-	.dword	0xc066e00000000000              # double -183
-.LCPI0_17:
-	.dword	0x3dcf13e3e53e4f7e              # double 5.6529999999999998E-11
-.LCPI0_18:
-	.dword	0x3d4c710f4142f5d0              # double 2.0209E-13
-.LCPI0_19:
-	.dword	0x3e47f486aebf1d72              # double 1.1155E-8
-.LCPI0_20:
-	.dword	0x3ebb804f75d2f8b2              # double 1.6391999999999999E-6
-.LCPI0_21:
-	.dword	0x3f27bf0e733556cf              # double 1.8117E-4
-.LCPI0_22:
-	.dword	0x3f8e308787485e3e              # double 0.014741000000000001
-.LCPI0_23:
-	.dword	0x3fe603afb7e90ff9              # double 0.68794999999999995
-.LCPI0_24:
-	.dword	0xc066a00000000000              # double -181
-.LCPI0_25:
-	.dword	0x3dcdc38712134803              # double 5.414E-11
-.LCPI0_26:
-	.dword	0x3d4b9b68a8a3cd86              # double 1.9615999999999999E-13
-.LCPI0_27:
-	.dword	0x3e46c3f61d32b28e              # double 1.0601E-8
-.LCPI0_28:
-	.dword	0x3eba0a37ff5a4498              # double 1.5520999999999999E-6
-.LCPI0_29:
-	.dword	0x3f267df0c6a718de              # double 1.716E-4
-.LCPI0_30:
-	.dword	0x3f8cbee807bbb624              # double 0.014036
-.LCPI0_31:
-	.dword	0x3fe51800a7c5ac47              # double 0.65917999999999999
-.LCPI0_32:
-	.dword	0xc066600000000000              # double -179
-.LCPI0_33:
-	.dword	0x3dcc7d4c51b1a2a8              # double 5.1822E-11
-.LCPI0_34:
-	.dword	0x3d4ac67a87aed773              # double 1.9025E-13
-.LCPI0_35:
-	.dword	0x3e45a123fb933389              # double 1.0072000000000001E-8
-.LCPI0_36:
-	.dword	0x3eb8a7745646bc30              # double 1.4695000000000001E-6
-.LCPI0_37:
-	.dword	0x3f254deff7f5199d              # double 1.6254E-4
-.LCPI0_38:
-	.dword	0x3f8b60ae9680e065              # double 0.013368
-.LCPI0_39:
-	.dword	0x3fe4378ab0c88a48              # double 0.63178000000000001
-.LCPI0_40:
-	.dword	0xc066200000000000              # double -177
-.LCPI0_41:
-	.dword	0x3dcb40eb955ae3d0              # double 4.9573999999999999E-11
-.LCPI0_42:
-	.dword	0x3d49f1e8a28efa7b              # double 1.8434999999999999E-13
-.LCPI0_43:
-	.dword	0x3e448a78265db839              # double 9.5651000000000004E-9
-.LCPI0_44:
-	.dword	0x3eb755deb91b5a9e              # double 1.3909000000000001E-6
-.LCPI0_45:
-	.dword	0x3f242e0a546cbec5              # double 1.5396E-4
-.LCPI0_46:
-	.dword	0x3f8a14cec41dd1a2              # double 0.012735
-.LCPI0_47:
-	.dword	0x3fe361cffeb074a7              # double 0.60568999999999995
-.LCPI0_48:
-	.dword	0xc065e00000000000              # double -175
-.LCPI0_49:
-	.dword	0x3dca0e88e46e494a              # double 4.7396999999999999E-11
-.LCPI0_50:
-	.dword	0x3d491f23e8989b0c              # double 1.785E-13
-.LCPI0_51:
-	.dword	0x3e437ff29d92409f              # double 9.0803000000000006E-9
-.LCPI0_52:
-	.dword	0x3eb615e51b578741              # double 1.3164E-6
-.LCPI0_53:
-	.dword	0x3f231d940f96f6d2              # double 1.4584E-4
-.LCPI0_54:
-	.dword	0x3f88da3c21187e7c              # double 0.012135
-.LCPI0_55:
-	.dword	0x3fe29613d31b9b67              # double 0.58082
-.LCPI0_56:
-	.dword	0xc065a00000000000              # double -173
-.LCPI0_57:
-	.dword	0x3dc8e600378c9547              # double 4.5289999999999999E-11
-.LCPI0_58:
-	.dword	0x3d484d73e22186ef              # double 1.7268E-13
-.LCPI0_59:
-	.dword	0x3e428130dd085fb9              # double 8.6168999999999999E-9
-.LCPI0_60:
-	.dword	0x3eb4e5cfaefda49e              # double 1.2456E-6
-.LCPI0_61:
-	.dword	0x3f221b8b76c1277d              # double 1.3815E-4
-.LCPI0_62:
-	.dword	0x3f87b0f6ad70e6f3              # double 0.011568
-.LCPI0_63:
-	.dword	0x3fe1d3ed527e5215              # double 0.55711999999999995
-.LCPI0_64:
-	.dword	0xc065600000000000              # double -171
-.LCPI0_65:
-	.dword	0x3dc7c72d875689f8              # double 4.3251999999999997E-11
-.LCPI0_66:
-	.dword	0x3d477ded42a90976              # double 1.6692000000000001E-13
-.LCPI0_67:
-	.dword	0x3e418dde7378dcac              # double 8.1743000000000006E-9
-.LCPI0_68:
-	.dword	0x3eb3c530808e4b56              # double 1.1784E-6
-.LCPI0_69:
-	.dword	0x3f21279aa3afc804              # double 1.3087999999999999E-4
-.LCPI0_70:
-	.dword	0x3f8696e58a32f449              # double 0.01103
-.LCPI0_71:
-	.dword	0x3fe11adea897635e              # double 0.53452999999999995
-.LCPI0_72:
-	.dword	0xc065200000000000              # double -169
-.LCPI0_73:
-	.dword	0x3dc6b210d3cc275e              # double 4.1282999999999998E-11
-.LCPI0_74:
-	.dword	0x3d46b0900a2f22a0              # double 1.6121999999999999E-13
-.LCPI0_75:
-	.dword	0x3e40a58ac9da1650              # double 7.7516999999999992E-9
-.LCPI0_76:
-	.dword	0x3eb2b3999c8a140a              # double 1.1147000000000001E-6
-.LCPI0_77:
-	.dword	0x3f2040bfe3b03e21              # double 1.2400000000000001E-4
-.LCPI0_78:
-	.dword	0x3f858b827fa1a0cf              # double 0.01052
-.LCPI0_79:
-	.dword	0x3fe06a550870110a              # double 0.51297999999999999
-.LCPI0_80:
-	.dword	0xc064e00000000000              # double -167
-.LCPI0_81:
-	.dword	0x3dc5a6aa1ced6d78              # double 3.9382999999999997E-11
-.LCPI0_82:
-	.dword	0x3d45e5b87488eb8a              # double 1.5559E-13
-.LCPI0_83:
-	.dword	0x3e3f8fa6b8073f4d              # double 7.3484E-9
-.LCPI0_84:
-	.dword	0x3eb1b09d0f71975a              # double 1.0544E-6
-.LCPI0_85:
-	.dword	0x3f1ecd4aa10e0221              # double 1.175E-4
-.LCPI0_86:
-	.dword	0x3f848e4755ffe6d6              # double 0.010037000000000001
-.LCPI0_87:
-	.dword	0x3fdf83f91e646f15              # double 0.49242999999999998
-.LCPI0_88:
-	.dword	0xc064a00000000000              # double -165
-.LCPI0_89:
-	.dword	0x3dc4a48d4c9ca2db              # double 3.7549E-11
-.LCPI0_90:
-	.dword	0x3d451d6681b66433              # double 1.5002999999999999E-13
-.LCPI0_91:
-	.dword	0x3e3de8c7715c7fa3              # double 6.9638000000000003E-9
-.LCPI0_92:
-	.dword	0x3eb0bac503c6dc37              # double 9.9715999999999991E-7
-.LCPI0_93:
-	.dword	0x3f1d30926f02ed1a              # double 1.1135E-4
-.LCPI0_94:
-	.dword	0x3f839ea06997734f              # double 0.0095799000000000005
-.LCPI0_95:
-	.dword	0x3fde42aed1394318              # double 0.47282000000000002
-.LCPI0_96:
-	.dword	0xc064600000000000              # double -163
-.LCPI0_97:
-	.dword	0x3dc3abde6a390555              # double 3.5782000000000002E-11
-.LCPI0_98:
-	.dword	0x3d4457f66d8ca5b7              # double 1.4455E-13
-.LCPI0_99:
-	.dword	0x3e3c55b2b76313a0              # double 6.5972000000000003E-9
-.LCPI0_100:
-	.dword	0x3eafa3b4ff945de5              # double 9.4292999999999999E-7
-.LCPI0_101:
-	.dword	0x3f1ba9ff98511a24              # double 1.0553E-4
-.LCPI0_102:
-	.dword	0x3f82bb4b9b090562              # double 0.0091462999999999996
-.LCPI0_103:
-	.dword	0x3fdd0fcf80dc3372              # double 0.45408999999999999
-.LCPI0_104:
-	.dword	0xc064200000000000              # double -161
-.LCPI0_105:
-	.dword	0x3dc2bc315fa4db79              # double 3.4078999999999998E-11
-.LCPI0_106:
-	.dword	0x3d439620afb5e24c              # double 1.3917E-13
-.LCPI0_107:
-	.dword	0x3e3ad5bfa78c898b              # double 6.2479999999999999E-9
-.LCPI0_108:
-	.dword	0x3eadea712c78e8fa              # double 8.9156000000000002E-7
-.LCPI0_109:
-	.dword	0x3f1a383a840a6635              # double 1.0001999999999999E-4
-.LCPI0_110:
-	.dword	0x3f81e3c2b2979761              # double 0.0087352000000000002
-.LCPI0_111:
-	.dword	0x3fdbeadd590c0ad0              # double 0.43620999999999999
-.LCPI0_112:
-	.dword	0xc063e00000000000              # double -159
-.LCPI0_113:
-	.dword	0x3dc1d5aa343f6318              # double 3.2441000000000002E-11
-.LCPI0_114:
-	.dword	0x3d42d72cd087e7bb              # double 1.3386999999999999E-13
-.LCPI0_115:
-	.dword	0x3e39680d13c59f19              # double 5.9153999999999997E-9
-.LCPI0_116:
-	.dword	0x3eac488ab13d0509              # double 8.4290999999999997E-7
-.LCPI0_117:
-	.dword	0x3f18dbbb74822a5f              # double 9.4827000000000005E-5
-.LCPI0_118:
-	.dword	0x3f81177f7886239b              # double 0.0083455999999999998
-.LCPI0_119:
-	.dword	0x3fdad330941c8217              # double 0.41914000000000001
-.LCPI0_120:
-	.dword	0xc063a00000000000              # double -157
-.LCPI0_121:
-	.dword	0x3dc0f800d94a2092              # double 3.0865999999999997E-11
-.LCPI0_122:
-	.dword	0x3d421c2f83820157              # double 1.2867999999999999E-13
-.LCPI0_123:
-	.dword	0x3e380c0e3f424adb              # double 5.5988999999999998E-9
-.LCPI0_124:
-	.dword	0x3eaabd0fa96201dc              # double 7.9686999999999996E-7
-.LCPI0_125:
-	.dword	0x3f1791b0dbc45040              # double 8.9908999999999996E-5
-.LCPI0_126:
-	.dword	0x3f8055d3712bbc46              # double 0.0079761999999999993
-.LCPI0_127:
-	.dword	0x3fd9c7cd898b2e9d              # double 0.40282000000000001
-.LCPI0_128:
-	.dword	0xc063600000000000              # double -155
-.LCPI0_129:
-	.dword	0x3dc022ed4006984c              # double 2.9351999999999999E-11
-.LCPI0_130:
-	.dword	0x3d416528c8a42f20              # double 1.236E-13
-.LCPI0_131:
-	.dword	0x3e36c11a47741b18              # double 5.2979000000000001E-9
-.LCPI0_132:
-	.dword	0x3ea946b63a69a956              # double 7.5328999999999999E-7
-.LCPI0_133:
-	.dword	0x3f1659a2777d7ecb              # double 8.5259000000000005E-5
-.LCPI0_134:
-	.dword	0x3f7f3c70c996b767              # double 0.007626
-.LCPI0_135:
-	.dword	0x3fd8c8366516db0e              # double 0.38722000000000001
-.LCPI0_136:
-	.dword	0xc063200000000000              # double -153
-.LCPI0_137:
-	.dword	0x3dbeacded0e9948a              # double 2.7899E-11
-.LCPI0_138:
-	.dword	0x3d40b1bc641957fa              # double 1.1862E-13
-.LCPI0_139:
-	.dword	0x3e35866c240a35cd              # double 5.0117E-9
-.LCPI0_140:
-	.dword	0x3ea7e48c7fd54b3f              # double 7.1205999999999998E-7
-.LCPI0_141:
-	.dword	0x3f1532b0f112ec05              # double 8.0864000000000004E-5
-.LCPI0_142:
-	.dword	0x3f7de01a876ac2ec              # double 0.0072937999999999996
-.LCPI0_143:
-	.dword	0x3fd7d3c36113404f              # double 0.37230000000000002
-.LCPI0_144:
-	.dword	0xc062e00000000000              # double -151
-.LCPI0_145:
-	.dword	0x3dbd247e87ac75bf              # double 2.6505E-11
-.LCPI0_146:
-	.dword	0x3d4002a2cd8bae1c              # double 1.1376000000000001E-13
-.LCPI0_147:
-	.dword	0x3e345b5af2762942              # double 4.7397000000000001E-9
-.LCPI0_148:
-	.dword	0x3ea6958a97a655e7              # double 6.7306000000000002E-7
-.LCPI0_149:
-	.dword	0x3f141bebc3dde5cf              # double 7.6710000000000002E-5
-.LCPI0_150:
-	.dword	0x3f7c95b2844c2a7b              # double 0.0069787
-.LCPI0_151:
-	.dword	0x3fd6e9f6a93f290b              # double 0.35803000000000001
-.LCPI0_152:
-	.dword	0xc062a00000000000              # double -149
-.LCPI0_153:
-	.dword	0x3dbbac2986d8dcfd              # double 2.5168000000000001E-11
-.LCPI0_154:
-	.dword	0x3d3eaeff924c30d3              # double 1.0900999999999999E-13
-.LCPI0_155:
-	.dword	0x3e333f59f5ebec07              # double 4.4813999999999998E-9
-.LCPI0_156:
-	.dword	0x3ea558d49addfa8f              # double 6.3618999999999998E-7
-.LCPI0_157:
-	.dword	0x3f1314626b37ba09              # double 7.2782999999999998E-5
-.LCPI0_158:
-	.dword	0x3f7b5c4728b37d70              # double 0.0066797999999999996
-.LCPI0_159:
-	.dword	0x3fd60a5269595fee              # double 0.34438000000000002
-.LCPI0_160:
-	.dword	0xc062600000000000              # double -147
-.LCPI0_161:
-	.dword	0x3dba43dfce6eca43              # double 2.3888E-11
-.LCPI0_162:
-	.dword	0x3d3d62179d259236              # double 1.0439E-13
-.LCPI0_163:
-	.dword	0x3e3231c04bdd0c64              # double 4.2361999999999999E-9
-.LCPI0_164:
-	.dword	0x3ea42d62a77da788              # double 6.0133000000000005E-7
-.LCPI0_165:
-	.dword	0x3f121b57ec9d6f09              # double 6.9072000000000005E-5
-.LCPI0_166:
-	.dword	0x3f7a32e6dd194b2b              # double 0.0063962000000000003
-.LCPI0_167:
-	.dword	0x3fd53404ea4a8c15              # double 0.33129999999999998
-.LCPI0_168:
-	.dword	0xc062200000000000              # double -145
-.LCPI0_169:
-	.dword	0x3db8eac93232caba              # double 2.2662E-11
-.LCPI0_170:
-	.dword	0x3d3c1de7b6571ffb              # double 9.9891000000000001E-14
-.LCPI0_171:
-	.dword	0x3e3131e511bb18a0              # double 4.0035000000000001E-9
-.LCPI0_172:
-	.dword	0x3ea31242d906ac99              # double 5.6837000000000005E-7
-.LCPI0_173:
-	.dword	0x3f112fecf1743ad4              # double 6.5563999999999998E-5
-.LCPI0_174:
-	.dword	0x3f7918a009f62307              # double 0.0061269999999999996
-.LCPI0_175:
-	.dword	0x3fd466e43aa79bbb              # double 0.31878000000000001
-.LCPI0_176:
-	.dword	0xc061e00000000000              # double -143
-.LCPI0_177:
-	.dword	0x3db7a0e5b224de62              # double 2.1490000000000002E-11
-.LCPI0_178:
-	.dword	0x3d3ae26fdde0da22              # double 9.5513000000000004E-14
-.LCPI0_179:
-	.dword	0x3e303f1f64f79f02              # double 3.7827000000000002E-9
-.LCPI0_180:
-	.dword	0x3ea206db40f9df70              # double 5.3723999999999996E-7
-.LCPI0_181:
-	.dword	0x3f1051647f3923c1              # double 6.2248000000000004E-5
-.LCPI0_182:
-	.dword	0x3f780c9befb52f21              # double 0.0058713999999999997
-.LCPI0_183:
-	.dword	0x3fd3a272862f598a              # double 0.30679000000000001
-.LCPI0_184:
-	.dword	0xc061a00000000000              # double -141
-.LCPI0_185:
-	.dword	0x3db6655d22099262              # double 2.0369000000000001E-11
-.LCPI0_186:
-	.dword	0x3d39b01ec1f5ab98              # double 9.1262E-14
-.LCPI0_187:
-	.dword	0x3e2eb235a896cd5b              # double 3.5735000000000001E-9
-.LCPI0_188:
-	.dword	0x3ea10a23fd58ae5e              # double 5.0781999999999995E-7
-.LCPI0_189:
-	.dword	0x3f0efe0336d26046              # double 5.9113000000000001E-5
-.LCPI0_190:
-	.dword	0x3f770e397ea6cf0c              # double 0.0056287999999999998
-.LCPI0_191:
-	.dword	0x3fd2e60807357e67              # double 0.29529
-.LCPI0_192:
-	.dword	0xc061600000000000              # double -139
-.LCPI0_193:
-	.dword	0x3db5382f81e0e6ba              # double 1.9298999999999998E-11
-.LCPI0_194:
-	.dword	0x3d388706d4f36630              # double 8.7138999999999998E-14
-.LCPI0_195:
-	.dword	0x3e2cfe24aecb2b41              # double 3.3752000000000001E-9
-.LCPI0_196:
-	.dword	0x3ea01b6d22240d98              # double 4.8003000000000004E-7
-.LCPI0_197:
-	.dword	0x3f0d70534f326d3b              # double 5.6150000000000003E-5
-.LCPI0_198:
-	.dword	0x3f761c871f439226              # double 0.0053983
-.LCPI0_199:
-	.dword	0x3fd23150dae3e6c5              # double 0.28426000000000001
-.LCPI0_200:
-	.dword	0xc061200000000000              # double -137
-.LCPI0_201:
-	.dword	0x3db41884a56f6894              # double 1.8277000000000001E-11
-.LCPI0_202:
-	.dword	0x3d37672816da09ea              # double 8.3143999999999998E-14
-.LCPI0_203:
-	.dword	0x3e2b612aae79156a              # double 3.1874E-9
-.LCPI0_204:
-	.dword	0x3e9e740d86b9e2a1              # double 4.5378999999999999E-7
-.LCPI0_205:
-	.dword	0x3f0bf8840abc1ba5              # double 5.3350000000000003E-5
-.LCPI0_206:
-	.dword	0x3f7536e3c1dbd803              # double 0.0051793000000000004
-.LCPI0_207:
-	.dword	0x3fd184230fcf80dc              # double 0.27368999999999999
-.LCPI0_208:
-	.dword	0xc060e00000000000              # double -135
-.LCPI0_209:
-	.dword	0x3db3065c8cb517ee              # double 1.7303000000000001E-11
-.LCPI0_210:
-	.dword	0x3d365094fa076898              # double 7.9277999999999998E-14
-.LCPI0_211:
-	.dword	0x3e29d9f5e283a865              # double 3.0095E-9
-.LCPI0_212:
-	.dword	0x3e9cca55ef08d88a              # double 4.2901E-7
-.LCPI0_213:
-	.dword	0x3f0a951b7469782d              # double 5.0701999999999997E-5
-.LCPI0_214:
-	.dword	0x3f745cc92eb29af2              # double 0.0049712999999999997
-.LCPI0_215:
-	.dword	0x3fd0ddd6e04c0592              # double 0.26354
-.LCPI0_216:
-	.dword	0xc060a00000000000              # double -133
-.LCPI0_217:
-	.dword	0x3db200df0b7681f0              # double 1.6373999999999999E-11
-.LCPI0_218:
-	.dword	0x3d35434d7e7b823a              # double 7.5540999999999996E-14
-.LCPI0_219:
-	.dword	0x3e2867a51cd7a1e6              # double 2.8411E-9
-.LCPI0_220:
-	.dword	0x3e9b3853a536e553              # double 4.0560999999999999E-7
-.LCPI0_221:
-	.dword	0x3f0945290793d0b5              # double 4.8198999999999997E-5
-.LCPI0_222:
-	.dword	0x3f738d60a6330510              # double 0.0047735
-.LCPI0_223:
-	.dword	0x3fd03e1869835159              # double 0.25379000000000002
-.LCPI0_224:
-	.dword	0xc060600000000000              # double -131
-.LCPI0_225:
-	.dword	0x3db107c412f52afe              # double 1.5489000000000001E-11
-.LCPI0_226:
-	.dword	0x3d343f51a43656d1              # double 7.1933000000000005E-14
-.LCPI0_227:
-	.dword	0x3e27098f7ae69034              # double 2.6819E-9
-.LCPI0_228:
-	.dword	0x3e99bcd2cc45b459              # double 3.8351999999999998E-7
-.LCPI0_229:
-	.dword	0x3f0807778764d281              # double 4.5831999999999998E-5
-.LCPI0_230:
-	.dword	0x3f72c83ec892ab69              # double 0.0045855000000000002
-.LCPI0_231:
-	.dword	0x3fcf49cf56eac860              # double 0.24443999999999999
-.LCPI0_232:
-	.dword	0xc060200000000000              # double -129
-.LCPI0_233:
-	.dword	0x3db01ac394729779              # double 1.4646999999999999E-11
-.LCPI0_234:
-	.dword	0x3d33448ef8da1489              # double 6.8453000000000004E-14
-.LCPI0_235:
-	.dword	0x3e25be2aec0ebf4b              # double 2.5312000000000001E-9
-.LCPI0_236:
-	.dword	0x3e9856cb8236b3ec              # double 3.6268000000000002E-7
-.LCPI0_237:
-	.dword	0x3f06db166f35cb72              # double 4.3594000000000003E-5
-.LCPI0_238:
-	.dword	0x3f720cc28621ed91              # double 0.0044067000000000004
-.LCPI0_239:
-	.dword	0x3fce2339c0ebedfa              # double 0.23544999999999999
-.LCPI0_240:
-	.dword	0xc05fc00000000000              # double -127
-.LCPI0_241:
-	.dword	0x3dae729ae4e3a050              # double 1.3846000000000001E-11
-.LCPI0_242:
-	.dword	0x3d3252f30a08e990              # double 6.5099999999999995E-14
-.LCPI0_243:
-	.dword	0x3e248506d9468e04              # double 2.3887999999999999E-9
-.LCPI0_244:
-	.dword	0x3e9704b1f40c0981              # double 3.4299999999999999E-7
-.LCPI0_245:
-	.dword	0x3f05bef2de483919              # double 4.1477000000000003E-5
-.LCPI0_246:
-	.dword	0x3f715a65a723c5d8              # double 0.0042366000000000001
-.LCPI0_247:
-	.dword	0x3fcd07c84b5dcc64              # double 0.2268
-.LCPI0_248:
-	.dword	0xc05f400000000000              # double -125
-.LCPI0_249:
-	.dword	0x3dacc5a31eebbb9e              # double 1.3084E-11
-.LCPI0_250:
-	.dword	0x3d316a6b65650415              # double 6.1872999999999995E-14
-.LCPI0_251:
-	.dword	0x3e235d09c8f5e982              # double 2.2541999999999999E-9
-.LCPI0_252:
-	.dword	0x3e95c5aa3ac6e65c              # double 3.2443E-7
-.LCPI0_253:
-	.dword	0x3f04b261082509f2              # double 3.9475999999999999E-5
-.LCPI0_254:
-	.dword	0x3f70b0a1f3db2e8f              # double 0.0040746999999999997
-.LCPI0_255:
-	.dword	0x3fcbf77af640639d              # double 0.21848999999999999
-.LCPI0_256:
-	.dword	0xc05ec00000000000              # double -123
-.LCPI0_257:
-	.dword	0x3dab2e9fd6fd80dd              # double 1.2361E-11
-.LCPI0_258:
-	.dword	0x3d308ad32632c073              # double 5.8769999999999998E-14
-.LCPI0_259:
-	.dword	0x3e2245528d098f79              # double 2.1270000000000002E-9
-.LCPI0_260:
-	.dword	0x3e9498ac7468b8cb              # double 3.0690999999999999E-7
-.LCPI0_261:
-	.dword	0x3f03b42baff5eb43              # double 3.7582E-5
-.LCPI0_262:
-	.dword	0x3f700f0c0c7dbcc4              # double 0.0039205999999999998
-.LCPI0_263:
-	.dword	0x3fcaf1a9fbe76c8b              # double 0.21049999999999999
-.LCPI0_264:
-	.dword	0xc05e400000000000              # double -121
-.LCPI0_265:
-	.dword	0x3da9ab5097251322              # double 1.1673E-11
-.LCPI0_266:
-	.dword	0x3d2f682fb42899af              # double 5.5790000000000001E-14
-.LCPI0_267:
-	.dword	0x3e213cfff76e3d9c              # double 2.0068000000000001E-9
-.LCPI0_268:
-	.dword	0x3e937cb0bef2ef1e              # double 2.9037999999999998E-7
-.LCPI0_269:
-	.dword	0x3f02c3c9655b9bd4              # double 3.5790999999999997E-5
-.LCPI0_270:
-	.dword	0x3f6eea7122820b08              # double 0.0037739000000000002
-.LCPI0_271:
-	.dword	0x3fc9f5ad96a6a012              # double 0.20280999999999999
-.LCPI0_272:
-	.dword	0xc05dc00000000000              # double -119
-.LCPI0_273:
-	.dword	0x3da83c457cdf69a8              # double 1.1021E-11
-.LCPI0_274:
-	.dword	0x3d2dcc29389c0b3b              # double 5.2930999999999998E-14
-.LCPI0_275:
-	.dword	0x3e2043a1711a52c6              # double 1.8934000000000001E-9
-.LCPI0_276:
-	.dword	0x3e9270db3366ba97              # double 2.7478999999999999E-7
-.LCPI0_277:
-	.dword	0x3f01e049a3af6987              # double 3.4096E-5
-.LCPI0_278:
-	.dword	0x3f6dc57844b53bb7              # double 0.0036342000000000002
-.LCPI0_279:
-	.dword	0x3fc902de00d1b717              # double 0.19539999999999999
-.LCPI0_280:
-	.dword	0xc058c00000000000              # double -99
-.LCPI0_281:
-	.dword	0x3d9af109a3630d2e              # double 6.1257999999999996E-12
-.LCPI0_282:
-	.dword	0x3d211ed4c2f43d7e              # double 3.0412E-14
-.LCPI0_283:
-	.dword	0x3e122f550d281614              # double 1.0585E-9
-.LCPI0_284:
-	.dword	0x3e85782f0a3274a4              # double 1.5996000000000001E-7
-.LCPI0_285:
-	.dword	0x3ef66c7e028f516c              # double 2.1384999999999999E-5
-.LCPI0_286:
-	.dword	0x3f64de48f6131734              # double 0.0025474
-.LCPI0_287:
-	.dword	0x3fc1350092ccf6be              # double 0.13442999999999999
-.LCPI0_288:
-	.dword	0xc053c00000000000              # double -79
-.LCPI0_289:
-	.dword	0x3d8d9aa84ed5f7f8              # double 3.3656000000000001E-12
-.LCPI0_290:
-	.dword	0x3d12ee9801a347ab              # double 1.6814999999999999E-14
-.LCPI0_291:
-	.dword	0x3e0487d76cb7622a              # double 5.9752000000000002E-10
-.LCPI0_292:
-	.dword	0x3e79a613c8cbadfc              # double 9.5549000000000004E-8
-.LCPI0_293:
-	.dword	0x3eed281dc526a9fd              # double 1.3903000000000001E-5
-.LCPI0_294:
-	.dword	0x3f5e61ead6a30f64              # double 0.0018544
-.LCPI0_295:
-	.dword	0x3fb745bf26f1dc51              # double 0.090908000000000003
-.LCPI0_296:
-	.dword	0xc04d800000000000              # double -59
-.LCPI0_297:
-	.dword	0x3d805189fcd8287b              # double 1.8552E-12
-.LCPI0_298:
-	.dword	0x3d04870426dcdb0e              # double 9.1160000000000006E-15
-.LCPI0_299:
-	.dword	0x3df7a62cc6986c28              # double 3.4414000000000001E-10
-.LCPI0_300:
-	.dword	0x3e6f9cae3284854e              # double 5.8881999999999997E-8
-.LCPI0_301:
-	.dword	0x3ee3a73b6897e136              # double 9.3713999999999997E-6
-.LCPI0_302:
-	.dword	0x3f56e01655acdabf              # double 0.0013962
-.LCPI0_303:
-	.dword	0x3fae0e30446b69db              # double 0.058701999999999997
-.LCPI0_304:
-	.dword	0xc049800000000000              # double -51
-.LCPI0_305:
-	.dword	0x3d79d095040f681c              # double 1.4674E-12
-.LCPI0_306:
-	.dword	0x3d000b39a7a160d0              # double 7.1249000000000003E-15
-.LCPI0_307:
-	.dword	0x3df31acdbb7ee971              # double 2.7801E-10
-.LCPI0_308:
-	.dword	0x3e6a4a3f844e2f75              # double 4.8969E-8
-.LCPI0_309:
-	.dword	0x3ee0f2ab2899438c              # double 8.0814000000000002E-6
-.LCPI0_310:
-	.dword	0x3f5497d2193ce7e8              # double 0.0012569
-.LCPI0_311:
-	.dword	0x3fa8a0f4d7add15f              # double 0.048103
-.LCPI0_312:
-	.dword	0xc048800000000000              # double -49
-.LCPI0_313:
-	.dword	0x3d785b3bd2b88744              # double 1.3845E-12
-.LCPI0_314:
-	.dword	0x3cfe2c1ce7d17156              # double 6.6996000000000002E-15
-.LCPI0_315:
-	.dword	0x3df21ff066d70de7              # double 2.6374999999999999E-10
-.LCPI0_316:
-	.dword	0x3e69208e2ab83a80              # double 4.6802999999999999E-8
-.LCPI0_317:
-	.dword	0x3ee0586cf27f6074              # double 7.7941000000000005E-6
-.LCPI0_318:
-	.dword	0x3f5412711bcc0e61              # double 0.0012251
-.LCPI0_319:
-	.dword	0x3fa75ba2be0589ad              # double 0.045621000000000002
-.LCPI0_320:
-	.dword	0xc047800000000000              # double -47
-.LCPI0_321:
-	.dword	0x3d76fbf3f21de835              # double 1.3064999999999999E-12
-.LCPI0_322:
-	.dword	0x3cfc5f67cd792795              # double 6.2999999999999998E-15
-.LCPI0_323:
-	.dword	0x3df13352fc9a645b              # double 2.503E-10
-.LCPI0_324:
-	.dword	0x3e6805fb190d4900              # double 4.4746999999999997E-8
-.LCPI0_325:
-	.dword	0x3edf8a006bd80cbe              # double 7.5194999999999997E-6
-.LCPI0_326:
-	.dword	0x3f5392189bd8383b              # double 0.0011945
-.LCPI0_327:
-	.dword	0x3fa61e71044f1a1a              # double 0.043201000000000003
-.LCPI0_328:
-	.dword	0xc046800000000000              # double -45
-.LCPI0_329:
-	.dword	0x3d75b1d6ccaacc2c              # double 1.2332E-12
-.LCPI0_330:
-	.dword	0x3cfaae99476e38a8              # double 5.9246000000000001E-15
-.LCPI0_331:
-	.dword	0x3df054144eb5aa81              # double 2.3761000000000002E-10
-.LCPI0_332:
-	.dword	0x3e66f9d6634e4f2b              # double 4.2796000000000002E-8
-.LCPI0_333:
-	.dword	0x3ede70097b9f75b6              # double 7.2568999999999999E-6
-.LCPI0_334:
-	.dword	0x3f53165d3996fa83              # double 0.001165
-.LCPI0_335:
-	.dword	0x3fa4e93e1c9b413a              # double 0.040842000000000003
-.LCPI0_336:
-	.dword	0xc045800000000000              # double -43
-.LCPI0_337:
-	.dword	0x3d747b173735b59f              # double 1.1642E-12
-.LCPI0_338:
-	.dword	0x3cf91831a4779845              # double 5.5721E-15
-.LCPI0_339:
-	.dword	0x3def02a65e2b3c19              # double 2.2563E-10
-.LCPI0_340:
-	.dword	0x3e65fb29bf163c7c              # double 4.0942999999999998E-8
-.LCPI0_341:
-	.dword	0x3edd626ba3f5ba98              # double 7.0057999999999999E-6
-.LCPI0_342:
-	.dword	0x3f529e6835737f54              # double 0.0011364000000000001
-.LCPI0_343:
-	.dword	0x3fa3bb83cf2cf95d              # double 0.038539999999999998
-.LCPI0_344:
-	.dword	0xc044800000000000              # double -41
-.LCPI0_345:
-	.dword	0x3d735741e6f4452c              # double 1.0993999999999999E-12
-.LCPI0_346:
-	.dword	0x3cf79a58a8004aff              # double 5.2408999999999996E-15
-.LCPI0_347:
-	.dword	0x3ded745cdf4df966              # double 2.1431000000000001E-10
-.LCPI0_348:
-	.dword	0x3e6509686f990786              # double 3.9184000000000002E-8
-.LCPI0_349:
-	.dword	0x3edc604afddc0ca6              # double 6.7653999999999996E-6
-.LCPI0_350:
-	.dword	0x3f522b104f029c92              # double 0.0011088999999999999
-.LCPI0_351:
-	.dword	0x3fa295421c044285              # double 0.036295000000000001
-.LCPI0_352:
-	.dword	0xc043800000000000              # double -39
-.LCPI0_353:
-	.dword	0x3d724489b0bcfd4c              # double 1.0384000000000001E-12
-.LCPI0_354:
-	.dword	0x3cf633e72c2b33b3              # double 4.93E-15
-.LCPI0_355:
-	.dword	0x3debfc3de9893d59              # double 2.0361999999999999E-10
-.LCPI0_356:
-	.dword	0x3e64239c2a719fc4              # double 3.7511999999999999E-8
-.LCPI0_357:
-	.dword	0x3edb695512b2de5a              # double 6.5354000000000001E-6
-.LCPI0_358:
-	.dword	0x3f51bb7ec6af7c5a              # double 0.0010823
-.LCPI0_359:
-	.dword	0x3fa176145953586d              # double 0.034104000000000002
-.LCPI0_360:
-	.dword	0xc042800000000000              # double -37
-.LCPI0_361:
-	.dword	0x3d71421f0df0657f              # double 9.8101999999999999E-13
-.LCPI0_362:
-	.dword	0x3cf4e35d7fbf4617              # double 4.6381000000000002E-15
-.LCPI0_363:
-	.dword	0x3dea993b4592b866              # double 1.9353E-10
-.LCPI0_364:
-	.dword	0x3e63495b6206fe24              # double 3.5923999999999998E-8
-.LCPI0_365:
-	.dword	0x3eda7cc9785b3acc              # double 6.3150999999999999E-6
-.LCPI0_366:
-	.dword	0x3f514fb39c7a1eaa              # double 0.0010566
-.LCPI0_367:
-	.dword	0x3fa05db76b3bb83d              # double 0.031965
-.LCPI0_368:
-	.dword	0xc041800000000000              # double -35
-.LCPI0_369:
-	.dword	0x3d704ef8d289d598              # double 9.2702999999999994E-13
-.LCPI0_370:
-	.dword	0x3cf3a73bf18375e2              # double 4.3638999999999998E-15
-.LCPI0_371:
-	.dword	0x3de949929743e5f4              # double 1.8399E-10
-.LCPI0_372:
-	.dword	0x3e6279d2fb27147f              # double 3.4414E-8
-.LCPI0_373:
-	.dword	0x3ed99a3a3b55ba9e              # double 6.1040999999999997E-6
-.LCPI0_374:
-	.dword	0x3f50e7aed0628383              # double 0.0010318
-.LCPI0_375:
-	.dword	0x3f9e9813879c4114              # double 0.029877000000000001
-.LCPI0_376:
-	.dword	0xc040800000000000              # double -33
-.LCPI0_377:
-	.dword	0x3d6ed449c2f3d75f              # double 8.7621999999999998E-13
-.LCPI0_378:
-	.dword	0x3cf27e96632d455f              # double 4.1066000000000001E-15
-.LCPI0_379:
-	.dword	0x3de80c8fb9c090fa              # double 1.7498E-10
-.LCPI0_380:
-	.dword	0x3e61b4996838dbc1              # double 3.2979E-8
-.LCPI0_381:
-	.dword	0x3ed8c1396822f672              # double 5.9020000000000004E-6
-.LCPI0_382:
-	.dword	0x3f508305029e3ff2              # double 0.0010078000000000001
-.LCPI0_383:
-	.dword	0x3f9c814d72799a20              # double 0.027837000000000001
-.LCPI0_384:
-	.dword	0x3d6d2590594d1848              # double 8.2839999999999998E-13
-.LCPI0_385:
-	.dword	0x3cf167ed2383a844              # double 3.8649000000000001E-15
-.LCPI0_386:
-	.dword	0x3de6e0ca63504f66              # double 1.6646000000000001E-10
-.LCPI0_387:
-	.dword	0x3e60f8db8e0a45c3              # double 3.1613E-8
-.LCPI0_388:
-	.dword	0x3ed7f1221183d337              # double 5.7081999999999998E-6
-.LCPI0_389:
-	.dword	0x3f5021ab7665e2de              # double 9.8459000000000003E-4
-.LCPI0_390:
-	.dword	0x3f9a771c970f7b9e              # double 0.025845
-.LCPI0_391:
-	.dword	0x3d6b903d69d5c337              # double 7.8339999999999997E-13
-.LCPI0_392:
-	.dword	0x3cf0627198057091              # double 3.6380999999999997E-15
-.LCPI0_393:
-	.dword	0x3de5c5345ca8d1a8              # double 1.5839999999999999E-10
-.LCPI0_394:
-	.dword	0x3e6046530e354dce              # double 3.0314000000000003E-8
-.LCPI0_395:
-	.dword	0x3ed729bd3db89d40              # double 5.5225000000000001E-6
-.LCPI0_396:
-	.dword	0x3f4f86ee71374fcd              # double 9.6212999999999995E-4
-.LCPI0_397:
-	.dword	0x3f9878b7a1c25d07              # double 0.023897999999999999
-.LCPI0_398:
-	.dword	0x3d6a129ad859a0eb              # double 7.4103000000000002E-13
-.LCPI0_399:
-	.dword	0x3ceed9be2e1862d9              # double 3.4251E-15
-.LCPI0_400:
-	.dword	0x3de4b91980ede2b9              # double 1.5078E-10
-.LCPI0_401:
-	.dword	0x3e5f38e657dbd4e3              # double 2.9078000000000001E-8
-.LCPI0_402:
-	.dword	0x3ed66a65ff82397d              # double 5.3442999999999998E-6
-.LCPI0_403:
-	.dword	0x3f4ed0a59f6159b7              # double 9.4039999999999998E-4
-.LCPI0_404:
-	.dword	0x3f96861e92923e5c              # double 0.021996000000000002
-.LCPI0_405:
-	.dword	0x3d68ab4ec479933c              # double 7.0113999999999998E-13
-.LCPI0_406:
-	.dword	0x3ced0cce0c2d79ab              # double 3.2252E-15
-.LCPI0_407:
-	.dword	0x3de3bb6b98d5330a              # double 1.4357E-10
-.LCPI0_408:
-	.dword	0x3e5df517f66a1fc6              # double 2.7899999999999998E-8
-.LCPI0_409:
-	.dword	0x3ed5b2e55d20f440              # double 5.1734000000000003E-6
-.LCPI0_410:
-	.dword	0x3f4e2026910e5ab7              # double 9.1936000000000003E-4
-.LCPI0_411:
-	.dword	0x3f949e8815e39714              # double 0.020136000000000001
-.LCPI0_412:
-	.dword	0x3d6758ff4dd67c05              # double 6.6357999999999999E-13
-.LCPI0_413:
-	.dword	0x3ceb5bff86228abe              # double 3.0375000000000002E-15
-.LCPI0_414:
-	.dword	0x3de2cb767f828d91              # double 1.3674999999999999E-10
-.LCPI0_415:
-	.dword	0x3e5cc0f499af778f              # double 2.6779000000000001E-8
-.LCPI0_416:
-	.dword	0x3ed502cd63156628              # double 5.0093999999999998E-6
-.LCPI0_417:
-	.dword	0x3f4d755bccaf709b              # double 8.9899999999999995E-4
-.LCPI0_418:
-	.dword	0x3f92c1f42bb66730              # double 0.018318000000000001
-.LCPI0_419:
-	.dword	0x3d661a5294113d1f              # double 6.2819999999999999E-13
-.LCPI0_420:
-	.dword	0x3ce9c57a5f629aa4              # double 2.8612E-15
-.LCPI0_421:
-	.dword	0x3de1e8861019bd46              # double 1.303E-10
-.LCPI0_422:
-	.dword	0x3e5b9b62c813c95d              # double 2.5711000000000001E-8
-.LCPI0_423:
-	.dword	0x3ed459cb9ac001b0              # double 4.8520000000000003E-6
-.LCPI0_424:
-	.dword	0x3f4ccfef6c0912a3              # double 8.7927999999999997E-4
-.LCPI0_425:
-	.dword	0x3f90efdc9c4da900              # double 0.016539999999999999
-.LCPI0_426:
-	.dword	0x3d64ee05c5bffeaa              # double 5.9485999999999995E-13
-.LCPI0_427:
-	.dword	0x3ce847dc6a7deccc              # double 2.6957E-15
-.LCPI0_428:
-	.dword	0x3de1113200e25815              # double 1.2418E-10
-.LCPI0_429:
-	.dword	0x3e5a83d5c4cb0bc1              # double 2.4693999999999999E-8
-.LCPI0_430:
-	.dword	0x3ed3b77210a15f77              # double 4.7008E-6
-.LCPI0_431:
-	.dword	0x3f4c2fb67bfd7c6d              # double 8.6017999999999999E-4
-.LCPI0_432:
-	.dword	0x3f8e4f765fd8adac              # double 0.014800000000000001
-.LCPI0_433:
-	.dword	0x3d63d3324d4e01e3              # double 5.6346E-13
-.LCPI0_434:
-	.dword	0x3ce6e18872722536              # double 2.5402999999999999E-15
-.LCPI0_435:
-	.dword	0x3de0457a51dc5dfe              # double 1.1838999999999999E-10
-.LCPI0_436:
-	.dword	0x3e5978edb7d72726              # double 2.3723E-8
-.LCPI0_437:
-	.dword	0x3ed31b6e4e19f1f7              # double 4.5554999999999998E-6
-.LCPI0_438:
-	.dword	0x3f4b94708fe00767              # double 8.4166999999999998E-4
-.LCPI0_439:
-	.dword	0x3f8ad3a604e1e710              # double 0.013099
-.LCPI0_440:
-	.dword	0x3d62c89559516ee9              # double 5.3386000000000001E-13
-.LCPI0_441:
-	.dword	0x3ce5911c49cf8751              # double 2.3944E-15
-.LCPI0_442:
-	.dword	0x3ddf0955bc5733f2              # double 1.1291E-10
-.LCPI0_443:
-	.dword	0x3e587aaaa1381b8b              # double 2.2798E-8
-.LCPI0_444:
-	.dword	0x3ed285a4d649df58              # double 4.4159999999999997E-6
-.LCPI0_445:
-	.dword	0x3f4afddd3b040d00              # double 8.2372000000000001E-4
-.LCPI0_446:
-	.dword	0x3f876a2f48c2e771              # double 0.011433
-.LCPI0_447:
-	.dword	0x3d61cd31454040b1              # double 5.0594999999999998E-13
-.LCPI0_448:
-	.dword	0x3ce454fabb93b71c              # double 2.2572999999999998E-15
-.LCPI0_449:
-	.dword	0x3ddd9b6add0b78ed              # double 1.0771E-10
-.LCPI0_450:
-	.dword	0x3e57883965bbdac9              # double 2.1915999999999999E-8
-.LCPI0_451:
-	.dword	0x3ed1f5a7b5b1c03b              # double 4.2818999999999996E-6
-.LCPI0_452:
-	.dword	0x3f4a6bfc7d698d37              # double 8.0632999999999995E-4
-.LCPI0_453:
-	.dword	0x3f8414112efc6cce              # double 0.0098039000000000008
-.LCPI0_454:
-	.dword	0x3d60e04d99704505              # double 4.7964999999999998E-13
-.LCPI0_455:
-	.dword	0x3ce32bfca1e19775              # double 2.1285000000000002E-15
-.LCPI0_456:
-	.dword	0x3ddc407fe0f955e6              # double 1.0278000000000001E-10
-.LCPI0_457:
-	.dword	0x3e56a0c6ea3056ba              # double 2.1074000000000001E-8
-.LCPI0_458:
-	.dword	0x3ed16b2475b20719              # double 4.1528999999999997E-6
-.LCPI0_459:
-	.dword	0x3f49de7870d4ff4b              # double 7.8945999999999997E-4
-.LCPI0_460:
-	.dword	0x3f80cf75f478e341              # double 0.0082082000000000005
-.LCPI0_461:
-	.dword	0x3d6000d5a2623093              # double 4.5484000000000001E-13
-.LCPI0_462:
-	.dword	0x3ce21535de6eaaa3              # double 2.0076000000000001E-15
-.LCPI0_463:
-	.dword	0x3ddaf85ebd11ee25              # double 9.8117000000000006E-11
-.LCPI0_464:
-	.dword	0x3e55c40cd02f8aa5              # double 2.0271E-8
-.LCPI0_465:
-	.dword	0x3ed0e5ff996ada1a              # double 4.0288999999999997E-6
-.LCPI0_466:
-	.dword	0x3f49553b9bb7810b              # double 7.7309999999999998E-4
-.LCPI0_467:
-	.dword	0x3f7b3885828b601b              # double 0.0066457
-.LCPI0_468:
-	.dword	0x3d5e5bf3b2ed15ba              # double 4.3143000000000001E-13
-.LCPI0_469:
-	.dword	0x3ce10f093c3894a7              # double 1.8938999999999999E-15
-.LCPI0_470:
-	.dword	0x3dd9c0a2f40226f1              # double 9.3687000000000001E-11
-.LCPI0_471:
-	.dword	0x3e54f137fc876864              # double 1.9504E-8
-.LCPI0_472:
-	.dword	0x3ed065e6aa3cabb7              # double 3.9095999999999998E-6
-.LCPI0_473:
-	.dword	0x3f48d00591646be5              # double 7.5721999999999996E-4
-.LCPI0_474:
-	.dword	0x3f74f3e2bb4b9b09              # double 0.0051154
-.LCPI0_475:
-	.dword	0x3d5cce31abf0cfe7              # double 4.0935000000000002E-13
-.LCPI0_476:
-	.dword	0x3ce01900ac1a16a7              # double 1.7871999999999999E-15
-.LCPI0_477:
-	.dword	0x3dd898e06fac46df              # double 8.9484000000000006E-11
-.LCPI0_478:
-	.dword	0x3e5427bbb26be687              # double 1.8771E-8
-.LCPI0_479:
-	.dword	0x3ecfd5455ccf9081              # double 3.7948000000000001E-6
-.LCPI0_480:
-	.dword	0x3f484ed651dbbfda              # double 7.4182000000000002E-4
-.LCPI0_481:
-	.dword	0x3f6da059a73b42cc              # double 0.0036164999999999999
-.LCPI0_482:
-	.dword	0x3d5b56f4407b2b3f              # double 3.8851999999999999E-13
-.LCPI0_483:
-	.dword	0x3cde62fdf221a945              # double 1.6867999999999999E-15
-.LCPI0_484:
-	.dword	0x3dd7803f03d4db15              # double 8.5495999999999993E-11
-.LCPI0_485:
-	.dword	0x3e53675193770057              # double 1.8071E-8
-.LCPI0_486:
-	.dword	0x3ecee7f95858f80d              # double 3.6843E-6
-.LCPI0_487:
-	.dword	0x3f47d157f6e1f426              # double 7.2685999999999996E-4
-.LCPI0_488:
-	.dword	0x3f61987908299a2d              # double 0.0021478999999999999
-.LCPI0_489:
-	.dword	0x3d59f49c634d36c8              # double 3.6884999999999999E-13
-.LCPI0_490:
-	.dword	0x3cdcac6baec528a3              # double 1.5917E-15
-.LCPI0_491:
-	.dword	0x3dd675d48090d1d6              # double 8.1709999999999995E-11
-.LCPI0_492:
-	.dword	0x3e52afb34142b11c              # double 1.7403E-8
-.LCPI0_493:
-	.dword	0x3ece037b539626b4              # double 3.5779000000000001E-6
-.LCPI0_494:
-	.dword	0x3f47578a807708cb              # double 7.1234E-4
-.LCPI0_495:
-	.dword	0x3f4739ad75c47d48              # double 7.0878E-4
 	.text
-	.globl	foo
+	.globl	foo                             # -- Begin function foo
 	.p2align	5
 	.type	foo,@function
 foo:                                    # @foo
@@ -1002,7 +8,7 @@ foo:                                    # @foo
 	ftintrz.w.d	$fa1, $fa0
 	movfr2gr.s	$a0, $fa1
 	ori	$a1, $zero, 93
-	bltu	$a1, $a0, .LBB0_67
+	bltu	$a1, $a0, .LBB0_66
 # %bb.1:
 	slli.d	$a0, $a0, 2
 	pcalau12i	$a1, %pc_hi20(.LJTI0_0)
@@ -1012,1402 +18,3093 @@ foo:                                    # @foo
 	jr	$a0
 .LBB0_2:
 	vldi	$vr1, -784
-	pcalau12i	$a0, %pc_hi20(.LCPI0_489)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_489)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_490)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_490)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_491)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_491)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_492)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_492)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_493)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_493)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_494)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_494)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_495)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_495)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 406739
+	ori	$a0, $a0, 1736
+	lu32i.d	$a0, -396132
+	lu52i.d	$a0, $a0, 981
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -332718
+	ori	$a0, $a0, 2211
+	lu32i.d	$a0, -218005
+	lu52i.d	$a0, $a0, 973
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -521971
+	ori	$a0, $a0, 470
+	lu32i.d	$a0, 423380
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 267307
+	ori	$a0, $a0, 284
+	lu32i.d	$a0, 176051
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 342370
+	ori	$a0, $a0, 1716
+	lu32i.d	$a0, -130181
+	lu52i.d	$a0, $a0, 1004
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -522384
+	ori	$a0, $a0, 2251
+	lu32i.d	$a0, 481162
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 482375
+	ori	$a0, $a0, 3400
+	lu32i.d	$a0, 473517
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_3:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_160)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_160)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_161)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_161)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_162)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_162)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_163)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_163)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_164)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_164)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_165)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_165)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_166)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_166)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_167)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_167)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 155648
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -203028
+	ori	$a0, $a0, 2627
+	lu32i.d	$a0, -375841
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -404903
+	ori	$a0, $a0, 566
+	lu32i.d	$a0, -171497
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 310736
+	ori	$a0, $a0, 3172
+	lu32i.d	$a0, 143808
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -362534
+	ori	$a0, $a0, 1928
+	lu32i.d	$a0, 273762
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -79402
+	ori	$a0, $a0, 3849
+	lu32i.d	$a0, 138071
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -142956
+	ori	$a0, $a0, 2859
+	lu32i.d	$a0, -380186
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -88920
+	ori	$a0, $a0, 3093
+	lu32i.d	$a0, 340996
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_4:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_104)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_104)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_105)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_105)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_106)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_106)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_107)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_107)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_108)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_108)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_109)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_109)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_110)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_110)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_111)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_111)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 270336
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 391757
+	ori	$a0, $a0, 2937
+	lu32i.d	$a0, 179249
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -328866
+	ori	$a0, $a0, 588
+	lu32i.d	$a0, 235040
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -362296
+	ori	$a0, $a0, 2443
+	lu32i.d	$a0, -338497
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 182158
+	ori	$a0, $a0, 2298
+	lu32i.d	$a0, -136591
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -507738
+	ori	$a0, $a0, 1589
+	lu32i.d	$a0, -378822
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -317063
+	ori	$a0, $a0, 1889
+	lu32i.d	$a0, 123842
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 364736
+	ori	$a0, $a0, 2768
+	lu32i.d	$a0, -267555
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_5:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_56)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_56)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_57)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_57)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_58)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_58)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_59)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_59)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_60)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_60)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_61)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_61)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_62)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_62)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_63)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_63)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 368640
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 227529
+	ori	$a0, $a0, 1351
+	lu32i.d	$a0, -465408
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -122344
+	ori	$a0, $a0, 1775
+	lu32i.d	$a0, -504461
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -143227
+	ori	$a0, $a0, 4025
+	lu32i.d	$a0, 164144
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -331814
+	ori	$a0, $a0, 1182
+	lu32i.d	$a0, 320975
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 486418
+	ori	$a0, $a0, 1917
+	lu32i.d	$a0, 138123
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -338162
+	ori	$a0, $a0, 1779
+	lu32i.d	$a0, 504054
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 337893
+	ori	$a0, $a0, 533
+	lu32i.d	$a0, 119789
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_6:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_80)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_80)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_81)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_81)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_82)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_82)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_83)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_83)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_84)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_84)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_85)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_85)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_86)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_86)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_87)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_87)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 319488
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 118486
+	ori	$a0, $a0, 3448
+	lu32i.d	$a0, 370346
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 477326
+	ori	$a0, $a0, 2954
+	lu32i.d	$a0, 386488
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -294797
+	ori	$a0, $a0, 3917
+	lu32i.d	$a0, -28762
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 63257
+	ori	$a0, $a0, 1882
+	lu32i.d	$a0, 110749
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -388896
+	ori	$a0, $a0, 545
+	lu32i.d	$a0, -78518
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 352254
+	ori	$a0, $a0, 1750
+	lu32i.d	$a0, 298567
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 124486
+	ori	$a0, $a0, 3861
+	lu32i.d	$a0, -31751
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_7:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_112)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_112)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_113)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_113)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_114)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_114)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_115)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_115)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_116)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_116)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_117)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_117)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_118)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_118)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_119)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_119)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 253952
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 214006
+	ori	$a0, $a0, 792
+	lu32i.d	$a0, 120234
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -194434
+	ori	$a0, $a0, 1979
+	lu32i.d	$a0, 186156
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 80985
+	ori	$a0, $a0, 3865
+	lu32i.d	$a0, -432115
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -322608
+	ori	$a0, $a0, 1289
+	lu32i.d	$a0, -243574
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 477218
+	ori	$a0, $a0, 2655
+	lu32i.d	$a0, -468037
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 493666
+	ori	$a0, $a0, 923
+	lu32i.d	$a0, 71551
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -441912
+	ori	$a0, $a0, 535
+	lu32i.d	$a0, -339152
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_8:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_192)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_192)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_193)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_193)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_194)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_194)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_195)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_195)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_196)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_196)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_197)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_197)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_198)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_198)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_199)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_199)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 90112
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -516594
+	ori	$a0, $a0, 1722
+	lu32i.d	$a0, 342063
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -176330
+	ori	$a0, $a0, 1584
+	lu32i.d	$a0, -489722
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -332622
+	ori	$a0, $a0, 2881
+	lu32i.d	$a0, -197084
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 139840
+	ori	$a0, $a0, 3480
+	lu32i.d	$a0, 7021
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 324390
+	ori	$a0, $a0, 3387
+	lu32i.d	$a0, -167853
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 128057
+	ori	$a0, $a0, 550
+	lu32i.d	$a0, 400519
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -152002
+	ori	$a0, $a0, 1733
+	lu32i.d	$a0, 143696
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_9:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_200)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_200)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_201)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_201)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_202)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_202)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_203)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_203)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_204)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_204)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_205)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_205)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_206)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_206)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_207)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_207)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 73728
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -370954
+	ori	$a0, $a0, 2196
+	lu32i.d	$a0, 268420
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 93600
+	ori	$a0, $a0, 2538
+	lu32i.d	$a0, 485160
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -333935
+	ori	$a0, $a0, 1386
+	lu32i.d	$a0, -302806
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -496738
+	ori	$a0, $a0, 673
+	lu32i.d	$a0, -101363
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 43969
+	ori	$a0, $a0, 2981
+	lu32i.d	$a0, -264060
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -254531
+	ori	$a0, $a0, 2051
+	lu32i.d	$a0, 341731
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 64760
+	ori	$a0, $a0, 220
+	lu32i.d	$a0, 99363
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_10:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_216)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_216)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_217)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_217)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_218)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_218)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_219)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_219)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_220)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_220)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_221)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_221)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_222)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_222)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_223)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_223)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 40960
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 46952
+	ori	$a0, $a0, 496
+	lu32i.d	$a0, 131295
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 518072
+	ori	$a0, $a0, 570
+	lu32i.d	$a0, 344909
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 118138
+	ori	$a0, $a0, 486
+	lu32i.d	$a0, -497755
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -371858
+	ori	$a0, $a0, 1363
+	lu32i.d	$a0, -313261
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 31037
+	ori	$a0, $a0, 181
+	lu32i.d	$a0, -441047
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -367824
+	ori	$a0, $a0, 1296
+	lu32i.d	$a0, 232800
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 432181
+	ori	$a0, $a0, 345
+	lu32i.d	$a0, 15896
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_11:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_152)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_152)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_153)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_153)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_154)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_154)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_155)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_155)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_156)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_156)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_157)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_157)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_158)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_158)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_159)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_159)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 172032
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -496243
+	ori	$a0, $a0, 3325
+	lu32i.d	$a0, -283607
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -449341
+	ori	$a0, $a0, 211
+	lu32i.d	$a0, -86273
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -41282
+	ori	$a0, $a0, 3079
+	lu32i.d	$a0, 212825
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -414241
+	ori	$a0, $a0, 2703
+	lu32i.d	$a0, 350420
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 439163
+	ori	$a0, $a0, 2569
+	lu32i.d	$a0, 201826
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 166711
+	ori	$a0, $a0, 3440
+	lu32i.d	$a0, -304057
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 431509
+	ori	$a0, $a0, 4078
+	lu32i.d	$a0, 395858
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_12:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_360)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_360)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_361)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_361)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_362)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_362)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_363)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_363)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_364)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_364)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_365)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_365)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_366)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_366)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_367)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_367)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 163840
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 57094
+	ori	$a0, $a0, 1407
+	lu32i.d	$a0, 82463
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 523252
+	ori	$a0, $a0, 1559
+	lu32i.d	$a0, 320349
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 284971
+	ori	$a0, $a0, 2150
+	lu32i.d	$a0, -353989
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 401519
+	ori	$a0, $a0, 3620
+	lu32i.d	$a0, 215387
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 492979
+	ori	$a0, $a0, 2764
+	lu32i.d	$a0, -361271
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -407647
+	ori	$a0, $a0, 3754
+	lu32i.d	$a0, 85939
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 439227
+	ori	$a0, $a0, 2109
+	lu32i.d	$a0, 23991
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_13:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_336)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_336)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_337)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_337)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_338)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_338)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_339)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_339)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_340)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_340)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_341)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_341)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_342)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_342)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_343)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_343)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 360448
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 226139
+	ori	$a0, $a0, 1439
+	lu32i.d	$a0, 293655
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -374919
+	ori	$a0, $a0, 2117
+	lu32i.d	$a0, -452559
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 385715
+	ori	$a0, $a0, 3097
+	lu32i.d	$a0, -64858
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -265885
+	ori	$a0, $a0, 3196
+	lu32i.d	$a0, 391977
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -376997
+	ori	$a0, $a0, 2712
+	lu32i.d	$a0, -171413
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 218935
+	ori	$a0, $a0, 3924
+	lu32i.d	$a0, 171624
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -199985
+	ori	$a0, $a0, 2397
+	lu32i.d	$a0, 244611
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_14:
 	vldi	$vr1, -837
-	pcalau12i	$a0, %pc_hi20(.LCPI0_398)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_398)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_399)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_399)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_400)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_400)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_401)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_401)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_402)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_402)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_403)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_403)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_404)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_404)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -162406
+	ori	$a0, $a0, 235
+	lu32i.d	$a0, -388454
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 188806
+	ori	$a0, $a0, 729
+	lu32i.d	$a0, -75330
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -520482
+	ori	$a0, $a0, 697
+	lu32i.d	$a0, 309529
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 359869
+	ori	$a0, $a0, 1251
+	lu32i.d	$a0, -50970
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -2013
+	ori	$a0, $a0, 2429
+	lu32i.d	$a0, 420453
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -395755
+	ori	$a0, $a0, 2487
+	lu32i.d	$a0, -77659
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -448221
+	ori	$a0, $a0, 3676
+	lu32i.d	$a0, 427550
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_15:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_304)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_304)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_305)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_305)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_306)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_306)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_307)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_307)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_308)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_308)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_309)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_309)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_310)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_310)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_311)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_311)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -425984
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 16630
+	ori	$a0, $a0, 2076
+	lu32i.d	$a0, -405355
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -361962
+	ori	$a0, $a0, 208
+	lu32i.d	$a0, 2873
+	lu52i.d	$a0, $a0, 976
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -280594
+	ori	$a0, $a0, 2417
+	lu32i.d	$a0, 203469
+	lu52i.d	$a0, $a0, 991
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -506654
+	ori	$a0, $a0, 3957
+	lu32i.d	$a0, -374209
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 166292
+	ori	$a0, $a0, 908
+	lu32i.d	$a0, 62123
+	lu52i.d	$a0, $a0, 1006
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 103374
+	ori	$a0, $a0, 2024
+	lu32i.d	$a0, 301010
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -165155
+	ori	$a0, $a0, 351
+	lu32i.d	$a0, -483084
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_16:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_320)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_320)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_321)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_321)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_322)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_322)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_323)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_323)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_324)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_324)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_325)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_325)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_326)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_326)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_327)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_327)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 491520
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -56866
+	ori	$a0, $a0, 2101
+	lu32i.d	$a0, 457715
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -206958
+	ori	$a0, $a0, 1941
+	lu32i.d	$a0, -237721
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -13914
+	ori	$a0, $a0, 1115
+	lu32i.d	$a0, 78674
+	lu52i.d	$a0, $a0, 991
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 102612
+	ori	$a0, $a0, 2304
+	lu32i.d	$a0, -522757
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 441728
+	ori	$a0, $a0, 3262
+	lu32i.d	$a0, -30208
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -410237
+	ori	$a0, $a0, 2107
+	lu32i.d	$a0, 234008
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 17649
+	ori	$a0, $a0, 2586
+	lu32i.d	$a0, 401009
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_17:
 	vldi	$vr1, -843
-	pcalau12i	$a0, %pc_hi20(.LCPI0_419)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_419)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_420)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_420)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_421)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_421)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_422)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_422)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_423)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_423)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_424)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_424)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_425)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_425)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -442093
+	ori	$a0, $a0, 3359
+	lu32i.d	$a0, 399954
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 390697
+	ori	$a0, $a0, 2724
+	lu32i.d	$a0, -408198
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 65947
+	ori	$a0, $a0, 3398
+	lu32i.d	$a0, 125062
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -229060
+	ori	$a0, $a0, 2397
+	lu32i.d	$a0, -287902
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -414720
+	ori	$a0, $a0, 432
+	lu32i.d	$a0, 285131
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 442513
+	ori	$a0, $a0, 675
+	lu32i.d	$a0, -208913
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -408358
+	ori	$a0, $a0, 2304
+	lu32i.d	$a0, 61404
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_18:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_240)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_240)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_241)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_241)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_242)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_242)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_243)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_243)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_244)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_244)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_245)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_245)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_246)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_246)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_247)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_247)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -16384
+	lu52i.d	$a0, $a0, -1019
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -111046
+	ori	$a0, $a0, 80
+	lu32i.d	$a0, -101734
+	lu52i.d	$a0, $a0, 986
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 41102
+	ori	$a0, $a0, 2448
+	lu32i.d	$a0, 152307
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -158616
+	ori	$a0, $a0, 3588
+	lu32i.d	$a0, 296198
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -48960
+	ori	$a0, $a0, 2433
+	lu32i.d	$a0, 459953
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -138109
+	ori	$a0, $a0, 2329
+	lu32i.d	$a0, 376562
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -363972
+	ori	$a0, $a0, 1496
+	lu32i.d	$a0, 88677
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 308700
+	ori	$a0, $a0, 3172
+	lu32i.d	$a0, -194616
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_19:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_280)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_280)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_281)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_281)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_282)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_282)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_283)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_283)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_284)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_284)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_285)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_285)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_286)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_286)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_287)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_287)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -475136
+	lu52i.d	$a0, $a0, -1019
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -379344
+	ori	$a0, $a0, 3374
+	lu32i.d	$a0, -331511
+	lu52i.d	$a0, $a0, 985
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -250045
+	ori	$a0, $a0, 3454
+	lu32i.d	$a0, 73428
+	lu52i.d	$a0, $a0, 978
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 53889
+	ori	$a0, $a0, 1556
+	lu32i.d	$a0, 143189
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 41767
+	ori	$a0, $a0, 1188
+	lu32i.d	$a0, 358447
+	lu52i.d	$a0, $a0, 1000
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 10485
+	ori	$a0, $a0, 364
+	lu32i.d	$a0, 420990
+	lu52i.d	$a0, $a0, 1007
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -40655
+	ori	$a0, $a0, 1844
+	lu32i.d	$a0, 319048
+	lu52i.d	$a0, $a0, 1014
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -447281
+	ori	$a0, $a0, 1726
+	lu32i.d	$a0, 79104
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_20:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_184)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_184)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_185)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_185)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_186)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_186)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_187)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_187)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_188)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_188)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_189)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_189)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_190)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_190)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_191)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_191)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 106496
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 139417
+	ori	$a0, $a0, 610
+	lu32i.d	$a0, 419165
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -254118
+	ori	$a0, $a0, 2968
+	lu32i.d	$a0, -413666
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -358036
+	ori	$a0, $a0, 3419
+	lu32i.d	$a0, -85451
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -10870
+	ori	$a0, $a0, 3678
+	lu32i.d	$a0, 68131
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 224550
+	ori	$a0, $a0, 70
+	lu32i.d	$a0, -66045
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 518764
+	ori	$a0, $a0, 3852
+	lu32i.d	$a0, 462393
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 29527
+	ori	$a0, $a0, 3687
+	lu32i.d	$a0, 189960
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_21:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_328)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_328)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_329)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_329)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_330)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_330)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_331)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_331)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_332)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_332)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_333)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_333)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_334)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_334)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_335)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_335)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 425984
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -210260
+	ori	$a0, $a0, 3116
+	lu32i.d	$a0, 373206
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 292579
+	ori	$a0, $a0, 2216
+	lu32i.d	$a0, -348519
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 322394
+	ori	$a0, $a0, 2689
+	lu32i.d	$a0, 21524
+	lu52i.d	$a0, $a0, 991
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 406756
+	ori	$a0, $a0, 3883
+	lu32i.d	$a0, 457174
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 506359
+	ori	$a0, $a0, 1462
+	lu32i.d	$a0, -102391
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 235887
+	ori	$a0, $a0, 2691
+	lu32i.d	$a0, 202333
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 117172
+	ori	$a0, $a0, 314
+	lu32i.d	$a0, 321854
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_22:
 	vldi	$vr1, -839
-	pcalau12i	$a0, %pc_hi20(.LCPI0_405)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_405)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_406)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_406)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_407)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_407)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_408)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_408)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_409)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_409)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_410)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_410)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_411)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_411)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -243815
+	ori	$a0, $a0, 828
+	lu32i.d	$a0, -480434
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 49879
+	ori	$a0, $a0, 2475
+	lu32i.d	$a0, -193330
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -422573
+	ori	$a0, $a0, 778
+	lu32i.d	$a0, 244587
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -39263
+	ori	$a0, $a0, 4038
+	lu32i.d	$a0, -133865
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 381455
+	ori	$a0, $a0, 1088
+	lu32i.d	$a0, 373477
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -454427
+	ori	$a0, $a0, 2743
+	lu32i.d	$a0, -122842
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 89657
+	ori	$a0, $a0, 1812
+	lu32i.d	$a0, 302728
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_23:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_352)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_352)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_353)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_353)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_354)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_354)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_355)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_355)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_356)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_356)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_357)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_357)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_358)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_358)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_359)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_359)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 229376
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -324657
+	ori	$a0, $a0, 3404
+	lu32i.d	$a0, 148617
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 180915
+	ori	$a0, $a0, 947
+	lu32i.d	$a0, 406503
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -92013
+	ori	$a0, $a0, 3417
+	lu32i.d	$a0, -263107
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 173849
+	ori	$a0, $a0, 4036
+	lu32i.d	$a0, 271260
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 76589
+	ori	$a0, $a0, 3674
+	lu32i.d	$a0, -300715
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -234761
+	ori	$a0, $a0, 3162
+	lu32i.d	$a0, 113534
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 365877
+	ori	$a0, $a0, 2157
+	lu32i.d	$a0, 95764
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_24:
 	vldi	$vr1, -876
-	pcalau12i	$a0, %pc_hi20(.LCPI0_475)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_475)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_476)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_476)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_477)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_477)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_478)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_478)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_479)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_479)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_480)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_480)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_481)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_481)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -344308
+	ori	$a0, $a0, 4071
+	lu32i.d	$a0, -209359
+	lu52i.d	$a0, $a0, 981
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -343647
+	ori	$a0, $a0, 1703
+	lu32i.d	$a0, 6400
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 457412
+	ori	$a0, $a0, 1759
+	lu32i.d	$a0, -485152
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -317762
+	ori	$a0, $a0, 1671
+	lu32i.d	$a0, 272315
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 380153
+	ori	$a0, $a0, 129
+	lu32i.d	$a0, -10939
+	lu52i.d	$a0, $a0, 1004
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 335291
+	ori	$a0, $a0, 4058
+	lu32i.d	$a0, -504106
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -363596
+	ori	$a0, $a0, 716
+	lu32i.d	$a0, -155559
+	lu52i.d	$a0, $a0, 1014
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_25:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_272)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_272)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_273)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_273)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_274)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_274)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_275)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_275)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_276)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_276)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_277)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_277)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_278)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_278)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_279)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_279)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -147456
+	lu52i.d	$a0, $a0, -1019
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 511478
+	ori	$a0, $a0, 2472
+	lu32i.d	$a0, -508859
+	lu52i.d	$a0, $a0, 986
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 231872
+	ori	$a0, $a0, 2875
+	lu32i.d	$a0, -144343
+	lu52i.d	$a0, $a0, 978
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 463269
+	ori	$a0, $a0, 710
+	lu32i.d	$a0, 17313
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 210539
+	ori	$a0, $a0, 2711
+	lu32i.d	$a0, 159963
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -378122
+	ori	$a0, $a0, 2439
+	lu32i.d	$a0, 122953
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 281427
+	ori	$a0, $a0, 2999
+	lu32i.d	$a0, -146056
+	lu52i.d	$a0, $a0, 1014
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 3355
+	ori	$a0, $a0, 1815
+	lu32i.d	$a0, -458018
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_26:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_256)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_256)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_257)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_257)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_258)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_258)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_259)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_259)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_260)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_260)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_261)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_261)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_262)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_262)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_263)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_263)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -81920
+	lu52i.d	$a0, $a0, -1019
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -167976
+	ori	$a0, $a0, 221
+	lu32i.d	$a0, -315745
+	lu52i.d	$a0, $a0, 986
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 156460
+	ori	$a0, $a0, 115
+	lu32i.d	$a0, 35539
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -470888
+	ori	$a0, $a0, 3961
+	lu32i.d	$a0, 148818
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 476811
+	ori	$a0, $a0, 2251
+	lu32i.d	$a0, 301228
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -327842
+	ori	$a0, $a0, 2883
+	lu32i.d	$a0, 242731
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 51163
+	ori	$a0, $a0, 3268
+	lu32i.d	$a0, 3852
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -16778
+	ori	$a0, $a0, 3211
+	lu32i.d	$a0, -331351
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_27:
 	vldi	$vr1, -858
-	pcalau12i	$a0, %pc_hi20(.LCPI0_454)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_454)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_455)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_455)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_456)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_456)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_457)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_457)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_458)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_458)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_459)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_459)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_460)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_460)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -420092
+	ori	$a0, $a0, 1285
+	lu32i.d	$a0, 57421
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -385511
+	ori	$a0, $a0, 1909
+	lu32i.d	$a0, 207868
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -127083
+	ori	$a0, $a0, 1510
+	lu32i.d	$a0, -245633
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -89339
+	ori	$a0, $a0, 1722
+	lu32i.d	$a0, 434374
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 482080
+	ori	$a0, $a0, 1817
+	lu32i.d	$a0, 92964
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 462159
+	ori	$a0, $a0, 3915
+	lu32i.d	$a0, -401800
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -47218
+	ori	$a0, $a0, 833
+	lu32i.d	$a0, 53109
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_28:
 	vldi	$vr1, -841
-	pcalau12i	$a0, %pc_hi20(.LCPI0_412)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_412)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_413)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_413)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_414)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_414)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_415)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_415)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_416)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_416)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_417)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_417)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_418)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_418)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 318823
+	ori	$a0, $a0, 3077
+	lu32i.d	$a0, 481535
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -499160
+	ori	$a0, $a0, 2750
+	lu32i.d	$a0, -304129
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 522280
+	ori	$a0, $a0, 3473
+	lu32i.d	$a0, 183158
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -419081
+	ori	$a0, $a0, 1935
+	lu32i.d	$a0, -212748
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 405846
+	ori	$a0, $a0, 1576
+	lu32i.d	$a0, 328397
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -210185
+	ori	$a0, $a0, 155
+	lu32i.d	$a0, -166565
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 179046
+	ori	$a0, $a0, 1840
+	lu32i.d	$a0, 180724
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_29:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_312)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_312)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_313)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_313)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_314)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_314)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_315)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_315)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_316)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_316)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_317)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_317)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_318)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_318)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_319)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_319)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -491520
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -185464
+	ori	$a0, $a0, 1860
+	lu32i.d	$a0, -500933
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -99049
+	ori	$a0, $a0, 342
+	lu32i.d	$a0, -119780
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 421232
+	ori	$a0, $a0, 3559
+	lu32i.d	$a0, 139248
+	lu52i.d	$a0, $a0, 991
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 174979
+	ori	$a0, $a0, 2688
+	lu32i.d	$a0, -450418
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -55306
+	ori	$a0, $a0, 116
+	lu32i.d	$a0, 22636
+	lu52i.d	$a0, $a0, 1006
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 113856
+	ori	$a0, $a0, 3681
+	lu32i.d	$a0, 266865
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -270248
+	ori	$a0, $a0, 2477
+	lu32i.d	$a0, 482210
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_30:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_176)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_176)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_177)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_177)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_178)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_178)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_179)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_179)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_180)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_180)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_181)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_181)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_182)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_182)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_183)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_183)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 122880
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -318899
+	ori	$a0, $a0, 3682
+	lu32i.d	$a0, 499941
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -139763
+	ori	$a0, $a0, 2594
+	lu32i.d	$a0, -335249
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 413561
+	ori	$a0, $a0, 3842
+	lu32i.d	$a0, 16159
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 266141
+	ori	$a0, $a0, 3952
+	lu32i.d	$a0, 132827
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 521106
+	ori	$a0, $a0, 961
+	lu32i.d	$a0, 20836
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -66734
+	ori	$a0, $a0, 3873
+	lu32i.d	$a0, -521061
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -498955
+	ori	$a0, $a0, 2442
+	lu32i.d	$a0, 238194
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_31:
 	vldi	$vr1, -888
-	pcalau12i	$a0, %pc_hi20(.LCPI0_482)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_482)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_483)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_483)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_484)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_484)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_485)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_485)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_486)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_486)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_487)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_487)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_488)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_488)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 264114
+	ori	$a0, $a0, 2879
+	lu32i.d	$a0, -305420
+	lu52i.d	$a0, $a0, 981
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -56806
+	ori	$a0, $a0, 2373
+	lu32i.d	$a0, -105731
+	lu52i.d	$a0, $a0, 973
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 15693
+	ori	$a0, $a0, 2837
+	lu32i.d	$a0, 491583
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -444560
+	ori	$a0, $a0, 87
+	lu32i.d	$a0, 223057
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 361871
+	ori	$a0, $a0, 2061
+	lu32i.d	$a0, -71687
+	lu52i.d	$a0, $a0, 1004
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -37345
+	ori	$a0, $a0, 1062
+	lu32i.d	$a0, 512343
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 33433
+	ori	$a0, $a0, 2605
+	lu32i.d	$a0, 104569
+	lu52i.d	$a0, $a0, 1014
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_32:
 	vldi	$vr1, -854
-	pcalau12i	$a0, %pc_hi20(.LCPI0_447)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_447)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_448)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_448)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_449)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_449)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_450)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_450)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_451)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_451)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_452)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_452)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_453)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_453)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 283652
+	ori	$a0, $a0, 177
+	lu32i.d	$a0, 118065
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -280261
+	ori	$a0, $a0, 1820
+	lu32i.d	$a0, 283898
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -143177
+	ori	$a0, $a0, 2285
+	lu32i.d	$a0, -156822
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 416701
+	ori	$a0, $a0, 2761
+	lu32i.d	$a0, 493625
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -304356
+	ori	$a0, $a0, 59
+	lu32i.d	$a0, 128423
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 513688
+	ori	$a0, $a0, 3383
+	lu32i.d	$a0, -365572
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 192454
+	ori	$a0, $a0, 3278
+	lu32i.d	$a0, 267281
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_33:
 	vldi	$vr1, -850
-	pcalau12i	$a0, %pc_hi20(.LCPI0_440)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_440)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_441)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_441)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_442)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_442)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_443)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_443)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_444)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_444)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_445)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_445)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_446)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_446)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 365846
+	ori	$a0, $a0, 3817
+	lu32i.d	$a0, 182421
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 302328
+	ori	$a0, $a0, 1873
+	lu32i.d	$a0, 364828
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -277133
+	ori	$a0, $a0, 1010
+	lu32i.d	$a0, -63147
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -388223
+	ori	$a0, $a0, 2955
+	lu32i.d	$a0, -492886
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -170851
+	ori	$a0, $a0, 3928
+	lu32i.d	$a0, 165284
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 241728
+	ori	$a0, $a0, 3328
+	lu32i.d	$a0, -328227
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 298030
+	ori	$a0, $a0, 1905
+	lu32i.d	$a0, 485935
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_34:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_144)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_144)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_145)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_145)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_146)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_146)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_147)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_147)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_148)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_148)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_149)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_149)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_150)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_150)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_151)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_151)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 188416
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -492857
+	ori	$a0, $a0, 1471
+	lu32i.d	$a0, -187266
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -206662
+	ori	$a0, $a0, 3612
+	lu32i.d	$a0, 674
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -55454
+	ori	$a0, $a0, 2370
+	lu32i.d	$a0, 285530
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -427419
+	ori	$a0, $a0, 1511
+	lu32i.d	$a0, 431498
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -246306
+	ori	$a0, $a0, 1487
+	lu32i.d	$a0, 269291
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -506686
+	ori	$a0, $a0, 2683
+	lu32i.d	$a0, -223822
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -355342
+	ori	$a0, $a0, 2315
+	lu32i.d	$a0, 453110
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_35:
 	vldi	$vr1, -835
-	pcalau12i	$a0, %pc_hi20(.LCPI0_391)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_391)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_392)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_392)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_393)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_393)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_394)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_394)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_395)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_395)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_396)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_396)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_397)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_397)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 433500
+	ori	$a0, $a0, 823
+	lu32i.d	$a0, -290755
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -425897
+	ori	$a0, $a0, 145
+	lu32i.d	$a0, 25201
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 379533
+	ori	$a0, $a0, 424
+	lu32i.d	$a0, 378164
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 58196
+	ori	$a0, $a0, 3534
+	lu32i.d	$a0, 18003
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 252809
+	ori	$a0, $a0, 3392
+	lu32i.d	$a0, 469437
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 463732
+	ori	$a0, $a0, 4045
+	lu32i.d	$a0, -30994
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -386011
+	ori	$a0, $a0, 3335
+	lu32i.d	$a0, -493385
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_36:
 	vldi	$vr1, -833
-	pcalau12i	$a0, %pc_hi20(.LCPI0_384)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_384)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_385)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_385)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_386)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_386)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_387)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_387)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_388)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_388)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_389)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_389)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_390)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_390)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 365777
+	ori	$a0, $a0, 2120
+	lu32i.d	$a0, -186992
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 145466
+	ori	$a0, $a0, 2116
+	lu32i.d	$a0, 92141
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 406788
+	ori	$a0, $a0, 3942
+	lu32i.d	$a0, 450762
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -466780
+	ori	$a0, $a0, 1475
+	lu32i.d	$a0, 63707
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 71741
+	ori	$a0, $a0, 823
+	lu32i.d	$a0, 520482
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 484958
+	ori	$a0, $a0, 734
+	lu32i.d	$a0, 8619
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -429833
+	ori	$a0, $a0, 2974
+	lu32i.d	$a0, -362724
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_37:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_120)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_120)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_121)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_121)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_122)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_122)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_123)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_123)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_124)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_124)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_125)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_125)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_126)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_126)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_127)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_127)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 237568
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -158558
+	ori	$a0, $a0, 146
+	lu32i.d	$a0, 63488
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -509920
+	ori	$a0, $a0, 343
+	lu32i.d	$a0, 138287
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 259108
+	ori	$a0, $a0, 2779
+	lu32i.d	$a0, -521202
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -354784
+	ori	$a0, $a0, 476
+	lu32i.d	$a0, -344817
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -148411
+	ori	$a0, $a0, 64
+	lu32i.d	$a0, 496048
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 463547
+	ori	$a0, $a0, 3142
+	lu32i.d	$a0, 21971
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -485198
+	ori	$a0, $a0, 3741
+	lu32i.d	$a0, -407603
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_38:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_264)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_264)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_265)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_265)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_266)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_266)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_267)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_267)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_268)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_268)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_269)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_269)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_270)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_270)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_271)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_271)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -114688
+	lu52i.d	$a0, $a0, -1019
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -429487
+	ori	$a0, $a0, 802
+	lu32i.d	$a0, -414896
+	lu52i.d	$a0, $a0, 986
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -310647
+	ori	$a0, $a0, 2479
+	lu32i.d	$a0, -38865
+	lu52i.d	$a0, $a0, 978
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -35101
+	ori	$a0, $a0, 3484
+	lu32i.d	$a0, 81151
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -266450
+	ori	$a0, $a0, 3870
+	lu32i.d	$a0, 228528
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 415161
+	ori	$a0, $a0, 3028
+	lu32i.d	$a0, 181193
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 141344
+	ori	$a0, $a0, 2824
+	lu32i.d	$a0, -71055
+	lu52i.d	$a0, $a0, 1014
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -431510
+	ori	$a0, $a0, 18
+	lu32i.d	$a0, -395859
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_39:
 	vldi	$vr1, -868
-	pcalau12i	$a0, %pc_hi20(.LCPI0_468)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_468)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_469)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_469)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_470)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_470)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_471)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_471)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_472)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_472)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_473)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_473)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_474)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_474)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -315695
+	ori	$a0, $a0, 1466
+	lu32i.d	$a0, -107533
+	lu52i.d	$a0, $a0, 981
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 246665
+	ori	$a0, $a0, 1191
+	lu32i.d	$a0, 69385
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -49118
+	ori	$a0, $a0, 1777
+	lu32i.d	$a0, -409438
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -14218
+	ori	$a0, $a0, 2148
+	lu32i.d	$a0, 323895
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -351286
+	ori	$a0, $a0, 2999
+	lu32i.d	$a0, 26086
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -453050
+	ori	$a0, $a0, 3045
+	lu32i.d	$a0, -471035
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -281415
+	ori	$a0, $a0, 2825
+	lu32i.d	$a0, 324578
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_40:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_136)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_136)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_137)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_137)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_138)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_138)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_139)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_139)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_140)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_140)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_141)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_141)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_142)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_142)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_143)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_143)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 204800
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -192871
+	ori	$a0, $a0, 1162
+	lu32i.d	$a0, -86818
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 410005
+	ori	$a0, $a0, 2042
+	lu32i.d	$a0, 45500
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 147619
+	ori	$a0, $a0, 1485
+	lu32i.d	$a0, 362092
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 523604
+	ori	$a0, $a0, 2879
+	lu32i.d	$a0, 517260
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -61138
+	ori	$a0, $a0, 3077
+	lu32i.d	$a0, 340656
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -493908
+	ori	$a0, $a0, 748
+	lu32i.d	$a0, -139238
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 397620
+	ori	$a0, $a0, 79
+	lu32i.d	$a0, 512963
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_41:
 	vldi	$vr1, -862
-	pcalau12i	$a0, %pc_hi20(.LCPI0_461)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_461)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_462)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_462)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_463)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_463)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_464)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_464)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_465)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_465)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_466)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_466)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_467)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_467)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -383453
+	ori	$a0, $a0, 147
+	lu32i.d	$a0, 213
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -137494
+	ori	$a0, $a0, 2723
+	lu32i.d	$a0, 136501
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -274146
+	ori	$a0, $a0, 3621
+	lu32i.d	$a0, -329634
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -195848
+	ori	$a0, $a0, 2725
+	lu32i.d	$a0, 377868
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -420179
+	ori	$a0, $a0, 2586
+	lu32i.d	$a0, 58879
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -410760
+	ori	$a0, $a0, 267
+	lu32i.d	$a0, -436933
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -513866
+	ori	$a0, $a0, 27
+	lu32i.d	$a0, -313211
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_42:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_208)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_208)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_209)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_209)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_210)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_210)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_211)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_211)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_212)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_212)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_213)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_213)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_214)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_214)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_215)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_215)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 57344
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -472239
+	ori	$a0, $a0, 2030
+	lu32i.d	$a0, 198236
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -24458
+	ori	$a0, $a0, 2200
+	lu32i.d	$a0, 413844
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -120774
+	ori	$a0, $a0, 2149
+	lu32i.d	$a0, -402955
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -69491
+	ori	$a0, $a0, 2186
+	lu32i.d	$a0, -210347
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 476823
+	ori	$a0, $a0, 2093
+	lu32i.d	$a0, -355045
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 191273
+	ori	$a0, $a0, 2802
+	lu32i.d	$a0, 285897
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -129856
+	ori	$a0, $a0, 1426
+	lu32i.d	$a0, 56790
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_43:
 	vldi	$vr1, -845
-	pcalau12i	$a0, %pc_hi20(.LCPI0_426)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_426)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_427)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_427)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_428)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_428)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_429)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_429)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_430)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_430)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_431)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_431)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_432)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_432)
-	b	.LBB0_66
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -238593
+	ori	$a0, $a0, 3754
+	lu32i.d	$a0, 323077
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 436190
+	ori	$a0, $a0, 3276
+	lu32i.d	$a0, -505892
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 3621
+	ori	$a0, $a0, 2069
+	lu32i.d	$a0, 69938
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -242512
+	ori	$a0, $a0, 3009
+	lu32i.d	$a0, -359467
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 68117
+	ori	$a0, $a0, 3959
+	lu32i.d	$a0, 243570
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 507863
+	ori	$a0, $a0, 3181
+	lu32i.d	$a0, -249930
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 392586
+	ori	$a0, $a0, 3500
+	lu32i.d	$a0, -110730
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_44:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_72)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_72)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_73)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_73)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_74)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_74)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_75)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_75)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_76)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_76)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_77)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_77)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_78)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_78)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_79)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_79)
-	b	.LBB0_66
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 335872
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -181054
+	ori	$a0, $a0, 1886
+	lu32i.d	$a0, 438800
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 41714
+	ori	$a0, $a0, 672
+	lu32i.d	$a0, 438416
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -221791
+	ori	$a0, $a0, 1616
+	lu32i.d	$a0, 42378
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -407391
+	ori	$a0, $a0, 1034
+	lu32i.d	$a0, 177049
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -115965
+	ori	$a0, $a0, 3617
+	lu32i.d	$a0, 16575
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 522778
+	ori	$a0, $a0, 207
+	lu32i.d	$a0, 363394
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 34561
+	ori	$a0, $a0, 266
+	lu32i.d	$a0, 27221
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
 .LBB0_45:
 	vldi	$vr1, -847
-	pcalau12i	$a0, %pc_hi20(.LCPI0_433)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_433)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_434)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_434)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_435)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_435)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_436)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_436)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_437)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_437)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_438)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_438)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_439)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_439)
-	b	.LBB0_66
-.LBB0_46:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_368)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_368)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_369)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_369)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_370)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_370)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_371)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_371)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_372)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_372)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_373)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_373)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_374)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_374)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_375)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_375)
-	b	.LBB0_66
-.LBB0_47:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_232)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_232)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_233)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_233)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_234)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_234)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_235)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_235)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_236)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_236)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_237)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_237)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_238)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_238)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_239)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_239)
-	b	.LBB0_66
-.LBB0_48:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_376)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_376)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_377)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_377)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_378)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_378)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_379)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_379)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_380)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_380)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_381)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_381)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_382)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_382)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_383)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_383)
-	b	.LBB0_66
-.LBB0_49:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_64)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_64)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_65)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_65)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_66)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_66)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_67)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_67)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_68)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_68)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_69)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_69)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_70)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_70)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_71)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_71)
-	b	.LBB0_66
-.LBB0_50:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_168)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_168)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_169)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_169)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_170)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_170)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_171)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_171)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_172)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_172)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_173)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_173)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_174)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_174)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_175)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_175)
-	b	.LBB0_66
-.LBB0_51:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_344)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_344)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_345)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_345)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_346)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_346)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_347)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_347)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_348)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_348)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_349)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_349)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_350)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_350)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_351)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_351)
-	b	.LBB0_66
-.LBB0_52:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_40)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_40)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_41)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_41)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_42)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_42)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_43)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_43)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_44)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_44)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_45)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_45)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_46)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_46)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_47)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_47)
-	b	.LBB0_66
-.LBB0_53:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_8)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_8)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_9)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_9)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_10)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_10)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_11)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_11)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_12)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_12)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_13)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_13)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_14)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_14)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_15)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_15)
-	b	.LBB0_66
-.LBB0_54:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_3)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_4)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_5)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_6)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_7)
-	b	.LBB0_66
-.LBB0_55:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_48)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_48)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_49)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_49)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_50)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_50)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_51)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_51)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_52)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_52)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_53)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_53)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_54)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_54)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_55)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_55)
-	b	.LBB0_66
-.LBB0_56:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_288)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_288)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_289)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_289)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_290)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_290)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_291)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_291)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_292)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_292)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_293)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_293)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_294)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_294)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_295)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_295)
-	b	.LBB0_66
-.LBB0_57:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_296)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_296)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_297)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_297)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_298)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_298)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_299)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_299)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_300)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_300)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_301)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_301)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_302)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_302)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_303)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_303)
-	b	.LBB0_66
-.LBB0_58:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_88)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_88)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_89)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_89)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_90)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_90)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_91)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_91)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_92)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_92)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_93)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_93)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_94)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_94)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_95)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_95)
-	b	.LBB0_66
-.LBB0_59:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_224)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_224)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_225)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_225)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_226)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_226)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_227)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_227)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_228)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_228)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_229)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_229)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_230)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_230)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_231)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_231)
-	b	.LBB0_66
-.LBB0_60:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_248)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_248)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_249)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_249)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_250)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_250)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_251)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_251)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_252)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_252)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_253)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_253)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_254)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_254)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_255)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_255)
-	b	.LBB0_66
-.LBB0_61:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_128)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_128)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_129)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_129)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_130)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_130)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_131)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_131)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_132)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_132)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_133)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_133)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_134)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_134)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_135)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_135)
-	b	.LBB0_66
-.LBB0_62:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_24)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_24)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_25)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_25)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_26)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_26)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_27)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_27)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_28)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_28)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_29)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_29)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_30)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_30)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_31)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_31)
-	b	.LBB0_66
-.LBB0_63:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_96)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_96)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_97)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_97)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_98)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_98)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_99)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_99)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_100)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_100)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_101)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_101)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_102)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_102)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_103)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_103)
-	b	.LBB0_66
-.LBB0_64:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_16)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_16)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_17)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_17)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_18)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_18)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_19)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_19)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_20)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_20)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_21)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_21)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_22)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_22)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_23)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_23)
-	b	.LBB0_66
-.LBB0_65:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_32)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_32)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_33)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_33)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_34)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_34)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_35)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_35)
-	vldi	$vr5, -1024
-	fmadd.d	$fa0, $fa0, $fa5, $fa1
-	fmadd.d	$fa1, $fa0, $fa3, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_36)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_36)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_37)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_37)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_38)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_38)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_39)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_39)
-.LBB0_66:
+	vldi	$vr2, -1024
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 316640
+	ori	$a0, $a0, 483
+	lu32i.d	$a0, 250674
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 468770
+	ori	$a0, $a0, 1334
+	lu32i.d	$a0, 450952
+	lu52i.d	$a0, $a0, 974
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 335301
+	ori	$a0, $a0, 3582
+	lu32i.d	$a0, 17786
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
 	fmadd.d	$fa1, $fa1, $fa0, $fa2
-	fmadd.d	$fa1, $fa1, $fa0, $fa3
-	fmadd.d	$fa1, $fa1, $fa0, $fa4
-	fmadd.d	$fa0, $fa1, $fa0, $fa5
+	lu12i.w	$a0, -295566
+	ori	$a0, $a0, 1830
+	lu32i.d	$a0, -427795
+	lu52i.d	$a0, $a0, 997
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 319903
+	ori	$a0, $a0, 503
+	lu32i.d	$a0, 203630
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -459264
+	ori	$a0, $a0, 1895
+	lu32i.d	$a0, -289680
+	lu52i.d	$a0, $a0, 1012
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 19998
+	ori	$a0, $a0, 1808
+	lu32i.d	$a0, -339034
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
 	ret
-.LBB0_67:
+.LBB0_46:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 98304
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -186211
+	ori	$a0, $a0, 1432
+	lu32i.d	$a0, 20216
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -59337
+	ori	$a0, $a0, 1506
+	lu32i.d	$a0, 239419
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -428994
+	ori	$a0, $a0, 1524
+	lu32i.d	$a0, -439918
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -19855
+	ori	$a0, $a0, 1151
+	lu32i.d	$a0, 162258
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 243035
+	ori	$a0, $a0, 2718
+	lu32i.d	$a0, -419270
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -195032
+	ori	$a0, $a0, 899
+	lu32i.d	$a0, 59310
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -493116
+	ori	$a0, $a0, 276
+	lu32i.d	$a0, -92141
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_47:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 8192
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -440535
+	ori	$a0, $a0, 1913
+	lu32i.d	$a0, 6851
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -29279
+	ori	$a0, $a0, 1161
+	lu32i.d	$a0, 214158
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -81685
+	ori	$a0, $a0, 3915
+	lu32i.d	$a0, 376362
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -515221
+	ori	$a0, $a0, 1004
+	lu32i.d	$a0, -502069
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 455516
+	ori	$a0, $a0, 2930
+	lu32i.d	$a0, 449302
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -499170
+	ori	$a0, $a0, 3473
+	lu32i.d	$a0, 134338
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -258370
+	ori	$a0, $a0, 3578
+	lu32i.d	$a0, -122055
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_48:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 32768
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -250051
+	ori	$a0, $a0, 1887
+	lu32i.d	$a0, -76727
+	lu52i.d	$a0, $a0, 982
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 406228
+	ori	$a0, $a0, 1375
+	lu32i.d	$a0, 163478
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -287735
+	ori	$a0, $a0, 250
+	lu32i.d	$a0, -521073
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 426893
+	ori	$a0, $a0, 3009
+	lu32i.d	$a0, 111769
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 426543
+	ori	$a0, $a0, 1650
+	lu32i.d	$a0, -474823
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 10723
+	ori	$a0, $a0, 4082
+	lu32i.d	$a0, 33541
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 468889
+	ori	$a0, $a0, 2592
+	lu32i.d	$a0, -229043
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_49:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 352256
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -494232
+	ori	$a0, $a0, 2552
+	lu32i.d	$a0, 509741
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 273040
+	ori	$a0, $a0, 2422
+	lu32i.d	$a0, 490989
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 472973
+	ori	$a0, $a0, 3244
+	lu32i.d	$a0, 101854
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -522012
+	ori	$a0, $a0, 2902
+	lu32i.d	$a0, 247088
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -378116
+	ori	$a0, $a0, 2052
+	lu32i.d	$a0, 75674
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -482513
+	ori	$a0, $a0, 1097
+	lu32i.d	$a0, 431845
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -358026
+	ori	$a0, $a0, 862
+	lu32i.d	$a0, 72414
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_50:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 139264
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 205612
+	ori	$a0, $a0, 2746
+	lu32i.d	$a0, -464183
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -301711
+	ori	$a0, $a0, 4091
+	lu32i.d	$a0, -254489
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 72625
+	ori	$a0, $a0, 2208
+	lu32i.d	$a0, 78309
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -159638
+	ori	$a0, $a0, 3225
+	lu32i.d	$a0, 201282
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -59581
+	ori	$a0, $a0, 2772
+	lu32i.d	$a0, 77804
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 40802
+	ori	$a0, $a0, 775
+	lu32i.d	$a0, -452448
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 240249
+	ori	$a0, $a0, 3003
+	lu32i.d	$a0, 288484
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_51:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 294912
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -102588
+	ori	$a0, $a0, 1324
+	lu32i.d	$a0, 218945
+	lu52i.d	$a0, $a0, 983
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -360444
+	ori	$a0, $a0, 2815
+	lu32i.d	$a0, 498264
+	lu52i.d	$a0, $a0, 975
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -133921
+	ori	$a0, $a0, 2406
+	lu32i.d	$a0, -166820
+	lu52i.d	$a0, $a0, 990
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 457104
+	ori	$a0, $a0, 1926
+	lu32i.d	$a0, 330088
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -8768
+	ori	$a0, $a0, 3238
+	lu32i.d	$a0, -237494
+	lu52i.d	$a0, $a0, 1005
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 323625
+	ori	$a0, $a0, 3218
+	lu32i.d	$a0, 142096
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 114756
+	ori	$a0, $a0, 645
+	lu32i.d	$a0, 169282
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_52:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 401408
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -436818
+	ori	$a0, $a0, 976
+	lu32i.d	$a0, -311061
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -382737
+	ori	$a0, $a0, 2683
+	lu32i.d	$a0, -396824
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 157147
+	ori	$a0, $a0, 2105
+	lu32i.d	$a0, 297592
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -290379
+	ori	$a0, $a0, 2718
+	lu32i.d	$a0, 480734
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 345803
+	ori	$a0, $a0, 3781
+	lu32i.d	$a0, 273930
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -245283
+	ori	$a0, $a0, 418
+	lu32i.d	$a0, -387890
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -5369
+	ori	$a0, $a0, 1191
+	lu32i.d	$a0, 221647
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_53:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 466944
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 401051
+	ori	$a0, $a0, 3494
+	lu32i.d	$a0, 14111
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 88947
+	ori	$a0, $a0, 1845
+	lu32i.d	$a0, -178414
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 223750
+	ori	$a0, $a0, 343
+	lu32i.d	$a0, -446020
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -236777
+	ori	$a0, $a0, 287
+	lu32i.d	$a0, -194228
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -326362
+	ori	$a0, $a0, 3510
+	lu32i.d	$a0, -454070
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -277026
+	ori	$a0, $a0, 2496
+	lu32i.d	$a0, -18657
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -394936
+	ori	$a0, $a0, 1374
+	lu32i.d	$a0, 457556
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_54:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 483328
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -168298
+	ori	$a0, $a0, 1461
+	lu32i.d	$a0, 59723
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 469012
+	ori	$a0, $a0, 1636
+	lu32i.d	$a0, -123812
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -85079
+	ori	$a0, $a0, 2697
+	lu32i.d	$a0, -361156
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -217282
+	ori	$a0, $a0, 1019
+	lu32i.d	$a0, -88455
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 304982
+	ori	$a0, $a0, 3864
+	lu32i.d	$a0, -362415
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 456138
+	ori	$a0, $a0, 3885
+	lu32i.d	$a0, 43419
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 209044
+	ori	$a0, $a0, 456
+	lu32i.d	$a0, 524141
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_55:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 385024
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -112924
+	ori	$a0, $a0, 2378
+	lu32i.d	$a0, -389496
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -95863
+	ori	$a0, $a0, 2828
+	lu32i.d	$a0, -450781
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -403164
+	ori	$a0, $a0, 159
+	lu32i.d	$a0, 229362
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 111992
+	ori	$a0, $a0, 1857
+	lu32i.d	$a0, 398821
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 63855
+	ori	$a0, $a0, 1746
+	lu32i.d	$a0, 204180
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 135559
+	ori	$a0, $a0, 3708
+	lu32i.d	$a0, -468420
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -183879
+	ori	$a0, $a0, 2919
+	lu32i.d	$a0, 169491
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_56:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 245760
+	lu52i.d	$a0, $a0, -1019
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 322911
+	ori	$a0, $a0, 2040
+	lu32i.d	$a0, -157016
+	lu52i.d	$a0, $a0, 984
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 6708
+	ori	$a0, $a0, 1963
+	lu32i.d	$a0, 192152
+	lu52i.d	$a0, $a0, 977
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 445302
+	ori	$a0, $a0, 554
+	lu32i.d	$a0, 296919
+	lu52i.d	$a0, $a0, 992
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -226118
+	ori	$a0, $a0, 3580
+	lu32i.d	$a0, -416237
+	lu52i.d	$a0, $a0, 999
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -241046
+	ori	$a0, $a0, 2557
+	lu32i.d	$a0, -186339
+	lu52i.d	$a0, $a0, 1006
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -169424
+	ori	$a0, $a0, 3940
+	lu32i.d	$a0, -106006
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 159517
+	ori	$a0, $a0, 3153
+	lu32i.d	$a0, 476607
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_57:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -163840
+	lu52i.d	$a0, $a0, -1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -12926
+	ori	$a0, $a0, 2171
+	lu32i.d	$a0, 20873
+	lu52i.d	$a0, $a0, 984
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 159181
+	ori	$a0, $a0, 2830
+	lu32i.d	$a0, 296708
+	lu52i.d	$a0, $a0, 976
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -235130
+	ori	$a0, $a0, 3112
+	lu32i.d	$a0, 501292
+	lu52i.d	$a0, $a0, 991
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 206920
+	ori	$a0, $a0, 1358
+	lu32i.d	$a0, -25426
+	lu52i.d	$a0, $a0, 998
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 428414
+	ori	$a0, $a0, 310
+	lu32i.d	$a0, 239419
+	lu52i.d	$a0, $a0, 1006
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 350925
+	ori	$a0, $a0, 2751
+	lu32i.d	$a0, 450582
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 280246
+	ori	$a0, $a0, 2523
+	lu32i.d	$a0, -127440
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_58:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 303104
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 313802
+	ori	$a0, $a0, 731
+	lu32i.d	$a0, 304269
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -517274
+	ori	$a0, $a0, 1075
+	lu32i.d	$a0, 335206
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 464327
+	ori	$a0, $a0, 4003
+	lu32i.d	$a0, -137017
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 15469
+	ori	$a0, $a0, 3127
+	lu32i.d	$a0, 47813
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 454702
+	ori	$a0, $a0, 3354
+	lu32i.d	$a0, -184174
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 432503
+	ori	$a0, $a0, 847
+	lu32i.d	$a0, 237216
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -191596
+	ori	$a0, $a0, 792
+	lu32i.d	$a0, -114002
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_59:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 24576
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 77650
+	ori	$a0, $a0, 2814
+	lu32i.d	$a0, 67524
+	lu52i.d	$a0, $a0, 987
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -375963
+	ori	$a0, $a0, 1745
+	lu32i.d	$a0, 278353
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 503401
+	ori	$a0, $a0, 52
+	lu32i.d	$a0, 461199
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -211877
+	ori	$a0, $a0, 1113
+	lu32i.d	$a0, -410414
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -494003
+	ori	$a0, $a0, 641
+	lu32i.d	$a0, -522377
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -227030
+	ori	$a0, $a0, 2921
+	lu32i.d	$a0, 182334
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 356012
+	ori	$a0, $a0, 2144
+	lu32i.d	$a0, -46641
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_60:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1019
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 126651
+	ori	$a0, $a0, 2974
+	lu32i.d	$a0, -211549
+	lu52i.d	$a0, $a0, 986
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 415312
+	ori	$a0, $a0, 1045
+	lu32i.d	$a0, 92779
+	lu52i.d	$a0, $a0, 979
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -225442
+	ori	$a0, $a0, 2434
+	lu32i.d	$a0, 220425
+	lu52i.d	$a0, $a0, 994
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 240750
+	ori	$a0, $a0, 1628
+	lu32i.d	$a0, 378282
+	lu52i.d	$a0, $a0, 1001
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 33360
+	ori	$a0, $a0, 2546
+	lu32i.d	$a0, 307809
+	lu52i.d	$a0, $a0, 1008
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -49742
+	ori	$a0, $a0, 3727
+	lu32i.d	$a0, 45217
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -39930
+	ori	$a0, $a0, 925
+	lu32i.d	$a0, -264326
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_61:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 221184
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 262249
+	ori	$a0, $a0, 2124
+	lu32i.d	$a0, 8941
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -226750
+	ori	$a0, $a0, 3872
+	lu32i.d	$a0, 91432
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 292673
+	ori	$a0, $a0, 2840
+	lu32i.d	$a0, 442650
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 239258
+	ori	$a0, $a0, 2390
+	lu32i.d	$a0, -440650
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 489431
+	ori	$a0, $a0, 3787
+	lu32i.d	$a0, 416162
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -222869
+	ori	$a0, $a0, 1895
+	lu32i.d	$a0, -50064
+	lu52i.d	$a0, $a0, 1015
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 414061
+	ori	$a0, $a0, 2830
+	lu32i.d	$a0, -473034
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_62:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 434176
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 74036
+	ori	$a0, $a0, 2051
+	lu32i.d	$a0, -146553
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -357828
+	ori	$a0, $a0, 3462
+	lu32i.d	$a0, -287896
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, 119595
+	ori	$a0, $a0, 654
+	lu32i.d	$a0, 443382
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -2652
+	ori	$a0, $a0, 1176
+	lu32i.d	$a0, -390601
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -234895
+	ori	$a0, $a0, 2270
+	lu32i.d	$a0, 425456
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 31675
+	ori	$a0, $a0, 1572
+	lu32i.d	$a0, -213272
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -361382
+	ori	$a0, $a0, 3143
+	lu32i.d	$a0, 333824
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_63:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 286720
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 435088
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 240606
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 448714
+	ori	$a0, $a0, 1463
+	lu32i.d	$a0, 284662
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -297423
+	ori	$a0, $a0, 928
+	lu32i.d	$a0, -240206
+	lu52i.d	$a0, $a0, 995
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -1723
+	ori	$a0, $a0, 3557
+	lu32i.d	$a0, -23628
+	lu52i.d	$a0, $a0, 1002
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -424687
+	ori	$a0, $a0, 2596
+	lu32i.d	$a0, -284161
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -413552
+	ori	$a0, $a0, 1378
+	lu32i.d	$a0, 179019
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -520765
+	ori	$a0, $a0, 882
+	lu32i.d	$a0, -192561
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_64:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 450560
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, -109596
+	ori	$a0, $a0, 3966
+	lu32i.d	$a0, -60445
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, 267311
+	ori	$a0, $a0, 1488
+	lu32i.d	$a0, -233201
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -332815
+	ori	$a0, $a0, 3442
+	lu32i.d	$a0, 521350
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 482607
+	ori	$a0, $a0, 2226
+	lu32i.d	$a0, -294833
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 471893
+	ori	$a0, $a0, 1743
+	lu32i.d	$a0, 507662
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -494459
+	ori	$a0, $a0, 3646
+	lu32i.d	$a0, -118649
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -295280
+	ori	$a0, $a0, 4089
+	lu32i.d	$a0, 394159
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_65:
+	vldi	$vr1, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 417792
+	lu52i.d	$a0, $a0, -1018
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	lu12i.w	$a0, 334618
+	ori	$a0, $a0, 680
+	lu32i.d	$a0, -230068
+	lu52i.d	$a0, $a0, 988
+	movgr2fr.d	$fa1, $a0
+	lu12i.w	$a0, -492819
+	ori	$a0, $a0, 1907
+	lu32i.d	$a0, -342406
+	lu52i.d	$a0, $a0, 980
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa0, $fa2, $fa1
+	lu12i.w	$a0, -18125
+	ori	$a0, $a0, 905
+	lu32i.d	$a0, 368931
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, 353387
+	ori	$a0, $a0, 3120
+	lu32i.d	$a0, -481420
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -32943
+	ori	$a0, $a0, 2461
+	lu32i.d	$a0, 347631
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -432114
+	ori	$a0, $a0, 101
+	lu32i.d	$a0, -302930
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa1, $fa1, $fa0, $fa2
+	lu12i.w	$a0, -324472
+	ori	$a0, $a0, 2632
+	lu32i.d	$a0, 276362
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	ret
+.LBB0_66:
 	vldi	$vr0, -912
 	ret
 .Lfunc_end0:
@@ -2442,39 +3139,39 @@ foo:                                    # @foo
 	.word	.LBB0_29-.LJTI0_0
 	.word	.LBB0_15-.LJTI0_0
 	.word	.LBB0_57-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
 	.word	.LBB0_56-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
 	.word	.LBB0_19-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
 	.word	.LBB0_25-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
-	.word	.LBB0_67-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
+	.word	.LBB0_66-.LJTI0_0
 	.word	.LBB0_38-.LJTI0_0
 	.word	.LBB0_26-.LJTI0_0
 	.word	.LBB0_60-.LJTI0_0
@@ -2510,33 +3207,34 @@ foo:                                    # @foo
 	.word	.LBB0_53-.LJTI0_0
 	.word	.LBB0_54-.LJTI0_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.dword	0x405399999999999a              # double 78.400000000000006
-.LCPI1_1:
-	.dword	0x3fd851eb851eb852              # double 0.38
-.LCPI1_2:
-	.dword	0x3fdae147ae147ae1              # double 0.41999999999999998
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
 	addi.d	$sp, $sp, -16
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 235929
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa0, $a0
 	pcaddu18i	$ra, %call36(foo)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_1)
+	lu12i.w	$a0, -503317
+	ori	$a0, $a0, 2130
+	lu32i.d	$a0, -503317
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_3
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_2)
+	lu12i.w	$a0, -335545
+	ori	$a0, $a0, 2785
+	lu32i.d	$a0, -335545
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa1, $a0
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB1_3
 # %bb.2:

@@ -1446,12 +1446,7 @@ test_fcPosInf_float:                    # @test_fcPosInf_float
 .Lfunc_end3:
 	.size	test_fcPosInf_float, .Lfunc_end3-test_fcPosInf_float
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function test_fcNegInf_float
-.LCPI4_0:
-	.word	0x7f800000                      # float +Inf
-	.text
-	.globl	test_fcNegInf_float
+	.globl	test_fcNegInf_float             # -- Begin function test_fcNegInf_float
 	.p2align	5
 	.type	test_fcNegInf_float,@function
 test_fcNegInf_float:                    # @test_fcNegInf_float
@@ -1468,8 +1463,8 @@ test_fcNegInf_float:                    # @test_fcNegInf_float
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB4_6
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI4_0)
+	lu12i.w	$a1, 522240
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB4_7
 # %bb.3:
@@ -1532,14 +1527,7 @@ test_fcNegInf_float:                    # @test_fcNegInf_float
 .Lfunc_end4:
 	.size	test_fcNegInf_float, .Lfunc_end4-test_fcNegInf_float
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function test_fcPosNormal_float
-.LCPI5_0:
-	.word	0x7f800000                      # float +Inf
-.LCPI5_1:
-	.word	0xff800000                      # float -Inf
-	.text
-	.globl	test_fcPosNormal_float
+	.globl	test_fcPosNormal_float          # -- Begin function test_fcPosNormal_float
 	.p2align	5
 	.type	test_fcPosNormal_float,@function
 test_fcPosNormal_float:                 # @test_fcPosNormal_float
@@ -1556,13 +1544,14 @@ test_fcPosNormal_float:                 # @test_fcPosNormal_float
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB5_7
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI5_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI5_0)
+	lu12i.w	$a1, 522240
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB5_8
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI5_1)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI5_1)
+	lu12i.w	$a1, -2048
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB5_9
 # %bb.4:
@@ -1637,14 +1626,7 @@ test_fcPosNormal_float:                 # @test_fcPosNormal_float
 .Lfunc_end5:
 	.size	test_fcPosNormal_float, .Lfunc_end5-test_fcPosNormal_float
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function test_fcNegNormal_float
-.LCPI6_0:
-	.word	0x7f800000                      # float +Inf
-.LCPI6_1:
-	.word	0xff800000                      # float -Inf
-	.text
-	.globl	test_fcNegNormal_float
+	.globl	test_fcNegNormal_float          # -- Begin function test_fcNegNormal_float
 	.p2align	5
 	.type	test_fcNegNormal_float,@function
 test_fcNegNormal_float:                 # @test_fcNegNormal_float
@@ -1661,13 +1643,14 @@ test_fcNegNormal_float:                 # @test_fcNegNormal_float
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB6_8
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI6_0)
+	lu12i.w	$a1, 522240
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB6_9
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI6_1)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI6_1)
+	lu12i.w	$a1, -2048
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB6_10
 # %bb.4:
@@ -1759,14 +1742,7 @@ test_fcNegNormal_float:                 # @test_fcNegNormal_float
 .Lfunc_end6:
 	.size	test_fcNegNormal_float, .Lfunc_end6-test_fcNegNormal_float
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function test_fcPosSubnormal_float
-.LCPI7_0:
-	.word	0x7f800000                      # float +Inf
-.LCPI7_1:
-	.word	0xff800000                      # float -Inf
-	.text
-	.globl	test_fcPosSubnormal_float
+	.globl	test_fcPosSubnormal_float       # -- Begin function test_fcPosSubnormal_float
 	.p2align	5
 	.type	test_fcPosSubnormal_float,@function
 test_fcPosSubnormal_float:              # @test_fcPosSubnormal_float
@@ -1783,13 +1759,14 @@ test_fcPosSubnormal_float:              # @test_fcPosSubnormal_float
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB7_9
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI7_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a1, 522240
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB7_10
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI7_1)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a1, -2048
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB7_11
 # %bb.4:
@@ -1898,14 +1875,7 @@ test_fcPosSubnormal_float:              # @test_fcPosSubnormal_float
 .Lfunc_end7:
 	.size	test_fcPosSubnormal_float, .Lfunc_end7-test_fcPosSubnormal_float
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function test_fcNegSubnormal_float
-.LCPI8_0:
-	.word	0x7f800000                      # float +Inf
-.LCPI8_1:
-	.word	0xff800000                      # float -Inf
-	.text
-	.globl	test_fcNegSubnormal_float
+	.globl	test_fcNegSubnormal_float       # -- Begin function test_fcNegSubnormal_float
 	.p2align	5
 	.type	test_fcNegSubnormal_float,@function
 test_fcNegSubnormal_float:              # @test_fcNegSubnormal_float
@@ -1922,13 +1892,14 @@ test_fcNegSubnormal_float:              # @test_fcNegSubnormal_float
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB8_10
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI8_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI8_0)
+	lu12i.w	$a1, 522240
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB8_11
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI8_1)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI8_1)
+	lu12i.w	$a1, -2048
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB8_12
 # %bb.4:
@@ -2054,14 +2025,7 @@ test_fcNegSubnormal_float:              # @test_fcNegSubnormal_float
 .Lfunc_end8:
 	.size	test_fcNegSubnormal_float, .Lfunc_end8-test_fcNegSubnormal_float
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function test_fcPosZero_float
-.LCPI9_0:
-	.word	0x7f800000                      # float +Inf
-.LCPI9_1:
-	.word	0xff800000                      # float -Inf
-	.text
-	.globl	test_fcPosZero_float
+	.globl	test_fcPosZero_float            # -- Begin function test_fcPosZero_float
 	.p2align	5
 	.type	test_fcPosZero_float,@function
 test_fcPosZero_float:                   # @test_fcPosZero_float
@@ -2078,13 +2042,14 @@ test_fcPosZero_float:                   # @test_fcPosZero_float
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB9_11
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI9_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI9_0)
+	lu12i.w	$a1, 522240
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB9_12
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI9_1)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI9_1)
+	lu12i.w	$a1, -2048
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB9_13
 # %bb.4:
@@ -2226,14 +2191,7 @@ test_fcPosZero_float:                   # @test_fcPosZero_float
 .Lfunc_end9:
 	.size	test_fcPosZero_float, .Lfunc_end9-test_fcPosZero_float
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function test_fcNegZero_float
-.LCPI10_0:
-	.word	0x7f800000                      # float +Inf
-.LCPI10_1:
-	.word	0xff800000                      # float -Inf
-	.text
-	.globl	test_fcNegZero_float
+	.globl	test_fcNegZero_float            # -- Begin function test_fcNegZero_float
 	.p2align	5
 	.type	test_fcNegZero_float,@function
 test_fcNegZero_float:                   # @test_fcNegZero_float
@@ -2250,13 +2208,14 @@ test_fcNegZero_float:                   # @test_fcNegZero_float
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB10_11
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI10_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI10_0)
+	lu12i.w	$a1, 522240
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB10_12
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI10_1)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI10_1)
+	lu12i.w	$a1, -2048
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa1, $a1
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB10_13
 # %bb.4:
@@ -4462,12 +4421,7 @@ test_fcPosInf_double:                   # @test_fcPosInf_double
 .Lfunc_end15:
 	.size	test_fcPosInf_double, .Lfunc_end15-test_fcPosInf_double
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_fcNegInf_double
-.LCPI16_0:
-	.dword	0x7ff0000000000000              # double +Inf
-	.text
-	.globl	test_fcNegInf_double
+	.globl	test_fcNegInf_double            # -- Begin function test_fcNegInf_double
 	.p2align	5
 	.type	test_fcNegInf_double,@function
 test_fcNegInf_double:                   # @test_fcNegInf_double
@@ -4484,8 +4438,8 @@ test_fcNegInf_double:                   # @test_fcNegInf_double
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB16_6
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI16_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI16_0)
+	lu52i.d	$a1, $zero, 2047
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB16_7
 # %bb.3:
@@ -4548,14 +4502,7 @@ test_fcNegInf_double:                   # @test_fcNegInf_double
 .Lfunc_end16:
 	.size	test_fcNegInf_double, .Lfunc_end16-test_fcNegInf_double
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_fcPosNormal_double
-.LCPI17_0:
-	.dword	0x7ff0000000000000              # double +Inf
-.LCPI17_1:
-	.dword	0xfff0000000000000              # double -Inf
-	.text
-	.globl	test_fcPosNormal_double
+	.globl	test_fcPosNormal_double         # -- Begin function test_fcPosNormal_double
 	.p2align	5
 	.type	test_fcPosNormal_double,@function
 test_fcPosNormal_double:                # @test_fcPosNormal_double
@@ -4572,13 +4519,13 @@ test_fcPosNormal_double:                # @test_fcPosNormal_double
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB17_7
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI17_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI17_0)
+	lu52i.d	$a1, $zero, 2047
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB17_8
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI17_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI17_1)
+	lu52i.d	$a1, $zero, -1
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB17_9
 # %bb.4:
@@ -4653,14 +4600,7 @@ test_fcPosNormal_double:                # @test_fcPosNormal_double
 .Lfunc_end17:
 	.size	test_fcPosNormal_double, .Lfunc_end17-test_fcPosNormal_double
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_fcNegNormal_double
-.LCPI18_0:
-	.dword	0x7ff0000000000000              # double +Inf
-.LCPI18_1:
-	.dword	0xfff0000000000000              # double -Inf
-	.text
-	.globl	test_fcNegNormal_double
+	.globl	test_fcNegNormal_double         # -- Begin function test_fcNegNormal_double
 	.p2align	5
 	.type	test_fcNegNormal_double,@function
 test_fcNegNormal_double:                # @test_fcNegNormal_double
@@ -4677,13 +4617,13 @@ test_fcNegNormal_double:                # @test_fcNegNormal_double
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB18_8
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI18_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI18_0)
+	lu52i.d	$a1, $zero, 2047
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB18_9
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI18_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI18_1)
+	lu52i.d	$a1, $zero, -1
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB18_10
 # %bb.4:
@@ -4775,14 +4715,7 @@ test_fcNegNormal_double:                # @test_fcNegNormal_double
 .Lfunc_end18:
 	.size	test_fcNegNormal_double, .Lfunc_end18-test_fcNegNormal_double
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_fcPosSubnormal_double
-.LCPI19_0:
-	.dword	0x7ff0000000000000              # double +Inf
-.LCPI19_1:
-	.dword	0xfff0000000000000              # double -Inf
-	.text
-	.globl	test_fcPosSubnormal_double
+	.globl	test_fcPosSubnormal_double      # -- Begin function test_fcPosSubnormal_double
 	.p2align	5
 	.type	test_fcPosSubnormal_double,@function
 test_fcPosSubnormal_double:             # @test_fcPosSubnormal_double
@@ -4799,13 +4732,13 @@ test_fcPosSubnormal_double:             # @test_fcPosSubnormal_double
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB19_9
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI19_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI19_0)
+	lu52i.d	$a1, $zero, 2047
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB19_10
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI19_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI19_1)
+	lu52i.d	$a1, $zero, -1
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB19_11
 # %bb.4:
@@ -4914,14 +4847,7 @@ test_fcPosSubnormal_double:             # @test_fcPosSubnormal_double
 .Lfunc_end19:
 	.size	test_fcPosSubnormal_double, .Lfunc_end19-test_fcPosSubnormal_double
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_fcNegSubnormal_double
-.LCPI20_0:
-	.dword	0x7ff0000000000000              # double +Inf
-.LCPI20_1:
-	.dword	0xfff0000000000000              # double -Inf
-	.text
-	.globl	test_fcNegSubnormal_double
+	.globl	test_fcNegSubnormal_double      # -- Begin function test_fcNegSubnormal_double
 	.p2align	5
 	.type	test_fcNegSubnormal_double,@function
 test_fcNegSubnormal_double:             # @test_fcNegSubnormal_double
@@ -4938,13 +4864,13 @@ test_fcNegSubnormal_double:             # @test_fcNegSubnormal_double
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB20_10
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI20_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI20_0)
+	lu52i.d	$a1, $zero, 2047
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB20_11
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI20_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI20_1)
+	lu52i.d	$a1, $zero, -1
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB20_12
 # %bb.4:
@@ -5070,14 +4996,7 @@ test_fcNegSubnormal_double:             # @test_fcNegSubnormal_double
 .Lfunc_end20:
 	.size	test_fcNegSubnormal_double, .Lfunc_end20-test_fcNegSubnormal_double
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_fcPosZero_double
-.LCPI21_0:
-	.dword	0x7ff0000000000000              # double +Inf
-.LCPI21_1:
-	.dword	0xfff0000000000000              # double -Inf
-	.text
-	.globl	test_fcPosZero_double
+	.globl	test_fcPosZero_double           # -- Begin function test_fcPosZero_double
 	.p2align	5
 	.type	test_fcPosZero_double,@function
 test_fcPosZero_double:                  # @test_fcPosZero_double
@@ -5094,13 +5013,13 @@ test_fcPosZero_double:                  # @test_fcPosZero_double
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB21_11
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI21_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI21_0)
+	lu52i.d	$a1, $zero, 2047
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB21_12
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI21_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI21_1)
+	lu52i.d	$a1, $zero, -1
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB21_13
 # %bb.4:
@@ -5242,14 +5161,7 @@ test_fcPosZero_double:                  # @test_fcPosZero_double
 .Lfunc_end21:
 	.size	test_fcPosZero_double, .Lfunc_end21-test_fcPosZero_double
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_fcNegZero_double
-.LCPI22_0:
-	.dword	0x7ff0000000000000              # double +Inf
-.LCPI22_1:
-	.dword	0xfff0000000000000              # double -Inf
-	.text
-	.globl	test_fcNegZero_double
+	.globl	test_fcNegZero_double           # -- Begin function test_fcNegZero_double
 	.p2align	5
 	.type	test_fcNegZero_double,@function
 test_fcNegZero_double:                  # @test_fcNegZero_double
@@ -5266,13 +5178,13 @@ test_fcNegZero_double:                  # @test_fcNegZero_double
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB22_11
 # %bb.2:
-	pcalau12i	$a1, %pc_hi20(.LCPI22_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI22_0)
+	lu52i.d	$a1, $zero, 2047
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB22_12
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI22_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI22_1)
+	lu52i.d	$a1, $zero, -1
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB22_13
 # %bb.4:

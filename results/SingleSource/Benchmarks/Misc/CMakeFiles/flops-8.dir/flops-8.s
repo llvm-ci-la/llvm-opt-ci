@@ -1,14 +1,6 @@
 	.file	"flops-8.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x41a2a05f20000000              # double 1.5625E+8
-.LCPI0_1:
-	.dword	0xbfd2aaaaaaaaaaab              # double -0.29166666666666669
-.LCPI0_2:
-	.dword	0x39b4484bfeebc2a0              # double 1.0000000000000001E-30
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -63,15 +55,17 @@ main:                                   # @main
 	addi.d	$a0, $a0, %pc_lo12(.Lstr.2)
 	pcaddu18i	$ra, %call36(puts)
 	jirl	$ra, $ra, 0
-	fld.d	$fa0, $s2, %pc_lo12(three)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_0)
-	fld.d	$fa1, $s1, %pc_lo12(piref)
 	move	$a0, $zero
-	fmul.d	$fa2, $fa0, $fa2
-	fdiv.d	$fa2, $fa1, $fa2
+	fld.d	$fa1, $s1, %pc_lo12(piref)
+	fld.d	$fa3, $s2, %pc_lo12(three)
+	lu12i.w	$a1, 131072
+	lu32i.d	$a1, 172127
+	lu52i.d	$a1, $a1, 1050
+	movgr2fr.d	$fa0, $a1
+	fmul.d	$fa0, $fa3, $fa0
+	fdiv.d	$fa0, $fa1, $fa0
 	pcalau12i	$a1, %pc_hi20(B6)
-	fld.d	$fa3, $a1, %pc_lo12(B6)
+	fld.d	$fa2, $a1, %pc_lo12(B6)
 	pcalau12i	$a1, %pc_hi20(B5)
 	fld.d	$fa4, $a1, %pc_lo12(B5)
 	pcalau12i	$a1, %pc_hi20(B4)
@@ -103,9 +97,9 @@ main:                                   # @main
 	addi.d	$a0, $a0, 1
 	movgr2fr.d	$ft9, $a0
 	ffint.d.l	$ft9, $ft9
-	fmul.d	$ft9, $fa2, $ft9
+	fmul.d	$ft9, $fa0, $ft9
 	fmul.d	$ft10, $ft9, $ft9
-	fmadd.d	$ft11, $fa3, $ft10, $fa4
+	fmadd.d	$ft11, $fa2, $ft10, $fa4
 	fmadd.d	$ft11, $ft10, $ft11, $fa6
 	fmadd.d	$ft11, $ft10, $ft11, $fa7
 	fmadd.d	$ft11, $ft10, $ft11, $ft0
@@ -122,43 +116,46 @@ main:                                   # @main
 	fmadd.d	$ft2, $ft9, $ft10, $ft2
 	bne	$a0, $a1, .LBB0_1
 # %bb.2:
-	fdiv.d	$fa0, $fa1, $fa0
-	fmul.d	$fa1, $fa0, $fa0
-	fmadd.d	$ft3, $ft3, $fa1, $ft4
-	fmadd.d	$ft3, $ft3, $fa1, $ft5
-	fmadd.d	$ft3, $ft3, $fa1, $ft6
-	fmadd.d	$ft3, $ft3, $fa1, $ft7
-	fmadd.d	$ft3, $ft3, $fa1, $ft8
-	fmadd.d	$ft3, $ft3, $fa1, $fa5
-	fmul.d	$fa0, $fa0, $ft3
-	fmadd.d	$fa3, $fa3, $fa1, $fa4
-	fmadd.d	$fa3, $fa1, $fa3, $fa6
-	fmadd.d	$fa3, $fa1, $fa3, $fa7
-	fmadd.d	$fa3, $fa1, $fa3, $ft0
-	fmadd.d	$fa3, $fa1, $fa3, $ft1
+	fdiv.d	$fa1, $fa1, $fa3
+	fmul.d	$fa3, $fa1, $fa1
+	fmadd.d	$ft3, $ft3, $fa3, $ft4
+	fmadd.d	$ft3, $ft3, $fa3, $ft5
+	fmadd.d	$ft3, $ft3, $fa3, $ft6
+	fmadd.d	$ft3, $ft3, $fa3, $ft7
+	fmadd.d	$ft3, $ft3, $fa3, $ft8
+	fmadd.d	$ft3, $ft3, $fa3, $fa5
+	fmul.d	$fa1, $fa1, $ft3
+	fmadd.d	$fa2, $fa2, $fa3, $fa4
+	fmadd.d	$fa2, $fa3, $fa2, $fa6
+	fmadd.d	$fa2, $fa3, $fa2, $fa7
+	fmadd.d	$fa2, $fa3, $fa2, $ft0
+	fmadd.d	$fa2, $fa3, $fa2, $ft1
 	fld.d	$fa4, $fp, %pc_lo12(two)
-	fmadd.d	$fa1, $fa1, $fa3, $fa5
+	fmadd.d	$fa2, $fa3, $fa2, $fa5
+	fmul.d	$fa1, $fa1, $fa2
+	fmul.d	$fa1, $fa2, $fa1
+	fmadd.d	$fa1, $fa4, $ft2, $fa1
 	fmul.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa1, $fa0
-	fmadd.d	$fa0, $fa4, $ft2, $fa0
-	fmul.d	$fa0, $fa2, $fa0
 	fdiv.d	$fa0, $fa0, $fa4
 	pcalau12i	$a0, %pc_hi20(sa)
 	fst.d	$fa0, $a0, %pc_lo12(sa)
 	pcalau12i	$a0, %pc_hi20(sb)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_1)
 	lu12i.w	$a1, -349526
 	ori	$a1, $a1, 2731
 	lu32i.d	$a1, 174762
-	lu52i.d	$a1, $a1, 1021
-	st.d	$a1, $a0, %pc_lo12(sb)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_2)
+	lu52i.d	$a2, $a1, 1021
+	st.d	$a2, $a0, %pc_lo12(sb)
+	lu52i.d	$a0, $a1, -1027
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(sc)
 	fst.d	$fa0, $a0, %pc_lo12(sc)
-	fmul.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -4420
+	ori	$a0, $a0, 672
+	lu32i.d	$a0, 280651
+	lu52i.d	$a0, $a0, 923
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.4)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.4)

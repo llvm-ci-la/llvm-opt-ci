@@ -3,12 +3,8 @@
 	.globl	_ZSt21ios_base_library_initv
 
                                         # End of file scope inline assembly
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE
-.LCPI0_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE
+	.globl	_Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE # -- Begin function _Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE,@function
 _Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE
@@ -127,9 +123,9 @@ _Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_expf_auto
 	bne	$s5, $s4, .LBB0_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI0_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -155,7 +151,7 @@ _Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_expf_auto
 	bcnez	$fcc0, .LBB0_12
 # %bb.14:                               #   in Loop: Header=BB0_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB0_18
 # %bb.15:                               #   in Loop: Header=BB0_13 Depth=1
@@ -171,13 +167,13 @@ _Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_expf_auto
 	bnez	$a2, .LBB0_18
 # %bb.17:                               #   in Loop: Header=BB0_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB0_18:                               # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB0_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB0_11
 .LBB0_19:                               #   in Loop: Header=BB0_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -192,13 +188,13 @@ _Z29BENCHMARK_expf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_expf_auto
 	bnez	$a2, .LBB0_11
 # %bb.21:                               #   in Loop: Header=BB0_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB0_11
 .LBB0_22:                               #   in Loop: Header=BB0_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB0_11
 	b	.LBB0_19
 .LBB0_23:                               # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -731,12 +727,8 @@ GCC_except_table1:
 .Lcst_end1:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE
-.LCPI2_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE
+	.globl	_Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE # -- Begin function _Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE,@function
 _Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE
@@ -855,9 +847,9 @@ _Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_exp_autov
 	bne	$s5, $s4, .LBB2_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI2_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -883,7 +875,7 @@ _Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_exp_autov
 	bcnez	$fcc0, .LBB2_12
 # %bb.14:                               #   in Loop: Header=BB2_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB2_18
 # %bb.15:                               #   in Loop: Header=BB2_13 Depth=1
@@ -899,13 +891,13 @@ _Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_exp_autov
 	bnez	$a2, .LBB2_18
 # %bb.17:                               #   in Loop: Header=BB2_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB2_18:                               # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB2_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB2_11
 .LBB2_19:                               #   in Loop: Header=BB2_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -920,13 +912,13 @@ _Z29BENCHMARK_exp_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_exp_autov
 	bnez	$a2, .LBB2_11
 # %bb.21:                               #   in Loop: Header=BB2_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB2_11
 .LBB2_22:                               #   in Loop: Header=BB2_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB2_11
 	b	.LBB2_19
 .LBB2_23:                               # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -1457,12 +1449,8 @@ GCC_except_table3:
 .Lcst_end3:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE
-.LCPI4_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE,@function
 _Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE
@@ -1581,9 +1569,9 @@ _Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_acosf_au
 	bne	$s5, $s4, .LBB4_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI4_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -1609,7 +1597,7 @@ _Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_acosf_au
 	bcnez	$fcc0, .LBB4_12
 # %bb.14:                               #   in Loop: Header=BB4_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB4_18
 # %bb.15:                               #   in Loop: Header=BB4_13 Depth=1
@@ -1625,13 +1613,13 @@ _Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_acosf_au
 	bnez	$a2, .LBB4_18
 # %bb.17:                               #   in Loop: Header=BB4_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB4_18:                               # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB4_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB4_11
 .LBB4_19:                               #   in Loop: Header=BB4_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -1646,13 +1634,13 @@ _Z30BENCHMARK_acosf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_acosf_au
 	bnez	$a2, .LBB4_11
 # %bb.21:                               #   in Loop: Header=BB4_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB4_11
 .LBB4_22:                               #   in Loop: Header=BB4_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB4_11
 	b	.LBB4_19
 .LBB4_23:                               # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -2185,12 +2173,8 @@ GCC_except_table5:
 .Lcst_end5:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE
-.LCPI6_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE,@function
 _Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE
@@ -2309,9 +2293,9 @@ _Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_acos_aut
 	bne	$s5, $s4, .LBB6_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI6_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -2337,7 +2321,7 @@ _Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_acos_aut
 	bcnez	$fcc0, .LBB6_12
 # %bb.14:                               #   in Loop: Header=BB6_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB6_18
 # %bb.15:                               #   in Loop: Header=BB6_13 Depth=1
@@ -2353,13 +2337,13 @@ _Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_acos_aut
 	bnez	$a2, .LBB6_18
 # %bb.17:                               #   in Loop: Header=BB6_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB6_18:                               # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB6_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB6_11
 .LBB6_19:                               #   in Loop: Header=BB6_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -2374,13 +2358,13 @@ _Z30BENCHMARK_acos_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_acos_aut
 	bnez	$a2, .LBB6_11
 # %bb.21:                               #   in Loop: Header=BB6_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB6_11
 .LBB6_22:                               #   in Loop: Header=BB6_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB6_11
 	b	.LBB6_19
 .LBB6_23:                               # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -2911,12 +2895,8 @@ GCC_except_table7:
 .Lcst_end7:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE
-.LCPI8_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE,@function
 _Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE
@@ -3035,9 +3015,9 @@ _Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_asinf_au
 	bne	$s5, $s4, .LBB8_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI8_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -3063,7 +3043,7 @@ _Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_asinf_au
 	bcnez	$fcc0, .LBB8_12
 # %bb.14:                               #   in Loop: Header=BB8_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB8_18
 # %bb.15:                               #   in Loop: Header=BB8_13 Depth=1
@@ -3079,13 +3059,13 @@ _Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_asinf_au
 	bnez	$a2, .LBB8_18
 # %bb.17:                               #   in Loop: Header=BB8_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB8_18:                               # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB8_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB8_11
 .LBB8_19:                               #   in Loop: Header=BB8_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -3100,13 +3080,13 @@ _Z30BENCHMARK_asinf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_asinf_au
 	bnez	$a2, .LBB8_11
 # %bb.21:                               #   in Loop: Header=BB8_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB8_11
 .LBB8_22:                               #   in Loop: Header=BB8_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB8_11
 	b	.LBB8_19
 .LBB8_23:                               # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -3639,12 +3619,8 @@ GCC_except_table9:
 .Lcst_end9:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE
-.LCPI10_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE,@function
 _Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE
@@ -3763,9 +3739,9 @@ _Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_asin_aut
 	bne	$s5, $s4, .LBB10_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI10_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -3791,7 +3767,7 @@ _Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_asin_aut
 	bcnez	$fcc0, .LBB10_12
 # %bb.14:                               #   in Loop: Header=BB10_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB10_18
 # %bb.15:                               #   in Loop: Header=BB10_13 Depth=1
@@ -3807,13 +3783,13 @@ _Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_asin_aut
 	bnez	$a2, .LBB10_18
 # %bb.17:                               #   in Loop: Header=BB10_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB10_18:                              # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB10_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB10_11
 .LBB10_19:                              #   in Loop: Header=BB10_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -3828,13 +3804,13 @@ _Z30BENCHMARK_asin_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_asin_aut
 	bnez	$a2, .LBB10_11
 # %bb.21:                               #   in Loop: Header=BB10_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB10_11
 .LBB10_22:                              #   in Loop: Header=BB10_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB10_11
 	b	.LBB10_19
 .LBB10_23:                              # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -4365,12 +4341,8 @@ GCC_except_table11:
 .Lcst_end11:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE
-.LCPI12_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE,@function
 _Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE
@@ -4489,9 +4461,9 @@ _Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_atanf_au
 	bne	$s5, $s4, .LBB12_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI12_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -4517,7 +4489,7 @@ _Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_atanf_au
 	bcnez	$fcc0, .LBB12_12
 # %bb.14:                               #   in Loop: Header=BB12_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB12_18
 # %bb.15:                               #   in Loop: Header=BB12_13 Depth=1
@@ -4533,13 +4505,13 @@ _Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_atanf_au
 	bnez	$a2, .LBB12_18
 # %bb.17:                               #   in Loop: Header=BB12_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB12_18:                              # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB12_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB12_11
 .LBB12_19:                              #   in Loop: Header=BB12_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -4554,13 +4526,13 @@ _Z30BENCHMARK_atanf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_atanf_au
 	bnez	$a2, .LBB12_11
 # %bb.21:                               #   in Loop: Header=BB12_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB12_11
 .LBB12_22:                              #   in Loop: Header=BB12_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB12_11
 	b	.LBB12_19
 .LBB12_23:                              # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -5093,12 +5065,8 @@ GCC_except_table13:
 .Lcst_end13:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE
-.LCPI14_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE,@function
 _Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE
@@ -5217,9 +5185,9 @@ _Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_atan_aut
 	bne	$s5, $s4, .LBB14_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI14_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -5245,7 +5213,7 @@ _Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_atan_aut
 	bcnez	$fcc0, .LBB14_12
 # %bb.14:                               #   in Loop: Header=BB14_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB14_18
 # %bb.15:                               #   in Loop: Header=BB14_13 Depth=1
@@ -5261,13 +5229,13 @@ _Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_atan_aut
 	bnez	$a2, .LBB14_18
 # %bb.17:                               #   in Loop: Header=BB14_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB14_18:                              # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB14_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB14_11
 .LBB14_19:                              #   in Loop: Header=BB14_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -5282,13 +5250,13 @@ _Z30BENCHMARK_atan_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_atan_aut
 	bnez	$a2, .LBB14_11
 # %bb.21:                               #   in Loop: Header=BB14_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB14_11
 .LBB14_22:                              #   in Loop: Header=BB14_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB14_11
 	b	.LBB14_19
 .LBB14_23:                              # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -5819,12 +5787,8 @@ GCC_except_table15:
 .Lcst_end15:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE
-.LCPI16_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE,@function
 _Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE
@@ -5943,9 +5907,9 @@ _Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrtf_au
 	bne	$s5, $s4, .LBB16_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI16_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI16_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -5971,7 +5935,7 @@ _Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrtf_au
 	bcnez	$fcc0, .LBB16_12
 # %bb.14:                               #   in Loop: Header=BB16_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB16_18
 # %bb.15:                               #   in Loop: Header=BB16_13 Depth=1
@@ -5987,13 +5951,13 @@ _Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrtf_au
 	bnez	$a2, .LBB16_18
 # %bb.17:                               #   in Loop: Header=BB16_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB16_18:                              # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB16_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB16_11
 .LBB16_19:                              #   in Loop: Header=BB16_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -6008,13 +5972,13 @@ _Z30BENCHMARK_cbrtf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrtf_au
 	bnez	$a2, .LBB16_11
 # %bb.21:                               #   in Loop: Header=BB16_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB16_11
 .LBB16_22:                              #   in Loop: Header=BB16_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB16_11
 	b	.LBB16_19
 .LBB16_23:                              # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -6547,12 +6511,8 @@ GCC_except_table17:
 .Lcst_end17:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE
-.LCPI18_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE,@function
 _Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE
@@ -6671,9 +6631,9 @@ _Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrt_aut
 	bne	$s5, $s4, .LBB18_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI18_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI18_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -6699,7 +6659,7 @@ _Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrt_aut
 	bcnez	$fcc0, .LBB18_12
 # %bb.14:                               #   in Loop: Header=BB18_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB18_18
 # %bb.15:                               #   in Loop: Header=BB18_13 Depth=1
@@ -6715,13 +6675,13 @@ _Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrt_aut
 	bnez	$a2, .LBB18_18
 # %bb.17:                               #   in Loop: Header=BB18_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB18_18:                              # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB18_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB18_11
 .LBB18_19:                              #   in Loop: Header=BB18_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -6736,13 +6696,13 @@ _Z30BENCHMARK_cbrt_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_cbrt_aut
 	bnez	$a2, .LBB18_11
 # %bb.21:                               #   in Loop: Header=BB18_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB18_11
 .LBB18_22:                              #   in Loop: Header=BB18_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB18_11
 	b	.LBB18_19
 .LBB18_23:                              # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -7273,12 +7233,8 @@ GCC_except_table19:
 .Lcst_end19:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE
-.LCPI20_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE
+	.globl	_Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE # -- Begin function _Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE,@function
 _Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE
@@ -7397,9 +7353,9 @@ _Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_erff_auto
 	bne	$s5, $s4, .LBB20_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI20_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI20_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -7425,7 +7381,7 @@ _Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_erff_auto
 	bcnez	$fcc0, .LBB20_12
 # %bb.14:                               #   in Loop: Header=BB20_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB20_18
 # %bb.15:                               #   in Loop: Header=BB20_13 Depth=1
@@ -7441,13 +7397,13 @@ _Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_erff_auto
 	bnez	$a2, .LBB20_18
 # %bb.17:                               #   in Loop: Header=BB20_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB20_18:                              # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB20_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB20_11
 .LBB20_19:                              #   in Loop: Header=BB20_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -7462,13 +7418,13 @@ _Z29BENCHMARK_erff_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_erff_auto
 	bnez	$a2, .LBB20_11
 # %bb.21:                               #   in Loop: Header=BB20_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB20_11
 .LBB20_22:                              #   in Loop: Header=BB20_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB20_11
 	b	.LBB20_19
 .LBB20_23:                              # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -8001,12 +7957,8 @@ GCC_except_table21:
 .Lcst_end21:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE
-.LCPI22_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE
+	.globl	_Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE # -- Begin function _Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE,@function
 _Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE
@@ -8125,9 +8077,9 @@ _Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_erf_autov
 	bne	$s5, $s4, .LBB22_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI22_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI22_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -8153,7 +8105,7 @@ _Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_erf_autov
 	bcnez	$fcc0, .LBB22_12
 # %bb.14:                               #   in Loop: Header=BB22_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB22_18
 # %bb.15:                               #   in Loop: Header=BB22_13 Depth=1
@@ -8169,13 +8121,13 @@ _Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_erf_autov
 	bnez	$a2, .LBB22_18
 # %bb.17:                               #   in Loop: Header=BB22_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB22_18:                              # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB22_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB22_11
 .LBB22_19:                              #   in Loop: Header=BB22_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -8190,13 +8142,13 @@ _Z29BENCHMARK_erf_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_erf_autov
 	bnez	$a2, .LBB22_11
 # %bb.21:                               #   in Loop: Header=BB22_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB22_11
 .LBB22_22:                              #   in Loop: Header=BB22_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB22_11
 	b	.LBB22_19
 .LBB22_23:                              # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -8727,12 +8679,8 @@ GCC_except_table23:
 .Lcst_end23:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE
-.LCPI24_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE
+	.globl	_Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE # -- Begin function _Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE,@function
 _Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE
@@ -8851,9 +8799,9 @@ _Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_cosf_auto
 	bne	$s5, $s4, .LBB24_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI24_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI24_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -8879,7 +8827,7 @@ _Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_cosf_auto
 	bcnez	$fcc0, .LBB24_12
 # %bb.14:                               #   in Loop: Header=BB24_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB24_18
 # %bb.15:                               #   in Loop: Header=BB24_13 Depth=1
@@ -8895,13 +8843,13 @@ _Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_cosf_auto
 	bnez	$a2, .LBB24_18
 # %bb.17:                               #   in Loop: Header=BB24_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB24_18:                              # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB24_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB24_11
 .LBB24_19:                              #   in Loop: Header=BB24_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -8916,13 +8864,13 @@ _Z29BENCHMARK_cosf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_cosf_auto
 	bnez	$a2, .LBB24_11
 # %bb.21:                               #   in Loop: Header=BB24_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB24_11
 .LBB24_22:                              #   in Loop: Header=BB24_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB24_11
 	b	.LBB24_19
 .LBB24_23:                              # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -9455,12 +9403,8 @@ GCC_except_table25:
 .Lcst_end25:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE
-.LCPI26_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE
+	.globl	_Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE # -- Begin function _Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE,@function
 _Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE
@@ -9579,9 +9523,9 @@ _Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_cos_autov
 	bne	$s5, $s4, .LBB26_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI26_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI26_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -9607,7 +9551,7 @@ _Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_cos_autov
 	bcnez	$fcc0, .LBB26_12
 # %bb.14:                               #   in Loop: Header=BB26_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB26_18
 # %bb.15:                               #   in Loop: Header=BB26_13 Depth=1
@@ -9623,13 +9567,13 @@ _Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_cos_autov
 	bnez	$a2, .LBB26_18
 # %bb.17:                               #   in Loop: Header=BB26_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB26_18:                              # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB26_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB26_11
 .LBB26_19:                              #   in Loop: Header=BB26_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -9644,13 +9588,13 @@ _Z29BENCHMARK_cos_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_cos_autov
 	bnez	$a2, .LBB26_11
 # %bb.21:                               #   in Loop: Header=BB26_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB26_11
 .LBB26_22:                              #   in Loop: Header=BB26_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB26_11
 	b	.LBB26_19
 .LBB26_23:                              # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -10181,12 +10125,8 @@ GCC_except_table27:
 .Lcst_end27:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE
-.LCPI28_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE
+	.globl	_Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE # -- Begin function _Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE,@function
 _Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE
@@ -10305,9 +10245,9 @@ _Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_sinf_auto
 	bne	$s5, $s4, .LBB28_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI28_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI28_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -10333,7 +10273,7 @@ _Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_sinf_auto
 	bcnez	$fcc0, .LBB28_12
 # %bb.14:                               #   in Loop: Header=BB28_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB28_18
 # %bb.15:                               #   in Loop: Header=BB28_13 Depth=1
@@ -10349,13 +10289,13 @@ _Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_sinf_auto
 	bnez	$a2, .LBB28_18
 # %bb.17:                               #   in Loop: Header=BB28_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB28_18:                              # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB28_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB28_11
 .LBB28_19:                              #   in Loop: Header=BB28_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -10370,13 +10310,13 @@ _Z29BENCHMARK_sinf_autovec_float_RN9benchmark5StateE: # @_Z29BENCHMARK_sinf_auto
 	bnez	$a2, .LBB28_11
 # %bb.21:                               #   in Loop: Header=BB28_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB28_11
 .LBB28_22:                              #   in Loop: Header=BB28_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB28_11
 	b	.LBB28_19
 .LBB28_23:                              # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -10909,12 +10849,8 @@ GCC_except_table29:
 .Lcst_end29:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE
-.LCPI30_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE
+	.globl	_Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE # -- Begin function _Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE,@function
 _Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE
@@ -11033,9 +10969,9 @@ _Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_sin_autov
 	bne	$s5, $s4, .LBB30_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI30_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI30_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -11061,7 +10997,7 @@ _Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_sin_autov
 	bcnez	$fcc0, .LBB30_12
 # %bb.14:                               #   in Loop: Header=BB30_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB30_18
 # %bb.15:                               #   in Loop: Header=BB30_13 Depth=1
@@ -11077,13 +11013,13 @@ _Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_sin_autov
 	bnez	$a2, .LBB30_18
 # %bb.17:                               #   in Loop: Header=BB30_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB30_18:                              # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB30_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB30_11
 .LBB30_19:                              #   in Loop: Header=BB30_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -11098,13 +11034,13 @@ _Z29BENCHMARK_sin_autovec_double_RN9benchmark5StateE: # @_Z29BENCHMARK_sin_autov
 	bnez	$a2, .LBB30_11
 # %bb.21:                               #   in Loop: Header=BB30_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB30_11
 .LBB30_22:                              #   in Loop: Header=BB30_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB30_11
 	b	.LBB30_19
 .LBB30_23:                              # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -11635,12 +11571,8 @@ GCC_except_table31:
 .Lcst_end31:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE
-.LCPI32_0:
-	.word	0x00800000                      # float 1.17549435E-38
 	.text
-	.globl	_Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE,@function
 _Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE
@@ -11759,9 +11691,9 @@ _Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_sinhf_au
 	bne	$s5, $s4, .LBB32_8
 # %bb.9:                                # %_ZL14run_fn_autovecIfEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI32_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI32_0)
-	movgr2fr.w	$fa1, $zero
+	movgr2fr.w	$fa0, $zero
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -11787,7 +11719,7 @@ _Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_sinhf_au
 	bcnez	$fcc0, .LBB32_12
 # %bb.14:                               #   in Loop: Header=BB32_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.s	$fcc0, $fa3, $fa1
+	fcmp.ceq.s	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB32_18
 # %bb.15:                               #   in Loop: Header=BB32_13 Depth=1
@@ -11803,13 +11735,13 @@ _Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_sinhf_au
 	bnez	$a2, .LBB32_18
 # %bb.17:                               #   in Loop: Header=BB32_13 Depth=1
 	fabs.s	$fa3, $fa3
-	fcmp.cule.s	$fcc0, $fa0, $fa3
+	fcmp.cule.s	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB32_18:                              # %_ZSt10fpclassifyf.exit
                                         #   in Loop: Header=BB32_13 Depth=1
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB32_11
 .LBB32_19:                              #   in Loop: Header=BB32_13 Depth=1
 	fcmp.cun.s	$fcc0, $fa2, $fa2
@@ -11824,13 +11756,13 @@ _Z30BENCHMARK_sinhf_autovec_float_RN9benchmark5StateE: # @_Z30BENCHMARK_sinhf_au
 	bnez	$a2, .LBB32_11
 # %bb.21:                               #   in Loop: Header=BB32_13 Depth=1
 	fabs.s	$fa2, $fa2
-	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcmp.cule.s	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB32_11
 .LBB32_22:                              #   in Loop: Header=BB32_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.s	$fcc0, $fa2, $fa1
+	fcmp.ceq.s	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB32_11
 	b	.LBB32_19
 .LBB32_23:                              # %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -12363,12 +12295,8 @@ GCC_except_table33:
 .Lcst_end33:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE
-.LCPI34_0:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
 	.text
-	.globl	_Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE
+	.globl	_Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE # -- Begin function _Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE
 	.p2align	5
 	.type	_Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE,@function
 _Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE
@@ -12487,9 +12415,9 @@ _Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_sinh_aut
 	bne	$s5, $s4, .LBB34_8
 # %bb.9:                                # %_ZL14run_fn_autovecIdEvPT_S1_S1_PFS0_S0_E.exit.preheader.preheader
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI34_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI34_0)
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa1, $a0
 	lu12i.w	$a0, 2
 	ori	$s3, $a0, 1808
 	move	$s4, $s1
@@ -12515,7 +12443,7 @@ _Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_sinh_aut
 	bcnez	$fcc0, .LBB34_12
 # %bb.14:                               #   in Loop: Header=BB34_13 Depth=1
 	ori	$a0, $zero, 2
-	fcmp.ceq.d	$fcc0, $fa3, $fa1
+	fcmp.ceq.d	$fcc0, $fa3, $fa0
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB34_18
 # %bb.15:                               #   in Loop: Header=BB34_13 Depth=1
@@ -12531,13 +12459,13 @@ _Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_sinh_aut
 	bnez	$a2, .LBB34_18
 # %bb.17:                               #   in Loop: Header=BB34_13 Depth=1
 	fabs.d	$fa3, $fa3
-	fcmp.cule.d	$fcc0, $fa0, $fa3
+	fcmp.cule.d	$fcc0, $fa1, $fa3
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 3
 	.p2align	4, , 16
 .LBB34_18:                              # %_ZSt10fpclassifyd.exit
                                         #   in Loop: Header=BB34_13 Depth=1
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB34_11
 .LBB34_19:                              #   in Loop: Header=BB34_13 Depth=1
 	fcmp.cun.d	$fcc0, $fa2, $fa2
@@ -12552,13 +12480,13 @@ _Z30BENCHMARK_sinh_autovec_double_RN9benchmark5StateE: # @_Z30BENCHMARK_sinh_aut
 	bnez	$a2, .LBB34_11
 # %bb.21:                               #   in Loop: Header=BB34_13 Depth=1
 	fabs.d	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa0, $fa2
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	movcf2gr	$a0, $fcc0
 	addi.d	$a0, $a0, 3
 	b	.LBB34_11
 .LBB34_22:                              #   in Loop: Header=BB34_13 Depth=1
 	move	$a1, $zero
-	fcmp.ceq.d	$fcc0, $fa2, $fa1
+	fcmp.ceq.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB34_11
 	b	.LBB34_19
 .LBB34_23:                              # %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
@@ -13089,16 +13017,8 @@ GCC_except_table35:
 .Lcst_end35:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZL9init_dataIfEvPT_S1_S1_
-.LCPI36_0:
-	.word	0x4f800000                      # float 4.2949673E+9
-.LCPI36_1:
-	.word	0xc2c80000                      # float -100
-.LCPI36_2:
-	.word	0x43480000                      # float 200
 	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL9init_dataIfEvPT_S1_S1_
 	.type	_ZL9init_dataIfEvPT_S1_S1_,@function
 _ZL9init_dataIfEvPT_S1_S1_:             # @_ZL9init_dataIfEvPT_S1_S1_
 # %bb.0:
@@ -13204,7 +13124,14 @@ _ZL9init_dataIfEvPT_S1_S1_:             # @_ZL9init_dataIfEvPT_S1_S1_
 	lu32i.d	$fp, 0
 	lu12i.w	$s0, -66464
 	lu32i.d	$s0, 0
+	lu12i.w	$a0, 325632
+	movgr2fr.w	$fs1, $a0
 	vldi	$vr11, -1168
+	lu12i.w	$a0, 275584
+	movgr2fr.w	$fs2, $a0
+	lu12i.w	$a0, -250752
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs3, $a0
 	lu12i.w	$a0, 2
 	ori	$t5, $a0, 1808
 	ori	$s4, $zero, 624
@@ -13256,8 +13183,6 @@ _ZL9init_dataIfEvPT_S1_S1_:             # @_ZL9init_dataIfEvPT_S1_S1_
 	movgr2fr.d	$fa3, $a1
 	ffint.s.l	$fa3, $fa3
 	movgr2cf	$fcc0, $a2
-	pcalau12i	$a1, %pc_hi20(.LCPI36_0)
-	fld.s	$fs1, $a1, %pc_lo12(.LCPI36_0)
 	fsel	$fa2, $fa3, $fa2, $fcc0
 	fmadd.s	$fa1, $fa2, $fa0, $fa1
 	addi.d	$a0, $a0, -1
@@ -13372,11 +13297,7 @@ _ZL9init_dataIfEvPT_S1_S1_:             # @_ZL9init_dataIfEvPT_S1_S1_
 	bceqz	$fcc0, .LBB36_31
 .LBB36_12:                              # %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit
                                         #   in Loop: Header=BB36_3 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI36_1)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI36_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI36_2)
-	fld.s	$fs3, $a0, %pc_lo12(.LCPI36_2)
-	fmadd.s	$fa0, $fa0, $fs3, $fs2
+	fmadd.s	$fa0, $fa0, $fs2, $fs3
 	slli.d	$t6, $t1, 2
 	fstx.s	$fa0, $a7, $t6
 	vldi	$vr0, -1168
@@ -13527,7 +13448,7 @@ _ZL9init_dataIfEvPT_S1_S1_:             # @_ZL9init_dataIfEvPT_S1_S1_
 	bceqz	$fcc0, .LBB36_32
 .LBB36_21:                              # %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit14
                                         #   in Loop: Header=BB36_3 Depth=1
-	fmadd.s	$fa0, $fa0, $fs3, $fs2
+	fmadd.s	$fa0, $fa0, $fs2, $fs3
 	fstx.s	$fa0, $a6, $t6
 	vldi	$vr0, -1168
 	move	$a0, $t2
@@ -13677,7 +13598,7 @@ _ZL9init_dataIfEvPT_S1_S1_:             # @_ZL9init_dataIfEvPT_S1_S1_
 	bceqz	$fcc0, .LBB36_33
 # %bb.30:                               # %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit22
                                         #   in Loop: Header=BB36_3 Depth=1
-	fmadd.s	$fa0, $fa0, $fs3, $fs2
+	fmadd.s	$fa0, $fa0, $fs2, $fs3
 	addi.d	$t1, $t1, 1
 	fstx.s	$fa0, $a5, $t6
 	bne	$t1, $t5, .LBB36_3
@@ -13775,7 +13696,7 @@ _ZL9init_dataIfEvPT_S1_S1_:             # @_ZL9init_dataIfEvPT_S1_S1_
 	ld.d	$a7, $sp, 136                   # 8-byte Folded Reload
 	ld.d	$a6, $sp, 144                   # 8-byte Folded Reload
 	ld.d	$a5, $sp, 152                   # 8-byte Folded Reload
-	fmadd.s	$fa0, $fa0, $fs3, $fs2
+	fmadd.s	$fa0, $fa0, $fs2, $fs3
 	addi.d	$t1, $t1, 1
 	fstx.s	$fa0, $a5, $t6
 	bne	$t1, $t5, .LBB36_3
@@ -13802,18 +13723,7 @@ _ZL9init_dataIfEvPT_S1_S1_:             # @_ZL9init_dataIfEvPT_S1_S1_
 .Lfunc_end36:
 	.size	_ZL9init_dataIfEvPT_S1_S1_, .Lfunc_end36-_ZL9init_dataIfEvPT_S1_S1_
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZL9init_dataIdEvPT_S1_S1_
-.LCPI37_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI37_1:
-	.dword	0x41f0000000000000              # double 4294967296
-.LCPI37_2:
-	.dword	0xc059000000000000              # double -100
-.LCPI37_3:
-	.dword	0x4069000000000000              # double 200
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL9init_dataIdEvPT_S1_S1_
 	.type	_ZL9init_dataIdEvPT_S1_S1_,@function
 _ZL9init_dataIdEvPT_S1_S1_:             # @_ZL9init_dataIdEvPT_S1_S1_
 # %bb.0:
@@ -13921,7 +13831,12 @@ _ZL9init_dataIdEvPT_S1_S1_:             # @_ZL9init_dataIdEvPT_S1_S1_
 	lu12i.w	$s0, -66464
 	lu32i.d	$s0, 0
 	lu52i.d	$t5, $zero, 1107
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$t6, 275200
+	lu52i.d	$a0, $zero, 1055
+	movgr2fr.d	$fs2, $a0
 	vldi	$vr11, -912
 	lu12i.w	$a0, 2
 	ori	$t7, $a0, 1808
@@ -13964,16 +13879,12 @@ _ZL9init_dataIdEvPT_S1_S1_:             # @_ZL9init_dataIdEvPT_S1_S1_
 	xor	$a1, $a2, $a1
 	srli.d	$a2, $a1, 18
 	xor	$a1, $a2, $a1
-	pcalau12i	$a2, %pc_hi20(.LCPI37_0)
-	fld.d	$fs1, $a2, %pc_lo12(.LCPI37_0)
 	srli.d	$a2, $a1, 32
 	or	$a2, $a2, $t5
 	movgr2fr.d	$fa2, $a2
 	fsub.d	$fa2, $fa2, $fs1
 	bstrins.d	$a1, $t6, 63, 32
 	movgr2fr.d	$fa3, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI37_1)
-	fld.d	$fs2, $a1, %pc_lo12(.LCPI37_1)
 	fadd.d	$fa2, $fa3, $fa2
 	fmadd.d	$fa1, $fa2, $fa0, $fa1
 	addi.d	$a0, $a0, -1
@@ -14088,10 +13999,12 @@ _ZL9init_dataIdEvPT_S1_S1_:             # @_ZL9init_dataIdEvPT_S1_S1_
 	bceqz	$fcc0, .LBB37_31
 .LBB37_12:                              # %_ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_.exit
                                         #   in Loop: Header=BB37_3 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI37_2)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI37_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI37_3)
-	fld.d	$fs4, $a0, %pc_lo12(.LCPI37_3)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a1, $a0, -1019
+	movgr2fr.d	$fs3, $a1
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fs4, $a0
 	fmadd.d	$fa0, $fa0, $fs4, $fs3
 	slli.d	$t8, $t1, 3
 	fstx.d	$fa0, $a7, $t8

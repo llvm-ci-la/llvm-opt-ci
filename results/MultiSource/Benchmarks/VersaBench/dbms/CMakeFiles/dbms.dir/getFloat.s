@@ -1,18 +1,6 @@
 	.file	"getFloat.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function getFloat
-.LCPI0_0:
-	.word	0xff7fffff                      # float -3.40282347E+38
-.LCPI0_2:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0xc7efffffe091ff3d              # double -3.4028234699999998E+38
-.LCPI0_3:
-	.dword	0x47efffffe091ff3d              # double 3.4028234699999998E+38
 	.text
-	.globl	getFloat
+	.globl	getFloat                        # -- Begin function getFloat
 	.p2align	5
 	.type	getFloat,@function
 getFloat:                               # @getFloat
@@ -25,8 +13,10 @@ getFloat:                               # @getFloat
 	move	$fp, $a1
 	pcaddu18i	$ra, %call36(getString)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a1, -2049
+	ori	$a1, $a1, 4095
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fs0, $a1
 	beqz	$a0, .LBB0_7
 # %bb.1:
 	addi.d	$a1, $sp, 8
@@ -49,20 +39,23 @@ getFloat:                               # @getFloat
 	ori	$a0, $zero, 3
 	beq	$a1, $a2, .LBB0_8
 .LBB0_4:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
 	fcvt.d.s	$fa0, $fs1
+	lu12i.w	$a0, -128737
+	ori	$a1, $a0, 3901
+	lu52i.d	$a0, $a1, -898
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	ori	$a0, $zero, 2
 	bcnez	$fcc0, .LBB0_8
 # %bb.5:
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_3)
+	lu52i.d	$a1, $a1, 1150
+	movgr2fr.d	$fa1, $a1
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB0_10
 # %bb.6:
-	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a1, 522239
+	ori	$a1, $a1, 4095
+	movgr2fr.w	$fs0, $a1
 	b	.LBB0_8
 .LBB0_7:
 	ori	$a0, $zero, 1

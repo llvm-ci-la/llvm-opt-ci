@@ -8,16 +8,6 @@
 .LCPI0_0:
 	.dword	8                               # 0x8
 	.dword	7309475736097875309             # 0x657079746873656d
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x4071abe4b73fefb5              # double 282.74333882308139
-.LCPI0_2:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI0_3:
-	.dword	0x4066800000000000              # double 180
-.LCPI0_4:
-	.dword	0x401921fb54442d18              # double 6.2831853071795862
 	.text
 	.globl	_ZN7GenMeshC2EPK9InputFile
 	.p2align	5
@@ -302,8 +292,11 @@ _ZN7GenMeshC2EPK9InputFile:             # @_ZN7GenMeshC2EPK9InputFile
 	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(bcmp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_4)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_4)
+	lu12i.w	$a1, 345154
+	ori	$a1, $a1, 3352
+	lu32i.d	$a1, -450053
+	lu52i.d	$a1, $a1, 1025
+	movgr2fr.d	$fa0, $a1
 	vld	$vr1, $sp, 16                   # 16-byte Folded Reload
 	fcmp.cult.d	$fcc0, $fa1, $fa0
 	bcnez	$fcc0, .LBB0_49
@@ -332,16 +325,24 @@ _ZN7GenMeshC2EPK9InputFile:             # @_ZN7GenMeshC2EPK9InputFile
 	bltu	$s6, $s8, .LBB0_52
 # %bb.51:
 	fld.d	$fa0, $s0, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	b	.LBB0_53
 .LBB0_52:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, -297986
+	ori	$a0, $a0, 4021
+	lu32i.d	$a0, 109540
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fa0, $a0
 .LBB0_53:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_3)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 425984
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa2, $fa0, $fa1
 	ori	$a0, $zero, 32
 	fst.d	$fa2, $fp, 40
@@ -800,14 +801,7 @@ _ZN7GenMesh8generateERSt6vectorI7double2SaIS1_EERS0_IiSaIiEES7_S7_S7_S7_S7_S7_S7
 	.size	_ZN7GenMesh8generateERSt6vectorI7double2SaIS1_EERS0_IiSaIiEES7_S7_S7_S7_S7_S7_S7_S7_, .Lfunc_end2-_ZN7GenMesh8generateERSt6vectorI7double2SaIS1_EERS0_IiSaIiEES7_S7_S7_S7_S7_S7_S7_S7_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN7GenMesh9calcNumPEEv
-.LCPI3_0:
-	.dword	0x3d719799812dea11              # double 9.9999999999999998E-13
-.LCPI3_1:
-	.dword	0xbd719799812dea11              # double -9.9999999999999998E-13
-	.text
-	.globl	_ZN7GenMesh9calcNumPEEv
+	.globl	_ZN7GenMesh9calcNumPEEv         # -- Begin function _ZN7GenMesh9calcNumPEEv
 	.p2align	5
 	.type	_ZN7GenMesh9calcNumPEEv,@function
 _ZN7GenMesh9calcNumPEEv:                # @_ZN7GenMesh9calcNumPEEv
@@ -840,41 +834,44 @@ _ZN7GenMesh9calcNumPEEv:                # @_ZN7GenMesh9calcNumPEEv
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB3_9
 .LBB3_1:                                # %.split
-	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a1, -519458
+	ori	$a2, $a1, 2577
+	lu32i.d	$a2, 104345
+	lu52i.d	$a1, $a2, 983
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa1, $fa0, $fa1
 	vreplvei.d	$vr1, $vr1, 0
 	vfrintrm.d	$vr1, $vr1
 	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a2, $fa1
-	ori	$a3, $zero, 1
-	slt	$a4, $a3, $a2
+	movfr2gr.s	$a3, $fa1
+	ori	$a4, $zero, 1
+	slt	$a5, $a4, $a3
 	ld.w	$a1, $fp, 0
-	maskeqz	$a2, $a2, $a4
-	masknez	$a3, $a3, $a4
-	or	$a2, $a2, $a3
+	maskeqz	$a3, $a3, $a5
+	masknez	$a4, $a4, $a5
+	or	$a4, $a3, $a4
 	.p2align	4, , 16
 .LBB3_2:                                # =>This Inner Loop Header: Depth=1
-	div.w	$a3, $a1, $a2
-	mul.d	$a4, $a3, $a2
-	sub.w	$a4, $a1, $a4
-	addi.w	$a2, $a2, -1
-	bnez	$a4, .LBB3_2
+	div.w	$a3, $a1, $a4
+	mul.d	$a5, $a3, $a4
+	sub.w	$a5, $a1, $a5
+	addi.w	$a4, $a4, -1
+	bnez	$a5, .LBB3_2
 # %bb.3:
-	pcalau12i	$a4, %pc_hi20(.LCPI3_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI3_1)
+	lu52i.d	$a2, $a2, -1065
+	movgr2fr.d	$fa1, $a2
 	fadd.d	$fa0, $fa0, $fa1
 	vreplvei.d	$vr0, $vr0, 0
 	vfrintrp.d	$vr0, $vr0
 	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a4, $fa0
-	addi.w	$a2, $a2, 1
+	movfr2gr.s	$a5, $fa0
+	addi.w	$a2, $a4, 1
 	.p2align	4, , 16
 .LBB3_4:                                # =>This Inner Loop Header: Depth=1
-	div.w	$a5, $a1, $a4
-	mul.d	$a6, $a5, $a4
+	div.w	$a4, $a1, $a5
+	mul.d	$a6, $a4, $a5
 	sub.w	$a6, $a1, $a6
-	addi.w	$a4, $a4, 1
+	addi.w	$a5, $a5, 1
 	bnez	$a6, .LBB3_4
 # %bb.5:
 	movgr2fr.w	$fa0, $a2
@@ -885,11 +882,11 @@ _ZN7GenMesh9calcNumPEEv:                # @_ZN7GenMesh9calcNumPEEv
 	fdiv.d	$fa1, $fs2, $fa1
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	fsel	$fa0, $fa0, $fa1, $fcc0
-	addi.d	$a3, $a4, -1
+	addi.d	$a3, $a5, -1
 	movgr2fr.w	$fa1, $a3
 	ffint.d.w	$fa1, $fa1
 	fdiv.d	$fa1, $fs3, $fa1
-	movgr2fr.w	$fa2, $a5
+	movgr2fr.w	$fa2, $a4
 	ffint.d.w	$fa2, $fa2
 	fdiv.d	$fa2, $fs2, $fa2
 	fcmp.clt.d	$fcc0, $fa1, $fa2

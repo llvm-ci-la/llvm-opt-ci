@@ -327,12 +327,7 @@ gx_lookup_cached_char:                  # @gx_lookup_cached_char
 .Lfunc_end5:
 	.size	gx_lookup_cached_char, .Lfunc_end5-gx_lookup_cached_char
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gx_copy_cached_char
-.LCPI6_0:
-	.dword	0x3f30000000000000              # double 2.44140625E-4
-	.text
-	.globl	gx_copy_cached_char
+	.globl	gx_copy_cached_char             # -- Begin function gx_copy_cached_char
 	.p2align	5
 	.type	gx_copy_cached_char,@function
 gx_copy_cached_char:                    # @gx_copy_cached_char
@@ -388,18 +383,18 @@ gx_copy_cached_char:                    # @gx_copy_cached_char
 	ori	$a2, $zero, 96
 	pcaddu18i	$ra, %call36(memcpy)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI6_0)
-	movgr2fr.d	$fa1, $s2
-	fld.s	$fa2, $sp, 88
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	fcvt.s.d	$fa1, $fa1
-	fsub.s	$fa1, $fa2, $fa1
-	fst.s	$fa1, $sp, 88
-	movgr2fr.d	$fa1, $s3
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $s2
+	ffint.d.l	$fa0, $fa0
+	lu52i.d	$a0, $zero, 1011
+	fld.s	$fa1, $sp, 88
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa0, $fa0, $fa2
+	fcvt.s.d	$fa0, $fa0
+	fsub.s	$fa0, $fa1, $fa0
+	fst.s	$fa0, $sp, 88
+	movgr2fr.d	$fa0, $s3
+	ffint.d.l	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa2
 	fld.s	$fa1, $sp, 104
 	fcvt.s.d	$fa0, $fa0
 	ld.hu	$a0, $s0, 24

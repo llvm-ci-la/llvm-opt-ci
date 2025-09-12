@@ -1,12 +1,6 @@
 	.file	"pairlocalalign.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function arguments
-.LCPI0_0:
-	.dword	0x408f400000000000              # double 1000
-.LCPI0_1:
-	.dword	0x3fe3333333333333              # double 0.59999999999999998
 	.text
-	.globl	arguments
+	.globl	arguments                       # -- Begin function arguments
 	.p2align	5
 	.type	arguments,@function
 arguments:                              # @arguments
@@ -376,10 +370,12 @@ arguments:                              # @arguments
 	ld.d	$t1, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 208                   # 8-byte Folded Reload
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -800
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -800
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
@@ -398,10 +394,12 @@ arguments:                              # @arguments
 	ld.d	$t1, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 208                   # 8-byte Folded Reload
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -800
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -800
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
@@ -437,20 +435,25 @@ arguments:                              # @arguments
 	ld.d	$t1, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 208                   # 8-byte Folded Reload
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -928
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -928
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	pcalau12i	$a1, %got_pc_hi20(ppslocal)
 	ld.d	$a1, $a1, %got_pc_lo12(ppslocal)
-	pcalau12i	$a2, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_1)
 	st.w	$a0, $a1, 0
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmadd.d	$fa0, $fa1, $fa0, $fa2
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, 209715
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
@@ -469,10 +472,12 @@ arguments:                              # @arguments
 	ld.d	$t1, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 208                   # 8-byte Folded Reload
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -800
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -800
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	ld.d	$a1, $sp, 96                    # 8-byte Folded Reload
@@ -491,10 +496,12 @@ arguments:                              # @arguments
 	ld.d	$t1, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 208                   # 8-byte Folded Reload
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -800
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -800
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
@@ -530,10 +537,12 @@ arguments:                              # @arguments
 	ld.d	$t1, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 208                   # 8-byte Folded Reload
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	vldi	$vr2, -800
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
+	vldi	$vr1, -800
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fmadd.d	$fa0, $fa0, $fa2, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
@@ -975,14 +984,7 @@ countamino:                             # @countamino
 .Lfunc_end1:
 	.size	countamino, .Lfunc_end1-countamino
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI2_0:
-	.dword	0x408f400000000000              # double 1000
-.LCPI2_1:
-	.dword	0xc0c3878000000000              # double -9999
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -1168,26 +1170,28 @@ main:                                   # @main
 	pcalau12i	$a1, %got_pc_hi20(ppenalty)
 	ld.d	$s7, $a1, %got_pc_lo12(ppenalty)
 	ld.w	$a1, $s7, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.d	$fs0, $a2, %pc_lo12(.LCPI2_0)
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fa0, $fa0, $fs0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa1, $a1
+	fdiv.d	$fa0, $fa0, $fa1
 	pcalau12i	$a1, %got_pc_hi20(ppenalty_ex)
 	ld.d	$s0, $a1, %got_pc_lo12(ppenalty_ex)
 	ld.w	$a1, $s0, 0
-	movgr2fr.w	$fa1, $a1
-	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa1, $fa1, $fs0
+	movgr2fr.w	$fa2, $a1
+	ffint.d.w	$fa2, $fa2
+	fdiv.d	$fa2, $fa2, $fa1
 	pcalau12i	$a1, %got_pc_hi20(poffset)
 	ld.d	$s2, $a1, %got_pc_lo12(poffset)
 	ld.w	$a1, $s2, 0
-	movgr2fr.w	$fa2, $a1
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa2, $fa2, $fs0
+	movgr2fr.w	$fa3, $a1
+	ffint.d.w	$fa3, $fa3
+	fdiv.d	$fa1, $fa3, $fa1
 	movfr2gr.d	$a2, $fa0
-	movfr2gr.d	$a3, $fa1
-	movfr2gr.d	$a4, $fa2
+	movfr2gr.d	$a3, $fa2
+	movfr2gr.d	$a4, $fa1
 	pcalau12i	$a1, %pc_hi20(.L.str.26)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.26)
 	pcaddu18i	$ra, %call36(fprintf)
@@ -1300,19 +1304,23 @@ main:                                   # @main
 .LBB2_32:
 	ld.w	$a0, $s7, 0
 	movgr2fr.w	$fa0, $a0
-	ld.w	$a0, $s0, 0
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fa0, $fa0, $fs0
-	ld.w	$a1, $s2, 0
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa1, $fa1, $fs0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	ld.w	$a1, $s0, 0
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, 0
 	movgr2fr.w	$fa2, $a1
 	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa2, $fa2, $fs0
+	fdiv.d	$fa2, $fa2, $fa1
+	movgr2fr.w	$fa3, $a0
+	ffint.d.w	$fa3, $fa3
+	fdiv.d	$fa1, $fa3, $fa1
 	movfr2gr.d	$a2, $fa0
-	movfr2gr.d	$a3, $fa1
-	movfr2gr.d	$a4, $fa2
+	movfr2gr.d	$a3, $fa2
+	movfr2gr.d	$a4, $fa1
 	pcalau12i	$a0, %pc_hi20(.L.str.26)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.26)
 	move	$a0, $fp
@@ -2710,9 +2718,11 @@ main:                                   # @main
 .LBB2_196:                              # %.lr.ph62.i
 	move	$a2, $zero
 	addi.w	$a3, $s7, -1
-	pcalau12i	$a4, %pc_hi20(.LCPI2_1)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI2_1)
 	ori	$a4, $zero, 8
+	ori	$a5, $zero, 0
+	lu32i.d	$a5, 231296
+	lu52i.d	$a5, $a5, -1012
+	movgr2fr.d	$fa0, $a5
 	movgr2fr.d	$fa1, $zero
 	vldi	$vr2, -912
 	b	.LBB2_198

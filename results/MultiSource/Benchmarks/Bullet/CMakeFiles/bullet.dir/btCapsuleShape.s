@@ -60,14 +60,8 @@ __clang_call_terminate:                 # @__clang_call_terminate
 .Lfunc_end1:
 	.size	__clang_call_terminate, .Lfunc_end1-__clang_call_terminate
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3
-.LCPI2_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
-.LCPI2_1:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
 	.text
-	.globl	_ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3
+	.globl	_ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3 # -- Begin function _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3
 	.p2align	5
 	.type	_ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3,@function
 _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3
@@ -99,15 +93,16 @@ _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZN
 	.cfi_offset 61, -80
 	.cfi_offset 62, -88
 	.cfi_offset 63, -96
+	fld.s	$fa0, $a1, 4
+	fld.s	$fa2, $a1, 0
+	fld.s	$fa1, $a1, 8
 	move	$fp, $a0
-	fld.s	$fa0, $a1, 0
-	fld.s	$fa1, $a1, 4
-	fld.s	$fa2, $a1, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI2_0)
-	fmul.s	$fa3, $fa1, $fa1
-	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	fmul.s	$fa3, $fa0, $fa0
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	lu12i.w	$a0, 232731
+	ori	$a0, $a0, 1815
+	movgr2fr.w	$fa4, $a0
 	fcmp.clt.s	$fcc0, $fa3, $fa4
 	movgr2fr.w	$fs0, $zero
 	bceqz	$fcc0, .LBB2_2
@@ -118,9 +113,9 @@ _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZN
 	b	.LBB2_3
 .LBB2_2:
 	frsqrt.s	$fa3, $fa3
-	fmul.s	$fa4, $fa0, $fa3
-	fmul.s	$fs1, $fa1, $fa3
-	fmul.s	$fs2, $fa2, $fa3
+	fmul.s	$fa4, $fa2, $fa3
+	fmul.s	$fs1, $fa0, $fa3
+	fmul.s	$fs2, $fa1, $fa3
 .LBB2_3:
 	vst	$vr4, $sp, 32                   # 16-byte Folded Spill
 	ld.w	$a0, $fp, 64
@@ -169,20 +164,22 @@ _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZN
 	fsub.s	$fa0, $fs4, $fa1
 	fsub.s	$fa1, $fs5, $fa2
 	fsub.s	$fa2, $fs6, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.s	$fs6, $a0, %pc_lo12(.LCPI2_1)
 	fmul.s	$fa3, $fs1, $fa1
 	fmadd.s	$fa3, $fa4, $fa0, $fa3
 	fmadd.s	$fa3, $fs2, $fa2, $fa3
-	fcmp.cule.s	$fcc0, $fa3, $fs6
+	lu12i.w	$a0, -141856
+	ori	$a0, $a0, 2923
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs5, $a0
+	fcmp.cule.s	$fcc0, $fa3, $fs5
 	fmov.s	$fa5, $fs0
-	fmov.s	$fs4, $fs0
+	fmov.s	$fs6, $fs0
 	bcnez	$fcc0, .LBB2_5
 # %bb.4:
 	fmov.s	$fs0, $fa0
 	fmov.s	$fa5, $fa1
-	fmov.s	$fs4, $fa2
-	fmov.s	$fs6, $fa3
+	fmov.s	$fs6, $fa2
+	fmov.s	$fs5, $fa3
 .LBB2_5:
 	fst.s	$fa5, $sp, 12                   # 4-byte Folded Spill
 	ld.w	$a0, $fp, 64
@@ -208,7 +205,7 @@ _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZN
 	ld.d	$a1, $a0, 88
 	fadd.s	$fs3, $fa0, $fa3
 	fadd.s	$fs7, $fa1, $fa4
-	fadd.s	$fs5, $fa2, $fa5
+	fadd.s	$fs4, $fa2, $fa5
 	move	$a0, $fp
 	jirl	$ra, $a1, 0
 	vld	$vr4, $sp, 32                   # 16-byte Folded Reload
@@ -217,15 +214,15 @@ _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZN
 	fmul.s	$fa0, $fs2, $fa0
 	fsub.s	$fa1, $fs3, $fa1
 	fsub.s	$fa2, $fs7, $fa2
-	fsub.s	$fa0, $fs5, $fa0
+	fsub.s	$fa0, $fs4, $fa0
 	fmul.s	$fa3, $fs1, $fa2
 	fmadd.s	$fa3, $fa4, $fa1, $fa3
 	fmadd.s	$fa3, $fs2, $fa0, $fa3
-	fcmp.clt.s	$fcc0, $fs6, $fa3
+	fcmp.clt.s	$fcc0, $fs5, $fa3
 	fsel	$fa1, $fs0, $fa1, $fcc0
 	fld.s	$fa3, $sp, 12                   # 4-byte Folded Reload
 	fsel	$fa2, $fa3, $fa2, $fcc0
-	fsel	$fa0, $fs4, $fa0, $fcc0
+	fsel	$fa0, $fs6, $fa0, $fcc0
 	movfr2gr.s	$a0, $fa1
 	movfr2gr.s	$a1, $fa2
 	bstrins.d	$a0, $a1, 63, 32
@@ -249,12 +246,7 @@ _ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZN
 	.size	_ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3, .Lfunc_end2-_ZNK14btCapsuleShape37localGetSupportingVertexWithoutMarginERK9btVector3
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
-.LCPI3_0:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.text
-	.globl	_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
+	.globl	_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i # -- Begin function _ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
 	.p2align	5
 	.type	_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i,@function
 _ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i: # @_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
@@ -306,12 +298,14 @@ _ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVec
 	slli.d	$a0, $a0, 2
 	fldx.s	$fs0, $s1, $a0
 	addi.d	$s2, $a2, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI3_0)
 	addi.d	$s3, $a1, 8
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
 	addi.d	$s4, $sp, 40
+	lu12i.w	$a0, -141856
+	ori	$a0, $a0, 2923
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
 	b	.LBB3_3
 	.p2align	4, , 16
 .LBB3_2:                                #   in Loop: Header=BB3_3 Depth=1
@@ -440,14 +434,7 @@ _ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVec
 	.size	_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i, .Lfunc_end3-_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3
-.LCPI4_0:
-	.word	0x3d23d70a                      # float 0.0399999991
-.LCPI4_1:
-	.word	0x3daaaaaa                      # float 0.0833333284
-	.text
-	.globl	_ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3
+	.globl	_ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3 # -- Begin function _ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3
 	.p2align	5
 	.type	_ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3,@function
 _ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3: # @_ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3
@@ -477,8 +464,9 @@ _ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3: # @_ZNK14btCapsuleShap
 	fadd.s	$fa1, $fa1, $fa2
 	fstx.s	$fa1, $a2, $a0
 	fld.s	$fa1, $sp, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI4_0)
+	lu12i.w	$a0, 250429
+	ori	$a0, $a0, 1802
+	movgr2fr.w	$fa2, $a0
 	fld.s	$fa3, $sp, 4
 	fadd.s	$fa1, $fa1, $fa2
 	fld.s	$fa4, $sp, 8
@@ -487,11 +475,12 @@ _ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3: # @_ZNK14btCapsuleShap
 	fadd.s	$fa3, $fa3, $fa3
 	fadd.s	$fa2, $fa4, $fa2
 	fadd.s	$fa2, $fa2, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI4_1)
 	fmul.s	$fa1, $fa1, $fa1
 	fmul.s	$fa3, $fa3, $fa3
 	fmul.s	$fa2, $fa2, $fa2
+	lu12i.w	$a0, 252586
+	ori	$a0, $a0, 2730
+	movgr2fr.w	$fa4, $a0
 	fmul.s	$fa0, $fa0, $fa4
 	fadd.s	$fa4, $fa3, $fa2
 	fmul.s	$fa4, $fa0, $fa4

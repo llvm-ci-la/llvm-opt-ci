@@ -1,10 +1,6 @@
 	.file	"weighted_prediction.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function estimate_weighting_factor_P_slice
-.LCPI0_0:
-	.dword	0x4040000000000000              # double 32
 	.text
-	.globl	estimate_weighting_factor_P_slice
+	.globl	estimate_weighting_factor_P_slice # -- Begin function estimate_weighting_factor_P_slice
 	.p2align	5
 	.type	estimate_weighting_factor_P_slice,@function
 estimate_weighting_factor_P_slice:      # @estimate_weighting_factor_P_slice
@@ -276,8 +272,8 @@ estimate_weighting_factor_P_slice:      # @estimate_weighting_factor_P_slice
 	bne	$s5, $a7, .LBB0_24
 	b	.LBB0_20
 .LBB0_27:                               # %.preheader117.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a0, $zero, 1028
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	addi.d	$a0, $sp, 792
 	addi.d	$t0, $sp, 812
@@ -523,12 +519,7 @@ estimate_weighting_factor_P_slice:      # @estimate_weighting_factor_P_slice
 .Lfunc_end0:
 	.size	estimate_weighting_factor_P_slice, .Lfunc_end0-estimate_weighting_factor_P_slice
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function estimate_weighting_factor_B_slice
-.LCPI1_0:
-	.dword	0x4040000000000000              # double 32
-	.text
-	.globl	estimate_weighting_factor_B_slice
+	.globl	estimate_weighting_factor_B_slice # -- Begin function estimate_weighting_factor_B_slice
 	.p2align	5
 	.type	estimate_weighting_factor_B_slice,@function
 estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
@@ -916,8 +907,8 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 	ld.d	$a3, $sp, 96                    # 8-byte Folded Reload
 	bne	$a2, $a3, .LBB1_35
 # %bb.38:                               # %.preheader260.loopexit
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
+	lu52i.d	$a0, $zero, 1028
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs1, $fa0, $fa1
 .LBB1_39:                               # %.preheader260
 	st.d	$a6, $sp, 8                     # 8-byte Folded Spill
@@ -1316,12 +1307,7 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 .Lfunc_end1:
 	.size	estimate_weighting_factor_B_slice, .Lfunc_end1-estimate_weighting_factor_B_slice
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_wp_P_slice
-.LCPI2_0:
-	.dword	0x4040000000000000              # double 32
-	.text
-	.globl	test_wp_P_slice
+	.globl	test_wp_P_slice                 # -- Begin function test_wp_P_slice
 	.p2align	5
 	.type	test_wp_P_slice,@function
 test_wp_P_slice:                        # @test_wp_P_slice
@@ -1591,8 +1577,8 @@ test_wp_P_slice:                        # @test_wp_P_slice
 	bne	$s4, $a5, .LBB2_24
 	b	.LBB2_20
 .LBB2_27:                               # %.preheader136.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_0)
+	lu52i.d	$a0, $zero, 1028
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	addi.d	$a0, $sp, 776
 	addi.d	$a7, $sp, 796

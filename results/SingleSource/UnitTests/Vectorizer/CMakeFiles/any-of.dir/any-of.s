@@ -6860,33 +6860,26 @@ _ZNSt17_Function_handlerIFiPiS0_jEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS4_St1
 	.size	_ZNSt17_Function_handlerIFiPiS0_jEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation, .Lfunc_end13-_ZNSt17_Function_handlerIFiPiS0_jEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj
-.LCPI14_0:
-	.word	0x4f800000                      # float 4.2949673E+9
-.LCPI14_1:
-	.word	0x00800000                      # float 1.17549435E-38
-.LCPI14_2:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj
 	.type	_ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj,@function
 _ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj: # @_ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj
 # %bb.0:
-	addi.d	$sp, $sp, -224
-	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 184                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 136                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 128                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 120                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -240
+	st.d	$ra, $sp, 232                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 216                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 152                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 144                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 136                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 128                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 120                  # 8-byte Folded Spill
 	move	$fp, $a0
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -65536
@@ -6945,10 +6938,15 @@ _ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj: # @_ZL9init_dat
 	ori	$s2, $a0, 1664
 	lu32i.d	$s2, 0
 	lu12i.w	$s3, -66464
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI14_0)
 	lu32i.d	$s3, 0
+	lu12i.w	$a0, 325632
+	movgr2fr.w	$fs1, $a0
 	vldi	$vr11, -1168
+	lu12i.w	$a0, 2048
+	movgr2fr.w	$fs2, $a0
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	movgr2fr.w	$fs3, $a0
 	ori	$t2, $zero, 1000
 	.p2align	4, , 16
 .LBB14_1:                               # =>This Loop Header: Depth=1
@@ -7089,11 +7087,7 @@ _ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj: # @_ZL9init_dat
 	bceqz	$fcc0, .LBB14_11
 .LBB14_10:                              # %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit
                                         #   in Loop: Header=BB14_1 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI14_1)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI14_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI14_2)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI14_2)
-	fmadd.s	$fa0, $fa0, $fa2, $fa1
+	fmadd.s	$fa0, $fa0, $fs3, $fs2
 	slli.d	$a0, $a7, 2
 	addi.d	$a7, $a7, 1
 	fstx.s	$fa0, $a5, $a0
@@ -7127,20 +7121,22 @@ _ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj: # @_ZL9init_dat
 	ld.d	$a5, $sp, 112                   # 8-byte Folded Reload
 	b	.LBB14_10
 .LBB14_12:
-	fld.d	$fs1, $sp, 120                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 128                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 224
+	fld.d	$fs3, $sp, 120                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 128                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 136                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 144                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 232                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 240
 	ret
 .Lfunc_end14:
 	.size	_ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj, .Lfunc_end14-_ZL9init_dataIfEvRKSt10unique_ptrIA_T_St14default_deleteIS2_EEj

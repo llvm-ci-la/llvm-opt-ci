@@ -1,10 +1,6 @@
 	.file	"pr47538.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function foo
-.LCPI0_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.globl	foo
+	.globl	foo                             # -- Begin function foo
 	.p2align	5
 	.type	foo,@function
 foo:                                    # @foo
@@ -40,11 +36,12 @@ foo:                                    # @foo
 	ld.d	$a0, $a0, 16
 	movgr2fr.d	$fa1, $zero
 	ori	$a7, $zero, 1
-	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
-	fld.d	$fa3, $a4, %pc_lo12(.LCPI0_0)
 	vldi	$vr2, -912
-	lu52i.d	$a5, $zero, 1107
-	lu12i.w	$a4, 275200
+	lu52i.d	$a4, $zero, 1107
+	lu12i.w	$a5, 256
+	lu52i.d	$a5, $a5, 1107
+	movgr2fr.d	$fa3, $a5
+	lu12i.w	$a5, 275200
 	.p2align	4, , 16
 .LBB0_5:                                # =>This Inner Loop Header: Depth=1
 	add.d	$t0, $a1, $a6
@@ -54,10 +51,10 @@ foo:                                    # @foo
 	fsub.d	$fa4, $fa4, $fa5
 	fmul.d	$fa4, $fa0, $fa4
 	srli.d	$t1, $a7, 32
-	or	$t1, $t1, $a5
+	or	$t1, $t1, $a4
 	movgr2fr.d	$fa5, $t1
 	fsub.d	$fa5, $fa5, $fa3
-	bstrins.d	$a7, $a4, 63, 32
+	bstrins.d	$a7, $a5, 63, 32
 	movgr2fr.d	$fa6, $a7
 	fadd.d	$fa5, $fa6, $fa5
 	fdiv.d	$fa4, $fa4, $fa5
@@ -74,10 +71,10 @@ foo:                                    # @foo
 	slli.d	$a1, $a2, 3
 	fmul.d	$fa0, $fa0, $fa4
 	srli.d	$a2, $a3, 32
-	or	$a2, $a2, $a5
+	or	$a2, $a2, $a4
 	movgr2fr.d	$fa4, $a2
 	fsub.d	$fa3, $fa4, $fa3
-	bstrins.d	$a3, $a4, 63, 32
+	bstrins.d	$a3, $a5, 63, 32
 	movgr2fr.d	$fa4, $a3
 	fadd.d	$fa3, $fa4, $fa3
 	vldi	$vr4, -784

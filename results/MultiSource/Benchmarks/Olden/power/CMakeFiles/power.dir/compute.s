@@ -736,22 +736,7 @@ Compute_Leaf:                           # @Compute_Leaf
 .Lfunc_end3:
 	.size	Compute_Leaf, .Lfunc_end3-Compute_Leaf
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function optimize_node
-.LCPI4_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI4_1:
-	.dword	0xc01465655f122ff6              # double -5.0990195135927845
-.LCPI4_2:
-	.dword	0x3fc91a556151761c              # double 0.19611613513818404
-.LCPI4_3:
-	.dword	0xbfef60eab9a5d3a3              # double -0.98058067569092022
-.LCPI4_4:
-	.dword	0xbfe999999999999a              # double -0.80000000000000004
-.LCPI4_5:
-	.dword	0xbfc91a556151761c              # double -0.19611613513818404
-	.text
-	.globl	optimize_node
+	.globl	optimize_node                   # -- Begin function optimize_node
 	.p2align	5
 	.type	optimize_node,@function
 optimize_node:                          # @optimize_node
@@ -774,19 +759,34 @@ optimize_node:                          # @optimize_node
 	pcalau12i	$s0, %pc_hi20(Q)
 	fld.d	$ft2, $s0, %pc_lo12(Q)
 	vldi	$vr11, -876
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$ft4, $a0, %pc_lo12(.LCPI4_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$ft5, $a0, %pc_lo12(.LCPI4_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_2)
-	fld.d	$ft6, $a0, %pc_lo12(.LCPI4_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_3)
-	fld.d	$ft7, $a0, %pc_lo12(.LCPI4_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_4)
-	fld.d	$ft8, $a0, %pc_lo12(.LCPI4_4)
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$ft4, $a0
+	lu12i.w	$a0, 389410
+	ori	$a0, $a0, 4086
+	lu32i.d	$a0, 288101
+	lu52i.d	$a0, $a0, -1023
+	movgr2fr.d	$ft5, $a0
+	lu12i.w	$a0, 398615
+	ori	$a0, $a0, 1564
+	lu32i.d	$a0, -452011
+	lu52i.d	$a1, $a0, 1020
+	movgr2fr.d	$ft6, $a1
+	lu12i.w	$a1, -288163
+	ori	$a1, $a1, 931
+	lu32i.d	$a1, -40726
+	lu52i.d	$a1, $a1, -1026
+	movgr2fr.d	$ft7, $a1
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a1, $a1, -1026
+	movgr2fr.d	$ft8, $a1
 	movgr2fr.d	$ft9, $zero
 	vldi	$vr18, -912
-	pcalau12i	$s1, %pc_hi20(.LCPI4_5)
+	lu52i.d	$s1, $a0, -1028
 	.p2align	4, , 16
 .LBB4_1:                                # %.critedge
                                         # =>This Inner Loop Header: Depth=1
@@ -933,11 +933,11 @@ optimize_node:                          # @optimize_node
 	movgr2fr.d	$fa4, $zero
 	fmadd.d	$fa4, $fa2, $fa2, $fa4
 	fmadd.d	$fa4, $fa3, $fa3, $fa4
-	fld.d	$fa5, $s1, %pc_lo12(.LCPI4_5)
 	fsqrt.d	$fa4, $fa4
 	fdiv.d	$fa2, $fa2, $fa4
 	fdiv.d	$fa3, $fa3, $fa4
-	fmul.d	$fa3, $fa3, $fa5
+	movgr2fr.d	$fa4, $s1
+	fmul.d	$fa3, $fa3, $fa4
 	fmadd.d	$fa2, $fa2, $ft7, $fa3
 	fabs.d	$fa2, $fa2
 	fcmp.clt.d	$fcc0, $ft4, $fa2
@@ -1026,10 +1026,6 @@ optimize_node:                          # @optimize_node
 .LCPI5_0:
 	.dword	0x3fc91a556151761c              # double 0.19611613513818404
 	.dword	0xbfef60eab9a5d3a3              # double -0.98058067569092022
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI5_1:
-	.dword	0x401465655f122ff6              # double 5.0990195135927845
 	.text
 	.globl	find_gradient_h
 	.p2align	5
@@ -1038,8 +1034,11 @@ find_gradient_h:                        # @find_gradient_h
 # %bb.0:
 	pcalau12i	$a1, %pc_hi20(.LCPI5_0)
 	vld	$vr1, $a1, %pc_lo12(.LCPI5_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI5_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI5_1)
+	lu12i.w	$a1, 389410
+	ori	$a1, $a1, 4086
+	lu32i.d	$a1, 288101
+	lu52i.d	$a1, $a1, 1025
+	movgr2fr.d	$fa0, $a1
 	vst	$vr1, $a0, 0
 	ret
 .Lfunc_end5:
@@ -1247,25 +1246,23 @@ find_dd_grad_f:                         # @find_dd_grad_f
 .Lfunc_end9:
 	.size	find_dd_grad_f, .Lfunc_end9-find_dd_grad_f
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function find_g
-.LCPI10_0:
-	.dword	0xbfe999999999999a              # double -0.80000000000000004
-	.text
-	.globl	find_g
+	.globl	find_g                          # -- Begin function find_g
 	.p2align	5
 	.type	find_g,@function
 find_g:                                 # @find_g
 # %bb.0:
 	pcalau12i	$a0, %pc_hi20(P)
-	fld.d	$fa0, $a0, %pc_lo12(P)
-	pcalau12i	$a0, %pc_hi20(Q)
-	fld.d	$fa1, $a0, %pc_lo12(Q)
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI10_0)
-	fmul.d	$fa1, $fa1, $fa1
-	fmadd.d	$fa0, $fa0, $fa0, $fa1
-	fadd.d	$fa0, $fa0, $fa2
+	pcalau12i	$a1, %pc_hi20(Q)
+	fld.d	$fa0, $a1, %pc_lo12(Q)
+	fld.d	$fa1, $a0, %pc_lo12(P)
+	fmul.d	$fa0, $fa0, $fa0
+	fmadd.d	$fa0, $fa1, $fa1, $fa0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, -1026
+	movgr2fr.d	$fa1, $a0
+	fadd.d	$fa0, $fa0, $fa1
 	ret
 .Lfunc_end10:
 	.size	find_g, .Lfunc_end10-find_g

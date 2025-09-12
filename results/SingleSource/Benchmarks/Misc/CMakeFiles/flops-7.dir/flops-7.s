@@ -1,22 +1,6 @@
 	.file	"flops-7.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3ea5f9c4ff20f589              # double 6.5492576895697597E-7
-.LCPI0_1:
-	.dword	0x40599541f7f192a4              # double 102.3321513995275
-.LCPI0_2:
-	.dword	0x40c473ef42466d8c              # double 10471.869210055818
-.LCPI0_3:
-	.dword	0x413059f8e7cae1c6              # double 1071608.9054394825
-.LCPI0_4:
-	.dword	0x3ee8b8fd9f05143a              # double 1.1788663841225567E-5
-.LCPI0_5:
-	.dword	0x407f433333333333              # double 500.19999999999999
-.LCPI0_6:
-	.dword	0x39b4484bfeebc2a0              # double 1.0000000000000001E-30
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -71,9 +55,12 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
 	fld.d	$fa0, $s0, %pc_lo12(one)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI0_0)
 	movgr2fr.d	$fa1, $zero
+	lu12i.w	$a1, -3569
+	ori	$a1, $a1, 1417
+	lu32i.d	$a1, 391620
+	lu52i.d	$a1, $a1, 1002
+	movgr2fr.d	$fa2, $a1
 	lu12i.w	$a1, 38146
 	ori	$a1, $a1, 3983
 	.p2align	4, , 16
@@ -94,37 +81,55 @@ main:                                   # @main
 	fsub.d	$fa1, $fa1, $fa3
 	bne	$a0, $a1, .LBB0_1
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_1)
-	fneg.d	$fa3, $fa0
-	fadd.d	$fa4, $fa0, $fa2
+	fneg.d	$fa2, $fa0
+	lu12i.w	$a0, -32999
+	ori	$a0, $a0, 676
+	lu32i.d	$a0, -420543
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa3, $a0
+	fadd.d	$fa4, $fa0, $fa3
 	fdiv.d	$fa4, $fa0, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI0_2)
-	fsub.d	$fa3, $fa3, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_3)
-	fadd.d	$fa6, $fa0, $fa5
-	fdiv.d	$fa2, $fa2, $fa6
-	fsub.d	$fa2, $fa3, $fa2
-	fadd.d	$fa0, $fa0, $fa4
-	fld.d	$fa3, $fp, %pc_lo12(two)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_4)
-	fdiv.d	$fa0, $fa5, $fa0
+	fsub.d	$fa2, $fa2, $fa4
+	lu12i.w	$a0, 271462
+	ori	$a0, $a0, 3468
+	lu32i.d	$a0, 291823
+	lu52i.d	$a0, $a0, 1036
+	movgr2fr.d	$fa4, $a0
+	fadd.d	$fa5, $fa0, $fa4
+	fdiv.d	$fa3, $fa3, $fa5
+	fsub.d	$fa2, $fa2, $fa3
+	lu12i.w	$a0, -99154
+	ori	$a0, $a0, 454
+	lu32i.d	$a0, 23032
+	lu52i.d	$a0, $a0, 1043
+	movgr2fr.d	$fa3, $a0
+	fld.d	$fa5, $fp, %pc_lo12(two)
+	fadd.d	$fa0, $fa0, $fa3
+	fdiv.d	$fa0, $fa4, $fa0
 	fsub.d	$fa0, $fa2, $fa0
-	fmadd.d	$fa0, $fa3, $fa1, $fa0
-	fmul.d	$fa0, $fa0, $fa4
+	fmadd.d	$fa0, $fa5, $fa1, $fa0
+	lu12i.w	$a0, -397231
+	ori	$a0, $a0, 1082
+	lu32i.d	$a0, -476931
+	lu52i.d	$a0, $a0, 1006
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(sa)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_5)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_5)
 	fst.d	$fa0, $a0, %pc_lo12(sa)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_6)
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, -48333
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(sc)
 	fst.d	$fa0, $a0, %pc_lo12(sc)
-	fmul.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -4420
+	ori	$a0, $a0, 672
+	lu32i.d	$a0, 280651
+	lu52i.d	$a0, $a0, 923
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.4)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.4)

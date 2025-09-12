@@ -1,10 +1,6 @@
 	.file	"20041213-1.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function foo
-.LCPI0_0:
-	.dword	0x7ff8000000000000              # double NaN
 	.text
-	.globl	foo
+	.globl	foo                             # -- Begin function foo
 	.p2align	5
 	.type	foo,@function
 foo:                                    # @foo
@@ -15,8 +11,10 @@ foo:                                    # @foo
 	st.w	$a2, $a0, %pc_lo12(once)
 	bnez	$a1, .LBB0_2
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fa0, $a0
 	ret
 .LBB0_2:
 	pcaddu18i	$ra, %call36(abort)
@@ -24,12 +22,7 @@ foo:                                    # @foo
 .Lfunc_end0:
 	.size	foo, .Lfunc_end0-foo
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.dword	0x7ff8000000000000              # double NaN
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -40,8 +33,10 @@ main:                                   # @main
 	st.w	$a2, $a0, %pc_lo12(once)
 	bnez	$a1, .LBB1_2
 # %bb.1:                                # %foo.exit
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fa0, $a0
 	fsqrt.d	$fa0, $fa0
 	pcalau12i	$a0, %pc_hi20(x)
 	fst.d	$fa0, $a0, %pc_lo12(x)

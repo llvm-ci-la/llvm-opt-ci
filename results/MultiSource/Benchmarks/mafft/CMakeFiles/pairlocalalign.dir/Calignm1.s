@@ -274,16 +274,12 @@ tracking:                               # @tracking
 .Lfunc_end0:
 	.size	tracking, .Lfunc_end0-tracking
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Calignm1
-.LCPI1_0:
-	.dword	0x3ff199999999999a              # double 1.1000000000000001
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI1_1:
+	.p2align	4, 0x0                          # -- Begin function Calignm1
+.LCPI1_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-.LCPI1_2:
+.LCPI1_1:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -475,21 +471,24 @@ Calignm1:                               # @Calignm1
 # %bb.18:                               # %.thread
 	bge	$fp, $a1, .LBB1_28
 .LBB1_19:                               # %.thread370
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_0)
 	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 104857
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s5
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $s5, $a1
 	or	$a0, $a1, $a0
-	movgr2fr.w	$fa1, $s6
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $s6
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
 	slt	$a2, $a1, $fp
@@ -1787,8 +1786,8 @@ Calignm1:                               # @Calignm1
 	move	$a6, $zero
 	b	.LBB1_136
 .LBB1_133:                              # %vector.ph706
-	pcalau12i	$a2, %pc_hi20(.LCPI1_1)
-	vld	$vr0, $a2, %pc_lo12(.LCPI1_1)
+	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
+	vld	$vr0, $a2, %pc_lo12(.LCPI1_0)
 	bstrpick.d	$a2, $a5, 31, 2
 	slli.d	$a6, $a2, 2
 	addi.d	$a2, $a3, 16
@@ -1842,8 +1841,8 @@ Calignm1:                               # @Calignm1
 .LBB1_141:                              # %vector.ph719
 	bstrpick.d	$a2, $t0, 31, 3
 	slli.d	$a2, $a2, 3
-	pcalau12i	$a4, %pc_hi20(.LCPI1_2)
-	vld	$vr0, $a4, %pc_lo12(.LCPI1_2)
+	pcalau12i	$a4, %pc_hi20(.LCPI1_1)
+	vld	$vr0, $a4, %pc_lo12(.LCPI1_1)
 	addi.d	$a4, $a0, 16
 	vrepli.b	$vr1, -1
 	vrepli.w	$vr2, -5

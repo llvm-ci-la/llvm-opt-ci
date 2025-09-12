@@ -4219,16 +4219,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_: # @_ZNSt7
 	.size	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_, .Lfunc_end20-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZNK7Results7GetTimeENS_13BenchmarkTimeE
-.LCPI21_0:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI21_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI21_2:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
 	.text
-	.hidden	_ZNK7Results7GetTimeENS_13BenchmarkTimeE
+	.hidden	_ZNK7Results7GetTimeENS_13BenchmarkTimeE # -- Begin function _ZNK7Results7GetTimeENS_13BenchmarkTimeE
 	.globl	_ZNK7Results7GetTimeENS_13BenchmarkTimeE
 	.p2align	5
 	.type	_ZNK7Results7GetTimeENS_13BenchmarkTimeE,@function
@@ -4431,8 +4423,10 @@ _ZNK7Results7GetTimeENS_13BenchmarkTimeE: # @_ZNK7Results7GetTimeENS_13Benchmark
 	ori	$a1, $a1, 877
 	bne	$a0, $a1, .LBB21_24
 # %bb.22:                               # %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit52.thread
-	pcalau12i	$a0, %pc_hi20(.LCPI21_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI21_0)
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
 	b	.LBB21_29
 .LBB21_23:                              # %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit54
 	ld.d	$a0, $fp, 0
@@ -4470,13 +4464,18 @@ _ZNK7Results7GetTimeENS_13BenchmarkTimeE: # @_ZNK7Results7GetTimeENS_13Benchmark
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .LBB21_27:                              # %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit.thread
-	pcalau12i	$a0, %pc_hi20(.LCPI21_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI21_2)
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
 	b	.LBB21_29
 .LBB21_28:                              # %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit50.thread
-	pcalau12i	$a0, %pc_hi20(.LCPI21_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI21_1)
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
 .LBB21_29:                              # %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit54.thread
+	movgr2fr.d	$fa0, $a0
 	fmul.d	$fs0, $fs0, $fa0
 .LBB21_30:                              # %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit54.thread
 	fmov.d	$fa0, $fs0

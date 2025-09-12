@@ -1,10 +1,6 @@
 	.file	"outbig.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function outbig
-.LCPI0_0:
-	.dword	0x407f400000000000              # double 500
 	.text
-	.globl	outbig
+	.globl	outbig                          # -- Begin function outbig
 	.p2align	5
 	.type	outbig,@function
 outbig:                                 # @outbig
@@ -68,12 +64,14 @@ outbig:                                 # @outbig
 	slt	$a0, $s1, $s0
 	masknez	$a1, $s1, $a0
 	maskeqz	$a0, $s0, $a0
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_0)
+	ori	$a2, $zero, 0
 	or	$a0, $a0, $a1
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	lu32i.d	$a2, -49152
+	movgr2fr.w	$fa0, $a0
+	lu52i.d	$a0, $a2, 1031
+	ffint.d.w	$fa0, $fa0
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	addi.w	$a0, $a0, 1

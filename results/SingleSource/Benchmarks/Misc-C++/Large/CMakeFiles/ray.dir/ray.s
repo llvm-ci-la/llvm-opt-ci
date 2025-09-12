@@ -241,12 +241,7 @@ _Z9ray_traceRK3VecRK3RayRK5Scene:       # @_Z9ray_traceRK3VecRK3RayRK5Scene
 	.size	_Z9ray_traceRK3VecRK3RayRK5Scene, .Lfunc_end6-_Z9ray_traceRK3VecRK3RayRK5Scene
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z6createiRK3Vecd
-.LCPI7_0:
-	.dword	0x400bb67ae8584caa              # double 3.4641016151377544
-	.text
-	.globl	_Z6createiRK3Vecd
+	.globl	_Z6createiRK3Vecd               # -- Begin function _Z6createiRK3Vecd
 	.p2align	5
 	.type	_Z6createiRK3Vecd,@function
 _Z6createiRK3Vecd:                      # @_Z6createiRK3Vecd
@@ -310,12 +305,15 @@ _Z6createiRK3Vecd:                      # @_Z6createiRK3Vecd
 	pcaddu18i	$ra, %call36(_ZNSt8__detail15_List_node_base7_M_hookEPS0_)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 104
-	pcalau12i	$a1, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_0)
 	addi.d	$a0, $a0, 1
 	st.d	$a0, $sp, 104
-	vldi	$vr1, -1016
-	fmul.d	$fs1, $fs0, $fa1
+	vldi	$vr0, -1016
+	fmul.d	$fs1, $fs0, $fa0
+	lu12i.w	$a0, -96892
+	ori	$a0, $a0, 3242
+	lu32i.d	$a0, -280966
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa0, $a0
 	fdiv.d	$fs2, $fs1, $fa0
 	vldi	$vr0, -928
 	fmul.d	$fs0, $fs0, $fa0
@@ -741,26 +739,12 @@ _ZN5SceneD2Ev:                          # @_ZN5SceneD2Ev
 .LCPI9_0:
 	.dword	0x0000000000000000              # double 0
 	.dword	0xbff0000000000000              # double -1
-.LCPI9_4:
+.LCPI9_1:
 	.dword	0xbfd11acee560242a              # double -0.2672612419124244
 	.dword	0x3fe9a8365810363f              # double 0.80178372573727319
-.LCPI9_6:
+.LCPI9_2:
 	.dword	0x3fd11acee560242a              # double 0.2672612419124244
 	.dword	0x3fe9a8365810363f              # double 0.80178372573727319
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI9_1:
-	.dword	0xc070000000000000              # double -256
-.LCPI9_2:
-	.dword	0x4110000000000000              # double 262144
-.LCPI9_3:
-	.dword	0x4080000000000000              # double 512
-.LCPI9_5:
-	.dword	0x3fe11acee560242a              # double 0.53452248382484879
-.LCPI9_7:
-	.dword	0x406fe00000000000              # double 255
-.LCPI9_8:
-	.dword	0x3fb0000000000000              # double 0.0625
 	.text
 	.globl	main
 	.p2align	5
@@ -862,35 +846,37 @@ main:                                   # @main
 	addi.d	$s3, $sp, 320
 	movgr2fr.d	$fs2, $zero
 	pcalau12i	$s4, %pc_hi20(infinity)
-	pcalau12i	$a1, %pc_hi20(.LCPI9_1)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a1, %pc_hi20(.LCPI9_2)
-	fld.d	$fs3, $a1, %pc_lo12(.LCPI9_2)
-	pcalau12i	$a1, %pc_hi20(.LCPI9_3)
-	fld.d	$fs7, $a1, %pc_lo12(.LCPI9_3)
+	lu52i.d	$a1, $zero, -1017
+	movgr2fr.d	$fs1, $a1
+	lu52i.d	$a1, $zero, 1041
+	movgr2fr.d	$fs3, $a1
+	lu52i.d	$a1, $zero, 1032
+	movgr2fr.d	$fs7, $a1
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
 	lu52i.d	$s5, $zero, -1023
 	ori	$s6, $zero, 4
-	pcalau12i	$a1, %pc_hi20(.LCPI9_7)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI9_7)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -8192
+	lu52i.d	$a1, $a1, 1030
+	movgr2fr.d	$fa0, $a1
 	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI9_8)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI9_8)
+	lu52i.d	$a1, $zero, 1019
+	movgr2fr.d	$fa0, $a1
 	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI9_4)
-	vld	$vr0, $a1, %pc_lo12(.LCPI9_4)
+	pcalau12i	$a1, %pc_hi20(.LCPI9_1)
+	vld	$vr0, $a1, %pc_lo12(.LCPI9_1)
 	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI9_5)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI9_5)
-	fst.d	$fa0, $sp, 88                   # 8-byte Folded Spill
-	pcalau12i	$s7, %pc_hi20(delta)
-	pcalau12i	$a1, %pc_hi20(.LCPI9_6)
-	vld	$vr0, $a1, %pc_lo12(.LCPI9_6)
-	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
 	lu12i.w	$a1, -109054
 	ori	$a1, $a1, 1066
 	lu32i.d	$a1, 72398
+	lu52i.d	$a2, $a1, 1022
+	pcalau12i	$a3, %pc_hi20(.LCPI9_2)
+	vld	$vr0, $a3, %pc_lo12(.LCPI9_2)
+	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 88                   # 8-byte Folded Spill
+	pcalau12i	$s7, %pc_hi20(delta)
 	lu52i.d	$s8, $a1, -1026
 	st.d	$s0, $sp, 32                    # 8-byte Folded Spill
 	b	.LBB9_4

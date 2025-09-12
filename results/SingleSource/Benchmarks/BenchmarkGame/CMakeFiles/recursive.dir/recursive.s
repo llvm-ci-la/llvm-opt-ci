@@ -227,18 +227,14 @@ takFP:                                  # @takFP
 .Lfunc_end4:
 	.size	takFP, .Lfunc_end4-takFP
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI5_0:
-	.dword	0x4043000000000000              # double 38
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
 	addi.d	$sp, $sp, -16
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
+	st.d	$fp, $sp, 0                     # 8-byte Folded Spill
 	ori	$a0, $zero, 3
 	ori	$a1, $zero, 11
 	pcaddu18i	$ra, %call36(ack)
@@ -249,16 +245,16 @@ main:                                   # @main
 	ori	$a1, $zero, 11
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 196608
+	lu52i.d	$fp, $a0, 1028
+	movgr2fr.d	$fa0, $fp
 	pcaddu18i	$ra, %call36(fibFP)
 	jirl	$ra, $ra, 0
 	movfr2gr.d	$a2, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.1)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.1)
-	ori	$a1, $zero, 0
-	lu32i.d	$a1, 196608
-	lu52i.d	$a1, $a1, 1028
+	move	$a1, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 30
@@ -293,6 +289,7 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
+	ld.d	$fp, $sp, 0                     # 8-byte Folded Reload
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
 	ret

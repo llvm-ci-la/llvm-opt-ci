@@ -272,36 +272,6 @@ foo:                                    # @foo
 	.word	0x43290000                      # float 169
 	.word	0x43360000                      # float 182
 	.word	0x43430000                      # float 195
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI1_8:
-	.word	0x42480000                      # float 50
-.LCPI1_9:
-	.word	0x42960000                      # float 75
-.LCPI1_10:
-	.word	0x42c80000                      # float 100
-.LCPI1_11:
-	.word	0x42fa0000                      # float 125
-.LCPI1_12:
-	.word	0x43160000                      # float 150
-.LCPI1_13:
-	.word	0x432f0000                      # float 175
-.LCPI1_14:
-	.word	0x43480000                      # float 200
-.LCPI1_15:
-	.word	0x43610000                      # float 225
-.LCPI1_16:
-	.word	0x437a0000                      # float 250
-.LCPI1_17:
-	.word	0x43898000                      # float 275
-.LCPI1_18:
-	.word	0x43960000                      # float 300
-.LCPI1_19:
-	.word	0x43a28000                      # float 325
-.LCPI1_20:
-	.word	0x43af0000                      # float 350
-.LCPI1_21:
-	.word	0x43bb8000                      # float 375
 	.text
 	.globl	main
 	.p2align	5
@@ -363,86 +333,86 @@ main:                                   # @main
 	bcnez	$fcc0, .LBB1_17
 # %bb.2:
 	fld.s	$fa0, $fp, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI1_8)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_8)
+	lu12i.w	$a0, 271488
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.3:
 	fld.s	$fa0, $fp, 12
-	pcalau12i	$a0, %pc_hi20(.LCPI1_9)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_9)
+	lu12i.w	$a0, 272736
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.4:
 	fld.s	$fa0, $fp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI1_10)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_10)
+	lu12i.w	$a0, 273536
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.5:
 	fld.s	$fa0, $fp, 20
-	pcalau12i	$a0, %pc_hi20(.LCPI1_11)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_11)
+	lu12i.w	$a0, 274336
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.6:
 	fld.s	$fa0, $fp, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI1_12)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_12)
+	lu12i.w	$a0, 274784
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.7:
 	fld.s	$fa0, $fp, 28
-	pcalau12i	$a0, %pc_hi20(.LCPI1_13)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_13)
+	lu12i.w	$a0, 275184
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.8:
 	fld.s	$fa0, $fp, 32
-	pcalau12i	$a0, %pc_hi20(.LCPI1_14)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_14)
+	lu12i.w	$a0, 275584
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.9:
 	fld.s	$fa0, $fp, 36
-	pcalau12i	$a0, %pc_hi20(.LCPI1_15)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_15)
+	lu12i.w	$a0, 275984
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.10:
 	fld.s	$fa0, $fp, 40
-	pcalau12i	$a0, %pc_hi20(.LCPI1_16)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_16)
+	lu12i.w	$a0, 276384
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.11:
 	fld.s	$fa0, $fp, 44
-	pcalau12i	$a0, %pc_hi20(.LCPI1_17)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_17)
+	lu12i.w	$a0, 276632
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.12:
 	fld.s	$fa0, $fp, 48
-	pcalau12i	$a0, %pc_hi20(.LCPI1_18)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_18)
+	lu12i.w	$a0, 276832
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.13:
 	fld.s	$fa0, $fp, 52
-	pcalau12i	$a0, %pc_hi20(.LCPI1_19)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_19)
+	lu12i.w	$a0, 277032
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.14:
 	fld.s	$fa0, $fp, 56
-	pcalau12i	$a0, %pc_hi20(.LCPI1_20)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_20)
+	lu12i.w	$a0, 277232
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.15:
 	fld.s	$fa0, $fp, 60
-	pcalau12i	$a0, %pc_hi20(.LCPI1_21)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_21)
+	lu12i.w	$a0, 277432
+	movgr2fr.w	$fa1, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB1_17
 # %bb.16:

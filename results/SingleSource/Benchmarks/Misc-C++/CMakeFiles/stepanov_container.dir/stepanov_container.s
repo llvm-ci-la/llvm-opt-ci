@@ -1896,12 +1896,7 @@ _Z10initializePdS_:                     # @_Z10initializePdS_
 .Lfunc_end11:
 	.size	_Z10initializePdS_, .Lfunc_end11-_Z10initializePdS_
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z6logtwod
-.LCPI12_0:
-	.dword	0x3fe62e42fefa39ef              # double 0.69314718055994529
-	.text
-	.globl	_Z6logtwod
+	.globl	_Z6logtwod                      # -- Begin function _Z6logtwod
 	.p2align	5
 	.type	_Z6logtwod,@function
 _Z6logtwod:                             # @_Z6logtwod
@@ -1910,8 +1905,11 @@ _Z6logtwod:                             # @_Z6logtwod
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI12_0)
+	lu12i.w	$a0, -4189
+	ori	$a0, $a0, 2543
+	lu32i.d	$a0, 405058
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
@@ -1919,14 +1917,7 @@ _Z6logtwod:                             # @_Z6logtwod
 .Lfunc_end12:
 	.size	_Z6logtwod, .Lfunc_end12-_Z6logtwod
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z15number_of_testsi
-.LCPI13_0:
-	.dword	0x3fe62e42fefa39ef              # double 0.69314718055994529
-.LCPI13_1:
-	.dword	0x4173021b091bf3aa              # double 19931568.569324173
-	.text
-	.globl	_Z15number_of_testsi
+	.globl	_Z15number_of_testsi            # -- Begin function _Z15number_of_testsi
 	.p2align	5
 	.type	_Z15number_of_testsi,@function
 _Z15number_of_testsi:                   # @_Z15number_of_testsi
@@ -1939,13 +1930,19 @@ _Z15number_of_testsi:                   # @_Z15number_of_testsi
 	fmov.d	$fa0, $fs0
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI13_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI13_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI13_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI13_1)
+	lu12i.w	$a0, -4189
+	ori	$a0, $a0, 2543
+	lu32i.d	$a0, 405058
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	fmul.d	$fa0, $fa0, $fs0
-	fdiv.d	$fa0, $fa2, $fa0
+	lu12i.w	$a0, 37311
+	ori	$a0, $a0, 938
+	lu32i.d	$a0, 197147
+	lu52i.d	$a0, $a0, 1047
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa1, $fa0
 	vreplvei.d	$vr0, $vr0, 0
 	vfrintrm.d	$vr0, $vr0
 	ftintrz.w.d	$fa0, $fa0
@@ -1957,14 +1954,7 @@ _Z15number_of_testsi:                   # @_Z15number_of_testsi
 .Lfunc_end13:
 	.size	_Z15number_of_testsi, .Lfunc_end13-_Z15number_of_testsi
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z9run_testsi
-.LCPI14_0:
-	.dword	0x3fe62e42fefa39ef              # double 0.69314718055994529
-.LCPI14_1:
-	.dword	0x4173021b091bf3aa              # double 19931568.569324173
-	.text
-	.globl	_Z9run_testsi
+	.globl	_Z9run_testsi                   # -- Begin function _Z9run_testsi
 	.p2align	5
 	.type	_Z9run_testsi,@function
 _Z9run_testsi:                          # @_Z9run_testsi
@@ -2007,13 +1997,19 @@ _Z9run_testsi:                          # @_Z9run_testsi
 .LBB14_2:                               # %_ZNSt6vectorIdSaIdEE5clearEv.exit
 	bltz	$s2, .LBB14_39
 # %bb.3:                                # %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI14_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI14_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI14_1)
+	lu12i.w	$a0, -4189
+	ori	$a0, $a0, 2543
+	lu32i.d	$a0, 405058
+	lu12i.w	$a1, 37311
+	lu52i.d	$a0, $a0, 1022
+	ori	$a1, $a1, 938
+	movgr2fr.d	$fa1, $a0
+	lu32i.d	$a1, 197147
 	fdiv.d	$fa0, $fa0, $fa1
+	lu52i.d	$a0, $a1, 1047
 	fmul.d	$fa0, $fa0, $fs0
-	fdiv.d	$fa0, $fa2, $fa0
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa1, $fa0
 	vreplvei.d	$vr0, $vr0, 0
 	vfrintrm.d	$vr0, $vr0
 	ftintrz.w.d	$fa0, $fa0

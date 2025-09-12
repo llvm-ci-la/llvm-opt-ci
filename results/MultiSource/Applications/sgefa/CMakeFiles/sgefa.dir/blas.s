@@ -507,14 +507,7 @@ sdot:                                   # @sdot
 .Lfunc_end4:
 	.size	sdot, .Lfunc_end4-sdot
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function snrm2
-.LCPI5_0:
-	.dword	0x43e158e460913d00              # double 1.0E+19
-.LCPI5_1:
-	.dword	0x3bfb084b92366cc2              # double 9.1589344358391385E-20
-	.text
-	.globl	snrm2
+	.globl	snrm2                           # -- Begin function snrm2
 	.p2align	5
 	.type	snrm2,@function
 snrm2:                                  # @snrm2
@@ -528,18 +521,21 @@ snrm2:                                  # @snrm2
 	blez	$a2, .LBB5_5
 # %bb.2:
 	move	$a3, $zero
-	pcalau12i	$a4, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI5_0)
 	bstrpick.d	$a4, $a0, 31, 0
+	movgr2fr.d	$fa1, $a4
+	ffint.d.l	$fa1, $fa1
+	lu12i.w	$a4, 395539
+	ori	$a4, $a4, 3328
+	lu32i.d	$a4, 88292
+	lu52i.d	$a4, $a4, 1086
 	movgr2fr.d	$fa2, $a4
-	ffint.d.l	$fa2, $fa2
-	fdiv.d	$fa3, $fa1, $fa2
+	fdiv.d	$fa3, $fa2, $fa1
 	slli.d	$a4, $a2, 2
 	movgr2fr.w	$fa2, $zero
 	.p2align	4, , 16
 .LBB5_3:                                # =>This Inner Loop Header: Depth=1
-	fld.s	$fa4, $a1, 0
-	fcmp.ceq.s	$fcc0, $fa4, $fa2
+	fld.s	$fa1, $a1, 0
+	fcmp.ceq.s	$fcc0, $fa1, $fa2
 	bceqz	$fcc0, .LBB5_6
 # %bb.4:                                #   in Loop: Header=BB5_3 Depth=1
 	addi.w	$a3, $a3, 1
@@ -551,13 +547,16 @@ snrm2:                                  # @snrm2
 	addi.d	$sp, $sp, 16
 	ret
 .LBB5_6:                                # %.critedge.preheader
-	fneg.s	$fa0, $fa4
-	pcalau12i	$a5, %pc_hi20(.LCPI5_1)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI5_1)
-	fcmp.clt.s	$fcc0, $fa2, $fa4
-	fsel	$fa4, $fa0, $fa4, $fcc0
-	fcvt.d.s	$fs0, $fa4
-	fcmp.clt.d	$fcc0, $fa1, $fs0
+	fneg.s	$fa0, $fa1
+	fcmp.clt.s	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa0, $fa1, $fcc0
+	fcvt.d.s	$fs0, $fa1
+	lu12i.w	$a5, -449690
+	ori	$a5, $a5, 3266
+	lu32i.d	$a5, -325557
+	lu52i.d	$a5, $a5, 959
+	movgr2fr.d	$fa4, $a5
+	fcmp.clt.d	$fcc0, $fa4, $fs0
 	bceqz	$fcc0, .LBB5_8
 # %bb.7:
 	movgr2fr.d	$fa1, $zero
@@ -574,7 +573,7 @@ snrm2:                                  # @snrm2
 	b	.LBB5_11
 	.p2align	4, , 16
 .LBB5_10:                               #   in Loop: Header=BB5_11 Depth=1
-	fdiv.s	$fa6, $fa7, $fa4
+	fdiv.s	$fa6, $fa7, $fa1
 	fmul.s	$fa6, $fa6, $fa6
 	fcvt.d.s	$fa6, $fa6
 	fadd.d	$fa0, $fa0, $fa6
@@ -588,22 +587,22 @@ snrm2:                                  # @snrm2
 	fcmp.clt.s	$fcc0, $fa2, $fa7
 	fsel	$fa6, $fa6, $fa7, $fcc0
 	fcvt.d.s	$ft0, $fa6
-	fcmp.clt.d	$fcc0, $fa1, $ft0
+	fcmp.clt.d	$fcc0, $fa4, $ft0
 	bcnez	$fcc0, .LBB5_17
 # %bb.12:                               #   in Loop: Header=BB5_11 Depth=1
-	fcmp.cule.s	$fcc0, $fa6, $fa4
+	fcmp.cule.s	$fcc0, $fa6, $fa1
 	bcnez	$fcc0, .LBB5_10
 # %bb.13:                               #   in Loop: Header=BB5_11 Depth=1
-	fdiv.s	$fa4, $fa4, $fa7
-	fcvt.d.s	$fa4, $fa4
-	fmul.d	$fa0, $fa0, $fa4
-	fmadd.d	$fa0, $fa0, $fa4, $fa5
-	fmov.s	$fa4, $fa6
+	fdiv.s	$fa1, $fa1, $fa7
+	fcvt.d.s	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	fmadd.d	$fa0, $fa0, $fa1, $fa5
+	fmov.s	$fa1, $fa6
 	addi.w	$a3, $a3, 1
 	add.d	$a1, $a1, $a4
 	bne	$a0, $a3, .LBB5_11
 .LBB5_14:                               # %._crit_edge.loopexit
-	fcvt.d.s	$fs0, $fa4
+	fcvt.d.s	$fs0, $fa1
 	fsqrt.d	$fa1, $fa0
 	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bcnez	$fcc0, .LBB5_30
@@ -617,7 +616,7 @@ snrm2:                                  # @snrm2
                                         # kill: def $f0_64 killed $f0_64 killed $vr0
 	b	.LBB5_31
 .LBB5_17:                               # %.preheader.loopexit
-	fcvt.d.s	$fa1, $fa4
+	fcvt.d.s	$fa1, $fa1
 	fmul.d	$fa0, $fa0, $fa1
 	fmul.d	$fa1, $fa0, $fa1
 	bge	$a3, $a0, .LBB5_21
@@ -708,18 +707,13 @@ snrm2:                                  # @snrm2
 .Lfunc_end5:
 	.size	snrm2, .Lfunc_end5-snrm2
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function r1mach
-.LCPI6_0:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
-	.text
-	.globl	r1mach
+	.globl	r1mach                          # -- Begin function r1mach
 	.p2align	5
 	.type	r1mach,@function
 r1mach:                                 # @r1mach
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI6_0)
+	lu52i.d	$a0, $zero, 1000
+	movgr2fr.d	$fa0, $a0
 	ret
 .Lfunc_end6:
 	.size	r1mach, .Lfunc_end6-r1mach

@@ -92,12 +92,7 @@ ConvertToFloat:                         # @ConvertToFloat
 .Lfunc_end0:
 	.size	ConvertToFloat, .Lfunc_end0-ConvertToFloat
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function HorzVariance
-.LCPI1_0:
-	.word	0x437f0000                      # float 255
-	.text
-	.globl	HorzVariance
+	.globl	HorzVariance                    # -- Begin function HorzVariance
 	.p2align	5
 	.type	HorzVariance,@function
 HorzVariance:                           # @HorzVariance
@@ -141,11 +136,11 @@ HorzVariance:                           # @HorzVariance
 	bstrpick.d	$a4, $a4, 31, 0
 	add.d	$a5, $a5, $a6
 	addi.d	$a5, $a5, 10
-	pcalau12i	$a6, %pc_hi20(.LCPI1_0)
-	fld.s	$fa2, $a6, %pc_lo12(.LCPI1_0)
+	movgr2fr.w	$fa2, $zero
 	addi.d	$a6, $fp, 1
 	sltui	$a6, $a6, 1
-	movgr2fr.w	$fa3, $zero
+	lu12i.w	$a7, 276464
+	movgr2fr.w	$fa3, $a7
 	movgr2cf	$fcc0, $a6
 	.p2align	4, , 16
 .LBB1_4:                                # %.preheader.us
@@ -165,7 +160,7 @@ HorzVariance:                           # @HorzVariance
 	add.d	$t1, $a7, $a6
 	move	$t2, $a2
 	move	$t3, $t0
-	fmov.s	$fa5, $fa3
+	fmov.s	$fa5, $fa2
 	.p2align	4, , 16
 .LBB1_6:                                #   Parent Loop BB1_4 Depth=1
                                         #     Parent Loop BB1_5 Depth=2
@@ -202,7 +197,7 @@ HorzVariance:                           # @HorzVariance
                                         #   in Loop: Header=BB1_5 Depth=2
 	fdiv.s	$fa4, $fa4, $fa0
 	fcmp.cult.s	$fcc1, $fa1, $fa4
-	fsel	$fa5, $fa3, $fa2, $fcc1
+	fsel	$fa5, $fa2, $fa3, $fcc1
 	fsel	$fa4, $fa5, $fa4, $fcc0
 	fst.s	$fa4, $t1, 0
 	addi.d	$a7, $a7, 1
@@ -236,10 +231,9 @@ HorzVariance:                           # @HorzVariance
 	addi.d	$a6, $a0, 56
 	slli.d	$a7, $s2, 2
 	ori	$t0, $zero, 8
-	pcalau12i	$t1, %pc_hi20(.LCPI1_0)
-	fld.s	$fa4, $t1, %pc_lo12(.LCPI1_0)
-	movgr2fr.w	$fa5, $zero
 	lu12i.w	$t1, 276464
+	movgr2fr.w	$fa4, $t1
+	movgr2fr.w	$fa5, $zero
 	vreplgr2vr.w	$vr6, $t1
 	b	.LBB1_15
 	.p2align	4, , 16

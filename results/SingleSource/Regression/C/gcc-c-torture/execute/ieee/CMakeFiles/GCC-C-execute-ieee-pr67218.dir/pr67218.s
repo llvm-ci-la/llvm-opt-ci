@@ -16,12 +16,7 @@ foo:                                    # @foo
 .Lfunc_end0:
 	.size	foo, .Lfunc_end0-foo
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.dword	0x41efffe000000000              # double 4294901760
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -31,8 +26,10 @@ main:                                   # @main
 	ori	$a0, $zero, 1
 	pcaddu18i	$ra, %call36(foo)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -32
+	lu52i.d	$a0, $a0, 1054
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB1_2
 # %bb.1:

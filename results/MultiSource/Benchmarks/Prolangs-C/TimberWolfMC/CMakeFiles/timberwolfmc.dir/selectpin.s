@@ -1,10 +1,6 @@
 	.file	"selectpin.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function selectpin
-.LCPI0_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
-	.globl	selectpin
+	.globl	selectpin                       # -- Begin function selectpin
 	.p2align	5
 	.type	selectpin,@function
 selectpin:                              # @selectpin
@@ -28,11 +24,12 @@ selectpin:                              # @selectpin
 	ld.d	$s2, $a1, %got_pc_lo12(randVar)
 	ld.w	$a1, $s2, 0
 	lu12i.w	$a3, 269412
-	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a4, %pc_lo12(.LCPI0_0)
 	ori	$s3, $a3, 3693
 	lu12i.w	$a3, 3
 	ori	$s4, $a3, 57
+	lu12i.w	$a3, -1024
+	lu52i.d	$a3, $a3, 1053
+	movgr2fr.d	$fs0, $a3
 	.p2align	4, , 16
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1
 	mul.d	$a1, $a1, $s3

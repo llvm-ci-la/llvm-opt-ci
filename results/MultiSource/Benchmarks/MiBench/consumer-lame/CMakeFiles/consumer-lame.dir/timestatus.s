@@ -32,12 +32,7 @@ ts_real_time:                           # @ts_real_time
 .Lfunc_end0:
 	.size	ts_real_time, .Lfunc_end0-ts_real_time
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function ts_process_time
-.LCPI1_0:
-	.word	0x49742400                      # float 1.0E+6
-	.text
-	.globl	ts_process_time
+	.globl	ts_process_time                 # -- Begin function ts_process_time
 	.p2align	5
 	.type	ts_process_time,@function
 ts_process_time:                        # @ts_process_time
@@ -57,12 +52,13 @@ ts_process_time:                        # @ts_process_time
 	st.d	$a0, $a1, %pc_lo12(ts_process_time.initial_time)
 	move	$a1, $a0
 .LBB1_3:
-	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI1_0)
 	sub.d	$a0, $a0, $a1
-	movgr2fr.d	$fa1, $a0
-	ffint.s.l	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $a0
+	ffint.s.l	$fa0, $fa0
+	lu12i.w	$a0, 300866
+	ori	$a0, $a0, 1024
+	movgr2fr.w	$fa1, $a0
+	fdiv.s	$fa0, $fa0, $fa1
 	ld.d	$fp, $sp, 0                     # 8-byte Folded Reload
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
@@ -109,18 +105,7 @@ ts_calc_times:                          # @ts_calc_times
 .Lfunc_end2:
 	.size	ts_calc_times, .Lfunc_end2-ts_calc_times
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function timestatus
-.LCPI3_0:
-	.word	0x49742400                      # float 1.0E+6
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI3_1:
-	.dword	0x4059000000000000              # double 100
-.LCPI3_2:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	timestatus
+	.globl	timestatus                      # -- Begin function timestatus
 	.p2align	5
 	.type	timestatus,@function
 timestatus:                             # @timestatus
@@ -174,12 +159,13 @@ timestatus:                             # @timestatus
 .LBB3_5:
 	ld.d	$a1, $a1, %pc_lo12(ts_process_time.initial_time)
 	fcvt.s.d	$fa2, $fs0
-	pcalau12i	$a2, %pc_hi20(.LCPI3_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI3_0)
 	sub.d	$a0, $a0, $a1
-	movgr2fr.d	$fa1, $a0
-	ffint.s.l	$fa1, $fa1
-	fdiv.s	$fa4, $fa1, $fa0
+	movgr2fr.d	$fa0, $a0
+	ffint.s.l	$fa0, $fa0
+	lu12i.w	$a0, 300866
+	ori	$a0, $a0, 1024
+	movgr2fr.w	$fa1, $a0
+	fdiv.s	$fa4, $fa0, $fa1
 	movgr2fr.d	$fa6, $fp
 	blez	$fp, .LBB3_8
 # %bb.6:
@@ -228,9 +214,11 @@ timestatus:                             # @timestatus
 	ori	$a0, $zero, 1
 	bge	$a0, $s0, .LBB3_9
 .LBB3_12:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fa7, $a0, %pc_lo12(.LCPI3_1)
 	ffint.d.l	$fa6, $fa6
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa7, $a0
 	fmul.d	$fa6, $fa6, $fa7
 	addi.d	$a3, $s0, -1
 	movgr2fr.d	$fa7, $a3
@@ -252,11 +240,13 @@ timestatus:                             # @timestatus
 	lu32i.d	$a1, 88546
 	lu52i.d	$a1, $a1, 1165
 	mulh.d	$a2, $a7, $a1
-	pcalau12i	$a5, %pc_hi20(.LCPI3_2)
-	fld.d	$fa4, $a5, %pc_lo12(.LCPI3_2)
 	srli.d	$a5, $a2, 63
 	srli.d	$a2, $a2, 10
 	add.w	$a5, $a2, $a5
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -131072
+	lu52i.d	$a2, $a2, 1028
+	movgr2fr.d	$fa4, $a2
 	fdiv.d	$fa7, $fa7, $fa4
 	ftintrz.l.d	$fa7, $fa7
 	movfr2gr.d	$a6, $fa7
@@ -381,11 +371,11 @@ timestatus:                             # @timestatus
 	st.d	$a2, $sp, 96
 	st.d	$t7, $sp, 64
 	st.d	$t3, $sp, 16
+	st.d	$t6, $sp, 40
 	st.d	$s3, $sp, 88
 	st.d	$s1, $sp, 56
-	st.d	$t6, $sp, 40
-	st.d	$t2, $sp, 8
 	st.d	$t5, $sp, 32
+	st.d	$t2, $sp, 8
 	pcalau12i	$a1, %pc_hi20(.L.str.1)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.1)
 	move	$a2, $fp

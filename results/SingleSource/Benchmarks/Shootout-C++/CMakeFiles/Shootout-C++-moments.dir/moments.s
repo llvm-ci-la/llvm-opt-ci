@@ -274,12 +274,8 @@ GCC_except_table0:
 .Lcst_end0:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_
-.LCPI1_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.section	.text._ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_,"axG",@progbits,_ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_,comdat
-	.weak	_ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_
+	.weak	_ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_ # -- Begin function _ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_
 	.p2align	5
 	.type	_ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_,@function
 _ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_: # @_ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_
@@ -312,7 +308,7 @@ _ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_: # 
 	vst	$vr0, $a0, 32
 	vst	$vr0, $a0, 16
 	vst	$vr0, $a0, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
+	lu12i.w	$a1, 256
 	lu12i.w	$a0, 275200
 	bne	$a2, $s0, .LBB1_2
 # %bb.1:                                # %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread
@@ -340,11 +336,12 @@ _ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_: # 
 	sub.d	$s2, $a2, $s0
 	srai.d	$s3, $s2, 3
 	srli.d	$a3, $s3, 32
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_0)
 	lu52i.d	$a4, $zero, 1107
 	or	$a3, $a3, $a4
+	movgr2fr.d	$fa1, $a3
+	lu52i.d	$a3, $a1, 1107
 	movgr2fr.d	$fa2, $a3
-	fsub.d	$fa1, $fa2, $fa1
+	fsub.d	$fa1, $fa1, $fa2
 	move	$a3, $s3
 	bstrins.d	$a3, $a0, 63, 32
 	movgr2fr.d	$fa2, $a3
@@ -379,11 +376,12 @@ _ZN7momentsIdEC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_S9_: # 
 	fst.d	$fa1, $fp, 16
 	addi.d	$a3, $s3, -1
 	srli.d	$a4, $a3, 32
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_0)
-	lu52i.d	$a1, $zero, 1107
-	or	$a1, $a4, $a1
+	lu52i.d	$a5, $zero, 1107
+	or	$a4, $a4, $a5
+	movgr2fr.d	$fa1, $a4
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa2, $a1
-	fsub.d	$fa1, $fa2, $fa1
+	fsub.d	$fa1, $fa1, $fa2
 	bstrins.d	$a3, $a0, 63, 32
 	movgr2fr.d	$fa2, $a3
 	fadd.d	$fa1, $fa2, $fa1

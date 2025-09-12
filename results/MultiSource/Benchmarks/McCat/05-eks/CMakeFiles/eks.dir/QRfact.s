@@ -83,12 +83,7 @@ ApplyRGivens:                           # @ApplyRGivens
 .Lfunc_end2:
 	.size	ApplyRGivens, .Lfunc_end2-ApplyRGivens
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function QRiterate
-.LCPI3_0:
-	.dword	0x3ddb7cdfd9d7bdbb              # double 1.0E-10
-	.text
-	.globl	QRiterate
+	.globl	QRiterate                       # -- Begin function QRiterate
 	.p2align	5
 	.type	QRiterate,@function
 QRiterate:                              # @QRiterate
@@ -108,8 +103,11 @@ QRiterate:                              # @QRiterate
 	move	$t7, $zero
 	ld.d	$a2, $a0, 0
 	addi.d	$a3, $a0, 392
-	pcalau12i	$a4, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a4, -156293
+	ori	$a4, $a4, 3515
+	lu32i.d	$a4, -295713
+	lu52i.d	$a4, $a4, 989
+	movgr2fr.d	$fa0, $a4
 	ori	$t8, $zero, 50
 	movgr2fr.d	$fa1, $zero
 	ori	$a5, $zero, 1

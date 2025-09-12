@@ -1,14 +1,6 @@
 	.file	"stepanov_v1p2.cpp"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z9summarizev
-.LCPI0_0:
-	.dword	0x409f400000000000              # double 2000
-.LCPI0_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI0_2:
-	.dword	0x3e7ad7f29abcaf48              # double 9.9999999999999995E-8
 	.text
-	.globl	_Z9summarizev
+	.globl	_Z9summarizev                   # -- Begin function _Z9summarizev
 	.p2align	5
 	.type	_Z9summarizev,@function
 _Z9summarizev:                          # @_Z9summarizev
@@ -41,22 +33,29 @@ _Z9summarizev:                          # @_Z9summarizev
 	pcalau12i	$s1, %pc_hi20(current_test)
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 	movgr2fr.d	$fs1, $zero
-	pcalau12i	$s2, %pc_hi20(.LCPI0_2)
+	lu12i.w	$s2, -414774
 	blez	$a0, .LBB0_7
 # %bb.1:                                # %.lr.ph.preheader
 	pcalau12i	$a0, %pc_hi20(iterations)
 	ld.w	$a0, $a0, %pc_lo12(iterations)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_1)
-	movgr2fr.w	$fa2, $a0
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa2, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fs3, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(result_times)
 	addi.d	$s3, $a0, %pc_lo12(result_times)
-	fld.d	$fs4, $s2, %pc_lo12(.LCPI0_2)
+	ori	$a0, $s2, 3912
+	lu32i.d	$a0, -337934
+	lu52i.d	$a0, $a0, 999
+	movgr2fr.d	$fs4, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.2)
 	addi.d	$fp, $a0, %pc_lo12(.L.str.2)
 	move	$s0, $zero
@@ -131,10 +130,13 @@ _Z9summarizev:                          # @_Z9summarizev
 	fdiv.d	$fa0, $fs1, $fa0
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	fld.d	$fs1, $s2, %pc_lo12(.LCPI0_2)
-	ld.w	$a0, $s1, %pc_lo12(current_test)
+	ori	$a0, $s2, 3912
+	lu32i.d	$a0, -337934
+	ld.w	$a1, $s1, %pc_lo12(current_test)
+	lu52i.d	$a0, $a0, 999
+	movgr2fr.d	$fs1, $a0
 	fmul.d	$fs3, $fa0, $fs1
-	movgr2fr.w	$fa0, $a0
+	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
 	fdiv.d	$fa0, $fs5, $fa0
 	pcaddu18i	$ra, %call36(exp)
@@ -191,16 +193,7 @@ _Z9summarizev:                          # @_Z9summarizev
 .Lfunc_end0:
 	.size	_Z9summarizev, .Lfunc_end0-_Z9summarizev
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z5test0PdS_
-.LCPI1_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI1_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI1_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
-	.text
-	.globl	_Z5test0PdS_
+	.globl	_Z5test0PdS_                    # -- Begin function _Z5test0PdS_
 	.p2align	5
 	.type	_Z5test0PdS_,@function
 _Z5test0PdS_:                           # @_Z5test0PdS_
@@ -231,9 +224,11 @@ _Z5test0PdS_:                           # @_Z5test0PdS_
 	srai.d	$s4, $a0, 3
 	blez	$s4, .LBB1_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI1_0)
-	movgr2fr.d	$fs1, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -248,7 +243,7 @@ _Z5test0PdS_:                           # @_Z5test0PdS_
                                         #     Child Loop BB1_5 Depth 2
 	move	$a0, $s4
 	move	$a2, $fp
-	fmov.d	$fa0, $fs1
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB1_5:                                #   Parent Loop BB1_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -259,7 +254,7 @@ _Z5test0PdS_:                           # @_Z5test0PdS_
 	bnez	$a0, .LBB1_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB1_4 Depth=1
-	fcmp.cune.d	$fcc0, $fa0, $fs0
+	fcmp.cune.d	$fcc0, $fa0, $fs1
 	bceqz	$fcc0, .LBB1_3
 # %bb.7:                                #   in Loop: Header=BB1_4 Depth=1
 	ld.w	$a1, $s1, %pc_lo12(current_test)
@@ -286,21 +281,23 @@ _Z5test0PdS_:                           # @_Z5test0PdS_
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s2, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI1_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI1_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_2)
-	ld.w	$a1, $s1, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s1, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s1, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s1, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -540,16 +537,8 @@ main:                                   # @main
 	.size	main, .Lfunc_end2-main
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testIPddEvT_S1_T0_
-.LCPI3_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI3_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI3_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testIPddEvT_S1_T0_,"axG",@progbits,_Z4testIPddEvT_S1_T0_,comdat
-	.weak	_Z4testIPddEvT_S1_T0_
+	.weak	_Z4testIPddEvT_S1_T0_           # -- Begin function _Z4testIPddEvT_S1_T0_
 	.p2align	5
 	.type	_Z4testIPddEvT_S1_T0_,@function
 _Z4testIPddEvT_S1_T0_:                  # @_Z4testIPddEvT_S1_T0_
@@ -589,10 +578,12 @@ _Z4testIPddEvT_S1_T0_:                  # @_Z4testIPddEvT_S1_T0_
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB3_11
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	beq	$s0, $fp, .LBB3_8
 # %bb.2:                                # %.lr.ph.i.preheader.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI3_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -628,7 +619,7 @@ _Z4testIPddEvT_S1_T0_:                  # @_Z4testIPddEvT_S1_T0_
 	ld.w	$a1, $s4, %pc_lo12(iterations)
 	b	.LBB3_3
 .LBB3_8:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB3_11
 # %bb.9:                                # %_Z10accumulateIPddET0_T_S2_S1_.exit.us.us.preheader
@@ -649,21 +640,23 @@ _Z4testIPddEvT_S1_T0_:                  # @_Z4testIPddEvT_S1_T0_
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI3_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI3_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI3_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI3_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -683,16 +676,8 @@ _Z4testIPddEvT_S1_T0_:                  # @_Z4testIPddEvT_S1_T0_
 	.size	_Z4testIPddEvT_S1_T0_, .Lfunc_end3-_Z4testIPddEvT_S1_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testIP6DoubleS0_EvT_S2_T0_
-.LCPI4_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI4_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI4_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testIP6DoubleS0_EvT_S2_T0_,"axG",@progbits,_Z4testIP6DoubleS0_EvT_S2_T0_,comdat
-	.weak	_Z4testIP6DoubleS0_EvT_S2_T0_
+	.weak	_Z4testIP6DoubleS0_EvT_S2_T0_   # -- Begin function _Z4testIP6DoubleS0_EvT_S2_T0_
 	.p2align	5
 	.type	_Z4testIP6DoubleS0_EvT_S2_T0_,@function
 _Z4testIP6DoubleS0_EvT_S2_T0_:          # @_Z4testIP6DoubleS0_EvT_S2_T0_
@@ -732,10 +717,12 @@ _Z4testIP6DoubleS0_EvT_S2_T0_:          # @_Z4testIP6DoubleS0_EvT_S2_T0_
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB4_11
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	beq	$s0, $fp, .LBB4_8
 # %bb.2:                                # %.lr.ph.i.preheader.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI4_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -771,7 +758,7 @@ _Z4testIP6DoubleS0_EvT_S2_T0_:          # @_Z4testIP6DoubleS0_EvT_S2_T0_
 	ld.w	$a1, $s4, %pc_lo12(iterations)
 	b	.LBB4_3
 .LBB4_8:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI4_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB4_11
 # %bb.9:                                # %_Z10accumulateIP6DoubleS0_ET0_T_S3_S2_.exit.us.us.preheader
@@ -792,21 +779,23 @@ _Z4testIP6DoubleS0_EvT_S2_T0_:          # @_Z4testIP6DoubleS0_EvT_S2_T0_
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI4_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI4_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI4_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI4_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -826,16 +815,8 @@ _Z4testIP6DoubleS0_EvT_S2_T0_:          # @_Z4testIP6DoubleS0_EvT_S2_T0_
 	.size	_Z4testIP6DoubleS0_EvT_S2_T0_, .Lfunc_end4-_Z4testIP6DoubleS0_EvT_S2_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI14double_pointerdEvT_S1_T0_
-.LCPI5_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI5_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI5_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI14double_pointerdEvT_S1_T0_,"axG",@progbits,_Z4testI14double_pointerdEvT_S1_T0_,comdat
-	.weak	_Z4testI14double_pointerdEvT_S1_T0_
+	.weak	_Z4testI14double_pointerdEvT_S1_T0_ # -- Begin function _Z4testI14double_pointerdEvT_S1_T0_
 	.p2align	5
 	.type	_Z4testI14double_pointerdEvT_S1_T0_,@function
 _Z4testI14double_pointerdEvT_S1_T0_:    # @_Z4testI14double_pointerdEvT_S1_T0_
@@ -875,10 +856,12 @@ _Z4testI14double_pointerdEvT_S1_T0_:    # @_Z4testI14double_pointerdEvT_S1_T0_
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB5_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB5_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB5_5
 # %bb.3:                                # %_Z10accumulateI14double_pointerdET0_T_S2_S1_.exit.us.us.preheader
@@ -899,21 +882,23 @@ _Z4testI14double_pointerdEvT_S1_T0_:    # @_Z4testI14double_pointerdEvT_S1_T0_
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI5_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI5_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI5_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI5_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -930,7 +915,7 @@ _Z4testI14double_pointerdEvT_S1_T0_:    # @_Z4testI14double_pointerdEvT_S1_T0_
 	addi.d	$sp, $sp, 96
 	ret
 .LBB5_6:                                # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI5_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -969,16 +954,8 @@ _Z4testI14double_pointerdEvT_S1_T0_:    # @_Z4testI14double_pointerdEvT_S1_T0_
 	.size	_Z4testI14double_pointerdEvT_S1_T0_, .Lfunc_end5-_Z4testI14double_pointerdEvT_S1_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI14Double_pointer6DoubleEvT_S2_T0_
-.LCPI6_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI6_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI6_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI14Double_pointer6DoubleEvT_S2_T0_,"axG",@progbits,_Z4testI14Double_pointer6DoubleEvT_S2_T0_,comdat
-	.weak	_Z4testI14Double_pointer6DoubleEvT_S2_T0_
+	.weak	_Z4testI14Double_pointer6DoubleEvT_S2_T0_ # -- Begin function _Z4testI14Double_pointer6DoubleEvT_S2_T0_
 	.p2align	5
 	.type	_Z4testI14Double_pointer6DoubleEvT_S2_T0_,@function
 _Z4testI14Double_pointer6DoubleEvT_S2_T0_: # @_Z4testI14Double_pointer6DoubleEvT_S2_T0_
@@ -1018,10 +995,12 @@ _Z4testI14Double_pointer6DoubleEvT_S2_T0_: # @_Z4testI14Double_pointer6DoubleEvT
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB6_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB6_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI6_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB6_5
 # %bb.3:                                # %_Z10accumulateI14Double_pointer6DoubleET0_T_S3_S2_.exit.us.us.preheader
@@ -1042,21 +1021,23 @@ _Z4testI14Double_pointer6DoubleEvT_S2_T0_: # @_Z4testI14Double_pointer6DoubleEvT
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI6_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI6_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI6_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI6_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -1073,7 +1054,7 @@ _Z4testI14Double_pointer6DoubleEvT_S2_T0_: # @_Z4testI14Double_pointer6DoubleEvT
 	addi.d	$sp, $sp, 96
 	ret
 .LBB6_6:                                # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI6_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -1112,16 +1093,8 @@ _Z4testI14Double_pointer6DoubleEvT_S2_T0_: # @_Z4testI14Double_pointer6DoubleEvT
 	.size	_Z4testI14Double_pointer6DoubleEvT_S2_T0_, .Lfunc_end6-_Z4testI14Double_pointer6DoubleEvT_S2_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI16reverse_iteratorIPddEdEvT_S3_T0_
-.LCPI7_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI7_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI7_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI16reverse_iteratorIPddEdEvT_S3_T0_,"axG",@progbits,_Z4testI16reverse_iteratorIPddEdEvT_S3_T0_,comdat
-	.weak	_Z4testI16reverse_iteratorIPddEdEvT_S3_T0_
+	.weak	_Z4testI16reverse_iteratorIPddEdEvT_S3_T0_ # -- Begin function _Z4testI16reverse_iteratorIPddEdEvT_S3_T0_
 	.p2align	5
 	.type	_Z4testI16reverse_iteratorIPddEdEvT_S3_T0_,@function
 _Z4testI16reverse_iteratorIPddEdEvT_S3_T0_: # @_Z4testI16reverse_iteratorIPddEdEvT_S3_T0_
@@ -1161,10 +1134,12 @@ _Z4testI16reverse_iteratorIPddEdEvT_S3_T0_: # @_Z4testI16reverse_iteratorIPddEdE
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB7_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB7_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB7_5
 # %bb.3:                                # %_Z10accumulateI16reverse_iteratorIPddEdET0_T_S4_S3_.exit.us.us.preheader
@@ -1185,21 +1160,23 @@ _Z4testI16reverse_iteratorIPddEdEvT_S3_T0_: # @_Z4testI16reverse_iteratorIPddEdE
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI7_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI7_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI7_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -1216,7 +1193,7 @@ _Z4testI16reverse_iteratorIPddEdEvT_S3_T0_: # @_Z4testI16reverse_iteratorIPddEdE
 	addi.d	$sp, $sp, 96
 	ret
 .LBB7_6:                                # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI7_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -1255,16 +1232,8 @@ _Z4testI16reverse_iteratorIPddEdEvT_S3_T0_: # @_Z4testI16reverse_iteratorIPddEdE
 	.size	_Z4testI16reverse_iteratorIPddEdEvT_S3_T0_, .Lfunc_end7-_Z4testI16reverse_iteratorIPddEdEvT_S3_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_
-.LCPI8_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI8_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI8_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_,"axG",@progbits,_Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_,comdat
-	.weak	_Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_
+	.weak	_Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_ # -- Begin function _Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_
 	.p2align	5
 	.type	_Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_,@function
 _Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_: # @_Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_
@@ -1304,10 +1273,12 @@ _Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_: # @_Z4testI16reverse_itera
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB8_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB8_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI8_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB8_5
 # %bb.3:                                # %_Z10accumulateI16reverse_iteratorIP6DoubleS1_ES1_ET0_T_S5_S4_.exit.us.us.preheader
@@ -1328,21 +1299,23 @@ _Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_: # @_Z4testI16reverse_itera
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI8_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI8_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI8_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI8_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -1359,7 +1332,7 @@ _Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_: # @_Z4testI16reverse_itera
 	addi.d	$sp, $sp, 96
 	ret
 .LBB8_6:                                # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI8_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -1398,16 +1371,8 @@ _Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_: # @_Z4testI16reverse_itera
 	.size	_Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_, .Lfunc_end8-_Z4testI16reverse_iteratorIP6DoubleS1_ES1_EvT_S4_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_
-.LCPI9_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI9_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI9_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_,"axG",@progbits,_Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_,comdat
-	.weak	_Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_
+	.weak	_Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_ # -- Begin function _Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_
 	.p2align	5
 	.type	_Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_,@function
 _Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_: # @_Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_
@@ -1447,10 +1412,12 @@ _Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_: # @_Z4testI16reverse_i
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB9_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI9_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB9_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI9_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB9_5
 # %bb.3:                                # %_Z10accumulateI16reverse_iteratorI14double_pointerdEdET0_T_S4_S3_.exit.us.us.preheader
@@ -1471,21 +1438,23 @@ _Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_: # @_Z4testI16reverse_i
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI9_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI9_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI9_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI9_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -1502,7 +1471,7 @@ _Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_: # @_Z4testI16reverse_i
 	addi.d	$sp, $sp, 96
 	ret
 .LBB9_6:                                # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI9_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -1541,16 +1510,8 @@ _Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_: # @_Z4testI16reverse_i
 	.size	_Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_, .Lfunc_end9-_Z4testI16reverse_iteratorI14double_pointerdEdEvT_S3_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_
-.LCPI10_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI10_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI10_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_,"axG",@progbits,_Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_,comdat
-	.weak	_Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_
+	.weak	_Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_ # -- Begin function _Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_
 	.p2align	5
 	.type	_Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_,@function
 _Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_: # @_Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_
@@ -1590,10 +1551,12 @@ _Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_: # @_Z4testI16r
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB10_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB10_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI10_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB10_5
 # %bb.3:                                # %_Z10accumulateI16reverse_iteratorI14Double_pointer6DoubleES2_ET0_T_S5_S4_.exit.us.us.preheader
@@ -1614,21 +1577,23 @@ _Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_: # @_Z4testI16r
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI10_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI10_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI10_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI10_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -1645,7 +1610,7 @@ _Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_: # @_Z4testI16r
 	addi.d	$sp, $sp, 96
 	ret
 .LBB10_6:                               # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI10_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -1684,16 +1649,8 @@ _Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_: # @_Z4testI16r
 	.size	_Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_, .Lfunc_end10-_Z4testI16reverse_iteratorI14Double_pointer6DoubleES2_EvT_S4_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_
-.LCPI11_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI11_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI11_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_,"axG",@progbits,_Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_,comdat
-	.weak	_Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_
+	.weak	_Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_ # -- Begin function _Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_
 	.p2align	5
 	.type	_Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_,@function
 _Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_: # @_Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_
@@ -1733,10 +1690,12 @@ _Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_: # @_Z4testI16reverse_iteratorI
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB11_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB11_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI11_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB11_5
 # %bb.3:                                # %_Z10accumulateI16reverse_iteratorIS0_IPddEdEdET0_T_S5_S4_.exit.us.us.preheader
@@ -1757,21 +1716,23 @@ _Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_: # @_Z4testI16reverse_iteratorI
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI11_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI11_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI11_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI11_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -1788,7 +1749,7 @@ _Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_: # @_Z4testI16reverse_iteratorI
 	addi.d	$sp, $sp, 96
 	ret
 .LBB11_6:                               # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI11_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -1827,16 +1788,8 @@ _Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_: # @_Z4testI16reverse_iteratorI
 	.size	_Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_, .Lfunc_end11-_Z4testI16reverse_iteratorIS0_IPddEdEdEvT_S4_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_
-.LCPI12_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI12_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI12_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_,"axG",@progbits,_Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_,comdat
-	.weak	_Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_
+	.weak	_Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_ # -- Begin function _Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_
 	.p2align	5
 	.type	_Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_,@function
 _Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_: # @_Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_
@@ -1876,10 +1829,12 @@ _Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_: # @_Z4testI16rever
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB12_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB12_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI12_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB12_5
 # %bb.3:                                # %_Z10accumulateI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_ET0_T_S6_S5_.exit.us.us.preheader
@@ -1900,21 +1855,23 @@ _Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_: # @_Z4testI16rever
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI12_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI12_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI12_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI12_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -1931,7 +1888,7 @@ _Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_: # @_Z4testI16rever
 	addi.d	$sp, $sp, 96
 	ret
 .LBB12_6:                               # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI12_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -1970,16 +1927,8 @@ _Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_: # @_Z4testI16rever
 	.size	_Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_, .Lfunc_end12-_Z4testI16reverse_iteratorIS0_IP6DoubleS1_ES1_ES1_EvT_S5_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_
-.LCPI13_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI13_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI13_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_,"axG",@progbits,_Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_,comdat
-	.weak	_Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_
+	.weak	_Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_ # -- Begin function _Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_
 	.p2align	5
 	.type	_Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_,@function
 _Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_: # @_Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_
@@ -2019,10 +1968,12 @@ _Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_: # @_Z4testI16rev
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB13_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI13_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB13_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI13_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB13_5
 # %bb.3:                                # %_Z10accumulateI16reverse_iteratorIS0_I14double_pointerdEdEdET0_T_S5_S4_.exit.us.us.preheader
@@ -2043,21 +1994,23 @@ _Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_: # @_Z4testI16rev
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI13_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI13_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI13_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI13_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -2074,7 +2027,7 @@ _Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_: # @_Z4testI16rev
 	addi.d	$sp, $sp, 96
 	ret
 .LBB13_6:                               # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI13_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero
@@ -2113,16 +2066,8 @@ _Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_: # @_Z4testI16rev
 	.size	_Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_, .Lfunc_end13-_Z4testI16reverse_iteratorIS0_I14double_pointerdEdEdEvT_S4_T0_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_
-.LCPI14_0:
-	.dword	0x40b7700000000000              # double 6000
-.LCPI14_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI14_2:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
 	.section	.text._Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_,"axG",@progbits,_Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_,comdat
-	.weak	_Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_
+	.weak	_Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_ # -- Begin function _Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_
 	.p2align	5
 	.type	_Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_,@function
 _Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_: # @_Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_
@@ -2162,10 +2107,12 @@ _Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_: # @_Z4
 	pcalau12i	$s2, %pc_hi20(current_test)
 	blez	$a1, .LBB14_5
 # %bb.1:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI14_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, 1035
 	bne	$s0, $fp, .LBB14_6
 # %bb.2:                                # %.lr.ph.split.us
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI14_0)
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB14_5
 # %bb.3:                                # %_Z10accumulateI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_ET0_T_S6_S5_.exit.us.us.preheader
@@ -2186,21 +2133,23 @@ _Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_: # @_Z4
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
 	ld.d	$a1, $s3, %pc_lo12(start_time)
-	pcalau12i	$a2, %pc_hi20(.LCPI14_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI14_1)
-	sub.d	$a1, $a0, $a1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI14_2)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI14_2)
-	ld.w	$a1, $s2, %pc_lo12(current_test)
 	pcalau12i	$a2, %pc_hi20(end_time)
 	st.d	$a0, $a2, %pc_lo12(end_time)
+	sub.d	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.w	$a0, $s2, %pc_lo12(current_test)
+	lu52i.d	$a1, $zero, 1000
+	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa0, $fa1
-	addi.d	$a0, $a1, 1
-	st.w	$a0, $s2, %pc_lo12(current_test)
-	slli.d	$a0, $a1, 3
+	addi.d	$a1, $a0, 1
+	st.w	$a1, $s2, %pc_lo12(current_test)
+	slli.d	$a0, $a0, 3
 	pcalau12i	$a1, %pc_hi20(result_times)
 	addi.d	$a1, $a1, %pc_lo12(result_times)
 	fstx.d	$fa0, $a1, $a0
@@ -2217,7 +2166,7 @@ _Z4testI16reverse_iteratorIS0_I14Double_pointer6DoubleES2_ES2_EvT_S5_T0_: # @_Z4
 	addi.d	$sp, $sp, 96
 	ret
 .LBB14_6:                               # %.lr.ph.preheader.i.preheader
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI14_0)
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.27)
 	move	$s5, $zero

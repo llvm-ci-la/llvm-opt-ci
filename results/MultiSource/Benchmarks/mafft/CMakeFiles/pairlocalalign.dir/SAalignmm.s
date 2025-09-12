@@ -1,14 +1,10 @@
 	.file	"SAalignmm.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Aalign
-.LCPI0_0:
-	.dword	0x3ff199999999999a              # double 1.1000000000000001
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_1:
+	.p2align	4, 0x0                          # -- Begin function Aalign
+.LCPI0_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-.LCPI0_2:
+.LCPI0_1:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -672,8 +668,8 @@ Aalign:                                 # @Aalign
 	move	$a3, $zero
 	b	.LBB0_71
 .LBB0_68:                               # %vector.ph338
-	pcalau12i	$a4, %pc_hi20(.LCPI0_1)
-	vld	$vr0, $a4, %pc_lo12(.LCPI0_1)
+	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $a4, %pc_lo12(.LCPI0_0)
 	bstrpick.d	$a3, $a3, 31, 2
 	slli.d	$a3, $a3, 2
 	addi.d	$a4, $s6, 16
@@ -727,8 +723,8 @@ Aalign:                                 # @Aalign
 .LBB0_76:                               # %vector.ph351
 	bstrpick.d	$a3, $a3, 31, 3
 	slli.d	$a3, $a3, 3
-	pcalau12i	$a4, %pc_hi20(.LCPI0_2)
-	vld	$vr0, $a4, %pc_lo12(.LCPI0_2)
+	pcalau12i	$a4, %pc_hi20(.LCPI0_1)
+	vld	$vr0, $a4, %pc_lo12(.LCPI0_1)
 	addi.d	$a4, $a1, 16
 	vrepli.b	$vr1, -1
 	vrepli.w	$vr2, -5
@@ -1135,14 +1131,17 @@ Aalign:                                 # @Aalign
 	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
 	ld.w	$s3, $a0, %pc_lo12(Aalign.orlgth2)
 .LBB0_132:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
 	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 104857
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s8
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $s8, $a1
@@ -1150,9 +1149,9 @@ Aalign:                                 # @Aalign
 	or	$s4, $a1, $a0
 	addi.w	$s8, $s4, 100
 	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s3

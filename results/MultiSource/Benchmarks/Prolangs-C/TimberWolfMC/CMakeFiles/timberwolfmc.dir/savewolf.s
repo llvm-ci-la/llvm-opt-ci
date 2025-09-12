@@ -117,12 +117,7 @@ savewolf:                               # @savewolf
 .Lfunc_end0:
 	.size	savewolf, .Lfunc_end0-savewolf
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function TW_oldinput
-.LCPI1_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-	.text
-	.globl	TW_oldinput
+	.globl	TW_oldinput                     # -- Begin function TW_oldinput
 	.p2align	5
 	.type	TW_oldinput,@function
 TW_oldinput:                            # @TW_oldinput
@@ -156,8 +151,11 @@ TW_oldinput:                            # @TW_oldinput
 	pcalau12i	$a0, %got_pc_hi20(cellarray)
 	ld.d	$s3, $a0, %got_pc_lo12(cellarray)
 	ori	$s8, $zero, 1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fs0, $a0
 	vldi	$vr3, -928
 	ori	$s4, $zero, 44
 	st.d	$s2, $sp, 24                    # 8-byte Folded Spill

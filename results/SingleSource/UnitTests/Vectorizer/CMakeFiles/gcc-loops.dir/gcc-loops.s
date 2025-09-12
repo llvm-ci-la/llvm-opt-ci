@@ -1626,28 +1626,26 @@ _Z11init_memoryPvS_:                    # @_Z11init_memoryPvS_
 .Lfunc_end21:
 	.size	_Z11init_memoryPvS_, .Lfunc_end21-_Z11init_memoryPvS_
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z17init_memory_floatPfS_
-.LCPI22_0:
-	.dword	0x3ff199999999999a              # double 1.1000000000000001
-	.text
-	.globl	_Z17init_memory_floatPfS_
+	.globl	_Z17init_memory_floatPfS_       # -- Begin function _Z17init_memory_floatPfS_
 	.p2align	5
 	.type	_Z17init_memory_floatPfS_,@function
 _Z17init_memory_floatPfS_:              # @_Z17init_memory_floatPfS_
 # %bb.0:
 	beq	$a0, $a1, .LBB22_3
 # %bb.1:                                # %.lr.ph.preheader
-	pcalau12i	$a2, %pc_hi20(.LCPI22_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI22_0)
-	vldi	$vr1, -1168
+	vldi	$vr0, -1168
+	lu12i.w	$a2, -419431
+	ori	$a2, $a2, 2458
+	lu32i.d	$a2, 104857
+	lu52i.d	$a2, $a2, 1023
+	movgr2fr.d	$fa1, $a2
 	.p2align	4, , 16
 .LBB22_2:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	fcvt.d.s	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	fcvt.s.d	$fa1, $fa1
-	fst.s	$fa1, $a0, 0
+	fcvt.d.s	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
+	fcvt.s.d	$fa0, $fa0
+	fst.s	$fa0, $a0, 0
 	addi.d	$a0, $a0, 4
 	bne	$a0, $a1, .LBB22_2
 .LBB22_3:                               # %._crit_edge
@@ -1679,12 +1677,7 @@ _Z13digest_memoryPvS_:                  # @_Z13digest_memoryPvS_
 .Lfunc_end23:
 	.size	_Z13digest_memoryPvS_, .Lfunc_end23-_Z13digest_memoryPvS_
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI24_0:
-	.dword	0x3ff199999999999a              # double 1.1000000000000001
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -1932,8 +1925,11 @@ main:                                   # @main
 	vldi	$vr1, -1168
 	pcalau12i	$a2, %pc_hi20(fa)
 	addi.d	$a2, $a2, %pc_lo12(fa)
-	pcalau12i	$a3, %pc_hi20(.LCPI24_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI24_0)
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, 104857
+	lu52i.d	$a3, $a3, 1023
+	movgr2fr.d	$fa0, $a3
 	.p2align	4, , 16
 .LBB24_27:                              # %.lr.ph.i139
                                         # =>This Inner Loop Header: Depth=1
@@ -3551,12 +3547,8 @@ GCC_except_table24:
 .Lcst_end0:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN5TimerD2Ev
-.LCPI25_0:
-	.dword	0x408f400000000000              # double 1000
 	.section	.text._ZN5TimerD2Ev,"axG",@progbits,_ZN5TimerD2Ev,comdat
-	.weak	_ZN5TimerD2Ev
+	.weak	_ZN5TimerD2Ev                   # -- Begin function _ZN5TimerD2Ev
 	.p2align	5
 	.type	_ZN5TimerD2Ev,@function
 _ZN5TimerD2Ev:                          # @_ZN5TimerD2Ev
@@ -3635,12 +3627,14 @@ _ZN5TimerD2Ev:                          # @_ZN5TimerD2Ev
 	ori	$a2, $zero, 1000
 	mul.d	$a0, $a0, $a2
 	movgr2fr.d	$fa0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI25_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI25_0)
 	ffint.d.l	$fa0, $fa0
-	movgr2fr.d	$fa2, $a1
-	ffint.d.l	$fa2, $fa2
-	fdiv.d	$fa1, $fa2, $fa1
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fdiv.d	$fa1, $fa1, $fa2
 	fadd.d	$fa0, $fa1, $fa0
 	vldi	$vr1, -928
 	fadd.d	$fa0, $fa0, $fa1

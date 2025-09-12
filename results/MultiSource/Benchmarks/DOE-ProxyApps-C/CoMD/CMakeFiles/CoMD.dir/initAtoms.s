@@ -667,12 +667,7 @@ setVcm:                                 # @setVcm
 .Lfunc_end3:
 	.size	setVcm, .Lfunc_end3-setVcm
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function setTemperature
-.LCPI4_0:
-	.dword	0x3f1696fe6ef7eb54              # double 8.6173323999999996E-5
-	.text
-	.globl	setTemperature
+	.globl	setTemperature                  # -- Begin function setTemperature
 	.p2align	5
 	.type	setTemperature,@function
 setTemperature:                         # @setTemperature
@@ -696,12 +691,15 @@ setTemperature:                         # @setTemperature
 	ld.d	$a0, $a0, 24
 	ld.w	$a1, $a0, 12
 	fmov.d	$fs0, $fa0
-	pcalau12i	$s0, %pc_hi20(.LCPI4_0)
+	lu12i.w	$s0, 454526
 	blez	$a1, .LBB4_8
 # %bb.1:                                # %.lr.ph66
-	fld.d	$fa0, $s0, %pc_lo12(.LCPI4_0)
 	move	$s1, $zero
 	move	$s2, $zero
+	ori	$a1, $s0, 2900
+	lu32i.d	$a1, 431870
+	lu52i.d	$a1, $a1, 1009
+	movgr2fr.d	$fa0, $a1
 	fmul.d	$fs2, $fs0, $fa0
 	b	.LBB4_3
 	.p2align	4, , 16
@@ -802,10 +800,13 @@ setTemperature:                         # @setTemperature
 	ld.d	$s1, $fp, 32
 	ld.w	$a0, $s1, 4
 	fld.d	$fa0, $fp, 56
-	fld.d	$fa1, $s0, %pc_lo12(.LCPI4_0)
-	movgr2fr.w	$fa2, $a0
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
+	ori	$a0, $s0, 2900
+	lu32i.d	$a0, 431870
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -904
 	fdiv.d	$fa0, $fa0, $fa1

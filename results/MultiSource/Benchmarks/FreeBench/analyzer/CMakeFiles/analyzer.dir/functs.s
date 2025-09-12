@@ -1,12 +1,6 @@
 	.file	"functs.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function speedup_test
-.LCPI0_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI0_1:
-	.dword	0x4059000000000000              # double 100
 	.text
-	.globl	speedup_test
+	.globl	speedup_test                    # -- Begin function speedup_test
 	.p2align	5
 	.type	speedup_test,@function
 speedup_test:                           # @speedup_test
@@ -76,28 +70,31 @@ speedup_test:                           # @speedup_test
 	ld.d	$a1, $sp, 24
 	sub.d	$a0, $a0, $a1
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa1, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	ld.d	$a3, $sp, 8
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa1, $fa2, $fa1
+	fadd.d	$fa0, $fa2, $fa0
 	srli.d	$a0, $a3, 32
 	or	$a0, $a0, $a2
 	movgr2fr.d	$fa2, $a0
-	fsub.d	$fa0, $fa2, $fa0
+	fsub.d	$fa1, $fa2, $fa1
 	bstrins.d	$a3, $a1, 63, 32
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_1)
-	movgr2fr.d	$fa3, $a3
-	fadd.d	$fa0, $fa3, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
-	fmul.d	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa2, $a3
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.5)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.5)
@@ -212,12 +209,7 @@ find_hard_raws:                         # @find_hard_raws
 .Lfunc_end2:
 	.size	find_hard_raws, .Lfunc_end2-find_hard_raws
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function specul_time_o
-.LCPI3_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	specul_time_o
+	.globl	specul_time_o                   # -- Begin function specul_time_o
 	.p2align	5
 	.type	specul_time_o,@function
 specul_time_o:                          # @specul_time_o
@@ -438,7 +430,7 @@ specul_time_o:                          # @specul_time_o
 	ori	$a0, $zero, 1
 	pcalau12i	$s4, %pc_hi20(loop_time)
 	lu52i.d	$s3, $zero, 1107
-	pcalau12i	$s5, %pc_hi20(.LCPI3_0)
+	lu12i.w	$s5, 256
 	lu12i.w	$s2, 275200
 	beq	$s6, $a0, .LBB3_33
 # %bb.31:
@@ -450,23 +442,24 @@ specul_time_o:                          # @specul_time_o
 	b	.LBB3_39
 .LBB3_33:
 	ld.d	$a0, $s4, %pc_lo12(loop_time)
-	fld.d	$fa0, $s5, %pc_lo12(.LCPI3_0)
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s3
+	movgr2fr.d	$fa0, $a1
+	lu52i.d	$a1, $s5, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa1, $fa1, $fa0
-	bstrins.d	$a0, $s2, 63, 32
-	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa1, $fa2, $fa1
-	srli.d	$a0, $s1, 32
-	or	$a0, $a0, $s3
-	movgr2fr.d	$fa2, $a0
-	fsub.d	$fa0, $fa2, $fa0
-	move	$a0, $s1
+	fsub.d	$fa0, $fa0, $fa1
 	bstrins.d	$a0, $s2, 63, 32
 	movgr2fr.d	$fa2, $a0
 	fadd.d	$fa0, $fa2, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
+	srli.d	$a0, $s1, 32
+	or	$a0, $a0, $s3
+	movgr2fr.d	$fa2, $a0
+	fsub.d	$fa1, $fa2, $fa1
+	move	$a0, $s1
+	bstrins.d	$a0, $s2, 63, 32
+	movgr2fr.d	$fa2, $a0
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.8)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.8)
@@ -481,7 +474,8 @@ specul_time_o:                          # @specul_time_o
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s3
 	movgr2fr.d	$fa0, $a1
-	fld.d	$fa1, $s5, %pc_lo12(.LCPI3_0)
+	lu52i.d	$a1, $s5, 1107
+	movgr2fr.d	$fa1, $a1
 	add.d	$a1, $a0, $s1
 	bstrins.d	$a0, $s2, 63, 32
 	ld.d	$a2, $s4, %pc_lo12(loop_time)
@@ -508,23 +502,24 @@ specul_time_o:                          # @specul_time_o
 	bne	$s6, $a0, .LBB3_37
 # %bb.36:
 	ld.d	$a0, $s4, %pc_lo12(loop_time)
-	fld.d	$fa0, $s5, %pc_lo12(.LCPI3_0)
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s3
+	movgr2fr.d	$fa0, $a1
+	lu52i.d	$a1, $s5, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa1, $fa1, $fa0
-	bstrins.d	$a0, $s2, 63, 32
-	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa1, $fa2, $fa1
-	srli.d	$a0, $s1, 32
-	or	$a0, $a0, $s3
-	movgr2fr.d	$fa2, $a0
-	fsub.d	$fa0, $fa2, $fa0
-	move	$a0, $s1
+	fsub.d	$fa0, $fa0, $fa1
 	bstrins.d	$a0, $s2, 63, 32
 	movgr2fr.d	$fa2, $a0
 	fadd.d	$fa0, $fa2, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
+	srli.d	$a0, $s1, 32
+	or	$a0, $a0, $s3
+	movgr2fr.d	$fa2, $a0
+	fsub.d	$fa1, $fa2, $fa1
+	move	$a0, $s1
+	bstrins.d	$a0, $s2, 63, 32
+	movgr2fr.d	$fa2, $a0
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a2, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.10)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.10)
@@ -537,25 +532,26 @@ specul_time_o:                          # @specul_time_o
 # %bb.38:
 	pcalau12i	$a0, %pc_hi20(prog_time)
 	ld.d	$a0, $a0, %pc_lo12(prog_time)
-	fld.d	$fa0, $s5, %pc_lo12(.LCPI3_0)
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s3
+	movgr2fr.d	$fa0, $a1
+	lu52i.d	$a1, $s5, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa1, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	add.d	$a1, $a0, $s1
 	ld.d	$a2, $s4, %pc_lo12(loop_time)
 	bstrins.d	$a0, $s2, 63, 32
 	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa1, $fa2, $fa1
+	fadd.d	$fa0, $fa2, $fa0
 	sub.d	$a0, $a1, $a2
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s3
 	movgr2fr.d	$fa2, $a1
-	fsub.d	$fa0, $fa2, $fa0
+	fsub.d	$fa1, $fa2, $fa1
 	bstrins.d	$a0, $s2, 63, 32
 	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa0, $fa2, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a2, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.11)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.11)
@@ -587,12 +583,7 @@ specul_time_o:                          # @specul_time_o
 .Lfunc_end3:
 	.size	specul_time_o, .Lfunc_end3-specul_time_o
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function specul_time_r
-.LCPI4_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	specul_time_r
+	.globl	specul_time_r                   # -- Begin function specul_time_r
 	.p2align	5
 	.type	specul_time_r,@function
 specul_time_r:                          # @specul_time_r
@@ -1184,7 +1175,7 @@ specul_time_r:                          # @specul_time_r
 	ori	$a0, $zero, 1
 	pcalau12i	$s5, %pc_hi20(loop_time)
 	lu52i.d	$s4, $zero, 1107
-	pcalau12i	$s6, %pc_hi20(.LCPI4_0)
+	lu12i.w	$s6, 256
 	lu12i.w	$s3, 275200
 	beq	$s7, $a0, .LBB4_82
 # %bb.80:
@@ -1197,23 +1188,24 @@ specul_time_r:                          # @specul_time_r
 	b	.LBB4_88
 .LBB4_82:
 	ld.d	$a0, $s5, %pc_lo12(loop_time)
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI4_0)
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s4
+	movgr2fr.d	$fa0, $a1
+	lu52i.d	$a1, $s6, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa1, $fa1, $fa0
-	bstrins.d	$a0, $s3, 63, 32
-	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa1, $fa2, $fa1
-	srli.d	$a0, $s2, 32
-	or	$a0, $a0, $s4
-	movgr2fr.d	$fa2, $a0
-	fsub.d	$fa0, $fa2, $fa0
-	move	$a0, $s2
+	fsub.d	$fa0, $fa0, $fa1
 	bstrins.d	$a0, $s3, 63, 32
 	movgr2fr.d	$fa2, $a0
 	fadd.d	$fa0, $fa2, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
+	srli.d	$a0, $s2, 32
+	or	$a0, $a0, $s4
+	movgr2fr.d	$fa2, $a0
+	fsub.d	$fa1, $fa2, $fa1
+	move	$a0, $s2
+	bstrins.d	$a0, $s3, 63, 32
+	movgr2fr.d	$fa2, $a0
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.8)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.8)
@@ -1228,7 +1220,8 @@ specul_time_r:                          # @specul_time_r
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s4
 	movgr2fr.d	$fa0, $a1
-	fld.d	$fa1, $s6, %pc_lo12(.LCPI4_0)
+	lu52i.d	$a1, $s6, 1107
+	movgr2fr.d	$fa1, $a1
 	add.d	$a1, $a0, $s2
 	bstrins.d	$a0, $s3, 63, 32
 	ld.d	$a2, $s5, %pc_lo12(loop_time)
@@ -1256,23 +1249,24 @@ specul_time_r:                          # @specul_time_r
 	bne	$s7, $a0, .LBB4_86
 # %bb.85:
 	ld.d	$a0, $s5, %pc_lo12(loop_time)
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI4_0)
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s4
+	movgr2fr.d	$fa0, $a1
+	lu52i.d	$a1, $s6, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa1, $fa1, $fa0
-	bstrins.d	$a0, $s3, 63, 32
-	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa1, $fa2, $fa1
-	srli.d	$a0, $s2, 32
-	or	$a0, $a0, $s4
-	movgr2fr.d	$fa2, $a0
-	fsub.d	$fa0, $fa2, $fa0
-	move	$a0, $s2
+	fsub.d	$fa0, $fa0, $fa1
 	bstrins.d	$a0, $s3, 63, 32
 	movgr2fr.d	$fa2, $a0
 	fadd.d	$fa0, $fa2, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
+	srli.d	$a0, $s2, 32
+	or	$a0, $a0, $s4
+	movgr2fr.d	$fa2, $a0
+	fsub.d	$fa1, $fa2, $fa1
+	move	$a0, $s2
+	bstrins.d	$a0, $s3, 63, 32
+	movgr2fr.d	$fa2, $a0
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a3, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.14)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.14)
@@ -1286,25 +1280,26 @@ specul_time_r:                          # @specul_time_r
 # %bb.87:
 	pcalau12i	$a0, %pc_hi20(prog_time)
 	ld.d	$a0, $a0, %pc_lo12(prog_time)
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI4_0)
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s4
+	movgr2fr.d	$fa0, $a1
+	lu52i.d	$a1, $s6, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa1, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	add.d	$a1, $a0, $s2
 	ld.d	$a2, $s5, %pc_lo12(loop_time)
 	bstrins.d	$a0, $s3, 63, 32
 	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa1, $fa2, $fa1
+	fadd.d	$fa0, $fa2, $fa0
 	sub.d	$a0, $a1, $a2
 	srli.d	$a1, $a0, 32
 	or	$a1, $a1, $s4
 	movgr2fr.d	$fa2, $a1
-	fsub.d	$fa0, $fa2, $fa0
+	fsub.d	$fa1, $fa2, $fa1
 	bstrins.d	$a0, $s3, 63, 32
 	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa0, $fa2, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a3, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.15)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.15)

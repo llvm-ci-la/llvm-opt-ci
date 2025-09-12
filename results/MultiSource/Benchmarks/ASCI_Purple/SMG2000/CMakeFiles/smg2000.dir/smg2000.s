@@ -12,10 +12,6 @@
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_3:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
 	.text
 	.globl	main
 	.p2align	5
@@ -1396,8 +1392,11 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(HYPRE_PCGSetMaxIter)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 240
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_3)
+	lu12i.w	$a1, -390306
+	ori	$a1, $a1, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$fa0, $a1
 	pcaddu18i	$ra, %call36(HYPRE_PCGSetTol)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 240
@@ -1477,8 +1476,11 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(HYPRE_StructSMGSetMaxIter)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 240
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_3)
+	lu12i.w	$a1, -390306
+	ori	$a1, $a1, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$fa0, $a1
 	pcaddu18i	$ra, %call36(HYPRE_StructSMGSetTol)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 240

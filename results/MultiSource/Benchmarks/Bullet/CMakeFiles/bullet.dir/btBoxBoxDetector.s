@@ -14,12 +14,7 @@ _ZN16btBoxBoxDetectorC2EP10btBoxShapeS1_: # @_ZN16btBoxBoxDetectorC2EP10btBoxSha
 .Lfunc_end0:
 	.size	_ZN16btBoxBoxDetectorC2EP10btBoxShapeS1_, .Lfunc_end0-_ZN16btBoxBoxDetectorC2EP10btBoxShapeS1_
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_
-.LCPI1_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
-	.text
-	.globl	_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_
+	.globl	_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_ # -- Begin function _Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_
 	.p2align	5
 	.type	_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_,@function
 _Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_: # @_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_
@@ -33,11 +28,12 @@ _Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_: # @_Z20dLineClosestApproachR
 	fmul.s	$fa3, $fa1, $fa6
 	fmadd.s	$fa7, $fa0, $fa2, $fa3
 	fmadd.s	$fa3, $fa4, $fa5, $fa7
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.s	$ft0, $a1, %pc_lo12(.LCPI1_0)
 	fnmadd.s	$fa7, $fa4, $fa5, $fa7
-	vldi	$vr9, -1168
-	fmadd.s	$fa7, $fa7, $fa3, $ft1
+	vldi	$vr8, -1168
+	fmadd.s	$fa7, $fa7, $fa3, $ft0
+	lu12i.w	$a1, 232731
+	ori	$a1, $a1, 1815
+	movgr2fr.w	$ft0, $a1
 	fcmp.cle.s	$fcc0, $fa7, $ft0
 	bcnez	$fcc0, .LBB1_2
 # %bb.1:
@@ -74,22 +70,7 @@ _Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_: # @_Z20dLineClosestApproachR
 .Lfunc_end1:
 	.size	_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_, .Lfunc_end1-_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z11cullPoints2iPfiiPi
-.LCPI2_0:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-.LCPI2_1:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI2_2:
-	.word	0x40c90fdb                      # float 6.28318548
-.LCPI2_3:
-	.word	0xc0c90fdb                      # float -6.28318548
-.LCPI2_4:
-	.word	0x40490fdb                      # float 3.14159274
-.LCPI2_5:
-	.word	0x4e6e6b28                      # float 1.0E+9
-	.text
-	.globl	_Z11cullPoints2iPfiiPi
+	.globl	_Z11cullPoints2iPfiiPi          # -- Begin function _Z11cullPoints2iPfiiPi
 	.p2align	5
 	.type	_Z11cullPoints2iPfiiPi,@function
 _Z11cullPoints2iPfiiPi:                 # @_Z11cullPoints2iPfiiPi
@@ -163,18 +144,18 @@ _Z11cullPoints2iPfiiPi:                 # @_Z11cullPoints2iPfiiPi
 .LBB2_8:                                # %._crit_edge
 	slli.w	$a0, $s2, 1
 	alsl.d	$a0, $a0, $a1, 2
-	fld.s	$fa3, $a0, -4
-	fld.s	$fa5, $a1, 0
-	fld.s	$fa6, $a0, -8
-	fld.s	$fa4, $a1, 4
-	fneg.s	$fa7, $fa3
-	fmul.s	$fa7, $fa5, $fa7
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.s	$ft0, $a0, %pc_lo12(.LCPI2_1)
-	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	fld.s	$fa3, $a0, -8
+	fld.s	$fa4, $a0, -4
+	fld.s	$fa6, $a1, 0
+	fld.s	$fa5, $a1, 4
+	fneg.s	$fa7, $fa4
+	fmul.s	$fa7, $fa6, $fa7
+	fmadd.s	$fa7, $fa3, $fa5, $fa7
 	fadd.s	$fa2, $fa2, $fa7
-	fabs.s	$ft1, $fa2
-	fcmp.cule.s	$fcc0, $ft1, $ft0
+	fabs.s	$ft0, $fa2
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$ft1, $a0
+	fcmp.cule.s	$fcc0, $ft0, $ft1
 	bcnez	$fcc0, .LBB2_11
 # %bb.9:
 	vldi	$vr8, -1272
@@ -185,14 +166,15 @@ _Z11cullPoints2iPfiiPi:                 # @_Z11cullPoints2iPfiiPi
 	move	$a1, $zero
 	b	.LBB2_22
 .LBB2_11:
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a0, 382432
+	ori	$a0, $a0, 2923
+	movgr2fr.w	$fa2, $a0
 	blez	$s2, .LBB2_10
 .LBB2_12:
-	fadd.s	$fa5, $fa6, $fa5
-	fmadd.s	$fa1, $fa7, $fa5, $fa1
+	fadd.s	$fa3, $fa3, $fa6
+	fmadd.s	$fa1, $fa7, $fa3, $fa1
 	fmul.s	$fs0, $fa1, $fa2
-	fadd.s	$fa1, $fa4, $fa3
+	fadd.s	$fa1, $fa5, $fa4
 	fmadd.s	$fa0, $fa7, $fa1, $fa0
 	fmul.s	$fs1, $fa0, $fa2
 .LBB2_13:                               # %.lr.ph124.preheader
@@ -259,23 +241,28 @@ _Z11cullPoints2iPfiiPi:                 # @_Z11cullPoints2iPfiiPi
 	addi.d	$a0, $s1, 4
 	beqz	$a1, .LBB2_31
 # %bb.24:                               # %.lr.ph133.us.preheader
-	pcalau12i	$a1, %pc_hi20(.LCPI2_2)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI2_2)
 	bstrpick.d	$a1, $s0, 31, 0
-	movgr2fr.d	$fa1, $a1
-	ffint.s.l	$fa1, $fa1
+	movgr2fr.d	$fa0, $a1
+	ffint.s.l	$fa1, $fa0
+	lu12i.w	$a1, 265360
+	ori	$a1, $a1, 4059
+	movgr2fr.w	$fa0, $a1
 	fdiv.s	$fa1, $fa0, $fa1
 	slli.d	$a1, $fp, 2
 	addi.d	$a2, $sp, 48
 	fldx.s	$fa2, $a1, $a2
-	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
-	fld.s	$fa3, $a1, %pc_lo12(.LCPI2_3)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_4)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI2_4)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_5)
-	fld.s	$fa5, $a1, %pc_lo12(.LCPI2_5)
 	bstrpick.d	$a1, $s2, 31, 0
 	ori	$a2, $zero, 1
+	lu12i.w	$a3, -258928
+	ori	$a3, $a3, 4059
+	lu32i.d	$a3, 0
+	movgr2fr.w	$fa3, $a3
+	lu12i.w	$a3, 263312
+	ori	$a3, $a3, 4059
+	movgr2fr.w	$fa4, $a3
+	lu12i.w	$a3, 321254
+	ori	$a3, $a3, 2856
+	movgr2fr.w	$fa5, $a3
 	addi.d	$a3, $sp, 16
 	b	.LBB2_26
 	.p2align	4, , 16
@@ -381,14 +368,7 @@ _Z11cullPoints2iPfiiPi:                 # @_Z11cullPoints2iPfiiPi
 .Lfunc_end2:
 	.size	_Z11cullPoints2iPfiiPi, .Lfunc_end2-_Z11cullPoints2iPfiiPi
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE
-.LCPI3_0:
-	.word	0xff7fffff                      # float -3.40282347E+38
-.LCPI3_1:
-	.word	0x3f866666                      # float 1.04999995
-	.text
-	.globl	_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE
+	.globl	_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE # -- Begin function _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE
 	.p2align	5
 	.type	_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE,@function
 _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE: # @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE
@@ -450,10 +430,10 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fmadd.s	$fa0, $fa5, $ft10, $fa0
 	fmadd.s	$ft0, $ft2, $ft9, $fa0
 	fld.s	$fa6, $a1, 4
-	fld.s	$ft1, $a1, 20
-	fld.s	$fs3, $a1, 36
+	fld.s	$fs3, $a1, 20
+	fld.s	$ft1, $a1, 36
 	fld.s	$fa0, $a1, 8
-	fst.s	$fa0, $sp, 96                   # 4-byte Folded Spill
+	fst.s	$fa0, $sp, 88                   # 4-byte Folded Spill
 	fld.s	$fa0, $a2, 0
 	fld.s	$fa1, $a2, 4
 	vldi	$vr11, -1184
@@ -468,36 +448,37 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fld.s	$ft12, $a4, 16
 	fmul.s	$fa0, $ft4, $ft3
 	fmul.s	$ft7, $ft5, $ft3
-	fld.s	$ft4, $a4, 0
-	fmul.s	$ft3, $fa7, $ft12
+	fld.s	$ft5, $a4, 0
+	fmul.s	$ft4, $fa7, $ft12
 	fld.s	$ft13, $a4, 32
-	fld.s	$ft5, $a4, 20
+	fld.s	$ft3, $a4, 20
 	fld.s	$fs6, $a4, 4
-	fmadd.s	$ft3, $fa5, $ft4, $ft3
-	fmadd.s	$ft11, $ft2, $ft13, $ft3
-	fmul.s	$ft3, $fa7, $ft5
-	fmadd.s	$ft3, $fa5, $fs6, $ft3
+	fmadd.s	$ft4, $fa5, $ft5, $ft4
+	fmadd.s	$ft11, $ft2, $ft13, $ft4
+	fmul.s	$ft4, $fa7, $ft3
+	fmadd.s	$ft4, $fa5, $fs6, $ft4
 	fld.s	$ft6, $a4, 36
 	fld.s	$fs7, $a4, 24
 	fld.s	$fs4, $a4, 8
 	fld.s	$fs5, $a4, 40
-	fmadd.s	$ft3, $ft2, $ft6, $ft3
+	fmadd.s	$ft4, $ft2, $ft6, $ft4
 	fmul.s	$fa7, $fa7, $fs7
 	fmadd.s	$fa7, $fa5, $fs4, $fa7
 	fmadd.s	$ft2, $ft2, $fs5, $fa7
 	fabs.s	$ft14, $ft11
-	fst.s	$ft3, $sp, 56                   # 4-byte Folded Spill
-	fabs.s	$ft8, $ft3
-	fabs.s	$ft3, $ft2
+	fst.s	$ft4, $sp, 56                   # 4-byte Folded Spill
+	fabs.s	$ft8, $ft4
+	fabs.s	$ft4, $ft2
 	fabs.s	$fa7, $ft0
 	fmadd.s	$fs0, $fa1, $ft14, $fa4
 	fmadd.s	$fs0, $fa0, $ft8, $fs0
-	fmadd.s	$fs0, $ft7, $ft3, $fs0
+	fmadd.s	$fs0, $ft7, $ft4, $fs0
 	fsub.s	$fs0, $fa7, $fs0
 	fld.s	$fa7, $a1, 24
 	fst.s	$fa4, $sp, 428
+	fst.s	$fa3, $sp, 100                  # 4-byte Folded Spill
 	fst.s	$fa3, $sp, 432
-	fst.s	$fa2, $sp, 92                   # 4-byte Folded Spill
+	fst.s	$fa2, $sp, 80                   # 4-byte Folded Spill
 	fst.s	$fa2, $sp, 436
 	fst.s	$fa1, $sp, 416
 	fst.s	$fa0, $sp, 420
@@ -505,32 +486,33 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	movgr2fr.w	$fs1, $zero
 	fcmp.clt.s	$fcc0, $fs1, $fs0
 	fst.s	$ft7, $sp, 424
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.1:
-	fst.s	$fa3, $sp, 80                   # 4-byte Folded Spill
 	fst.s	$ft0, $sp, 52                   # 4-byte Folded Spill
-	fst.s	$ft3, $sp, 44                   # 4-byte Folded Spill
-	fmul.s	$fa2, $ft15, $ft1
+	fst.s	$ft4, $sp, 40                   # 4-byte Folded Spill
+	fmul.s	$fa2, $ft15, $fs3
 	fmadd.s	$fa2, $fa6, $ft10, $fa2
-	fmadd.s	$fa2, $fs3, $ft9, $fa2
+	fmadd.s	$fa2, $ft1, $ft9, $fa2
 	fst.s	$fa2, $sp, 72                   # 4-byte Folded Spill
-	fmul.s	$fa2, $ft1, $ft12
-	fmadd.s	$fa2, $fa6, $ft4, $fa2
-	fmadd.s	$fa3, $fs3, $ft13, $fa2
-	fmul.s	$fa2, $ft1, $ft5
+	fmul.s	$fa2, $fs3, $ft12
+	fmadd.s	$fa2, $fa6, $ft5, $fa2
+	fmadd.s	$ft0, $ft1, $ft13, $fa2
+	fmul.s	$fa2, $fs3, $ft3
 	fmadd.s	$fa2, $fa6, $fs6, $fa2
-	fmadd.s	$ft0, $fs3, $ft6, $fa2
-	fmul.s	$fa2, $ft1, $fs7
+	fmadd.s	$ft4, $ft1, $ft6, $fa2
+	fmul.s	$fa2, $fs3, $fs7
 	fmadd.s	$fa2, $fa6, $fs4, $fa2
-	pcalau12i	$a2, %pc_hi20(.LCPI3_0)
-	fld.s	$ft3, $a2, %pc_lo12(.LCPI3_0)
-	fmadd.s	$fs3, $fs3, $fs5, $fa2
-	fst.s	$fa3, $sp, 36                   # 4-byte Folded Spill
-	fabs.s	$ft1, $fa3
-	fst.s	$ft0, $sp, 40                   # 4-byte Folded Spill
-	fabs.s	$fa2, $ft0
+	fmadd.s	$fs3, $ft1, $fs5, $fa2
+	fst.s	$ft0, $sp, 32                   # 4-byte Folded Spill
+	fabs.s	$ft1, $ft0
+	fst.s	$ft4, $sp, 36                   # 4-byte Folded Spill
+	fabs.s	$fa2, $ft4
 	fst.s	$fa2, $sp, 64                   # 4-byte Folded Spill
-	fcmp.cule.s	$fcc0, $fs0, $ft3
+	lu12i.w	$a2, -2049
+	ori	$a2, $a2, 4095
+	lu32i.d	$a2, 0
+	movgr2fr.w	$ft4, $a2
+	fcmp.cule.s	$fcc0, $fs0, $ft4
 	fabs.s	$fa2, $fs3
 	fst.s	$fa2, $sp, 60                   # 4-byte Folded Spill
 	bcnez	$fcc0, .LBB3_3
@@ -540,7 +522,7 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fcmp.clt.s	$fcc0, $fa3, $fa2
 	ori	$s2, $zero, 1
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $fs0
+	fmov.s	$ft4, $fs0
 	move	$a5, $a1
 	b	.LBB3_4
 .LBB3_3:
@@ -549,10 +531,10 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	move	$a5, $zero
 	fld.s	$fa3, $sp, 52                   # 4-byte Folded Reload
 .LBB3_4:
-	fld.s	$ft0, $sp, 80                   # 4-byte Folded Reload
 	fld.s	$fa2, $sp, 72                   # 4-byte Folded Reload
 	fabs.s	$fa2, $fa2
 	fst.s	$ft1, $sp, 48                   # 4-byte Folded Spill
+	fld.s	$ft0, $sp, 100                  # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa1, $ft1, $ft0
 	fld.s	$fs0, $sp, 64                   # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa0, $fs0, $ft1
@@ -560,30 +542,31 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fmadd.s	$ft1, $ft7, $fs0, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.5:
-	fst.s	$fs3, $sp, 28                   # 4-byte Folded Spill
-	fst.s	$ft2, $sp, 32                   # 4-byte Folded Spill
+	fst.s	$fs3, $sp, 24                   # 4-byte Folded Spill
+	fst.s	$ft2, $sp, 28                   # 4-byte Folded Spill
 	fmul.s	$fa2, $fa7, $ft12
-	fmul.s	$fs0, $fa7, $ft5
+	fmul.s	$fs0, $fa7, $ft3
 	fmul.s	$fs3, $fa7, $fs7
 	fmul.s	$fa7, $ft15, $fa7
-	fmov.s	$ft2, $ft3
-	fld.s	$ft3, $sp, 96                   # 4-byte Folded Reload
-	fmadd.s	$fa2, $ft3, $ft4, $fa2
-	fmadd.s	$fs0, $ft3, $fs6, $fs0
-	fmadd.s	$fs3, $ft3, $fs4, $fs3
-	fmadd.s	$fa7, $ft3, $ft10, $fa7
-	fmov.s	$ft3, $ft2
+	fmov.s	$ft2, $ft4
+	fld.s	$ft4, $sp, 88                   # 4-byte Folded Reload
+	fmadd.s	$fa2, $ft4, $ft5, $fa2
+	fmadd.s	$fs0, $ft4, $fs6, $fs0
+	fmadd.s	$fs3, $ft4, $fs4, $fs3
+	fmadd.s	$fa7, $ft4, $ft10, $fa7
+	fmov.s	$ft4, $ft2
 	fmadd.s	$ft0, $fs2, $ft13, $fa2
 	fmadd.s	$ft2, $fs2, $ft6, $fs0
 	fmadd.s	$fa2, $fs2, $fs5, $fs3
 	fmadd.s	$fs0, $fs2, $ft9, $fa7
-	fst.s	$ft0, $sp, 20                   # 4-byte Folded Spill
+	fst.s	$ft0, $sp, 16                   # 4-byte Folded Spill
 	fabs.s	$fs2, $ft0
-	fst.s	$ft2, $sp, 16                   # 4-byte Folded Spill
-	fabs.s	$fs3, $ft2
-	fcmp.cule.s	$fcc0, $ft1, $ft3
+	fmov.s	$fs3, $ft2
+	fabs.s	$fa7, $ft2
+	fst.s	$fa7, $sp, 44                   # 4-byte Folded Spill
+	fcmp.cule.s	$fcc0, $ft1, $ft4
 	fst.s	$fa2, $sp, 12                   # 4-byte Folded Spill
 	fabs.s	$ft2, $fa2
 	bcnez	$fcc0, .LBB3_7
@@ -594,71 +577,74 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fcmp.clt.s	$fcc0, $fa7, $fa2
 	ori	$s2, $zero, 2
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
 .LBB3_7:
-	fst.s	$fs0, $sp, 24                   # 4-byte Folded Spill
+	fst.s	$fs0, $sp, 20                   # 4-byte Folded Spill
 	fabs.s	$fa2, $fs0
-	fld.s	$fs0, $sp, 92                   # 4-byte Folded Reload
+	fld.s	$fs0, $sp, 80                   # 4-byte Folded Reload
 	fmadd.s	$fa7, $fa1, $fs2, $fs0
-	fmadd.s	$fa7, $fa0, $fs3, $fa7
+	fld.s	$ft1, $sp, 44                   # 4-byte Folded Reload
+	fmadd.s	$fa7, $fa0, $ft1, $fa7
 	fmadd.s	$fa7, $ft7, $ft2, $fa7
 	fsub.s	$fa7, $fa2, $fa7
 	fcmp.clt.s	$fcc0, $fs1, $fa7
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.8:
-	fcmp.cule.s	$fcc0, $fa7, $ft3
+	fst.s	$ft2, $sp, 8                    # 4-byte Folded Spill
+	fcmp.cule.s	$fcc0, $fa7, $ft4
 	bcnez	$fcc0, .LBB3_10
 # %bb.9:
 	addi.d	$a5, $a1, 8
 	movgr2fr.w	$fa2, $zero
-	fld.s	$ft1, $sp, 24                   # 4-byte Folded Reload
+	fld.s	$ft1, $sp, 20                   # 4-byte Folded Reload
 	fcmp.clt.s	$fcc0, $ft1, $fa2
 	ori	$s2, $zero, 3
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $fa7
+	fmov.s	$ft4, $fa7
 .LBB3_10:
 	fmul.s	$fa2, $ft15, $ft12
-	fmadd.s	$fa2, $ft4, $ft10, $fa2
+	fmadd.s	$fa2, $ft5, $ft10, $fa2
 	fmadd.s	$fa7, $ft13, $ft9, $fa2
 	fabs.s	$fa2, $fa7
 	fld.s	$ft1, $sp, 48                   # 4-byte Folded Reload
-	fld.s	$ft0, $sp, 80                   # 4-byte Folded Reload
+	fld.s	$ft0, $sp, 100                  # 4-byte Folded Reload
 	fmul.s	$ft1, $ft0, $ft1
 	fmadd.s	$ft1, $fa4, $ft14, $ft1
 	fmadd.s	$ft1, $fs0, $fs2, $ft1
 	fadd.s	$ft1, $fa1, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	fld.s	$ft13, $sp, 32                  # 4-byte Folded Reload
-	fld.s	$ft12, $sp, 28                  # 4-byte Folded Reload
-	bcnez	$fcc0, .LBB3_87
+	fld.s	$ft2, $sp, 28                   # 4-byte Folded Reload
+	fld.s	$ft12, $sp, 24                  # 4-byte Folded Reload
+	bcnez	$fcc0, .LBB3_89
 # %bb.11:
 	fmov.s	$ft0, $fa3
-	fcmp.cule.s	$fcc0, $ft1, $ft3
+	fcmp.cule.s	$fcc0, $ft1, $ft4
 	bcnez	$fcc0, .LBB3_13
 # %bb.12:
 	movgr2fr.w	$fa2, $zero
 	fcmp.clt.s	$fcc0, $fa7, $fa2
 	ori	$s2, $zero, 4
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
 	move	$a5, $a4
 .LBB3_13:
-	fmul.s	$fa2, $ft15, $ft5
+	fmul.s	$fa2, $ft15, $ft3
 	fmadd.s	$fa2, $fs6, $ft10, $fa2
 	fmadd.s	$fa7, $ft6, $ft9, $fa2
 	fabs.s	$fa2, $fa7
 	fld.s	$ft1, $sp, 64                   # 4-byte Folded Reload
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
 	fmul.s	$ft1, $fa3, $ft1
 	fmadd.s	$ft1, $fa4, $ft8, $ft1
-	fmadd.s	$ft1, $fs0, $fs3, $ft1
+	fld.s	$ft3, $sp, 44                   # 4-byte Folded Reload
+	fmadd.s	$ft1, $fs0, $ft3, $ft1
 	fadd.s	$ft1, $fa0, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.14:
-	fcmp.cule.s	$fcc0, $ft1, $ft3
+	fcmp.cule.s	$fcc0, $ft1, $ft4
 	bcnez	$fcc0, .LBB3_16
 # %bb.15:
 	addi.d	$a5, $a4, 4
@@ -666,24 +652,25 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fcmp.clt.s	$fcc0, $fa7, $fa2
 	ori	$s2, $zero, 5
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
 .LBB3_16:
 	fmul.s	$fa2, $ft15, $fs7
 	fmadd.s	$fa2, $fs4, $ft10, $fa2
 	fmadd.s	$fa7, $fs5, $ft9, $fa2
 	fabs.s	$fa2, $fa7
 	fld.s	$ft1, $sp, 60                   # 4-byte Folded Reload
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
 	fmul.s	$ft1, $fa3, $ft1
-	fld.s	$ft4, $sp, 44                   # 4-byte Folded Reload
-	fmadd.s	$ft1, $fa4, $ft4, $ft1
-	fmadd.s	$ft1, $fs0, $ft2, $ft1
+	fld.s	$ft3, $sp, 40                   # 4-byte Folded Reload
+	fmadd.s	$ft1, $fa4, $ft3, $ft1
+	fld.s	$ft3, $sp, 8                    # 4-byte Folded Reload
+	fmadd.s	$ft1, $fs0, $ft3, $ft1
 	fadd.s	$ft1, $ft7, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.17:
-	fcmp.cule.s	$fcc0, $ft1, $ft3
+	fcmp.cule.s	$fcc0, $ft1, $ft4
 	bcnez	$fcc0, .LBB3_19
 # %bb.18:
 	addi.d	$a5, $a4, 8
@@ -691,147 +678,150 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fcmp.clt.s	$fcc0, $fa7, $fa2
 	ori	$s2, $zero, 6
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
 .LBB3_19:
-	fld.s	$ft9, $sp, 20                   # 4-byte Folded Reload
-	fneg.s	$fa7, $ft9
+	fld.s	$ft6, $sp, 16                   # 4-byte Folded Reload
+	fneg.s	$fa7, $ft6
 	fld.s	$fa2, $sp, 72                   # 4-byte Folded Reload
 	fmul.s	$fa2, $fa2, $fa7
-	fld.s	$fs5, $sp, 36                   # 4-byte Folded Reload
-	fld.s	$ft1, $sp, 24                   # 4-byte Folded Reload
-	fmadd.s	$ft4, $ft1, $fs5, $fa2
-	fabs.s	$fa2, $ft4
+	fld.s	$fs4, $sp, 32                   # 4-byte Folded Reload
+	fld.s	$ft1, $sp, 20                   # 4-byte Folded Reload
+	fmadd.s	$ft3, $ft1, $fs4, $fa2
+	fabs.s	$fa2, $ft3
 	fld.s	$ft1, $sp, 48                   # 4-byte Folded Reload
 	fmul.s	$ft1, $fs0, $ft1
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa3, $fs2, $ft1
-	fld.s	$ft5, $sp, 44                   # 4-byte Folded Reload
+	fld.s	$ft5, $sp, 40                   # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa0, $ft5, $ft1
 	fmadd.s	$ft1, $ft7, $ft8, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	fld.s	$fs4, $sp, 40                   # 4-byte Folded Reload
-	fld.s	$ft6, $sp, 16                   # 4-byte Folded Reload
-	bcnez	$fcc0, .LBB3_87
+	fld.s	$ft13, $sp, 36                  # 4-byte Folded Reload
+	bcnez	$fcc0, .LBB3_89
 # %bb.20:
-	fmadd.s	$ft9, $ft9, $ft9, $fs1
-	fmadd.s	$ft5, $fs5, $fs5, $ft9
+	fmov.s	$fs6, $fs3
+	fmadd.s	$ft9, $ft6, $ft6, $fs1
+	fmadd.s	$ft5, $fs4, $fs4, $ft9
 	fcmp.cule.s	$fcc0, $ft5, $fs1
 	bcnez	$fcc0, .LBB3_23
 # %bb.21:
-	pcalau12i	$t0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $t0, %pc_lo12(.LCPI3_1)
 	fsqrt.s	$ft5, $ft5
 	fdiv.s	$ft1, $ft1, $ft5
+	lu12i.w	$t0, 260198
+	ori	$t0, $t0, 1638
+	movgr2fr.w	$fa2, $t0
 	fmul.s	$fa2, $ft1, $fa2
-	fcmp.cule.s	$fcc0, $fa2, $ft3
+	fcmp.cule.s	$fcc0, $fa2, $ft4
+	fmov.s	$fs5, $fs1
+	fmov.s	$fs3, $fs1
 	fmov.s	$fs7, $fs1
-	fmov.s	$fs6, $fs1
-	fmov.s	$ft15, $fs1
 	bcnez	$fcc0, .LBB3_24
 # %bb.22:
 	move	$a5, $zero
 	movgr2fr.w	$fa2, $zero
-	fdiv.s	$fs7, $fa2, $ft5
-	fdiv.s	$fs6, $fa7, $ft5
-	fdiv.s	$ft15, $fs5, $ft5
-	fcmp.clt.s	$fcc0, $ft4, $fa2
+	fdiv.s	$fs5, $fa2, $ft5
+	fdiv.s	$fs3, $fa7, $ft5
+	fdiv.s	$fs7, $fs4, $ft5
+	fcmp.clt.s	$fcc0, $ft3, $fa2
 	ori	$s2, $zero, 7
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
 	b	.LBB3_24
 .LBB3_23:
+	fmov.s	$fs5, $fs1
+	fmov.s	$fs3, $fs1
 	fmov.s	$fs7, $fs1
-	fmov.s	$fs6, $fs1
-	fmov.s	$ft15, $fs1
 .LBB3_24:
-	fneg.s	$fa7, $ft6
+	fneg.s	$fa7, $fs6
 	fld.s	$fa2, $sp, 72                   # 4-byte Folded Reload
 	fmul.s	$fa2, $fa2, $fa7
-	fld.s	$ft1, $sp, 24                   # 4-byte Folded Reload
-	fmadd.s	$ft4, $ft1, $fs4, $fa2
-	fabs.s	$fa2, $ft4
+	fld.s	$ft1, $sp, 20                   # 4-byte Folded Reload
+	fmadd.s	$ft3, $ft1, $ft13, $fa2
+	fabs.s	$fa2, $ft3
 	fld.s	$ft1, $sp, 64                   # 4-byte Folded Reload
 	fmul.s	$ft1, $fs0, $ft1
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
-	fmadd.s	$ft1, $fa3, $fs3, $ft1
 	fld.s	$ft5, $sp, 44                   # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
+	fmadd.s	$ft1, $fa3, $ft5, $ft1
+	fld.s	$ft5, $sp, 40                   # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa1, $ft5, $ft1
 	fmadd.s	$ft1, $ft7, $ft14, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.25:
 	movgr2fr.w	$fs1, $zero
-	fmadd.s	$ft10, $ft6, $ft6, $fs1
-	fmadd.s	$ft5, $fs4, $fs4, $ft10
+	fmadd.s	$ft10, $fs6, $fs6, $fs1
+	fmadd.s	$ft5, $ft13, $ft13, $ft10
 	fcmp.cule.s	$fcc0, $ft5, $fs1
 	bcnez	$fcc0, .LBB3_28
 # %bb.26:
-	pcalau12i	$t0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $t0, %pc_lo12(.LCPI3_1)
 	fsqrt.s	$ft5, $ft5
 	fdiv.s	$ft1, $ft1, $ft5
+	lu12i.w	$t0, 260198
+	ori	$t0, $t0, 1638
+	movgr2fr.w	$fa2, $t0
 	fmul.s	$fa2, $ft1, $fa2
-	fcmp.cule.s	$fcc0, $fa2, $ft3
+	fcmp.cule.s	$fcc0, $fa2, $ft4
 	bcnez	$fcc0, .LBB3_28
 # %bb.27:
 	move	$a5, $zero
-	fdiv.s	$fs7, $fs1, $ft5
-	fdiv.s	$fs6, $fa7, $ft5
-	fdiv.s	$ft15, $fs4, $ft5
-	fcmp.clt.s	$fcc0, $ft4, $fs1
+	fdiv.s	$fs5, $fs1, $ft5
+	fdiv.s	$fs3, $fa7, $ft5
+	fdiv.s	$fs7, $ft13, $ft5
+	fcmp.clt.s	$fcc0, $ft3, $fs1
 	ori	$s2, $zero, 8
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
 .LBB3_28:
-	fld.s	$ft5, $sp, 12                   # 4-byte Folded Reload
-	fneg.s	$fa7, $ft5
+	fld.s	$ft6, $sp, 12                   # 4-byte Folded Reload
+	fneg.s	$fa7, $ft6
 	fld.s	$fa2, $sp, 72                   # 4-byte Folded Reload
 	fmul.s	$fa2, $fa2, $fa7
-	fld.s	$ft1, $sp, 24                   # 4-byte Folded Reload
-	fmadd.s	$ft4, $ft1, $ft12, $fa2
-	fabs.s	$fa2, $ft4
+	fld.s	$ft1, $sp, 20                   # 4-byte Folded Reload
+	fmadd.s	$ft3, $ft1, $ft12, $fa2
+	fabs.s	$fa2, $ft3
 	fld.s	$ft1, $sp, 60                   # 4-byte Folded Reload
 	fmul.s	$ft1, $fs0, $ft1
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
-	fmadd.s	$ft1, $fa3, $ft2, $ft1
+	fld.s	$ft5, $sp, 8                    # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
+	fmadd.s	$ft1, $fa3, $ft5, $ft1
 	fmadd.s	$ft1, $fa1, $ft8, $ft1
 	fmadd.s	$ft1, $fa0, $ft14, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.29:
-	fst.s	$ft15, $sp, 8                   # 4-byte Folded Spill
-	fmadd.s	$ft15, $ft5, $ft5, $fs1
+	fmadd.s	$ft15, $ft6, $ft6, $fs1
 	fmadd.s	$ft5, $ft12, $ft12, $ft15
 	fcmp.cule.s	$fcc0, $ft5, $fs1
 	bcnez	$fcc0, .LBB3_32
 # %bb.30:
-	pcalau12i	$t0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $t0, %pc_lo12(.LCPI3_1)
 	fsqrt.s	$ft5, $ft5
 	fdiv.s	$ft1, $ft1, $ft5
+	lu12i.w	$t0, 260198
+	ori	$t0, $t0, 1638
+	movgr2fr.w	$fa2, $t0
 	fmul.s	$fa2, $ft1, $fa2
-	fcmp.cule.s	$fcc0, $fa2, $ft3
+	fcmp.cule.s	$fcc0, $fa2, $ft4
 	bcnez	$fcc0, .LBB3_32
 # %bb.31:
 	move	$a5, $zero
-	fdiv.s	$fs7, $fs1, $ft5
-	fdiv.s	$fs6, $fa7, $ft5
-	fdiv.s	$fa2, $ft12, $ft5
-	fst.s	$fa2, $sp, 8                    # 4-byte Folded Spill
-	fcmp.clt.s	$fcc0, $ft4, $fs1
+	fdiv.s	$fs5, $fs1, $ft5
+	fdiv.s	$fs3, $fa7, $ft5
+	fdiv.s	$fs7, $ft12, $ft5
+	fcmp.clt.s	$fcc0, $ft3, $fs1
 	ori	$s2, $zero, 9
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
 .LBB3_32:
 	fneg.s	$fa7, $ft11
-	fld.s	$fa2, $sp, 24                   # 4-byte Folded Reload
+	fld.s	$fa2, $sp, 20                   # 4-byte Folded Reload
 	fmul.s	$fa2, $fa2, $fa7
-	fld.s	$ft1, $sp, 20                   # 4-byte Folded Reload
-	fmadd.s	$ft4, $ft0, $ft1, $fa2
-	fabs.s	$fa2, $ft4
+	fld.s	$ft1, $sp, 16                   # 4-byte Folded Reload
+	fmadd.s	$ft3, $ft0, $ft1, $fa2
+	fabs.s	$fa2, $ft3
 	fmul.s	$ft1, $fs0, $ft14
 	fmadd.s	$ft1, $fa4, $fs2, $ft1
 	fld.s	$ft5, $sp, 60                   # 4-byte Folded Reload
@@ -840,289 +830,296 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fmadd.s	$ft1, $ft7, $ft5, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.33:
 	fmadd.s	$ft5, $ft11, $ft11, $ft9
 	fcmp.cule.s	$fcc0, $ft5, $fs1
 	bcnez	$fcc0, .LBB3_36
 # %bb.34:
-	pcalau12i	$t0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $t0, %pc_lo12(.LCPI3_1)
 	fsqrt.s	$ft5, $ft5
 	fdiv.s	$ft1, $ft1, $ft5
+	lu12i.w	$t0, 260198
+	ori	$t0, $t0, 1638
+	movgr2fr.w	$fa2, $t0
 	fmul.s	$fa2, $ft1, $fa2
-	fcmp.cule.s	$fcc0, $fa2, $ft3
+	fcmp.cule.s	$fcc0, $fa2, $ft4
 	fld.s	$ft6, $sp, 56                   # 4-byte Folded Reload
 	bcnez	$fcc0, .LBB3_37
 # %bb.35:
 	move	$a5, $zero
-	fld.s	$fa2, $sp, 20                   # 4-byte Folded Reload
-	fdiv.s	$fs7, $fa2, $ft5
-	fdiv.s	$fs6, $fs1, $ft5
-	fdiv.s	$fa2, $fa7, $ft5
-	fst.s	$fa2, $sp, 8                    # 4-byte Folded Spill
-	fcmp.clt.s	$fcc0, $ft4, $fs1
+	fld.s	$fa2, $sp, 16                   # 4-byte Folded Reload
+	fdiv.s	$fs5, $fa2, $ft5
+	fdiv.s	$fs3, $fs1, $ft5
+	fdiv.s	$fs7, $fa7, $ft5
+	fcmp.clt.s	$fcc0, $ft3, $fs1
 	ori	$s2, $zero, 10
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
 	b	.LBB3_37
 .LBB3_36:
 	fld.s	$ft6, $sp, 56                   # 4-byte Folded Reload
 .LBB3_37:
 	fneg.s	$fa7, $ft6
-	fld.s	$fa2, $sp, 24                   # 4-byte Folded Reload
+	fld.s	$fa2, $sp, 20                   # 4-byte Folded Reload
 	fmul.s	$fa2, $fa2, $fa7
-	fld.s	$ft1, $sp, 16                   # 4-byte Folded Reload
-	fmadd.s	$ft4, $ft0, $ft1, $fa2
-	fabs.s	$fa2, $ft4
+	fmadd.s	$ft3, $ft0, $fs6, $fa2
+	fabs.s	$fa2, $ft3
 	fmul.s	$ft1, $fs0, $ft8
-	fmadd.s	$ft1, $fa4, $fs3, $ft1
+	fld.s	$ft5, $sp, 44                   # 4-byte Folded Reload
+	fmadd.s	$ft1, $fa4, $ft5, $ft1
 	fld.s	$ft5, $sp, 60                   # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa1, $ft5, $ft1
 	fld.s	$ft5, $sp, 48                   # 4-byte Folded Reload
 	fmadd.s	$ft1, $ft7, $ft5, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
+	bcnez	$fcc0, .LBB3_89
 # %bb.38:
 	fmadd.s	$ft5, $ft6, $ft6, $ft10
 	fcmp.cule.s	$fcc0, $ft5, $fs1
 	bcnez	$fcc0, .LBB3_41
 # %bb.39:
-	pcalau12i	$t0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $t0, %pc_lo12(.LCPI3_1)
 	fsqrt.s	$ft5, $ft5
 	fdiv.s	$ft1, $ft1, $ft5
+	lu12i.w	$t0, 260198
+	ori	$t0, $t0, 1638
+	movgr2fr.w	$fa2, $t0
 	fmul.s	$fa2, $ft1, $fa2
-	fcmp.cule.s	$fcc0, $fa2, $ft3
-	bcnez	$fcc0, .LBB3_41
+	fcmp.cule.s	$fcc0, $fa2, $ft4
+	fld.s	$ft9, $sp, 12                   # 4-byte Folded Reload
+	bcnez	$fcc0, .LBB3_42
 # %bb.40:
 	move	$a5, $zero
-	fld.s	$fa2, $sp, 16                   # 4-byte Folded Reload
-	fdiv.s	$fs7, $fa2, $ft5
-	fdiv.s	$fs6, $fs1, $ft5
-	fdiv.s	$fa2, $fa7, $ft5
-	fst.s	$fa2, $sp, 8                    # 4-byte Folded Spill
-	fcmp.clt.s	$fcc0, $ft4, $fs1
+	fdiv.s	$fs5, $fs6, $ft5
+	fdiv.s	$fs3, $fs1, $ft5
+	fdiv.s	$fs7, $fa7, $ft5
+	fcmp.clt.s	$fcc0, $ft3, $fs1
 	ori	$s2, $zero, 11
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
+	fmov.s	$ft4, $ft1
+	b	.LBB3_42
 .LBB3_41:
-	fneg.s	$fa7, $ft13
-	fld.s	$fa2, $sp, 24                   # 4-byte Folded Reload
+	fld.s	$ft9, $sp, 12                   # 4-byte Folded Reload
+.LBB3_42:
+	fneg.s	$fa7, $ft2
+	fld.s	$fa2, $sp, 20                   # 4-byte Folded Reload
 	fmul.s	$fa2, $fa2, $fa7
-	fld.s	$ft1, $sp, 12                   # 4-byte Folded Reload
-	fmadd.s	$ft4, $ft0, $ft1, $fa2
-	fabs.s	$fa2, $ft4
-	fld.s	$ft1, $sp, 44                   # 4-byte Folded Reload
+	fmadd.s	$ft3, $ft0, $ft9, $fa2
+	fabs.s	$fa2, $ft3
+	fld.s	$ft1, $sp, 40                   # 4-byte Folded Reload
 	fmul.s	$ft1, $fs0, $ft1
-	fmadd.s	$ft1, $fa4, $ft2, $ft1
+	fld.s	$ft5, $sp, 8                    # 4-byte Folded Reload
+	fmadd.s	$ft1, $fa4, $ft5, $ft1
 	fld.s	$ft5, $sp, 64                   # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa1, $ft5, $ft1
 	fld.s	$ft5, $sp, 48                   # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa0, $ft5, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
-# %bb.42:
-	fmadd.s	$ft5, $ft13, $ft13, $ft15
-	fcmp.cule.s	$fcc0, $ft5, $fs1
-	bcnez	$fcc0, .LBB3_45
+	bcnez	$fcc0, .LBB3_89
 # %bb.43:
-	pcalau12i	$t0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $t0, %pc_lo12(.LCPI3_1)
+	fmadd.s	$ft5, $ft2, $ft2, $ft15
+	fcmp.cule.s	$fcc0, $ft5, $fs1
+	bcnez	$fcc0, .LBB3_46
+# %bb.44:
 	fsqrt.s	$ft5, $ft5
 	fdiv.s	$ft1, $ft1, $ft5
+	lu12i.w	$t0, 260198
+	ori	$t0, $t0, 1638
+	movgr2fr.w	$fa2, $t0
 	fmul.s	$fa2, $ft1, $fa2
-	fcmp.cule.s	$fcc0, $fa2, $ft3
-	bcnez	$fcc0, .LBB3_45
-# %bb.44:
+	fcmp.cule.s	$fcc0, $fa2, $ft4
+	fld.s	$ft2, $sp, 8                    # 4-byte Folded Reload
+	bcnez	$fcc0, .LBB3_47
+# %bb.45:
 	move	$a5, $zero
-	fld.s	$fa2, $sp, 12                   # 4-byte Folded Reload
-	fdiv.s	$fs7, $fa2, $ft5
-	fdiv.s	$fs6, $fs1, $ft5
-	fdiv.s	$fa2, $fa7, $ft5
-	fst.s	$fa2, $sp, 8                    # 4-byte Folded Spill
-	fcmp.clt.s	$fcc0, $ft4, $fs1
+	fdiv.s	$fs5, $ft9, $ft5
+	fdiv.s	$fs3, $fs1, $ft5
+	fdiv.s	$fs7, $fa7, $ft5
+	fcmp.clt.s	$fcc0, $ft3, $fs1
 	ori	$s2, $zero, 12
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
-.LBB3_45:
-	fneg.s	$ft4, $fs5
-	fmul.s	$fa2, $ft0, $ft4
+	fmov.s	$ft4, $ft1
+	b	.LBB3_47
+.LBB3_46:
+	fld.s	$ft2, $sp, 8                    # 4-byte Folded Reload
+.LBB3_47:
+	fneg.s	$ft3, $fs4
+	fmul.s	$fa2, $ft0, $ft3
 	fld.s	$fa7, $sp, 72                   # 4-byte Folded Reload
 	fmadd.s	$fa7, $fa7, $ft11, $fa2
 	fabs.s	$fa2, $fa7
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
 	fmul.s	$ft1, $fa3, $ft14
 	fld.s	$ft5, $sp, 48                   # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa4, $ft5, $ft1
 	fmadd.s	$ft1, $fa0, $ft2, $ft1
-	fmadd.s	$ft1, $ft7, $fs3, $ft1
+	fld.s	$ft2, $sp, 44                   # 4-byte Folded Reload
+	fmadd.s	$ft1, $ft7, $ft2, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
-# %bb.46:
+	bcnez	$fcc0, .LBB3_89
+# %bb.48:
 	fmul.s	$fa2, $ft11, $ft11
-	fmadd.s	$ft5, $fs5, $fs5, $fa2
+	fmadd.s	$ft5, $fs4, $fs4, $fa2
 	fcmp.cule.s	$fcc0, $ft5, $fs1
-	bcnez	$fcc0, .LBB3_49
-# %bb.47:
-	pcalau12i	$t0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $t0, %pc_lo12(.LCPI3_1)
+	bcnez	$fcc0, .LBB3_51
+# %bb.49:
 	fsqrt.s	$ft5, $ft5
 	fdiv.s	$ft1, $ft1, $ft5
+	lu12i.w	$t0, 260198
+	ori	$t0, $t0, 1638
+	movgr2fr.w	$fa2, $t0
 	fmul.s	$fa2, $ft1, $fa2
-	fcmp.cule.s	$fcc0, $fa2, $ft3
-	bcnez	$fcc0, .LBB3_49
-# %bb.48:
+	fcmp.cule.s	$fcc0, $fa2, $ft4
+	bcnez	$fcc0, .LBB3_51
+# %bb.50:
 	move	$a5, $zero
-	fdiv.s	$fs7, $ft4, $ft5
-	fdiv.s	$fs6, $ft11, $ft5
-	fdiv.s	$fa2, $fs1, $ft5
-	fst.s	$fa2, $sp, 8                    # 4-byte Folded Spill
+	fdiv.s	$fs5, $ft3, $ft5
+	fdiv.s	$fs3, $ft11, $ft5
+	fdiv.s	$fs7, $fs1, $ft5
 	fcmp.clt.s	$fcc0, $fa7, $fs1
 	ori	$s2, $zero, 13
 	movcf2gr	$a2, $fcc0
-	fmov.s	$ft3, $ft1
-.LBB3_49:
-	fneg.s	$ft4, $fs4
-	fmul.s	$fa2, $ft0, $ft4
+	fmov.s	$ft4, $ft1
+.LBB3_51:
+	fneg.s	$ft3, $ft13
+	fmul.s	$fa2, $ft0, $ft3
 	fld.s	$fa7, $sp, 72                   # 4-byte Folded Reload
 	fmadd.s	$fa7, $fa7, $ft6, $fa2
 	fabs.s	$fa2, $fa7
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
 	fmul.s	$ft1, $fa3, $ft8
-	fld.s	$ft0, $sp, 64                   # 4-byte Folded Reload
-	fmadd.s	$ft1, $fa4, $ft0, $ft1
+	fld.s	$ft2, $sp, 64                   # 4-byte Folded Reload
+	fmadd.s	$ft1, $fa4, $ft2, $ft1
+	fld.s	$ft2, $sp, 8                    # 4-byte Folded Reload
 	fmadd.s	$ft1, $fa1, $ft2, $ft1
 	fmadd.s	$ft1, $ft7, $fs2, $ft1
 	fsub.s	$ft1, $fa2, $ft1
 	fcmp.clt.s	$fcc0, $fs1, $ft1
-	bcnez	$fcc0, .LBB3_87
-# %bb.50:
-	fmov.s	$ft9, $fs6
-	fmov.s	$fs6, $ft3
+	bcnez	$fcc0, .LBB3_89
+# %bb.52:
+	fmov.s	$fs6, $ft4
 	move	$s5, $a0
 	move	$s4, $a6
 	fmul.s	$fa2, $ft6, $ft6
-	fmadd.s	$ft5, $fs4, $fs4, $fa2
+	fmadd.s	$ft5, $ft13, $ft13, $fa2
 	fcmp.cule.s	$fcc0, $ft5, $fs1
-	bcnez	$fcc0, .LBB3_53
-# %bb.51:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI3_1)
+	bcnez	$fcc0, .LBB3_55
+# %bb.53:
 	fsqrt.s	$ft5, $ft5
 	fdiv.s	$ft1, $ft1, $ft5
+	lu12i.w	$a0, 260198
+	ori	$a0, $a0, 1638
+	movgr2fr.w	$fa2, $a0
 	fmul.s	$fa2, $ft1, $fa2
 	fcmp.cule.s	$fcc0, $fa2, $fs6
-	bcnez	$fcc0, .LBB3_53
-# %bb.52:
+	bcnez	$fcc0, .LBB3_55
+# %bb.54:
 	move	$a5, $zero
-	fdiv.s	$fs7, $ft4, $ft5
+	fdiv.s	$fs5, $ft3, $ft5
 	fld.s	$fa2, $sp, 56                   # 4-byte Folded Reload
-	fdiv.s	$ft9, $fa2, $ft5
-	fdiv.s	$fa2, $fs1, $ft5
-	fst.s	$fa2, $sp, 8                    # 4-byte Folded Spill
+	fdiv.s	$fs3, $fa2, $ft5
+	fdiv.s	$fs7, $fs1, $ft5
 	fcmp.clt.s	$fcc0, $fa7, $fs1
 	ori	$s2, $zero, 14
 	movcf2gr	$a2, $fcc0
 	fmov.s	$fs6, $ft1
-.LBB3_53:
-	fld.s	$fa2, $sp, 28                   # 4-byte Folded Reload
+.LBB3_55:
+	fld.s	$fa2, $sp, 24                   # 4-byte Folded Reload
 	fneg.s	$ft1, $fa2
 	fld.s	$fa2, $sp, 52                   # 4-byte Folded Reload
 	fmul.s	$fa2, $fa2, $ft1
-	fld.s	$fa7, $sp, 32                   # 4-byte Folded Reload
+	fld.s	$fa7, $sp, 28                   # 4-byte Folded Reload
 	fld.s	$ft0, $sp, 72                   # 4-byte Folded Reload
 	fmadd.s	$fa7, $ft0, $fa7, $fa2
 	fabs.s	$fa2, $fa7
-	fld.s	$ft0, $sp, 44                   # 4-byte Folded Reload
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
+	fld.s	$ft0, $sp, 40                   # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
 	fmul.s	$ft0, $fa3, $ft0
 	fld.s	$ft2, $sp, 60                   # 4-byte Folded Reload
 	fmadd.s	$ft0, $fa4, $ft2, $ft0
-	fmadd.s	$ft0, $fa1, $fs3, $ft0
+	fld.s	$ft2, $sp, 44                   # 4-byte Folded Reload
+	fmadd.s	$ft0, $fa1, $ft2, $ft0
 	fmadd.s	$ft0, $fa0, $fs2, $ft0
 	fsub.s	$ft0, $fa2, $ft0
 	fcmp.clt.s	$fcc0, $fs1, $ft0
-	bcnez	$fcc0, .LBB3_87
-# %bb.54:
-	fld.s	$fa2, $sp, 32                   # 4-byte Folded Reload
+	bcnez	$fcc0, .LBB3_89
+# %bb.56:
+	fld.s	$fa2, $sp, 28                   # 4-byte Folded Reload
 	fmul.s	$fa2, $fa2, $fa2
-	fld.s	$ft2, $sp, 28                   # 4-byte Folded Reload
+	fld.s	$ft2, $sp, 24                   # 4-byte Folded Reload
 	fmadd.s	$ft2, $ft2, $ft2, $fa2
 	fcmp.cule.s	$fcc0, $ft2, $fs1
-	bcnez	$fcc0, .LBB3_57
-# %bb.55:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI3_1)
+	bcnez	$fcc0, .LBB3_59
+# %bb.57:
 	fsqrt.s	$ft2, $ft2
 	fdiv.s	$ft0, $ft0, $ft2
+	lu12i.w	$a0, 260198
+	ori	$a0, $a0, 1638
+	movgr2fr.w	$fa2, $a0
 	fmul.s	$fa2, $ft0, $fa2
 	fcmp.cule.s	$fcc0, $fa2, $fs6
-	bcnez	$fcc0, .LBB3_57
-# %bb.56:                               # %.thread866
-	fdiv.s	$fs7, $ft1, $ft2
-	fld.s	$fa2, $sp, 32                   # 4-byte Folded Reload
-	fdiv.s	$ft9, $fa2, $ft2
-	fdiv.s	$fa2, $fs1, $ft2
-	fst.s	$fa2, $sp, 8                    # 4-byte Folded Spill
+	bcnez	$fcc0, .LBB3_59
+# %bb.58:                               # %.thread866
+	fdiv.s	$fs5, $ft1, $ft2
+	fld.s	$fa2, $sp, 28                   # 4-byte Folded Reload
+	fdiv.s	$fs3, $fa2, $ft2
+	fdiv.s	$fs7, $fs1, $ft2
 	fcmp.clt.s	$fcc0, $fa7, $fs1
 	ori	$s2, $zero, 15
 	movcf2gr	$a2, $fcc0
 	fmov.s	$fs6, $ft0
-	b	.LBB3_60
-.LBB3_57:
-	beqz	$s2, .LBB3_87
-# %bb.58:
-	beqz	$a5, .LBB3_60
-# %bb.59:
+	b	.LBB3_62
+.LBB3_59:
+	beqz	$s2, .LBB3_89
+# %bb.60:
+	beqz	$a5, .LBB3_62
+# %bb.61:
 	fld.s	$fa5, $a5, 0
 	fst.s	$fa5, $s4, 0
 	fld.s	$fa6, $a5, 16
 	fst.s	$fa6, $s4, 4
 	fld.s	$fa7, $a5, 32
-	b	.LBB3_61
-.LBB3_60:
-	fmul.s	$fa2, $fa6, $ft9
-	fmadd.s	$fa2, $fa5, $fs7, $fa2
-	fld.s	$fa5, $sp, 96                   # 4-byte Folded Reload
-	fld.s	$fa3, $sp, 8                    # 4-byte Folded Reload
-	fmadd.s	$fa5, $fa5, $fa3, $fa2
+	b	.LBB3_63
+.LBB3_62:
+	fmul.s	$fa2, $fa6, $fs3
+	fmadd.s	$fa2, $fa5, $fs5, $fa2
+	fld.s	$fa5, $sp, 88                   # 4-byte Folded Reload
+	fmadd.s	$fa5, $fa5, $fs7, $fa2
 	fst.s	$fa5, $s4, 0
 	fld.s	$fa2, $a1, 20
 	fld.s	$fa6, $a1, 16
 	fld.s	$fa7, $a1, 24
-	fmul.s	$fa2, $ft9, $fa2
-	fmadd.s	$fa2, $fa6, $fs7, $fa2
-	fmadd.s	$fa6, $fa7, $fa3, $fa2
+	fmul.s	$fa2, $fs3, $fa2
+	fmadd.s	$fa2, $fa6, $fs5, $fa2
+	fmadd.s	$fa6, $fa7, $fs7, $fa2
 	fst.s	$fa6, $s4, 4
 	fld.s	$fa2, $a1, 36
 	fld.s	$fa7, $a1, 32
 	fld.s	$ft0, $a1, 40
-	fmul.s	$fa2, $ft9, $fa2
-	fmadd.s	$fa2, $fa7, $fs7, $fa2
-	fmadd.s	$fa7, $ft0, $fa3, $fa2
-.LBB3_61:
+	fmul.s	$fa2, $fs3, $fa2
+	fmadd.s	$fa2, $fa7, $fs5, $fa2
+	fmadd.s	$fa7, $ft0, $fs7, $fa2
+.LBB3_63:
 	fst.s	$fa7, $s4, 8
-	beqz	$a2, .LBB3_63
-# %bb.62:
+	beqz	$a2, .LBB3_65
+# %bb.64:
 	fneg.s	$fa2, $fa5
 	fst.s	$fa2, $s4, 0
 	fneg.s	$fa2, $fa6
 	fst.s	$fa2, $s4, 4
 	fneg.s	$fa2, $fa7
 	fst.s	$fa2, $s4, 8
-.LBB3_63:
+.LBB3_65:
 	ld.d	$fp, $sp, 624
 	ld.d	$a0, $sp, 592
-	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	fneg.s	$fa2, $fs6
 	ori	$a0, $zero, 7
 	fst.s	$fa2, $a7, 0
-	bltu	$s2, $a0, .LBB3_65
-# %bb.64:                               # %.preheader913
+	bltu	$s2, $a0, .LBB3_67
+# %bb.66:                               # %.preheader913
 	ld.d	$a0, $s5, 0
 	st.d	$a0, $sp, 200
 	ld.w	$a0, $s5, 8
@@ -1151,7 +1148,7 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fmul.s	$ft1, $fa7, $ft3
 	fmadd.s	$ft1, $fa5, $ft4, $ft1
 	fmadd.s	$ft1, $fa6, $ft5, $ft1
-	fld.s	$fa3, $sp, 80                   # 4-byte Folded Reload
+	fld.s	$fa3, $sp, 100                  # 4-byte Folded Reload
 	fneg.s	$ft2, $fa3
 	fcmp.clt.s	$fcc0, $fs1, $ft1
 	fsel	$fa3, $ft2, $fa3, $fcc0
@@ -1164,7 +1161,7 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fmul.s	$fa4, $fa7, $ft1
 	fmadd.s	$fa4, $fa5, $ft2, $fa4
 	fmadd.s	$fa4, $fa6, $ft3, $fa4
-	fld.s	$ft5, $sp, 92                   # 4-byte Folded Reload
+	fld.s	$ft5, $sp, 80                   # 4-byte Folded Reload
 	fneg.s	$ft4, $ft5
 	fcmp.clt.s	$fcc0, $fs1, $fa4
 	fsel	$fa4, $ft4, $ft5, $fcc0
@@ -1279,30 +1276,30 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	move	$a0, $fp
 	fmov.s	$fa0, $fs6
 	jirl	$ra, $a4, 0
-	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
 	st.w	$s2, $a0, 0
 	ori	$s1, $zero, 1
-	b	.LBB3_88
-.LBB3_65:
+	b	.LBB3_90
+.LBB3_67:
 	fld.s	$fs0, $s4, 0
 	ori	$a0, $zero, 3
-	bltu	$a0, $s2, .LBB3_67
-# %bb.66:
+	bltu	$a0, $s2, .LBB3_69
+# %bb.68:
 	fld.s	$fa0, $s4, 4
-	fst.s	$fa0, $sp, 92                   # 4-byte Folded Spill
+	fst.s	$fa0, $sp, 100                  # 4-byte Folded Spill
 	fld.s	$fs3, $s4, 8
 	addi.d	$a0, $sp, 428
 	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
 	addi.d	$a0, $sp, 416
 	move	$a2, $a3
 	move	$s6, $a4
-	b	.LBB3_68
-.LBB3_67:
+	b	.LBB3_70
+.LBB3_69:
 	fld.s	$fa0, $s4, 4
 	fld.s	$fa1, $s4, 8
 	fneg.s	$fs0, $fs0
 	fneg.s	$fa0, $fa0
-	fst.s	$fa0, $sp, 92                   # 4-byte Folded Spill
+	fst.s	$fa0, $sp, 100                  # 4-byte Folded Spill
 	fneg.s	$fs3, $fa1
 	addi.d	$a0, $sp, 416
 	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
@@ -1311,11 +1308,11 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	move	$s5, $a3
 	move	$s6, $a1
 	move	$a1, $a4
-.LBB3_68:
+.LBB3_70:
 	fld.s	$fa0, $s6, 16
 	fld.s	$fa1, $s6, 0
 	fld.s	$fa2, $s6, 32
-	fld.s	$fa5, $sp, 92                   # 4-byte Folded Reload
+	fld.s	$fa5, $sp, 100                  # 4-byte Folded Reload
 	fmul.s	$fa0, $fa5, $fa0
 	fld.s	$fa3, $s6, 20
 	fmadd.s	$fa0, $fa1, $fs0, $fa0
@@ -1338,23 +1335,23 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	fabs.s	$fa1, $fa1
 	fcmp.cule.s	$fcc0, $fa1, $fa2
 	fabs.s	$fa0, $fa3
-	bcnez	$fcc0, .LBB3_70
-# %bb.69:
+	bcnez	$fcc0, .LBB3_72
+# %bb.71:
 	move	$a4, $zero
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	ori	$a3, $zero, 2
 	movcf2gr	$a6, $fcc0
 	sub.d	$a5, $a3, $a6
 	addi.d	$a3, $a6, 1
-	b	.LBB3_71
-.LBB3_70:
+	b	.LBB3_73
+.LBB3_72:
 	fcmp.cule.s	$fcc0, $fa2, $fa0
 	fcmp.clt.s	$fcc1, $fa0, $fa2
 	movcf2gr	$a3, $fcc0
 	slli.d	$a5, $a3, 1
 	movcf2gr	$a4, $fcc1
 	addi.d	$a3, $a4, 1
-.LBB3_71:                               # %.loopexit916
+.LBB3_73:                               # %.loopexit916
 	slli.d	$a6, $a5, 2
 	fldx.s	$fa0, $a0, $a6
 	addi.d	$a7, $sp, 400
@@ -1385,21 +1382,21 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	add.d	$a2, $a2, $s2
 	ori	$a5, $zero, 2
 	st.d	$a2, $sp, 72                    # 8-byte Folded Spill
-	beqz	$a2, .LBB3_74
-# %bb.72:                               # %.loopexit916
+	beqz	$a2, .LBB3_76
+# %bb.74:                               # %.loopexit916
 	ori	$a2, $zero, 1
 	ld.d	$a6, $sp, 72                    # 8-byte Folded Reload
-	bne	$a6, $a2, .LBB3_75
-# %bb.73:
+	bne	$a6, $a2, .LBB3_77
+# %bb.75:
 	move	$a2, $zero
-	b	.LBB3_76
-.LBB3_74:
+	b	.LBB3_78
+.LBB3_76:
 	ori	$a2, $zero, 1
-	b	.LBB3_76
-.LBB3_75:
+	b	.LBB3_78
+.LBB3_77:
 	move	$a2, $zero
 	ori	$a5, $zero, 1
-.LBB3_76:
+.LBB3_78:
 	alsl.d	$a6, $a2, $a1, 2
 	fld.s	$fa0, $a6, 16
 	slli.d	$a2, $a2, 2
@@ -1480,8 +1477,8 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	addi.d	$s3, $sp, 296
 	pcaddu18i	$ra, %call36(_ZL18intersectRectQuad2PfS_S_)
 	jirl	$ra, $ra, 0
-	blez	$a0, .LBB3_87
-# %bb.77:
+	blez	$a0, .LBB3_89
+# %bb.79:
 	move	$a2, $zero
 	move	$s0, $zero
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
@@ -1512,12 +1509,12 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	slli.d	$a0, $a0, 3
 	addi.d	$a3, $sp, 200
 	addi.d	$a4, $sp, 168
-	fld.s	$ft9, $sp, 92                   # 4-byte Folded Reload
-	b	.LBB3_79
-.LBB3_78:                               #   in Loop: Header=BB3_79 Depth=1
+	fld.s	$ft9, $sp, 100                  # 4-byte Folded Reload
+	b	.LBB3_81
+.LBB3_80:                               #   in Loop: Header=BB3_81 Depth=1
 	addi.d	$a2, $a2, 8
-	beq	$a0, $a2, .LBB3_81
-.LBB3_79:                               # =>This Inner Loop Header: Depth=1
+	beq	$a0, $a2, .LBB3_83
+.LBB3_81:                               # =>This Inner Loop Header: Depth=1
 	add.d	$a5, $s3, $a2
 	fldx.s	$ft3, $a2, $s3
 	fld.s	$ft4, $a5, 4
@@ -1547,18 +1544,18 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	slli.d	$a5, $s0, 2
 	fcmp.cult.s	$fcc0, $ft5, $fs1
 	fstx.s	$ft5, $a5, $a4
-	bcnez	$fcc0, .LBB3_78
-# %bb.80:                               #   in Loop: Header=BB3_79 Depth=1
+	bcnez	$fcc0, .LBB3_80
+# %bb.82:                               #   in Loop: Header=BB3_81 Depth=1
 	slli.w	$a5, $s0, 1
 	alsl.d	$a6, $a5, $s3, 2
 	slli.d	$a5, $a5, 2
 	fstx.s	$ft3, $a5, $s3
 	fst.s	$ft4, $a6, 4
 	addi.w	$s0, $s0, 1
-	b	.LBB3_78
-.LBB3_81:
-	blez	$s0, .LBB3_87
-# %bb.82:
+	b	.LBB3_80
+.LBB3_83:
+	blez	$s0, .LBB3_89
+# %bb.84:
 	slt	$a0, $a1, $s0
 	masknez	$a2, $s0, $a0
 	maskeqz	$a0, $a1, $a0
@@ -1568,13 +1565,13 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	maskeqz	$a1, $a1, $a2
 	masknez	$a2, $a0, $a2
 	or	$s1, $a1, $a2
-	bgeu	$s1, $s0, .LBB3_89
-# %bb.83:
+	bgeu	$s1, $s0, .LBB3_91
+# %bb.85:
 	fld.s	$fa0, $sp, 168
 	move	$a3, $zero
 	addi.d	$a1, $sp, 172
 	addi.d	$a2, $s0, -1
-.LBB3_84:                               # =>This Inner Loop Header: Depth=1
+.LBB3_86:                               # =>This Inner Loop Header: Depth=1
 	fld.s	$fa1, $a1, 0
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	fsel	$fa0, $fa0, $fa1, $fcc0
@@ -1585,8 +1582,8 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	addi.d	$a1, $a1, 4
 	addi.d	$a2, $a2, -1
 	addi.w	$a0, $a0, 1
-	bnez	$a2, .LBB3_84
-# %bb.85:
+	bnez	$a2, .LBB3_86
+# %bb.87:
 	addi.d	$a1, $sp, 296
 	addi.d	$a4, $sp, 120
 	addi.d	$s3, $sp, 120
@@ -1599,7 +1596,7 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	lu12i.w	$s7, -524288
 	lu32i.d	$s7, 0
 	addi.d	$s8, $sp, 168
-.LBB3_86:                               # =>This Inner Loop Header: Depth=1
+.LBB3_88:                               # =>This Inner Loop Header: Depth=1
 	ld.w	$a0, $s3, 0
 	alsl.w	$a1, $a0, $a0, 1
 	slli.d	$a2, $a1, 2
@@ -1637,11 +1634,11 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	jirl	$ra, $a3, 0
 	addi.d	$s0, $s0, -1
 	addi.d	$s3, $s3, 4
-	bnez	$s0, .LBB3_86
-	b	.LBB3_92
-.LBB3_87:
+	bnez	$s0, .LBB3_88
+	b	.LBB3_94
+.LBB3_89:
 	move	$s1, $zero
-.LBB3_88:
+.LBB3_90:
 	addi.w	$a0, $s1, 0
 	fld.d	$fs7, $sp, 440                  # 8-byte Folded Reload
 	fld.d	$fs6, $sp, 448                  # 8-byte Folded Reload
@@ -1664,13 +1661,13 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	ld.d	$ra, $sp, 584                   # 8-byte Folded Reload
 	addi.d	$sp, $sp, 592
 	ret
-.LBB3_89:                               # %.lr.ph
+.LBB3_91:                               # %.lr.ph
 	addi.d	$s1, $sp, 168
 	addi.d	$s3, $sp, 208
 	lu12i.w	$s6, -524288
 	lu32i.d	$s6, 0
 	move	$s7, $s0
-.LBB3_90:                               # =>This Inner Loop Header: Depth=1
+.LBB3_92:                               # =>This Inner Loop Header: Depth=1
 	fld.s	$fa0, $s3, -8
 	fld.s	$fa1, $s5, 0
 	fld.s	$fa2, $s3, -4
@@ -1704,13 +1701,13 @@ _Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteColl
 	addi.d	$s3, $s3, 12
 	addi.d	$s7, $s7, -1
 	addi.d	$s1, $s1, 4
-	bnez	$s7, .LBB3_90
-# %bb.91:
+	bnez	$s7, .LBB3_92
+# %bb.93:
 	move	$s1, $s0
-.LBB3_92:                               # %.loopexit
-	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
+.LBB3_94:                               # %.loopexit
+	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
 	st.w	$s2, $a0, 0
-	b	.LBB3_88
+	b	.LBB3_90
 .Lfunc_end3:
 	.size	_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE, .Lfunc_end3-_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE
 	.cfi_endproc

@@ -1,17 +1,13 @@
 	.file	"orderedDitherKernel.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function orderedDitherKernel
-.LCPI0_0:
-	.dword	0x406fe00000000000              # double 255
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_1:
+	.p2align	4, 0x0                          # -- Begin function orderedDitherKernel
+.LCPI0_0:
 	.dword	2                               # 0x2
 	.dword	3                               # 0x3
-.LCPI0_2:
+.LCPI0_1:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-.LCPI0_3:
+.LCPI0_2:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -46,11 +42,10 @@ orderedDitherKernel:                    # @orderedDitherKernel
 	sltui	$t4, $a1, 4
 	or	$t3, $t4, $t3
 	andi	$t3, $t3, 1
-	pcalau12i	$t4, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $t4, %pc_lo12(.LCPI0_0)
 	ori	$t4, $zero, 0
 	lu32i.d	$t4, -8192
 	lu52i.d	$t4, $t4, 1030
+	movgr2fr.d	$fa0, $t4
 	vreplgr2vr.d	$vr1, $t4
 	move	$t4, $a4
 	b	.LBB0_4
@@ -346,8 +341,8 @@ orderedDitherKernel:                    # @orderedDitherKernel
 	move	$t0, $zero
 	ori	$t1, $zero, 4
 	ori	$t2, $zero, 255
-	pcalau12i	$t3, %pc_hi20(.LCPI0_3)
-	vld	$vr0, $t3, %pc_lo12(.LCPI0_3)
+	pcalau12i	$t3, %pc_hi20(.LCPI0_2)
+	vld	$vr0, $t3, %pc_lo12(.LCPI0_2)
 	vreplgr2vr.w	$vr1, $a5
 	lu32i.d	$a5, 0
 	vrepli.w	$vr2, 3
@@ -455,10 +450,10 @@ orderedDitherKernel:                    # @orderedDitherKernel
 	addi.d	$a5, $a5, %pc_lo12(.L__const.orderedDitherKernel.dither.3)
 	move	$a6, $zero
 	addi.w	$t0, $zero, -5
+	pcalau12i	$t1, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $t1, %pc_lo12(.LCPI0_0)
 	pcalau12i	$t1, %pc_hi20(.LCPI0_1)
-	vld	$vr0, $t1, %pc_lo12(.LCPI0_1)
-	pcalau12i	$t1, %pc_hi20(.LCPI0_2)
-	vld	$vr1, $t1, %pc_lo12(.LCPI0_2)
+	vld	$vr1, $t1, %pc_lo12(.LCPI0_1)
 	ori	$t1, $zero, 255
 	vrepli.d	$vr2, 7
 	vrepli.w	$vr3, 255

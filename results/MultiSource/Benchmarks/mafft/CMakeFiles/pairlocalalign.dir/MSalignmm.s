@@ -737,16 +737,12 @@ MSalignmm:                              # @MSalignmm
 .Lfunc_end0:
 	.size	MSalignmm, .Lfunc_end0-MSalignmm
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function MSalignmm_rec
-.LCPI1_0:
-	.word	0xcb189680                      # float -1.0E+7
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI1_1:
+	.p2align	4, 0x0                          # -- Begin function MSalignmm_rec
+.LCPI1_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-.LCPI1_2:
+.LCPI1_1:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -1649,8 +1645,8 @@ MSalignmm_rec:                          # @MSalignmm_rec
 	bne	$a2, $a3, .LBB1_34
 	b	.LBB1_36
 .LBB1_73:                               # %vector.ph310
-	pcalau12i	$a2, %pc_hi20(.LCPI1_1)
-	vld	$vr0, $a2, %pc_lo12(.LCPI1_1)
+	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
+	vld	$vr0, $a2, %pc_lo12(.LCPI1_0)
 	bstrpick.d	$a2, $a0, 31, 2
 	slli.d	$a2, $a2, 2
 	ld.d	$a3, $sp, 496                   # 8-byte Folded Reload
@@ -1705,8 +1701,8 @@ MSalignmm_rec:                          # @MSalignmm_rec
 .LBB1_80:                               # %vector.ph323
 	bstrpick.d	$a3, $a2, 31, 3
 	slli.d	$a3, $a3, 3
-	pcalau12i	$a4, %pc_hi20(.LCPI1_2)
-	vld	$vr0, $a4, %pc_lo12(.LCPI1_2)
+	pcalau12i	$a4, %pc_hi20(.LCPI1_1)
+	vld	$vr0, $a4, %pc_lo12(.LCPI1_1)
 	addi.d	$a4, $a0, 16
 	vrepli.b	$vr1, -1
 	vrepli.w	$vr2, -5
@@ -2508,13 +2504,15 @@ MSalignmm_rec:                          # @MSalignmm_rec
 	alsl.d	$a0, $a0, $a4, 2
 	addi.d	$fp, $a0, 4
 	add.d	$a0, $a1, $t3
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI1_0)
 	addi.d	$s8, $a0, 4
 	addi.d	$a0, $a3, 8
 	st.d	$a0, $sp, 272                   # 8-byte Folded Spill
 	addi.d	$a0, $s0, -2
 	st.d	$a0, $sp, 264                   # 8-byte Folded Spill
+	lu12i.w	$a0, -216695
+	ori	$a0, $a0, 1664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
 	b	.LBB1_160
 	.p2align	4, , 16
 .LBB1_158:                              #   in Loop: Header=BB1_160 Depth=1
@@ -2529,7 +2527,9 @@ MSalignmm_rec:                          # @MSalignmm_rec
 	maskeqz	$a0, $s3, $a0
 	or	$a0, $a0, $a1
 	st.d	$a0, $sp, 480                   # 8-byte Folded Spill
+	move	$ra, $t4
 	ld.d	$s3, $sp, 408                   # 8-byte Folded Reload
+	ld.d	$t4, $sp, 512                   # 8-byte Folded Reload
 	ld.d	$a0, $sp, 488                   # 8-byte Folded Reload
 	beq	$s0, $a0, .LBB1_212
 .LBB1_160:                              # =>This Loop Header: Depth=1
@@ -2550,9 +2550,9 @@ MSalignmm_rec:                          # @MSalignmm_rec
 	fstx.s	$fa0, $t7, $a1
 	ld.d	$a1, $sp, 432                   # 8-byte Folded Reload
 	ld.d	$a2, $sp, 440                   # 8-byte Folded Reload
+	st.d	$t7, $sp, 400                   # 8-byte Folded Spill
 	move	$a3, $s0
 	ld.d	$a4, $sp, 520                   # 8-byte Folded Reload
-	st.d	$t7, $sp, 400                   # 8-byte Folded Spill
 	ld.d	$a5, $sp, 464                   # 8-byte Folded Reload
 	ld.d	$a6, $sp, 456                   # 8-byte Folded Reload
 	move	$a7, $zero
@@ -2690,8 +2690,6 @@ MSalignmm_rec:                          # @MSalignmm_rec
 	fadd.s	$fa0, $fs0, $fa0
 	fst.s	$fa0, $a0, 0
 .LBB1_175:                              #   in Loop: Header=BB1_160 Depth=1
-	move	$ra, $t4
-	ld.d	$t4, $sp, 512                   # 8-byte Folded Reload
 	bne	$s3, $s4, .LBB1_159
 # %bb.176:                              # %.lr.ph80.preheader
                                         #   in Loop: Header=BB1_160 Depth=1

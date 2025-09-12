@@ -1,10 +1,6 @@
 	.file	"placepads.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function placepads
-.LCPI0_0:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.text
-	.globl	placepads
+	.globl	placepads                       # -- Begin function placepads
 	.p2align	5
 	.type	placepads,@function
 placepads:                              # @placepads
@@ -68,6 +64,11 @@ placepads:                              # @placepads
 	st.d	$a3, $sp, 8                     # 8-byte Folded Spill
 	sub.d	$s4, $s3, $a3
 	ori	$s5, $zero, 4
+	lu12i.w	$a3, -419431
+	ori	$a3, $a3, 2458
+	lu32i.d	$a3, -419431
+	lu52i.d	$a3, $a3, 1019
+	movgr2fr.d	$fa0, $a3
 	move	$a3, $t1
                                         # implicit-def: $r16
 	move	$s0, $a6
@@ -76,7 +77,7 @@ placepads:                              # @placepads
 	.p2align	4, , 16
 .LBB0_2:                                #   in Loop: Header=BB0_4 Depth=1
 	move	$s7, $t5
-	move	$s0, $s8
+	move	$s0, $t6
 .LBB0_3:                                # %.loopexit423
                                         #   in Loop: Header=BB0_4 Depth=1
 	move	$a4, $t3
@@ -142,54 +143,52 @@ placepads:                              # @placepads
 	slt	$a4, $t3, $s0
 	masknez	$a5, $t3, $a4
 	maskeqz	$a4, $s0, $a4
-	or	$s8, $a4, $a5
-	move	$t6, $s8
+	or	$t6, $a4, $a5
+	move	$a4, $t6
 	b	.LBB0_14
 .LBB0_13:                               #   in Loop: Header=BB0_4 Depth=1
-	sub.w	$t6, $s0, $t3
-	div.w	$a4, $t6, $a5
-	srai.d	$a5, $a4, 63
-	andn	$t4, $a4, $a5
-	slt	$a4, $s0, $t3
-	masknez	$a5, $s0, $a4
-	maskeqz	$a4, $t3, $a4
-	or	$s8, $a4, $a5
+	sub.w	$a4, $s0, $t3
+	div.w	$a5, $a4, $a5
+	srai.d	$a7, $a5, 63
+	andn	$t4, $a5, $a7
+	slt	$a5, $s0, $t3
+	masknez	$a7, $s0, $a5
+	maskeqz	$a5, $t3, $a5
+	or	$t6, $a5, $a7
 .LBB0_14:                               # %.lr.ph448
                                         #   in Loop: Header=BB0_4 Depth=1
-	slt	$a4, $s0, $t3
-	sub.d	$a5, $t3, $s0
-	bstrpick.d	$a5, $a5, 31, 1
-	maskeqz	$a5, $a5, $a4
-	ld.d	$a7, $sp, 80                    # 8-byte Folded Reload
-	masknez	$a4, $a7, $a4
-	or	$a4, $a5, $a4
-	st.d	$a4, $sp, 80                    # 8-byte Folded Spill
-	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI0_0)
-	sub.d	$a4, $a3, $s7
+	slt	$a5, $s0, $t3
+	sub.d	$a7, $t3, $s0
+	bstrpick.d	$a7, $a7, 31, 1
+	maskeqz	$a7, $a7, $a5
+	ld.d	$t0, $sp, 80                    # 8-byte Folded Reload
+	masknez	$a5, $t0, $a5
+	or	$a5, $a7, $a5
+	st.d	$a5, $sp, 80                    # 8-byte Folded Spill
+	sub.d	$a5, $a3, $s7
+	movgr2fr.w	$fa1, $a5
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa1, $fa1, $fa0
+	ftintrz.w.d	$fa1, $fa1
+	movfr2gr.s	$a5, $fa1
+	add.d	$a5, $s6, $a5
+	add.w	$t5, $a5, $s7
+	ld.d	$a7, $sp, 48                    # 8-byte Folded Reload
+	st.w	$t5, $a7, 0
+	add.w	$a3, $a5, $a3
+	ld.d	$a5, $sp, 64                    # 8-byte Folded Reload
+	st.w	$a3, $a5, 0
 	movgr2fr.w	$fa1, $a4
 	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
-	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a4, $fa0
-	add.d	$a4, $s6, $a4
-	add.w	$t5, $a4, $s7
-	ld.d	$a5, $sp, 48                    # 8-byte Folded Reload
-	st.w	$t5, $a5, 0
-	add.w	$a3, $a4, $a3
-	ld.d	$a4, $sp, 64                    # 8-byte Folded Reload
-	st.w	$a3, $a4, 0
-	movgr2fr.w	$fa0, $t6
-	ffint.d.w	$fa0, $fa0
 	ld.d	$t3, $sp, 72                    # 8-byte Folded Reload
-	move	$t6, $a0
+	move	$t7, $a0
 	b	.LBB0_17
 .LBB0_15:                               #   in Loop: Header=BB0_17 Depth=2
 	move	$t3, $a2
 	.p2align	4, , 16
 .LBB0_16:                               # %.loopexit422
                                         #   in Loop: Header=BB0_17 Depth=2
-	move	$t6, $t3
+	move	$t7, $t3
 	addi.w	$a4, $t3, 0
 	addi.w	$t3, $t3, 1
 	bge	$a4, $a1, .LBB0_2
@@ -197,11 +196,11 @@ placepads:                              # @placepads
                                         # =>  This Loop Header: Depth=2
                                         #       Child Loop BB0_25 Depth 3
 	slli.d	$a4, $t3, 3
-	ldx.d	$t7, $s1, $a4
-	ld.w	$a4, $t7, 80
+	ldx.d	$t8, $s1, $a4
+	ld.w	$a4, $t8, 80
 	bne	$a4, $s5, .LBB0_16
 # %bb.18:                               #   in Loop: Header=BB0_17 Depth=2
-	ld.d	$a5, $t7, 152
+	ld.d	$a5, $t8, 152
 	ld.w	$a4, $a5, 60
 	ld.w	$a7, $a5, 56
 	ld.w	$t2, $s2, 8
@@ -210,10 +209,10 @@ placepads:                              # @placepads
 # %bb.19:                               #   in Loop: Header=BB0_17 Depth=2
 	sub.w	$a7, $t3, $a0
 	slli.d	$a7, $a7, 3
-	fldx.d	$fa1, $s3, $a7
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a7, $fa1
+	fldx.d	$fa2, $s3, $a7
+	fmul.d	$fa2, $fa2, $fa1
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$a7, $fa2
 	b	.LBB0_21
 .LBB0_20:                               #   in Loop: Header=BB0_17 Depth=2
 	bstrpick.d	$a7, $a4, 31, 31
@@ -224,31 +223,31 @@ placepads:                              # @placepads
 	ld.w	$t2, $a5, 68
 	ld.w	$a5, $a5, 64
 	sub.w	$a5, $t2, $a5
-	st.w	$a7, $t7, 12
+	st.w	$a7, $t8, 12
 	bstrpick.d	$a7, $a5, 31, 31
 	add.w	$a7, $a5, $a7
 	srli.d	$a7, $a7, 1
 	sub.d	$a5, $s6, $a5
 	add.d	$a5, $a5, $a7
-	addi.w	$t3, $t6, 2
-	st.w	$a5, $t7, 16
+	addi.w	$t3, $t7, 2
+	st.w	$a5, $t8, 16
 	blt	$a1, $t3, .LBB0_16
 # %bb.22:                               # %.lr.ph439.preheader
                                         #   in Loop: Header=BB0_17 Depth=2
 	add.d	$fp, $a4, $t4
-	sub.d	$t6, $a2, $t3
-	alsl.d	$s0, $t3, $s4, 3
+	sub.d	$s0, $a2, $t3
+	alsl.d	$s7, $t3, $s4, 3
 	alsl.d	$t7, $t3, $s1, 3
 	b	.LBB0_25
 	.p2align	4, , 16
 .LBB0_23:                               #   in Loop: Header=BB0_25 Depth=3
-	fld.d	$fa1, $s0, 0
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a7, $fa1
+	fld.d	$fa2, $s7, 0
+	fmul.d	$fa2, $fa2, $fa1
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$a7, $fa2
 .LBB0_24:                               #   in Loop: Header=BB0_25 Depth=3
-	ld.w	$t2, $s7, 68
-	ld.w	$fp, $s7, 64
+	ld.w	$t2, $s8, 68
+	ld.w	$fp, $s8, 64
 	sub.w	$t2, $t2, $fp
 	st.w	$a7, $t8, 12
 	bstrpick.d	$a7, $t2, 31, 31
@@ -259,10 +258,10 @@ placepads:                              # @placepads
 	st.w	$a7, $t8, 16
 	add.d	$fp, $a5, $a4
 	addi.d	$t3, $t3, 1
-	addi.d	$t6, $t6, -1
-	addi.d	$s0, $s0, 8
+	addi.d	$s0, $s0, -1
+	addi.d	$s7, $s7, 8
 	addi.d	$t7, $t7, 8
-	beqz	$t6, .LBB0_15
+	beqz	$s0, .LBB0_15
 .LBB0_25:                               # %.lr.ph439
                                         #   Parent Loop BB0_4 Depth=1
                                         #     Parent Loop BB0_17 Depth=2
@@ -271,9 +270,9 @@ placepads:                              # @placepads
 	ld.w	$a4, $t8, 80
 	bne	$a4, $s5, .LBB0_16
 # %bb.26:                               #   in Loop: Header=BB0_25 Depth=3
-	ld.d	$s7, $t8, 152
-	ld.w	$a4, $s7, 60
-	ld.w	$a5, $s7, 56
+	ld.d	$s8, $t8, 152
+	ld.w	$a4, $s8, 60
+	ld.w	$a5, $s8, 56
 	ld.w	$a7, $s2, 8
 	sub.w	$a4, $a4, $a5
 	add.d	$a5, $fp, $t4
@@ -291,10 +290,8 @@ placepads:                              # @placepads
 	ld.d	$s2, $a4, 0
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$s3, $a4, 0
-	movgr2fr.w	$fa0, $a3
-	ffint.d.w	$fa1, $fa0
-	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI0_0)
+	movgr2fr.w	$fa1, $a3
+	ffint.d.w	$fa1, $fa1
 	sub.d	$a4, $a3, $t5
 	movgr2fr.w	$fa2, $a4
 	ffint.d.w	$fa2, $fa2

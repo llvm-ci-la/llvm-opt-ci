@@ -27,12 +27,7 @@ foobify:                                # @foobify
 .Lfunc_end1:
 	.size	foobify, .Lfunc_end1-foobify
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI2_0:
-	.word	0x430e0000                      # float 142
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -51,8 +46,8 @@ main:                                   # @main
 	st.d	$a0, $a2, 0
 	st.w	$a1, $a2, 8
 	fld.s	$fa0, $fp, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a0, 274656
+	movgr2fr.w	$fa1, $a0
 	fcmp.ceq.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB2_2
 # %bb.1:

@@ -2057,12 +2057,8 @@ GCC_except_table9:
 .Lcst_end2:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1_S1_S1_S1_S1_S1_i
-.LCPI10_0:
-	.dword	0x3f9999999999999a              # double 0.025000000000000001
 	.text
-	.globl	_ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1_S1_S1_S1_S1_S1_i
+	.globl	_ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1_S1_S1_S1_S1_S1_i # -- Begin function _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1_S1_S1_S1_S1_S1_i
 	.p2align	5
 	.type	_ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1_S1_S1_S1_S1_S1_i,@function
 _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1_S1_S1_S1_S1_S1_i: # @_ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1_S1_S1_S1_S1_S1_i
@@ -2111,31 +2107,31 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	ld.d	$a0, $sp, 200
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
 	bstrpick.d	$s7, $a1, 31, 0
-	slli.d	$s6, $s7, 3
-	move	$a0, $s6
+	slli.d	$s1, $s7, 3
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
-	move	$s1, $a0
+	move	$s8, $a0
 	st.d	$zero, $a0, 0
-	addi.d	$s8, $s7, -1
-	slli.d	$fp, $s8, 3
-	beqz	$s8, .LBB10_3
+	addi.d	$s6, $s7, -1
+	slli.d	$fp, $s6, 3
+	beqz	$s6, .LBB10_3
 # %bb.2:                                # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-	addi.d	$a0, $s1, 8
+	addi.d	$a0, $s8, 8
 	move	$a1, $zero
 	move	$a2, $fp
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 .LBB10_3:
 .Ltmp29:                                # EH_LABEL
-	move	$a0, $s6
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
 .Ltmp30:                                # EH_LABEL
 # %bb.4:                                # %.noexc64
 	move	$s0, $a0
 	st.d	$zero, $a0, 0
-	beqz	$s8, .LBB10_6
+	beqz	$s6, .LBB10_6
 # %bb.5:                                # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i60
 	addi.d	$a0, $s0, 8
 	move	$a1, $zero
@@ -2144,14 +2140,14 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	jirl	$ra, $ra, 0
 .LBB10_6:
 .Ltmp32:                                # EH_LABEL
-	move	$a0, $s6
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
 .Ltmp33:                                # EH_LABEL
 # %bb.7:                                # %.noexc71
 	move	$s3, $a0
 	st.d	$zero, $a0, 0
-	beqz	$s8, .LBB10_9
+	beqz	$s6, .LBB10_9
 # %bb.8:                                # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i67
 	addi.d	$a0, $s3, 8
 	move	$a1, $zero
@@ -2160,14 +2156,14 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	jirl	$ra, $ra, 0
 .LBB10_9:
 .Ltmp35:                                # EH_LABEL
-	move	$a0, $s6
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
 .Ltmp36:                                # EH_LABEL
 # %bb.10:                               # %.noexc78
 	move	$s4, $a0
 	st.d	$zero, $a0, 0
-	beqz	$s8, .LBB10_12
+	beqz	$s6, .LBB10_12
 # %bb.11:                               # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i74
 	addi.d	$a0, $s4, 8
 	move	$a1, $zero
@@ -2176,15 +2172,15 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	jirl	$ra, $ra, 0
 .LBB10_12:
 .Ltmp38:                                # EH_LABEL
-	move	$a0, $s6
+	move	$a0, $s1
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
 .Ltmp39:                                # EH_LABEL
 # %bb.13:                               # %.noexc85
 	move	$s5, $a0
-	st.d	$s6, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
 	st.d	$zero, $a0, 0
-	beqz	$s8, .LBB10_15
+	beqz	$s6, .LBB10_15
 # %bb.14:                               # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i81
 	addi.d	$a0, $s5, 8
 	move	$a1, $zero
@@ -2192,8 +2188,11 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 .LBB10_15:                              # %.lr.ph.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI10_0)
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.27)
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
@@ -2208,20 +2207,20 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.L.str.31)
 	addi.d	$fp, $a0, %pc_lo12(.L.str.31)
-	move	$s8, $zero
+	move	$s1, $zero
 	move	$s6, $zero
 	b	.LBB10_17
 	.p2align	4, , 16
 .LBB10_16:                              #   in Loop: Header=BB10_17 Depth=1
 	addi.w	$s6, $s6, 1
 	addi.d	$s7, $s7, -1
-	addi.d	$s8, $s8, 8
+	addi.d	$s1, $s1, 8
 	beqz	$s7, .LBB10_27
 .LBB10_17:                              # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
 	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s1, $s8
+	fldx.d	$fa0, $a0, $s1
+	fldx.d	$fa1, $s8, $s1
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2236,8 +2235,8 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	jirl	$ra, $ra, 0
 .LBB10_19:                              #   in Loop: Header=BB10_17 Depth=1
 	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s0, $s8
+	fldx.d	$fa0, $a0, $s1
+	fldx.d	$fa1, $s0, $s1
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2252,8 +2251,8 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	jirl	$ra, $ra, 0
 .LBB10_21:                              #   in Loop: Header=BB10_17 Depth=1
 	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s3, $s8
+	fldx.d	$fa0, $a0, $s1
+	fldx.d	$fa1, $s3, $s1
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2268,8 +2267,8 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	jirl	$ra, $ra, 0
 .LBB10_23:                              #   in Loop: Header=BB10_17 Depth=1
 	ld.d	$a0, $sp, 80                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s4, $s8
+	fldx.d	$fa0, $a0, $s1
+	fldx.d	$fa1, $s4, $s1
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2284,8 +2283,8 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	jirl	$ra, $ra, 0
 .LBB10_25:                              #   in Loop: Header=BB10_17 Depth=1
 	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s5, $s8
+	fldx.d	$fa0, $a0, $s1
+	fldx.d	$fa1, $s5, $s1
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2317,7 +2316,7 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	move	$a0, $s1
+	move	$a0, $s8
 	move	$a1, $fp
 	fld.d	$fs0, $sp, 96                   # 8-byte Folded Reload
 	ld.d	$s8, $sp, 104                   # 8-byte Folded Reload
@@ -2354,15 +2353,15 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	move	$s2, $s0
 	move	$fp, $a0
 	move	$a0, $s4
-	move	$s0, $s6
-	move	$a1, $s6
+	move	$s0, $s1
+	move	$a1, $s1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 	b	.LBB10_31
 .LBB10_30:
 .Ltmp37:                                # EH_LABEL
 	move	$s2, $s0
-	move	$s0, $s6
+	move	$s0, $s1
 	move	$fp, $a0
 .LBB10_31:                              # %_ZNSt6vectorIdSaIdEED2Ev.exit98
 	move	$a0, $s3
@@ -2373,7 +2372,7 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 .LBB10_32:
 .Ltmp34:                                # EH_LABEL
 	move	$s2, $s0
-	move	$s0, $s6
+	move	$s0, $s1
 	move	$fp, $a0
 .LBB10_33:                              # %_ZNSt6vectorIdSaIdEED2Ev.exit100
 	move	$a0, $s2
@@ -2383,10 +2382,10 @@ _ZN4Mesh50compare_coordinates_cpu_local_to_cpu_global_doubleEjPiS0_PdS1_S1_S1_S1
 	b	.LBB10_35
 .LBB10_34:
 .Ltmp31:                                # EH_LABEL
-	move	$s0, $s6
+	move	$s0, $s1
 	move	$fp, $a0
 .LBB10_35:                              # %_ZNSt6vectorIdSaIdEED2Ev.exit102
-	move	$a0, $s1
+	move	$a0, $s8
 	move	$a1, $s0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -2444,12 +2443,8 @@ GCC_except_table10:
 .Lcst_end3:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS1_S1_S1_S1_S2_i
-.LCPI11_0:
-	.dword	0x3f9999999999999a              # double 0.025000000000000001
 	.text
-	.globl	_ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS1_S1_S1_S1_S2_i
+	.globl	_ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS1_S1_S1_S1_S2_i # -- Begin function _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS1_S1_S1_S1_S2_i
 	.p2align	5
 	.type	_ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS1_S1_S1_S1_S2_i,@function
 _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS1_S1_S1_S1_S2_i: # @_ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS1_S1_S1_S1_S2_i
@@ -2502,13 +2497,13 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	move	$a0, $s7
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
-	move	$s0, $a0
+	move	$s1, $a0
 	st.d	$zero, $a0, 0
 	addi.d	$s8, $s5, -1
 	slli.d	$fp, $s8, 3
 	beqz	$s8, .LBB11_3
 # %bb.2:                                # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-	addi.d	$a0, $s0, 8
+	addi.d	$a0, $s1, 8
 	move	$a1, $zero
 	move	$a2, $fp
 	pcaddu18i	$ra, %call36(memset)
@@ -2520,11 +2515,11 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	jirl	$ra, $ra, 0
 .Ltmp42:                                # EH_LABEL
 # %bb.4:                                # %.noexc64
-	move	$s1, $a0
+	move	$s0, $a0
 	st.d	$zero, $a0, 0
 	beqz	$s8, .LBB11_6
 # %bb.5:                                # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i60
-	addi.d	$a0, $s1, 8
+	addi.d	$a0, $s0, 8
 	move	$a1, $zero
 	move	$a2, $fp
 	pcaddu18i	$ra, %call36(memset)
@@ -2581,8 +2576,11 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 .LBB11_15:                              # %.lr.ph.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI11_0)
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.27)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.27)
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
@@ -2598,22 +2596,22 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	pcalau12i	$a0, %pc_hi20(.L.str.31)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.31)
 	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
-	move	$fp, $zero
 	move	$s8, $zero
+	move	$fp, $zero
 	move	$s7, $zero
 	b	.LBB11_17
 	.p2align	4, , 16
 .LBB11_16:                              #   in Loop: Header=BB11_17 Depth=1
 	addi.w	$s7, $s7, 1
-	addi.d	$s8, $s8, 8
+	addi.d	$fp, $fp, 8
 	addi.d	$s5, $s5, -1
-	addi.d	$fp, $fp, 4
+	addi.d	$s8, $s8, 4
 	beqz	$s5, .LBB11_27
 .LBB11_17:                              # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
 	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s0, $s8
+	fldx.d	$fa0, $a0, $fp
+	fldx.d	$fa1, $s1, $fp
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2628,8 +2626,8 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	jirl	$ra, $ra, 0
 .LBB11_19:                              #   in Loop: Header=BB11_17 Depth=1
 	ld.d	$a0, $sp, 80                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s1, $s8
+	fldx.d	$fa0, $a0, $fp
+	fldx.d	$fa1, $s0, $fp
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2644,8 +2642,8 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	jirl	$ra, $ra, 0
 .LBB11_21:                              #   in Loop: Header=BB11_17 Depth=1
 	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s3, $s8
+	fldx.d	$fa0, $a0, $fp
+	fldx.d	$fa1, $s3, $fp
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2660,8 +2658,8 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	jirl	$ra, $ra, 0
 .LBB11_23:                              #   in Loop: Header=BB11_17 Depth=1
 	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
-	fldx.d	$fa0, $a0, $s8
-	fldx.d	$fa1, $s4, $s8
+	fldx.d	$fa0, $a0, $fp
+	fldx.d	$fa1, $s4, $fp
 	fsub.d	$fa2, $fa0, $fa1
 	fabs.d	$fa2, $fa2
 	fcmp.cule.d	$fcc0, $fa2, $fs0
@@ -2676,8 +2674,8 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	jirl	$ra, $ra, 0
 .LBB11_25:                              #   in Loop: Header=BB11_17 Depth=1
 	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
-	fldx.s	$fa0, $a0, $fp
-	fldx.s	$fa1, $s6, $fp
+	fldx.s	$fa0, $a0, $s8
+	fldx.s	$fa1, $s6, $s8
 	fsub.s	$fa2, $fa0, $fa1
 	fabs.s	$fa2, $fa2
 	fcvt.d.s	$fa2, $fa2
@@ -2708,11 +2706,11 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	move	$a0, $s1
+	move	$a0, $s0
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	move	$a0, $s0
+	move	$a0, $s1
 	move	$a1, $fp
 	fld.d	$fs0, $sp, 112                  # 8-byte Folded Reload
 	ld.d	$s8, $sp, 120                   # 8-byte Folded Reload
@@ -2768,7 +2766,7 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	move	$s2, $s7
 	move	$fp, $a0
 .LBB11_33:                              # %_ZNSt6vectorIdSaIdEED2Ev.exit96
-	move	$a0, $s1
+	move	$a0, $s0
 	move	$a1, $s2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -2778,7 +2776,7 @@ _ZN4Mesh49compare_coordinates_cpu_local_to_cpu_global_floatEjPiS0_PdS1_S1_S1_PfS
 	move	$s2, $s7
 	move	$fp, $a0
 .LBB11_35:                              # %_ZNSt6vectorIdSaIdEED2Ev.exit98
-	move	$a0, $s0
+	move	$a0, $s1
 	move	$a1, $s2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -10124,14 +10122,7 @@ _ZN4Mesh10set_boundsEi:                 # @_ZN4Mesh10set_boundsEi
 .Lfunc_end23:
 	.size	_ZN4Mesh10set_boundsEi, .Lfunc_end23-_ZN4Mesh10set_boundsEi
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4Mesh11calc_minmaxEv
-.LCPI24_0:
-	.dword	0x46293e5939a08cea              # double 1.0E+30
-.LCPI24_1:
-	.dword	0xc6293e5939a08cea              # double -1.0E+30
-	.text
-	.globl	_ZN4Mesh11calc_minmaxEv
+	.globl	_ZN4Mesh11calc_minmaxEv         # -- Begin function _ZN4Mesh11calc_minmaxEv
 	.p2align	5
 	.type	_ZN4Mesh11calc_minmaxEv,@function
 _ZN4Mesh11calc_minmaxEv:                # @_ZN4Mesh11calc_minmaxEv
@@ -10140,16 +10131,15 @@ _ZN4Mesh11calc_minmaxEv:                # @_ZN4Mesh11calc_minmaxEv
 	ori	$a3, $a1, 3306
 	lu32i.d	$a3, -442791
 	ld.d	$a1, $a0, 1160
-	lu52i.d	$a2, $a3, 1122
-	st.d	$a2, $a0, 1184
-	st.d	$a2, $a0, 1200
-	st.d	$a2, $a0, 1216
+	lu52i.d	$a4, $a3, 1122
+	st.d	$a4, $a0, 1184
+	st.d	$a4, $a0, 1200
+	st.d	$a4, $a0, 1216
 	beqz	$a1, .LBB24_27
 # %bb.1:                                # %.lr.ph
 	ld.d	$a2, $a0, 1416
-	pcalau12i	$a4, %pc_hi20(.LCPI24_0)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI24_0)
 	ori	$a5, $zero, 1
+	movgr2fr.d	$fa0, $a4
 	b	.LBB24_3
 	.p2align	4, , 16
 .LBB24_2:                               #   in Loop: Header=BB24_3 Depth=1
@@ -10167,8 +10157,8 @@ _ZN4Mesh11calc_minmaxEv:                # @_ZN4Mesh11calc_minmaxEv
 	b	.LBB24_2
 .LBB24_5:                               # %.lr.ph51
 	ld.d	$a2, $a0, 1464
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI24_0)
 	ori	$a5, $zero, 1
+	movgr2fr.d	$fa0, $a4
 	b	.LBB24_7
 	.p2align	4, , 16
 .LBB24_6:                               #   in Loop: Header=BB24_7 Depth=1
@@ -10190,15 +10180,15 @@ _ZN4Mesh11calc_minmaxEv:                # @_ZN4Mesh11calc_minmaxEv
 	blt	$a2, $a5, .LBB24_14
 # %bb.10:                               # %.lr.ph54
 	ld.d	$a5, $a0, 1512
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI24_0)
-	ori	$a4, $zero, 1
+	ori	$a6, $zero, 1
+	movgr2fr.d	$fa0, $a4
 	b	.LBB24_12
 	.p2align	4, , 16
 .LBB24_11:                              #   in Loop: Header=BB24_12 Depth=1
-	bstrpick.d	$a6, $a4, 31, 0
+	bstrpick.d	$a4, $a6, 31, 0
 	addi.d	$a5, $a5, 8
-	addi.w	$a4, $a4, 1
-	bgeu	$a6, $a1, .LBB24_14
+	addi.w	$a6, $a6, 1
+	bgeu	$a4, $a1, .LBB24_14
 .LBB24_12:                              # =>This Inner Loop Header: Depth=1
 	fld.d	$fa1, $a5, 0
 	fcmp.cule.d	$fcc0, $fa0, $fa1
@@ -10208,15 +10198,14 @@ _ZN4Mesh11calc_minmaxEv:                # @_ZN4Mesh11calc_minmaxEv
 	fmov.d	$fa0, $fa1
 	b	.LBB24_11
 .LBB24_14:                              # %.lr.ph58
-	lu52i.d	$a6, $a3, -926
-	st.d	$a6, $a0, 1192
+	lu52i.d	$a3, $a3, -926
+	st.d	$a3, $a0, 1192
+	st.d	$a3, $a0, 1208
 	ld.d	$a4, $a0, 1416
 	ld.d	$a5, $a0, 1440
-	pcalau12i	$a3, %pc_hi20(.LCPI24_1)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI24_1)
-	st.d	$a6, $a0, 1208
-	st.d	$a6, $a0, 1224
+	st.d	$a3, $a0, 1224
 	ori	$a6, $zero, 1
+	movgr2fr.d	$fa0, $a3
 	b	.LBB24_16
 	.p2align	4, , 16
 .LBB24_15:                              #   in Loop: Header=BB24_16 Depth=1
@@ -10238,8 +10227,8 @@ _ZN4Mesh11calc_minmaxEv:                # @_ZN4Mesh11calc_minmaxEv
 .LBB24_18:                              # %.lr.ph61
 	ld.d	$a4, $a0, 1464
 	ld.d	$a5, $a0, 1488
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI24_1)
 	ori	$a6, $zero, 1
+	movgr2fr.d	$fa0, $a3
 	b	.LBB24_20
 	.p2align	4, , 16
 .LBB24_19:                              #   in Loop: Header=BB24_20 Depth=1
@@ -10264,16 +10253,16 @@ _ZN4Mesh11calc_minmaxEv:                # @_ZN4Mesh11calc_minmaxEv
 # %bb.23:                               # %.lr.ph65
 	ld.d	$a2, $a0, 1512
 	ld.d	$a4, $a0, 1536
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI24_1)
-	ori	$a3, $zero, 1
+	ori	$a5, $zero, 1
+	movgr2fr.d	$fa0, $a3
 	b	.LBB24_25
 	.p2align	4, , 16
 .LBB24_24:                              #   in Loop: Header=BB24_25 Depth=1
-	bstrpick.d	$a5, $a3, 31, 0
+	bstrpick.d	$a3, $a5, 31, 0
 	addi.d	$a2, $a2, 8
 	addi.d	$a4, $a4, 8
-	addi.w	$a3, $a3, 1
-	bgeu	$a5, $a1, .LBB24_28
+	addi.w	$a5, $a5, 1
+	bgeu	$a3, $a1, .LBB24_28
 .LBB24_25:                              # =>This Inner Loop Header: Depth=1
 	fld.d	$fa1, $a2, 0
 	fld.d	$fa2, $a4, 0
@@ -10299,12 +10288,6 @@ _ZN4Mesh11calc_minmaxEv:                # @_ZN4Mesh11calc_minmaxEv
 .LCPI25_0:
 	.dword	0x46293e5939a08cea              # double 1.0E+30
 	.dword	0xc6293e5939a08cea              # double -1.0E+30
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI25_1:
-	.dword	0xc6293e5939a08cea              # double -1.0E+30
-.LCPI25_2:
-	.dword	0x46293e5939a08cea              # double 1.0E+30
 	.text
 	.globl	_ZN4Mesh17calc_centerminmaxEv
 	.p2align	5
@@ -10321,11 +10304,14 @@ _ZN4Mesh17calc_centerminmaxEv:          # @_ZN4Mesh17calc_centerminmaxEv
 # %bb.1:                                # %.lr.ph
 	ld.d	$a4, $a0, 1416
 	ld.d	$a5, $a0, 1440
-	pcalau12i	$a2, %pc_hi20(.LCPI25_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI25_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI25_2)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI25_2)
 	ori	$a6, $zero, 1
+	lu12i.w	$a2, 236040
+	ori	$a3, $a2, 3306
+	lu32i.d	$a3, -442791
+	lu52i.d	$a2, $a3, -926
+	movgr2fr.d	$fa0, $a2
+	lu52i.d	$a3, $a3, 1122
+	movgr2fr.d	$fa2, $a3
 	vldi	$vr1, -928
 	b	.LBB25_3
 	.p2align	4, , 16
@@ -10355,10 +10341,10 @@ _ZN4Mesh17calc_centerminmaxEv:          # @_ZN4Mesh17calc_centerminmaxEv
 .LBB25_7:                               # %.lr.ph40
 	ld.d	$a4, $a0, 1464
 	ld.d	$a5, $a0, 1488
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI25_1)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI25_2)
 	ori	$a6, $zero, 1
-	vldi	$vr1, -928
+	movgr2fr.d	$fa1, $a2
+	movgr2fr.d	$fa2, $a3
+	vldi	$vr0, -928
 	b	.LBB25_9
 	.p2align	4, , 16
 .LBB25_8:                               #   in Loop: Header=BB25_9 Depth=1
@@ -10370,7 +10356,7 @@ _ZN4Mesh17calc_centerminmaxEv:          # @_ZN4Mesh17calc_centerminmaxEv
 .LBB25_9:                               # =>This Inner Loop Header: Depth=1
 	fld.d	$fa3, $a5, 0
 	fld.d	$fa4, $a4, 0
-	fmul.d	$fa3, $fa3, $fa1
+	fmul.d	$fa3, $fa3, $fa0
 	fadd.d	$fa3, $fa4, $fa3
 	fcmp.cule.d	$fcc0, $fa2, $fa3
 	bcnez	$fcc0, .LBB25_11
@@ -10378,11 +10364,11 @@ _ZN4Mesh17calc_centerminmaxEv:          # @_ZN4Mesh17calc_centerminmaxEv
 	fst.d	$fa3, $a0, 1248
 	fmov.d	$fa2, $fa3
 .LBB25_11:                              #   in Loop: Header=BB25_9 Depth=1
-	fcmp.cule.d	$fcc0, $fa3, $fa0
+	fcmp.cule.d	$fcc0, $fa3, $fa1
 	bcnez	$fcc0, .LBB25_8
 # %bb.12:                               #   in Loop: Header=BB25_9 Depth=1
 	fst.d	$fa3, $a0, 1256
-	fmov.d	$fa0, $fa3
+	fmov.d	$fa1, $fa3
 	b	.LBB25_8
 .LBB25_13:                              # %._crit_edge
 	ld.w	$a4, $a0, 0
@@ -10393,22 +10379,22 @@ _ZN4Mesh17calc_centerminmaxEv:          # @_ZN4Mesh17calc_centerminmaxEv
 .LBB25_15:                              # %.lr.ph44
 	ld.d	$a4, $a0, 1512
 	ld.d	$a5, $a0, 1536
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI25_1)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI25_2)
-	ori	$a2, $zero, 1
-	vldi	$vr1, -928
+	ori	$a6, $zero, 1
+	movgr2fr.d	$fa1, $a2
+	movgr2fr.d	$fa2, $a3
+	vldi	$vr0, -928
 	b	.LBB25_17
 	.p2align	4, , 16
 .LBB25_16:                              #   in Loop: Header=BB25_17 Depth=1
-	bstrpick.d	$a3, $a2, 31, 0
+	bstrpick.d	$a2, $a6, 31, 0
 	addi.d	$a4, $a4, 8
 	addi.d	$a5, $a5, 8
-	addi.w	$a2, $a2, 1
-	bgeu	$a3, $a1, .LBB25_14
+	addi.w	$a6, $a6, 1
+	bgeu	$a2, $a1, .LBB25_14
 .LBB25_17:                              # =>This Inner Loop Header: Depth=1
 	fld.d	$fa3, $a5, 0
 	fld.d	$fa4, $a4, 0
-	fmul.d	$fa3, $fa3, $fa1
+	fmul.d	$fa3, $fa3, $fa0
 	fadd.d	$fa3, $fa4, $fa3
 	fcmp.cule.d	$fcc0, $fa2, $fa3
 	bcnez	$fcc0, .LBB25_19
@@ -10416,11 +10402,11 @@ _ZN4Mesh17calc_centerminmaxEv:          # @_ZN4Mesh17calc_centerminmaxEv
 	fst.d	$fa3, $a0, 1264
 	fmov.d	$fa2, $fa3
 .LBB25_19:                              #   in Loop: Header=BB25_17 Depth=1
-	fcmp.cule.d	$fcc0, $fa3, $fa0
+	fcmp.cule.d	$fcc0, $fa3, $fa1
 	bcnez	$fcc0, .LBB25_16
 # %bb.20:                               #   in Loop: Header=BB25_17 Depth=1
 	fst.d	$fa3, $a0, 1272
-	fmov.d	$fa0, $fa3
+	fmov.d	$fa1, $fa3
 	b	.LBB25_16
 .Lfunc_end25:
 	.size	_ZN4Mesh17calc_centerminmaxEv, .Lfunc_end25-_ZN4Mesh17calc_centerminmaxEv
@@ -12593,12 +12579,8 @@ GCC_except_table27:
 .Lcst_end10:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4Mesh24print_calc_neighbor_typeEv
-.LCPI28_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.globl	_ZN4Mesh24print_calc_neighbor_typeEv
+	.globl	_ZN4Mesh24print_calc_neighbor_typeEv # -- Begin function _ZN4Mesh24print_calc_neighbor_typeEv
 	.p2align	5
 	.type	_ZN4Mesh24print_calc_neighbor_typeEv,@function
 _ZN4Mesh24print_calc_neighbor_typeEv:   # @_ZN4Mesh24print_calc_neighbor_typeEv
@@ -12619,12 +12601,13 @@ _ZN4Mesh24print_calc_neighbor_typeEv:   # @_ZN4Mesh24print_calc_neighbor_typeEv
 # %bb.1:
 	ld.d	$s0, $fp, 1160
 	srli.d	$a0, $s0, 32
-	pcalau12i	$a1, %pc_hi20(.LCPI28_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI28_0)
 	lu52i.d	$a1, $zero, 1107
 	or	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
 	movgr2fr.d	$fa1, $a0
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a0, 275200
 	move	$a1, $s0
 	bstrins.d	$a1, $a0, 63, 32
@@ -20873,12 +20856,7 @@ _ZN4Mesh24calc_face_list_clearmapsEv:   # @_ZN4Mesh24calc_face_list_clearmapsEv
 	.size	_ZN4Mesh24calc_face_list_clearmapsEv, .Lfunc_end42-_ZN4Mesh24calc_face_list_clearmapsEv
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4Mesh12timer_outputE11mesh_timers17mesh_device_typesi
-.LCPI43_0:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
-	.text
-	.globl	_ZN4Mesh12timer_outputE11mesh_timers17mesh_device_typesi
+	.globl	_ZN4Mesh12timer_outputE11mesh_timers17mesh_device_typesi # -- Begin function _ZN4Mesh12timer_outputE11mesh_timers17mesh_device_typesi
 	.p2align	5
 	.type	_ZN4Mesh12timer_outputE11mesh_timers17mesh_device_typesi,@function
 _ZN4Mesh12timer_outputE11mesh_timers17mesh_device_typesi: # @_ZN4Mesh12timer_outputE11mesh_timers17mesh_device_typesi
@@ -20903,11 +20881,14 @@ _ZN4Mesh12timer_outputE11mesh_timers17mesh_device_typesi: # @_ZN4Mesh12timer_out
 	beqz	$a2, .LBB43_3
 # %bb.1:                                # %.thread
 	ld.d	$a0, $a0, 392
-	pcalau12i	$a1, %pc_hi20(.LCPI43_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI43_0)
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fs0, $fa1, $fa0
+	fmul.d	$fs0, $fa0, $fa1
 	addi.d	$a0, $sp, 10
 	ori	$a2, $zero, 78
 	move	$a1, $zero

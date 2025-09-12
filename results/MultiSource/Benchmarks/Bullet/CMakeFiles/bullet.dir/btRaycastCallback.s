@@ -19,12 +19,7 @@ _ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j: # @_ZN25btTriangleRaycastCall
 .Lfunc_end0:
 	.size	_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j, .Lfunc_end0-_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii
-.LCPI1_0:
-	.word	0xb8d1b717                      # float -9.99999974E-5
-	.text
-	.globl	_ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii
+	.globl	_ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii # -- Begin function _ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii
 	.p2align	5
 	.type	_ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii,@function
 _ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii: # @_ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii
@@ -103,11 +98,13 @@ _ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii: # @_ZN25btTriangl
 	fcmp.cule.s	$fcc0, $ft7, $fa0
 	bcnez	$fcc0, .LBB1_3
 # %bb.5:
-	pcalau12i	$a4, %pc_hi20(.LCPI1_0)
-	fld.s	$ft8, $a4, %pc_lo12(.LCPI1_0)
 	fmul.s	$ft7, $fa2, $fa2
 	fmadd.s	$ft7, $fa1, $fa1, $ft7
 	fmadd.s	$ft7, $fa3, $fa3, $ft7
+	lu12i.w	$a4, -291557
+	ori	$a4, $a4, 1815
+	lu32i.d	$a4, 0
+	movgr2fr.w	$ft8, $a4
 	fmul.s	$ft8, $ft7, $ft8
 	vldi	$vr23, -1168
 	fsub.s	$ft15, $ft15, $fa0
@@ -276,12 +273,8 @@ __clang_call_terminate:                 # @__clang_call_terminate
 .Lfunc_end3:
 	.size	__clang_call_terminate, .Lfunc_end3-__clang_call_terminate
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii
-.LCPI4_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
 	.text
-	.globl	_ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii
+	.globl	_ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii # -- Begin function _ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii
 	.p2align	5
 	.type	_ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii,@function
 _ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii: # @_ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii
@@ -357,14 +350,15 @@ _ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii: # @_ZN28btTria
 # %bb.2:
 	beqz	$a0, .LBB4_6
 # %bb.3:
-	fld.s	$fa3, $sp, 152
 	fld.s	$fa2, $sp, 156
+	fld.s	$fa3, $sp, 152
 	fld.s	$fa1, $sp, 160
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI4_0)
-	fmul.s	$fa4, $fa2, $fa2
-	fmadd.s	$fa4, $fa3, $fa3, $fa4
-	fmadd.s	$fa4, $fa1, $fa1, $fa4
+	fmul.s	$fa0, $fa2, $fa2
+	fmadd.s	$fa0, $fa3, $fa3, $fa0
+	fmadd.s	$fa4, $fa1, $fa1, $fa0
+	lu12i.w	$a0, 232731
+	ori	$a0, $a0, 1815
+	movgr2fr.w	$fa0, $a0
 	fcmp.cule.s	$fcc0, $fa4, $fa0
 	bcnez	$fcc0, .LBB4_6
 # %bb.4:

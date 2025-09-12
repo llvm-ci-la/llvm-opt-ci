@@ -1862,12 +1862,8 @@ scan_string:                            # @scan_string
 	.word	.LBB4_51-.LJTI4_0
 	.word	.LBB4_47-.LJTI4_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function scan_number
-.LCPI5_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
-	.globl	scan_number
+	.globl	scan_number                     # -- Begin function scan_number
 	.p2align	5
 	.type	scan_number,@function
 scan_number:                            # @scan_number
@@ -2463,8 +2459,10 @@ scan_number:                            # @scan_number
 	ori	$a0, $zero, 7
 	bltu	$s3, $a0, .LBB5_120
 # %bb.118:                              # %.lr.ph277.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa0, $a0
 	ori	$a0, $zero, 6
 	.p2align	4, , 16
 .LBB5_119:                              # %.lr.ph277
@@ -2486,8 +2484,10 @@ scan_number:                            # @scan_number
 	addi.w	$a0, $zero, -7
 	bltu	$a0, $s3, .LBB5_125
 # %bb.123:                              # %.lr.ph271.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa0, $a0
 	addi.w	$a0, $zero, -12
 .LBB5_124:                              # %.lr.ph271
                                         # =>This Inner Loop Header: Depth=1

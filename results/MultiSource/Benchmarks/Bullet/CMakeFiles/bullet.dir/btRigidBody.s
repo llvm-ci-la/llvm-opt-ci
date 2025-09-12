@@ -660,16 +660,8 @@ _ZN11btRigidBody26predictIntegratedTransformEfR11btTransform: # @_ZN11btRigidBod
 	.size	_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform, .Lfunc_end8-_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
-.LCPI9_0:
-	.word	0x3f490fdb                      # float 0.785398185
-.LCPI9_1:
-	.word	0x3a83126f                      # float 0.00100000005
-.LCPI9_2:
-	.word	0xbcaaaaab                      # float -0.020833334
 	.section	.text._ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,"axG",@progbits,_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,comdat
-	.weak	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
+	.weak	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_ # -- Begin function _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
 	.p2align	5
 	.type	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,@function
 _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_: # @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
@@ -722,22 +714,26 @@ _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_: # 
 	fmadd.s	$fa0, $fs1, $fs1, $fa0
 	fmadd.s	$fa0, $fs3, $fs3, $fa0
 	fsqrt.s	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI9_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI9_0)
-	fmul.s	$fa2, $fs0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI9_1)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI9_1)
-	fcmp.clt.s	$fcc0, $fa1, $fa2
-	fdiv.s	$fa1, $fa1, $fs0
-	fsel	$fs4, $fa0, $fa1, $fcc0
-	fcmp.cule.s	$fcc0, $fa3, $fs4
+	fmul.s	$fa1, $fs0, $fa0
+	lu12i.w	$a0, 259216
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa2, $a0
+	fdiv.s	$fa3, $fa2, $fs0
+	fcmp.clt.s	$fcc0, $fa2, $fa1
+	fsel	$fs4, $fa0, $fa3, $fcc0
+	lu12i.w	$a0, 239665
+	ori	$a0, $a0, 623
+	movgr2fr.w	$fa0, $a0
+	fcmp.cule.s	$fcc0, $fa0, $fs4
 	bcnez	$fcc0, .LBB9_2
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI9_2)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI9_2)
-	fmul.s	$fa1, $fs0, $fs0
-	fmul.s	$fa1, $fs0, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fmul.s	$fa0, $fs0, $fs0
+	fmul.s	$fa0, $fs0, $fa0
+	lu12i.w	$a0, -275798
+	ori	$a0, $a0, 2731
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	fmul.s	$fa0, $fa0, $fs4
 	fmul.s	$fa0, $fa0, $fs4
 	vldi	$vr1, -1184
@@ -1007,12 +1003,7 @@ _ZN11btRigidBody10setGravityERK9btVector3: # @_ZN11btRigidBody10setGravityERK9bt
 .Lfunc_end12:
 	.size	_ZN11btRigidBody10setGravityERK9btVector3, .Lfunc_end12-_ZN11btRigidBody10setGravityERK9btVector3
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN11btRigidBody12applyDampingEf
-.LCPI13_0:
-	.word	0x3ba3d70a                      # float 0.00499999989
-	.text
-	.globl	_ZN11btRigidBody12applyDampingEf
+	.globl	_ZN11btRigidBody12applyDampingEf # -- Begin function _ZN11btRigidBody12applyDampingEf
 	.p2align	5
 	.type	_ZN11btRigidBody12applyDampingEf,@function
 _ZN11btRigidBody12applyDampingEf:       # @_ZN11btRigidBody12applyDampingEf
@@ -1094,10 +1085,11 @@ _ZN11btRigidBody12applyDampingEf:       # @_ZN11btRigidBody12applyDampingEf
 	fmadd.s	$fa3, $fs5, $fs5, $fa3
 	fsqrt.s	$fa3, $fa3
 	fcmp.cule.s	$fcc0, $fs3, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI13_0)
+	lu12i.w	$a0, 244285
 	bcnez	$fcc0, .LBB13_8
 # %bb.5:
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI13_0)
+	ori	$a1, $a0, 1802
+	movgr2fr.w	$fa4, $a1
 	fcmp.cule.s	$fcc0, $fa3, $fa4
 	bcnez	$fcc0, .LBB13_7
 # %bb.6:
@@ -1123,21 +1115,22 @@ _ZN11btRigidBody12applyDampingEf:       # @_ZN11btRigidBody12applyDampingEf
 	fmul.s	$fa3, $fa2, $fa2
 	fmadd.s	$fa3, $fa1, $fa1, $fa3
 	fmadd.s	$fa3, $fa0, $fa0, $fa3
-	fsqrt.s	$fa4, $fa3
-	fcmp.cule.s	$fcc0, $fs1, $fa4
+	fsqrt.s	$fa3, $fa3
+	fcmp.cule.s	$fcc0, $fs1, $fa3
 	bcnez	$fcc0, .LBB13_12
 # %bb.9:
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI13_0)
-	fcmp.cule.s	$fcc0, $fa4, $fa3
+	ori	$a0, $a0, 1802
+	movgr2fr.w	$fa4, $a0
+	fcmp.cule.s	$fcc0, $fa3, $fa4
 	bcnez	$fcc0, .LBB13_11
 # %bb.10:
-	frecip.s	$fa4, $fa4
-	fmul.s	$fa5, $fa1, $fa4
-	fmul.s	$fa6, $fa2, $fa4
-	fmul.s	$fa4, $fa0, $fa4
-	fmul.s	$fa5, $fa5, $fa3
-	fmul.s	$fa6, $fa6, $fa3
-	fmul.s	$fa3, $fa4, $fa3
+	frecip.s	$fa3, $fa3
+	fmul.s	$fa5, $fa1, $fa3
+	fmul.s	$fa6, $fa2, $fa3
+	fmul.s	$fa3, $fa0, $fa3
+	fmul.s	$fa5, $fa5, $fa4
+	fmul.s	$fa6, $fa6, $fa4
+	fmul.s	$fa3, $fa3, $fa4
 	fsub.s	$fa1, $fa1, $fa5
 	fst.s	$fa1, $fp, 344
 	fsub.s	$fa1, $fa2, $fa6
@@ -1310,12 +1303,7 @@ _ZN11btRigidBody24setCenterOfMassTransformERK11btTransform: # @_ZN11btRigidBody2
 .Lfunc_end16:
 	.size	_ZN11btRigidBody24setCenterOfMassTransformERK11btTransform, .Lfunc_end16-_ZN11btRigidBody24setCenterOfMassTransformERK11btTransform
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN11btRigidBody19integrateVelocitiesEf
-.LCPI17_0:
-	.word	0x3fc90fdb                      # float 1.57079637
-	.text
-	.globl	_ZN11btRigidBody19integrateVelocitiesEf
+	.globl	_ZN11btRigidBody19integrateVelocitiesEf # -- Begin function _ZN11btRigidBody19integrateVelocitiesEf
 	.p2align	5
 	.type	_ZN11btRigidBody19integrateVelocitiesEf,@function
 _ZN11btRigidBody19integrateVelocitiesEf: # @_ZN11btRigidBody19integrateVelocitiesEf
@@ -1376,18 +1364,19 @@ _ZN11btRigidBody19integrateVelocitiesEf: # @_ZN11btRigidBody19integrateVelocitie
 	fst.s	$fa2, $a0, 348
 	fadd.s	$fa3, $fa3, $fa4
 	fmul.s	$fa4, $fa2, $fa2
-	fmadd.s	$fa5, $fa1, $fa1, $fa4
-	pcalau12i	$a1, %pc_hi20(.LCPI17_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI17_0)
-	fmadd.s	$fa5, $fa3, $fa3, $fa5
-	fsqrt.s	$fa5, $fa5
-	fmul.s	$fa6, $fa0, $fa5
-	fcmp.cule.s	$fcc0, $fa6, $fa4
+	fmadd.s	$fa4, $fa1, $fa1, $fa4
+	fmadd.s	$fa4, $fa3, $fa3, $fa4
+	fsqrt.s	$fa4, $fa4
+	fmul.s	$fa6, $fa0, $fa4
+	lu12i.w	$a1, 261264
+	ori	$a1, $a1, 4059
+	movgr2fr.w	$fa5, $a1
+	fcmp.cule.s	$fcc0, $fa6, $fa5
 	fst.s	$fa3, $a0, 352
 	bcnez	$fcc0, .LBB17_1
 # %bb.3:
-	fdiv.s	$fa0, $fa4, $fa0
-	fdiv.s	$fa0, $fa0, $fa5
+	fdiv.s	$fa0, $fa5, $fa0
+	fdiv.s	$fa0, $fa0, $fa4
 	fmul.s	$fa1, $fa1, $fa0
 	fst.s	$fa1, $a0, 344
 	fmul.s	$fa1, $fa2, $fa0
@@ -2059,12 +2048,8 @@ _ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape: # @_ZN17btCollisi
 .Lfunc_end25:
 	.size	_ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape, .Lfunc_end25-_ZN17btCollisionObject17setCollisionShapeEP16btCollisionShape
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf
-.LCPI26_0:
-	.word	0x28800000                      # float 1.42108547E-14
 	.section	.text._ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf,"axG",@progbits,_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf,comdat
-	.weak	_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf
+	.weak	_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf # -- Begin function _ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf
 	.p2align	5
 	.type	_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf,@function
 _ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf: # @_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf
@@ -2201,11 +2186,11 @@ _ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf: # 
 	jirl	$ra, $ra, 0
 	fadd.s	$fa0, $fa0, $fa0
 	fst.s	$fa0, $s0, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI26_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI26_0)
 	fmul.s	$fa0, $fs1, $fs1
 	fmadd.s	$fa0, $fs0, $fs0, $fa0
 	fmadd.s	$fa0, $fs2, $fs2, $fa0
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	st.w	$zero, $fp, 12
 	bceqz	$fcc0, .LBB26_2

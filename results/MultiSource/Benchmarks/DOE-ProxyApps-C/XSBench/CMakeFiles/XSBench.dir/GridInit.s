@@ -1,10 +1,6 @@
 	.file	"GridInit.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function generate_grids
-.LCPI0_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
-	.globl	generate_grids
+	.globl	generate_grids                  # -- Begin function generate_grids
 	.p2align	5
 	.type	generate_grids,@function
 generate_grids:                         # @generate_grids
@@ -26,9 +22,10 @@ generate_grids:                         # @generate_grids
 # %bb.2:                                # %.preheader.us.preheader
 	move	$s0, $a1
 	move	$s1, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	move	$s2, $zero
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB0_3:                                # %.preheader.us
                                         # =>This Loop Header: Depth=1

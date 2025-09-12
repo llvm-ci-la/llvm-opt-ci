@@ -24,15 +24,9 @@ loop:                                   # @loop
 .Lfunc_end0:
 	.size	loop, .Lfunc_end0-loop
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.word	0x3dcccccd                      # float 0.100000001
-.LCPI1_1:
-	.word	0x3e4ccccd                      # float 0.200000003
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI1_2:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI1_0:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -56,12 +50,14 @@ main:                                   # @main
 	ori	$a1, $a1, 3277
 	lu12i.w	$a2, 104857
 	ori	$a2, $a2, 2458
+	lu12i.w	$a3, 253132
+	ori	$a3, $a3, 3277
+	movgr2fr.w	$fa3, $a3
+	lu12i.w	$a3, 255180
+	ori	$a3, $a3, 3277
+	movgr2fr.w	$fa4, $a3
 	pcalau12i	$a3, %pc_hi20(.LCPI1_0)
-	fld.s	$fa3, $a3, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_1)
-	fld.s	$fa4, $a3, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_2)
-	vld	$vr5, $a3, %pc_lo12(.LCPI1_2)
+	vld	$vr5, $a3, %pc_lo12(.LCPI1_0)
 	lu12i.w	$a3, -2
 	lu12i.w	$a4, 2
 	ori	$a4, $a4, 8

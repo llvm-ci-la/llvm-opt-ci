@@ -520,12 +520,7 @@ SearchGalley:                           # @SearchGalley
 .Lfunc_end1:
 	.size	SearchGalley, .Lfunc_end1-SearchGalley
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function AttachGalley
-.LCPI2_0:
-	.word	0x440dc000                      # float 567
-	.text
-	.globl	AttachGalley
+	.globl	AttachGalley                    # -- Begin function AttachGalley
 	.p2align	5
 	.type	AttachGalley,@function
 AttachGalley:                           # @AttachGalley
@@ -624,6 +619,8 @@ AttachGalley:                           # @AttachGalley
 	ori	$a1, $a1, 4095
 	lu32i.d	$a1, 0
 	st.d	$a1, $sp, 192                   # 8-byte Folded Spill
+	lu12i.w	$a1, 278748
+	movgr2fr.w	$fs0, $a1
                                         # implicit-def: $r5
                                         # kill: killed $r5
 	st.d	$s1, $sp, 216                   # 8-byte Folded Spill
@@ -1961,8 +1958,6 @@ AttachGalley:                           # @AttachGalley
 	add.w	$a0, $a0, $a3
 	blez	$a0, .LBB2_266
 # %bb.163:                              #   in Loop: Header=BB2_7 Depth=1
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI2_0)
 	bstrpick.d	$a0, $a0, 31, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.s.l	$fa0, $fa0
@@ -2385,8 +2380,6 @@ AttachGalley:                           # @AttachGalley
 .LBB2_215:                              #   in Loop: Header=BB2_7 Depth=1
 	addi.d	$a0, $fp, 56
 	ld.w	$a0, $a0, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI2_0)
 	add.d	$a0, $a0, $a3
 	movgr2fr.w	$fa0, $a0
 	ffint.s.w	$fa0, $fa0
@@ -2490,8 +2483,6 @@ AttachGalley:                           # @AttachGalley
 	blt	$a1, $a0, .LBB2_266
 # %bb.223:                              #   in Loop: Header=BB2_7 Depth=1
 	st.d	$a1, $sp, 56                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI2_0)
 	bstrpick.d	$a0, $s1, 31, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.s.l	$fa0, $fa0
@@ -2664,8 +2655,6 @@ AttachGalley:                           # @AttachGalley
 	add.w	$a0, $a1, $a0
 	blez	$a0, .LBB2_266
 # %bb.243:                              #   in Loop: Header=BB2_7 Depth=1
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI2_0)
 	bstrpick.d	$a0, $a0, 31, 0
 	movgr2fr.d	$fa0, $a0
 	ffint.s.l	$fa0, $fa0
@@ -2723,8 +2712,6 @@ AttachGalley:                           # @AttachGalley
 	addi.d	$a0, $s1, 56
 	ld.w	$a1, $s5, 0
 	ld.w	$a0, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.s	$fs0, $a2, %pc_lo12(.LCPI2_0)
 	add.d	$a0, $a0, $a1
 	movgr2fr.w	$fa0, $a0
 	ffint.s.w	$fa0, $fa0
@@ -3744,8 +3731,6 @@ AttachGalley:                           # @AttachGalley
 	addi.d	$a0, $s1, 56
 	ld.w	$a1, $s5, 0
 	ld.w	$a0, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.s	$fs0, $a2, %pc_lo12(.LCPI2_0)
 	add.d	$a0, $a0, $a1
 	movgr2fr.w	$fa0, $a0
 	ffint.s.w	$fa0, $fa0

@@ -1,10 +1,6 @@
 	.file	"gscolor.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gs_setgray
-.LCPI0_0:
-	.word	0x477fff00                      # float 65535
 	.text
-	.globl	gs_setgray
+	.globl	gs_setgray                      # -- Begin function gs_setgray
 	.p2align	5
 	.type	gs_setgray,@function
 gs_setgray:                             # @gs_setgray
@@ -31,9 +27,10 @@ gs_setgray:                             # @gs_setgray
 	ori	$a2, $a0, 4095
 	b	.LBB0_7
 .LBB0_6:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	fcvt.s.d	$fa0, $fa0
+	lu12i.w	$a0, 292863
+	ori	$a0, $a0, 3840
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
@@ -79,18 +76,11 @@ check_unit:                             # @check_unit
 .Lfunc_end1:
 	.size	check_unit, .Lfunc_end1-check_unit
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gs_currentgray
-.LCPI2_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	gs_currentgray
+	.globl	gs_currentgray                  # -- Begin function gs_currentgray
 	.p2align	5
 	.type	gs_currentgray,@function
 gs_currentgray:                         # @gs_currentgray
 # %bb.0:
-	addi.d	$sp, $sp, -16
-	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	ld.d	$a0, $a0, 304
 	ld.bu	$a1, $a0, 9
 	beqz	$a1, .LBB2_2
@@ -98,16 +88,19 @@ gs_currentgray:                         # @gs_currentgray
 	ld.hu	$a0, $a0, 6
 	b	.LBB2_3
 .LBB2_2:
+	addi.d	$sp, $sp, -16
+	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(gx_color_luminance)
 	jirl	$ra, $ra, 0
-.LBB2_3:
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI2_0)
-	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
+.LBB2_3:
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 292863
+	ori	$a0, $a0, 3840
+	movgr2fr.w	$fa1, $a0
+	fdiv.s	$fa0, $fa0, $fa1
 	ret
 .Lfunc_end2:
 	.size	gs_currentgray, .Lfunc_end2-gs_currentgray
@@ -148,12 +141,7 @@ gs_currentgscolor:                      # @gs_currentgscolor
 .Lfunc_end4:
 	.size	gs_currentgscolor, .Lfunc_end4-gs_currentgscolor
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gs_sethsbcolor
-.LCPI5_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	gs_sethsbcolor
+	.globl	gs_sethsbcolor                  # -- Begin function gs_sethsbcolor
 	.p2align	5
 	.type	gs_sethsbcolor,@function
 gs_sethsbcolor:                         # @gs_sethsbcolor
@@ -191,9 +179,10 @@ gs_sethsbcolor:                         # @gs_sethsbcolor
 	bcnez	$fcc0, .LBB5_10
 	b	.LBB5_12
 .LBB5_8:
-	pcalau12i	$a1, %pc_hi20(.LCPI5_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI5_0)
 	fcvt.s.d	$fa0, $fa0
+	lu12i.w	$a1, 292863
+	ori	$a1, $a1, 3840
+	movgr2fr.w	$fa4, $a1
 	fmul.s	$fa0, $fa0, $fa4
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
@@ -207,10 +196,11 @@ gs_sethsbcolor:                         # @gs_sethsbcolor
 	move	$a3, $zero
 	b	.LBB5_15
 .LBB5_11:
-	pcalau12i	$a2, %pc_hi20(.LCPI5_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI5_0)
-	fcvt.s.d	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fcvt.s.d	$fa0, $fa1
+	lu12i.w	$a2, 292863
+	ori	$a2, $a2, 3840
+	movgr2fr.w	$fa1, $a2
+	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
 	fcmp.clt.d	$fcc0, $fa2, $fa3
@@ -223,10 +213,11 @@ gs_sethsbcolor:                         # @gs_sethsbcolor
 	ori	$a3, $a3, 4095
 	b	.LBB5_15
 .LBB5_14:
-	pcalau12i	$a3, %pc_hi20(.LCPI5_0)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI5_0)
-	fcvt.s.d	$fa1, $fa2
-	fmul.s	$fa0, $fa1, $fa0
+	fcvt.s.d	$fa0, $fa2
+	lu12i.w	$a3, 292863
+	ori	$a3, $a3, 3840
+	movgr2fr.w	$fa1, $a3
+	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a3, $fa0
 .LBB5_15:                               # %tri_param.exit
@@ -242,12 +233,7 @@ gs_sethsbcolor:                         # @gs_sethsbcolor
 .Lfunc_end5:
 	.size	gs_sethsbcolor, .Lfunc_end5-gs_sethsbcolor
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function tri_param
-.LCPI6_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	tri_param
+	.globl	tri_param                       # -- Begin function tri_param
 	.p2align	5
 	.type	tri_param,@function
 tri_param:                              # @tri_param
@@ -279,9 +265,10 @@ tri_param:                              # @tri_param
 	bcnez	$fcc0, .LBB6_8
 	b	.LBB6_10
 .LBB6_6:
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI6_0)
 	fcvt.s.d	$fa0, $fa0
+	lu12i.w	$a1, 292863
+	ori	$a1, $a1, 3840
+	movgr2fr.w	$fa4, $a1
 	fmul.s	$fa0, $fa0, $fa4
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
@@ -295,10 +282,11 @@ tri_param:                              # @tri_param
 	move	$a2, $zero
 	b	.LBB6_13
 .LBB6_9:
-	pcalau12i	$a3, %pc_hi20(.LCPI6_0)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI6_0)
-	fcvt.s.d	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fcvt.s.d	$fa0, $fa1
+	lu12i.w	$a3, 292863
+	ori	$a3, $a3, 3840
+	movgr2fr.w	$fa1, $a3
+	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a3, $fa0
 	fcmp.clt.d	$fcc0, $fa2, $fa3
@@ -311,10 +299,11 @@ tri_param:                              # @tri_param
 	ori	$a2, $a2, 4095
 	b	.LBB6_13
 .LBB6_12:
-	pcalau12i	$a2, %pc_hi20(.LCPI6_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI6_0)
-	fcvt.s.d	$fa1, $fa2
-	fmul.s	$fa0, $fa1, $fa0
+	fcvt.s.d	$fa0, $fa2
+	lu12i.w	$a2, 292863
+	ori	$a2, $a2, 3840
+	movgr2fr.w	$fa1, $a2
+	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
 .LBB6_13:                               # %check_unit.exit14
@@ -326,12 +315,7 @@ tri_param:                              # @tri_param
 .Lfunc_end6:
 	.size	tri_param, .Lfunc_end6-tri_param
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gs_currenthsbcolor
-.LCPI7_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	gs_currenthsbcolor
+	.globl	gs_currenthsbcolor              # -- Begin function gs_currenthsbcolor
 	.p2align	5
 	.type	gs_currenthsbcolor,@function
 gs_currenthsbcolor:                     # @gs_currenthsbcolor
@@ -346,20 +330,21 @@ gs_currenthsbcolor:                     # @gs_currenthsbcolor
 	jirl	$ra, $ra, 0
 	ld.hu	$a0, $sp, 10
 	ld.hu	$a1, $sp, 12
-	pcalau12i	$a2, %pc_hi20(.LCPI7_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI7_0)
 	ld.hu	$a2, $sp, 14
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 292863
+	ori	$a0, $a0, 3840
 	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $fp, 0
-	movgr2fr.w	$fa1, $a1
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $fp, 4
-	movgr2fr.w	$fa1, $a2
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $fp, 0
+	movgr2fr.w	$fa0, $a1
+	ffint.s.w	$fa0, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $fp, 4
+	movgr2fr.w	$fa0, $a2
+	ffint.s.w	$fa0, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $fp, 8
 	move	$a0, $zero
 	ld.d	$fp, $sp, 16                    # 8-byte Folded Reload
@@ -369,40 +354,31 @@ gs_currenthsbcolor:                     # @gs_currenthsbcolor
 .Lfunc_end7:
 	.size	gs_currenthsbcolor, .Lfunc_end7-gs_currenthsbcolor
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function tri_return
-.LCPI8_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	tri_return
+	.globl	tri_return                      # -- Begin function tri_return
 	.p2align	5
 	.type	tri_return,@function
 tri_return:                             # @tri_return
 # %bb.0:
-	pcalau12i	$a4, %pc_hi20(.LCPI8_0)
-	fld.s	$fa0, $a4, %pc_lo12(.LCPI8_0)
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 292863
+	ori	$a0, $a0, 3840
 	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $a3, 0
-	movgr2fr.w	$fa1, $a1
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $a3, 4
-	movgr2fr.w	$fa1, $a2
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $a3, 0
+	movgr2fr.w	$fa0, $a1
+	ffint.s.w	$fa0, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $a3, 4
+	movgr2fr.w	$fa0, $a2
+	ffint.s.w	$fa0, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $a3, 8
 	ret
 .Lfunc_end8:
 	.size	tri_return, .Lfunc_end8-tri_return
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gs_setrgbcolor
-.LCPI9_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	gs_setrgbcolor
+	.globl	gs_setrgbcolor                  # -- Begin function gs_setrgbcolor
 	.p2align	5
 	.type	gs_setrgbcolor,@function
 gs_setrgbcolor:                         # @gs_setrgbcolor
@@ -440,9 +416,10 @@ gs_setrgbcolor:                         # @gs_setrgbcolor
 	bcnez	$fcc0, .LBB9_10
 	b	.LBB9_12
 .LBB9_8:
-	pcalau12i	$a1, %pc_hi20(.LCPI9_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI9_0)
 	fcvt.s.d	$fa0, $fa0
+	lu12i.w	$a1, 292863
+	ori	$a1, $a1, 3840
+	movgr2fr.w	$fa4, $a1
 	fmul.s	$fa0, $fa0, $fa4
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
@@ -456,10 +433,11 @@ gs_setrgbcolor:                         # @gs_setrgbcolor
 	move	$a2, $zero
 	b	.LBB9_15
 .LBB9_11:
-	pcalau12i	$a3, %pc_hi20(.LCPI9_0)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI9_0)
-	fcvt.s.d	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fcvt.s.d	$fa0, $fa1
+	lu12i.w	$a3, 292863
+	ori	$a3, $a3, 3840
+	movgr2fr.w	$fa1, $a3
+	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a3, $fa0
 	fcmp.clt.d	$fcc0, $fa2, $fa3
@@ -472,10 +450,11 @@ gs_setrgbcolor:                         # @gs_setrgbcolor
 	ori	$a2, $a2, 4095
 	b	.LBB9_15
 .LBB9_14:
-	pcalau12i	$a2, %pc_hi20(.LCPI9_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI9_0)
-	fcvt.s.d	$fa1, $fa2
-	fmul.s	$fa0, $fa1, $fa0
+	fcvt.s.d	$fa0, $fa2
+	lu12i.w	$a2, 292863
+	ori	$a2, $a2, 3840
+	movgr2fr.w	$fa1, $a2
+	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.l.s	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
 .LBB9_15:                               # %tri_param.exit
@@ -494,77 +473,64 @@ gs_setrgbcolor:                         # @gs_setrgbcolor
 .Lfunc_end9:
 	.size	gs_setrgbcolor, .Lfunc_end9-gs_setrgbcolor
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gs_currentrgbcolor
-.LCPI10_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	gs_currentrgbcolor
+	.globl	gs_currentrgbcolor              # -- Begin function gs_currentrgbcolor
 	.p2align	5
 	.type	gs_currentrgbcolor,@function
 gs_currentrgbcolor:                     # @gs_currentrgbcolor
 # %bb.0:
 	ld.d	$a0, $a0, 304
 	ld.hu	$a2, $a0, 0
-	pcalau12i	$a3, %pc_hi20(.LCPI10_0)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI10_0)
 	ld.hu	$a3, $a0, 2
 	ld.hu	$a0, $a0, 4
+	movgr2fr.w	$fa0, $a2
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a2, 292863
+	ori	$a2, $a2, 3840
 	movgr2fr.w	$fa1, $a2
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $a1, 0
-	movgr2fr.w	$fa1, $a3
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $a1, 4
-	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $a1, 0
+	movgr2fr.w	$fa0, $a3
+	ffint.s.w	$fa0, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $a1, 4
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $a1, 8
 	move	$a0, $zero
 	ret
 .Lfunc_end10:
 	.size	gs_currentrgbcolor, .Lfunc_end10-gs_currentrgbcolor
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gs_colorrgb
-.LCPI11_0:
-	.word	0x477fff00                      # float 65535
-	.text
-	.globl	gs_colorrgb
+	.globl	gs_colorrgb                     # -- Begin function gs_colorrgb
 	.p2align	5
 	.type	gs_colorrgb,@function
 gs_colorrgb:                            # @gs_colorrgb
 # %bb.0:
 	ld.hu	$a2, $a0, 0
-	pcalau12i	$a3, %pc_hi20(.LCPI11_0)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI11_0)
 	ld.hu	$a3, $a0, 2
 	ld.hu	$a0, $a0, 4
+	movgr2fr.w	$fa0, $a2
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a2, 292863
+	ori	$a2, $a2, 3840
 	movgr2fr.w	$fa1, $a2
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $a1, 0
-	movgr2fr.w	$fa1, $a3
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $a1, 4
-	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $a1, 0
+	movgr2fr.w	$fa0, $a3
+	ffint.s.w	$fa0, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $a1, 4
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $a1, 8
 	move	$a0, $zero
 	ret
 .Lfunc_end11:
 	.size	gs_colorrgb, .Lfunc_end11-gs_colorrgb
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_setscreen
-.LCPI12_0:
-	.dword	0x40dfffc000000000              # double 32767
-	.text
-	.globl	gs_setscreen
+	.globl	gs_setscreen                    # -- Begin function gs_setscreen
 	.p2align	5
 	.type	gs_setscreen,@function
 gs_setscreen:                           # @gs_setscreen
@@ -597,8 +563,10 @@ gs_setscreen:                           # @gs_setscreen
 	b	.LBB12_10
 .LBB12_4:                               # %.lr.ph
 	addi.w	$s1, $zero, -15
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI12_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -64
+	lu52i.d	$a0, $a0, 1037
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 7
 	ori	$s2, $a0, 4095
 	b	.LBB12_6
@@ -656,12 +624,7 @@ gs_setscreen:                           # @gs_setscreen
 .Lfunc_end12:
 	.size	gs_setscreen, .Lfunc_end12-gs_setscreen
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_screen_init
-.LCPI13_0:
-	.dword	0x4052000000000000              # double 72
-	.text
-	.globl	gs_screen_init
+	.globl	gs_screen_init                  # -- Begin function gs_screen_init
 	.p2align	5
 	.type	gs_screen_init,@function
 gs_screen_init:                         # @gs_screen_init
@@ -684,8 +647,10 @@ gs_screen_init:                         # @gs_screen_init
 	move	$fp, $a1
 	move	$s1, $a0
 	fmov.d	$fs0, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI13_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI13_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 131072
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa1, $a0
 	fmov.d	$fs1, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
 	fcvt.s.d	$fs2, $fa0
@@ -946,12 +911,7 @@ gs_screen_currentpoint:                 # @gs_screen_currentpoint
 .Lfunc_end14:
 	.size	gs_screen_currentpoint, .Lfunc_end14-gs_screen_currentpoint
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_screen_next
-.LCPI15_0:
-	.dword	0x40dfffc000000000              # double 32767
-	.text
-	.globl	gs_screen_next
+	.globl	gs_screen_next                  # -- Begin function gs_screen_next
 	.p2align	5
 	.type	gs_screen_next,@function
 gs_screen_next:                         # @gs_screen_next
@@ -964,9 +924,11 @@ gs_screen_next:                         # @gs_screen_next
 	addi.w	$a0, $zero, -15
 	ret
 .LBB15_2:
-	pcalau12i	$a1, %pc_hi20(.LCPI15_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI15_0)
 	ld.d	$a2, $a0, 8
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -64
+	lu52i.d	$a1, $a1, 1037
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0
 	movfr2gr.d	$a3, $fa0

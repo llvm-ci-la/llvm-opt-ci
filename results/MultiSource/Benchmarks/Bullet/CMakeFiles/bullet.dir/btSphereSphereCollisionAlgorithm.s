@@ -349,10 +349,6 @@ GCC_except_table3:
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI4_1:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
 	.globl	_ZN32btSphereSphereCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
 	.p2align	5
@@ -415,13 +411,13 @@ _ZN32btSphereSphereCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_R
 	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI4_1)
-	fld.s	$ft1, $a1, %pc_lo12(.LCPI4_1)
-	vld	$vr10, $a0, %pc_lo12(.LCPI4_0)
 	fsub.s	$fa0, $ft0, $fa0
-	fcmp.cule.s	$fcc0, $ft0, $ft1
-	vst	$vr10, $sp, 16
+	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
+	vld	$vr9, $a0, %pc_lo12(.LCPI4_0)
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$ft2, $a0
+	fcmp.cule.s	$fcc0, $ft0, $ft2
+	vst	$vr9, $sp, 16
 	bcnez	$fcc0, .LBB4_6
 # %bb.5:
 	frecip.s	$ft1, $ft0

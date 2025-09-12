@@ -362,12 +362,7 @@ ljForce:                                # @ljForce
 .Lfunc_end2:
 	.size	ljForce, .Lfunc_end2-ljForce
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ljPrint
-.LCPI3_0:
-	.dword	0x4059e921dd37dc65              # double 103.64269190268676
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function ljPrint
 	.type	ljPrint,@function
 ljPrint:                                # @ljPrint
 # %bb.0:
@@ -397,8 +392,11 @@ ljPrint:                                # @ljPrint
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
 	fld.d	$fa0, $s0, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a0, -142467
+	ori	$a0, $a0, 3173
+	lu32i.d	$a0, -399071
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a2, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.5)

@@ -257,26 +257,7 @@ rc_free:                                # @rc_free
 .Lfunc_end2:
 	.size	rc_free, .Lfunc_end2-rc_free
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function rc_init_seq
-.LCPI3_0:
-	.dword	0x3feccccccccccccd              # double 0.90000000000000002
-.LCPI3_1:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-.LCPI3_2:
-	.dword	0x3fe3333333333333              # double 0.59999999999999998
-.LCPI3_3:
-	.dword	0x3fd3333333333333              # double 0.29999999999999999
-.LCPI3_4:
-	.dword	0x3fc999999999999a              # double 0.20000000000000001
-.LCPI3_5:
-	.dword	0x3ff3333333333333              # double 1.2
-.LCPI3_6:
-	.dword	0x4003333333333333              # double 2.3999999999999999
-.LCPI3_7:
-	.dword	0x3ff6666666666666              # double 1.3999999999999999
-	.text
-	.globl	rc_init_seq
+	.globl	rc_init_seq                     # -- Begin function rc_init_seq
 	.p2align	5
 	.type	rc_init_seq,@function
 rc_init_seq:                            # @rc_init_seq
@@ -355,15 +336,18 @@ rc_init_seq:                            # @rc_init_seq
 	st.w	$zero, $s3, 40
 	st.w	$zero, $s3, 80
 	slt	$a0, $zero, $a0
-	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI3_0)
-	vldi	$vr2, -944
-	vldi	$vr3, -928
+	vldi	$vr1, -944
+	vldi	$vr2, -928
 	movgr2cf	$fcc0, $a0
-	fsel	$fa2, $fa3, $fa2, $fcc0
-	fsel	$fa1, $fa3, $fa1, $fcc0
-	fst.d	$fa2, $fp, 16
-	fst.d	$fa1, $fp, 24
+	fsel	$fa1, $fa2, $fa1, $fcc0
+	lu12i.w	$a0, -209716
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, -209716
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa3, $a0
+	fsel	$fa2, $fa2, $fa3, $fcc0
+	fst.d	$fa1, $fp, 16
+	fst.d	$fa2, $fp, 24
 	st.w	$zero, $fp, 1348
 	fcvt.d.s	$fs1, $fa0
 	fst.d	$fs1, $fp, 1312
@@ -383,49 +367,58 @@ rc_init_seq:                            # @rc_init_seq
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 2
-	st.w	$a0, $fp, 1596
 	ld.w	$a1, $fp, 1388
+	st.w	$a0, $fp, 1596
 	st.w	$zero, $fp, 1372
-	st.w	$zero, $fp, 1380
 	ori	$a2, $zero, 8
 	slt	$a1, $a2, $a1
 	lu12i.w	$a2, 3
 	ori	$a2, $a2, 3048
 	ldx.w	$a2, $s2, $a2
+	st.w	$zero, $fp, 1380
 	sub.d	$a0, $a0, $a1
-	ld.w	$a1, $s2, 52
 	st.w	$a0, $fp, 1440
 	st.w	$a2, $fp, 1444
 	st.w	$zero, $s3, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI3_2)
-	beq	$a1, $s4, .LBB3_10
+	ld.w	$a3, $s2, 52
+	lu12i.w	$a0, -419431
+	ori	$a2, $a0, 2458
+	lu32i.d	$a2, -419431
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, 209715
+	lu52i.d	$a1, $a0, 1022
+	beq	$a3, $s4, .LBB3_10
 # %bb.8:
-	ori	$a2, $zero, 352
-	bne	$a1, $a2, .LBB3_11
+	ori	$a4, $zero, 352
+	bne	$a3, $a4, .LBB3_11
 # %bb.9:
-	pcalau12i	$a1, %pc_hi20(.LCPI3_4)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI3_4)
-	pcalau12i	$a1, %pc_hi20(.LCPI3_5)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI3_5)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI3_2)
+	lu52i.d	$a2, $a2, 1020
+	movgr2fr.d	$fa1, $a2
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa0, $a0
+	movgr2fr.d	$fa2, $a1
 	ldptr.w	$a0, $s1, 5124
 	bnez	$a0, .LBB3_16
 	b	.LBB3_12
 .LBB3_10:
-	pcalau12i	$a1, %pc_hi20(.LCPI3_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI3_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI3_3)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI3_3)
+	lu52i.d	$a2, $a2, 1019
+	movgr2fr.d	$fa1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fa2, $a0
 	ldptr.w	$a0, $s1, 5124
 	bnez	$a0, .LBB3_16
 	b	.LBB3_12
 .LBB3_11:
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI3_6)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI3_6)
-	pcalau12i	$a0, %pc_hi20(.LCPI3_7)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI3_7)
+	movgr2fr.d	$fa1, $a1
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa0, $a0
+	lu12i.w	$a0, 419430
+	ori	$a0, $a0, 1638
+	lu32i.d	$a0, 419430
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa2, $a0
 	ldptr.w	$a0, $s1, 5124
 	bnez	$a0, .LBB3_16
 .LBB3_12:
@@ -2831,12 +2824,7 @@ updateQPRC3:                            # @updateQPRC3
 .Lfunc_end7:
 	.size	updateQPRC3, .Lfunc_end7-updateQPRC3
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function rc_init_GOP
-.LCPI8_0:
-	.dword	0x4000624dd2f1a9fc              # double 2.048
-	.text
-	.globl	rc_init_GOP
+	.globl	rc_init_GOP                     # -- Begin function rc_init_GOP
 	.p2align	5
 	.type	rc_init_GOP,@function
 rc_init_GOP:                            # @rc_init_GOP
@@ -3113,12 +3101,15 @@ rc_init_GOP:                            # @rc_init_GOP
 	fadd.s	$fa3, $fa4, $fa3
 	ftintrz.w.s	$fa3, $fa3
 	movfr2gr.s	$a5, $fa3
-	pcalau12i	$a7, %pc_hi20(.LCPI8_0)
-	fld.d	$fa3, $a7, %pc_lo12(.LCPI8_0)
 	st.w	$a5, $a0, 1564
 	ffint.d.w	$fa2, $fa2
-	fcvt.d.s	$fa4, $fa0
-	fmadd.d	$fa2, $fa4, $fa3, $fa2
+	fcvt.d.s	$fa3, $fa0
+	lu12i.w	$a5, -184550
+	ori	$a5, $a5, 2556
+	lu32i.d	$a5, 25165
+	lu52i.d	$a5, $a5, 1024
+	movgr2fr.d	$fa4, $a5
+	fmadd.d	$fa2, $fa3, $fa4, $fa2
 	ftintrz.w.d	$fa2, $fa2
 	movfr2gr.s	$a5, $fa2
 	st.w	$a5, $a0, 1556
@@ -3285,12 +3276,7 @@ rc_init_GOP:                            # @rc_init_GOP
 .Lfunc_end8:
 	.size	rc_init_GOP, .Lfunc_end8-rc_init_GOP
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function rc_init_pict
-.LCPI9_0:
-	.dword	0x3fe3333333333333              # double 0.59999999999999998
-	.text
-	.globl	rc_init_pict
+	.globl	rc_init_pict                    # -- Begin function rc_init_pict
 	.p2align	5
 	.type	rc_init_pict,@function
 rc_init_pict:                           # @rc_init_pict
@@ -4022,12 +4008,15 @@ rc_init_pict:                           # @rc_init_pict
 	beqz	$a2, .LBB9_111
 # %bb.110:
 	ld.w	$a1, $a0, 1540
-	pcalau12i	$a2, %pc_hi20(.LCPI9_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI9_0)
 	st.w	$zero, $a0, 1552
-	movgr2fr.w	$fa1, $a1
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a1, 209715
+	ori	$a1, $a1, 819
+	lu32i.d	$a1, 209715
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
 	ori	$a2, $zero, 1536
@@ -4058,12 +4047,7 @@ rc_init_pict:                           # @rc_init_pict
 .Lfunc_end9:
 	.size	rc_init_pict, .Lfunc_end9-rc_init_pict
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function rc_update_pict
-.LCPI10_0:
-	.word	0x3f666666                      # float 0.899999976
-	.text
-	.globl	rc_update_pict
+	.globl	rc_update_pict                  # -- Begin function rc_update_pict
 	.p2align	5
 	.type	rc_update_pict,@function
 rc_update_pict:                         # @rc_update_pict
@@ -4092,12 +4076,13 @@ rc_update_pict:                         # @rc_update_pict
 	sub.d	$a1, $a1, $a4
 	st.w	$a1, $a0, 1564
 	sub.d	$a1, $a5, $a4
-	pcalau12i	$a2, %pc_hi20(.LCPI10_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI10_0)
 	st.w	$a1, $a0, 1556
+	movgr2fr.w	$fa0, $a1
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a1, 259686
+	ori	$a1, $a1, 1638
 	movgr2fr.w	$fa1, $a1
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
 	st.w	$a1, $a0, 1560
@@ -4195,12 +4180,7 @@ updatePparams:                          # @updatePparams
 .Lfunc_end12:
 	.size	updatePparams, .Lfunc_end12-updatePparams
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function updateBparams
-.LCPI13_0:
-	.word	0x3fae8a72                      # float 1.36360002
-	.text
-	.globl	updateBparams
+	.globl	updateBparams                   # -- Begin function updateBparams
 	.p2align	5
 	.type	updateBparams,@function
 updateBparams:                          # @updateBparams
@@ -4210,8 +4190,9 @@ updateBparams:                          # @updateBparams
 	addi.d	$a2, $a2, -1
 	st.w	$a2, $a0, 1548
 	movgr2fr.w	$fa0, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI13_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI13_0)
+	lu12i.w	$a1, 260840
+	ori	$a1, $a1, 2674
+	movgr2fr.w	$fa1, $a1
 	ld.w	$a1, $a0, 1360
 	pcalau12i	$a2, %pc_hi20(generic_RC)
 	ld.d	$a2, $a2, %pc_lo12(generic_RC)
@@ -4228,12 +4209,7 @@ updateBparams:                          # @updateBparams
 .Lfunc_end13:
 	.size	updateBparams, .Lfunc_end13-updateBparams
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function rc_update_pict_frame
-.LCPI14_0:
-	.word	0x3fae8a72                      # float 1.36360002
-	.text
-	.globl	rc_update_pict_frame
+	.globl	rc_update_pict_frame            # -- Begin function rc_update_pict_frame
 	.p2align	5
 	.type	rc_update_pict_frame,@function
 rc_update_pict_frame:                   # @rc_update_pict_frame
@@ -4373,8 +4349,9 @@ rc_update_pict_frame:                   # @rc_update_pict_frame
 	addi.d	$a2, $a2, -1
 	st.w	$a2, $a0, 1548
 	movgr2fr.w	$fa0, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI14_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI14_0)
+	lu12i.w	$a1, 260840
+	ori	$a1, $a1, 2674
+	movgr2fr.w	$fa1, $a1
 	ld.w	$a1, $a0, 1360
 	pcalau12i	$a2, %pc_hi20(generic_RC)
 	ld.d	$a2, $a2, %pc_lo12(generic_RC)
@@ -4410,8 +4387,9 @@ rc_update_pict_frame:                   # @rc_update_pict_frame
 	st.w	$a4, $a0, 1548
 	movgr2fr.w	$fa0, $a1
 	ffint.s.w	$fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI14_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI14_0)
+	lu12i.w	$a1, 260840
+	ori	$a1, $a1, 2674
+	movgr2fr.w	$fa1, $a1
 	ld.w	$a4, $a0, 1360
 	pcalau12i	$a1, %pc_hi20(generic_RC)
 	ld.d	$a1, $a1, %pc_lo12(generic_RC)
@@ -5161,12 +5139,7 @@ updateRCModel:                          # @updateRCModel
 .Lfunc_end15:
 	.size	updateRCModel, .Lfunc_end15-updateRCModel
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function RCModelEstimator
-.LCPI16_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	RCModelEstimator
+	.globl	RCModelEstimator                # -- Begin function RCModelEstimator
 	.p2align	5
 	.type	RCModelEstimator,@function
 RCModelEstimator:                       # @RCModelEstimator
@@ -5323,12 +5296,15 @@ RCModelEstimator:                       # @RCModelEstimator
 	b	.LBB16_20
 .LBB16_23:                              # %._crit_edge128
 	fneg.d	$fa5, $fa4
-	pcalau12i	$a1, %pc_hi20(.LCPI16_0)
-	fld.d	$fa7, $a1, %pc_lo12(.LCPI16_0)
 	fmul.d	$fa6, $fa4, $fa5
 	fmadd.d	$fa6, $fa3, $fa0, $fa6
-	fabs.d	$ft0, $fa6
-	fcmp.cule.d	$fcc0, $ft0, $fa7
+	fabs.d	$fa7, $fa6
+	lu12i.w	$a1, -390306
+	ori	$a1, $a1, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$ft0, $a1
+	fcmp.cule.d	$fcc0, $fa7, $ft0
 	bcnez	$fcc0, .LBB16_25
 # %bb.24:
 	fneg.d	$fa4, $fa4
@@ -5741,12 +5717,7 @@ updateMADModel:                         # @updateMADModel
 .Lfunc_end17:
 	.size	updateMADModel, .Lfunc_end17-updateMADModel
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function MADModelEstimator
-.LCPI18_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	MADModelEstimator
+	.globl	MADModelEstimator               # -- Begin function MADModelEstimator
 	.p2align	5
 	.type	MADModelEstimator,@function
 MADModelEstimator:                      # @MADModelEstimator
@@ -5900,12 +5871,15 @@ MADModelEstimator:                      # @MADModelEstimator
 	b	.LBB18_20
 .LBB18_23:                              # %._crit_edge128
 	fneg.d	$fa5, $fa4
-	pcalau12i	$a1, %pc_hi20(.LCPI18_0)
-	fld.d	$fa7, $a1, %pc_lo12(.LCPI18_0)
 	fmul.d	$fa6, $fa4, $fa5
 	fmadd.d	$fa6, $fa2, $fa3, $fa6
-	fabs.d	$ft0, $fa6
-	fcmp.cule.d	$fcc0, $ft0, $fa7
+	fabs.d	$fa7, $fa6
+	lu12i.w	$a1, -390306
+	ori	$a1, $a1, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$ft0, $a1
+	fcmp.cule.d	$fcc0, $fa7, $ft0
 	bcnez	$fcc0, .LBB18_25
 # %bb.24:
 	fneg.d	$fa4, $fa4

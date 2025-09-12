@@ -963,27 +963,23 @@ part_imp_match_init:                    # @part_imp_match_init
 .Lfunc_end3:
 	.size	part_imp_match_init, .Lfunc_end3-part_imp_match_init
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function partA__align
-.LCPI4_0:
-	.dword	0x3ff4cccccccccccd              # double 1.3
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI4_1:
+	.p2align	4, 0x0                          # -- Begin function partA__align
+.LCPI4_0:
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
 	.word	4                               # 0x4
-.LCPI4_2:
+.LCPI4_1:
 	.dword	3                               # 0x3
 	.dword	4                               # 0x4
-.LCPI4_3:
+.LCPI4_2:
 	.dword	1                               # 0x1
 	.dword	2                               # 0x2
-.LCPI4_4:
+.LCPI4_3:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-.LCPI4_5:
+.LCPI4_4:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -1171,21 +1167,24 @@ partA__align:                           # @partA__align
 	ld.d	$a0, $sp, 176                   # 8-byte Folded Reload
 	ld.w	$s7, $a0, %pc_lo12(partA__align.orlgth2)
 .LBB4_7:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI4_0)
-	movgr2fr.w	$fa1, $s0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $s0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -209716
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, 314572
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s4
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $s4, $a1
 	or	$s4, $a1, $a0
 	addi.w	$s0, $s4, 100
-	movgr2fr.w	$fa1, $s3
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $s3
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s7
@@ -1824,8 +1823,8 @@ partA__align:                           # @partA__align
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 1, 0
 	vreplgr2vr.w	$vr0, $a0
-	pcalau12i	$a5, %pc_hi20(.LCPI4_1)
-	vld	$vr1, $a5, %pc_lo12(.LCPI4_1)
+	pcalau12i	$a5, %pc_hi20(.LCPI4_0)
+	vld	$vr1, $a5, %pc_lo12(.LCPI4_0)
 	addi.d	$a5, $s6, 4
 	lu52i.d	$a6, $zero, -1026
 	vreplgr2vr.d	$vr2, $a6
@@ -1920,8 +1919,8 @@ partA__align:                           # @partA__align
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 1, 0
 	vreplgr2vr.w	$vr0, $a0
-	pcalau12i	$a5, %pc_hi20(.LCPI4_1)
-	vld	$vr1, $a5, %pc_lo12(.LCPI4_1)
+	pcalau12i	$a5, %pc_hi20(.LCPI4_0)
+	vld	$vr1, $a5, %pc_lo12(.LCPI4_0)
 	ld.d	$a5, $sp, 272                   # 8-byte Folded Reload
 	addi.d	$a5, $a5, 4
 	lu52i.d	$a6, $zero, -1026
@@ -2331,10 +2330,10 @@ partA__align:                           # @partA__align
 	bstrins.d	$a3, $a5, 1, 0
 	vreplgr2vr.w	$vr0, $a0
 	vreplgr2vr.d	$vr1, $t3
+	pcalau12i	$a5, %pc_hi20(.LCPI4_1)
+	vld	$vr2, $a5, %pc_lo12(.LCPI4_1)
 	pcalau12i	$a5, %pc_hi20(.LCPI4_2)
-	vld	$vr2, $a5, %pc_lo12(.LCPI4_2)
-	pcalau12i	$a5, %pc_hi20(.LCPI4_3)
-	vld	$vr3, $a5, %pc_lo12(.LCPI4_3)
+	vld	$vr3, $a5, %pc_lo12(.LCPI4_2)
 	addi.d	$a5, $s6, 4
 	lu52i.d	$a6, $zero, -1026
 	vreplgr2vr.d	$vr4, $a6
@@ -2621,8 +2620,8 @@ partA__align:                           # @partA__align
 	move	$a5, $zero
 	b	.LBB4_143
 .LBB4_140:                              # %vector.ph873
-	pcalau12i	$a6, %pc_hi20(.LCPI4_4)
-	vld	$vr0, $a6, %pc_lo12(.LCPI4_4)
+	pcalau12i	$a6, %pc_hi20(.LCPI4_3)
+	vld	$vr0, $a6, %pc_lo12(.LCPI4_3)
 	bstrpick.d	$a5, $a5, 31, 2
 	slli.d	$a5, $a5, 2
 	addi.d	$a6, $ra, 16
@@ -2676,8 +2675,8 @@ partA__align:                           # @partA__align
 .LBB4_148:                              # %vector.ph889
 	bstrpick.d	$a5, $a5, 31, 3
 	slli.d	$a5, $a5, 3
-	pcalau12i	$a6, %pc_hi20(.LCPI4_5)
-	vld	$vr0, $a6, %pc_lo12(.LCPI4_5)
+	pcalau12i	$a6, %pc_hi20(.LCPI4_4)
+	vld	$vr0, $a6, %pc_lo12(.LCPI4_4)
 	addi.d	$a6, $a3, 16
 	vrepli.b	$vr1, -1
 	vrepli.w	$vr2, -5
@@ -3292,8 +3291,8 @@ partA__align:                           # @partA__align
 	bne	$a4, $a5, .LBB4_60
 	b	.LBB4_77
 .LBB4_219:                              # %vector.ph844
-	pcalau12i	$a5, %pc_hi20(.LCPI4_4)
-	vld	$vr0, $a5, %pc_lo12(.LCPI4_4)
+	pcalau12i	$a5, %pc_hi20(.LCPI4_3)
+	vld	$vr0, $a5, %pc_lo12(.LCPI4_3)
 	bstrpick.d	$a4, $a4, 31, 2
 	slli.d	$a4, $a4, 2
 	addi.d	$a5, $s5, 16
@@ -3347,8 +3346,8 @@ partA__align:                           # @partA__align
 .LBB4_227:                              # %vector.ph859
 	bstrpick.d	$a4, $a4, 31, 3
 	slli.d	$a4, $a4, 3
-	pcalau12i	$a5, %pc_hi20(.LCPI4_5)
-	vld	$vr0, $a5, %pc_lo12(.LCPI4_5)
+	pcalau12i	$a5, %pc_hi20(.LCPI4_4)
+	vld	$vr0, $a5, %pc_lo12(.LCPI4_4)
 	addi.d	$a5, $a2, 16
 	vrepli.b	$vr1, -1
 	vrepli.w	$vr2, -5

@@ -51,10 +51,6 @@ srand:                                  # @srand
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI2_1:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
 	.text
 	.globl	main
 	.p2align	5
@@ -348,8 +344,11 @@ main:                                   # @main
 	addi.d	$a0, $a0, %pc_lo12(.Lstr)
 	pcaddu18i	$ra, %call36(puts)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI2_1)
+	lu12i.w	$a0, -487882
+	ori	$a0, $a0, 2289
+	lu32i.d	$a0, 325813
+	lu52i.d	$s2, $a0, 1006
+	movgr2fr.d	$fs0, $s2
 	pcalau12i	$a0, %pc_hi20(.L.str.6)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.6)
 	move	$fp, $s8
@@ -388,11 +387,11 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.L.str.6)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.6)
 	move	$s0, $s4
-	move	$s2, $s7
+	move	$s3, $s7
 	.p2align	4, , 16
 .LBB2_28:                               # %.lr.ph119
                                         # =>This Inner Loop Header: Depth=1
-	fld.s	$fa1, $s2, 0
+	fld.s	$fa1, $s3, 0
 	fld.s	$fa0, $s0, 0
 	fsub.s	$fa2, $fa1, $fa0
 	fabs.s	$fa2, $fa2
@@ -406,7 +405,7 @@ main:                                   # @main
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	addi.d	$s2, $s2, 4
+	addi.d	$s3, $s3, 4
 	addi.d	$fp, $fp, -1
 	addi.d	$s0, $s0, 4
 	bnez	$fp, .LBB2_28
@@ -451,10 +450,7 @@ main:                                   # @main
 	movfr2gr.d	$a3, $fa0
 	pcalau12i	$a1, %pc_hi20(.L.str.9)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.9)
-	lu12i.w	$a4, -487882
-	ori	$a4, $a4, 2289
-	lu32i.d	$a4, 325813
-	lu52i.d	$a4, $a4, 1006
+	move	$a4, $s2
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 1

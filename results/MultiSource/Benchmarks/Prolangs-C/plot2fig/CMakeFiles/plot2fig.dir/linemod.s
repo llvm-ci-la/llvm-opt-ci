@@ -1,10 +1,6 @@
 	.file	"linemod.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function linemod
-.LCPI0_0:
-	.word	0x4479c000                      # float 999
 	.text
-	.globl	linemod
+	.globl	linemod                         # -- Begin function linemod
 	.p2align	5
 	.type	linemod,@function
 linemod:                                # @linemod
@@ -97,8 +93,8 @@ linemod:                                # @linemod
 	vldi	$vr0, -1264
 	b	.LBB0_11
 .LBB0_13:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 280476
+	movgr2fr.w	$fa0, $a0
 	ori	$s0, $zero, 2
 	b	.LBB0_11
 .LBB0_14:

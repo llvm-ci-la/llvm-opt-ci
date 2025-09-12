@@ -1,10 +1,6 @@
 	.file	"20071030-1.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function CalcPing
-.LCPI0_0:
-	.word	0x447a0000                      # float 1000
 	.text
-	.globl	CalcPing
+	.globl	CalcPing                        # -- Begin function CalcPing
 	.p2align	5
 	.type	CalcPing,@function
 CalcPing:                               # @CalcPing
@@ -36,11 +32,11 @@ CalcPing:                               # @CalcPing
 	beqz	$a1, .LBB0_6
 # %bb.5:
 	bstrpick.d	$a0, $a1, 31, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI0_0)
-	movgr2fr.d	$fa2, $a0
-	ffint.s.l	$fa2, $fa2
-	fdiv.s	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa1, $a0
+	ffint.s.l	$fa1, $fa1
+	fdiv.s	$fa0, $fa0, $fa1
+	lu12i.w	$a0, 280480
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
@@ -52,12 +48,7 @@ CalcPing:                               # @CalcPing
 .Lfunc_end0:
 	.size	CalcPing, .Lfunc_end0-CalcPing
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.word	0x447a0000                      # float 1000
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -92,11 +83,11 @@ main:                                   # @main
 	beqz	$a0, .LBB1_5
 # %bb.3:                                # %CalcPing.exit
 	bstrpick.d	$a0, $a0, 31, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI1_0)
-	movgr2fr.d	$fa2, $a0
-	ffint.s.l	$fa2, $fa2
-	fdiv.s	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa1, $a0
+	ffint.s.l	$fa1, $fa1
+	fdiv.s	$fa0, $fa0, $fa1
+	lu12i.w	$a0, 280480
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0

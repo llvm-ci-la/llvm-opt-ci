@@ -1,10 +1,6 @@
 	.file	"ieeefloat.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ConvertFromIeeeSingle
-.LCPI0_0:
-	.dword	0x7ff0000000000000              # double +Inf
 	.text
-	.globl	ConvertFromIeeeSingle
+	.globl	ConvertFromIeeeSingle           # -- Begin function ConvertFromIeeeSingle
 	.p2align	5
 	.type	ConvertFromIeeeSingle,@function
 ConvertFromIeeeSingle:                  # @ConvertFromIeeeSingle
@@ -37,8 +33,8 @@ ConvertFromIeeeSingle:                  # @ConvertFromIeeeSingle
 	movgr2fr.d	$fa0, $zero
 	ret
 .LBB0_5:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a0, $zero, 2047
+	movgr2fr.d	$fa0, $a0
 	ret
 .LBB0_6:
 	srli.d	$a1, $a1, 23
@@ -53,12 +49,7 @@ ConvertFromIeeeSingle:                  # @ConvertFromIeeeSingle
 .Lfunc_end0:
 	.size	ConvertFromIeeeSingle, .Lfunc_end0-ConvertFromIeeeSingle
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ConvertToIeeeSingle
-.LCPI1_0:
-	.dword	0x4170000000000000              # double 16777216
-	.text
-	.globl	ConvertToIeeeSingle
+	.globl	ConvertToIeeeSingle             # -- Begin function ConvertToIeeeSingle
 	.p2align	5
 	.type	ConvertToIeeeSingle,@function
 ConvertToIeeeSingle:                    # @ConvertToIeeeSingle
@@ -112,8 +103,8 @@ ConvertToIeeeSingle:                    # @ConvertToIeeeSingle
 	or	$s0, $s0, $a0
 	b	.LBB1_9
 .LBB1_8:
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_0)
+	lu52i.d	$a1, $zero, 1047
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	vreplvei.d	$vr0, $vr0, 0
 	vfrintrm.d	$vr0, $vr0
@@ -135,12 +126,7 @@ ConvertToIeeeSingle:                    # @ConvertToIeeeSingle
 .Lfunc_end1:
 	.size	ConvertToIeeeSingle, .Lfunc_end1-ConvertToIeeeSingle
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ConvertFromIeeeDouble
-.LCPI2_0:
-	.dword	0x7ff0000000000000              # double +Inf
-	.text
-	.globl	ConvertFromIeeeDouble
+	.globl	ConvertFromIeeeDouble           # -- Begin function ConvertFromIeeeDouble
 	.p2align	5
 	.type	ConvertFromIeeeDouble,@function
 ConvertFromIeeeDouble:                  # @ConvertFromIeeeDouble
@@ -188,8 +174,8 @@ ConvertFromIeeeDouble:                  # @ConvertFromIeeeDouble
 	addi.w	$a0, $zero, -1074
 	b	.LBB2_7
 .LBB2_5:
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI2_0)
+	lu52i.d	$a0, $zero, 2047
+	movgr2fr.d	$fa0, $a0
 	b	.LBB2_8
 .LBB2_6:
 	ori	$a1, $zero, 1
@@ -222,14 +208,7 @@ ConvertFromIeeeDouble:                  # @ConvertFromIeeeDouble
 .Lfunc_end2:
 	.size	ConvertFromIeeeDouble, .Lfunc_end2-ConvertFromIeeeDouble
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ConvertToIeeeDouble
-.LCPI3_0:
-	.dword	0xc130000000000000              # double -1048576
-.LCPI3_1:
-	.dword	0xc1e0000000000000              # double -2147483648
-	.text
-	.globl	ConvertToIeeeDouble
+	.globl	ConvertToIeeeDouble             # -- Begin function ConvertToIeeeDouble
 	.p2align	5
 	.type	ConvertToIeeeDouble,@function
 ConvertToIeeeDouble:                    # @ConvertToIeeeDouble
@@ -287,12 +266,12 @@ ConvertToIeeeDouble:                    # @ConvertToIeeeDouble
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 	vreplvei.d	$vr1, $vr0, 0
 	vfrintrm.d	$vr1, $vr1
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI3_0)
 	ftintrz.l.d	$fa1, $fa1
 	movfr2gr.d	$a0, $fa1
 	addu16i.d	$a0, $a0, -16
-	fadd.d	$fa0, $fa0, $fa2
+	lu52i.d	$a1, $zero, -1005
+	movgr2fr.d	$fa1, $a1
+	fadd.d	$fa0, $fa0, $fa1
 	slli.d	$a1, $s1, 20
 	add.d	$a1, $a1, $s0
 	addu16i.d	$a1, $a1, 16352
@@ -319,11 +298,11 @@ ConvertToIeeeDouble:                    # @ConvertToIeeeDouble
 .LBB3_12:
 	pcaddu18i	$ra, %call36(ldexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_1)
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 	vreplvei.d	$vr0, $vr0, 0
 	vfrintrm.d	$vr0, $vr0
+	lu52i.d	$a0, $zero, -994
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0
 	movfr2gr.d	$a0, $fa0
@@ -357,12 +336,7 @@ ConvertToIeeeDouble:                    # @ConvertToIeeeDouble
 .Lfunc_end3:
 	.size	ConvertToIeeeDouble, .Lfunc_end3-ConvertToIeeeDouble
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ConvertFromIeeeExtended
-.LCPI4_0:
-	.dword	0x7ff0000000000000              # double +Inf
-	.text
-	.globl	ConvertFromIeeeExtended
+	.globl	ConvertFromIeeeExtended         # -- Begin function ConvertFromIeeeExtended
 	.p2align	5
 	.type	ConvertFromIeeeExtended,@function
 ConvertFromIeeeExtended:                # @ConvertFromIeeeExtended
@@ -396,8 +370,8 @@ ConvertFromIeeeExtended:                # @ConvertFromIeeeExtended
 	ori	$a3, $a3, 4095
 	bne	$fp, $a3, .LBB4_6
 # %bb.5:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI4_0)
+	lu52i.d	$a0, $zero, 2047
+	movgr2fr.d	$fa0, $a0
 	b	.LBB4_7
 .LBB4_6:
 	movgr2fr.d	$fa0, $a2
@@ -435,12 +409,7 @@ ConvertFromIeeeExtended:                # @ConvertFromIeeeExtended
 .Lfunc_end4:
 	.size	ConvertFromIeeeExtended, .Lfunc_end4-ConvertFromIeeeExtended
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ConvertToIeeeExtended
-.LCPI5_0:
-	.dword	0xc1e0000000000000              # double -2147483648
-	.text
-	.globl	ConvertToIeeeExtended
+	.globl	ConvertToIeeeExtended           # -- Begin function ConvertToIeeeExtended
 	.p2align	5
 	.type	ConvertToIeeeExtended,@function
 ConvertToIeeeExtended:                  # @ConvertToIeeeExtended
@@ -493,11 +462,11 @@ ConvertToIeeeExtended:                  # @ConvertToIeeeExtended
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(ldexp)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI5_0)
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 	vreplvei.d	$vr1, $vr0, 0
 	vfrintrm.d	$vr1, $vr1
+	lu52i.d	$a0, $zero, -994
+	movgr2fr.d	$fs0, $a0
 	fadd.d	$fa2, $fa1, $fs0
 	ftintrz.l.d	$fa2, $fa2
 	movfr2gr.d	$a0, $fa2

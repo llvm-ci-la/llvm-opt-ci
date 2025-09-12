@@ -1,16 +1,6 @@
 	.file	"is.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function randlc
-.LCPI0_0:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
-.LCPI0_1:
-	.dword	0x4160000000000000              # double 8388608
-.LCPI0_2:
-	.dword	0x3d10000000000000              # double 1.4210854715202004E-14
-.LCPI0_3:
-	.dword	0x42d0000000000000              # double 70368744177664
 	.text
-	.globl	randlc
+	.globl	randlc                          # -- Begin function randlc
 	.p2align	5
 	.type	randlc,@function
 randlc:                                 # @randlc
@@ -22,35 +12,31 @@ randlc:                                 # @randlc
 	pcalau12i	$a2, %pc_hi20(randlc.R23)
 	fld.d	$fa3, $a2, %pc_lo12(randlc.R23)
 	pcalau12i	$a2, %pc_hi20(randlc.T23)
-	fld.d	$fa1, $a2, %pc_lo12(randlc.T23)
+	fld.d	$fa2, $a2, %pc_lo12(randlc.T23)
 	pcalau12i	$a2, %pc_hi20(randlc.R46)
 	fld.d	$fa0, $a2, %pc_lo12(randlc.R46)
 	pcalau12i	$a2, %pc_hi20(randlc.T46)
-	fld.d	$fa2, $a2, %pc_lo12(randlc.T46)
+	fld.d	$fa1, $a2, %pc_lo12(randlc.T46)
 	b	.LBB0_3
 .LBB0_2:                                # %.preheader
 	pcalau12i	$a3, %pc_hi20(randlc.R23)
 	lu52i.d	$a4, $zero, 1000
 	st.d	$a4, $a3, %pc_lo12(randlc.R23)
 	pcalau12i	$a3, %pc_hi20(randlc.T23)
-	lu52i.d	$a4, $zero, 1046
-	st.d	$a4, $a3, %pc_lo12(randlc.T23)
+	lu52i.d	$a5, $zero, 1046
+	st.d	$a5, $a3, %pc_lo12(randlc.T23)
 	pcalau12i	$a3, %pc_hi20(randlc.R46)
-	lu52i.d	$a4, $zero, 977
-	st.d	$a4, $a3, %pc_lo12(randlc.R46)
+	lu52i.d	$a6, $zero, 977
+	st.d	$a6, $a3, %pc_lo12(randlc.R46)
 	pcalau12i	$a3, %pc_hi20(randlc.T46)
-	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
-	fld.d	$fa3, $a4, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a4, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a4, %pc_hi20(.LCPI0_2)
-	fld.d	$fa0, $a4, %pc_lo12(.LCPI0_2)
-	pcalau12i	$a4, %pc_hi20(.LCPI0_3)
-	fld.d	$fa2, $a4, %pc_lo12(.LCPI0_3)
-	lu52i.d	$a4, $zero, 1069
-	st.d	$a4, $a3, %pc_lo12(randlc.T46)
+	lu52i.d	$a7, $zero, 1069
+	st.d	$a7, $a3, %pc_lo12(randlc.T46)
 	ori	$a3, $zero, 1
 	st.b	$a3, $a2, %pc_lo12(randlc.KS)
+	movgr2fr.d	$fa3, $a4
+	movgr2fr.d	$fa2, $a5
+	movgr2fr.d	$fa0, $a6
+	movgr2fr.d	$fa1, $a7
 .LBB0_3:
 	fld.d	$fa4, $a1, 0
 	fmul.d	$fa5, $fa3, $fa4
@@ -59,7 +45,7 @@ randlc:                                 # @randlc
 	movgr2fr.w	$fa5, $a1
 	fld.d	$fa6, $a0, 0
 	ffint.d.w	$fa5, $fa5
-	fneg.d	$fa7, $fa1
+	fneg.d	$fa7, $fa2
 	fmadd.d	$fa4, $fa7, $fa5, $fa4
 	fmul.d	$ft0, $fa3, $fa6
 	ftintrz.w.d	$ft0, $ft0
@@ -76,34 +62,21 @@ randlc:                                 # @randlc
 	ffint.d.w	$fa3, $fa3
 	fmadd.d	$fa3, $fa7, $fa3, $fa5
 	fmul.d	$fa4, $fa4, $fa6
-	fmadd.d	$fa1, $fa1, $fa3, $fa4
-	fmul.d	$fa3, $fa0, $fa1
+	fmadd.d	$fa2, $fa2, $fa3, $fa4
+	fmul.d	$fa3, $fa0, $fa2
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a1, $fa3
 	movgr2fr.w	$fa3, $a1
 	ffint.d.w	$fa3, $fa3
-	fneg.d	$fa2, $fa2
-	fmadd.d	$fa1, $fa2, $fa3, $fa1
+	fneg.d	$fa1, $fa1
+	fmadd.d	$fa1, $fa1, $fa3, $fa2
 	fmul.d	$fa0, $fa0, $fa1
 	fst.d	$fa1, $a0, 0
 	ret
 .Lfunc_end0:
 	.size	randlc, .Lfunc_end0-randlc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function create_seq
-.LCPI1_0:
-	.dword	0x3e80000000000000              # double 1.1920928955078125E-7
-.LCPI1_1:
-	.dword	0x4160000000000000              # double 8388608
-.LCPI1_2:
-	.dword	0x3d10000000000000              # double 1.4210854715202004E-14
-.LCPI1_3:
-	.dword	0x42d0000000000000              # double 70368744177664
-.LCPI1_4:
-	.dword	0x4120000000000000              # double 524288
-	.text
-	.globl	create_seq
+	.globl	create_seq                      # -- Begin function create_seq
 	.p2align	5
 	.type	create_seq,@function
 create_seq:                             # @create_seq
@@ -129,17 +102,13 @@ create_seq:                             # @create_seq
 	lu52i.d	$a3, $zero, 977
 	st.d	$a3, $a2, %pc_lo12(randlc.R46)
 	lu52i.d	$a2, $zero, 1069
-	pcalau12i	$a3, %pc_hi20(.LCPI1_0)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_1)
-	fld.d	$fa3, $a3, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_2)
-	fld.d	$fa4, $a3, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_3)
-	fld.d	$fa7, $a3, %pc_lo12(.LCPI1_3)
 	st.d	$a2, $a1, %pc_lo12(randlc.T46)
 	ori	$a1, $zero, 1
 	st.b	$a1, $a0, %pc_lo12(randlc.KS)
+	movgr2fr.d	$fa2, $a5
+	movgr2fr.d	$fa3, $a4
+	movgr2fr.d	$fa4, $a3
+	movgr2fr.d	$fa7, $a2
 .LBB1_3:                                # %.peel.next
 	fmul.d	$fa5, $fa1, $fa2
 	ftintrz.w.d	$fa5, $fa5
@@ -235,17 +204,17 @@ create_seq:                             # @create_seq
 	ffint.d.w	$ft2, $ft2
 	fmadd.d	$ft0, $fa6, $ft2, $ft0
 	fmul.d	$fa0, $fa1, $fa0
-	fmadd.d	$ft0, $fa3, $ft0, $fa0
+	fmadd.d	$fa0, $fa3, $ft0, $fa0
+	fmul.d	$ft0, $fa4, $fa0
+	ftintrz.w.d	$ft0, $ft0
+	movfr2gr.s	$a0, $ft0
+	movgr2fr.w	$ft0, $a0
+	ffint.d.w	$ft0, $ft0
+	fmadd.d	$ft0, $fa7, $ft0, $fa0
 	fmul.d	$fa0, $fa4, $ft0
-	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a0, $fa0
-	movgr2fr.w	$fa0, $a0
-	ffint.d.w	$ft2, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_4)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_4)
-	fmadd.d	$ft0, $fa7, $ft2, $ft0
-	fmul.d	$ft2, $fa4, $ft0
-	fadd.d	$ft1, $ft1, $ft2
+	fadd.d	$ft1, $ft1, $fa0
+	lu52i.d	$a0, $zero, 1042
+	movgr2fr.d	$fa0, $a0
 	fmul.d	$ft1, $ft1, $fa0
 	ftintrz.w.d	$ft1, $ft1
 	movfr2gr.s	$a0, $ft1
@@ -878,14 +847,7 @@ rank:                                   # @rank
 .Lfunc_end4:
 	.size	rank, .Lfunc_end4-rank
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI5_0:
-	.dword	0x41b2b9b0a1000000              # double 314159265
-.LCPI5_1:
-	.dword	0x41d2309ce5400000              # double 1220703125
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -927,10 +889,14 @@ main:                                   # @main
 	ori	$a1, $zero, 10
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI5_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_1)
+	lu12i.w	$a0, -389120
+	lu32i.d	$a0, 178608
+	lu52i.d	$a0, $a0, 1051
+	movgr2fr.d	$fa0, $a0
+	lu12i.w	$a0, -109568
+	lu32i.d	$a0, 143516
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fa1, $a0
 	pcaddu18i	$ra, %call36(create_seq)
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 1

@@ -1,16 +1,6 @@
 	.file	"z21.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function SizeGalley
-.LCPI0_0:
-	.word	0x42c80000                      # float 100
-.LCPI0_2:
-	.word	0x43000000                      # float 128
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x3f847ae147ae147b              # double 0.01
 	.text
-	.globl	SizeGalley
+	.globl	SizeGalley                      # -- Begin function SizeGalley
 	.p2align	5
 	.type	SizeGalley,@function
 SizeGalley:                             # @SizeGalley
@@ -1305,13 +1295,16 @@ SizeGalley:                             # @SizeGalley
 	pcalau12i	$a1, %pc_hi20(.L.str.19)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.19)
 	st.d	$a1, $sp, 136                   # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a1, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a1, 273536
+	movgr2fr.w	$fs0, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.20)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.20)
 	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a1, 293601
+	ori	$a1, $a1, 1147
+	lu32i.d	$a1, 293601
+	lu52i.d	$a1, $a1, 1016
+	movgr2fr.d	$fs1, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.21)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.21)
 	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
@@ -1601,6 +1594,8 @@ SizeGalley:                             # @SizeGalley
 	sltu	$a0, $zero, $a0
 	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
 	ori	$s4, $zero, 9
+	lu12i.w	$a0, 274432
+	movgr2fr.w	$fs0, $a0
 	b	.LBB0_192
 	.p2align	4, , 16
 .LBB0_189:                              #   in Loop: Header=BB0_192 Depth=1
@@ -2097,12 +2092,10 @@ SizeGalley:                             # @SizeGalley
 	ffint.s.w	$fa1, $fa1
 	movgr2fr.w	$fa2, $s6
 	ffint.s.w	$fa2, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI0_2)
 	fdiv.s	$fa1, $fa1, $fa2
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	fsel	$fa0, $fa0, $fa1, $fcc0
-	fmul.s	$fa0, $fa0, $fa3
+	fmul.s	$fa0, $fa0, $fs0
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	st.d	$a0, $sp, 112                   # 8-byte Folded Spill

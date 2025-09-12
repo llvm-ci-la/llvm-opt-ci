@@ -1466,12 +1466,7 @@ vload:                                  # @vload
 .Lfunc_end12:
 	.size	vload, .Lfunc_end12-vload
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function repl
-.LCPI13_0:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	repl
+	.globl	repl                            # -- Begin function repl
 	.p2align	5
 	.type	repl,@function
 repl:                                   # @repl
@@ -1501,8 +1496,10 @@ repl:                                   # @repl
 	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	pcalau12i	$s3, %pc_hi20(siod_verbose_level)
 	ori	$s0, $zero, 2
-	pcalau12i	$a0, %pc_hi20(.LCPI13_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI13_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -131072
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(tkbuffer)
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(old_heap_used)
@@ -2015,12 +2012,7 @@ ignore_print:                           # @ignore_print
 .Lfunc_end20:
 	.size	ignore_print, .Lfunc_end20-ignore_print
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function myruntime
-.LCPI21_0:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	myruntime
+	.globl	myruntime                       # -- Begin function myruntime
 	.p2align	5
 	.type	myruntime,@function
 myruntime:                              # @myruntime
@@ -2031,14 +2023,16 @@ myruntime:                              # @myruntime
 	pcaddu18i	$ra, %call36(times)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 8
+	ld.d	$a1, $sp, 16
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $sp, 16
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI21_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI21_0)
-	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fadd.d	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	fadd.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -131072
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 48
@@ -2046,12 +2040,7 @@ myruntime:                              # @myruntime
 .Lfunc_end21:
 	.size	myruntime, .Lfunc_end21-myruntime
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function myrealtime
-.LCPI22_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	myrealtime
+	.globl	myrealtime                      # -- Begin function myrealtime
 	.p2align	5
 	.type	myrealtime,@function
 myrealtime:                             # @myrealtime
@@ -2070,14 +2059,17 @@ myrealtime:                             # @myrealtime
 	ret
 .LBB22_2:
 	ld.d	$a0, $sp, 8
+	ld.d	$a1, $sp, 16
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $sp, 16
-	pcalau12i	$a1, %pc_hi20(.LCPI22_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI22_0)
 	ffint.d.l	$fa0, $fa0
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
 	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32
 	ret
@@ -10470,12 +10462,7 @@ gc_kind_check:                          # @gc_kind_check
 .Lfunc_end109:
 	.size	gc_kind_check, .Lfunc_end109-gc_kind_check
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gc_mark_and_sweep
-.LCPI110_0:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	gc_mark_and_sweep
+	.globl	gc_mark_and_sweep               # -- Begin function gc_mark_and_sweep
 	.p2align	5
 	.type	gc_mark_and_sweep,@function
 gc_mark_and_sweep:                      # @gc_mark_and_sweep
@@ -10492,29 +10479,30 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	st.d	$s6, $sp, 152                   # 8-byte Folded Spill
 	st.d	$s7, $sp, 144                   # 8-byte Folded Spill
 	st.d	$s8, $sp, 136                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 128                  # 8-byte Folded Spill
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(times)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 96
-	movgr2fr.d	$fa0, $a0
 	ld.d	$a0, $sp, 104
+	ld.d	$a1, $sp, 112
+	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a2, %pc_hi20(.LCPI110_0)
-	fld.d	$fs0, $a2, %pc_lo12(.LCPI110_0)
-	movgr2fr.d	$fa1, $a0
+	movgr2fr.d	$fa1, $a1
 	ffint.d.l	$fa1, $fa1
+	ori	$a0, $zero, 0
 	fadd.d	$fa0, $fa0, $fa1
-	fdiv.d	$fa0, $fa0, $fs0
-	pcalau12i	$a2, %pc_hi20(gc_rt)
+	lu32i.d	$a0, -131072
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	pcalau12i	$a1, %pc_hi20(gc_rt)
 	pcalau12i	$a0, %pc_hi20(gc_status_flag)
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
 	ld.d	$a0, $a0, %pc_lo12(gc_status_flag)
-	st.d	$a2, $sp, 72                    # 8-byte Folded Spill
-	fst.d	$fa0, $a2, %pc_lo12(gc_rt)
-	pcalau12i	$a2, %pc_hi20(gc_cells_collected)
-	st.d	$a2, $sp, 80                    # 8-byte Folded Spill
-	st.d	$zero, $a2, %pc_lo12(gc_cells_collected)
+	st.d	$a1, $sp, 80                    # 8-byte Folded Spill
+	fst.d	$fa0, $a1, %pc_lo12(gc_rt)
+	pcalau12i	$a1, %pc_hi20(gc_cells_collected)
+	st.d	$a1, $sp, 88                    # 8-byte Folded Spill
+	st.d	$zero, $a1, %pc_lo12(gc_cells_collected)
 	pcalau12i	$fp, %pc_hi20(siod_verbose_level)
 	beqz	$a0, .LBB110_3
 # %bb.1:
@@ -10591,18 +10579,18 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 .LBB110_11:                             # %._crit_edge
 	st.d	$a3, $a0, %pc_lo12(heap)
 .LBB110_12:
-	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 72                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(save_regs_gc_mark)
 	addi.d	$fp, $a0, %pc_lo12(save_regs_gc_mark)
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(getcontext)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(nheaps)
-	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
 	ld.d	$a0, $a0, %pc_lo12(nheaps)
 	pcalau12i	$s6, %pc_hi20(heaps)
 	pcalau12i	$a7, %pc_hi20(heap_size)
-	st.d	$a7, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a7, $sp, 48                    # 8-byte Folded Spill
 	blez	$a0, .LBB110_24
 # %bb.13:                               # %.split.preheader
 	ori	$a1, $s0, 2731
@@ -10621,8 +10609,8 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
                                         #   in Loop: Header=BB110_16 Depth=1
 	pcaddu18i	$ra, %call36(gc_mark)
 	jirl	$ra, $ra, 0
-	ld.d	$a7, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a7, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	ld.d	$a1, $a0, %pc_lo12(nheaps)
 	.p2align	4, , 16
 .LBB110_15:                             # %looks_pointerp.exit.i.thread
@@ -10706,13 +10694,13 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	bnez	$a2, .LBB110_29
 	b	.LBB110_26
 .LBB110_30:                             # %mark_protected_registers.exit.loopexit
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(nheaps)
-	ld.d	$a7, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a7, $sp, 48                    # 8-byte Folded Reload
 .LBB110_31:                             # %mark_protected_registers.exit
 	pcalau12i	$a1, %pc_hi20(stack_start_ptr)
 	ld.d	$a1, $a1, %pc_lo12(stack_start_ptr)
-	addi.d	$a2, $sp, 88
+	addi.d	$a2, $sp, 96
 	sltu	$a3, $a2, $a1
 	sub.d	$a4, $a2, $a1
 	masknez	$a4, $a4, $a3
@@ -10742,8 +10730,8 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
                                         #   in Loop: Header=BB110_36 Depth=1
 	pcaddu18i	$ra, %call36(gc_mark)
 	jirl	$ra, $ra, 0
-	ld.d	$a7, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a7, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	ld.d	$a1, $a0, %pc_lo12(nheaps)
 	.p2align	4, , 16
 .LBB110_35:                             # %looks_pointerp.exit.i7.thread
@@ -10794,24 +10782,24 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	blez	$a0, .LBB110_64
 # %bb.45:                               # %.lr.ph48.preheader
 	move	$a2, $zero
-	st.d	$zero, $sp, 32                  # 8-byte Folded Spill
+	st.d	$zero, $sp, 40                  # 8-byte Folded Spill
 	ori	$s4, $zero, 12
 	ori	$t0, $zero, 3
 	pcalau12i	$a1, %pc_hi20(user_types)
-	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
+	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
 	lu12i.w	$a1, 1
 	ori	$t1, $a1, 3904
 	pcalau12i	$a1, %pc_hi20(.L.str.51)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.51)
-	st.d	$a1, $sp, 8                     # 8-byte Folded Spill
+	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	move	$s0, $zero
 	move	$a1, $zero
-	st.d	$s6, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 24                    # 8-byte Folded Spill
 	b	.LBB110_48
 	.p2align	4, , 16
 .LBB110_46:                             # %mark_locations_array.exit17.loopexit
                                         #   in Loop: Header=BB110_48 Depth=1
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(nheaps)
 	move	$a2, $s5
 .LBB110_47:                             # %mark_locations_array.exit17
@@ -10830,7 +10818,7 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	beqz	$s2, .LBB110_47
 # %bb.49:                               #   in Loop: Header=BB110_48 Depth=1
 	ld.d	$a4, $a7, %pc_lo12(heap_size)
-	ld.d	$a5, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a5, $sp, 40                    # 8-byte Folded Reload
 	bge	$a5, $a4, .LBB110_47
 # %bb.50:                               # %.lr.ph43.preheader
                                         #   in Loop: Header=BB110_48 Depth=1
@@ -10870,7 +10858,7 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	addi.d	$a0, $s7, -19
 	bltu	$a0, $t0, .LBB110_55
 # %bb.57:                               #   in Loop: Header=BB110_53 Depth=2
-	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(user_types)
 	move	$s3, $a0
 	bnez	$a0, .LBB110_61
@@ -10882,23 +10870,23 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	move	$s3, $a0
 	bnez	$a0, .LBB110_60
 # %bb.59:                               #   in Loop: Header=BB110_53 Depth=2
-	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(err)
 	jirl	$ra, $ra, 0
 .LBB110_60:                             # %must_malloc.exit.i
                                         #   in Loop: Header=BB110_53 Depth=2
-	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	st.d	$s3, $a0, %pc_lo12(user_types)
 	move	$a0, $s3
-	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	move	$a2, $s6
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
-	ld.d	$a7, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a7, $sp, 48                    # 8-byte Folded Reload
 	ori	$t0, $zero, 3
 	move	$t1, $s6
-	ld.d	$s6, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 24                    # 8-byte Folded Reload
 .LBB110_61:                             #   in Loop: Header=BB110_53 Depth=2
 	bstrpick.d	$a0, $s7, 15, 0
 	ori	$a1, $zero, 99
@@ -10916,7 +10904,7 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	jirl	$ra, $a1, 0
 	move	$t1, $fp
 	ori	$t0, $zero, 3
-	ld.d	$a7, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a7, $sp, 48                    # 8-byte Folded Reload
 	b	.LBB110_55
 .LBB110_64:
 	move	$a3, $zero
@@ -10926,26 +10914,30 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	move	$a4, $zero
 	move	$a3, $zero
 .LBB110_66:                             # %gc_sweep.exit
-	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 88                    # 8-byte Folded Reload
 	st.d	$a3, $fp, %pc_lo12(gc_cells_collected)
 	pcalau12i	$a0, %pc_hi20(freelist)
 	st.d	$a4, $a0, %pc_lo12(freelist)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(times)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 96
-	ld.d	$a1, $sp, 104
+	ld.d	$a0, $sp, 104
+	ld.d	$a1, $sp, 112
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
 	movgr2fr.d	$fa1, $a1
 	ffint.d.l	$fa1, $fa1
+	ori	$a0, $zero, 0
 	fadd.d	$fa0, $fa0, $fa1
-	fdiv.d	$fa0, $fa0, $fs0
-	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
+	lu32i.d	$a0, -131072
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
+	ld.d	$a2, $sp, 80                    # 8-byte Folded Reload
 	fld.d	$fa1, $a2, %pc_lo12(gc_rt)
 	pcalau12i	$a0, %pc_hi20(gc_time_taken)
 	fld.d	$fa2, $a0, %pc_lo12(gc_time_taken)
-	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 64                    # 8-byte Folded Reload
 	ld.d	$a1, $a1, %pc_lo12(gc_status_flag)
 	fsub.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $a2, %pc_lo12(gc_rt)
@@ -10953,7 +10945,7 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	fst.d	$fa1, $a0, %pc_lo12(gc_time_taken)
 	beqz	$a1, .LBB110_69
 # %bb.67:                               # %gc_sweep.exit
-	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
 	ld.d	$a0, $a0, %pc_lo12(siod_verbose_level)
 	ori	$a1, $zero, 4
 	blt	$a0, $a1, .LBB110_69
@@ -10965,7 +10957,6 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 .LBB110_69:                             # %gc_ms_stats_end.exit
-	fld.d	$fs0, $sp, 128                  # 8-byte Folded Reload
 	ld.d	$s8, $sp, 136                   # 8-byte Folded Reload
 	ld.d	$s7, $sp, 144                   # 8-byte Folded Reload
 	ld.d	$s6, $sp, 152                   # 8-byte Folded Reload
@@ -10988,12 +10979,7 @@ gc_mark_and_sweep:                      # @gc_mark_and_sweep
 .Lfunc_end110:
 	.size	gc_mark_and_sweep, .Lfunc_end110-gc_mark_and_sweep
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gc_ms_stats_start
-.LCPI111_0:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	gc_ms_stats_start
+	.globl	gc_ms_stats_start               # -- Begin function gc_ms_stats_start
 	.p2align	5
 	.type	gc_ms_stats_start,@function
 gc_ms_stats_start:                      # @gc_ms_stats_start
@@ -11004,14 +10990,16 @@ gc_ms_stats_start:                      # @gc_ms_stats_start
 	pcaddu18i	$ra, %call36(times)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 8
+	ld.d	$a1, $sp, 16
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $sp, 16
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI111_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI111_0)
-	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fadd.d	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	fadd.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -131072
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(gc_status_flag)
 	ld.d	$a0, $a0, %pc_lo12(gc_status_flag)
@@ -11352,12 +11340,7 @@ gc_sweep:                               # @gc_sweep
 .Lfunc_end114:
 	.size	gc_sweep, .Lfunc_end114-gc_sweep
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gc_ms_stats_end
-.LCPI115_0:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	gc_ms_stats_end
+	.globl	gc_ms_stats_end                 # -- Begin function gc_ms_stats_end
 	.p2align	5
 	.type	gc_ms_stats_end,@function
 gc_ms_stats_end:                        # @gc_ms_stats_end
@@ -11368,14 +11351,16 @@ gc_ms_stats_end:                        # @gc_ms_stats_end
 	pcaddu18i	$ra, %call36(times)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 8
+	ld.d	$a1, $sp, 16
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $sp, 16
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI115_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI115_0)
-	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fadd.d	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	fadd.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -131072
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(gc_rt)
 	fld.d	$fa1, $a0, %pc_lo12(gc_rt)
@@ -27548,12 +27533,7 @@ siod_verbose_check:                     # @siod_verbose_check
 .Lfunc_end196:
 	.size	siod_verbose_check, .Lfunc_end196-siod_verbose_check
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lruntime
-.LCPI197_0:
-	.dword	0x404e000000000000              # double 60
-	.text
-	.globl	lruntime
+	.globl	lruntime                        # -- Begin function lruntime
 	.p2align	5
 	.type	lruntime,@function
 lruntime:                               # @lruntime
@@ -27576,12 +27556,14 @@ lruntime:                               # @lruntime
 	ffint.d.l	$fa0, $fa0
 	movgr2fr.d	$fa1, $a1
 	ffint.d.l	$fa1, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI197_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI197_0)
+	fadd.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -131072
+	lu52i.d	$a1, $a0, 1028
 	pcalau12i	$s2, %pc_hi20(inums_dim)
 	ld.d	$a0, $s2, %pc_lo12(inums_dim)
-	fadd.d	$fa0, $fa0, $fa1
-	fdiv.d	$fs1, $fa0, $fa2
+	movgr2fr.d	$fa1, $a1
+	fdiv.d	$fs1, $fa0, $fa1
 	pcalau12i	$s0, %pc_hi20(gc_kind_copying)
 	lu12i.w	$s1, 32
 	blez	$a0, .LBB197_5
@@ -27800,12 +27782,7 @@ lruntime:                               # @lruntime
 .Lfunc_end197:
 	.size	lruntime, .Lfunc_end197-lruntime
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lrealtime
-.LCPI198_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	lrealtime
+	.globl	lrealtime                       # -- Begin function lrealtime
 	.p2align	5
 	.type	lrealtime,@function
 lrealtime:                              # @lrealtime
@@ -27828,14 +27805,17 @@ lrealtime:                              # @lrealtime
 	b	.LBB198_7
 .LBB198_2:
 	ld.d	$a0, $sp, 0
+	ld.d	$a1, $sp, 8
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $sp, 8
-	pcalau12i	$a1, %pc_hi20(.LCPI198_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI198_0)
 	ffint.d.l	$fa0, $fa0
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
 	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fmadd.d	$fs0, $fa2, $fa1, $fa0
+	fmadd.d	$fs0, $fa1, $fa2, $fa0
 	pcalau12i	$a0, %pc_hi20(inums_dim)
 	ld.d	$a1, $a0, %pc_lo12(inums_dim)
 	blez	$a1, .LBB198_7

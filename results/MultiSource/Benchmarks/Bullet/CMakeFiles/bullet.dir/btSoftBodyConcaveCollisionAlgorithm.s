@@ -1050,10 +1050,6 @@ _ZN9btHashMapI9btHashKeyI10btTriIndexES1_E5clearEv: # @_ZN9btHashMapI9btHashKeyI
 	.word	0x437f0000                      # float 255
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI10_1:
-	.word	0x3d75c28f                      # float 0.0599999987
 	.text
 	.globl	_ZN26btSoftBodyTriangleCallback15processTriangleEP9btVector3ii
 	.p2align	5
@@ -1404,45 +1400,46 @@ _ZN26btSoftBodyTriangleCallback15processTriangleEP9btVector3ii: # @_ZN26btSoftBo
 	fmadd.s	$ft2, $ft7, $ft7, $ft2
 	fmadd.s	$ft2, $ft1, $ft1, $ft2
 	frsqrt.s	$ft2, $ft2
-	pcalau12i	$a0, %pc_hi20(.LCPI10_1)
-	fld.s	$ft4, $a0, %pc_lo12(.LCPI10_1)
-	fmul.s	$ft5, $ft7, $ft2
+	fmul.s	$ft4, $ft7, $ft2
 	fmul.s	$ft3, $ft3, $ft2
 	fmul.s	$ft1, $ft1, $ft2
-	fmul.s	$ft2, $ft5, $ft4
-	fmul.s	$ft3, $ft3, $ft4
-	fmul.s	$ft1, $ft1, $ft4
-	fadd.s	$ft4, $fa6, $ft2
+	lu12i.w	$a0, 251740
+	ori	$a0, $a0, 655
+	movgr2fr.w	$ft2, $a0
+	fmul.s	$ft4, $ft4, $ft2
+	fmul.s	$ft3, $ft3, $ft2
+	fmul.s	$ft1, $ft1, $ft2
+	fadd.s	$ft2, $fa6, $ft4
 	fadd.s	$ft5, $fa7, $ft3
 	fadd.s	$ft6, $ft0, $ft1
-	movfr2gr.s	$a0, $ft4
+	movfr2gr.s	$a0, $ft2
 	movfr2gr.s	$a1, $ft5
 	bstrins.d	$a0, $a1, 63, 32
 	movfr2gr.s	$a1, $ft6
 	bstrpick.d	$a1, $a1, 31, 0
 	st.d	$a0, $sp, 16
 	st.d	$a1, $sp, 24
-	fadd.s	$ft4, $fa1, $ft2
+	fadd.s	$ft2, $fa1, $ft4
 	fadd.s	$ft5, $fa4, $ft3
 	fadd.s	$ft6, $fa5, $ft1
-	movfr2gr.s	$a0, $ft4
+	movfr2gr.s	$a0, $ft2
 	movfr2gr.s	$a1, $ft5
 	bstrins.d	$a0, $a1, 63, 32
 	movfr2gr.s	$a1, $ft6
 	bstrpick.d	$a1, $a1, 31, 0
 	st.d	$a0, $sp, 32
 	st.d	$a1, $sp, 40
-	fadd.s	$ft4, $fa0, $ft2
+	fadd.s	$ft2, $fa0, $ft4
 	fadd.s	$ft5, $fa2, $ft3
 	fadd.s	$ft6, $fa3, $ft1
-	movfr2gr.s	$a0, $ft4
+	movfr2gr.s	$a0, $ft2
 	movfr2gr.s	$a1, $ft5
 	bstrins.d	$a0, $a1, 63, 32
 	movfr2gr.s	$a1, $ft6
 	bstrpick.d	$a1, $a1, 31, 0
 	st.d	$a0, $sp, 48
 	st.d	$a1, $sp, 56
-	fsub.s	$fa6, $fa6, $ft2
+	fsub.s	$fa6, $fa6, $ft4
 	fsub.s	$fa7, $fa7, $ft3
 	fsub.s	$ft0, $ft0, $ft1
 	movfr2gr.s	$a0, $fa6
@@ -1452,7 +1449,7 @@ _ZN26btSoftBodyTriangleCallback15processTriangleEP9btVector3ii: # @_ZN26btSoftBo
 	bstrpick.d	$a1, $a1, 31, 0
 	st.d	$a0, $sp, 64
 	st.d	$a1, $sp, 72
-	fsub.s	$fa1, $fa1, $ft2
+	fsub.s	$fa1, $fa1, $ft4
 	fsub.s	$fa4, $fa4, $ft3
 	fsub.s	$fa5, $fa5, $ft1
 	movfr2gr.s	$a0, $fa1
@@ -1462,7 +1459,7 @@ _ZN26btSoftBodyTriangleCallback15processTriangleEP9btVector3ii: # @_ZN26btSoftBo
 	bstrpick.d	$a1, $a1, 31, 0
 	st.d	$a0, $sp, 80
 	st.d	$a1, $sp, 88
-	fsub.s	$fa0, $fa0, $ft2
+	fsub.s	$fa0, $fa0, $ft4
 	fsub.s	$fa1, $fa2, $ft3
 	fsub.s	$fa2, $fa3, $ft1
 	movfr2gr.s	$a0, $fa0
@@ -1869,12 +1866,8 @@ _ZN9btHashMapI9btHashKeyI10btTriIndexES1_E6insertERKS2_RKS1_: # @_ZN9btHashMapI9
 	.size	_ZN9btHashMapI9btHashKeyI10btTriIndexES1_E6insertERKS2_RKS1_, .Lfunc_end11-_ZN9btHashMapI9btHashKeyI10btTriIndexES1_E6insertERKS2_RKS1_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN26btSoftBodyTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoP16btManifoldResult
-.LCPI12_0:
-	.word	0x3d75c28f                      # float 0.0599999987
 	.text
-	.globl	_ZN26btSoftBodyTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoP16btManifoldResult
+	.globl	_ZN26btSoftBodyTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoP16btManifoldResult # -- Begin function _ZN26btSoftBodyTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoP16btManifoldResult
 	.p2align	5
 	.type	_ZN26btSoftBodyTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoP16btManifoldResult,@function
 _ZN26btSoftBodyTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoP16btManifoldResult: # @_ZN26btSoftBodyTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoP16btManifoldResult
@@ -1895,10 +1888,11 @@ _ZN26btSoftBodyTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoP16
 	.cfi_offset 58, -40
 	.cfi_offset 59, -48
 	move	$fp, $a0
-	pcalau12i	$a3, %pc_hi20(.LCPI12_0)
+	st.d	$a1, $a0, 72
 	ld.d	$a0, $a0, 8
-	fld.s	$fa1, $a3, %pc_lo12(.LCPI12_0)
-	st.d	$a1, $fp, 72
+	lu12i.w	$a1, 251740
+	ori	$a1, $a1, 655
+	movgr2fr.w	$fa1, $a1
 	ld.d	$a1, $a0, 0
 	fadd.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $fp, 80

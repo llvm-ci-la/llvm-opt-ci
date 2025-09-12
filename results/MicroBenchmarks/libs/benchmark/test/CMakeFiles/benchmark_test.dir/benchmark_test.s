@@ -2781,14 +2781,8 @@ GCC_except_table9:
 .Lcst_end7:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZL15BM_ManualTimingRN9benchmark5StateE
-.LCPI10_0:
-	.dword	0x408f400000000000              # double 1000
-.LCPI10_1:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
 	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL15BM_ManualTimingRN9benchmark5StateE
 	.type	_ZL15BM_ManualTimingRN9benchmark5StateE,@function
 _ZL15BM_ManualTimingRN9benchmark5StateE: # @_ZL15BM_ManualTimingRN9benchmark5StateE
 .Lfunc_begin8:
@@ -2825,41 +2819,45 @@ _ZL15BM_ManualTimingRN9benchmark5StateE: # @_ZL15BM_ManualTimingRN9benchmark5Sta
 	ld.d	$a0, $a0, 32
 	beq	$a1, $a0, .LBB10_18
 # %bb.1:                                # %_ZNK9benchmark5State5rangeEm.exit
-	ld.d	$s2, $a0, 0
+	ld.d	$s1, $a0, 0
 	ld.w	$s0, $fp, 28
-	ld.d	$s3, $fp, 16
+	ld.d	$s2, $fp, 16
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16StartKeepRunningEv)
 	jirl	$ra, $ra, 0
-	move	$s1, $zero
+	move	$s3, $zero
 	bnez	$s0, .LBB10_13
 # %bb.2:                                # %_ZNK9benchmark5State5rangeEm.exit
-	beqz	$s3, .LBB10_13
+	beqz	$s2, .LBB10_13
 # %bb.3:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI10_0)
-	movgr2fr.d	$fa1, $s2
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $s1
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0
-	movfr2gr.d	$a0, $fa0
-	blez	$a0, .LBB10_10
+	movfr2gr.d	$a1, $fa0
+	ori	$a0, $zero, 0
+	move	$s3, $zero
+	blez	$a1, .LBB10_10
 # %bb.4:                                # %.lr.ph.split.preheader
-	move	$s1, $zero
-	srli.d	$a1, $a0, 9
-	lu12i.w	$a2, -390731
-	ori	$a2, $a2, 2643
-	lu32i.d	$a2, 309295
-	lu52i.d	$a2, $a2, 4
-	mulh.du	$a1, $a1, $a2
-	srli.d	$s4, $a1, 11
-	lu12i.w	$a1, -244141
-	ori	$a1, $a1, 1536
-	mul.d	$a1, $s4, $a1
-	pcalau12i	$a2, %pc_hi20(.LCPI10_1)
-	fld.d	$fs0, $a2, %pc_lo12(.LCPI10_1)
-	add.d	$s5, $a1, $a0
+	srli.d	$a2, $a1, 9
+	lu12i.w	$a3, -390731
+	ori	$a3, $a3, 2643
+	lu32i.d	$a3, 309295
+	lu52i.d	$a3, $a3, 4
+	mulh.du	$a2, $a2, $a3
+	srli.d	$s4, $a2, 11
+	lu12i.w	$a2, -244141
+	ori	$a2, $a2, 1536
+	mul.d	$a2, $s4, $a2
+	add.d	$s5, $a2, $a1
 	addi.w	$s6, $zero, -1
+	lu32i.d	$a0, -144027
+	lu52i.d	$a0, $a0, 1052
+	movgr2fr.d	$fs0, $a0
 	ori	$s7, $zero, 4
 	.p2align	4, , 16
 .LBB10_5:                               # %.lr.ph.split
@@ -2894,17 +2892,17 @@ _ZL15BM_ManualTimingRN9benchmark5StateE: # @_ZL15BM_ManualTimingRN9benchmark5Sta
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16SetIterationTimeEd)
 	jirl	$ra, $ra, 0
-	blez	$s3, .LBB10_17
+	blez	$s2, .LBB10_17
 # %bb.9:                                # %_ZN9benchmark5State13StateIteratorppEv.exit
                                         #   in Loop: Header=BB10_5 Depth=1
-	addi.d	$s3, $s3, -1
-	add.d	$s1, $s1, $s2
-	bnez	$s3, .LBB10_5
+	addi.d	$s2, $s2, -1
+	add.d	$s3, $s3, $s1
+	bnez	$s2, .LBB10_5
 	b	.LBB10_13
 .LBB10_10:                              # %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI10_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI10_1)
-	move	$s1, $zero
+	lu32i.d	$a0, -144027
+	lu52i.d	$a0, $a0, 1052
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB10_11:                              # %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us
                                         # =>This Inner Loop Header: Depth=1
@@ -2920,12 +2918,12 @@ _ZL15BM_ManualTimingRN9benchmark5StateE: # @_ZL15BM_ManualTimingRN9benchmark5Sta
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16SetIterationTimeEd)
 	jirl	$ra, $ra, 0
-	blez	$s3, .LBB10_17
+	blez	$s2, .LBB10_17
 # %bb.12:                               # %_ZN9benchmark5State13StateIteratorppEv.exit.us
                                         #   in Loop: Header=BB10_11 Depth=1
-	addi.d	$s3, $s3, -1
-	add.d	$s1, $s1, $s2
-	bnez	$s3, .LBB10_11
+	addi.d	$s2, $s2, -1
+	add.d	$s3, $s3, $s1
+	bnez	$s2, .LBB10_11
 .LBB10_13:                              # %.noexc.i
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State17FinishKeepRunningEv)
@@ -2955,7 +2953,7 @@ _ZL15BM_ManualTimingRN9benchmark5StateE: # @_ZL15BM_ManualTimingRN9benchmark5Sta
 	jirl	$ra, $ra, 0
 .Ltmp114:                               # EH_LABEL
 # %bb.14:                               # %_ZN9benchmark5State17SetItemsProcessedEl.exit
-	movgr2fr.d	$fa0, $s1
+	movgr2fr.d	$fa0, $s3
 	ffint.d.l	$fa0, $fa0
 	fst.d	$fa0, $a0, 0
 	ld.d	$a2, $sp, 16

@@ -237,12 +237,7 @@ _ZN30btKinematicCharacterController14getGhostObjectEv: # @_ZN30btKinematicCharac
 .Lfunc_end6:
 	.size	_ZN30btKinematicCharacterController14getGhostObjectEv, .Lfunc_end6-_ZN30btKinematicCharacterController14getGhostObjectEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld
-.LCPI7_0:
-	.word	0x3e4ccccd                      # float 0.200000003
-	.text
-	.globl	_ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld
+	.globl	_ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld # -- Begin function _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld
 	.p2align	5
 	.type	_ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld,@function
 _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld: # @_ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld
@@ -260,6 +255,7 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	st.d	$s5, $sp, 32                    # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 24                   # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 16                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 8                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -270,6 +266,7 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	.cfi_offset 28, -64
 	.cfi_offset 56, -72
 	.cfi_offset 57, -80
+	.cfi_offset 58, -88
 	ld.d	$a3, $a1, 40
 	move	$fp, $a0
 	ld.d	$a0, $a0, 16
@@ -295,7 +292,10 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	addi.d	$s0, $fp, 128
 	movgr2fr.w	$fs0, $zero
 	ori	$s3, $zero, 1
-	fmov.s	$fs1, $fs0
+	lu12i.w	$a0, 255180
+	ori	$a0, $a0, 3277
+	movgr2fr.w	$fs1, $a0
+	fmov.s	$fs2, $fs0
 	b	.LBB7_3
 	.p2align	4, , 16
 .LBB7_2:                                # %._crit_edge99
@@ -369,8 +369,8 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	fld.s	$fa1, $fp, 92
 	fld.s	$fa2, $fp, 96
 	move	$a3, $zero
-	vldi	$vr9, -1040
-	vldi	$vr10, -1168
+	vldi	$vr8, -1040
+	vldi	$vr9, -1168
 	b	.LBB7_15
 	.p2align	4, , 16
 .LBB7_14:                               # %._crit_edge
@@ -391,7 +391,7 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	sltui	$a6, $a5, 1
 	move	$a5, $zero
 	movgr2cf	$fcc0, $a6
-	fsel	$fa3, $ft2, $ft1, $fcc0
+	fsel	$fa3, $ft1, $ft0, $fcc0
 	addi.d	$a6, $a4, 88
 	b	.LBB7_20
 	.p2align	4, , 16
@@ -411,7 +411,7 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	st.d	$t0, $fp, 172
 	fld.s	$fa5, $a6, 0
 	ld.w	$a7, $a4, 728
-	fmov.s	$fs1, $fa4
+	fmov.s	$fs2, $fa4
 .LBB7_18:                               #   in Loop: Header=BB7_20 Depth=3
 	fld.s	$fa4, $a6, -16
 	fld.s	$fa6, $a6, -12
@@ -419,14 +419,12 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	fmul.s	$fa4, $fa3, $fa4
 	fmul.s	$fa6, $fa3, $fa6
 	fmul.s	$fa7, $fa3, $fa7
-	pcalau12i	$t0, %pc_hi20(.LCPI7_0)
-	fld.s	$ft0, $t0, %pc_lo12(.LCPI7_0)
 	fmul.s	$fa4, $fa4, $fa5
 	fmul.s	$fa6, $fa6, $fa5
 	fmul.s	$fa5, $fa5, $fa7
-	fmul.s	$fa4, $fa4, $ft0
-	fmul.s	$fa6, $fa6, $ft0
-	fmul.s	$fa5, $fa5, $ft0
+	fmul.s	$fa4, $fa4, $fs1
+	fmul.s	$fa6, $fa6, $fs1
+	fmul.s	$fa5, $fa5, $fs1
 	fadd.s	$fa0, $fa0, $fa4
 	fst.s	$fa0, $fp, 88
 	fadd.s	$fa1, $fa6, $fa1
@@ -445,7 +443,7 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	fcmp.cule.s	$fcc0, $fs0, $fa4
 	bcnez	$fcc0, .LBB7_19
 # %bb.21:                               #   in Loop: Header=BB7_20 Depth=3
-	fcmp.cule.s	$fcc0, $fs1, $fa4
+	fcmp.cule.s	$fcc0, $fs2, $fa4
 	bceqz	$fcc0, .LBB7_17
 # %bb.22:                               #   in Loop: Header=BB7_20 Depth=3
 	fmov.s	$fa5, $fa4
@@ -457,6 +455,7 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	vld	$vr0, $s1, 0
 	andi	$a0, $s4, 1
 	vst	$vr0, $a1, 56
+	fld.d	$fs2, $sp, 8                    # 8-byte Folded Reload
 	fld.d	$fs1, $sp, 16                   # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 24                   # 8-byte Folded Reload
 	ld.d	$s5, $sp, 32                    # 8-byte Folded Reload
@@ -473,12 +472,7 @@ _ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld:
 	.size	_ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld, .Lfunc_end7-_ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld
-.LCPI8_0:
-	.word	0x3dcccccd                      # float 0.100000001
-	.text
-	.globl	_ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld
+	.globl	_ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld # -- Begin function _ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld
 	.p2align	5
 	.type	_ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld,@function
 _ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld: # @_ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld
@@ -525,11 +519,12 @@ _ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld: # @_ZN30btKinema
 	st.d	$a2, $sp, 216
 	st.w	$a2, $sp, 112
 	vst	$vr1, $sp, 116
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI8_0)
 	st.w	$a2, $sp, 132
 	vst	$vr1, $sp, 136
 	st.d	$a2, $sp, 152
+	lu12i.w	$a0, 253132
+	ori	$a0, $a0, 3277
+	movgr2fr.w	$fa3, $a0
 	fmul.s	$fa0, $fa0, $fa3
 	fmul.s	$fa2, $fa2, $fa3
 	fmul.s	$fa3, $fa5, $fa3
@@ -629,12 +624,8 @@ _ZN16btCollisionWorld20ConvexResultCallbackD2Ev: # @_ZN16btCollisionWorld20Conve
 .Lfunc_end9:
 	.size	_ZN16btCollisionWorld20ConvexResultCallbackD2Ev, .Lfunc_end9-_ZN16btCollisionWorld20ConvexResultCallbackD2Ev
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff
-.LCPI10_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
-	.globl	_ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff
+	.globl	_ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff # -- Begin function _ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff
 	.p2align	5
 	.type	_ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff,@function
 _ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff: # @_ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff
@@ -649,11 +640,11 @@ _ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btV
 	fsub.s	$fa5, $fa3, $fa4
 	fsub.s	$fa7, $fa7, $ft0
 	fmul.s	$fa0, $fa5, $fa5
-	pcalau12i	$a2, %pc_hi20(.LCPI10_0)
-	fld.s	$fa2, $a2, %pc_lo12(.LCPI10_0)
 	fmadd.s	$fa0, $fa6, $fa6, $fa0
 	fmadd.s	$fa0, $fa7, $fa7, $fa0
 	fsqrt.s	$fa0, $fa0
+	lu12i.w	$a2, 212992
+	movgr2fr.w	$fa2, $a2
 	fcmp.cule.s	$fcc0, $fa0, $fa2
 	bcnez	$fcc0, .LBB10_3
 # %bb.1:
@@ -716,14 +707,7 @@ _ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btV
 .Lfunc_end10:
 	.size	_ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff, .Lfunc_end10-_ZN30btKinematicCharacterController36updateTargetPositionBasedOnCollisionERK9btVector3ff
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3
-.LCPI11_0:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI11_1:
-	.word	0x3c23d70a                      # float 0.00999999977
-	.text
-	.globl	_ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3
+	.globl	_ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3 # -- Begin function _ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3
 	.p2align	5
 	.type	_ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3,@function
 _ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3: # @_ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3
@@ -817,9 +801,10 @@ _ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9
 	addi.d	$s6, $sp, 72
 	pcalau12i	$a0, %pc_hi20(_ZTV43btKinematicClosestNotMeConvexResultCallback+16)
 	addi.d	$s8, $a0, %pc_lo12(_ZTV43btKinematicClosestNotMeConvexResultCallback+16)
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI11_0)
-	pcalau12i	$s4, %pc_hi20(.LCPI11_1)
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, 246333
+	ori	$s4, $a0, 1802
 	vldi	$vr9, -1168
 	b	.LBB11_6
 	.p2align	4, , 16
@@ -829,9 +814,9 @@ _ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9
 	vld	$vr9, $sp, 32                   # 16-byte Folded Reload
 .LBB11_5:                               # %.critedge76
                                         #   in Loop: Header=BB11_6 Depth=1
-	fld.s	$fa1, $s4, %pc_lo12(.LCPI11_1)
 	fsub.s	$ft1, $ft1, $fa0
-	fcmp.clt.s	$fcc0, $fa1, $ft1
+	movgr2fr.w	$fa0, $s4
+	fcmp.clt.s	$fcc0, $fa0, $ft1
 	bceqz	$fcc0, .LBB11_17
 .LBB11_6:                               # =>This Inner Loop Header: Depth=1
 	bstrpick.d	$a0, $s7, 31, 0
@@ -1162,12 +1147,7 @@ _ZN30btKinematicCharacterController8stepDownEP16btCollisionWorldf: # @_ZN30btKin
 	.size	_ZN30btKinematicCharacterController8stepDownEP16btCollisionWorldf, .Lfunc_end12-_ZN30btKinematicCharacterController8stepDownEP16btCollisionWorldf
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3
-.LCPI13_0:
-	.word	0x34000000                      # float 1.1920929E-7
-	.text
-	.globl	_ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3
+	.globl	_ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3 # -- Begin function _ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3
 	.p2align	5
 	.type	_ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3,@function
 _ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3: # @_ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3
@@ -1187,11 +1167,11 @@ _ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3: # @_ZN30btKi
 	fmul.s	$fa0, $fa0, $fa3
 	fmul.s	$fa2, $fa2, $fa3
 	fmul.s	$fa3, $fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI13_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI13_0)
 	fmadd.s	$fa3, $fa1, $fa1, $fa3
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	fsqrt.s	$fa3, $fa3
+	lu12i.w	$a1, 212992
+	movgr2fr.w	$fa4, $a1
 	fcmp.clt.s	$fcc0, $fa3, $fa4
 	movgr2fr.w	$fa3, $zero
 	fsel	$fa1, $fa1, $fa3, $fcc0
@@ -1208,12 +1188,7 @@ _ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3: # @_ZN30btKi
 .Lfunc_end13:
 	.size	_ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3, .Lfunc_end13-_ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f
-.LCPI14_0:
-	.word	0x34000000                      # float 1.1920929E-7
-	.text
-	.globl	_ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f
+	.globl	_ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f # -- Begin function _ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f
 	.p2align	5
 	.type	_ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f,@function
 _ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f: # @_ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f
@@ -1232,11 +1207,11 @@ _ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f: #
 	fmul.s	$fa1, $fa1, $fa4
 	fmul.s	$fa3, $fa3, $fa4
 	fmul.s	$fa4, $fa1, $fa1
-	pcalau12i	$a1, %pc_hi20(.LCPI14_0)
-	fld.s	$fa5, $a1, %pc_lo12(.LCPI14_0)
 	fmadd.s	$fa4, $fa2, $fa2, $fa4
 	fmadd.s	$fa4, $fa3, $fa3, $fa4
 	fsqrt.s	$fa4, $fa4
+	lu12i.w	$a1, 212992
+	movgr2fr.w	$fa5, $a1
 	fcmp.clt.s	$fcc0, $fa4, $fa5
 	movgr2fr.w	$fa4, $zero
 	fsel	$fa2, $fa2, $fa4, $fcc0

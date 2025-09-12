@@ -1,16 +1,6 @@
 	.file	"jidctflt.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function jpeg_idct_float
-.LCPI0_0:
-	.word	0x3fb504f3                      # float 1.41421354
-.LCPI0_1:
-	.word	0x3fec835e                      # float 1.84775901
-.LCPI0_2:
-	.word	0x3f8a8bd4                      # float 1.08239222
-.LCPI0_3:
-	.word	0xc0273d75                      # float -2.61312604
 	.text
-	.globl	jpeg_idct_float
+	.globl	jpeg_idct_float                 # -- Begin function jpeg_idct_float
 	.p2align	5
 	.type	jpeg_idct_float,@function
 jpeg_idct_float:                        # @jpeg_idct_float
@@ -20,17 +10,22 @@ jpeg_idct_float:                        # @jpeg_idct_float
 	ld.d	$a0, $a0, 408
 	addi.d	$a1, $a2, 64
 	addi.d	$a2, $a5, 128
-	pcalau12i	$a5, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a5, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a5, %pc_hi20(.LCPI0_1)
-	fld.s	$fa1, $a5, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI0_2)
-	fld.s	$fa2, $a5, %pc_lo12(.LCPI0_2)
-	pcalau12i	$a5, %pc_hi20(.LCPI0_3)
-	fld.s	$fa3, $a5, %pc_lo12(.LCPI0_3)
 	addi.d	$a5, $sp, 16
 	ori	$a6, $zero, 9
 	ori	$a7, $zero, 1
+	lu12i.w	$t0, 260944
+	ori	$t0, $t0, 1267
+	movgr2fr.w	$fa0, $t0
+	lu12i.w	$t0, 261832
+	ori	$t0, $t0, 862
+	movgr2fr.w	$fa1, $t0
+	lu12i.w	$t0, 260264
+	ori	$t0, $t0, 3028
+	movgr2fr.w	$fa2, $t0
+	lu12i.w	$t0, -261517
+	ori	$t0, $t0, 3445
+	lu32i.d	$t0, 0
+	movgr2fr.w	$fa3, $t0
 	b	.LBB0_3
 	.p2align	4, , 16
 .LBB0_1:                                #   in Loop: Header=BB0_3 Depth=1

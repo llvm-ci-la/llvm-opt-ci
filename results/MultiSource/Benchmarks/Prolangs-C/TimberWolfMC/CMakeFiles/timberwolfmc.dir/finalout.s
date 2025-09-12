@@ -1,12 +1,6 @@
 	.file	"finalout.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function finalout
-.LCPI0_0:
-	.dword	0x408ff80000000000              # double 1023
-.LCPI0_1:
-	.dword	0xc090c80000000000              # double -1074
 	.text
-	.globl	finalout
+	.globl	finalout                        # -- Begin function finalout
 	.p2align	5
 	.type	finalout,@function
 finalout:                               # @finalout
@@ -28,16 +22,20 @@ finalout:                               # @finalout
 	fadd.d	$fa1, $fa0, $fa1
 	fadd.d	$fa1, $fa1, $fa1
 	vldi	$vr2, -1000
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_0)
 	fcmp.clt.d	$fcc0, $fa2, $fa0
 	vldi	$vr0, -988
 	fsel	$fa0, $fa0, $fa1, $fcc0
-	fcmp.clt.d	$fcc0, $fa3, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -2048
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
+	fcmp.clt.d	$fcc0, $fa1, $fa0
+	ori	$a0, $zero, 0
 	bcnez	$fcc0, .LBB0_16
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
+	lu32i.d	$a0, 51200
+	lu52i.d	$a0, $a0, -1015
+	movgr2fr.d	$fa1, $a0
 	fcmp.cule.d	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB0_16
 .LBB0_2:                                # %cdce.end

@@ -78,14 +78,7 @@ profileStop:                            # @profileStop
 .Lfunc_end1:
 	.size	profileStop, .Lfunc_end1-profileStop
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function getElapsedTime
-.LCPI2_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI2_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	getElapsedTime
+	.globl	getElapsedTime                  # -- Begin function getElapsedTime
 	.p2align	5
 	.type	getElapsedTime,@function
 getElapsedTime:                         # @getElapsedTime
@@ -98,36 +91,29 @@ getElapsedTime:                         # @getElapsedTime
 	add.d	$a0, $a1, $a0
 	ld.d	$a1, $a0, 24
 	srli.d	$a2, $a1, 32
-	pcalau12i	$a3, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI2_0)
 	lu52i.d	$a3, $zero, 1107
 	or	$a2, $a2, $a3
+	movgr2fr.d	$fa0, $a2
+	lu12i.w	$a2, 256
+	lu52i.d	$a2, $a2, 1107
 	movgr2fr.d	$fa1, $a2
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a2, 275200
-	pcalau12i	$a3, %pc_hi20(.LCPI2_1)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI2_1)
 	bstrins.d	$a1, $a2, 63, 32
-	movgr2fr.d	$fa2, $a1
-	fadd.d	$fa0, $fa2, $fa0
+	movgr2fr.d	$fa1, $a1
+	fadd.d	$fa0, $fa1, $fa0
+	lu12i.w	$a1, -390306
+	ori	$a1, $a1, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$fa1, $a1
 	fmul.d	$fa0, $fa0, $fa1
 	st.d	$zero, $a0, 24
 	ret
 .Lfunc_end2:
 	.size	getElapsedTime, .Lfunc_end2-getElapsedTime
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function printPerformanceResults
-.LCPI3_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI3_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI3_2:
-	.dword	0x4059000000000000              # double 100
-.LCPI3_3:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	printPerformanceResults
+	.globl	printPerformanceResults         # -- Begin function printPerformanceResults
 	.p2align	5
 	.type	printPerformanceResults,@function
 printPerformanceResults:                # @printPerformanceResults
@@ -151,11 +137,12 @@ printPerformanceResults:                # @printPerformanceResults
 	addi.d	$s4, $a0, %pc_lo12(perfTimer)
 	ld.d	$a0, $s4, 8
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI3_0)
-	fld.d	$fs0, $a2, %pc_lo12(.LCPI3_0)
 	lu52i.d	$s2, $zero, 1107
 	or	$a1, $a1, $s2
 	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
+	movgr2fr.d	$fs0, $a1
 	fsub.d	$fa0, $fa0, $fs0
 	lu12i.w	$s3, 275200
 	bstrins.d	$a0, $s3, 63, 32
@@ -831,11 +818,14 @@ printPerformanceResults:                # @printPerformanceResults
 	or	$a1, $a1, $s2
 	movgr2fr.d	$fa0, $a1
 	fsub.d	$fa0, $fa0, $fs0
-	pcalau12i	$a1, %pc_hi20(.LCPI3_1)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI3_1)
 	bstrins.d	$a0, $s3, 63, 32
 	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa0, $fa1, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs1, $a0
 	fmul.d	$fs2, $fa0, $fs1
 	pcalau12i	$a0, %got_pc_hi20(stdout)
 	ld.d	$s5, $a0, %got_pc_lo12(stdout)
@@ -863,7 +853,6 @@ printPerformanceResults:                # @printPerformanceResults
 	ld.d	$a3, $s4, 16
 	pcalau12i	$a0, %pc_hi20(timerName)
 	addi.d	$s6, $a0, %pc_lo12(timerName)
-	pcalau12i	$s1, %pc_hi20(.LCPI3_2)
 	beqz	$a3, .LBB3_14
 # %bb.13:
 	ld.d	$a0, $s4, 8
@@ -884,10 +873,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -918,10 +910,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -952,10 +947,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -986,10 +984,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -1020,10 +1021,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -1054,10 +1058,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -1088,10 +1095,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -1122,10 +1132,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -1156,10 +1169,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -1190,10 +1206,13 @@ printPerformanceResults:                # @printPerformanceResults
 	move	$a1, $a3
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
-	fld.d	$fa3, $s1, %pc_lo12(.LCPI3_2)
 	fadd.d	$fa1, $fa2, $fa1
 	fdiv.d	$fa1, $fa0, $fa1
 	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
 	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
@@ -1216,6 +1235,7 @@ printPerformanceResults:                # @printPerformanceResults
 	fadd.d	$fa0, $fa1, $fa0
 	fmul.d	$fa0, $fa0, $fs1
 	ld.d	$a0, $s5, 0
+	ld.d	$a2, $s6, 80
 	srli.d	$a1, $a3, 32
 	or	$a1, $a1, $s2
 	movgr2fr.d	$fa1, $a1
@@ -1224,11 +1244,13 @@ printPerformanceResults:                # @printPerformanceResults
 	bstrins.d	$a1, $s3, 63, 32
 	movgr2fr.d	$fa2, $a1
 	fadd.d	$fa1, $fa2, $fa1
-	fld.d	$fa2, $s1, %pc_lo12(.LCPI3_2)
-	ld.d	$a2, $s6, 80
 	fdiv.d	$fa1, $fa0, $fa1
-	fdiv.d	$fa3, $fa0, $fs2
-	fmul.d	$fa2, $fa3, $fa2
+	fdiv.d	$fa2, $fa0, $fs2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa3, $a1
+	fmul.d	$fa2, $fa2, $fa3
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
 	movfr2gr.d	$a6, $fa2
@@ -1528,39 +1550,41 @@ printPerformanceResults:                # @printPerformanceResults
 	ffint.d.w	$fs2, $fa0
 	pcaddu18i	$ra, %call36(getNRanks)
 	jirl	$ra, $ra, 0
-	movgr2fr.w	$fa0, $a0
-	ffint.d.w	$fa0, $fa0
-	fld.d	$fa1, $s4, 200
-	pcalau12i	$a0, %pc_hi20(.LCPI3_3)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI3_3)
-	ld.d	$a0, $s4, 160
-	fdiv.d	$fa0, $fs2, $fa0
-	fmul.d	$fa1, $fa1, $fs1
-	fmul.d	$fa1, $fa1, $fa2
-	srli.d	$a1, $a0, 32
-	or	$a1, $a1, $s2
-	movgr2fr.d	$fa2, $a1
-	fsub.d	$fa2, $fa2, $fs0
-	mul.d	$a1, $fp, $s0
-	mul.d	$a1, $a1, $a0
-	bstrins.d	$a0, $s3, 63, 32
-	movgr2fr.d	$fa3, $a0
-	fadd.d	$fa2, $fa3, $fa2
+	fld.d	$fa0, $s4, 200
+	movgr2fr.w	$fa1, $a0
+	ffint.d.w	$fa1, $fa1
+	fdiv.d	$fa1, $fs2, $fa1
+	fmul.d	$fa0, $fa0, $fs1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	ld.d	$a1, $s4, 160
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa2, $a0
 	fmul.d	$fa0, $fa0, $fa2
-	movgr2fr.w	$fa2, $fp
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa0, $fa2
-	fdiv.d	$fa0, $fa1, $fa0
-	pcalau12i	$s0, %pc_hi20(perfGlobal.0)
-	fst.d	$fa0, $s0, %pc_lo12(perfGlobal.0)
 	srli.d	$a0, $a1, 32
 	or	$a0, $a0, $s2
-	movgr2fr.d	$fa0, $a0
-	fsub.d	$fa0, $fa0, $fs0
+	movgr2fr.d	$fa2, $a0
+	fsub.d	$fa2, $fa2, $fs0
+	mul.d	$a0, $fp, $s0
+	mul.d	$a0, $a0, $a1
 	bstrins.d	$a1, $s3, 63, 32
-	movgr2fr.d	$fa2, $a1
-	fadd.d	$fa0, $fa2, $fa0
-	fdiv.d	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa3, $a1
+	fadd.d	$fa2, $fa3, $fa2
+	fmul.d	$fa1, $fa1, $fa2
+	movgr2fr.w	$fa2, $fp
+	ffint.d.w	$fa2, $fa2
+	fmul.d	$fa1, $fa1, $fa2
+	fdiv.d	$fa1, $fa0, $fa1
+	pcalau12i	$s0, %pc_hi20(perfGlobal.0)
+	fst.d	$fa1, $s0, %pc_lo12(perfGlobal.0)
+	srli.d	$a1, $a0, 32
+	or	$a1, $a1, $s2
+	movgr2fr.d	$fa1, $a1
+	fsub.d	$fa1, $fa1, $fs0
+	bstrins.d	$a0, $s3, 63, 32
+	movgr2fr.d	$fa2, $a0
+	fadd.d	$fa1, $fa2, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
 	pcalau12i	$s2, %pc_hi20(perfGlobal.1)
 	fst.d	$fa0, $s2, %pc_lo12(perfGlobal.1)
 	ld.d	$a3, $s5, 0
@@ -1701,16 +1725,7 @@ printPerformanceResults:                # @printPerformanceResults
 .Lfunc_end3:
 	.size	printPerformanceResults, .Lfunc_end3-printPerformanceResults
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function printPerformanceResultsYaml
-.LCPI4_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI4_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI4_2:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.globl	printPerformanceResultsYaml
+	.globl	printPerformanceResultsYaml     # -- Begin function printPerformanceResultsYaml
 	.p2align	5
 	.type	printPerformanceResultsYaml,@function
 printPerformanceResultsYaml:            # @printPerformanceResultsYaml
@@ -1741,18 +1756,22 @@ printPerformanceResultsYaml:            # @printPerformanceResultsYaml
 	addi.d	$s0, $a0, %pc_lo12(perfTimer)
 	ld.d	$a0, $s0, 80
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI4_0)
-	fld.d	$fs1, $a2, %pc_lo12(.LCPI4_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
 	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
+	movgr2fr.d	$fs1, $a1
 	fsub.d	$fa0, $fa0, $fs1
-	pcalau12i	$a1, %pc_hi20(.LCPI4_1)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI4_1)
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa0, $fa1, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs0, $a0
 	fmul.d	$fs2, $fa0, $fs0
 	pcalau12i	$a0, %pc_hi20(.L.str.24)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.24)
@@ -1797,8 +1816,10 @@ printPerformanceResultsYaml:            # @printPerformanceResultsYaml
 	addi.d	$s2, $a0, %pc_lo12(.L.str.30)
 	pcalau12i	$a0, %pc_hi20(.L.str.31)
 	addi.d	$s3, $a0, %pc_lo12(.L.str.31)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_2)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI4_2)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.32)
 	addi.d	$s4, $a0, %pc_lo12(.L.str.32)
 	move	$s8, $zero

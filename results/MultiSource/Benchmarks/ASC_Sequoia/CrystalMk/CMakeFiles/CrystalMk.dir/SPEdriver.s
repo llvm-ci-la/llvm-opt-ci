@@ -1,10 +1,6 @@
 	.file	"SPEdriver.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function SPEdriver
-.LCPI0_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
 	.text
-	.globl	SPEdriver
+	.globl	SPEdriver                       # -- Begin function SPEdriver
 	.p2align	5
 	.type	SPEdriver,@function
 SPEdriver:                              # @SPEdriver
@@ -36,10 +32,13 @@ SPEdriver:                              # @SPEdriver
 	jirl	$ra, $ra, 0
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
 	lu12i.w	$s7, 488
 	ori	$s8, $s7, 1152
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1
 	ori	$a0, $zero, 12

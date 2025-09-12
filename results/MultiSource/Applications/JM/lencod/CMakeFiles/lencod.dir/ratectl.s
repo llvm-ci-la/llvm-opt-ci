@@ -854,12 +854,7 @@ QP2Qstep:                               # @QP2Qstep
 .Lfunc_end2:
 	.size	QP2Qstep, .Lfunc_end2-QP2Qstep
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Qstep2QP
-.LCPI3_0:
-	.dword	0x406c000000000000              # double 224
-	.text
-	.globl	Qstep2QP
+	.globl	Qstep2QP                        # -- Begin function Qstep2QP
 	.p2align	5
 	.type	Qstep2QP,@function
 Qstep2QP:                               # @Qstep2QP
@@ -871,67 +866,63 @@ Qstep2QP:                               # @Qstep2QP
 	move	$a0, $zero
 	ret
 .LBB3_2:                                # %.lr.ph.i.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -262144
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa1, $fa0
 	ori	$a0, $zero, 51
-	bceqz	$fcc0, .LBB3_4
-# %bb.3:
-	ret
-.LBB3_4:                                # %.preheader
+	bcnez	$fcc0, .LBB3_13
+# %bb.3:                                # %.preheader
 	vldi	$vr1, -910
 	move	$a0, $zero
 	fcmp.cule.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB3_7
-# %bb.5:                                # %.lr.ph.preheader
+	bcnez	$fcc0, .LBB3_6
+# %bb.4:                                # %.lr.ph.preheader
 	vldi	$vr1, -928
 	vldi	$vr2, -910
 	.p2align	4, , 16
-.LBB3_6:                                # %.lr.ph
+.LBB3_5:                                # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
 	fmul.d	$fa0, $fa0, $fa1
 	fcmp.clt.d	$fcc0, $fa2, $fa0
 	addi.d	$a0, $a0, 6
-	bcnez	$fcc0, .LBB3_6
-.LBB3_7:                                # %._crit_edge
+	bcnez	$fcc0, .LBB3_5
+.LBB3_6:                                # %._crit_edge
 	vldi	$vr1, -923
 	fcmp.cle.d	$fcc0, $fa0, $fa1
-	bcnez	$fcc0, .LBB3_13
-# %bb.8:
+	bcnez	$fcc0, .LBB3_11
+# %bb.7:
 	vldi	$vr1, -920
 	fcmp.cle.d	$fcc0, $fa0, $fa1
 	ori	$a1, $zero, 1
 	bcnez	$fcc0, .LBB3_12
-# %bb.9:
+# %bb.8:
 	vldi	$vr1, -917
 	fcmp.cle.d	$fcc0, $fa0, $fa1
 	ori	$a1, $zero, 2
 	bcnez	$fcc0, .LBB3_12
-# %bb.10:
+# %bb.9:
 	vldi	$vr1, -914
 	fcmp.cle.d	$fcc0, $fa0, $fa1
 	ori	$a1, $zero, 3
 	bcnez	$fcc0, .LBB3_12
-# %bb.11:
+# %bb.10:
 	vldi	$vr1, -911
 	fcmp.cult.d	$fcc0, $fa1, $fa0
 	movcf2gr	$a1, $fcc0
 	addi.d	$a1, $a1, 4
+	b	.LBB3_12
+.LBB3_11:
+	move	$a1, $zero
 .LBB3_12:
 	add.w	$a0, $a1, $a0
-	ret
 .LBB3_13:
-	add.w	$a0, $zero, $a0
 	ret
 .Lfunc_end3:
 	.size	Qstep2QP, .Lfunc_end3-Qstep2QP
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ComputeFrameMAD
-.LCPI4_0:
-	.dword	0x4070000000000000              # double 256
-	.text
-	.globl	ComputeFrameMAD
+	.globl	ComputeFrameMAD                 # -- Begin function ComputeFrameMAD
 	.p2align	5
 	.type	ComputeFrameMAD,@function
 ComputeFrameMAD:                        # @ComputeFrameMAD
@@ -1000,11 +991,11 @@ ComputeFrameMAD:                        # @ComputeFrameMAD
 	movgr2fr.d	$fa0, $a3
 	ffint.d.l	$fa0, $fa0
 .LBB4_10:                               # %._crit_edge
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI4_0)
+	movgr2fr.d	$fa1, $a0
+	ffint.d.l	$fa1, $fa1
+	lu52i.d	$a0, $zero, 1031
 	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fmul.d	$fa1, $fa2, $fa1
+	fmul.d	$fa1, $fa1, $fa2
 	fdiv.d	$fa0, $fa0, $fa1
 	ret
 .Lfunc_end4:

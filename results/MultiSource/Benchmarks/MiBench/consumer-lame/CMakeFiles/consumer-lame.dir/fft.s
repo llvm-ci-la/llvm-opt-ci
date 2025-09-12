@@ -1,10 +1,6 @@
 	.file	"fft.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function fft_short
-.LCPI0_0:
-	.word	0x3f3504f3                      # float 0.707106769
 	.text
-	.globl	fft_short
+	.globl	fft_short                       # -- Begin function fft_short
 	.p2align	5
 	.type	fft_short,@function
 fft_short:                              # @fft_short
@@ -337,8 +333,9 @@ fft_short:                              # @fft_short
 	pcalau12i	$a0, %pc_hi20(window_s)
 	addi.d	$s2, $a0, %pc_lo12(window_s)
 	move	$s3, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 258896
+	ori	$a0, $a0, 1267
+	movgr2fr.w	$fs0, $a0
 	ori	$s4, $zero, 127
 	ori	$s5, $zero, 63
 	ori	$s6, $zero, 126
@@ -486,8 +483,9 @@ fft_short:                              # @fft_short
 	pcalau12i	$a0, %pc_hi20(window_s)
 	addi.d	$s2, $a0, %pc_lo12(window_s)
 	move	$s3, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 258896
+	ori	$a0, $a0, 1267
+	movgr2fr.w	$fs0, $a0
 	ori	$s4, $zero, 127
 	ori	$s5, $zero, 63
 	ori	$s6, $zero, 126
@@ -646,12 +644,7 @@ fft_short:                              # @fft_short
 .Lfunc_end0:
 	.size	fft_short, .Lfunc_end0-fft_short
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fht
-.LCPI1_0:
-	.dword	0x3ff6a09e667f3bcd              # double 1.4142135623730951
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function fht
 	.type	fht,@function
 fht:                                    # @fht
 # %bb.0:
@@ -669,8 +662,11 @@ fht:                                    # @fht
 	ori	$a3, $zero, 4
 	pcalau12i	$a4, %pc_hi20(costab)
 	addi.d	$a4, $a4, %pc_lo12(costab)
-	pcalau12i	$a5, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a5, 419827
+	ori	$a5, $a5, 3021
+	lu32i.d	$a5, 434334
+	lu52i.d	$a5, $a5, 1023
+	movgr2fr.d	$fa0, $a5
 	ori	$a5, $zero, 2
 	vldi	$vr1, -1168
 	b	.LBB1_2
@@ -873,12 +869,7 @@ fht:                                    # @fht
 .Lfunc_end1:
 	.size	fht, .Lfunc_end1-fht
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function fft_long
-.LCPI2_0:
-	.word	0x3f3504f3                      # float 0.707106769
-	.text
-	.globl	fft_long
+	.globl	fft_long                        # -- Begin function fft_long
 	.p2align	5
 	.type	fft_long,@function
 fft_long:                               # @fft_long
@@ -1004,8 +995,9 @@ fft_long:                               # @fft_long
 	addi.d	$a5, $a5, %pc_lo12(rv_tbl)
 	pcalau12i	$a6, %pc_hi20(window)
 	addi.d	$a6, $a6, %pc_lo12(window)
-	pcalau12i	$a7, %pc_hi20(.LCPI2_0)
-	fld.s	$fa0, $a7, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a7, 258896
+	ori	$a7, $a7, 1267
+	movgr2fr.w	$fa0, $a7
 	ori	$a7, $zero, 511
 	ori	$t0, $zero, 255
 	ori	$t1, $zero, 510
@@ -1138,8 +1130,9 @@ fft_long:                               # @fft_long
 	addi.d	$a5, $a5, %pc_lo12(rv_tbl)
 	pcalau12i	$a6, %pc_hi20(window)
 	addi.d	$a6, $a6, %pc_lo12(window)
-	pcalau12i	$a7, %pc_hi20(.LCPI2_0)
-	fld.s	$fa0, $a7, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a7, 258896
+	ori	$a7, $a7, 1267
+	movgr2fr.w	$fa0, $a7
 	ori	$a7, $zero, 511
 	ori	$t0, $zero, 255
 	ori	$t1, $zero, 510
@@ -1282,14 +1275,6 @@ fft_long:                               # @fft_long
 	.word	0x3cc90ab0                      # float 0.024541229
 	.word	0x3f7ffec4                      # float 0.999981164
 	.word	0x3bc90f88                      # float 0.00613588467
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI3_2:
-	.dword	0x401921fb54442d18              # double 6.2831853071795862
-.LCPI3_3:
-	.dword	0x3f50000000000000              # double 9.765625E-4
-.LCPI3_4:
-	.dword	0x3f70000000000000              # double 0.00390625
 	.text
 	.globl	init_fft
 	.p2align	5
@@ -1308,14 +1293,17 @@ init_fft:                               # @init_fft
 	vld	$vr0, $a0, %pc_lo12(.LCPI3_0)
 	pcalau12i	$a0, %pc_hi20(costab)
 	addi.d	$a0, $a0, %pc_lo12(costab)
-	vst	$vr0, $a0, 0
 	pcalau12i	$a1, %pc_hi20(.LCPI3_1)
-	vld	$vr0, $a1, %pc_lo12(.LCPI3_1)
-	pcalau12i	$a1, %pc_hi20(.LCPI3_2)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI3_2)
-	pcalau12i	$a1, %pc_hi20(.LCPI3_3)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI3_3)
-	vst	$vr0, $a0, 16
+	vld	$vr1, $a1, %pc_lo12(.LCPI3_1)
+	vst	$vr0, $a0, 0
+	vst	$vr1, $a0, 16
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1025
+	movgr2fr.d	$fs0, $a0
+	lu52i.d	$a0, $zero, 1013
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(window)
 	addi.d	$fp, $a0, %pc_lo12(window)
 	move	$s0, $zero
@@ -1343,8 +1331,8 @@ init_fft:                               # @init_fft
 	addi.w	$s1, $s1, 1
 	bne	$s0, $s2, .LBB3_1
 # %bb.2:                                # %.preheader.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI3_4)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI3_4)
+	lu52i.d	$a0, $zero, 1015
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$a0, %pc_hi20(window_s)
 	addi.d	$fp, $a0, %pc_lo12(window_s)
 	move	$s0, $zero

@@ -1547,12 +1547,7 @@ find_winner_c:                          # @find_winner_c
 .Lfunc_end6:
 	.size	find_winner_c, .Lfunc_end6-find_winner_c
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function value
-.LCPI7_0:
-	.word	0x447a0000                      # float 1000
-	.text
-	.globl	value
+	.globl	value                           # -- Begin function value
 	.p2align	5
 	.type	value,@function
 value:                                  # @value
@@ -1597,452 +1592,454 @@ value:                                  # @value
 	ld.w	$a1, $a1, %pc_lo12(off)
 	ld.d	$t5, $a0, %pc_lo12(C2UP_R)
 	pcalau12i	$a0, %pc_hi20(C2UP_L)
-	ld.d	$a0, $a0, %pc_lo12(C2UP_L)
+	ld.d	$t6, $a0, %pc_lo12(C2UP_L)
 	movgr2fr.w	$fa0, $a1
 	ffint.s.w	$fa0, $fa0
 	vldi	$vr1, -1244
 	fdiv.s	$fa0, $fa0, $fa1
-	slli.d	$a1, $a0, 12
-	st.d	$a1, $sp, 1728                  # 8-byte Folded Spill
-	slli.d	$a1, $a0, 15
-	st.d	$a1, $sp, 1720                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 1
-	st.d	$a1, $sp, 1712                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 2
-	st.d	$a1, $sp, 1704                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 3
-	st.d	$a1, $sp, 1696                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 4
-	st.d	$a1, $sp, 1688                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 5
-	st.d	$a1, $sp, 1680                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 6
-	st.d	$a1, $sp, 1672                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 7
-	st.d	$a1, $sp, 1664                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 8
-	st.d	$a1, $sp, 1656                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 9
-	st.d	$a1, $sp, 1648                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 10
-	st.d	$a1, $sp, 1640                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 11
-	st.d	$a1, $sp, 1632                  # 8-byte Folded Spill
-	vldi	$vr1, -1040
-	vldi	$vr2, -1168
-	vldi	$vr3, -1228
-	vldi	$vr4, -1260
-	slli.d	$a1, $a3, 12
-	st.d	$a1, $sp, 1624                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 13
-	st.d	$a1, $sp, 1616                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 14
-	st.d	$a1, $sp, 1608                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 15
-	st.d	$a1, $sp, 1600                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 16
-	st.d	$a1, $sp, 1584                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 17
-	st.d	$a1, $sp, 1568                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 18
-	st.d	$a1, $sp, 1560                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 19
-	st.d	$a1, $sp, 1552                  # 8-byte Folded Spill
+	slli.d	$a0, $t6, 12
+	st.d	$a0, $sp, 1728                  # 8-byte Folded Spill
+	slli.d	$a0, $t6, 15
+	st.d	$a0, $sp, 1720                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 1
+	st.d	$a0, $sp, 1712                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 2
+	st.d	$a0, $sp, 1704                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 3
+	st.d	$a0, $sp, 1696                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 4
+	st.d	$a0, $sp, 1688                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 5
+	st.d	$a0, $sp, 1680                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 6
+	st.d	$a0, $sp, 1672                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 7
+	st.d	$a0, $sp, 1664                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 8
+	st.d	$a0, $sp, 1656                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 9
+	st.d	$a0, $sp, 1648                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 10
+	st.d	$a0, $sp, 1640                  # 8-byte Folded Spill
+	lu12i.w	$a0, 280480
+	movgr2fr.w	$fa1, $a0
+	slli.d	$a0, $a3, 11
+	st.d	$a0, $sp, 1632                  # 8-byte Folded Spill
+	vldi	$vr2, -1040
+	vldi	$vr3, -1168
+	vldi	$vr4, -1228
+	vldi	$vr5, -1260
+	slli.d	$a0, $a3, 12
+	st.d	$a0, $sp, 1624                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 13
+	st.d	$a0, $sp, 1616                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 14
+	st.d	$a0, $sp, 1608                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 15
+	st.d	$a0, $sp, 1600                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 16
+	st.d	$a0, $sp, 1584                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 17
+	st.d	$a0, $sp, 1568                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 18
+	st.d	$a0, $sp, 1560                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 19
+	st.d	$a0, $sp, 1552                  # 8-byte Folded Spill
 	st.d	$a3, $sp, 1576                  # 8-byte Folded Spill
-	slli.d	$a1, $a3, 20
-	st.d	$a1, $sp, 1544                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 1
-	st.d	$a1, $sp, 1536                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 2
-	st.d	$a1, $sp, 1528                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 3
-	st.d	$a1, $sp, 1520                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 6
-	st.d	$a1, $sp, 1512                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 7
-	st.d	$a1, $sp, 1504                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 8
-	st.d	$a1, $sp, 1496                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 9
-	st.d	$a1, $sp, 1488                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 12
-	st.d	$a1, $sp, 1480                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 13
-	st.d	$a1, $sp, 1472                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 14
-	st.d	$a1, $sp, 1464                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 15
-	st.d	$a1, $sp, 1456                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 18
-	st.d	$a1, $sp, 1448                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 19
-	st.d	$a1, $sp, 1440                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 20
-	st.d	$a1, $sp, 1432                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 21
-	st.d	$a1, $sp, 1424                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 24
-	st.d	$a1, $sp, 1416                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 25
-	st.d	$a1, $sp, 1408                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 26
-	st.d	$a1, $sp, 1400                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 27
-	st.d	$a1, $sp, 1392                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 30
-	st.d	$a1, $sp, 1384                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 31
-	st.d	$a1, $sp, 1376                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 32
-	st.d	$a1, $sp, 1368                  # 8-byte Folded Spill
+	slli.d	$a0, $a3, 20
+	st.d	$a0, $sp, 1544                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 1
+	st.d	$a0, $sp, 1536                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 2
+	st.d	$a0, $sp, 1528                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 3
+	st.d	$a0, $sp, 1520                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 6
+	st.d	$a0, $sp, 1512                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 7
+	st.d	$a0, $sp, 1504                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 8
+	st.d	$a0, $sp, 1496                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 9
+	st.d	$a0, $sp, 1488                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 12
+	st.d	$a0, $sp, 1480                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 13
+	st.d	$a0, $sp, 1472                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 14
+	st.d	$a0, $sp, 1464                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 15
+	st.d	$a0, $sp, 1456                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 18
+	st.d	$a0, $sp, 1448                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 19
+	st.d	$a0, $sp, 1440                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 20
+	st.d	$a0, $sp, 1432                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 21
+	st.d	$a0, $sp, 1424                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 24
+	st.d	$a0, $sp, 1416                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 25
+	st.d	$a0, $sp, 1408                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 26
+	st.d	$a0, $sp, 1400                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 27
+	st.d	$a0, $sp, 1392                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 30
+	st.d	$a0, $sp, 1384                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 31
+	st.d	$a0, $sp, 1376                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 32
+	st.d	$a0, $sp, 1368                  # 8-byte Folded Spill
 	st.d	$a4, $sp, 1808                  # 8-byte Folded Spill
-	slli.d	$a1, $a4, 33
-	st.d	$a1, $sp, 1360                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 1
-	st.d	$a1, $sp, 1352                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 2
-	st.d	$a1, $sp, 1344                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 3
-	st.d	$a1, $sp, 1336                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 6
-	st.d	$a1, $sp, 1328                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 7
-	st.d	$a1, $sp, 1320                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 8
-	st.d	$a1, $sp, 1312                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 9
-	st.d	$a1, $sp, 1304                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 12
-	st.d	$a1, $sp, 1296                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 13
-	st.d	$a1, $sp, 1288                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 14
-	st.d	$a1, $sp, 1280                  # 8-byte Folded Spill
+	slli.d	$a0, $a4, 33
+	st.d	$a0, $sp, 1360                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 1
+	st.d	$a0, $sp, 1352                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 2
+	st.d	$a0, $sp, 1344                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 3
+	st.d	$a0, $sp, 1336                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 6
+	st.d	$a0, $sp, 1328                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 7
+	st.d	$a0, $sp, 1320                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 8
+	st.d	$a0, $sp, 1312                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 9
+	st.d	$a0, $sp, 1304                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 12
+	st.d	$a0, $sp, 1296                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 13
+	st.d	$a0, $sp, 1288                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 14
+	st.d	$a0, $sp, 1280                  # 8-byte Folded Spill
 	st.d	$a5, $sp, 1800                  # 8-byte Folded Spill
-	slli.d	$a1, $a5, 15
-	st.d	$a1, $sp, 1272                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 1
-	st.d	$a1, $sp, 1264                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 2
-	st.d	$a1, $sp, 1256                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 3
-	st.d	$a1, $sp, 1248                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 6
-	st.d	$a1, $sp, 1240                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 7
-	st.d	$a1, $sp, 1232                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 8
-	st.d	$a1, $sp, 1224                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 9
-	st.d	$a1, $sp, 1216                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 12
-	st.d	$a1, $sp, 1208                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 13
-	st.d	$a1, $sp, 1200                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 14
-	st.d	$a1, $sp, 1192                  # 8-byte Folded Spill
+	slli.d	$a0, $a5, 15
+	st.d	$a0, $sp, 1272                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 1
+	st.d	$a0, $sp, 1264                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 2
+	st.d	$a0, $sp, 1256                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 3
+	st.d	$a0, $sp, 1248                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 6
+	st.d	$a0, $sp, 1240                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 7
+	st.d	$a0, $sp, 1232                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 8
+	st.d	$a0, $sp, 1224                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 9
+	st.d	$a0, $sp, 1216                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 12
+	st.d	$a0, $sp, 1208                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 13
+	st.d	$a0, $sp, 1200                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 14
+	st.d	$a0, $sp, 1192                  # 8-byte Folded Spill
 	st.d	$a6, $sp, 1792                  # 8-byte Folded Spill
-	slli.d	$a1, $a6, 15
-	st.d	$a1, $sp, 1184                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 1
-	st.d	$a1, $sp, 1176                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 2
-	st.d	$a1, $sp, 1168                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 3
-	st.d	$a1, $sp, 1160                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 4
-	st.d	$a1, $sp, 1152                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 5
-	st.d	$a1, $sp, 1144                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 6
-	st.d	$a1, $sp, 1136                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 7
-	st.d	$a1, $sp, 1128                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 8
-	st.d	$a1, $sp, 1120                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 9
-	st.d	$a1, $sp, 1112                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 10
-	st.d	$a1, $sp, 1104                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 11
-	st.d	$a1, $sp, 1096                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 12
-	st.d	$a1, $sp, 1088                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 13
-	st.d	$a1, $sp, 1080                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 14
-	st.d	$a1, $sp, 1072                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 15
-	st.d	$a1, $sp, 1064                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 16
-	st.d	$a1, $sp, 1056                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 17
-	st.d	$a1, $sp, 1048                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 18
-	st.d	$a1, $sp, 1040                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 19
-	st.d	$a1, $sp, 1032                  # 8-byte Folded Spill
+	slli.d	$a0, $a6, 15
+	st.d	$a0, $sp, 1184                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 1
+	st.d	$a0, $sp, 1176                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 2
+	st.d	$a0, $sp, 1168                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 3
+	st.d	$a0, $sp, 1160                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 4
+	st.d	$a0, $sp, 1152                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 5
+	st.d	$a0, $sp, 1144                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 6
+	st.d	$a0, $sp, 1136                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 7
+	st.d	$a0, $sp, 1128                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 8
+	st.d	$a0, $sp, 1120                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 9
+	st.d	$a0, $sp, 1112                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 10
+	st.d	$a0, $sp, 1104                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 11
+	st.d	$a0, $sp, 1096                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 12
+	st.d	$a0, $sp, 1088                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 13
+	st.d	$a0, $sp, 1080                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 14
+	st.d	$a0, $sp, 1072                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 15
+	st.d	$a0, $sp, 1064                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 16
+	st.d	$a0, $sp, 1056                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 17
+	st.d	$a0, $sp, 1048                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 18
+	st.d	$a0, $sp, 1040                  # 8-byte Folded Spill
+	slli.d	$a0, $a7, 19
+	st.d	$a0, $sp, 1032                  # 8-byte Folded Spill
 	st.d	$a7, $sp, 1784                  # 8-byte Folded Spill
-	slli.d	$a1, $a7, 20
-	st.d	$a1, $sp, 1024                  # 8-byte Folded Spill
-	slli.d	$a1, $t0, 1
-	st.d	$a1, $sp, 1016                  # 8-byte Folded Spill
-	slli.d	$a1, $t0, 2
-	st.d	$a1, $sp, 1008                  # 8-byte Folded Spill
-	slli.d	$a1, $t0, 3
-	st.d	$a1, $sp, 1000                  # 8-byte Folded Spill
-	slli.d	$a1, $t0, 4
-	st.d	$a1, $sp, 992                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 6
-	st.d	$a1, $sp, 984                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 7
-	st.d	$a1, $sp, 976                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 8
-	st.d	$a1, $sp, 968                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 9
-	st.d	$a1, $sp, 960                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 10
-	st.d	$a1, $sp, 952                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 12
-	st.d	$a1, $sp, 944                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 13
-	st.d	$a1, $sp, 936                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 14
-	st.d	$a1, $sp, 928                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 15
-	st.d	$a1, $sp, 920                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 16
-	st.d	$a1, $sp, 912                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 18
-	st.d	$a1, $sp, 904                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 19
-	st.d	$a1, $sp, 896                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 20
-	st.d	$a1, $sp, 888                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 21
-	st.d	$a1, $sp, 880                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 22
-	st.d	$a1, $sp, 872                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 24
-	st.d	$a1, $sp, 864                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 25
-	st.d	$a1, $sp, 856                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 26
-	st.d	$a1, $sp, 848                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 27
-	st.d	$a1, $sp, 840                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 28
-	st.d	$a1, $sp, 832                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 30
-	st.d	$a1, $sp, 824                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 31
-	st.d	$a1, $sp, 816                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 32
-	st.d	$a1, $sp, 808                   # 8-byte Folded Spill
-	slli.d	$a1, $t0, 33
-	st.d	$a1, $sp, 800                   # 8-byte Folded Spill
+	slli.d	$a0, $a7, 20
+	st.d	$a0, $sp, 1024                  # 8-byte Folded Spill
+	slli.d	$a0, $t0, 1
+	st.d	$a0, $sp, 1016                  # 8-byte Folded Spill
+	slli.d	$a0, $t0, 2
+	st.d	$a0, $sp, 1008                  # 8-byte Folded Spill
+	slli.d	$a0, $t0, 3
+	st.d	$a0, $sp, 1000                  # 8-byte Folded Spill
+	slli.d	$a0, $t0, 4
+	st.d	$a0, $sp, 992                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 6
+	st.d	$a0, $sp, 984                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 7
+	st.d	$a0, $sp, 976                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 8
+	st.d	$a0, $sp, 968                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 9
+	st.d	$a0, $sp, 960                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 10
+	st.d	$a0, $sp, 952                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 12
+	st.d	$a0, $sp, 944                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 13
+	st.d	$a0, $sp, 936                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 14
+	st.d	$a0, $sp, 928                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 15
+	st.d	$a0, $sp, 920                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 16
+	st.d	$a0, $sp, 912                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 18
+	st.d	$a0, $sp, 904                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 19
+	st.d	$a0, $sp, 896                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 20
+	st.d	$a0, $sp, 888                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 21
+	st.d	$a0, $sp, 880                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 22
+	st.d	$a0, $sp, 872                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 24
+	st.d	$a0, $sp, 864                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 25
+	st.d	$a0, $sp, 856                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 26
+	st.d	$a0, $sp, 848                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 27
+	st.d	$a0, $sp, 840                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 28
+	st.d	$a0, $sp, 832                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 30
+	st.d	$a0, $sp, 824                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 31
+	st.d	$a0, $sp, 816                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 32
+	st.d	$a0, $sp, 808                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 33
+	st.d	$a0, $sp, 800                   # 8-byte Folded Spill
 	st.d	$t0, $sp, 1776                  # 8-byte Folded Spill
-	slli.d	$a1, $t0, 34
-	st.d	$a1, $sp, 792                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 1
-	st.d	$a1, $sp, 784                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 2
-	st.d	$a1, $sp, 776                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 3
-	st.d	$a1, $sp, 768                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 6
-	st.d	$a1, $sp, 760                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 7
-	st.d	$a1, $sp, 752                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 8
-	st.d	$a1, $sp, 744                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 9
-	st.d	$a1, $sp, 736                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 12
-	st.d	$a1, $sp, 728                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 13
-	st.d	$a1, $sp, 720                   # 8-byte Folded Spill
-	slli.d	$a1, $t1, 14
-	st.d	$a1, $sp, 712                   # 8-byte Folded Spill
+	slli.d	$a0, $t0, 34
+	st.d	$a0, $sp, 792                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 1
+	st.d	$a0, $sp, 784                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 2
+	st.d	$a0, $sp, 776                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 3
+	st.d	$a0, $sp, 768                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 6
+	st.d	$a0, $sp, 760                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 7
+	st.d	$a0, $sp, 752                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 8
+	st.d	$a0, $sp, 744                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 9
+	st.d	$a0, $sp, 736                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 12
+	st.d	$a0, $sp, 728                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 13
+	st.d	$a0, $sp, 720                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 14
+	st.d	$a0, $sp, 712                   # 8-byte Folded Spill
 	st.d	$t1, $sp, 1768                  # 8-byte Folded Spill
-	slli.d	$a1, $t1, 15
-	st.d	$a1, $sp, 704                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 1
-	st.d	$a1, $sp, 696                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 2
-	st.d	$a1, $sp, 688                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 3
-	st.d	$a1, $sp, 680                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 6
-	st.d	$a1, $sp, 672                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 7
-	st.d	$a1, $sp, 664                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 8
-	st.d	$a1, $sp, 656                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 9
-	st.d	$a1, $sp, 648                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 12
-	st.d	$a1, $sp, 640                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 13
-	st.d	$a1, $sp, 632                   # 8-byte Folded Spill
-	slli.d	$a1, $t2, 14
-	st.d	$a1, $sp, 624                   # 8-byte Folded Spill
+	slli.d	$a0, $t1, 15
+	st.d	$a0, $sp, 704                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 1
+	st.d	$a0, $sp, 696                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 2
+	st.d	$a0, $sp, 688                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 3
+	st.d	$a0, $sp, 680                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 6
+	st.d	$a0, $sp, 672                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 7
+	st.d	$a0, $sp, 664                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 8
+	st.d	$a0, $sp, 656                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 9
+	st.d	$a0, $sp, 648                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 12
+	st.d	$a0, $sp, 640                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 13
+	st.d	$a0, $sp, 632                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 14
+	st.d	$a0, $sp, 624                   # 8-byte Folded Spill
 	st.d	$t2, $sp, 1760                  # 8-byte Folded Spill
-	slli.d	$a1, $t2, 15
-	st.d	$a1, $sp, 616                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 1
-	st.d	$a1, $sp, 608                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 2
-	st.d	$a1, $sp, 600                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 3
-	st.d	$a1, $sp, 592                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 4
-	st.d	$a1, $sp, 584                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 5
-	st.d	$a1, $sp, 576                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 6
-	st.d	$a1, $sp, 568                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 7
-	st.d	$a1, $sp, 560                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 8
-	st.d	$a1, $sp, 552                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 9
-	st.d	$a1, $sp, 544                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 10
-	st.d	$a1, $sp, 536                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 11
-	st.d	$a1, $sp, 528                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 12
-	st.d	$a1, $sp, 520                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 13
-	st.d	$a1, $sp, 512                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 14
-	st.d	$a1, $sp, 504                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 15
-	st.d	$a1, $sp, 496                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 16
-	st.d	$a1, $sp, 488                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 17
-	st.d	$a1, $sp, 480                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 18
-	st.d	$a1, $sp, 472                   # 8-byte Folded Spill
-	slli.d	$a1, $t3, 19
-	st.d	$a1, $sp, 464                   # 8-byte Folded Spill
+	slli.d	$a0, $t2, 15
+	st.d	$a0, $sp, 616                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 1
+	st.d	$a0, $sp, 608                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 2
+	st.d	$a0, $sp, 600                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 3
+	st.d	$a0, $sp, 592                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 4
+	st.d	$a0, $sp, 584                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 5
+	st.d	$a0, $sp, 576                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 6
+	st.d	$a0, $sp, 568                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 7
+	st.d	$a0, $sp, 560                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 8
+	st.d	$a0, $sp, 552                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 9
+	st.d	$a0, $sp, 544                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 10
+	st.d	$a0, $sp, 536                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 11
+	st.d	$a0, $sp, 528                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 12
+	st.d	$a0, $sp, 520                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 13
+	st.d	$a0, $sp, 512                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 14
+	st.d	$a0, $sp, 504                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 15
+	st.d	$a0, $sp, 496                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 16
+	st.d	$a0, $sp, 488                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 17
+	st.d	$a0, $sp, 480                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 18
+	st.d	$a0, $sp, 472                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 19
+	st.d	$a0, $sp, 464                   # 8-byte Folded Spill
 	st.d	$t3, $sp, 1752                  # 8-byte Folded Spill
-	slli.d	$a1, $t3, 20
-	st.d	$a1, $sp, 456                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 1
-	st.d	$a1, $sp, 448                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 2
-	st.d	$a1, $sp, 440                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 3
-	st.d	$a1, $sp, 432                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 4
-	st.d	$a1, $sp, 424                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 5
-	st.d	$a1, $sp, 416                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 6
-	st.d	$a1, $sp, 408                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 7
-	st.d	$a1, $sp, 400                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 8
-	st.d	$a1, $sp, 392                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 9
-	st.d	$a1, $sp, 384                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 10
-	st.d	$a1, $sp, 376                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 11
-	st.d	$a1, $sp, 368                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 12
-	st.d	$a1, $sp, 360                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 13
-	st.d	$a1, $sp, 352                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 14
-	st.d	$a1, $sp, 344                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 15
-	st.d	$a1, $sp, 336                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 16
-	st.d	$a1, $sp, 328                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 17
-	st.d	$a1, $sp, 320                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 18
-	st.d	$a1, $sp, 312                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 19
-	st.d	$a1, $sp, 304                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 20
-	st.d	$a1, $sp, 296                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 21
-	st.d	$a1, $sp, 288                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 22
-	st.d	$a1, $sp, 280                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 23
-	st.d	$a1, $sp, 272                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 24
-	st.d	$a1, $sp, 264                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 25
-	st.d	$a1, $sp, 256                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 26
-	st.d	$a1, $sp, 248                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 27
-	st.d	$a1, $sp, 240                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 28
-	st.d	$a1, $sp, 232                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 29
-	st.d	$a1, $sp, 224                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 30
-	st.d	$a1, $sp, 216                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 31
-	st.d	$a1, $sp, 208                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 32
-	st.d	$a1, $sp, 200                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 33
-	st.d	$a1, $sp, 192                   # 8-byte Folded Spill
-	slli.d	$a1, $t4, 34
-	st.d	$a1, $sp, 184                   # 8-byte Folded Spill
+	slli.d	$a0, $t3, 20
+	st.d	$a0, $sp, 456                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 1
+	st.d	$a0, $sp, 448                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 2
+	st.d	$a0, $sp, 440                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 3
+	st.d	$a0, $sp, 432                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 4
+	st.d	$a0, $sp, 424                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 5
+	st.d	$a0, $sp, 416                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 6
+	st.d	$a0, $sp, 408                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 7
+	st.d	$a0, $sp, 400                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 8
+	st.d	$a0, $sp, 392                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 9
+	st.d	$a0, $sp, 384                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 10
+	st.d	$a0, $sp, 376                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 11
+	st.d	$a0, $sp, 368                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 12
+	st.d	$a0, $sp, 360                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 13
+	st.d	$a0, $sp, 352                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 14
+	st.d	$a0, $sp, 344                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 15
+	st.d	$a0, $sp, 336                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 16
+	st.d	$a0, $sp, 328                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 17
+	st.d	$a0, $sp, 320                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 18
+	st.d	$a0, $sp, 312                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 19
+	st.d	$a0, $sp, 304                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 20
+	st.d	$a0, $sp, 296                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 21
+	st.d	$a0, $sp, 288                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 22
+	st.d	$a0, $sp, 280                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 23
+	st.d	$a0, $sp, 272                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 24
+	st.d	$a0, $sp, 264                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 25
+	st.d	$a0, $sp, 256                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 26
+	st.d	$a0, $sp, 248                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 27
+	st.d	$a0, $sp, 240                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 28
+	st.d	$a0, $sp, 232                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 29
+	st.d	$a0, $sp, 224                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 30
+	st.d	$a0, $sp, 216                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 31
+	st.d	$a0, $sp, 208                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 32
+	st.d	$a0, $sp, 200                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 33
+	st.d	$a0, $sp, 192                   # 8-byte Folded Spill
+	slli.d	$a0, $t4, 34
+	st.d	$a0, $sp, 184                   # 8-byte Folded Spill
 	st.d	$t4, $sp, 1592                  # 8-byte Folded Spill
-	slli.d	$a1, $t4, 35
-	st.d	$a1, $sp, 176                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 1
-	st.d	$a1, $sp, 168                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 2
-	st.d	$a1, $sp, 160                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 3
-	st.d	$a1, $sp, 152                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 6
-	st.d	$a1, $sp, 144                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 7
-	st.d	$a1, $sp, 136                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 8
-	st.d	$a1, $sp, 128                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 9
-	st.d	$a1, $sp, 120                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 12
-	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 13
-	st.d	$a1, $sp, 104                   # 8-byte Folded Spill
-	slli.d	$a1, $t5, 14
-	st.d	$a1, $sp, 96                    # 8-byte Folded Spill
+	slli.d	$a0, $t4, 35
+	st.d	$a0, $sp, 176                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 1
+	st.d	$a0, $sp, 168                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 2
+	st.d	$a0, $sp, 160                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 3
+	st.d	$a0, $sp, 152                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 6
+	st.d	$a0, $sp, 144                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 7
+	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 8
+	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 9
+	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 12
+	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 13
+	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
+	slli.d	$a0, $t5, 14
+	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
 	st.d	$t5, $sp, 1744                  # 8-byte Folded Spill
-	slli.d	$a1, $t5, 15
-	st.d	$a1, $sp, 88                    # 8-byte Folded Spill
-	slli.d	$a1, $a0, 1
-	st.d	$a1, $sp, 80                    # 8-byte Folded Spill
-	slli.d	$a1, $a0, 2
-	st.d	$a1, $sp, 72                    # 8-byte Folded Spill
-	slli.d	$a1, $a0, 3
-	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
-	slli.d	$a1, $a0, 6
-	st.d	$a1, $sp, 56                    # 8-byte Folded Spill
-	slli.d	$a1, $a0, 7
-	st.d	$a1, $sp, 48                    # 8-byte Folded Spill
-	slli.d	$a1, $a0, 8
-	st.d	$a1, $sp, 40                    # 8-byte Folded Spill
-	slli.d	$a1, $a0, 9
-	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
-	slli.d	$a1, $a0, 13
-	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
-	st.d	$a0, $sp, 1736                  # 8-byte Folded Spill
-	slli.d	$a0, $a0, 14
+	slli.d	$a0, $t5, 15
+	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
+	slli.d	$a0, $t6, 1
+	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
+	slli.d	$a0, $t6, 2
+	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
+	slli.d	$a0, $t6, 3
+	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
+	slli.d	$a0, $t6, 6
+	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	slli.d	$a0, $t6, 7
+	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
+	slli.d	$a0, $t6, 8
+	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	slli.d	$a0, $t6, 9
+	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
+	slli.d	$a0, $t6, 13
+	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
+	st.d	$t6, $sp, 1736                  # 8-byte Folded Spill
+	slli.d	$a0, $t6, 14
 	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	ori	$a0, $zero, 1
 	.p2align	4, , 16
@@ -2056,16 +2053,14 @@ value:                                  # @value
 	or	$a4, $a1, $a0
 	movgr2cf	$fcc0, $a3
 	move	$t2, $a3
-	fsel	$fa5, $fa2, $fa1, $fcc0
-	fadd.s	$fa5, $fa0, $fa5
+	fsel	$fa6, $fa3, $fa2, $fcc0
+	fadd.s	$fa6, $fa0, $fa6
 	ld.d	$t0, $sp, 1576                  # 8-byte Folded Reload
 	andn	$a0, $t0, $a4
-	pcalau12i	$a1, %pc_hi20(.LCPI7_0)
-	fld.s	$fa6, $a1, %pc_lo12(.LCPI7_0)
 	sltui	$a0, $a0, 1
 	movgr2fr.w	$fa7, $a2
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a1, $fa7
 	maskeqz	$a1, $a1, $a0
@@ -2076,7 +2071,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2087,7 +2082,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2098,7 +2093,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2109,7 +2104,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2120,7 +2115,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2131,7 +2126,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2142,7 +2137,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2153,7 +2148,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2164,7 +2159,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2175,7 +2170,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2186,7 +2181,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2197,7 +2192,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2208,7 +2203,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2219,7 +2214,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2230,7 +2225,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2241,7 +2236,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2252,7 +2247,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2263,7 +2258,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2274,7 +2269,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2285,7 +2280,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2296,7 +2291,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2307,7 +2302,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2318,7 +2313,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2329,7 +2324,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2340,7 +2335,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2351,7 +2346,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2362,7 +2357,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2373,7 +2368,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2384,7 +2379,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2395,7 +2390,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2406,7 +2401,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2417,7 +2412,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2428,7 +2423,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2439,7 +2434,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2450,7 +2445,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2461,7 +2456,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2472,7 +2467,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2483,7 +2478,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2494,7 +2489,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2505,7 +2500,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2516,7 +2511,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2527,7 +2522,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2538,7 +2533,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2549,7 +2544,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2560,7 +2555,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2571,7 +2566,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2582,7 +2577,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2593,7 +2588,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2604,7 +2599,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2615,7 +2610,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2626,7 +2621,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2637,7 +2632,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2648,7 +2643,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2659,7 +2654,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2670,7 +2665,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2681,7 +2676,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2692,7 +2687,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2703,7 +2698,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2714,7 +2709,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2725,7 +2720,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2736,7 +2731,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2747,7 +2742,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2758,7 +2753,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2769,7 +2764,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2780,7 +2775,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2791,7 +2786,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2802,7 +2797,7 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa7, $fa5, $fa6, $fa7
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
 	ftintrz.w.s	$fa7, $fa7
 	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
@@ -2813,9 +2808,9 @@ value:                                  # @value
 	sltui	$a1, $a1, 1
 	movgr2fr.w	$fa7, $a0
 	ffint.s.w	$fa7, $fa7
-	fmadd.s	$fa6, $fa5, $fa6, $fa7
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	fmadd.s	$fa7, $fa6, $fa1, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
@@ -2827,11 +2822,11 @@ value:                                  # @value
 	andn	$a1, $a1, $a4
 	and	$a2, $t0, $t2
 	or	$a1, $a1, $a2
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a5, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a5, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a5, $a1
@@ -2840,11 +2835,11 @@ value:                                  # @value
 	andn	$a1, $a1, $a4
 	and	$t0, $a7, $t2
 	or	$a1, $a1, $t0
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a5, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a5, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a5, $a1
@@ -2853,11 +2848,11 @@ value:                                  # @value
 	andn	$a5, $a1, $a4
 	and	$a1, $t1, $t2
 	or	$a5, $a5, $a1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a6, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a6, $fa7
 	sltui	$a5, $a5, 1
 	masknez	$a0, $a0, $a5
 	maskeqz	$a5, $a6, $a5
@@ -2866,11 +2861,11 @@ value:                                  # @value
 	andn	$a6, $a0, $a4
 	and	$a0, $t5, $t2
 	or	$a6, $a6, $a0
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2880,11 +2875,11 @@ value:                                  # @value
 	and	$a7, $t6, $t2
 	st.d	$a7, $sp, 1848                  # 8-byte Folded Spill
 	or	$a6, $a6, $a7
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2894,11 +2889,11 @@ value:                                  # @value
 	and	$a7, $t7, $t2
 	st.d	$a7, $sp, 1840                  # 8-byte Folded Spill
 	or	$a6, $a6, $a7
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2908,11 +2903,11 @@ value:                                  # @value
 	and	$a7, $t8, $t2
 	st.d	$a7, $sp, 1832                  # 8-byte Folded Spill
 	or	$a6, $a6, $a7
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2921,11 +2916,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$s2, $s2, $t2
 	or	$a6, $a6, $s2
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2934,11 +2929,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$s3, $s3, $t2
 	or	$a6, $a6, $s3
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2947,11 +2942,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$s4, $s4, $t2
 	or	$a6, $a6, $s4
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2960,11 +2955,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$s5, $s5, $t2
 	or	$a6, $a6, $s5
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2973,11 +2968,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$s6, $s6, $t2
 	or	$a6, $a6, $s6
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2986,11 +2981,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$s7, $s7, $t2
 	or	$a6, $a6, $s7
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -2999,11 +2994,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$s8, $s8, $t2
 	or	$a6, $a6, $s8
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -3012,11 +3007,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$ra, $ra, $t2
 	or	$a6, $a6, $ra
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -3025,11 +3020,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$t7, $t4, $t2
 	or	$a6, $a6, $t7
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -3038,11 +3033,11 @@ value:                                  # @value
 	andn	$a6, $a6, $a4
 	and	$t8, $a3, $t2
 	or	$a6, $a6, $t8
-	movgr2fr.w	$fa6, $a5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t1, $fa6
+	movgr2fr.w	$fa7, $a5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t1, $fa7
 	sltui	$a6, $a6, 1
 	masknez	$a5, $a5, $a6
 	maskeqz	$a6, $t1, $a6
@@ -3051,11 +3046,11 @@ value:                                  # @value
 	andn	$t1, $a3, $a4
 	and	$a5, $t3, $t2
 	or	$t1, $t1, $a5
-	movgr2fr.w	$fa6, $a6
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t5, $fa6
+	movgr2fr.w	$fa7, $a6
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t5, $fa7
 	sltui	$t1, $t1, 1
 	masknez	$a6, $a6, $t1
 	maskeqz	$t1, $t5, $t1
@@ -3064,11 +3059,11 @@ value:                                  # @value
 	andn	$t5, $a3, $a4
 	and	$a6, $fp, $t2
 	or	$t5, $t5, $a6
-	movgr2fr.w	$fa6, $t1
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $t1
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	sltui	$t5, $t5, 1
 	masknez	$t1, $t1, $t5
 	maskeqz	$t5, $t6, $t5
@@ -3077,11 +3072,11 @@ value:                                  # @value
 	andn	$t6, $a3, $a4
 	and	$t1, $s0, $t2
 	or	$t6, $t6, $t1
-	movgr2fr.w	$fa6, $t5
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a7, $fa6
+	movgr2fr.w	$fa7, $t5
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a7, $fa7
 	sltui	$t6, $t6, 1
 	masknez	$t5, $t5, $t6
 	maskeqz	$a7, $a7, $t6
@@ -3090,11 +3085,11 @@ value:                                  # @value
 	andn	$t5, $a3, $a4
 	and	$t2, $s1, $t2
 	or	$t5, $t5, $t2
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	sltui	$t5, $t5, 1
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
@@ -3102,605 +3097,605 @@ value:                                  # @value
 	ld.d	$t5, $sp, 1776                  # 8-byte Folded Reload
 	andn	$t5, $t5, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 1016                  # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 1008                  # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 1000                  # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 992                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 984                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 976                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 968                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 960                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 952                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 944                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 936                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 928                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 920                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 912                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 904                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 896                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 888                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 880                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 872                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 864                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 856                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 848                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 840                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 832                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 824                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 816                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 808                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 800                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 792                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$t5, $sp, 1768                  # 8-byte Folded Reload
 	andn	$t5, $t5, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 784                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 776                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 768                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 760                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 752                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 744                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 736                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 728                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 720                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 712                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 704                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$t5, $sp, 1760                  # 8-byte Folded Reload
 	andn	$t5, $t5, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 696                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 688                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 680                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 672                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 664                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 656                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 648                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 640                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 632                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 624                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$a3, $sp, 616                   # 8-byte Folded Reload
 	andn	$t5, $a3, $a4
 	sltui	$t5, $t5, 1
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa3, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t6, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa4, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t6, $fa7
 	masknez	$a7, $a7, $t5
 	maskeqz	$t5, $t6, $t5
 	or	$a7, $t5, $a7
 	ld.d	$t5, $sp, 1752                  # 8-byte Folded Reload
 	andn	$t5, $t5, $a4
 	or	$a2, $t5, $a2
-	movgr2fr.w	$fa6, $a7
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t5, $fa6
+	movgr2fr.w	$fa7, $a7
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t5, $fa7
 	sltui	$a2, $a2, 1
 	masknez	$a7, $a7, $a2
 	maskeqz	$a2, $t5, $a2
@@ -3708,11 +3703,11 @@ value:                                  # @value
 	ld.d	$a3, $sp, 608                   # 8-byte Folded Reload
 	andn	$a7, $a3, $a4
 	or	$a7, $a7, $t0
-	movgr2fr.w	$fa6, $a2
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$t0, $fa6
+	movgr2fr.w	$fa7, $a2
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$t0, $fa7
 	sltui	$a7, $a7, 1
 	masknez	$a2, $a2, $a7
 	maskeqz	$a7, $t0, $a7
@@ -3720,11 +3715,11 @@ value:                                  # @value
 	ld.d	$a3, $sp, 600                   # 8-byte Folded Reload
 	andn	$a7, $a3, $a4
 	or	$a1, $a7, $a1
-	movgr2fr.w	$fa6, $a2
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a7, $fa6
+	movgr2fr.w	$fa7, $a2
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a7, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a2, $a2, $a1
 	maskeqz	$a1, $a7, $a1
@@ -3732,11 +3727,11 @@ value:                                  # @value
 	ld.d	$a2, $sp, 592                   # 8-byte Folded Reload
 	andn	$a2, $a2, $a4
 	or	$a0, $a2, $a0
-	movgr2fr.w	$fa6, $a1
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a1
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a0, $a0, 1
 	masknez	$a1, $a1, $a0
 	maskeqz	$a0, $a2, $a0
@@ -3745,11 +3740,11 @@ value:                                  # @value
 	andn	$a1, $a1, $a4
 	ld.d	$a2, $sp, 1848                  # 8-byte Folded Reload
 	or	$a1, $a1, $a2
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3758,11 +3753,11 @@ value:                                  # @value
 	andn	$a1, $a1, $a4
 	ld.d	$a2, $sp, 1840                  # 8-byte Folded Reload
 	or	$a1, $a1, $a2
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3771,11 +3766,11 @@ value:                                  # @value
 	andn	$a1, $a1, $a4
 	ld.d	$a2, $sp, 1832                  # 8-byte Folded Reload
 	or	$a1, $a1, $a2
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3783,11 +3778,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 560                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $s2
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3795,11 +3790,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 552                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $s3
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3807,11 +3802,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 544                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $s4
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3819,11 +3814,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 536                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $s5
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3831,11 +3826,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 528                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $s6
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3843,11 +3838,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 520                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $s7
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3855,11 +3850,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 512                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $s8
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3867,11 +3862,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 504                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $ra
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3879,11 +3874,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 496                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $t7
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3891,11 +3886,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 488                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $t8
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3903,11 +3898,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 480                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $a5
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3915,11 +3910,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 472                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $a6
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3927,11 +3922,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 464                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $t1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3939,11 +3934,11 @@ value:                                  # @value
 	ld.d	$a1, $sp, 456                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	or	$a1, $a1, $t2
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	sltui	$a1, $a1, 1
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
@@ -3951,660 +3946,660 @@ value:                                  # @value
 	ld.d	$a1, $sp, 1592                  # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 448                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 440                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 432                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 424                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 416                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 408                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 400                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 392                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 384                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 376                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 368                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 360                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 352                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 344                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 336                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 328                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 320                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 312                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 304                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 296                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 288                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 280                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 272                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 264                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 256                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 248                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 240                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 232                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 224                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 216                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 200                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 184                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 176                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 1744                  # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 168                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 160                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 144                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 136                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 128                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 120                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 104                   # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 96                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 1736                  # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 64                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 1728                  # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 24                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa6, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa6, $fa6
-	movfr2gr.s	$a2, $fa6
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa7, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa7, $fa7
+	movfr2gr.s	$a2, $fa7
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a0, $a1, $a0
 	ld.d	$a1, $sp, 1720                  # 8-byte Folded Reload
 	andn	$a1, $a1, $a4
 	sltui	$a1, $a1, 1
-	movgr2fr.w	$fa6, $a0
-	ffint.s.w	$fa6, $fa6
-	fmadd.s	$fa5, $fa5, $fa4, $fa6
-	ftintrz.w.s	$fa5, $fa5
-	movfr2gr.s	$a2, $fa5
+	movgr2fr.w	$fa7, $a0
+	ffint.s.w	$fa7, $fa7
+	fmadd.s	$fa6, $fa6, $fa5, $fa7
+	ftintrz.w.s	$fa6, $fa6
+	movfr2gr.s	$a2, $fa6
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
 	or	$a2, $a1, $a0

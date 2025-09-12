@@ -761,12 +761,7 @@ ReplaceWithTidy:                        # @ReplaceWithTidy
 .Lfunc_end0:
 	.size	ReplaceWithTidy, .Lfunc_end0-ReplaceWithTidy
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function Manifest
-.LCPI1_0:
-	.word	0x43000000                      # float 128
-	.text
-	.globl	Manifest
+	.globl	Manifest                        # -- Begin function Manifest
 	.p2align	5
 	.type	Manifest,@function
 Manifest:                               # @Manifest
@@ -4943,8 +4938,8 @@ Manifest:                               # @Manifest
 # %bb.391:
 	pcaddu18i	$ra, %call36(GetScaleFactor)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, 274432
+	movgr2fr.w	$fs0, $a0
 	fmul.s	$fa0, $fa0, $fs0
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
@@ -4965,8 +4960,8 @@ Manifest:                               # @Manifest
 .LBB1_394:                              # %.thread2438
 	pcaddu18i	$ra, %call36(GetScaleFactor)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, 274432
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
@@ -10945,16 +10940,7 @@ insert_split:                           # @insert_split
 .Lfunc_end3:
 	.size	insert_split, .Lfunc_end3-insert_split
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function GetScaleFactor
-.LCPI4_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI4_1:
-	.word	0x42c80000                      # float 100
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function GetScaleFactor
 	.type	GetScaleFactor,@function
 GetScaleFactor:                         # @GetScaleFactor
 # %bb.0:
@@ -10979,10 +10965,13 @@ GetScaleFactor:                         # @GetScaleFactor
 	bne	$a0, $a1, .LBB4_5
 # %bb.2:
 	fld.s	$fa0, $sp, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
-	fcvt.d.s	$fa2, $fa0
-	fcmp.cule.d	$fcc0, $fa1, $fa2
+	fcvt.d.s	$fa1, $fa0
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, 1016
+	movgr2fr.d	$fa2, $a0
+	fcmp.cule.d	$fcc0, $fa2, $fa1
 	bcnez	$fcc0, .LBB4_9
 # %bb.3:
 	pcalau12i	$a0, %pc_hi20(.L.str.67)
@@ -11021,8 +11010,8 @@ GetScaleFactor:                         # @GetScaleFactor
 	addi.d	$sp, $sp, 32
 	ret
 .LBB4_9:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI4_1)
+	lu12i.w	$a0, 273536
+	movgr2fr.w	$fa1, $a0
 	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB4_8
 # %bb.10:

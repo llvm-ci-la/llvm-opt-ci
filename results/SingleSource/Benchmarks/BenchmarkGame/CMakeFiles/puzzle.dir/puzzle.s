@@ -44,12 +44,7 @@ srand:                                  # @srand
 .Lfunc_end1:
 	.size	srand, .Lfunc_end1-srand
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function randInt
-.LCPI2_0:
-	.dword	0x3f00000000000000              # double 3.0517578125E-5
-	.text
-	.globl	randInt
+	.globl	randInt                         # -- Begin function randInt
 	.p2align	5
 	.type	randInt,@function
 randInt:                                # @randInt
@@ -75,19 +70,19 @@ randInt:                                # @randInt
 	slli.d	$a6, $a5, 15
 	sub.d	$a5, $a5, $a6
 	add.d	$a4, $a4, $a5
-	pcalau12i	$a5, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a5, %pc_lo12(.LCPI2_0)
 	sub.d	$a1, $a1, $a0
 	addi.d	$a1, $a1, 1
-	movgr2fr.w	$fa1, $a1
+	movgr2fr.w	$fa0, $a1
 	addi.w	$a1, $a1, 0
-	ffint.d.w	$fa1, $fa1
+	ffint.d.w	$fa0, $fa0
 	addi.d	$a4, $a4, 1
 	bstrpick.d	$a4, $a4, 31, 0
+	movgr2fr.d	$fa1, $a4
+	ffint.d.l	$fa1, $fa1
+	lu52i.d	$a4, $zero, 1008
 	movgr2fr.d	$fa2, $a4
-	ffint.d.l	$fa2, $fa2
-	fmul.d	$fa0, $fa2, $fa0
-	fmul.d	$fa0, $fa0, $fa1
+	fmul.d	$fa1, $fa1, $fa2
+	fmul.d	$fa0, $fa1, $fa0
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a4, $fa0
 	xor	$a1, $a1, $a4
@@ -99,14 +94,7 @@ randInt:                                # @randInt
 .Lfunc_end2:
 	.size	randInt, .Lfunc_end2-randInt
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function shuffle
-.LCPI3_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI3_1:
-	.dword	0x3f00000000000000              # double 3.0517578125E-5
-	.text
-	.globl	shuffle
+	.globl	shuffle                         # -- Begin function shuffle
 	.p2align	5
 	.type	shuffle,@function
 shuffle:                                # @shuffle
@@ -119,17 +107,18 @@ shuffle:                                # @shuffle
 	alsl.d	$a5, $a1, $a0, 2
 	addi.d	$a5, $a5, -4
 	lu52i.d	$a6, $zero, 1107
-	pcalau12i	$a7, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a7, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a7, 256
+	lu52i.d	$a7, $a7, 1107
+	movgr2fr.d	$fa0, $a7
 	lu12i.w	$a7, 275200
 	lu12i.w	$t0, 269412
 	ori	$t0, $t0, 3693
 	lu12i.w	$t1, 3
-	pcalau12i	$t2, %pc_hi20(.LCPI3_1)
-	fld.d	$fa1, $t2, %pc_lo12(.LCPI3_1)
 	ori	$t1, $t1, 57
 	lu12i.w	$t2, 32
 	ori	$t2, $t2, 5
+	lu52i.d	$t3, $zero, 1008
+	movgr2fr.d	$fa1, $t3
 	.p2align	4, , 16
 .LBB3_2:                                # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
@@ -188,12 +177,6 @@ shuffle:                                # @shuffle
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI4_1:
-	.dword	0x3f00000000000000              # double 3.0517578125E-5
-.LCPI4_2:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
 	.globl	createRandomArray
 	.p2align	5
@@ -275,11 +258,11 @@ createRandomArray:                      # @createRandomArray
 	sub.d	$a7, $a7, $t0
 	add.d	$a6, $a6, $a7
 	addi.d	$a6, $a6, 1
-	pcalau12i	$a7, %pc_hi20(.LCPI4_1)
-	fld.d	$fa0, $a7, %pc_lo12(.LCPI4_1)
 	bstrpick.d	$a6, $a6, 31, 0
-	movgr2fr.d	$fa2, $a6
-	ffint.d.l	$fa2, $fa2
+	movgr2fr.d	$fa0, $a6
+	ffint.d.l	$fa2, $fa0
+	lu52i.d	$a6, $zero, 1008
+	movgr2fr.d	$fa0, $a6
 	fmul.d	$fa2, $fa2, $fa0
 	fmul.d	$fa1, $fa2, $fa1
 	ftintrz.w.d	$fa1, $fa1
@@ -292,9 +275,10 @@ createRandomArray:                      # @createRandomArray
 	beqz	$fp, .LBB4_12
 # %bb.9:                                # %.lr.ph.preheader.i
 	alsl.d	$a6, $fp, $a0, 2
-	pcalau12i	$a7, %pc_hi20(.LCPI4_2)
-	fld.d	$fa1, $a7, %pc_lo12(.LCPI4_2)
 	lu52i.d	$a7, $zero, 1107
+	lu12i.w	$t0, 256
+	lu52i.d	$t0, $t0, 1107
+	movgr2fr.d	$fa1, $t0
 	lu12i.w	$t0, 275200
 	ori	$t1, $zero, 1
 	.p2align	4, , 16

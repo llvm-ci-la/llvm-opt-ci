@@ -183,12 +183,7 @@ _ZN12btConeShapeXC2Eff:                 # @_ZN12btConeShapeXC2Eff
 	.size	_ZN12btConeShapeXC2Eff, .Lfunc_end4-_ZN12btConeShapeXC2Eff
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK11btConeShape16coneLocalSupportERK9btVector3
-.LCPI5_0:
-	.word	0x34000000                      # float 1.1920929E-7
-	.text
-	.globl	_ZNK11btConeShape16coneLocalSupportERK9btVector3
+	.globl	_ZNK11btConeShape16coneLocalSupportERK9btVector3 # -- Begin function _ZNK11btConeShape16coneLocalSupportERK9btVector3
 	.p2align	5
 	.type	_ZNK11btConeShape16coneLocalSupportERK9btVector3,@function
 _ZNK11btConeShape16coneLocalSupportERK9btVector3: # @_ZNK11btConeShape16coneLocalSupportERK9btVector3
@@ -225,11 +220,11 @@ _ZNK11btConeShape16coneLocalSupportERK9btVector3: # @_ZNK11btConeShape16coneLoca
 	slli.d	$a5, $a3, 2
 	fldx.s	$fa1, $a1, $a5
 	fldx.s	$fa2, $a1, $a4
-	pcalau12i	$a1, %pc_hi20(.LCPI5_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI5_0)
 	fmul.s	$fa3, $fa1, $fa1
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	fsqrt.s	$fa3, $fa3
+	lu12i.w	$a1, 212992
+	movgr2fr.w	$fa4, $a1
 	fcmp.cule.s	$fcc0, $fa3, $fa4
 	bcnez	$fcc0, .LBB5_4
 # %bb.3:
@@ -260,12 +255,7 @@ _ZNK11btConeShape16coneLocalSupportERK9btVector3: # @_ZNK11btConeShape16coneLoca
 .Lfunc_end5:
 	.size	_ZNK11btConeShape16coneLocalSupportERK9btVector3, .Lfunc_end5-_ZNK11btConeShape16coneLocalSupportERK9btVector3
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3
-.LCPI6_0:
-	.word	0x34000000                      # float 1.1920929E-7
-	.text
-	.globl	_ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3
+	.globl	_ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3 # -- Begin function _ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3
 	.p2align	5
 	.type	_ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3,@function
 _ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3
@@ -302,11 +292,11 @@ _ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZNK11
 	slli.d	$a5, $a3, 2
 	fldx.s	$fa1, $a1, $a5
 	fldx.s	$fa2, $a1, $a4
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI6_0)
 	fmul.s	$fa3, $fa1, $fa1
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	fsqrt.s	$fa3, $fa3
+	lu12i.w	$a1, 212992
+	movgr2fr.w	$fa4, $a1
 	fcmp.cule.s	$fcc0, $fa3, $fa4
 	bcnez	$fcc0, .LBB6_4
 # %bb.3:
@@ -337,12 +327,7 @@ _ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZNK11
 .Lfunc_end6:
 	.size	_ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3, .Lfunc_end6-_ZNK11btConeShape37localGetSupportingVertexWithoutMarginERK9btVector3
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
-.LCPI7_0:
-	.word	0x34000000                      # float 1.1920929E-7
-	.text
-	.globl	_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
+	.globl	_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i # -- Begin function _ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
 	.p2align	5
 	.type	_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i,@function
 _ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i: # @_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
@@ -350,11 +335,11 @@ _ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector
 	blez	$a3, .LBB7_9
 # %bb.1:                                # %.lr.ph
 	addi.d	$sp, $sp, -16
-	pcalau12i	$a4, %pc_hi20(.LCPI7_0)
-	fld.s	$fa0, $a4, %pc_lo12(.LCPI7_0)
-	vldi	$vr1, -1184
+	vldi	$vr0, -1184
 	addi.d	$a4, $sp, 0
-	movgr2fr.w	$fa2, $zero
+	movgr2fr.w	$fa1, $zero
+	lu12i.w	$a5, 212992
+	movgr2fr.w	$fa2, $a5
 	b	.LBB7_5
 	.p2align	4, , 16
 .LBB7_2:                                #   in Loop: Header=BB7_5 Depth=1
@@ -362,7 +347,7 @@ _ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector
 .LBB7_3:                                #   in Loop: Header=BB7_5 Depth=1
 	stx.w	$zero, $a7, $a4
 	fstx.s	$fa3, $a5, $a4
-	fmov.s	$fa3, $fa2
+	fmov.s	$fa3, $fa1
 .LBB7_4:                                # %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
                                         #   in Loop: Header=BB7_5 Depth=1
 	slli.d	$a5, $a6, 2
@@ -375,7 +360,7 @@ _ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector
 	beqz	$a3, .LBB7_8
 .LBB7_5:                                # =>This Inner Loop Header: Depth=1
 	fld.s	$fa3, $a0, 72
-	fmul.s	$fa3, $fa3, $fa1
+	fmul.s	$fa3, $fa3, $fa0
 	ld.w	$a5, $a0, 80
 	fld.s	$fa4, $a1, 4
 	fld.s	$fa5, $a1, 0
@@ -400,7 +385,7 @@ _ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector
 	fmul.s	$fa6, $fa4, $fa4
 	fmadd.s	$fa6, $fa5, $fa5, $fa6
 	fsqrt.s	$fa6, $fa6
-	fcmp.cule.s	$fcc0, $fa6, $fa0
+	fcmp.cule.s	$fcc0, $fa6, $fa2
 	fneg.s	$fa3, $fa3
 	bcnez	$fcc0, .LBB7_3
 # %bb.7:                                #   in Loop: Header=BB7_5 Depth=1
@@ -418,14 +403,7 @@ _ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector
 .Lfunc_end7:
 	.size	_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i, .Lfunc_end7-_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK11btConeShape24localGetSupportingVertexERK9btVector3
-.LCPI8_0:
-	.word	0x34000000                      # float 1.1920929E-7
-.LCPI8_1:
-	.word	0x28800000                      # float 1.42108547E-14
-	.text
-	.globl	_ZNK11btConeShape24localGetSupportingVertexERK9btVector3
+	.globl	_ZNK11btConeShape24localGetSupportingVertexERK9btVector3 # -- Begin function _ZNK11btConeShape24localGetSupportingVertexERK9btVector3
 	.p2align	5
 	.type	_ZNK11btConeShape24localGetSupportingVertexERK9btVector3,@function
 _ZNK11btConeShape24localGetSupportingVertexERK9btVector3: # @_ZNK11btConeShape24localGetSupportingVertexERK9btVector3
@@ -489,11 +467,11 @@ _ZNK11btConeShape24localGetSupportingVertexERK9btVector3: # @_ZNK11btConeShape24
 	slli.d	$a3, $a1, 2
 	fldx.s	$fa1, $s0, $a3
 	fldx.s	$fa2, $s0, $a2
-	pcalau12i	$a3, %pc_hi20(.LCPI8_0)
-	fld.s	$fa4, $a3, %pc_lo12(.LCPI8_0)
 	fmul.s	$fa3, $fa1, $fa1
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	fsqrt.s	$fa3, $fa3
+	lu12i.w	$a3, 212992
+	movgr2fr.w	$fa4, $a3
 	fcmp.cule.s	$fcc0, $fa3, $fa4
 	bcnez	$fcc0, .LBB8_4
 # %bb.3:
@@ -530,28 +508,28 @@ _ZNK11btConeShape24localGetSupportingVertexERK9btVector3: # @_ZNK11btConeShape24
 # %bb.7:
 	movgr2fr.w	$fs0, $s1
 	movgr2fr.w	$fs1, $s3
-	movgr2fr.w	$fs2, $s2
-	fld.s	$fa0, $s0, 0
-	fld.s	$fa1, $s0, 4
+	fld.s	$fa0, $s0, 4
+	fld.s	$fa1, $s0, 0
 	fld.s	$fa2, $s0, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI8_1)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI8_1)
-	fmul.s	$fa4, $fa1, $fa1
-	fmadd.s	$fa4, $fa0, $fa0, $fa4
-	fmadd.s	$fa4, $fa2, $fa2, $fa4
-	fcmp.clt.s	$fcc0, $fa4, $fa3
+	movgr2fr.w	$fs2, $s2
+	fmul.s	$fa3, $fa0, $fa0
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa4, $a0
+	fcmp.clt.s	$fcc0, $fa3, $fa4
 	vldi	$vr3, -1040
-	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa1, $fa1, $fa3, $fcc0
+	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa2, $fa2, $fa3, $fcc0
-	fmul.s	$fa3, $fa1, $fa1
+	fmul.s	$fa3, $fa0, $fa0
 	ld.d	$a0, $fp, 0
-	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	frsqrt.s	$fa3, $fa3
 	ld.d	$a1, $a0, 88
-	fmul.s	$fs3, $fa0, $fa3
-	fmul.s	$fs4, $fa1, $fa3
+	fmul.s	$fs3, $fa1, $fa3
+	fmul.s	$fs4, $fa0, $fa3
 	fmul.s	$fs5, $fa2, $fa3
 	move	$a0, $fp
 	jirl	$ra, $a1, 0
@@ -703,12 +681,8 @@ _ZNK21btConvexInternalShape15getLocalScalingEv: # @_ZNK21btConvexInternalShape15
 .Lfunc_end11:
 	.size	_ZNK21btConvexInternalShape15getLocalScalingEv, .Lfunc_end11-_ZNK21btConvexInternalShape15getLocalScalingEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK11btConeShape21calculateLocalInertiaEfR9btVector3
-.LCPI12_0:
-	.word	0x3daaaaaa                      # float 0.0833333284
 	.section	.text._ZNK11btConeShape21calculateLocalInertiaEfR9btVector3,"axG",@progbits,_ZNK11btConeShape21calculateLocalInertiaEfR9btVector3,comdat
-	.weak	_ZNK11btConeShape21calculateLocalInertiaEfR9btVector3
+	.weak	_ZNK11btConeShape21calculateLocalInertiaEfR9btVector3 # -- Begin function _ZNK11btConeShape21calculateLocalInertiaEfR9btVector3
 	.p2align	5
 	.type	_ZNK11btConeShape21calculateLocalInertiaEfR9btVector3,@function
 _ZNK11btConeShape21calculateLocalInertiaEfR9btVector3: # @_ZNK11btConeShape21calculateLocalInertiaEfR9btVector3
@@ -772,11 +746,12 @@ _ZNK11btConeShape21calculateLocalInertiaEfR9btVector3: # @_ZNK11btConeShape21cal
 	fadd.s	$fa2, $fa2, $fa2
 	fadd.s	$fa0, $fs3, $fa0
 	fadd.s	$fa0, $fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI12_0)
 	fmul.s	$fa1, $fa1, $fa1
 	fmul.s	$fa2, $fa2, $fa2
 	fmul.s	$fa0, $fa0, $fa0
+	lu12i.w	$a0, 252586
+	ori	$a0, $a0, 2730
+	movgr2fr.w	$fa3, $a0
 	fmul.s	$fa3, $fs0, $fa3
 	fadd.s	$fa4, $fa2, $fa0
 	fadd.s	$fa0, $fa1, $fa0

@@ -457,14 +457,7 @@ num_params:                             # @num_params
 .Lfunc_end6:
 	.size	num_params, .Lfunc_end6-num_params
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function real_param
-.LCPI7_0:
-	.dword	0x3ff0000a7c5ac472              # double 1.0000100000000001
-.LCPI7_1:
-	.dword	0xbee4f8b588e368f1              # double -1.0000000000000001E-5
-	.text
-	.globl	real_param
+	.globl	real_param                      # -- Begin function real_param
 	.p2align	5
 	.type	real_param,@function
 real_param:                             # @real_param
@@ -479,26 +472,29 @@ real_param:                             # @real_param
 # %bb.2:
 	ld.d	$a0, $a0, 0
 	movgr2fr.d	$fa0, $a0
-	ffint.s.l	$fa1, $fa0
+	ffint.s.l	$fa2, $fa0
 	beqz	$a2, .LBB7_7
 .LBB7_3:
 	movgr2fr.w	$fa0, $zero
-	fcmp.cule.s	$fcc0, $fa0, $fa1
-	fcvt.d.s	$fa2, $fa1
+	fcmp.cule.s	$fcc0, $fa0, $fa2
+	fcvt.d.s	$fa1, $fa2
 	bcnez	$fcc0, .LBB7_10
 # %bb.4:
-	pcalau12i	$a0, %pc_hi20(.LCPI7_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI7_1)
-	fcmp.clt.d	$fcc0, $fa2, $fa1
+	lu12i.w	$a0, -487882
+	ori	$a0, $a0, 2289
+	lu32i.d	$a0, 325813
+	lu52i.d	$a0, $a0, -1042
+	movgr2fr.d	$fa2, $a0
+	fcmp.clt.d	$fcc0, $fa1, $fa2
 	bceqz	$fcc0, .LBB7_8
 # %bb.5:
 	addi.w	$a0, $zero, -15
 	ret
 .LBB7_6:
-	fld.s	$fa1, $a0, 0
+	fld.s	$fa2, $a0, 0
 	bnez	$a2, .LBB7_3
 .LBB7_7:
-	fmov.s	$fa0, $fa1
+	fmov.s	$fa0, $fa2
 .LBB7_8:
 	move	$a0, $zero
 	fst.s	$fa0, $a1, 0
@@ -508,13 +504,16 @@ real_param:                             # @real_param
 	ret
 .LBB7_10:
 	vldi	$vr0, -1168
-	fcmp.cule.s	$fcc0, $fa1, $fa0
-	fmov.s	$fa0, $fa1
+	fcmp.cule.s	$fcc0, $fa2, $fa0
+	fmov.s	$fa0, $fa2
 	bcnez	$fcc0, .LBB7_8
 # %bb.11:
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_0)
-	fcmp.clt.d	$fcc0, $fa0, $fa2
+	lu12i.w	$a0, 509356
+	ori	$a0, $a0, 1138
+	lu32i.d	$a0, 10
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa0, $a0
+	fcmp.clt.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB7_13
 # %bb.12:
 	addi.w	$a0, $zero, -15

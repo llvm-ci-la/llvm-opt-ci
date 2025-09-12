@@ -62,12 +62,7 @@ _Z13record_resultdPKc:                  # @_Z13record_resultdPKc
 .Lfunc_end0:
 	.size	_Z13record_resultdPKc, .Lfunc_end0-_Z13record_resultdPKc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z9summarizePKciiii
-.LCPI1_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	_Z9summarizePKciiii
+	.globl	_Z9summarizePKciiii             # -- Begin function _Z9summarizePKciiii
 	.p2align	5
 	.type	_Z9summarizePKciiii,@function
 _Z9summarizePKciiii:                    # @_Z9summarizePKciiii
@@ -135,14 +130,16 @@ _Z9summarizePKciiii:                    # @_Z9summarizePKciiii
 # %bb.5:                                # %.lr.ph45.preheader
 	st.d	$s0, $sp, 8                     # 8-byte Folded Spill
 	st.d	$s5, $sp, 16                    # 8-byte Folded Spill
+	ori	$a0, $zero, 0
 	movgr2fr.w	$fa0, $s3
 	movgr2fr.w	$fa1, $s2
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI1_0)
+	lu32i.d	$a0, -97152
 	ffint.d.w	$fa0, $fa0
 	ffint.d.w	$fa1, $fa1
+	lu52i.d	$a0, $a0, 1042
 	fmul.d	$fa0, $fa0, $fa1
-	fdiv.d	$fs1, $fa0, $fa2
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(.L.str.4)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.4)
 	pcalau12i	$a0, %pc_hi20(.L.str.5)
@@ -409,12 +406,7 @@ _Z11start_timerv:                       # @_Z11start_timerv
 .Lfunc_end3:
 	.size	_Z11start_timerv, .Lfunc_end3-_Z11start_timerv
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z5timerv
-.LCPI4_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	_Z5timerv
+	.globl	_Z5timerv                       # -- Begin function _Z5timerv
 	.p2align	5
 	.type	_Z5timerv,@function
 _Z5timerv:                              # @_Z5timerv
@@ -426,12 +418,14 @@ _Z5timerv:                              # @_Z5timerv
 	pcalau12i	$a1, %pc_hi20(start_time)
 	ld.d	$a1, $a1, %pc_lo12(start_time)
 	pcalau12i	$a2, %pc_hi20(end_time)
-	pcalau12i	$a3, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI4_0)
 	sub.d	$a1, $a0, $a1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	st.d	$a0, $a2, %pc_lo12(end_time)
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
@@ -439,12 +433,7 @@ _Z5timerv:                              # @_Z5timerv
 .Lfunc_end4:
 	.size	_Z5timerv, .Lfunc_end4-_Z5timerv
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI5_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -2018,8 +2007,8 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(_Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc)
 	jirl	$ra, $ra, 0
 	fld.d	$fa0, $s3, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	fsub.d	$fa1, $fa0, $fa1
 	ftintrz.l.d	$fa1, $fa1
@@ -2505,12 +2494,8 @@ main:                                   # @main
 	.size	main, .Lfunc_end5-main
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa10custom_twoIaEEvPT_iPKc
-.LCPI6_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa10custom_twoIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa10custom_twoIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa10custom_twoIaEEvPT_iPKc
+	.weak	_Z13test_constantIa10custom_twoIaEEvPT_iPKc # -- Begin function _Z13test_constantIa10custom_twoIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa10custom_twoIaEEvPT_iPKc,@function
 _Z13test_constantIa10custom_twoIaEEvPT_iPKc: # @_Z13test_constantIa10custom_twoIaEEvPT_iPKc
@@ -2612,12 +2597,14 @@ _Z13test_constantIa10custom_twoIaEEvPT_iPKc: # @_Z13test_constantIa10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB6_12:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI6_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -2648,12 +2635,8 @@ _Z13test_constantIa10custom_twoIaEEvPT_iPKc: # @_Z13test_constantIa10custom_twoI
 	.size	_Z13test_constantIa10custom_twoIaEEvPT_iPKc, .Lfunc_end6-_Z13test_constantIa10custom_twoIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc
-.LCPI7_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc
@@ -2755,12 +2738,14 @@ _Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB7_12:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -2791,12 +2776,8 @@ _Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	.size	_Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc, .Lfunc_end7-_Z13test_constantIa20custom_add_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc
-.LCPI8_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc
@@ -2898,12 +2879,14 @@ _Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB8_12:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI8_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI8_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -2934,12 +2917,8 @@ _Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	.size	_Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc, .Lfunc_end8-_Z13test_constantIa20custom_sub_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc
-.LCPI9_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc: # @_Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc
@@ -3043,12 +3022,14 @@ _Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB9_12:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI9_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI9_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -3079,12 +3060,8 @@ _Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc, .Lfunc_end9-_Z13test_constantIa25custom_multiply_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc
-.LCPI10_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc: # @_Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc
@@ -3186,12 +3163,14 @@ _Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc: # @_Z13test_constantIa
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB10_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI10_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI10_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -3222,12 +3201,8 @@ _Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc: # @_Z13test_constantIa
 	.size	_Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc, .Lfunc_end10-_Z13test_constantIa23custom_divide_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc
-.LCPI11_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc
@@ -3329,12 +3304,14 @@ _Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB11_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI11_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI11_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -3365,12 +3342,8 @@ _Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	.size	_Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc, .Lfunc_end11-_Z13test_constantIa20custom_mod_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc
-.LCPI12_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc: # @_Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc
@@ -3423,12 +3396,14 @@ _Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc: # @_Z13test_constantIa2
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB12_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI12_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI12_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -3457,12 +3432,8 @@ _Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc: # @_Z13test_constantIa2
 	.size	_Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc, .Lfunc_end12-_Z13test_constantIa22custom_equal_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc
-.LCPI13_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc: # @_Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc
@@ -3564,12 +3535,14 @@ _Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB13_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI13_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI13_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -3600,12 +3573,8 @@ _Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc, .Lfunc_end13-_Z13test_constantIa25custom_notequal_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc
-.LCPI14_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc: # @_Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc
@@ -3707,12 +3676,14 @@ _Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB14_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI14_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI14_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -3743,12 +3714,8 @@ _Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc, .Lfunc_end14-_Z13test_constantIa28custom_greaterthan_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc
-.LCPI15_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc: # @_Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc
@@ -3801,12 +3768,14 @@ _Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc: # @_Z13test_constant
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB15_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI15_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI15_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -3835,12 +3804,8 @@ _Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc, .Lfunc_end15-_Z13test_constantIa25custom_lessthan_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc
-.LCPI16_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc: # @_Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc
@@ -3942,12 +3907,14 @@ _Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB16_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI16_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI16_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -3978,12 +3945,8 @@ _Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc, .Lfunc_end16-_Z13test_constantIa33custom_greaterthanequal_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc
-.LCPI17_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc: # @_Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc
@@ -4036,12 +3999,14 @@ _Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc: # @_Z13test_con
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB17_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI17_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI17_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -4070,12 +4035,8 @@ _Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc, .Lfunc_end17-_Z13test_constantIa30custom_lessthanequal_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc
-.LCPI18_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc
@@ -4177,12 +4138,14 @@ _Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB18_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI18_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI18_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -4213,12 +4176,8 @@ _Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	.size	_Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc, .Lfunc_end18-_Z13test_constantIa20custom_and_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc
-.LCPI19_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc: # @_Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc
@@ -4322,12 +4281,14 @@ _Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB19_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI19_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI19_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -4358,12 +4319,8 @@ _Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	.size	_Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc, .Lfunc_end19-_Z13test_constantIa19custom_or_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc
-.LCPI20_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc
+	.weak	_Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc # -- Begin function _Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc,@function
 _Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc
@@ -4467,12 +4424,14 @@ _Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB20_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI20_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI20_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -4503,12 +4462,8 @@ _Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc: # @_Z13test_constantIa20c
 	.size	_Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc, .Lfunc_end20-_Z13test_constantIa20custom_xor_constantsIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa19custom_constant_addIaEEvPT_iPKc
-.LCPI21_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa19custom_constant_addIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa19custom_constant_addIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa19custom_constant_addIaEEvPT_iPKc
+	.weak	_Z13test_constantIa19custom_constant_addIaEEvPT_iPKc # -- Begin function _Z13test_constantIa19custom_constant_addIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa19custom_constant_addIaEEvPT_iPKc,@function
 _Z13test_constantIa19custom_constant_addIaEEvPT_iPKc: # @_Z13test_constantIa19custom_constant_addIaEEvPT_iPKc
@@ -4744,12 +4699,14 @@ _Z13test_constantIa19custom_constant_addIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB21_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI21_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI21_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -4783,12 +4740,8 @@ _Z13test_constantIa19custom_constant_addIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	.size	_Z13test_constantIa19custom_constant_addIaEEvPT_iPKc, .Lfunc_end21-_Z13test_constantIa19custom_constant_addIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc
-.LCPI22_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc
+	.weak	_Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc # -- Begin function _Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc,@function
 _Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc: # @_Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc
@@ -5024,12 +4977,14 @@ _Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB22_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI22_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI22_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -5063,12 +5018,8 @@ _Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc, .Lfunc_end22-_Z13test_constantIa28custom_multiple_constant_addIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa19custom_constant_subIaEEvPT_iPKc
-.LCPI23_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa19custom_constant_subIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa19custom_constant_subIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa19custom_constant_subIaEEvPT_iPKc
+	.weak	_Z13test_constantIa19custom_constant_subIaEEvPT_iPKc # -- Begin function _Z13test_constantIa19custom_constant_subIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa19custom_constant_subIaEEvPT_iPKc,@function
 _Z13test_constantIa19custom_constant_subIaEEvPT_iPKc: # @_Z13test_constantIa19custom_constant_subIaEEvPT_iPKc
@@ -5307,12 +5258,14 @@ _Z13test_constantIa19custom_constant_subIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB23_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI23_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI23_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -5346,12 +5299,8 @@ _Z13test_constantIa19custom_constant_subIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	.size	_Z13test_constantIa19custom_constant_subIaEEvPT_iPKc, .Lfunc_end23-_Z13test_constantIa19custom_constant_subIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc
-.LCPI24_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc
+	.weak	_Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc # -- Begin function _Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc,@function
 _Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc: # @_Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc
@@ -5590,12 +5539,14 @@ _Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB24_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI24_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI24_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -5629,12 +5580,8 @@ _Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc, .Lfunc_end24-_Z13test_constantIa28custom_multiple_constant_subIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc
-.LCPI25_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc
+	.weak	_Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc # -- Begin function _Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc,@function
 _Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc: # @_Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc
@@ -5836,12 +5783,14 @@ _Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc: # @_Z13test_constantI
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB25_23:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI25_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI25_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -5875,12 +5824,8 @@ _Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc, .Lfunc_end25-_Z13test_constantIa24custom_constant_multiplyIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc
-.LCPI26_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc
+	.weak	_Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc # -- Begin function _Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc,@function
 _Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc: # @_Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc
@@ -6082,12 +6027,14 @@ _Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB26_23:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI26_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI26_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -6121,12 +6068,8 @@ _Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc, .Lfunc_end26-_Z13test_constantIa33custom_multiple_constant_multiplyIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc
-.LCPI27_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc
+	.weak	_Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc # -- Begin function _Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc,@function
 _Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc: # @_Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc
@@ -6362,12 +6305,14 @@ _Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc: # @_Z13test
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB27_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI27_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI27_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -6401,12 +6346,8 @@ _Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc, .Lfunc_end27-_Z13test_constantIa34custom_multiple_constant_multiply2IaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc
-.LCPI28_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc
+	.weak	_Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc # -- Begin function _Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc,@function
 _Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc: # @_Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc
@@ -6722,12 +6663,14 @@ _Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc: # @_Z13test_constantIa2
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB28_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI28_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI28_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -6761,12 +6704,8 @@ _Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc: # @_Z13test_constantIa2
 	.size	_Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc, .Lfunc_end28-_Z13test_constantIa22custom_constant_divideIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc
-.LCPI29_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc
+	.weak	_Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc # -- Begin function _Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc,@function
 _Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc: # @_Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc
@@ -7094,12 +7033,14 @@ _Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc: # @_Z13test_co
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB29_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI29_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI29_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -7133,12 +7074,8 @@ _Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc, .Lfunc_end29-_Z13test_constantIa31custom_multiple_constant_divideIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc
-.LCPI30_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc
+	.weak	_Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc # -- Begin function _Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc,@function
 _Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc: # @_Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc
@@ -7374,12 +7311,14 @@ _Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc: # @_Z13test_c
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB30_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI30_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI30_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -7413,12 +7352,8 @@ _Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc, .Lfunc_end30-_Z13test_constantIa32custom_multiple_constant_divide2IaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc
-.LCPI31_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc
+	.weak	_Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc # -- Begin function _Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc,@function
 _Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc: # @_Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc
@@ -7647,12 +7582,14 @@ _Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc: # @_Z13test_con
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB31_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI31_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI31_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -7686,12 +7623,8 @@ _Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc, .Lfunc_end31-_Z13test_constantIa30custom_multiple_constant_mixedIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa19custom_constant_andIaEEvPT_iPKc
-.LCPI32_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa19custom_constant_andIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa19custom_constant_andIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa19custom_constant_andIaEEvPT_iPKc
+	.weak	_Z13test_constantIa19custom_constant_andIaEEvPT_iPKc # -- Begin function _Z13test_constantIa19custom_constant_andIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa19custom_constant_andIaEEvPT_iPKc,@function
 _Z13test_constantIa19custom_constant_andIaEEvPT_iPKc: # @_Z13test_constantIa19custom_constant_andIaEEvPT_iPKc
@@ -7924,12 +7857,14 @@ _Z13test_constantIa19custom_constant_andIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB32_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI32_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI32_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -7963,12 +7898,8 @@ _Z13test_constantIa19custom_constant_andIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	.size	_Z13test_constantIa19custom_constant_andIaEEvPT_iPKc, .Lfunc_end32-_Z13test_constantIa19custom_constant_andIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc
-.LCPI33_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc
+	.weak	_Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc # -- Begin function _Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc,@function
 _Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc: # @_Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc
@@ -8201,12 +8132,14 @@ _Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB33_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI33_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI33_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -8240,12 +8173,8 @@ _Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc, .Lfunc_end33-_Z13test_constantIa28custom_multiple_constant_andIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa18custom_constant_orIaEEvPT_iPKc
-.LCPI34_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa18custom_constant_orIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa18custom_constant_orIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa18custom_constant_orIaEEvPT_iPKc
+	.weak	_Z13test_constantIa18custom_constant_orIaEEvPT_iPKc # -- Begin function _Z13test_constantIa18custom_constant_orIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa18custom_constant_orIaEEvPT_iPKc,@function
 _Z13test_constantIa18custom_constant_orIaEEvPT_iPKc: # @_Z13test_constantIa18custom_constant_orIaEEvPT_iPKc
@@ -8467,12 +8396,14 @@ _Z13test_constantIa18custom_constant_orIaEEvPT_iPKc: # @_Z13test_constantIa18cus
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB34_25:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI34_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI34_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -8506,12 +8437,8 @@ _Z13test_constantIa18custom_constant_orIaEEvPT_iPKc: # @_Z13test_constantIa18cus
 	.size	_Z13test_constantIa18custom_constant_orIaEEvPT_iPKc, .Lfunc_end34-_Z13test_constantIa18custom_constant_orIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc
-.LCPI35_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc
+	.weak	_Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc # -- Begin function _Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc,@function
 _Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc: # @_Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc
@@ -8727,12 +8654,14 @@ _Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc: # @_Z13test_consta
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB35_25:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI35_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI35_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -8766,12 +8695,8 @@ _Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc: # @_Z13test_consta
 	.size	_Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc, .Lfunc_end35-_Z13test_constantIa27custom_multiple_constant_orIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc
-.LCPI36_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc
+	.weak	_Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc # -- Begin function _Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc,@function
 _Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc: # @_Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc
@@ -9007,12 +8932,14 @@ _Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB36_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI36_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI36_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -9046,12 +8973,8 @@ _Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc: # @_Z13test_constantIa19cu
 	.size	_Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc, .Lfunc_end36-_Z13test_constantIa19custom_constant_xorIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc
-.LCPI37_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc,"axG",@progbits,_Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc
+	.weak	_Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc # -- Begin function _Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc,@function
 _Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc: # @_Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc
@@ -9287,12 +9210,14 @@ _Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB37_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI37_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI37_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -9326,12 +9251,8 @@ _Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc, .Lfunc_end37-_Z13test_constantIa28custom_multiple_constant_xorIaEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh10custom_twoIhEEvPT_iPKc
-.LCPI38_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh10custom_twoIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh10custom_twoIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh10custom_twoIhEEvPT_iPKc
+	.weak	_Z13test_constantIh10custom_twoIhEEvPT_iPKc # -- Begin function _Z13test_constantIh10custom_twoIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh10custom_twoIhEEvPT_iPKc,@function
 _Z13test_constantIh10custom_twoIhEEvPT_iPKc: # @_Z13test_constantIh10custom_twoIhEEvPT_iPKc
@@ -9433,12 +9354,14 @@ _Z13test_constantIh10custom_twoIhEEvPT_iPKc: # @_Z13test_constantIh10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB38_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI38_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI38_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -9469,12 +9392,8 @@ _Z13test_constantIh10custom_twoIhEEvPT_iPKc: # @_Z13test_constantIh10custom_twoI
 	.size	_Z13test_constantIh10custom_twoIhEEvPT_iPKc, .Lfunc_end38-_Z13test_constantIh10custom_twoIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc
-.LCPI39_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc
@@ -9576,12 +9495,14 @@ _Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB39_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI39_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI39_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -9612,12 +9533,8 @@ _Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	.size	_Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc, .Lfunc_end39-_Z13test_constantIh20custom_add_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc
-.LCPI40_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc
@@ -9719,12 +9636,14 @@ _Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB40_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI40_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI40_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -9755,12 +9674,8 @@ _Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	.size	_Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc, .Lfunc_end40-_Z13test_constantIh20custom_sub_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc
-.LCPI41_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc: # @_Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc
@@ -9864,12 +9779,14 @@ _Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB41_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI41_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI41_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -9900,12 +9817,8 @@ _Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc, .Lfunc_end41-_Z13test_constantIh25custom_multiply_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc
-.LCPI42_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc: # @_Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc
@@ -10007,12 +9920,14 @@ _Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc: # @_Z13test_constantIh
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB42_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI42_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI42_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -10043,12 +9958,8 @@ _Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc: # @_Z13test_constantIh
 	.size	_Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc, .Lfunc_end42-_Z13test_constantIh23custom_divide_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc
-.LCPI43_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc
@@ -10150,12 +10061,14 @@ _Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB43_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI43_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI43_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -10186,12 +10099,8 @@ _Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	.size	_Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc, .Lfunc_end43-_Z13test_constantIh20custom_mod_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc
-.LCPI44_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc: # @_Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc
@@ -10244,12 +10153,14 @@ _Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc: # @_Z13test_constantIh2
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB44_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI44_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI44_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -10278,12 +10189,8 @@ _Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc: # @_Z13test_constantIh2
 	.size	_Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc, .Lfunc_end44-_Z13test_constantIh22custom_equal_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc
-.LCPI45_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc: # @_Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc
@@ -10385,12 +10292,14 @@ _Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB45_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI45_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI45_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -10421,12 +10330,8 @@ _Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc, .Lfunc_end45-_Z13test_constantIh25custom_notequal_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc
-.LCPI46_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc: # @_Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc
@@ -10528,12 +10433,14 @@ _Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB46_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI46_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI46_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -10564,12 +10471,8 @@ _Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc, .Lfunc_end46-_Z13test_constantIh28custom_greaterthan_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc
-.LCPI47_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc: # @_Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc
@@ -10622,12 +10525,14 @@ _Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc: # @_Z13test_constant
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB47_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI47_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI47_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -10656,12 +10561,8 @@ _Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc, .Lfunc_end47-_Z13test_constantIh25custom_lessthan_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc
-.LCPI48_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc: # @_Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc
@@ -10763,12 +10664,14 @@ _Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB48_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI48_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI48_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -10799,12 +10702,8 @@ _Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc, .Lfunc_end48-_Z13test_constantIh33custom_greaterthanequal_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc
-.LCPI49_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc: # @_Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc
@@ -10857,12 +10756,14 @@ _Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc: # @_Z13test_con
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB49_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI49_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI49_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -10891,12 +10792,8 @@ _Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc, .Lfunc_end49-_Z13test_constantIh30custom_lessthanequal_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc
-.LCPI50_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc
@@ -10998,12 +10895,14 @@ _Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB50_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI50_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI50_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -11034,12 +10933,8 @@ _Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	.size	_Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc, .Lfunc_end50-_Z13test_constantIh20custom_and_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc
-.LCPI51_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc: # @_Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc
@@ -11143,12 +11038,14 @@ _Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB51_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI51_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI51_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -11179,12 +11076,8 @@ _Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	.size	_Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc, .Lfunc_end51-_Z13test_constantIh19custom_or_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc
-.LCPI52_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc
+	.weak	_Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc # -- Begin function _Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc,@function
 _Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc
@@ -11288,12 +11181,14 @@ _Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB52_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI52_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI52_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -11324,12 +11219,8 @@ _Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc: # @_Z13test_constantIh20c
 	.size	_Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc, .Lfunc_end52-_Z13test_constantIh20custom_xor_constantsIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh19custom_constant_addIhEEvPT_iPKc
-.LCPI53_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh19custom_constant_addIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh19custom_constant_addIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh19custom_constant_addIhEEvPT_iPKc
+	.weak	_Z13test_constantIh19custom_constant_addIhEEvPT_iPKc # -- Begin function _Z13test_constantIh19custom_constant_addIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh19custom_constant_addIhEEvPT_iPKc,@function
 _Z13test_constantIh19custom_constant_addIhEEvPT_iPKc: # @_Z13test_constantIh19custom_constant_addIhEEvPT_iPKc
@@ -11565,12 +11456,14 @@ _Z13test_constantIh19custom_constant_addIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB53_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI53_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI53_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -11604,12 +11497,8 @@ _Z13test_constantIh19custom_constant_addIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	.size	_Z13test_constantIh19custom_constant_addIhEEvPT_iPKc, .Lfunc_end53-_Z13test_constantIh19custom_constant_addIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc
-.LCPI54_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc
+	.weak	_Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc # -- Begin function _Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc,@function
 _Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc: # @_Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc
@@ -11845,12 +11734,14 @@ _Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB54_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI54_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI54_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -11884,12 +11775,8 @@ _Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc, .Lfunc_end54-_Z13test_constantIh28custom_multiple_constant_addIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh19custom_constant_subIhEEvPT_iPKc
-.LCPI55_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh19custom_constant_subIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh19custom_constant_subIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh19custom_constant_subIhEEvPT_iPKc
+	.weak	_Z13test_constantIh19custom_constant_subIhEEvPT_iPKc # -- Begin function _Z13test_constantIh19custom_constant_subIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh19custom_constant_subIhEEvPT_iPKc,@function
 _Z13test_constantIh19custom_constant_subIhEEvPT_iPKc: # @_Z13test_constantIh19custom_constant_subIhEEvPT_iPKc
@@ -12128,12 +12015,14 @@ _Z13test_constantIh19custom_constant_subIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB55_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI55_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI55_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -12167,12 +12056,8 @@ _Z13test_constantIh19custom_constant_subIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	.size	_Z13test_constantIh19custom_constant_subIhEEvPT_iPKc, .Lfunc_end55-_Z13test_constantIh19custom_constant_subIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc
-.LCPI56_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc
+	.weak	_Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc # -- Begin function _Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc,@function
 _Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc: # @_Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc
@@ -12411,12 +12296,14 @@ _Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB56_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI56_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI56_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -12450,12 +12337,8 @@ _Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc, .Lfunc_end56-_Z13test_constantIh28custom_multiple_constant_subIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc
-.LCPI57_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc
+	.weak	_Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc # -- Begin function _Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc,@function
 _Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc: # @_Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc
@@ -12657,12 +12540,14 @@ _Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc: # @_Z13test_constantI
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB57_23:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI57_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI57_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -12696,12 +12581,8 @@ _Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc, .Lfunc_end57-_Z13test_constantIh24custom_constant_multiplyIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc
-.LCPI58_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc
+	.weak	_Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc # -- Begin function _Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc,@function
 _Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc: # @_Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc
@@ -12903,12 +12784,14 @@ _Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB58_23:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI58_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI58_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -12942,12 +12825,8 @@ _Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc, .Lfunc_end58-_Z13test_constantIh33custom_multiple_constant_multiplyIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc
-.LCPI59_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc
+	.weak	_Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc # -- Begin function _Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc,@function
 _Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc: # @_Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc
@@ -13183,12 +13062,14 @@ _Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc: # @_Z13test
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB59_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI59_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI59_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -13222,12 +13103,8 @@ _Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc, .Lfunc_end59-_Z13test_constantIh34custom_multiple_constant_multiply2IhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc
-.LCPI60_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc
+	.weak	_Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc # -- Begin function _Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc,@function
 _Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc: # @_Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc
@@ -13507,12 +13384,14 @@ _Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc: # @_Z13test_constantIh2
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB60_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI60_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI60_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -13546,12 +13425,8 @@ _Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc: # @_Z13test_constantIh2
 	.size	_Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc, .Lfunc_end60-_Z13test_constantIh22custom_constant_divideIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc
-.LCPI61_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc
+	.weak	_Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc # -- Begin function _Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc,@function
 _Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc: # @_Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc
@@ -13829,12 +13704,14 @@ _Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc: # @_Z13test_co
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB61_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI61_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI61_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -13868,12 +13745,8 @@ _Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc, .Lfunc_end61-_Z13test_constantIh31custom_multiple_constant_divideIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc
-.LCPI62_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc
+	.weak	_Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc # -- Begin function _Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc,@function
 _Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc: # @_Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc
@@ -14109,12 +13982,14 @@ _Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc: # @_Z13test_c
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB62_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI62_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI62_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -14148,12 +14023,8 @@ _Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc, .Lfunc_end62-_Z13test_constantIh32custom_multiple_constant_divide2IhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc
-.LCPI63_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc
+	.weak	_Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc # -- Begin function _Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc,@function
 _Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc: # @_Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc
@@ -14382,12 +14253,14 @@ _Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc: # @_Z13test_con
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB63_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI63_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI63_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -14421,12 +14294,8 @@ _Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc, .Lfunc_end63-_Z13test_constantIh30custom_multiple_constant_mixedIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh19custom_constant_andIhEEvPT_iPKc
-.LCPI64_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh19custom_constant_andIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh19custom_constant_andIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh19custom_constant_andIhEEvPT_iPKc
+	.weak	_Z13test_constantIh19custom_constant_andIhEEvPT_iPKc # -- Begin function _Z13test_constantIh19custom_constant_andIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh19custom_constant_andIhEEvPT_iPKc,@function
 _Z13test_constantIh19custom_constant_andIhEEvPT_iPKc: # @_Z13test_constantIh19custom_constant_andIhEEvPT_iPKc
@@ -14659,12 +14528,14 @@ _Z13test_constantIh19custom_constant_andIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB64_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI64_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI64_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -14698,12 +14569,8 @@ _Z13test_constantIh19custom_constant_andIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	.size	_Z13test_constantIh19custom_constant_andIhEEvPT_iPKc, .Lfunc_end64-_Z13test_constantIh19custom_constant_andIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc
-.LCPI65_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc
+	.weak	_Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc # -- Begin function _Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc,@function
 _Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc: # @_Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc
@@ -14936,12 +14803,14 @@ _Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB65_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI65_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI65_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -14975,12 +14844,8 @@ _Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc, .Lfunc_end65-_Z13test_constantIh28custom_multiple_constant_andIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh18custom_constant_orIhEEvPT_iPKc
-.LCPI66_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh18custom_constant_orIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh18custom_constant_orIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh18custom_constant_orIhEEvPT_iPKc
+	.weak	_Z13test_constantIh18custom_constant_orIhEEvPT_iPKc # -- Begin function _Z13test_constantIh18custom_constant_orIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh18custom_constant_orIhEEvPT_iPKc,@function
 _Z13test_constantIh18custom_constant_orIhEEvPT_iPKc: # @_Z13test_constantIh18custom_constant_orIhEEvPT_iPKc
@@ -15202,12 +15067,14 @@ _Z13test_constantIh18custom_constant_orIhEEvPT_iPKc: # @_Z13test_constantIh18cus
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB66_25:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI66_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI66_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -15241,12 +15108,8 @@ _Z13test_constantIh18custom_constant_orIhEEvPT_iPKc: # @_Z13test_constantIh18cus
 	.size	_Z13test_constantIh18custom_constant_orIhEEvPT_iPKc, .Lfunc_end66-_Z13test_constantIh18custom_constant_orIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc
-.LCPI67_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc
+	.weak	_Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc # -- Begin function _Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc,@function
 _Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc: # @_Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc
@@ -15462,12 +15325,14 @@ _Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc: # @_Z13test_consta
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB67_25:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI67_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI67_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -15501,12 +15366,8 @@ _Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc: # @_Z13test_consta
 	.size	_Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc, .Lfunc_end67-_Z13test_constantIh27custom_multiple_constant_orIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc
-.LCPI68_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc
+	.weak	_Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc # -- Begin function _Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc,@function
 _Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc: # @_Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc
@@ -15742,12 +15603,14 @@ _Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB68_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI68_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI68_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -15781,12 +15644,8 @@ _Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc: # @_Z13test_constantIh19cu
 	.size	_Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc, .Lfunc_end68-_Z13test_constantIh19custom_constant_xorIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc
-.LCPI69_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc,"axG",@progbits,_Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc
+	.weak	_Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc # -- Begin function _Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc,@function
 _Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc: # @_Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc
@@ -16022,12 +15881,14 @@ _Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB69_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI69_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI69_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -16061,12 +15922,8 @@ _Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc, .Lfunc_end69-_Z13test_constantIh28custom_multiple_constant_xorIhEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs10custom_twoIsEEvPT_iPKc
-.LCPI70_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs10custom_twoIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs10custom_twoIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs10custom_twoIsEEvPT_iPKc
+	.weak	_Z13test_constantIs10custom_twoIsEEvPT_iPKc # -- Begin function _Z13test_constantIs10custom_twoIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs10custom_twoIsEEvPT_iPKc,@function
 _Z13test_constantIs10custom_twoIsEEvPT_iPKc: # @_Z13test_constantIs10custom_twoIsEEvPT_iPKc
@@ -16169,12 +16026,14 @@ _Z13test_constantIs10custom_twoIsEEvPT_iPKc: # @_Z13test_constantIs10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB70_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI70_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI70_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -16205,12 +16064,8 @@ _Z13test_constantIs10custom_twoIsEEvPT_iPKc: # @_Z13test_constantIs10custom_twoI
 	.size	_Z13test_constantIs10custom_twoIsEEvPT_iPKc, .Lfunc_end70-_Z13test_constantIs10custom_twoIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc
-.LCPI71_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc
@@ -16313,12 +16168,14 @@ _Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB71_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI71_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI71_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -16349,12 +16206,8 @@ _Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	.size	_Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc, .Lfunc_end71-_Z13test_constantIs20custom_add_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc
-.LCPI72_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc
@@ -16457,12 +16310,14 @@ _Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB72_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI72_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI72_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -16493,12 +16348,8 @@ _Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	.size	_Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc, .Lfunc_end72-_Z13test_constantIs20custom_sub_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc
-.LCPI73_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc: # @_Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc
@@ -16603,12 +16454,14 @@ _Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB73_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI73_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI73_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -16639,12 +16492,8 @@ _Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc, .Lfunc_end73-_Z13test_constantIs25custom_multiply_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc
-.LCPI74_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc: # @_Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc
@@ -16747,12 +16596,14 @@ _Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc: # @_Z13test_constantIs
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB74_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI74_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI74_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -16783,12 +16634,8 @@ _Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc: # @_Z13test_constantIs
 	.size	_Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc, .Lfunc_end74-_Z13test_constantIs23custom_divide_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc
-.LCPI75_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc
@@ -16891,12 +16738,14 @@ _Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB75_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI75_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI75_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -16927,12 +16776,8 @@ _Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	.size	_Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc, .Lfunc_end75-_Z13test_constantIs20custom_mod_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc
-.LCPI76_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc: # @_Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc
@@ -16985,12 +16830,14 @@ _Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc: # @_Z13test_constantIs2
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB76_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI76_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI76_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -17019,12 +16866,8 @@ _Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc: # @_Z13test_constantIs2
 	.size	_Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc, .Lfunc_end76-_Z13test_constantIs22custom_equal_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc
-.LCPI77_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc: # @_Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc
@@ -17127,12 +16970,14 @@ _Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB77_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI77_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI77_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -17163,12 +17008,8 @@ _Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc, .Lfunc_end77-_Z13test_constantIs25custom_notequal_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc
-.LCPI78_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc: # @_Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc
@@ -17271,12 +17112,14 @@ _Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB78_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI78_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI78_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -17307,12 +17150,8 @@ _Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc, .Lfunc_end78-_Z13test_constantIs28custom_greaterthan_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc
-.LCPI79_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc: # @_Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc
@@ -17365,12 +17204,14 @@ _Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc: # @_Z13test_constant
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB79_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI79_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI79_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -17399,12 +17240,8 @@ _Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc, .Lfunc_end79-_Z13test_constantIs25custom_lessthan_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc
-.LCPI80_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc: # @_Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc
@@ -17507,12 +17344,14 @@ _Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB80_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI80_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI80_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -17543,12 +17382,8 @@ _Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc, .Lfunc_end80-_Z13test_constantIs33custom_greaterthanequal_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc
-.LCPI81_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc: # @_Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc
@@ -17601,12 +17436,14 @@ _Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc: # @_Z13test_con
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB81_4:                               # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI81_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI81_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -17635,12 +17472,8 @@ _Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc, .Lfunc_end81-_Z13test_constantIs30custom_lessthanequal_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc
-.LCPI82_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc
@@ -17743,12 +17576,14 @@ _Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB82_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI82_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI82_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -17779,12 +17614,8 @@ _Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	.size	_Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc, .Lfunc_end82-_Z13test_constantIs20custom_and_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc
-.LCPI83_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc: # @_Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc
@@ -17889,12 +17720,14 @@ _Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB83_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI83_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI83_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -17925,12 +17758,8 @@ _Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	.size	_Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc, .Lfunc_end83-_Z13test_constantIs19custom_or_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc
-.LCPI84_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc
+	.weak	_Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc # -- Begin function _Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc,@function
 _Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc
@@ -18035,12 +17864,14 @@ _Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB84_12:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI84_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI84_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -18071,12 +17902,8 @@ _Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc: # @_Z13test_constantIs20c
 	.size	_Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc, .Lfunc_end84-_Z13test_constantIs20custom_xor_constantsIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs19custom_constant_addIsEEvPT_iPKc
-.LCPI85_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs19custom_constant_addIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs19custom_constant_addIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs19custom_constant_addIsEEvPT_iPKc
+	.weak	_Z13test_constantIs19custom_constant_addIsEEvPT_iPKc # -- Begin function _Z13test_constantIs19custom_constant_addIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs19custom_constant_addIsEEvPT_iPKc,@function
 _Z13test_constantIs19custom_constant_addIsEEvPT_iPKc: # @_Z13test_constantIs19custom_constant_addIsEEvPT_iPKc
@@ -18321,12 +18148,14 @@ _Z13test_constantIs19custom_constant_addIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB85_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI85_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI85_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -18360,12 +18189,8 @@ _Z13test_constantIs19custom_constant_addIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	.size	_Z13test_constantIs19custom_constant_addIsEEvPT_iPKc, .Lfunc_end85-_Z13test_constantIs19custom_constant_addIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc
-.LCPI86_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc
+	.weak	_Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc # -- Begin function _Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc,@function
 _Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc: # @_Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc
@@ -18610,12 +18435,14 @@ _Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB86_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI86_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI86_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -18649,12 +18476,8 @@ _Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc, .Lfunc_end86-_Z13test_constantIs28custom_multiple_constant_addIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs19custom_constant_subIsEEvPT_iPKc
-.LCPI87_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs19custom_constant_subIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs19custom_constant_subIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs19custom_constant_subIsEEvPT_iPKc
+	.weak	_Z13test_constantIs19custom_constant_subIsEEvPT_iPKc # -- Begin function _Z13test_constantIs19custom_constant_subIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs19custom_constant_subIsEEvPT_iPKc,@function
 _Z13test_constantIs19custom_constant_subIsEEvPT_iPKc: # @_Z13test_constantIs19custom_constant_subIsEEvPT_iPKc
@@ -18902,12 +18725,14 @@ _Z13test_constantIs19custom_constant_subIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB87_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI87_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI87_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -18941,12 +18766,8 @@ _Z13test_constantIs19custom_constant_subIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	.size	_Z13test_constantIs19custom_constant_subIsEEvPT_iPKc, .Lfunc_end87-_Z13test_constantIs19custom_constant_subIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc
-.LCPI88_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc
+	.weak	_Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc # -- Begin function _Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc,@function
 _Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc: # @_Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc
@@ -19194,12 +19015,14 @@ _Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB88_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI88_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI88_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -19233,12 +19056,8 @@ _Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc, .Lfunc_end88-_Z13test_constantIs28custom_multiple_constant_subIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc
-.LCPI89_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc
+	.weak	_Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc # -- Begin function _Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc,@function
 _Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc: # @_Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc
@@ -19479,12 +19298,14 @@ _Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc: # @_Z13test_constantI
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB89_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI89_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI89_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -19518,12 +19339,8 @@ _Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc, .Lfunc_end89-_Z13test_constantIs24custom_constant_multiplyIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc
-.LCPI90_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc
+	.weak	_Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc # -- Begin function _Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc,@function
 _Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc: # @_Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc
@@ -19764,12 +19581,14 @@ _Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB90_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI90_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI90_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -19803,12 +19622,8 @@ _Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc, .Lfunc_end90-_Z13test_constantIs33custom_multiple_constant_multiplyIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc
-.LCPI91_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc
+	.weak	_Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc # -- Begin function _Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc,@function
 _Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc: # @_Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc
@@ -20056,12 +19871,14 @@ _Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc: # @_Z13test
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB91_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI91_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI91_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -20095,12 +19912,8 @@ _Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc, .Lfunc_end91-_Z13test_constantIs34custom_multiple_constant_multiply2IsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc
-.LCPI92_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc
+	.weak	_Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc # -- Begin function _Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc,@function
 _Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc: # @_Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc
@@ -20395,12 +20208,14 @@ _Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc: # @_Z13test_constantIs2
 	move	$a2, $a0
 	ld.w	$a0, $s8, %pc_lo12(current_test)
 .LBB92_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI92_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI92_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -20434,12 +20249,8 @@ _Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc: # @_Z13test_constantIs2
 	.size	_Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc, .Lfunc_end92-_Z13test_constantIs22custom_constant_divideIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc
-.LCPI93_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc
+	.weak	_Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc # -- Begin function _Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc,@function
 _Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc: # @_Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc
@@ -20753,12 +20564,14 @@ _Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc: # @_Z13test_co
 	move	$a2, $a0
 	ld.w	$a0, $s8, %pc_lo12(current_test)
 .LBB93_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI93_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI93_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -20792,12 +20605,8 @@ _Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc, .Lfunc_end93-_Z13test_constantIs31custom_multiple_constant_divideIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc
-.LCPI94_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc
+	.weak	_Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc # -- Begin function _Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc,@function
 _Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc: # @_Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc
@@ -21042,12 +20851,14 @@ _Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc: # @_Z13test_c
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB94_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI94_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI94_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -21081,12 +20892,8 @@ _Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc, .Lfunc_end94-_Z13test_constantIs32custom_multiple_constant_divide2IsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc
-.LCPI95_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc
+	.weak	_Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc # -- Begin function _Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc,@function
 _Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc: # @_Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc
@@ -21321,12 +21128,14 @@ _Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc: # @_Z13test_con
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB95_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI95_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI95_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -21360,12 +21169,8 @@ _Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc, .Lfunc_end95-_Z13test_constantIs30custom_multiple_constant_mixedIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs19custom_constant_andIsEEvPT_iPKc
-.LCPI96_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs19custom_constant_andIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs19custom_constant_andIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs19custom_constant_andIsEEvPT_iPKc
+	.weak	_Z13test_constantIs19custom_constant_andIsEEvPT_iPKc # -- Begin function _Z13test_constantIs19custom_constant_andIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs19custom_constant_andIsEEvPT_iPKc,@function
 _Z13test_constantIs19custom_constant_andIsEEvPT_iPKc: # @_Z13test_constantIs19custom_constant_andIsEEvPT_iPKc
@@ -21609,12 +21414,14 @@ _Z13test_constantIs19custom_constant_andIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB96_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI96_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI96_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -21648,12 +21455,8 @@ _Z13test_constantIs19custom_constant_andIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	.size	_Z13test_constantIs19custom_constant_andIsEEvPT_iPKc, .Lfunc_end96-_Z13test_constantIs19custom_constant_andIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc
-.LCPI97_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc
+	.weak	_Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc # -- Begin function _Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc,@function
 _Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc: # @_Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc
@@ -21897,12 +21700,14 @@ _Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB97_27:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI97_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI97_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -21936,12 +21741,8 @@ _Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc, .Lfunc_end97-_Z13test_constantIs28custom_multiple_constant_andIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs18custom_constant_orIsEEvPT_iPKc
-.LCPI98_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs18custom_constant_orIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs18custom_constant_orIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs18custom_constant_orIsEEvPT_iPKc
+	.weak	_Z13test_constantIs18custom_constant_orIsEEvPT_iPKc # -- Begin function _Z13test_constantIs18custom_constant_orIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs18custom_constant_orIsEEvPT_iPKc,@function
 _Z13test_constantIs18custom_constant_orIsEEvPT_iPKc: # @_Z13test_constantIs18custom_constant_orIsEEvPT_iPKc
@@ -22168,12 +21969,14 @@ _Z13test_constantIs18custom_constant_orIsEEvPT_iPKc: # @_Z13test_constantIs18cus
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB98_25:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI98_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI98_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -22207,12 +22010,8 @@ _Z13test_constantIs18custom_constant_orIsEEvPT_iPKc: # @_Z13test_constantIs18cus
 	.size	_Z13test_constantIs18custom_constant_orIsEEvPT_iPKc, .Lfunc_end98-_Z13test_constantIs18custom_constant_orIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc
-.LCPI99_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc
+	.weak	_Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc # -- Begin function _Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc,@function
 _Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc: # @_Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc
@@ -22441,12 +22240,14 @@ _Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc: # @_Z13test_consta
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB99_25:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI99_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI99_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -22480,12 +22281,8 @@ _Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc: # @_Z13test_consta
 	.size	_Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc, .Lfunc_end99-_Z13test_constantIs27custom_multiple_constant_orIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc
-.LCPI100_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc
+	.weak	_Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc # -- Begin function _Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc,@function
 _Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc: # @_Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc
@@ -22729,12 +22526,14 @@ _Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB100_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI100_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI100_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -22768,12 +22567,8 @@ _Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc: # @_Z13test_constantIs19cu
 	.size	_Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc, .Lfunc_end100-_Z13test_constantIs19custom_constant_xorIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc
-.LCPI101_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc,"axG",@progbits,_Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc
+	.weak	_Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc # -- Begin function _Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc,@function
 _Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc: # @_Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc
@@ -23017,12 +22812,14 @@ _Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB101_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI101_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI101_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -23056,12 +22853,8 @@ _Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc, .Lfunc_end101-_Z13test_constantIs28custom_multiple_constant_xorIsEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt10custom_twoItEEvPT_iPKc
-.LCPI102_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt10custom_twoItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt10custom_twoItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt10custom_twoItEEvPT_iPKc
+	.weak	_Z13test_constantIt10custom_twoItEEvPT_iPKc # -- Begin function _Z13test_constantIt10custom_twoItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt10custom_twoItEEvPT_iPKc,@function
 _Z13test_constantIt10custom_twoItEEvPT_iPKc: # @_Z13test_constantIt10custom_twoItEEvPT_iPKc
@@ -23164,12 +22957,14 @@ _Z13test_constantIt10custom_twoItEEvPT_iPKc: # @_Z13test_constantIt10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB102_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI102_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI102_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -23200,12 +22995,8 @@ _Z13test_constantIt10custom_twoItEEvPT_iPKc: # @_Z13test_constantIt10custom_twoI
 	.size	_Z13test_constantIt10custom_twoItEEvPT_iPKc, .Lfunc_end102-_Z13test_constantIt10custom_twoItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt20custom_add_constantsItEEvPT_iPKc
-.LCPI103_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt20custom_add_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt20custom_add_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt20custom_add_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt20custom_add_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt20custom_add_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt20custom_add_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt20custom_add_constantsItEEvPT_iPKc: # @_Z13test_constantIt20custom_add_constantsItEEvPT_iPKc
@@ -23308,12 +23099,14 @@ _Z13test_constantIt20custom_add_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB103_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI103_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI103_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -23344,12 +23137,8 @@ _Z13test_constantIt20custom_add_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	.size	_Z13test_constantIt20custom_add_constantsItEEvPT_iPKc, .Lfunc_end103-_Z13test_constantIt20custom_add_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc
-.LCPI104_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc: # @_Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc
@@ -23452,12 +23241,14 @@ _Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB104_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI104_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI104_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -23488,12 +23279,8 @@ _Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	.size	_Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc, .Lfunc_end104-_Z13test_constantIt20custom_sub_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc
-.LCPI105_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc: # @_Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc
@@ -23598,12 +23385,14 @@ _Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB105_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI105_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI105_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -23634,12 +23423,8 @@ _Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc, .Lfunc_end105-_Z13test_constantIt25custom_multiply_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc
-.LCPI106_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc: # @_Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc
@@ -23742,12 +23527,14 @@ _Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc: # @_Z13test_constantIt
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB106_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI106_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI106_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -23778,12 +23565,8 @@ _Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc: # @_Z13test_constantIt
 	.size	_Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc, .Lfunc_end106-_Z13test_constantIt23custom_divide_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc
-.LCPI107_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc: # @_Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc
@@ -23886,12 +23669,14 @@ _Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB107_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI107_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI107_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -23922,12 +23707,8 @@ _Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	.size	_Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc, .Lfunc_end107-_Z13test_constantIt20custom_mod_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc
-.LCPI108_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc: # @_Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc
@@ -23980,12 +23761,14 @@ _Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc: # @_Z13test_constantIt2
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB108_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI108_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI108_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -24014,12 +23797,8 @@ _Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc: # @_Z13test_constantIt2
 	.size	_Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc, .Lfunc_end108-_Z13test_constantIt22custom_equal_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc
-.LCPI109_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc: # @_Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc
@@ -24122,12 +23901,14 @@ _Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB109_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI109_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI109_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -24158,12 +23939,8 @@ _Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc, .Lfunc_end109-_Z13test_constantIt25custom_notequal_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc
-.LCPI110_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc: # @_Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc
@@ -24266,12 +24043,14 @@ _Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB110_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI110_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI110_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -24302,12 +24081,8 @@ _Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc, .Lfunc_end110-_Z13test_constantIt28custom_greaterthan_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc
-.LCPI111_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc: # @_Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc
@@ -24360,12 +24135,14 @@ _Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc: # @_Z13test_constant
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB111_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI111_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI111_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -24394,12 +24171,8 @@ _Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc, .Lfunc_end111-_Z13test_constantIt25custom_lessthan_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc
-.LCPI112_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc: # @_Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc
@@ -24502,12 +24275,14 @@ _Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB112_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI112_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI112_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -24538,12 +24313,8 @@ _Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc, .Lfunc_end112-_Z13test_constantIt33custom_greaterthanequal_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc
-.LCPI113_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc: # @_Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc
@@ -24596,12 +24367,14 @@ _Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc: # @_Z13test_con
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB113_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI113_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI113_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -24630,12 +24403,8 @@ _Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc, .Lfunc_end113-_Z13test_constantIt30custom_lessthanequal_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt20custom_and_constantsItEEvPT_iPKc
-.LCPI114_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt20custom_and_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt20custom_and_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt20custom_and_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt20custom_and_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt20custom_and_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt20custom_and_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt20custom_and_constantsItEEvPT_iPKc: # @_Z13test_constantIt20custom_and_constantsItEEvPT_iPKc
@@ -24738,12 +24507,14 @@ _Z13test_constantIt20custom_and_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB114_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI114_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI114_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -24774,12 +24545,8 @@ _Z13test_constantIt20custom_and_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	.size	_Z13test_constantIt20custom_and_constantsItEEvPT_iPKc, .Lfunc_end114-_Z13test_constantIt20custom_and_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt19custom_or_constantsItEEvPT_iPKc
-.LCPI115_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt19custom_or_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt19custom_or_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt19custom_or_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt19custom_or_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt19custom_or_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt19custom_or_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt19custom_or_constantsItEEvPT_iPKc: # @_Z13test_constantIt19custom_or_constantsItEEvPT_iPKc
@@ -24884,12 +24651,14 @@ _Z13test_constantIt19custom_or_constantsItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB115_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI115_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI115_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -24920,12 +24689,8 @@ _Z13test_constantIt19custom_or_constantsItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	.size	_Z13test_constantIt19custom_or_constantsItEEvPT_iPKc, .Lfunc_end115-_Z13test_constantIt19custom_or_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc
-.LCPI116_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc
+	.weak	_Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc # -- Begin function _Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc,@function
 _Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc: # @_Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc
@@ -25030,12 +24795,14 @@ _Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB116_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI116_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI116_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -25066,12 +24833,8 @@ _Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc: # @_Z13test_constantIt20c
 	.size	_Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc, .Lfunc_end116-_Z13test_constantIt20custom_xor_constantsItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt19custom_constant_addItEEvPT_iPKc
-.LCPI117_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt19custom_constant_addItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt19custom_constant_addItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt19custom_constant_addItEEvPT_iPKc
+	.weak	_Z13test_constantIt19custom_constant_addItEEvPT_iPKc # -- Begin function _Z13test_constantIt19custom_constant_addItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt19custom_constant_addItEEvPT_iPKc,@function
 _Z13test_constantIt19custom_constant_addItEEvPT_iPKc: # @_Z13test_constantIt19custom_constant_addItEEvPT_iPKc
@@ -25316,12 +25079,14 @@ _Z13test_constantIt19custom_constant_addItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB117_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI117_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI117_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -25355,12 +25120,8 @@ _Z13test_constantIt19custom_constant_addItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	.size	_Z13test_constantIt19custom_constant_addItEEvPT_iPKc, .Lfunc_end117-_Z13test_constantIt19custom_constant_addItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc
-.LCPI118_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc
+	.weak	_Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc # -- Begin function _Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc,@function
 _Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc: # @_Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc
@@ -25605,12 +25366,14 @@ _Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB118_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI118_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI118_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -25644,12 +25407,8 @@ _Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc, .Lfunc_end118-_Z13test_constantIt28custom_multiple_constant_addItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt19custom_constant_subItEEvPT_iPKc
-.LCPI119_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt19custom_constant_subItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt19custom_constant_subItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt19custom_constant_subItEEvPT_iPKc
+	.weak	_Z13test_constantIt19custom_constant_subItEEvPT_iPKc # -- Begin function _Z13test_constantIt19custom_constant_subItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt19custom_constant_subItEEvPT_iPKc,@function
 _Z13test_constantIt19custom_constant_subItEEvPT_iPKc: # @_Z13test_constantIt19custom_constant_subItEEvPT_iPKc
@@ -25897,12 +25656,14 @@ _Z13test_constantIt19custom_constant_subItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB119_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI119_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI119_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -25936,12 +25697,8 @@ _Z13test_constantIt19custom_constant_subItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	.size	_Z13test_constantIt19custom_constant_subItEEvPT_iPKc, .Lfunc_end119-_Z13test_constantIt19custom_constant_subItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc
-.LCPI120_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc
+	.weak	_Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc # -- Begin function _Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc,@function
 _Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc: # @_Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc
@@ -26189,12 +25946,14 @@ _Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB120_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI120_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI120_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -26228,12 +25987,8 @@ _Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc, .Lfunc_end120-_Z13test_constantIt28custom_multiple_constant_subItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc
-.LCPI121_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc
+	.weak	_Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc # -- Begin function _Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc,@function
 _Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc: # @_Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc
@@ -26474,12 +26229,14 @@ _Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc: # @_Z13test_constantI
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB121_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI121_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI121_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -26513,12 +26270,8 @@ _Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc, .Lfunc_end121-_Z13test_constantIt24custom_constant_multiplyItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc
-.LCPI122_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc
+	.weak	_Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc # -- Begin function _Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc,@function
 _Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc: # @_Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc
@@ -26759,12 +26512,14 @@ _Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB122_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI122_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI122_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -26798,12 +26553,8 @@ _Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc, .Lfunc_end122-_Z13test_constantIt33custom_multiple_constant_multiplyItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc
-.LCPI123_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc
+	.weak	_Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc # -- Begin function _Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc,@function
 _Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc: # @_Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc
@@ -27051,12 +26802,14 @@ _Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc: # @_Z13test
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB123_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI123_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI123_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -27090,12 +26843,8 @@ _Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc, .Lfunc_end123-_Z13test_constantIt34custom_multiple_constant_multiply2ItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt22custom_constant_divideItEEvPT_iPKc
-.LCPI124_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt22custom_constant_divideItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt22custom_constant_divideItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt22custom_constant_divideItEEvPT_iPKc
+	.weak	_Z13test_constantIt22custom_constant_divideItEEvPT_iPKc # -- Begin function _Z13test_constantIt22custom_constant_divideItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt22custom_constant_divideItEEvPT_iPKc,@function
 _Z13test_constantIt22custom_constant_divideItEEvPT_iPKc: # @_Z13test_constantIt22custom_constant_divideItEEvPT_iPKc
@@ -27368,12 +27117,14 @@ _Z13test_constantIt22custom_constant_divideItEEvPT_iPKc: # @_Z13test_constantIt2
 	move	$a2, $a0
 	ld.w	$a0, $s8, %pc_lo12(current_test)
 .LBB124_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI124_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI124_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -27407,12 +27158,8 @@ _Z13test_constantIt22custom_constant_divideItEEvPT_iPKc: # @_Z13test_constantIt2
 	.size	_Z13test_constantIt22custom_constant_divideItEEvPT_iPKc, .Lfunc_end124-_Z13test_constantIt22custom_constant_divideItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc
-.LCPI125_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc
+	.weak	_Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc # -- Begin function _Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc,@function
 _Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc: # @_Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc
@@ -27685,12 +27432,14 @@ _Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc: # @_Z13test_co
 	move	$a2, $a0
 	ld.w	$a0, $s8, %pc_lo12(current_test)
 .LBB125_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI125_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI125_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -27724,12 +27473,8 @@ _Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc, .Lfunc_end125-_Z13test_constantIt31custom_multiple_constant_divideItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc
-.LCPI126_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc
+	.weak	_Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc # -- Begin function _Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc,@function
 _Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc: # @_Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc
@@ -27974,12 +27719,14 @@ _Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc: # @_Z13test_c
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB126_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI126_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI126_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -28013,12 +27760,8 @@ _Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc, .Lfunc_end126-_Z13test_constantIt32custom_multiple_constant_divide2ItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc
-.LCPI127_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc
+	.weak	_Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc # -- Begin function _Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc,@function
 _Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc: # @_Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc
@@ -28253,12 +27996,14 @@ _Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc: # @_Z13test_con
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB127_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI127_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI127_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -28292,12 +28037,8 @@ _Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc, .Lfunc_end127-_Z13test_constantIt30custom_multiple_constant_mixedItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt19custom_constant_andItEEvPT_iPKc
-.LCPI128_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt19custom_constant_andItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt19custom_constant_andItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt19custom_constant_andItEEvPT_iPKc
+	.weak	_Z13test_constantIt19custom_constant_andItEEvPT_iPKc # -- Begin function _Z13test_constantIt19custom_constant_andItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt19custom_constant_andItEEvPT_iPKc,@function
 _Z13test_constantIt19custom_constant_andItEEvPT_iPKc: # @_Z13test_constantIt19custom_constant_andItEEvPT_iPKc
@@ -28541,12 +28282,14 @@ _Z13test_constantIt19custom_constant_andItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB128_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI128_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI128_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -28580,12 +28323,8 @@ _Z13test_constantIt19custom_constant_andItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	.size	_Z13test_constantIt19custom_constant_andItEEvPT_iPKc, .Lfunc_end128-_Z13test_constantIt19custom_constant_andItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc
-.LCPI129_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc
+	.weak	_Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc # -- Begin function _Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc,@function
 _Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc: # @_Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc
@@ -28829,12 +28568,14 @@ _Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB129_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI129_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI129_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -28868,12 +28609,8 @@ _Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc, .Lfunc_end129-_Z13test_constantIt28custom_multiple_constant_andItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt18custom_constant_orItEEvPT_iPKc
-.LCPI130_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt18custom_constant_orItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt18custom_constant_orItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt18custom_constant_orItEEvPT_iPKc
+	.weak	_Z13test_constantIt18custom_constant_orItEEvPT_iPKc # -- Begin function _Z13test_constantIt18custom_constant_orItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt18custom_constant_orItEEvPT_iPKc,@function
 _Z13test_constantIt18custom_constant_orItEEvPT_iPKc: # @_Z13test_constantIt18custom_constant_orItEEvPT_iPKc
@@ -29100,12 +28837,14 @@ _Z13test_constantIt18custom_constant_orItEEvPT_iPKc: # @_Z13test_constantIt18cus
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB130_25:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI130_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI130_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -29139,12 +28878,8 @@ _Z13test_constantIt18custom_constant_orItEEvPT_iPKc: # @_Z13test_constantIt18cus
 	.size	_Z13test_constantIt18custom_constant_orItEEvPT_iPKc, .Lfunc_end130-_Z13test_constantIt18custom_constant_orItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc
-.LCPI131_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc
+	.weak	_Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc # -- Begin function _Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc,@function
 _Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc: # @_Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc
@@ -29373,12 +29108,14 @@ _Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc: # @_Z13test_consta
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB131_25:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI131_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI131_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -29412,12 +29149,8 @@ _Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc: # @_Z13test_consta
 	.size	_Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc, .Lfunc_end131-_Z13test_constantIt27custom_multiple_constant_orItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt19custom_constant_xorItEEvPT_iPKc
-.LCPI132_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt19custom_constant_xorItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt19custom_constant_xorItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt19custom_constant_xorItEEvPT_iPKc
+	.weak	_Z13test_constantIt19custom_constant_xorItEEvPT_iPKc # -- Begin function _Z13test_constantIt19custom_constant_xorItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt19custom_constant_xorItEEvPT_iPKc,@function
 _Z13test_constantIt19custom_constant_xorItEEvPT_iPKc: # @_Z13test_constantIt19custom_constant_xorItEEvPT_iPKc
@@ -29661,12 +29394,14 @@ _Z13test_constantIt19custom_constant_xorItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB132_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI132_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI132_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -29700,12 +29435,8 @@ _Z13test_constantIt19custom_constant_xorItEEvPT_iPKc: # @_Z13test_constantIt19cu
 	.size	_Z13test_constantIt19custom_constant_xorItEEvPT_iPKc, .Lfunc_end132-_Z13test_constantIt19custom_constant_xorItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc
-.LCPI133_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc,"axG",@progbits,_Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc
+	.weak	_Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc # -- Begin function _Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc,@function
 _Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc: # @_Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc
@@ -29949,12 +29680,14 @@ _Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB133_27:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI133_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI133_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -29988,12 +29721,8 @@ _Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc, .Lfunc_end133-_Z13test_constantIt28custom_multiple_constant_xorItEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi10custom_twoIiEEvPT_iPKc
-.LCPI134_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi10custom_twoIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi10custom_twoIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi10custom_twoIiEEvPT_iPKc
+	.weak	_Z13test_constantIi10custom_twoIiEEvPT_iPKc # -- Begin function _Z13test_constantIi10custom_twoIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi10custom_twoIiEEvPT_iPKc,@function
 _Z13test_constantIi10custom_twoIiEEvPT_iPKc: # @_Z13test_constantIi10custom_twoIiEEvPT_iPKc
@@ -30095,12 +29824,14 @@ _Z13test_constantIi10custom_twoIiEEvPT_iPKc: # @_Z13test_constantIi10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB134_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI134_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI134_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -30131,12 +29862,8 @@ _Z13test_constantIi10custom_twoIiEEvPT_iPKc: # @_Z13test_constantIi10custom_twoI
 	.size	_Z13test_constantIi10custom_twoIiEEvPT_iPKc, .Lfunc_end134-_Z13test_constantIi10custom_twoIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc
-.LCPI135_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc
@@ -30238,12 +29965,14 @@ _Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB135_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI135_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI135_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -30274,12 +30003,8 @@ _Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	.size	_Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc, .Lfunc_end135-_Z13test_constantIi20custom_add_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc
-.LCPI136_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc
@@ -30381,12 +30106,14 @@ _Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB136_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI136_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI136_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -30417,12 +30144,8 @@ _Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	.size	_Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc, .Lfunc_end136-_Z13test_constantIi20custom_sub_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc
-.LCPI137_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc: # @_Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc
@@ -30526,12 +30249,14 @@ _Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB137_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI137_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI137_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -30562,12 +30287,8 @@ _Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc, .Lfunc_end137-_Z13test_constantIi25custom_multiply_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc
-.LCPI138_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc: # @_Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc
@@ -30669,12 +30390,14 @@ _Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc: # @_Z13test_constantIi
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB138_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI138_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI138_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -30705,12 +30428,8 @@ _Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc: # @_Z13test_constantIi
 	.size	_Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc, .Lfunc_end138-_Z13test_constantIi23custom_divide_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc
-.LCPI139_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc
@@ -30812,12 +30531,14 @@ _Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB139_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI139_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI139_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -30848,12 +30569,8 @@ _Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	.size	_Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc, .Lfunc_end139-_Z13test_constantIi20custom_mod_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc
-.LCPI140_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc: # @_Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc
@@ -30906,12 +30623,14 @@ _Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc: # @_Z13test_constantIi2
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB140_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI140_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI140_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -30940,12 +30659,8 @@ _Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc: # @_Z13test_constantIi2
 	.size	_Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc, .Lfunc_end140-_Z13test_constantIi22custom_equal_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc
-.LCPI141_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc: # @_Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc
@@ -31047,12 +30762,14 @@ _Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB141_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI141_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI141_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -31083,12 +30800,8 @@ _Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc, .Lfunc_end141-_Z13test_constantIi25custom_notequal_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc
-.LCPI142_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc: # @_Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc
@@ -31190,12 +30903,14 @@ _Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB142_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI142_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI142_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -31226,12 +30941,8 @@ _Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc, .Lfunc_end142-_Z13test_constantIi28custom_greaterthan_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc
-.LCPI143_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc: # @_Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc
@@ -31284,12 +30995,14 @@ _Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc: # @_Z13test_constant
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB143_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI143_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI143_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -31318,12 +31031,8 @@ _Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc, .Lfunc_end143-_Z13test_constantIi25custom_lessthan_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc
-.LCPI144_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc: # @_Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc
@@ -31425,12 +31134,14 @@ _Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB144_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI144_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI144_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -31461,12 +31172,8 @@ _Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc, .Lfunc_end144-_Z13test_constantIi33custom_greaterthanequal_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc
-.LCPI145_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc: # @_Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc
@@ -31519,12 +31226,14 @@ _Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc: # @_Z13test_con
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB145_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI145_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI145_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -31553,12 +31262,8 @@ _Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc, .Lfunc_end145-_Z13test_constantIi30custom_lessthanequal_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc
-.LCPI146_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc
@@ -31660,12 +31365,14 @@ _Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB146_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI146_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI146_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -31696,12 +31403,8 @@ _Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	.size	_Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc, .Lfunc_end146-_Z13test_constantIi20custom_and_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc
-.LCPI147_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc: # @_Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc
@@ -31803,12 +31506,14 @@ _Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB147_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI147_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI147_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -31839,12 +31544,8 @@ _Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	.size	_Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc, .Lfunc_end147-_Z13test_constantIi19custom_or_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc
-.LCPI148_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc
+	.weak	_Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc # -- Begin function _Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc,@function
 _Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc
@@ -31946,12 +31647,14 @@ _Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB148_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI148_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI148_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -31982,12 +31685,8 @@ _Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc: # @_Z13test_constantIi20c
 	.size	_Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc, .Lfunc_end148-_Z13test_constantIi20custom_xor_constantsIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi19custom_constant_addIiEEvPT_iPKc
-.LCPI149_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi19custom_constant_addIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi19custom_constant_addIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi19custom_constant_addIiEEvPT_iPKc
+	.weak	_Z13test_constantIi19custom_constant_addIiEEvPT_iPKc # -- Begin function _Z13test_constantIi19custom_constant_addIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi19custom_constant_addIiEEvPT_iPKc,@function
 _Z13test_constantIi19custom_constant_addIiEEvPT_iPKc: # @_Z13test_constantIi19custom_constant_addIiEEvPT_iPKc
@@ -32181,12 +31880,14 @@ _Z13test_constantIi19custom_constant_addIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB149_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI149_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI149_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -32219,12 +31920,8 @@ _Z13test_constantIi19custom_constant_addIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	.size	_Z13test_constantIi19custom_constant_addIiEEvPT_iPKc, .Lfunc_end149-_Z13test_constantIi19custom_constant_addIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc
-.LCPI150_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc
+	.weak	_Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc # -- Begin function _Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc,@function
 _Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc: # @_Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc
@@ -32418,12 +32115,14 @@ _Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB150_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI150_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI150_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -32456,12 +32155,8 @@ _Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc, .Lfunc_end150-_Z13test_constantIi28custom_multiple_constant_addIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi19custom_constant_subIiEEvPT_iPKc
-.LCPI151_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi19custom_constant_subIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi19custom_constant_subIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi19custom_constant_subIiEEvPT_iPKc
+	.weak	_Z13test_constantIi19custom_constant_subIiEEvPT_iPKc # -- Begin function _Z13test_constantIi19custom_constant_subIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi19custom_constant_subIiEEvPT_iPKc,@function
 _Z13test_constantIi19custom_constant_subIiEEvPT_iPKc: # @_Z13test_constantIi19custom_constant_subIiEEvPT_iPKc
@@ -32658,12 +32353,14 @@ _Z13test_constantIi19custom_constant_subIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB151_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI151_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI151_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -32696,12 +32393,8 @@ _Z13test_constantIi19custom_constant_subIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	.size	_Z13test_constantIi19custom_constant_subIiEEvPT_iPKc, .Lfunc_end151-_Z13test_constantIi19custom_constant_subIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc
-.LCPI152_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc
+	.weak	_Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc # -- Begin function _Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc,@function
 _Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc: # @_Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc
@@ -32898,12 +32591,14 @@ _Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB152_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI152_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI152_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -32936,12 +32631,8 @@ _Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc, .Lfunc_end152-_Z13test_constantIi28custom_multiple_constant_subIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc
-.LCPI153_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc
+	.weak	_Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc # -- Begin function _Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc,@function
 _Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc: # @_Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc
@@ -33129,12 +32820,14 @@ _Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc: # @_Z13test_constantI
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB153_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI153_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI153_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -33167,12 +32860,8 @@ _Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc, .Lfunc_end153-_Z13test_constantIi24custom_constant_multiplyIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc
-.LCPI154_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc
+	.weak	_Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc # -- Begin function _Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc,@function
 _Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc: # @_Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc
@@ -33360,12 +33049,14 @@ _Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc: # @_Z13test_
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB154_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI154_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI154_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -33398,12 +33089,8 @@ _Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc, .Lfunc_end154-_Z13test_constantIi33custom_multiple_constant_multiplyIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc
-.LCPI155_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc
+	.weak	_Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc # -- Begin function _Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc,@function
 _Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc: # @_Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc
@@ -33600,12 +33287,14 @@ _Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc: # @_Z13test
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB155_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI155_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI155_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -33638,12 +33327,8 @@ _Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc, .Lfunc_end155-_Z13test_constantIi34custom_multiple_constant_multiply2IiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc
-.LCPI156_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc
+	.weak	_Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc # -- Begin function _Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc,@function
 _Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc: # @_Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc
@@ -33849,12 +33534,14 @@ _Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc: # @_Z13test_constantIi2
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB156_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI156_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI156_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -33887,12 +33574,8 @@ _Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc: # @_Z13test_constantIi2
 	.size	_Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc, .Lfunc_end156-_Z13test_constantIi22custom_constant_divideIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc
-.LCPI157_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc
+	.weak	_Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc # -- Begin function _Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc,@function
 _Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc: # @_Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc
@@ -34104,12 +33787,14 @@ _Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc: # @_Z13test_co
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB157_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI157_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI157_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -34142,12 +33827,8 @@ _Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc, .Lfunc_end157-_Z13test_constantIi31custom_multiple_constant_divideIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc
-.LCPI158_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc
+	.weak	_Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc # -- Begin function _Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc,@function
 _Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc: # @_Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc
@@ -34341,12 +34022,14 @@ _Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc: # @_Z13test_c
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB158_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI158_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI158_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -34379,12 +34062,8 @@ _Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc, .Lfunc_end158-_Z13test_constantIi32custom_multiple_constant_divide2IiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc
-.LCPI159_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc
+	.weak	_Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc # -- Begin function _Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc,@function
 _Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc: # @_Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc
@@ -34566,12 +34245,14 @@ _Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc: # @_Z13test_con
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB159_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI159_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI159_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -34604,12 +34285,8 @@ _Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc, .Lfunc_end159-_Z13test_constantIi30custom_multiple_constant_mixedIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi19custom_constant_andIiEEvPT_iPKc
-.LCPI160_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi19custom_constant_andIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi19custom_constant_andIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi19custom_constant_andIiEEvPT_iPKc
+	.weak	_Z13test_constantIi19custom_constant_andIiEEvPT_iPKc # -- Begin function _Z13test_constantIi19custom_constant_andIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi19custom_constant_andIiEEvPT_iPKc,@function
 _Z13test_constantIi19custom_constant_andIiEEvPT_iPKc: # @_Z13test_constantIi19custom_constant_andIiEEvPT_iPKc
@@ -34799,12 +34476,14 @@ _Z13test_constantIi19custom_constant_andIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB160_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI160_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI160_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -34837,12 +34516,8 @@ _Z13test_constantIi19custom_constant_andIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	.size	_Z13test_constantIi19custom_constant_andIiEEvPT_iPKc, .Lfunc_end160-_Z13test_constantIi19custom_constant_andIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc
-.LCPI161_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc
+	.weak	_Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc # -- Begin function _Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc,@function
 _Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc: # @_Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc
@@ -35032,12 +34707,14 @@ _Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB161_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI161_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI161_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -35070,12 +34747,8 @@ _Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc, .Lfunc_end161-_Z13test_constantIi28custom_multiple_constant_andIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi18custom_constant_orIiEEvPT_iPKc
-.LCPI162_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi18custom_constant_orIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi18custom_constant_orIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi18custom_constant_orIiEEvPT_iPKc
+	.weak	_Z13test_constantIi18custom_constant_orIiEEvPT_iPKc # -- Begin function _Z13test_constantIi18custom_constant_orIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi18custom_constant_orIiEEvPT_iPKc,@function
 _Z13test_constantIi18custom_constant_orIiEEvPT_iPKc: # @_Z13test_constantIi18custom_constant_orIiEEvPT_iPKc
@@ -35253,12 +34926,14 @@ _Z13test_constantIi18custom_constant_orIiEEvPT_iPKc: # @_Z13test_constantIi18cus
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB162_19:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI162_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI162_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -35291,12 +34966,8 @@ _Z13test_constantIi18custom_constant_orIiEEvPT_iPKc: # @_Z13test_constantIi18cus
 	.size	_Z13test_constantIi18custom_constant_orIiEEvPT_iPKc, .Lfunc_end162-_Z13test_constantIi18custom_constant_orIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc
-.LCPI163_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc
+	.weak	_Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc # -- Begin function _Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc,@function
 _Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc: # @_Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc
@@ -35474,12 +35145,14 @@ _Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc: # @_Z13test_consta
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB163_19:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI163_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI163_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -35512,12 +35185,8 @@ _Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc: # @_Z13test_consta
 	.size	_Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc, .Lfunc_end163-_Z13test_constantIi27custom_multiple_constant_orIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc
-.LCPI164_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc
+	.weak	_Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc # -- Begin function _Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc,@function
 _Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc: # @_Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc
@@ -35707,12 +35376,14 @@ _Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB164_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI164_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI164_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -35745,12 +35416,8 @@ _Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc: # @_Z13test_constantIi19cu
 	.size	_Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc, .Lfunc_end164-_Z13test_constantIi19custom_constant_xorIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc
-.LCPI165_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc,"axG",@progbits,_Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc
+	.weak	_Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc # -- Begin function _Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc,@function
 _Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc: # @_Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc
@@ -35940,12 +35607,14 @@ _Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB165_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI165_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI165_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -35978,12 +35647,8 @@ _Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc, .Lfunc_end165-_Z13test_constantIi28custom_multiple_constant_xorIiEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj10custom_twoIjEEvPT_iPKc
-.LCPI166_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj10custom_twoIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj10custom_twoIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj10custom_twoIjEEvPT_iPKc
+	.weak	_Z13test_constantIj10custom_twoIjEEvPT_iPKc # -- Begin function _Z13test_constantIj10custom_twoIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj10custom_twoIjEEvPT_iPKc,@function
 _Z13test_constantIj10custom_twoIjEEvPT_iPKc: # @_Z13test_constantIj10custom_twoIjEEvPT_iPKc
@@ -36085,12 +35750,14 @@ _Z13test_constantIj10custom_twoIjEEvPT_iPKc: # @_Z13test_constantIj10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB166_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI166_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI166_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -36121,12 +35788,8 @@ _Z13test_constantIj10custom_twoIjEEvPT_iPKc: # @_Z13test_constantIj10custom_twoI
 	.size	_Z13test_constantIj10custom_twoIjEEvPT_iPKc, .Lfunc_end166-_Z13test_constantIj10custom_twoIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc
-.LCPI167_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc
@@ -36228,12 +35891,14 @@ _Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB167_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI167_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI167_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -36264,12 +35929,8 @@ _Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	.size	_Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc, .Lfunc_end167-_Z13test_constantIj20custom_add_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc
-.LCPI168_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc
@@ -36371,12 +36032,14 @@ _Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB168_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI168_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI168_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -36407,12 +36070,8 @@ _Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	.size	_Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc, .Lfunc_end168-_Z13test_constantIj20custom_sub_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc
-.LCPI169_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc: # @_Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc
@@ -36516,12 +36175,14 @@ _Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s1, %pc_lo12(current_test)
 .LBB169_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI169_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI169_0)
 	sub.d	$a1, $s0, $s2
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -36552,12 +36213,8 @@ _Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc, .Lfunc_end169-_Z13test_constantIj25custom_multiply_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc
-.LCPI170_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc: # @_Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc
@@ -36659,12 +36316,14 @@ _Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc: # @_Z13test_constantIj
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB170_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI170_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI170_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -36695,12 +36354,8 @@ _Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc: # @_Z13test_constantIj
 	.size	_Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc, .Lfunc_end170-_Z13test_constantIj23custom_divide_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc
-.LCPI171_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc
@@ -36802,12 +36457,14 @@ _Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB171_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI171_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI171_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -36838,12 +36495,8 @@ _Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	.size	_Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc, .Lfunc_end171-_Z13test_constantIj20custom_mod_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc
-.LCPI172_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc: # @_Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc
@@ -36896,12 +36549,14 @@ _Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc: # @_Z13test_constantIj2
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB172_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI172_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI172_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -36930,12 +36585,8 @@ _Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc: # @_Z13test_constantIj2
 	.size	_Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc, .Lfunc_end172-_Z13test_constantIj22custom_equal_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc
-.LCPI173_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc: # @_Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc
@@ -37037,12 +36688,14 @@ _Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB173_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI173_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI173_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -37073,12 +36726,8 @@ _Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc, .Lfunc_end173-_Z13test_constantIj25custom_notequal_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc
-.LCPI174_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc: # @_Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc
@@ -37180,12 +36829,14 @@ _Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB174_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI174_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI174_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -37216,12 +36867,8 @@ _Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc, .Lfunc_end174-_Z13test_constantIj28custom_greaterthan_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc
-.LCPI175_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc: # @_Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc
@@ -37274,12 +36921,14 @@ _Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc: # @_Z13test_constant
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB175_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI175_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI175_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -37308,12 +36957,8 @@ _Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc, .Lfunc_end175-_Z13test_constantIj25custom_lessthan_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc
-.LCPI176_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc: # @_Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc
@@ -37415,12 +37060,14 @@ _Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB176_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI176_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI176_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -37451,12 +37098,8 @@ _Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc, .Lfunc_end176-_Z13test_constantIj33custom_greaterthanequal_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc
-.LCPI177_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc: # @_Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc
@@ -37509,12 +37152,14 @@ _Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc: # @_Z13test_con
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB177_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI177_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI177_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -37543,12 +37188,8 @@ _Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc, .Lfunc_end177-_Z13test_constantIj30custom_lessthanequal_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc
-.LCPI178_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc
@@ -37650,12 +37291,14 @@ _Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB178_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI178_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI178_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -37686,12 +37329,8 @@ _Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	.size	_Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc, .Lfunc_end178-_Z13test_constantIj20custom_and_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc
-.LCPI179_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc: # @_Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc
@@ -37793,12 +37432,14 @@ _Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB179_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI179_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI179_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -37829,12 +37470,8 @@ _Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	.size	_Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc, .Lfunc_end179-_Z13test_constantIj19custom_or_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc
-.LCPI180_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc
+	.weak	_Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc # -- Begin function _Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc,@function
 _Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc
@@ -37936,12 +37573,14 @@ _Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB180_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI180_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI180_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -37972,12 +37611,8 @@ _Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc: # @_Z13test_constantIj20c
 	.size	_Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc, .Lfunc_end180-_Z13test_constantIj20custom_xor_constantsIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj19custom_constant_addIjEEvPT_iPKc
-.LCPI181_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj19custom_constant_addIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj19custom_constant_addIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj19custom_constant_addIjEEvPT_iPKc
+	.weak	_Z13test_constantIj19custom_constant_addIjEEvPT_iPKc # -- Begin function _Z13test_constantIj19custom_constant_addIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj19custom_constant_addIjEEvPT_iPKc,@function
 _Z13test_constantIj19custom_constant_addIjEEvPT_iPKc: # @_Z13test_constantIj19custom_constant_addIjEEvPT_iPKc
@@ -38171,12 +37806,14 @@ _Z13test_constantIj19custom_constant_addIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB181_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI181_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI181_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -38209,12 +37846,8 @@ _Z13test_constantIj19custom_constant_addIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	.size	_Z13test_constantIj19custom_constant_addIjEEvPT_iPKc, .Lfunc_end181-_Z13test_constantIj19custom_constant_addIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc
-.LCPI182_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc
+	.weak	_Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc # -- Begin function _Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc,@function
 _Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc: # @_Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc
@@ -38408,12 +38041,14 @@ _Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB182_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI182_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI182_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -38446,12 +38081,8 @@ _Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc, .Lfunc_end182-_Z13test_constantIj28custom_multiple_constant_addIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj19custom_constant_subIjEEvPT_iPKc
-.LCPI183_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj19custom_constant_subIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj19custom_constant_subIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj19custom_constant_subIjEEvPT_iPKc
+	.weak	_Z13test_constantIj19custom_constant_subIjEEvPT_iPKc # -- Begin function _Z13test_constantIj19custom_constant_subIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj19custom_constant_subIjEEvPT_iPKc,@function
 _Z13test_constantIj19custom_constant_subIjEEvPT_iPKc: # @_Z13test_constantIj19custom_constant_subIjEEvPT_iPKc
@@ -38648,12 +38279,14 @@ _Z13test_constantIj19custom_constant_subIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB183_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI183_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI183_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -38686,12 +38319,8 @@ _Z13test_constantIj19custom_constant_subIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	.size	_Z13test_constantIj19custom_constant_subIjEEvPT_iPKc, .Lfunc_end183-_Z13test_constantIj19custom_constant_subIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc
-.LCPI184_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc
+	.weak	_Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc # -- Begin function _Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc,@function
 _Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc: # @_Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc
@@ -38888,12 +38517,14 @@ _Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB184_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI184_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI184_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -38926,12 +38557,8 @@ _Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc, .Lfunc_end184-_Z13test_constantIj28custom_multiple_constant_subIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc
-.LCPI185_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc
+	.weak	_Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc # -- Begin function _Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc,@function
 _Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc: # @_Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc
@@ -39122,12 +38749,14 @@ _Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc: # @_Z13test_constantI
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB185_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI185_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI185_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -39160,12 +38789,8 @@ _Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc, .Lfunc_end185-_Z13test_constantIj24custom_constant_multiplyIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc
-.LCPI186_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc
+	.weak	_Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc # -- Begin function _Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc,@function
 _Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc: # @_Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc
@@ -39356,12 +38981,14 @@ _Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc: # @_Z13test_
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB186_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI186_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI186_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -39394,12 +39021,8 @@ _Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc, .Lfunc_end186-_Z13test_constantIj33custom_multiple_constant_multiplyIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc
-.LCPI187_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc
+	.weak	_Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc # -- Begin function _Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc,@function
 _Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc: # @_Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc
@@ -39596,12 +39219,14 @@ _Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc: # @_Z13test
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB187_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI187_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI187_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -39634,12 +39259,8 @@ _Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc, .Lfunc_end187-_Z13test_constantIj34custom_multiple_constant_multiply2IjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc
-.LCPI188_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc
+	.weak	_Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc # -- Begin function _Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc,@function
 _Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc: # @_Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc
@@ -39844,12 +39465,14 @@ _Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc: # @_Z13test_constantIj2
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB188_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI188_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI188_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -39882,12 +39505,8 @@ _Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc: # @_Z13test_constantIj2
 	.size	_Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc, .Lfunc_end188-_Z13test_constantIj22custom_constant_divideIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc
-.LCPI189_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc
+	.weak	_Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc # -- Begin function _Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc,@function
 _Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc: # @_Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc
@@ -40092,12 +39711,14 @@ _Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc: # @_Z13test_co
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB189_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI189_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI189_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -40130,12 +39751,8 @@ _Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc, .Lfunc_end189-_Z13test_constantIj31custom_multiple_constant_divideIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc
-.LCPI190_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc
+	.weak	_Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc # -- Begin function _Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc,@function
 _Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc: # @_Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc
@@ -40329,12 +39946,14 @@ _Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc: # @_Z13test_c
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB190_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI190_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI190_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -40367,12 +39986,8 @@ _Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc, .Lfunc_end190-_Z13test_constantIj32custom_multiple_constant_divide2IjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc
-.LCPI191_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc
+	.weak	_Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc # -- Begin function _Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc,@function
 _Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc: # @_Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc
@@ -40557,12 +40172,14 @@ _Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc: # @_Z13test_con
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB191_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI191_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI191_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -40595,12 +40212,8 @@ _Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc, .Lfunc_end191-_Z13test_constantIj30custom_multiple_constant_mixedIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj19custom_constant_andIjEEvPT_iPKc
-.LCPI192_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj19custom_constant_andIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj19custom_constant_andIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj19custom_constant_andIjEEvPT_iPKc
+	.weak	_Z13test_constantIj19custom_constant_andIjEEvPT_iPKc # -- Begin function _Z13test_constantIj19custom_constant_andIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj19custom_constant_andIjEEvPT_iPKc,@function
 _Z13test_constantIj19custom_constant_andIjEEvPT_iPKc: # @_Z13test_constantIj19custom_constant_andIjEEvPT_iPKc
@@ -40790,12 +40403,14 @@ _Z13test_constantIj19custom_constant_andIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB192_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI192_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI192_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -40828,12 +40443,8 @@ _Z13test_constantIj19custom_constant_andIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	.size	_Z13test_constantIj19custom_constant_andIjEEvPT_iPKc, .Lfunc_end192-_Z13test_constantIj19custom_constant_andIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc
-.LCPI193_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc
+	.weak	_Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc # -- Begin function _Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc,@function
 _Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc: # @_Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc
@@ -41023,12 +40634,14 @@ _Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB193_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI193_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI193_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -41061,12 +40674,8 @@ _Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc, .Lfunc_end193-_Z13test_constantIj28custom_multiple_constant_andIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj18custom_constant_orIjEEvPT_iPKc
-.LCPI194_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj18custom_constant_orIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj18custom_constant_orIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj18custom_constant_orIjEEvPT_iPKc
+	.weak	_Z13test_constantIj18custom_constant_orIjEEvPT_iPKc # -- Begin function _Z13test_constantIj18custom_constant_orIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj18custom_constant_orIjEEvPT_iPKc,@function
 _Z13test_constantIj18custom_constant_orIjEEvPT_iPKc: # @_Z13test_constantIj18custom_constant_orIjEEvPT_iPKc
@@ -41244,12 +40853,14 @@ _Z13test_constantIj18custom_constant_orIjEEvPT_iPKc: # @_Z13test_constantIj18cus
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB194_19:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI194_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI194_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -41282,12 +40893,8 @@ _Z13test_constantIj18custom_constant_orIjEEvPT_iPKc: # @_Z13test_constantIj18cus
 	.size	_Z13test_constantIj18custom_constant_orIjEEvPT_iPKc, .Lfunc_end194-_Z13test_constantIj18custom_constant_orIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc
-.LCPI195_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc
+	.weak	_Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc # -- Begin function _Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc,@function
 _Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc: # @_Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc
@@ -41465,12 +41072,14 @@ _Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc: # @_Z13test_consta
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB195_19:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI195_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI195_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -41503,12 +41112,8 @@ _Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc: # @_Z13test_consta
 	.size	_Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc, .Lfunc_end195-_Z13test_constantIj27custom_multiple_constant_orIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc
-.LCPI196_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc
+	.weak	_Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc # -- Begin function _Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc,@function
 _Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc: # @_Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc
@@ -41701,12 +41306,14 @@ _Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB196_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI196_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI196_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -41739,12 +41346,8 @@ _Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc: # @_Z13test_constantIj19cu
 	.size	_Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc, .Lfunc_end196-_Z13test_constantIj19custom_constant_xorIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc
-.LCPI197_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc,"axG",@progbits,_Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc
+	.weak	_Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc # -- Begin function _Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc,@function
 _Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc: # @_Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc
@@ -41937,12 +41540,14 @@ _Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB197_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI197_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI197_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -41975,12 +41580,8 @@ _Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc, .Lfunc_end197-_Z13test_constantIj28custom_multiple_constant_xorIjEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl10custom_twoIlEEvPT_iPKc
-.LCPI198_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl10custom_twoIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl10custom_twoIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl10custom_twoIlEEvPT_iPKc
+	.weak	_Z13test_constantIl10custom_twoIlEEvPT_iPKc # -- Begin function _Z13test_constantIl10custom_twoIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl10custom_twoIlEEvPT_iPKc,@function
 _Z13test_constantIl10custom_twoIlEEvPT_iPKc: # @_Z13test_constantIl10custom_twoIlEEvPT_iPKc
@@ -42082,12 +41683,14 @@ _Z13test_constantIl10custom_twoIlEEvPT_iPKc: # @_Z13test_constantIl10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB198_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI198_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI198_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -42118,12 +41721,8 @@ _Z13test_constantIl10custom_twoIlEEvPT_iPKc: # @_Z13test_constantIl10custom_twoI
 	.size	_Z13test_constantIl10custom_twoIlEEvPT_iPKc, .Lfunc_end198-_Z13test_constantIl10custom_twoIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc
-.LCPI199_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc
@@ -42225,12 +41824,14 @@ _Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB199_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI199_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI199_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -42261,12 +41862,8 @@ _Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	.size	_Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc, .Lfunc_end199-_Z13test_constantIl20custom_add_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc
-.LCPI200_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc
@@ -42368,12 +41965,14 @@ _Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB200_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI200_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI200_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -42404,12 +42003,8 @@ _Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	.size	_Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc, .Lfunc_end200-_Z13test_constantIl20custom_sub_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc
-.LCPI201_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc: # @_Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc
@@ -42511,12 +42106,14 @@ _Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB201_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI201_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI201_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -42547,12 +42144,8 @@ _Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc, .Lfunc_end201-_Z13test_constantIl25custom_multiply_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc
-.LCPI202_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc: # @_Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc
@@ -42654,12 +42247,14 @@ _Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc: # @_Z13test_constantIl
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB202_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI202_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI202_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -42690,12 +42285,8 @@ _Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc: # @_Z13test_constantIl
 	.size	_Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc, .Lfunc_end202-_Z13test_constantIl23custom_divide_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc
-.LCPI203_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc
@@ -42797,12 +42388,14 @@ _Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB203_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI203_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI203_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -42833,12 +42426,8 @@ _Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	.size	_Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc, .Lfunc_end203-_Z13test_constantIl20custom_mod_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc
-.LCPI204_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc: # @_Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc
@@ -42891,12 +42480,14 @@ _Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc: # @_Z13test_constantIl2
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB204_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI204_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI204_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -42925,12 +42516,8 @@ _Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc: # @_Z13test_constantIl2
 	.size	_Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc, .Lfunc_end204-_Z13test_constantIl22custom_equal_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc
-.LCPI205_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc: # @_Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc
@@ -43032,12 +42619,14 @@ _Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB205_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI205_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI205_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -43068,12 +42657,8 @@ _Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc, .Lfunc_end205-_Z13test_constantIl25custom_notequal_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc
-.LCPI206_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc: # @_Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc
@@ -43175,12 +42760,14 @@ _Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB206_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI206_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI206_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -43211,12 +42798,8 @@ _Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc, .Lfunc_end206-_Z13test_constantIl28custom_greaterthan_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc
-.LCPI207_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc: # @_Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc
@@ -43269,12 +42852,14 @@ _Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc: # @_Z13test_constant
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB207_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI207_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI207_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -43303,12 +42888,8 @@ _Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc, .Lfunc_end207-_Z13test_constantIl25custom_lessthan_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc
-.LCPI208_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc: # @_Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc
@@ -43410,12 +42991,14 @@ _Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB208_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI208_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI208_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -43446,12 +43029,8 @@ _Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc, .Lfunc_end208-_Z13test_constantIl33custom_greaterthanequal_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc
-.LCPI209_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc: # @_Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc
@@ -43504,12 +43083,14 @@ _Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc: # @_Z13test_con
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB209_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI209_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI209_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -43538,12 +43119,8 @@ _Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc, .Lfunc_end209-_Z13test_constantIl30custom_lessthanequal_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc
-.LCPI210_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc
@@ -43645,12 +43222,14 @@ _Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB210_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI210_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI210_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -43681,12 +43260,8 @@ _Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	.size	_Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc, .Lfunc_end210-_Z13test_constantIl20custom_and_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc
-.LCPI211_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc: # @_Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc
@@ -43788,12 +43363,14 @@ _Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB211_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI211_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI211_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -43824,12 +43401,8 @@ _Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	.size	_Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc, .Lfunc_end211-_Z13test_constantIl19custom_or_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc
-.LCPI212_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc
+	.weak	_Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc # -- Begin function _Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc,@function
 _Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc
@@ -43931,12 +43504,14 @@ _Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB212_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI212_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI212_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -43967,12 +43542,8 @@ _Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc: # @_Z13test_constantIl20c
 	.size	_Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc, .Lfunc_end212-_Z13test_constantIl20custom_xor_constantsIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl19custom_constant_addIlEEvPT_iPKc
-.LCPI213_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl19custom_constant_addIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl19custom_constant_addIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl19custom_constant_addIlEEvPT_iPKc
+	.weak	_Z13test_constantIl19custom_constant_addIlEEvPT_iPKc # -- Begin function _Z13test_constantIl19custom_constant_addIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl19custom_constant_addIlEEvPT_iPKc,@function
 _Z13test_constantIl19custom_constant_addIlEEvPT_iPKc: # @_Z13test_constantIl19custom_constant_addIlEEvPT_iPKc
@@ -44164,12 +43735,14 @@ _Z13test_constantIl19custom_constant_addIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB213_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI213_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI213_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -44202,12 +43775,8 @@ _Z13test_constantIl19custom_constant_addIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	.size	_Z13test_constantIl19custom_constant_addIlEEvPT_iPKc, .Lfunc_end213-_Z13test_constantIl19custom_constant_addIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc
-.LCPI214_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc
+	.weak	_Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc # -- Begin function _Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc,@function
 _Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc: # @_Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc
@@ -44399,12 +43968,14 @@ _Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB214_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI214_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI214_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -44437,12 +44008,8 @@ _Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc, .Lfunc_end214-_Z13test_constantIl28custom_multiple_constant_addIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl19custom_constant_subIlEEvPT_iPKc
-.LCPI215_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl19custom_constant_subIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl19custom_constant_subIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl19custom_constant_subIlEEvPT_iPKc
+	.weak	_Z13test_constantIl19custom_constant_subIlEEvPT_iPKc # -- Begin function _Z13test_constantIl19custom_constant_subIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl19custom_constant_subIlEEvPT_iPKc,@function
 _Z13test_constantIl19custom_constant_subIlEEvPT_iPKc: # @_Z13test_constantIl19custom_constant_subIlEEvPT_iPKc
@@ -44637,12 +44204,14 @@ _Z13test_constantIl19custom_constant_subIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB215_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI215_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI215_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -44675,12 +44244,8 @@ _Z13test_constantIl19custom_constant_subIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	.size	_Z13test_constantIl19custom_constant_subIlEEvPT_iPKc, .Lfunc_end215-_Z13test_constantIl19custom_constant_subIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc
-.LCPI216_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc
+	.weak	_Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc # -- Begin function _Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc,@function
 _Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc: # @_Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc
@@ -44875,12 +44440,14 @@ _Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB216_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI216_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI216_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -44913,12 +44480,8 @@ _Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc, .Lfunc_end216-_Z13test_constantIl28custom_multiple_constant_subIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc
-.LCPI217_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc
+	.weak	_Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc # -- Begin function _Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc,@function
 _Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc: # @_Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc
@@ -45104,12 +44667,14 @@ _Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc: # @_Z13test_constantI
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB217_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI217_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI217_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -45142,12 +44707,8 @@ _Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc, .Lfunc_end217-_Z13test_constantIl24custom_constant_multiplyIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc
-.LCPI218_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc
+	.weak	_Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc # -- Begin function _Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc,@function
 _Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc: # @_Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc
@@ -45333,12 +44894,14 @@ _Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc: # @_Z13test_
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB218_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI218_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI218_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -45371,12 +44934,8 @@ _Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc, .Lfunc_end218-_Z13test_constantIl33custom_multiple_constant_multiplyIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc
-.LCPI219_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc
+	.weak	_Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc # -- Begin function _Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc,@function
 _Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc: # @_Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc
@@ -45571,12 +45130,14 @@ _Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc: # @_Z13test
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB219_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI219_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI219_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -45609,12 +45170,8 @@ _Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc, .Lfunc_end219-_Z13test_constantIl34custom_multiple_constant_multiply2IlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc
-.LCPI220_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc
+	.weak	_Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc # -- Begin function _Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc,@function
 _Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc: # @_Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc
@@ -45820,12 +45377,14 @@ _Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc: # @_Z13test_constantIl2
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB220_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI220_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI220_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -45858,12 +45417,8 @@ _Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc: # @_Z13test_constantIl2
 	.size	_Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc, .Lfunc_end220-_Z13test_constantIl22custom_constant_divideIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc
-.LCPI221_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc
+	.weak	_Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc # -- Begin function _Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc,@function
 _Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc: # @_Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc
@@ -46073,12 +45628,14 @@ _Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc: # @_Z13test_co
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB221_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI221_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI221_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -46111,12 +45668,8 @@ _Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc, .Lfunc_end221-_Z13test_constantIl31custom_multiple_constant_divideIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc
-.LCPI222_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc
+	.weak	_Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc # -- Begin function _Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc,@function
 _Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc: # @_Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc
@@ -46308,12 +45861,14 @@ _Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc: # @_Z13test_c
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB222_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI222_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI222_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -46346,12 +45901,8 @@ _Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc, .Lfunc_end222-_Z13test_constantIl32custom_multiple_constant_divide2IlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc
-.LCPI223_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc
+	.weak	_Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc # -- Begin function _Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc,@function
 _Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc: # @_Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc
@@ -46531,12 +46082,14 @@ _Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc: # @_Z13test_con
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB223_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI223_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI223_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -46569,12 +46122,8 @@ _Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc, .Lfunc_end223-_Z13test_constantIl30custom_multiple_constant_mixedIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl19custom_constant_andIlEEvPT_iPKc
-.LCPI224_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl19custom_constant_andIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl19custom_constant_andIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl19custom_constant_andIlEEvPT_iPKc
+	.weak	_Z13test_constantIl19custom_constant_andIlEEvPT_iPKc # -- Begin function _Z13test_constantIl19custom_constant_andIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl19custom_constant_andIlEEvPT_iPKc,@function
 _Z13test_constantIl19custom_constant_andIlEEvPT_iPKc: # @_Z13test_constantIl19custom_constant_andIlEEvPT_iPKc
@@ -46762,12 +46311,14 @@ _Z13test_constantIl19custom_constant_andIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB224_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI224_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI224_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -46800,12 +46351,8 @@ _Z13test_constantIl19custom_constant_andIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	.size	_Z13test_constantIl19custom_constant_andIlEEvPT_iPKc, .Lfunc_end224-_Z13test_constantIl19custom_constant_andIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc
-.LCPI225_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc
+	.weak	_Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc # -- Begin function _Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc,@function
 _Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc: # @_Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc
@@ -46993,12 +46540,14 @@ _Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB225_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI225_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI225_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -47031,12 +46580,8 @@ _Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc, .Lfunc_end225-_Z13test_constantIl28custom_multiple_constant_andIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl18custom_constant_orIlEEvPT_iPKc
-.LCPI226_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl18custom_constant_orIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl18custom_constant_orIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl18custom_constant_orIlEEvPT_iPKc
+	.weak	_Z13test_constantIl18custom_constant_orIlEEvPT_iPKc # -- Begin function _Z13test_constantIl18custom_constant_orIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl18custom_constant_orIlEEvPT_iPKc,@function
 _Z13test_constantIl18custom_constant_orIlEEvPT_iPKc: # @_Z13test_constantIl18custom_constant_orIlEEvPT_iPKc
@@ -47212,12 +46757,14 @@ _Z13test_constantIl18custom_constant_orIlEEvPT_iPKc: # @_Z13test_constantIl18cus
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB226_19:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI226_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI226_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -47250,12 +46797,8 @@ _Z13test_constantIl18custom_constant_orIlEEvPT_iPKc: # @_Z13test_constantIl18cus
 	.size	_Z13test_constantIl18custom_constant_orIlEEvPT_iPKc, .Lfunc_end226-_Z13test_constantIl18custom_constant_orIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc
-.LCPI227_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc
+	.weak	_Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc # -- Begin function _Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc,@function
 _Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc: # @_Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc
@@ -47431,12 +46974,14 @@ _Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc: # @_Z13test_consta
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB227_19:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI227_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI227_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -47469,12 +47014,8 @@ _Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc: # @_Z13test_consta
 	.size	_Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc, .Lfunc_end227-_Z13test_constantIl27custom_multiple_constant_orIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc
-.LCPI228_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc
+	.weak	_Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc # -- Begin function _Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc,@function
 _Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc: # @_Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc
@@ -47662,12 +47203,14 @@ _Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB228_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI228_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI228_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -47700,12 +47243,8 @@ _Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc: # @_Z13test_constantIl19cu
 	.size	_Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc, .Lfunc_end228-_Z13test_constantIl19custom_constant_xorIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc
-.LCPI229_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc,"axG",@progbits,_Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc
+	.weak	_Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc # -- Begin function _Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc,@function
 _Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc: # @_Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc
@@ -47893,12 +47432,14 @@ _Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB229_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI229_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI229_0)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -47931,12 +47472,8 @@ _Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc, .Lfunc_end229-_Z13test_constantIl28custom_multiple_constant_xorIlEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm10custom_twoImEEvPT_iPKc
-.LCPI230_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm10custom_twoImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm10custom_twoImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm10custom_twoImEEvPT_iPKc
+	.weak	_Z13test_constantIm10custom_twoImEEvPT_iPKc # -- Begin function _Z13test_constantIm10custom_twoImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm10custom_twoImEEvPT_iPKc,@function
 _Z13test_constantIm10custom_twoImEEvPT_iPKc: # @_Z13test_constantIm10custom_twoImEEvPT_iPKc
@@ -48038,12 +47575,14 @@ _Z13test_constantIm10custom_twoImEEvPT_iPKc: # @_Z13test_constantIm10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB230_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI230_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI230_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -48074,12 +47613,8 @@ _Z13test_constantIm10custom_twoImEEvPT_iPKc: # @_Z13test_constantIm10custom_twoI
 	.size	_Z13test_constantIm10custom_twoImEEvPT_iPKc, .Lfunc_end230-_Z13test_constantIm10custom_twoImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm20custom_add_constantsImEEvPT_iPKc
-.LCPI231_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm20custom_add_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm20custom_add_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm20custom_add_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm20custom_add_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm20custom_add_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm20custom_add_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm20custom_add_constantsImEEvPT_iPKc: # @_Z13test_constantIm20custom_add_constantsImEEvPT_iPKc
@@ -48181,12 +47716,14 @@ _Z13test_constantIm20custom_add_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB231_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI231_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI231_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -48217,12 +47754,8 @@ _Z13test_constantIm20custom_add_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	.size	_Z13test_constantIm20custom_add_constantsImEEvPT_iPKc, .Lfunc_end231-_Z13test_constantIm20custom_add_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc
-.LCPI232_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc: # @_Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc
@@ -48324,12 +47857,14 @@ _Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB232_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI232_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI232_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -48360,12 +47895,8 @@ _Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	.size	_Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc, .Lfunc_end232-_Z13test_constantIm20custom_sub_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc
-.LCPI233_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc: # @_Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc
@@ -48467,12 +47998,14 @@ _Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB233_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI233_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI233_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -48503,12 +48036,8 @@ _Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc, .Lfunc_end233-_Z13test_constantIm25custom_multiply_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc
-.LCPI234_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc: # @_Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc
@@ -48610,12 +48139,14 @@ _Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc: # @_Z13test_constantIm
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB234_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI234_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI234_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -48646,12 +48177,8 @@ _Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc: # @_Z13test_constantIm
 	.size	_Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc, .Lfunc_end234-_Z13test_constantIm23custom_divide_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc
-.LCPI235_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc: # @_Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc
@@ -48753,12 +48280,14 @@ _Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB235_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI235_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI235_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -48789,12 +48318,8 @@ _Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	.size	_Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc, .Lfunc_end235-_Z13test_constantIm20custom_mod_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc
-.LCPI236_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc: # @_Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc
@@ -48847,12 +48372,14 @@ _Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc: # @_Z13test_constantIm2
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB236_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI236_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI236_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -48881,12 +48408,8 @@ _Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc: # @_Z13test_constantIm2
 	.size	_Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc, .Lfunc_end236-_Z13test_constantIm22custom_equal_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc
-.LCPI237_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc: # @_Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc
@@ -48988,12 +48511,14 @@ _Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB237_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI237_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI237_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -49024,12 +48549,8 @@ _Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc, .Lfunc_end237-_Z13test_constantIm25custom_notequal_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc
-.LCPI238_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc: # @_Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc
@@ -49131,12 +48652,14 @@ _Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB238_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI238_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI238_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -49167,12 +48690,8 @@ _Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc, .Lfunc_end238-_Z13test_constantIm28custom_greaterthan_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc
-.LCPI239_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc: # @_Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc
@@ -49225,12 +48744,14 @@ _Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc: # @_Z13test_constant
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB239_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI239_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI239_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -49259,12 +48780,8 @@ _Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc, .Lfunc_end239-_Z13test_constantIm25custom_lessthan_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc
-.LCPI240_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc: # @_Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc
@@ -49366,12 +48883,14 @@ _Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB240_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI240_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI240_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -49402,12 +48921,8 @@ _Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc, .Lfunc_end240-_Z13test_constantIm33custom_greaterthanequal_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc
-.LCPI241_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc: # @_Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc
@@ -49460,12 +48975,14 @@ _Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc: # @_Z13test_con
 # %bb.3:                                # %._crit_edge.i
 	ld.w	$a1, $s1, %pc_lo12(current_test)
 .LBB241_4:                              # %_Z13record_resultdPKc.exit
-	pcalau12i	$a2, %pc_hi20(.LCPI241_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI241_0)
 	sub.d	$a2, $s0, $s2
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -97152
+	lu52i.d	$a2, $a2, 1042
 	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a2, $a1, $a0, 4
 	slli.d	$a3, $a1, 4
 	fstx.d	$fa0, $a0, $a3
@@ -49494,12 +49011,8 @@ _Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc, .Lfunc_end241-_Z13test_constantIm30custom_lessthanequal_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm20custom_and_constantsImEEvPT_iPKc
-.LCPI242_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm20custom_and_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm20custom_and_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm20custom_and_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm20custom_and_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm20custom_and_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm20custom_and_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm20custom_and_constantsImEEvPT_iPKc: # @_Z13test_constantIm20custom_and_constantsImEEvPT_iPKc
@@ -49601,12 +49114,14 @@ _Z13test_constantIm20custom_and_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB242_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI242_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI242_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -49637,12 +49152,8 @@ _Z13test_constantIm20custom_and_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	.size	_Z13test_constantIm20custom_and_constantsImEEvPT_iPKc, .Lfunc_end242-_Z13test_constantIm20custom_and_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm19custom_or_constantsImEEvPT_iPKc
-.LCPI243_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm19custom_or_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm19custom_or_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm19custom_or_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm19custom_or_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm19custom_or_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm19custom_or_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm19custom_or_constantsImEEvPT_iPKc: # @_Z13test_constantIm19custom_or_constantsImEEvPT_iPKc
@@ -49744,12 +49255,14 @@ _Z13test_constantIm19custom_or_constantsImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB243_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI243_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI243_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -49780,12 +49293,8 @@ _Z13test_constantIm19custom_or_constantsImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	.size	_Z13test_constantIm19custom_or_constantsImEEvPT_iPKc, .Lfunc_end243-_Z13test_constantIm19custom_or_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc
-.LCPI244_0:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc
+	.weak	_Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc # -- Begin function _Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc,@function
 _Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc: # @_Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc
@@ -49887,12 +49396,14 @@ _Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB244_12:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI244_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI244_0)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -49923,14 +49434,8 @@ _Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc: # @_Z13test_constantIm20c
 	.size	_Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc, .Lfunc_end244-_Z13test_constantIm20custom_xor_constantsImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm19custom_constant_addImEEvPT_iPKc
-.LCPI245_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI245_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm19custom_constant_addImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm19custom_constant_addImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm19custom_constant_addImEEvPT_iPKc
+	.weak	_Z13test_constantIm19custom_constant_addImEEvPT_iPKc # -- Begin function _Z13test_constantIm19custom_constant_addImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm19custom_constant_addImEEvPT_iPKc,@function
 _Z13test_constantIm19custom_constant_addImEEvPT_iPKc: # @_Z13test_constantIm19custom_constant_addImEEvPT_iPKc
@@ -49983,8 +49488,8 @@ _Z13test_constantIm19custom_constant_addImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
 	ori	$a5, $zero, 4
 	pcalau12i	$fp, %pc_hi20(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI245_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI245_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	lu12i.w	$a0, 19
@@ -50077,8 +49582,8 @@ _Z13test_constantIm19custom_constant_addImEEvPT_iPKc: # @_Z13test_constantIm19cu
 .LBB245_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI245_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI245_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	lu12i.w	$a0, -20
@@ -50144,12 +49649,14 @@ _Z13test_constantIm19custom_constant_addImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB245_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI245_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI245_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -50183,14 +49690,8 @@ _Z13test_constantIm19custom_constant_addImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	.size	_Z13test_constantIm19custom_constant_addImEEvPT_iPKc, .Lfunc_end245-_Z13test_constantIm19custom_constant_addImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc
-.LCPI246_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI246_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc
+	.weak	_Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc # -- Begin function _Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc,@function
 _Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc: # @_Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc
@@ -50243,8 +49744,8 @@ _Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc: # @_Z13test_const
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
 	ori	$a5, $zero, 4
 	pcalau12i	$fp, %pc_hi20(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI246_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI246_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	lu12i.w	$a0, 19
@@ -50337,8 +49838,8 @@ _Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc: # @_Z13test_const
 .LBB246_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI246_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI246_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	lu12i.w	$a0, -20
@@ -50404,12 +49905,14 @@ _Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB246_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI246_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI246_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -50443,14 +49946,8 @@ _Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc, .Lfunc_end246-_Z13test_constantIm28custom_multiple_constant_addImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm19custom_constant_subImEEvPT_iPKc
-.LCPI247_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI247_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm19custom_constant_subImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm19custom_constant_subImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm19custom_constant_subImEEvPT_iPKc
+	.weak	_Z13test_constantIm19custom_constant_subImEEvPT_iPKc # -- Begin function _Z13test_constantIm19custom_constant_subImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm19custom_constant_subImEEvPT_iPKc,@function
 _Z13test_constantIm19custom_constant_subImEEvPT_iPKc: # @_Z13test_constantIm19custom_constant_subImEEvPT_iPKc
@@ -50503,8 +50000,8 @@ _Z13test_constantIm19custom_constant_subImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	ori	$a5, $zero, 4
 	pcalau12i	$fp, %pc_hi20(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI247_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI247_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	lu12i.w	$a0, -20
@@ -50600,8 +50097,8 @@ _Z13test_constantIm19custom_constant_subImEEvPT_iPKc: # @_Z13test_constantIm19cu
 .LBB247_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI247_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI247_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	lu12i.w	$a0, 19
@@ -50667,12 +50164,14 @@ _Z13test_constantIm19custom_constant_subImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB247_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI247_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI247_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -50706,14 +50205,8 @@ _Z13test_constantIm19custom_constant_subImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	.size	_Z13test_constantIm19custom_constant_subImEEvPT_iPKc, .Lfunc_end247-_Z13test_constantIm19custom_constant_subImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc
-.LCPI248_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI248_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc
+	.weak	_Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc # -- Begin function _Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc,@function
 _Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc: # @_Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc
@@ -50766,8 +50259,8 @@ _Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc: # @_Z13test_const
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	ori	$a5, $zero, 4
 	pcalau12i	$fp, %pc_hi20(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI248_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI248_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	lu12i.w	$a0, -20
@@ -50863,8 +50356,8 @@ _Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc: # @_Z13test_const
 .LBB248_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI248_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI248_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	lu12i.w	$a0, 19
@@ -50930,12 +50423,14 @@ _Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB248_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI248_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI248_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -50969,14 +50464,8 @@ _Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc, .Lfunc_end248-_Z13test_constantIm28custom_multiple_constant_subImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc
-.LCPI249_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI249_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc
+	.weak	_Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc # -- Begin function _Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc,@function
 _Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc: # @_Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc
@@ -51029,9 +50518,9 @@ _Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc: # @_Z13test_constantI
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	ori	$a5, $zero, 4
 	ori	$fp, $zero, 120
-	pcalau12i	$a0, %pc_hi20(.LCPI249_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI249_0)
 	pcalau12i	$s4, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 234
 	ori	$s8, $a0, 1536
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -51122,8 +50611,8 @@ _Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc: # @_Z13test_constantI
 .LBB249_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI249_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI249_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 234
 	ori	$s1, $a0, 1536
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -51187,12 +50676,14 @@ _Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc: # @_Z13test_constantI
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB249_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI249_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI249_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -51226,14 +50717,8 @@ _Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc, .Lfunc_end249-_Z13test_constantIm24custom_constant_multiplyImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc
-.LCPI250_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI250_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc
+	.weak	_Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc # -- Begin function _Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc,@function
 _Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc: # @_Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc
@@ -51286,9 +50771,9 @@ _Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc: # @_Z13test_
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	ori	$a5, $zero, 4
 	ori	$fp, $zero, 120
-	pcalau12i	$a0, %pc_hi20(.LCPI250_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI250_0)
 	pcalau12i	$s4, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 234
 	ori	$s8, $a0, 1536
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -51379,8 +50864,8 @@ _Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc: # @_Z13test_
 .LBB250_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI250_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI250_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 234
 	ori	$s1, $a0, 1536
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -51444,12 +50929,14 @@ _Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc: # @_Z13test_
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB250_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI250_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI250_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -51483,14 +50970,8 @@ _Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc, .Lfunc_end250-_Z13test_constantIm33custom_multiple_constant_multiplyImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc
-.LCPI251_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI251_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc
+	.weak	_Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc # -- Begin function _Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc,@function
 _Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc: # @_Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc
@@ -51543,8 +51024,8 @@ _Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc: # @_Z13test
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	ori	$a5, $zero, 4
 	pcalau12i	$fp, %pc_hi20(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI251_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI251_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	lu12i.w	$a0, 234
@@ -51640,8 +51121,8 @@ _Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc: # @_Z13test
 .LBB251_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI251_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI251_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	lu12i.w	$a0, -235
@@ -51707,12 +51188,14 @@ _Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc: # @_Z13test
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB251_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI251_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI251_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -51746,14 +51229,8 @@ _Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc, .Lfunc_end251-_Z13test_constantIm34custom_multiple_constant_multiply2ImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm22custom_constant_divideImEEvPT_iPKc
-.LCPI252_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI252_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm22custom_constant_divideImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm22custom_constant_divideImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm22custom_constant_divideImEEvPT_iPKc
+	.weak	_Z13test_constantIm22custom_constant_divideImEEvPT_iPKc # -- Begin function _Z13test_constantIm22custom_constant_divideImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm22custom_constant_divideImEEvPT_iPKc,@function
 _Z13test_constantIm22custom_constant_divideImEEvPT_iPKc: # @_Z13test_constantIm22custom_constant_divideImEEvPT_iPKc
@@ -51810,8 +51287,8 @@ _Z13test_constantIm22custom_constant_divideImEEvPT_iPKc: # @_Z13test_constantIm2
 	lu32i.d	$a0, -209716
 	lu52i.d	$fp, $a0, -820
 	pcalau12i	$s4, %pc_hi20(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI252_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI252_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu52i.d	$s2, $zero, -2048
 	lu12i.w	$a0, 1
 	ori	$s7, $a0, 3904
@@ -51912,8 +51389,8 @@ _Z13test_constantIm22custom_constant_divideImEEvPT_iPKc: # @_Z13test_constantIm2
 .LBB252_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI252_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI252_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu52i.d	$s1, $zero, -2048
 	lu12i.w	$a0, -209716
 	ori	$a0, $a0, 3277
@@ -51985,12 +51462,14 @@ _Z13test_constantIm22custom_constant_divideImEEvPT_iPKc: # @_Z13test_constantIm2
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB252_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI252_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI252_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -52024,14 +51503,8 @@ _Z13test_constantIm22custom_constant_divideImEEvPT_iPKc: # @_Z13test_constantIm2
 	.size	_Z13test_constantIm22custom_constant_divideImEEvPT_iPKc, .Lfunc_end252-_Z13test_constantIm22custom_constant_divideImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc
-.LCPI253_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI253_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc
+	.weak	_Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc # -- Begin function _Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc,@function
 _Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc: # @_Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc
@@ -52088,8 +51561,8 @@ _Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc: # @_Z13test_co
 	lu32i.d	$a0, -489336
 	lu52i.d	$fp, $a0, -1912
 	pcalau12i	$s4, %pc_hi20(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI253_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI253_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu52i.d	$s2, $zero, -2048
 	lu12i.w	$a0, 1
 	ori	$s7, $a0, 3904
@@ -52190,8 +51663,8 @@ _Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc: # @_Z13test_co
 .LBB253_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI253_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI253_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu52i.d	$s1, $zero, -2048
 	lu12i.w	$a0, -489336
 	ori	$a0, $a0, 2185
@@ -52263,12 +51736,14 @@ _Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc: # @_Z13test_co
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB253_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI253_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI253_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -52302,14 +51777,8 @@ _Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc, .Lfunc_end253-_Z13test_constantIm31custom_multiple_constant_divideImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc
-.LCPI254_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI254_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc
+	.weak	_Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc # -- Begin function _Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc,@function
 _Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc: # @_Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc
@@ -52362,8 +51831,8 @@ _Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc: # @_Z13test_c
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
 	ori	$a5, $zero, 4
 	pcalau12i	$fp, %pc_hi20(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI254_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI254_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	lu12i.w	$a0, 3
@@ -52456,8 +51925,8 @@ _Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc: # @_Z13test_c
 .LBB254_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI254_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI254_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	lu12i.w	$a0, -4
@@ -52523,12 +51992,14 @@ _Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc: # @_Z13test_c
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB254_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI254_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI254_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -52562,14 +52033,8 @@ _Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc, .Lfunc_end254-_Z13test_constantIm32custom_multiple_constant_divide2ImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc
-.LCPI255_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI255_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc
+	.weak	_Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc # -- Begin function _Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc,@function
 _Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc: # @_Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc
@@ -52620,9 +52085,9 @@ _Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc: # @_Z13test_con
 	slli.d	$s6, $a0, 2
 	addi.d	$s7, $s1, 16
 	ori	$a5, $zero, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI255_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI255_0)
 	pcalau12i	$fp, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -52709,8 +52174,8 @@ _Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc: # @_Z13test_con
 .LBB255_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI255_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI255_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -52774,12 +52239,14 @@ _Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc: # @_Z13test_con
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB255_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI255_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI255_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -52813,14 +52280,8 @@ _Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc, .Lfunc_end255-_Z13test_constantIm30custom_multiple_constant_mixedImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm19custom_constant_andImEEvPT_iPKc
-.LCPI256_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI256_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm19custom_constant_andImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm19custom_constant_andImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm19custom_constant_andImEEvPT_iPKc
+	.weak	_Z13test_constantIm19custom_constant_andImEEvPT_iPKc # -- Begin function _Z13test_constantIm19custom_constant_andImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm19custom_constant_andImEEvPT_iPKc,@function
 _Z13test_constantIm19custom_constant_andImEEvPT_iPKc: # @_Z13test_constantIm19custom_constant_andImEEvPT_iPKc
@@ -52871,9 +52332,9 @@ _Z13test_constantIm19custom_constant_andImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	slli.d	$s6, $a0, 2
 	addi.d	$s7, $s1, 16
 	ori	$a5, $zero, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI256_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI256_0)
 	pcalau12i	$fp, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -52967,8 +52428,8 @@ _Z13test_constantIm19custom_constant_andImEEvPT_iPKc: # @_Z13test_constantIm19cu
 .LBB256_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI256_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI256_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s1, $zero
@@ -53030,12 +52491,14 @@ _Z13test_constantIm19custom_constant_andImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB256_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI256_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI256_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -53069,14 +52532,8 @@ _Z13test_constantIm19custom_constant_andImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	.size	_Z13test_constantIm19custom_constant_andImEEvPT_iPKc, .Lfunc_end256-_Z13test_constantIm19custom_constant_andImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc
-.LCPI257_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI257_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc
+	.weak	_Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc # -- Begin function _Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc,@function
 _Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc: # @_Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc
@@ -53127,9 +52584,9 @@ _Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc: # @_Z13test_const
 	slli.d	$s6, $a0, 2
 	addi.d	$s7, $s1, 16
 	ori	$a5, $zero, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI257_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI257_0)
 	pcalau12i	$fp, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -53223,8 +52680,8 @@ _Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc: # @_Z13test_const
 .LBB257_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI257_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI257_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s1, $zero
@@ -53286,12 +52743,14 @@ _Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB257_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI257_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI257_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -53325,14 +52784,8 @@ _Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc, .Lfunc_end257-_Z13test_constantIm28custom_multiple_constant_andImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm18custom_constant_orImEEvPT_iPKc
-.LCPI258_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI258_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm18custom_constant_orImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm18custom_constant_orImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm18custom_constant_orImEEvPT_iPKc
+	.weak	_Z13test_constantIm18custom_constant_orImEEvPT_iPKc # -- Begin function _Z13test_constantIm18custom_constant_orImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm18custom_constant_orImEEvPT_iPKc,@function
 _Z13test_constantIm18custom_constant_orImEEvPT_iPKc: # @_Z13test_constantIm18custom_constant_orImEEvPT_iPKc
@@ -53383,9 +52836,9 @@ _Z13test_constantIm18custom_constant_orImEEvPT_iPKc: # @_Z13test_constantIm18cus
 	slli.d	$s6, $a0, 2
 	addi.d	$s7, $s1, 16
 	ori	$a5, $zero, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI258_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI258_0)
 	pcalau12i	$fp, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -53520,12 +52973,14 @@ _Z13test_constantIm18custom_constant_orImEEvPT_iPKc: # @_Z13test_constantIm18cus
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB258_19:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI258_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI258_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -53559,14 +53014,8 @@ _Z13test_constantIm18custom_constant_orImEEvPT_iPKc: # @_Z13test_constantIm18cus
 	.size	_Z13test_constantIm18custom_constant_orImEEvPT_iPKc, .Lfunc_end258-_Z13test_constantIm18custom_constant_orImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc
-.LCPI259_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI259_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc
+	.weak	_Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc # -- Begin function _Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc,@function
 _Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc: # @_Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc
@@ -53617,9 +53066,9 @@ _Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc: # @_Z13test_consta
 	slli.d	$s6, $a0, 2
 	addi.d	$s7, $s1, 16
 	ori	$a5, $zero, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI259_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI259_0)
 	pcalau12i	$fp, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -53754,12 +53203,14 @@ _Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc: # @_Z13test_consta
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB259_19:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI259_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI259_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -53793,14 +53244,8 @@ _Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc: # @_Z13test_consta
 	.size	_Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc, .Lfunc_end259-_Z13test_constantIm27custom_multiple_constant_orImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm19custom_constant_xorImEEvPT_iPKc
-.LCPI260_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI260_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm19custom_constant_xorImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm19custom_constant_xorImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm19custom_constant_xorImEEvPT_iPKc
+	.weak	_Z13test_constantIm19custom_constant_xorImEEvPT_iPKc # -- Begin function _Z13test_constantIm19custom_constant_xorImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm19custom_constant_xorImEEvPT_iPKc,@function
 _Z13test_constantIm19custom_constant_xorImEEvPT_iPKc: # @_Z13test_constantIm19custom_constant_xorImEEvPT_iPKc
@@ -53851,9 +53296,9 @@ _Z13test_constantIm19custom_constant_xorImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	slli.d	$s6, $a0, 2
 	addi.d	$s7, $s1, 16
 	ori	$a5, $zero, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI260_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI260_0)
 	pcalau12i	$fp, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -53947,8 +53392,8 @@ _Z13test_constantIm19custom_constant_xorImEEvPT_iPKc: # @_Z13test_constantIm19cu
 .LBB260_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI260_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI260_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -54013,12 +53458,14 @@ _Z13test_constantIm19custom_constant_xorImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB260_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI260_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI260_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -54052,14 +53499,8 @@ _Z13test_constantIm19custom_constant_xorImEEvPT_iPKc: # @_Z13test_constantIm19cu
 	.size	_Z13test_constantIm19custom_constant_xorImEEvPT_iPKc, .Lfunc_end260-_Z13test_constantIm19custom_constant_xorImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc
-.LCPI261_0:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI261_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc,"axG",@progbits,_Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc
+	.weak	_Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc # -- Begin function _Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc,@function
 _Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc: # @_Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc
@@ -54110,9 +53551,9 @@ _Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc: # @_Z13test_const
 	slli.d	$s6, $a0, 2
 	addi.d	$s7, $s1, 16
 	ori	$a5, $zero, 4
-	pcalau12i	$a0, %pc_hi20(.LCPI261_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI261_0)
 	pcalau12i	$fp, %pc_hi20(init_value)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s4, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -54206,8 +53647,8 @@ _Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc: # @_Z13test_const
 .LBB261_13:                             # %.preheader.preheader
 	pcalau12i	$fp, %pc_hi20(init_value)
 	fld.d	$fa0, $fp, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI261_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI261_0)
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$a0, 1
 	ori	$s1, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
@@ -54272,12 +53713,14 @@ _Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc: # @_Z13test_const
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB261_21:                             # %_Z13record_resultdPKc.exit
 	ld.d	$a4, $sp, 16                    # 8-byte Folded Reload
-	pcalau12i	$a1, %pc_hi20(.LCPI261_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI261_1)
 	sub.d	$a1, $s0, $fp
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -54311,20 +53754,8 @@ _Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc, .Lfunc_end261-_Z13test_constantIm28custom_multiple_constant_xorImEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf10custom_twoIfEEvPT_iPKc
-.LCPI262_0:
-	.word	0xc67a0000                      # float -16000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI262_1:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI262_2:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI262_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf10custom_twoIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf10custom_twoIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf10custom_twoIfEEvPT_iPKc
+	.weak	_Z13test_constantIf10custom_twoIfEEvPT_iPKc # -- Begin function _Z13test_constantIf10custom_twoIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf10custom_twoIfEEvPT_iPKc,@function
 _Z13test_constantIf10custom_twoIfEEvPT_iPKc: # @_Z13test_constantIf10custom_twoIfEEvPT_iPKc
@@ -54369,14 +53800,21 @@ _Z13test_constantIf10custom_twoIfEEvPT_iPKc: # @_Z13test_constantIf10custom_twoI
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB262_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI262_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI262_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI262_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI262_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI262_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI262_2)
-	movgr2fr.w	$fs3, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1280
+	lu12i.w	$a0, -235616
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -54390,7 +53828,7 @@ _Z13test_constantIf10custom_twoIfEEvPT_iPKc: # @_Z13test_constantIf10custom_twoI
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB262_5 Depth 2
 	move	$a0, $s0
-	fmov.s	$fa0, $fs3
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB262_5:                              #   Parent Loop BB262_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -54399,15 +53837,15 @@ _Z13test_constantIf10custom_twoIfEEvPT_iPKc: # @_Z13test_constantIf10custom_twoI
 	bnez	$a0, .LBB262_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB262_4 Depth=1
-	fadd.s	$fa1, $fa0, $fs0
+	fadd.s	$fa1, $fa0, $fs1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB262_3
 # %bb.7:                                #   in Loop: Header=BB262_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -54459,12 +53897,14 @@ _Z13test_constantIf10custom_twoIfEEvPT_iPKc: # @_Z13test_constantIf10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB262_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI262_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI262_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -54498,20 +53938,8 @@ _Z13test_constantIf10custom_twoIfEEvPT_iPKc: # @_Z13test_constantIf10custom_twoI
 	.size	_Z13test_constantIf10custom_twoIfEEvPT_iPKc, .Lfunc_end262-_Z13test_constantIf10custom_twoIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc
-.LCPI263_0:
-	.word	0xc6bb8000                      # float -24000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI263_1:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI263_2:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI263_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc
+	.weak	_Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc # -- Begin function _Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc,@function
 _Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc
@@ -54556,14 +53984,21 @@ _Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB263_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI263_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI263_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI263_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI263_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI263_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI263_2)
-	movgr2fr.w	$fs3, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1272
+	lu12i.w	$a0, -234568
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -54577,7 +54012,7 @@ _Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB263_5 Depth 2
 	move	$a0, $s0
-	fmov.s	$fa0, $fs3
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB263_5:                              #   Parent Loop BB263_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -54586,15 +54021,15 @@ _Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
 	bnez	$a0, .LBB263_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB263_4 Depth=1
-	fadd.s	$fa1, $fa0, $fs0
+	fadd.s	$fa1, $fa0, $fs1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB263_3
 # %bb.7:                                #   in Loop: Header=BB263_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -54646,12 +54081,14 @@ _Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB263_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI263_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI263_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -54685,20 +54122,8 @@ _Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
 	.size	_Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc, .Lfunc_end263-_Z13test_constantIf20custom_add_constantsIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc
-.LCPI264_0:
-	.word	0xc5fa0000                      # float -8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI264_1:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI264_2:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI264_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc
+	.weak	_Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc # -- Begin function _Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc,@function
 _Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc
@@ -54743,14 +54168,21 @@ _Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB264_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI264_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI264_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI264_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI264_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI264_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI264_2)
-	movgr2fr.w	$fs3, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1168
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -54764,7 +54196,7 @@ _Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB264_5 Depth 2
 	move	$a0, $s0
-	fmov.s	$fa0, $fs3
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB264_5:                              #   Parent Loop BB264_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -54773,15 +54205,15 @@ _Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
 	bnez	$a0, .LBB264_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB264_4 Depth=1
-	fadd.s	$fa1, $fa0, $fs0
+	fadd.s	$fa1, $fa0, $fs1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB264_3
 # %bb.7:                                #   in Loop: Header=BB264_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -54833,12 +54265,14 @@ _Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB264_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI264_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI264_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -54872,20 +54306,8 @@ _Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc: # @_Z13test_constantIf20c
 	.size	_Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc, .Lfunc_end264-_Z13test_constantIf20custom_sub_constantsIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc
-.LCPI265_0:
-	.word	0xc73b8000                      # float -48000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI265_1:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI265_2:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI265_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc
+	.weak	_Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc # -- Begin function _Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc,@function
 _Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc: # @_Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc
@@ -54930,14 +54352,21 @@ _Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc: # @_Z13test_constant
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB265_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI265_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI265_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI265_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI265_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI265_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI265_2)
-	movgr2fr.w	$fs3, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1256
+	lu12i.w	$a0, -232520
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -54951,7 +54380,7 @@ _Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc: # @_Z13test_constant
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB265_5 Depth 2
 	move	$a0, $s0
-	fmov.s	$fa0, $fs3
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB265_5:                              #   Parent Loop BB265_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -54960,15 +54389,15 @@ _Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc: # @_Z13test_constant
 	bnez	$a0, .LBB265_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB265_4 Depth=1
-	fadd.s	$fa1, $fa0, $fs0
+	fadd.s	$fa1, $fa0, $fs1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB265_3
 # %bb.7:                                #   in Loop: Header=BB265_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -55020,12 +54449,14 @@ _Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB265_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI265_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI265_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -55059,20 +54490,8 @@ _Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc, .Lfunc_end265-_Z13test_constantIf25custom_multiply_constantsIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc
-.LCPI266_0:
-	.word	0xc67a0000                      # float -16000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI266_1:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI266_2:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI266_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc
+	.weak	_Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc # -- Begin function _Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc,@function
 _Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc: # @_Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc
@@ -55117,14 +54536,21 @@ _Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc: # @_Z13test_constantIf
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB266_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI266_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI266_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI266_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI266_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI266_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI266_2)
-	movgr2fr.w	$fs3, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1280
+	lu12i.w	$a0, -235616
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -55138,7 +54564,7 @@ _Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc: # @_Z13test_constantIf
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB266_5 Depth 2
 	move	$a0, $s0
-	fmov.s	$fa0, $fs3
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB266_5:                              #   Parent Loop BB266_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -55147,15 +54573,15 @@ _Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc: # @_Z13test_constantIf
 	bnez	$a0, .LBB266_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB266_4 Depth=1
-	fadd.s	$fa1, $fa0, $fs0
+	fadd.s	$fa1, $fa0, $fs1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB266_3
 # %bb.7:                                #   in Loop: Header=BB266_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -55207,12 +54633,14 @@ _Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc: # @_Z13test_constantIf
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB266_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI266_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI266_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -55246,20 +54674,8 @@ _Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc: # @_Z13test_constantIf
 	.size	_Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc, .Lfunc_end266-_Z13test_constantIf23custom_divide_constantsIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc
-.LCPI267_0:
-	.word	0xc5fa0000                      # float -8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI267_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI267_2:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI267_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf19custom_constant_addIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf19custom_constant_addIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf19custom_constant_addIfEEvPT_iPKc
+	.weak	_Z13test_constantIf19custom_constant_addIfEEvPT_iPKc # -- Begin function _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf19custom_constant_addIfEEvPT_iPKc,@function
 _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf19custom_constant_addIfEEvPT_iPKc
@@ -55309,15 +54725,22 @@ _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB267_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI267_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI267_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI267_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI267_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI267_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI267_1)
-	movgr2fr.w	$fs3, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1244
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -55332,7 +54755,7 @@ _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf19cu
                                         #     Child Loop BB267_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.s	$fa0, $fs3
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB267_5:                              #   Parent Loop BB267_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -55347,16 +54770,16 @@ _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fcvt.s.d	$fa1, $fa1
 	fadd.s	$fa1, $fa1, $fa3
-	fmul.s	$fa1, $fa1, $fs0
+	fmul.s	$fa1, $fa1, $fs1
 	fadd.s	$fa1, $fa0, $fa1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB267_3
 # %bb.7:                                #   in Loop: Header=BB267_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -55369,12 +54792,16 @@ _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 .LBB267_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI267_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI267_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI267_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI267_1)
 	vldi	$vr2, -1244
-	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs1, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -55389,10 +54816,10 @@ _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 	fcvt.s.d	$fa1, $fa0
 	fadd.s	$fa1, $fa1, $fa2
 	fmul.s	$fa1, $fa1, $fs0
-	fadd.s	$fa1, $fa1, $fs2
+	fadd.s	$fa1, $fa1, $fs1
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB267_9
 # %bb.11:                               #   in Loop: Header=BB267_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -55431,12 +54858,14 @@ _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB267_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI267_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI267_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -55472,20 +54901,8 @@ _Z13test_constantIf19custom_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 	.size	_Z13test_constantIf19custom_constant_addIfEEvPT_iPKc, .Lfunc_end267-_Z13test_constantIf19custom_constant_addIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc
-.LCPI268_0:
-	.word	0xc5fa0000                      # float -8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI268_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI268_2:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI268_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc
+	.weak	_Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc # -- Begin function _Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc,@function
 _Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc: # @_Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc
@@ -55538,15 +54955,22 @@ _Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc: # @_Z13test_const
 	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1168
 	vldi	$vr4, -1280
-	pcalau12i	$a0, %pc_hi20(.LCPI268_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI268_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI268_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI268_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI268_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI268_1)
 	vldi	$vr5, -1272
 	vldi	$vr6, -1264
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -55609,13 +55033,17 @@ _Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc: # @_Z13test_const
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
 	vldi	$vr2, -1168
 	vldi	$vr3, -1280
-	pcalau12i	$a0, %pc_hi20(.LCPI268_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI268_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI268_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI268_1)
 	vldi	$vr4, -1272
 	vldi	$vr5, -1264
-	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs1, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -55633,10 +55061,10 @@ _Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc: # @_Z13test_const
 	fadd.s	$fa1, $fa1, $fa4
 	fadd.s	$fa1, $fa1, $fa5
 	fmul.s	$fa1, $fa1, $fs0
-	fadd.s	$fa1, $fa1, $fs2
+	fadd.s	$fa1, $fa1, $fs1
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB268_9
 # %bb.11:                               #   in Loop: Header=BB268_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -55678,12 +55106,14 @@ _Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB268_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI268_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI268_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -55719,20 +55149,8 @@ _Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc, .Lfunc_end268-_Z13test_constantIf28custom_multiple_constant_addIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc
-.LCPI269_0:
-	.word	0xc5fa0000                      # float -8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI269_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI269_2:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI269_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf19custom_constant_subIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf19custom_constant_subIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf19custom_constant_subIfEEvPT_iPKc
+	.weak	_Z13test_constantIf19custom_constant_subIfEEvPT_iPKc # -- Begin function _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf19custom_constant_subIfEEvPT_iPKc,@function
 _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf19custom_constant_subIfEEvPT_iPKc
@@ -55782,15 +55200,22 @@ _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB269_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI269_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI269_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI269_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI269_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI269_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI269_1)
-	movgr2fr.w	$fs3, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1116
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -55805,7 +55230,7 @@ _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf19cu
                                         #     Child Loop BB269_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.s	$fa0, $fs3
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB269_5:                              #   Parent Loop BB269_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -55820,16 +55245,16 @@ _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fcvt.s.d	$fa1, $fa1
 	fadd.s	$fa1, $fa1, $fa3
-	fmul.s	$fa1, $fa1, $fs0
+	fmul.s	$fa1, $fa1, $fs1
 	fadd.s	$fa1, $fa0, $fa1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB269_3
 # %bb.7:                                #   in Loop: Header=BB269_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -55842,12 +55267,16 @@ _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 .LBB269_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI269_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI269_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI269_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI269_1)
 	vldi	$vr2, -1116
-	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs1, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -55862,10 +55291,10 @@ _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 	fcvt.s.d	$fa1, $fa0
 	fadd.s	$fa1, $fa1, $fa2
 	fmul.s	$fa1, $fa1, $fs0
-	fadd.s	$fa1, $fa1, $fs2
+	fadd.s	$fa1, $fa1, $fs1
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB269_9
 # %bb.11:                               #   in Loop: Header=BB269_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -55904,12 +55333,14 @@ _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB269_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI269_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI269_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -55945,20 +55376,8 @@ _Z13test_constantIf19custom_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf19cu
 	.size	_Z13test_constantIf19custom_constant_subIfEEvPT_iPKc, .Lfunc_end269-_Z13test_constantIf19custom_constant_subIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc
-.LCPI270_0:
-	.word	0xc5fa0000                      # float -8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI270_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI270_2:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI270_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc
+	.weak	_Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc # -- Begin function _Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc,@function
 _Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc: # @_Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc
@@ -56011,15 +55430,22 @@ _Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc: # @_Z13test_const
 	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1040
 	vldi	$vr4, -1152
-	pcalau12i	$a0, %pc_hi20(.LCPI270_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI270_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI270_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI270_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI270_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI270_1)
 	vldi	$vr5, -1144
 	vldi	$vr6, -1136
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -56082,13 +55508,17 @@ _Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc: # @_Z13test_const
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
 	vldi	$vr2, -1040
 	vldi	$vr3, -1152
-	pcalau12i	$a0, %pc_hi20(.LCPI270_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI270_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI270_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI270_1)
 	vldi	$vr4, -1144
 	vldi	$vr5, -1136
-	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs1, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -56106,10 +55536,10 @@ _Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc: # @_Z13test_const
 	fadd.s	$fa1, $fa1, $fa4
 	fadd.s	$fa1, $fa1, $fa5
 	fmul.s	$fa1, $fa1, $fs0
-	fadd.s	$fa1, $fa1, $fs2
+	fadd.s	$fa1, $fa1, $fs1
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB270_9
 # %bb.11:                               #   in Loop: Header=BB270_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -56151,12 +55581,14 @@ _Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB270_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI270_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI270_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -56192,24 +55624,8 @@ _Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc, .Lfunc_end270-_Z13test_constantIf28custom_multiple_constant_subIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc
-.LCPI271_0:
-	.word	0xc2f00000                      # float -120
-.LCPI271_1:
-	.word	0x45fa0000                      # float 8000
-.LCPI271_3:
-	.word	0x42f00000                      # float 120
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI271_2:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI271_4:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI271_5:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc
+	.weak	_Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc # -- Begin function _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc,@function
 _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc
@@ -56263,18 +55679,25 @@ _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantI
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB271_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI271_3)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI271_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI271_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI271_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI271_1)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI271_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI271_4)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI271_4)
-	pcalau12i	$a0, %pc_hi20(.LCPI271_2)
-	fld.d	$fs4, $a0, %pc_lo12(.LCPI271_2)
-	movgr2fr.w	$fs5, $zero
+	movgr2fr.w	$fs0, $zero
+	lu12i.w	$a0, 274176
+	movgr2fr.w	$fs1, $a0
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu12i.w	$a0, -250112
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs2, $a0
+	lu12i.w	$a0, 286624
+	movgr2fr.w	$fs3, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs4, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs5, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -56289,12 +55712,12 @@ _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantI
                                         #     Child Loop BB271_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.s	$fa0, $fs5
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB271_5:                              #   Parent Loop BB271_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	fld.s	$fa1, $a2, 0
-	fmul.s	$fa1, $fa1, $fs0
+	fmul.s	$fa1, $fa1, $fs1
 	fadd.s	$fa0, $fa0, $fa1
 	addi.d	$a0, $a0, -1
 	addi.d	$a2, $a2, 4
@@ -56303,17 +55726,17 @@ _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantI
                                         #   in Loop: Header=BB271_4 Depth=1
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fcvt.s.d	$fa1, $fa1
-	fmul.s	$fa1, $fa1, $fs1
 	fmul.s	$fa1, $fa1, $fs2
+	fmul.s	$fa1, $fa1, $fs3
 	fadd.s	$fa1, $fa0, $fa1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs3, $fa2
+	fcmp.clt.d	$fcc0, $fs4, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs4
+	fcmp.clt.d	$fcc0, $fa0, $fs5
 	bcnez	$fcc0, .LBB271_3
 # %bb.7:                                #   in Loop: Header=BB271_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -56325,13 +55748,17 @@ _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantI
 .LBB271_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI271_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI271_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI271_1)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI271_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI271_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI271_2)
-	movgr2fr.w	$fs3, $zero
+	lu12i.w	$a0, -250112
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
+	lu12i.w	$a0, 286624
+	movgr2fr.w	$fs1, $a0
+	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -56346,10 +55773,10 @@ _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantI
 	fcvt.s.d	$fa1, $fa0
 	fmul.s	$fa1, $fa1, $fs0
 	fmul.s	$fa1, $fa1, $fs1
-	fadd.s	$fa1, $fa1, $fs3
+	fadd.s	$fa1, $fa1, $fs2
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs2
+	fcmp.clt.d	$fcc0, $fa1, $fs3
 	bcnez	$fcc0, .LBB271_9
 # %bb.11:                               #   in Loop: Header=BB271_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -56387,12 +55814,14 @@ _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantI
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB271_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI271_5)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI271_5)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -56430,20 +55859,8 @@ _Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc, .Lfunc_end271-_Z13test_constantIf24custom_constant_multiplyIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc
-.LCPI272_0:
-	.word	0x45fa0000                      # float 8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI272_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI272_2:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI272_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc
+	.weak	_Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc # -- Begin function _Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc,@function
 _Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc: # @_Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc
@@ -56496,15 +55913,21 @@ _Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc: # @_Z13test_
 	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1272
 	vldi	$vr4, -1264
-	pcalau12i	$a0, %pc_hi20(.LCPI272_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI272_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI272_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI272_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI272_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI272_1)
 	vldi	$vr5, -1260
 	pcalau12i	$s6, %pc_hi20(init_value)
 	vldi	$vr6, -1144
+	lu12i.w	$a0, 286624
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -56566,13 +55989,16 @@ _Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc: # @_Z13test_
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
 	vldi	$vr2, -1144
-	pcalau12i	$a0, %pc_hi20(.LCPI272_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI272_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI272_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI272_1)
 	vldi	$vr3, -1264
 	vldi	$vr4, -1260
-	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, 286624
+	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs1, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -56590,10 +56016,10 @@ _Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc: # @_Z13test_
 	fmul.s	$fa1, $fa1, $fa3
 	fmul.s	$fa1, $fa1, $fa4
 	fmul.s	$fa1, $fa1, $fs0
-	fadd.s	$fa1, $fa1, $fs2
+	fadd.s	$fa1, $fa1, $fs1
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB272_9
 # %bb.11:                               #   in Loop: Header=BB272_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -56634,12 +56060,14 @@ _Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB272_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI272_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI272_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -56675,22 +56103,8 @@ _Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc, .Lfunc_end272-_Z13test_constantIf33custom_multiple_constant_multiplyIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc
-.LCPI273_0:
-	.word	0x42f00000                      # float 120
-.LCPI273_1:
-	.word	0xc5fa0000                      # float -8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI273_2:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI273_3:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI273_4:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc
+	.weak	_Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc # -- Begin function _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc,@function
 _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc: # @_Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc
@@ -56742,16 +56156,23 @@ _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc: # @_Z13test
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB273_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI273_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI273_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI273_1)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI273_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI273_3)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI273_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI273_2)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI273_2)
-	movgr2fr.w	$fs4, $zero
+	movgr2fr.w	$fs0, $zero
+	lu12i.w	$a0, 274176
+	movgr2fr.w	$fs1, $a0
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs2, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs4, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -56766,12 +56187,12 @@ _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc: # @_Z13test
                                         #     Child Loop BB273_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.s	$fa0, $fs4
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB273_5:                              #   Parent Loop BB273_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	fld.s	$fa1, $a2, 0
-	fadd.s	$fa1, $fa1, $fs0
+	fadd.s	$fa1, $fa1, $fs1
 	fadd.s	$fa0, $fa0, $fa1
 	addi.d	$a0, $a0, -1
 	addi.d	$a2, $a2, 4
@@ -56780,17 +56201,17 @@ _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc: # @_Z13test
                                         #   in Loop: Header=BB273_4 Depth=1
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fcvt.s.d	$fa1, $fa1
-	fadd.s	$fa1, $fa1, $fs0
-	fmul.s	$fa1, $fa1, $fs1
+	fadd.s	$fa1, $fa1, $fs1
+	fmul.s	$fa1, $fa1, $fs2
 	fadd.s	$fa1, $fa0, $fa1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs2, $fa2
+	fcmp.clt.d	$fcc0, $fs3, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs3
+	fcmp.clt.d	$fcc0, $fa0, $fs4
 	bcnez	$fcc0, .LBB273_3
 # %bb.7:                                #   in Loop: Header=BB273_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -56802,13 +56223,17 @@ _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc: # @_Z13test
 .LBB273_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI273_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI273_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI273_1)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI273_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI273_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI273_2)
-	movgr2fr.w	$fs3, $zero
+	lu12i.w	$a0, 274176
+	movgr2fr.w	$fs0, $a0
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -56823,10 +56248,10 @@ _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc: # @_Z13test
 	fcvt.s.d	$fa1, $fa0
 	fadd.s	$fa1, $fa1, $fs0
 	fmul.s	$fa1, $fa1, $fs1
-	fadd.s	$fa1, $fa1, $fs3
+	fadd.s	$fa1, $fa1, $fs2
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs2
+	fcmp.clt.d	$fcc0, $fa1, $fs3
 	bcnez	$fcc0, .LBB273_9
 # %bb.11:                               #   in Loop: Header=BB273_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -56864,12 +56289,14 @@ _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc: # @_Z13test
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB273_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI273_4)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI273_4)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -56906,20 +56333,8 @@ _Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc, .Lfunc_end273-_Z13test_constantIf34custom_multiple_constant_multiply2IfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc
-.LCPI274_0:
-	.word	0x45fa0000                      # float 8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI274_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI274_2:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI274_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc
+	.weak	_Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc # -- Begin function _Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc,@function
 _Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc: # @_Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc
@@ -56970,15 +56385,21 @@ _Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc: # @_Z13test_constantIf2
 	blez	$s0, .LBB274_8
 # %bb.2:                                # %.preheader.us.preheader
 	movgr2fr.w	$fs0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI274_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI274_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI274_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI274_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI274_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI274_1)
 	vldi	$vr3, -1260
 	pcalau12i	$s6, %pc_hi20(init_value)
 	vldi	$vr4, -1132
+	lu12i.w	$a0, 286624
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -57031,12 +56452,15 @@ _Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc: # @_Z13test_constantIf2
 .LBB274_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI274_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI274_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI274_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI274_1)
 	vldi	$vr2, -1132
-	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, 286624
+	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs1, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -57051,10 +56475,10 @@ _Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc: # @_Z13test_constantIf2
 	fcvt.s.d	$fa1, $fa0
 	fdiv.s	$fa1, $fa1, $fa2
 	fmul.s	$fa1, $fa1, $fs0
-	fadd.s	$fa1, $fa1, $fs2
+	fadd.s	$fa1, $fa1, $fs1
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB274_9
 # %bb.11:                               #   in Loop: Header=BB274_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -57093,12 +56517,14 @@ _Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc: # @_Z13test_constantIf2
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB274_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI274_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI274_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -57134,20 +56560,8 @@ _Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc: # @_Z13test_constantIf2
 	.size	_Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc, .Lfunc_end274-_Z13test_constantIf22custom_constant_divideIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc
-.LCPI275_0:
-	.word	0x45fa0000                      # float 8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI275_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI275_2:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI275_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc
+	.weak	_Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc # -- Begin function _Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc,@function
 _Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc: # @_Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc
@@ -57201,15 +56615,21 @@ _Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc: # @_Z13test_co
 	vldi	$vr3, -1184
 	vldi	$vr4, -1272
 	vldi	$vr5, -1200
-	pcalau12i	$a0, %pc_hi20(.LCPI275_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI275_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI275_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI275_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI275_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI275_1)
 	vldi	$vr6, -1260
 	pcalau12i	$s6, %pc_hi20(init_value)
 	vldi	$vr7, -1056
+	lu12i.w	$a0, 286624
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -57273,13 +56693,16 @@ _Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc: # @_Z13test_co
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
 	vldi	$vr2, -1056
 	vldi	$vr3, -1272
-	pcalau12i	$a0, %pc_hi20(.LCPI275_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI275_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI275_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI275_1)
 	vldi	$vr4, -1200
 	vldi	$vr5, -1260
-	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, 286624
+	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs1, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -57297,10 +56720,10 @@ _Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc: # @_Z13test_co
 	fmul.s	$fa1, $fa1, $fa4
 	fdiv.s	$fa1, $fa1, $fa5
 	fmul.s	$fa1, $fa1, $fs0
-	fadd.s	$fa1, $fa1, $fs2
+	fadd.s	$fa1, $fa1, $fs1
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB275_9
 # %bb.11:                               #   in Loop: Header=BB275_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -57342,12 +56765,14 @@ _Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc: # @_Z13test_co
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB275_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI275_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI275_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -57383,20 +56808,8 @@ _Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc, .Lfunc_end275-_Z13test_constantIf31custom_multiple_constant_divideIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc
-.LCPI276_0:
-	.word	0xc5fa0000                      # float -8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI276_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI276_2:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI276_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc
+	.weak	_Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc # -- Begin function _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc,@function
 _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc: # @_Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc
@@ -57446,15 +56859,22 @@ _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc: # @_Z13test_c
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB276_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI276_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI276_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI276_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI276_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI276_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI276_1)
-	movgr2fr.w	$fs3, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1280
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -57469,7 +56889,7 @@ _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc: # @_Z13test_c
                                         #     Child Loop BB276_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.s	$fa0, $fs3
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB276_5:                              #   Parent Loop BB276_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -57484,16 +56904,16 @@ _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc: # @_Z13test_c
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fcvt.s.d	$fa1, $fa1
 	fadd.s	$fa1, $fa1, $fa3
-	fmul.s	$fa1, $fa1, $fs0
+	fmul.s	$fa1, $fa1, $fs1
 	fadd.s	$fa1, $fa0, $fa1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB276_3
 # %bb.7:                                #   in Loop: Header=BB276_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -57506,12 +56926,16 @@ _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc: # @_Z13test_c
 .LBB276_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI276_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI276_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI276_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI276_1)
 	vldi	$vr2, -1280
-	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs1, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -57526,10 +56950,10 @@ _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc: # @_Z13test_c
 	fcvt.s.d	$fa1, $fa0
 	fadd.s	$fa1, $fa1, $fa2
 	fmul.s	$fa1, $fa1, $fs0
-	fadd.s	$fa1, $fa1, $fs2
+	fadd.s	$fa1, $fa1, $fs1
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB276_9
 # %bb.11:                               #   in Loop: Header=BB276_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -57568,12 +56992,14 @@ _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc: # @_Z13test_c
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB276_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI276_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI276_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -57609,22 +57035,8 @@ _Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc, .Lfunc_end276-_Z13test_constantIf32custom_multiple_constant_divide2IfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc
-.LCPI277_0:
-	.word	0xc019999a                      # float -2.4000001
-.LCPI277_1:
-	.word	0xc5fa0000                      # float -8000
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI277_2:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI277_3:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI277_4:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc,"axG",@progbits,_Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc,comdat
-	.weak	_Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc
+	.weak	_Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc # -- Begin function _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc,@function
 _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc: # @_Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc
@@ -57676,17 +57088,26 @@ _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc: # @_Z13test_con
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB277_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI277_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI277_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI277_1)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI277_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI277_3)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI277_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI277_2)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI277_2)
-	movgr2fr.w	$fs4, $zero
+	movgr2fr.w	$fs0, $zero
 	vldi	$vr3, -1280
+	lu12i.w	$a0, -261735
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs2, $a0
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs4, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -57701,13 +57122,13 @@ _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc: # @_Z13test_con
                                         #     Child Loop BB277_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.s	$fa0, $fs4
+	fmov.s	$fa0, $fs0
 	.p2align	4, , 16
 .LBB277_5:                              #   Parent Loop BB277_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	fld.s	$fa1, $a2, 0
 	fadd.s	$fa1, $fa1, $fa3
-	fadd.s	$fa1, $fa1, $fs0
+	fadd.s	$fa1, $fa1, $fs1
 	fadd.s	$fa0, $fa0, $fa1
 	addi.d	$a0, $a0, -1
 	addi.d	$a2, $a2, 4
@@ -57717,17 +57138,17 @@ _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc: # @_Z13test_con
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fcvt.s.d	$fa1, $fa1
 	fadd.s	$fa1, $fa1, $fa3
-	fadd.s	$fa1, $fa1, $fs0
-	fmul.s	$fa1, $fa1, $fs1
+	fadd.s	$fa1, $fa1, $fs1
+	fmul.s	$fa1, $fa1, $fs2
 	fadd.s	$fa1, $fa0, $fa1
 	fabs.s	$fa2, $fa0
 	fcvt.d.s	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fs2, $fa2
+	fcmp.clt.d	$fcc0, $fs3, $fa2
 	fdiv.s	$fa0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.s	$fa0, $fa0
 	fcvt.d.s	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs3
+	fcmp.clt.d	$fcc0, $fa0, $fs4
 	bcnez	$fcc0, .LBB277_3
 # %bb.7:                                #   in Loop: Header=BB277_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -57740,14 +57161,20 @@ _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc: # @_Z13test_con
 .LBB277_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI277_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI277_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI277_1)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI277_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI277_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI277_2)
 	vldi	$vr2, -1280
-	movgr2fr.w	$fs3, $zero
+	lu12i.w	$a0, -261735
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs0, $a0
+	lu12i.w	$a0, -237664
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
+	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -57763,10 +57190,10 @@ _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc: # @_Z13test_con
 	fadd.s	$fa1, $fa1, $fa2
 	fadd.s	$fa1, $fa1, $fs0
 	fmul.s	$fa1, $fa1, $fs1
-	fadd.s	$fa1, $fa1, $fs3
+	fadd.s	$fa1, $fa1, $fs2
 	fabs.s	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs2
+	fcmp.clt.d	$fcc0, $fa1, $fs3
 	bcnez	$fcc0, .LBB277_9
 # %bb.11:                               #   in Loop: Header=BB277_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -57805,12 +57232,14 @@ _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc: # @_Z13test_con
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB277_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI277_4)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI277_4)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -57847,18 +57276,8 @@ _Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc: # @_Z13test_con
 	.size	_Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc, .Lfunc_end277-_Z13test_constantIf30custom_multiple_constant_mixedIfEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId10custom_twoIdEEvPT_iPKc
-.LCPI278_0:
-	.dword	0xc0cf400000000000              # double -16000
-.LCPI278_1:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI278_2:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI278_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId10custom_twoIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId10custom_twoIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId10custom_twoIdEEvPT_iPKc
+	.weak	_Z13test_constantId10custom_twoIdEEvPT_iPKc # -- Begin function _Z13test_constantId10custom_twoIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId10custom_twoIdEEvPT_iPKc,@function
 _Z13test_constantId10custom_twoIdEEvPT_iPKc: # @_Z13test_constantId10custom_twoIdEEvPT_iPKc
@@ -57903,14 +57322,22 @@ _Z13test_constantId10custom_twoIdEEvPT_iPKc: # @_Z13test_constantId10custom_twoI
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB278_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI278_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI278_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI278_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI278_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI278_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI278_2)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1012
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -57924,7 +57351,7 @@ _Z13test_constantId10custom_twoIdEEvPT_iPKc: # @_Z13test_constantId10custom_twoI
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB278_5 Depth 2
 	move	$a0, $s0
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB278_5:                              #   Parent Loop BB278_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -57933,13 +57360,13 @@ _Z13test_constantId10custom_twoIdEEvPT_iPKc: # @_Z13test_constantId10custom_twoI
 	bnez	$a0, .LBB278_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB278_4 Depth=1
-	fadd.d	$fa1, $fa0, $fs0
+	fadd.d	$fa1, $fa0, $fs1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB278_3
 # %bb.7:                                #   in Loop: Header=BB278_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -57991,12 +57418,14 @@ _Z13test_constantId10custom_twoIdEEvPT_iPKc: # @_Z13test_constantId10custom_twoI
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB278_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI278_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI278_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -58030,18 +57459,8 @@ _Z13test_constantId10custom_twoIdEEvPT_iPKc: # @_Z13test_constantId10custom_twoI
 	.size	_Z13test_constantId10custom_twoIdEEvPT_iPKc, .Lfunc_end278-_Z13test_constantId10custom_twoIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId20custom_add_constantsIdEEvPT_iPKc
-.LCPI279_0:
-	.dword	0xc0d7700000000000              # double -24000
-.LCPI279_1:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI279_2:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI279_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId20custom_add_constantsIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId20custom_add_constantsIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId20custom_add_constantsIdEEvPT_iPKc
+	.weak	_Z13test_constantId20custom_add_constantsIdEEvPT_iPKc # -- Begin function _Z13test_constantId20custom_add_constantsIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId20custom_add_constantsIdEEvPT_iPKc,@function
 _Z13test_constantId20custom_add_constantsIdEEvPT_iPKc: # @_Z13test_constantId20custom_add_constantsIdEEvPT_iPKc
@@ -58086,14 +57505,22 @@ _Z13test_constantId20custom_add_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB279_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI279_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI279_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI279_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI279_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI279_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI279_2)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -1016
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, -1011
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -58107,7 +57534,7 @@ _Z13test_constantId20custom_add_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB279_5 Depth 2
 	move	$a0, $s0
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB279_5:                              #   Parent Loop BB279_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -58116,13 +57543,13 @@ _Z13test_constantId20custom_add_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
 	bnez	$a0, .LBB279_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB279_4 Depth=1
-	fadd.d	$fa1, $fa0, $fs0
+	fadd.d	$fa1, $fa0, $fs1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB279_3
 # %bb.7:                                #   in Loop: Header=BB279_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -58174,12 +57601,14 @@ _Z13test_constantId20custom_add_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB279_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI279_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI279_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -58213,18 +57642,8 @@ _Z13test_constantId20custom_add_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
 	.size	_Z13test_constantId20custom_add_constantsIdEEvPT_iPKc, .Lfunc_end279-_Z13test_constantId20custom_add_constantsIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc
-.LCPI280_0:
-	.dword	0xc0bf400000000000              # double -8000
-.LCPI280_1:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI280_2:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI280_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc
+	.weak	_Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc # -- Begin function _Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc,@function
 _Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc: # @_Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc
@@ -58269,14 +57688,22 @@ _Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB280_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI280_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI280_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI280_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI280_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI280_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI280_2)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -912
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -58290,7 +57717,7 @@ _Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB280_5 Depth 2
 	move	$a0, $s0
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB280_5:                              #   Parent Loop BB280_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -58299,13 +57726,13 @@ _Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
 	bnez	$a0, .LBB280_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB280_4 Depth=1
-	fadd.d	$fa1, $fa0, $fs0
+	fadd.d	$fa1, $fa0, $fs1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB280_3
 # %bb.7:                                #   in Loop: Header=BB280_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -58357,12 +57784,14 @@ _Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB280_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI280_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI280_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -58396,18 +57825,8 @@ _Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc: # @_Z13test_constantId20c
 	.size	_Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc, .Lfunc_end280-_Z13test_constantId20custom_sub_constantsIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc
-.LCPI281_0:
-	.dword	0xc0e7700000000000              # double -48000
-.LCPI281_1:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI281_2:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI281_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc
+	.weak	_Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc # -- Begin function _Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc,@function
 _Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc: # @_Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc
@@ -58452,14 +57871,22 @@ _Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc: # @_Z13test_constant
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB281_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI281_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI281_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI281_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI281_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI281_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI281_2)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -1000
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 487424
+	lu52i.d	$a0, $a0, -1010
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -58473,7 +57900,7 @@ _Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc: # @_Z13test_constant
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB281_5 Depth 2
 	move	$a0, $s0
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB281_5:                              #   Parent Loop BB281_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -58482,13 +57909,13 @@ _Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc: # @_Z13test_constant
 	bnez	$a0, .LBB281_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB281_4 Depth=1
-	fadd.d	$fa1, $fa0, $fs0
+	fadd.d	$fa1, $fa0, $fs1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB281_3
 # %bb.7:                                #   in Loop: Header=BB281_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -58540,12 +57967,14 @@ _Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc: # @_Z13test_constant
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB281_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI281_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI281_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -58579,18 +58008,8 @@ _Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc: # @_Z13test_constant
 	.size	_Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc, .Lfunc_end281-_Z13test_constantId25custom_multiply_constantsIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc
-.LCPI282_0:
-	.dword	0xc0cf400000000000              # double -16000
-.LCPI282_1:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI282_2:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI282_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc
+	.weak	_Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc # -- Begin function _Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc,@function
 _Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc: # @_Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc
@@ -58635,14 +58054,22 @@ _Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc: # @_Z13test_constantId
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB282_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI282_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI282_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI282_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI282_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI282_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI282_2)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -1024
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1012
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s1, $a0, %pc_lo12(.L.str.299)
 	move	$s5, $zero
@@ -58656,7 +58083,7 @@ _Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc: # @_Z13test_constantId
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB282_5 Depth 2
 	move	$a0, $s0
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB282_5:                              #   Parent Loop BB282_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -58665,13 +58092,13 @@ _Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc: # @_Z13test_constantId
 	bnez	$a0, .LBB282_5
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB282_4 Depth=1
-	fadd.d	$fa1, $fa0, $fs0
+	fadd.d	$fa1, $fa0, $fs1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB282_3
 # %bb.7:                                #   in Loop: Header=BB282_4 Depth=1
 	ld.w	$a1, $s2, %pc_lo12(current_test)
@@ -58723,12 +58150,14 @@ _Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc: # @_Z13test_constantId
 	move	$a2, $a0
 	ld.w	$a0, $s2, %pc_lo12(current_test)
 .LBB282_14:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI282_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI282_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -58762,18 +58191,8 @@ _Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc: # @_Z13test_constantId
 	.size	_Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc, .Lfunc_end282-_Z13test_constantId23custom_divide_constantsIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId19custom_constant_addIdEEvPT_iPKc
-.LCPI283_0:
-	.dword	0xc0bf400000000000              # double -8000
-.LCPI283_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI283_2:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI283_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId19custom_constant_addIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId19custom_constant_addIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId19custom_constant_addIdEEvPT_iPKc
+	.weak	_Z13test_constantId19custom_constant_addIdEEvPT_iPKc # -- Begin function _Z13test_constantId19custom_constant_addIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId19custom_constant_addIdEEvPT_iPKc,@function
 _Z13test_constantId19custom_constant_addIdEEvPT_iPKc: # @_Z13test_constantId19custom_constant_addIdEEvPT_iPKc
@@ -58823,15 +58242,23 @@ _Z13test_constantId19custom_constant_addIdEEvPT_iPKc: # @_Z13test_constantId19cu
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB283_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI283_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI283_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI283_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI283_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI283_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI283_1)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -988
 	pcalau12i	$s6, %pc_hi20(init_value)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -58846,7 +58273,7 @@ _Z13test_constantId19custom_constant_addIdEEvPT_iPKc: # @_Z13test_constantId19cu
                                         #     Child Loop BB283_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB283_5:                              #   Parent Loop BB283_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -58860,14 +58287,14 @@ _Z13test_constantId19custom_constant_addIdEEvPT_iPKc: # @_Z13test_constantId19cu
                                         #   in Loop: Header=BB283_4 Depth=1
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fadd.d	$fa1, $fa1, $fa3
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fadd.d	$fa1, $fa0, $fa1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB283_3
 # %bb.7:                                #   in Loop: Header=BB283_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -58880,12 +58307,17 @@ _Z13test_constantId19custom_constant_addIdEEvPT_iPKc: # @_Z13test_constantId19cu
 .LBB283_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI283_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI283_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI283_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI283_1)
 	vldi	$vr2, -988
-	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs0, $a0
+	movgr2fr.d	$fs1, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -58899,9 +58331,9 @@ _Z13test_constantId19custom_constant_addIdEEvPT_iPKc: # @_Z13test_constantId19cu
                                         # =>This Inner Loop Header: Depth=1
 	fadd.d	$fa1, $fa0, $fa2
 	fmul.d	$fa1, $fa1, $fs0
-	fadd.d	$fa1, $fa1, $fs2
+	fadd.d	$fa1, $fa1, $fs1
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB283_9
 # %bb.11:                               #   in Loop: Header=BB283_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -58940,12 +58372,14 @@ _Z13test_constantId19custom_constant_addIdEEvPT_iPKc: # @_Z13test_constantId19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB283_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI283_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI283_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -58981,18 +58415,8 @@ _Z13test_constantId19custom_constant_addIdEEvPT_iPKc: # @_Z13test_constantId19cu
 	.size	_Z13test_constantId19custom_constant_addIdEEvPT_iPKc, .Lfunc_end283-_Z13test_constantId19custom_constant_addIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc
-.LCPI284_0:
-	.dword	0xc0bf400000000000              # double -8000
-.LCPI284_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI284_2:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI284_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc
+	.weak	_Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc # -- Begin function _Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc,@function
 _Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc: # @_Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc
@@ -59045,15 +58469,23 @@ _Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc: # @_Z13test_const
 	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -912
 	vldi	$vr4, -1024
-	pcalau12i	$a0, %pc_hi20(.LCPI284_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI284_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI284_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI284_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI284_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI284_1)
 	vldi	$vr5, -1016
 	vldi	$vr6, -1008
 	pcalau12i	$s6, %pc_hi20(init_value)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -59113,13 +58545,18 @@ _Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc: # @_Z13test_const
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
 	vldi	$vr2, -912
 	vldi	$vr3, -1024
-	pcalau12i	$a0, %pc_hi20(.LCPI284_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI284_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI284_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI284_1)
 	vldi	$vr4, -1016
 	vldi	$vr5, -1008
-	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs0, $a0
+	movgr2fr.d	$fs1, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -59136,9 +58573,9 @@ _Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc: # @_Z13test_const
 	fadd.d	$fa1, $fa1, $fa4
 	fadd.d	$fa1, $fa1, $fa5
 	fmul.d	$fa1, $fa1, $fs0
-	fadd.d	$fa1, $fa1, $fs2
+	fadd.d	$fa1, $fa1, $fs1
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB284_9
 # %bb.11:                               #   in Loop: Header=BB284_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -59180,12 +58617,14 @@ _Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB284_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI284_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI284_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -59221,18 +58660,8 @@ _Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc, .Lfunc_end284-_Z13test_constantId28custom_multiple_constant_addIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId19custom_constant_subIdEEvPT_iPKc
-.LCPI285_0:
-	.dword	0xc0bf400000000000              # double -8000
-.LCPI285_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI285_2:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI285_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId19custom_constant_subIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId19custom_constant_subIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId19custom_constant_subIdEEvPT_iPKc
+	.weak	_Z13test_constantId19custom_constant_subIdEEvPT_iPKc # -- Begin function _Z13test_constantId19custom_constant_subIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId19custom_constant_subIdEEvPT_iPKc,@function
 _Z13test_constantId19custom_constant_subIdEEvPT_iPKc: # @_Z13test_constantId19custom_constant_subIdEEvPT_iPKc
@@ -59282,15 +58711,23 @@ _Z13test_constantId19custom_constant_subIdEEvPT_iPKc: # @_Z13test_constantId19cu
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB285_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI285_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI285_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI285_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI285_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI285_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI285_1)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -860
 	pcalau12i	$s6, %pc_hi20(init_value)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -59305,7 +58742,7 @@ _Z13test_constantId19custom_constant_subIdEEvPT_iPKc: # @_Z13test_constantId19cu
                                         #     Child Loop BB285_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB285_5:                              #   Parent Loop BB285_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -59319,14 +58756,14 @@ _Z13test_constantId19custom_constant_subIdEEvPT_iPKc: # @_Z13test_constantId19cu
                                         #   in Loop: Header=BB285_4 Depth=1
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fadd.d	$fa1, $fa1, $fa3
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fadd.d	$fa1, $fa0, $fa1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB285_3
 # %bb.7:                                #   in Loop: Header=BB285_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -59339,12 +58776,17 @@ _Z13test_constantId19custom_constant_subIdEEvPT_iPKc: # @_Z13test_constantId19cu
 .LBB285_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI285_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI285_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI285_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI285_1)
 	vldi	$vr2, -860
-	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs0, $a0
+	movgr2fr.d	$fs1, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -59358,9 +58800,9 @@ _Z13test_constantId19custom_constant_subIdEEvPT_iPKc: # @_Z13test_constantId19cu
                                         # =>This Inner Loop Header: Depth=1
 	fadd.d	$fa1, $fa0, $fa2
 	fmul.d	$fa1, $fa1, $fs0
-	fadd.d	$fa1, $fa1, $fs2
+	fadd.d	$fa1, $fa1, $fs1
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB285_9
 # %bb.11:                               #   in Loop: Header=BB285_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -59399,12 +58841,14 @@ _Z13test_constantId19custom_constant_subIdEEvPT_iPKc: # @_Z13test_constantId19cu
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB285_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI285_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI285_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -59440,18 +58884,8 @@ _Z13test_constantId19custom_constant_subIdEEvPT_iPKc: # @_Z13test_constantId19cu
 	.size	_Z13test_constantId19custom_constant_subIdEEvPT_iPKc, .Lfunc_end285-_Z13test_constantId19custom_constant_subIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc
-.LCPI286_0:
-	.dword	0xc0bf400000000000              # double -8000
-.LCPI286_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI286_2:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI286_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc
+	.weak	_Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc # -- Begin function _Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc,@function
 _Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc: # @_Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc
@@ -59504,15 +58938,23 @@ _Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc: # @_Z13test_const
 	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -784
 	vldi	$vr4, -896
-	pcalau12i	$a0, %pc_hi20(.LCPI286_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI286_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI286_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI286_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI286_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI286_1)
 	vldi	$vr5, -888
 	vldi	$vr6, -880
 	pcalau12i	$s6, %pc_hi20(init_value)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -59572,13 +59014,18 @@ _Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc: # @_Z13test_const
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
 	vldi	$vr2, -784
 	vldi	$vr3, -896
-	pcalau12i	$a0, %pc_hi20(.LCPI286_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI286_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI286_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI286_1)
 	vldi	$vr4, -888
 	vldi	$vr5, -880
-	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs0, $a0
+	movgr2fr.d	$fs1, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -59595,9 +59042,9 @@ _Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc: # @_Z13test_const
 	fadd.d	$fa1, $fa1, $fa4
 	fadd.d	$fa1, $fa1, $fa5
 	fmul.d	$fa1, $fa1, $fs0
-	fadd.d	$fa1, $fa1, $fs2
+	fadd.d	$fa1, $fa1, $fs1
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB286_9
 # %bb.11:                               #   in Loop: Header=BB286_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -59639,12 +59086,14 @@ _Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc: # @_Z13test_const
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB286_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI286_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI286_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -59680,22 +59129,8 @@ _Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc: # @_Z13test_const
 	.size	_Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc, .Lfunc_end286-_Z13test_constantId28custom_multiple_constant_subIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc
-.LCPI287_0:
-	.dword	0xc05e000000000000              # double -120
-.LCPI287_1:
-	.dword	0x40bf400000000000              # double 8000
-.LCPI287_2:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI287_3:
-	.dword	0x405e000000000000              # double 120
-.LCPI287_4:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI287_5:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc
+	.weak	_Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc # -- Begin function _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc,@function
 _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc
@@ -59749,18 +59184,28 @@ _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantI
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB287_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI287_3)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI287_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI287_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI287_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI287_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI287_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI287_4)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI287_4)
-	pcalau12i	$a0, %pc_hi20(.LCPI287_2)
-	fld.d	$fs4, $a0, %pc_lo12(.LCPI287_2)
-	movgr2fr.d	$fs5, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -131072
+	lu52i.d	$a3, $a2, 1029
+	movgr2fr.d	$fs1, $a3
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu52i.d	$a2, $a2, -1019
+	movgr2fr.d	$fs2, $a2
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs4, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs5, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -59775,12 +59220,12 @@ _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantI
                                         #     Child Loop BB287_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.d	$fa0, $fs5
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB287_5:                              #   Parent Loop BB287_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	fld.d	$fa1, $a2, 0
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fadd.d	$fa0, $fa0, $fa1
 	addi.d	$a0, $a0, -1
 	addi.d	$a2, $a2, 8
@@ -59788,15 +59233,15 @@ _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantI
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB287_4 Depth=1
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
-	fmul.d	$fa1, $fa1, $fs1
 	fmul.d	$fa1, $fa1, $fs2
+	fmul.d	$fa1, $fa1, $fs3
 	fadd.d	$fa1, $fa0, $fa1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs3, $fa2
+	fcmp.clt.d	$fcc0, $fs4, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs4
+	fcmp.clt.d	$fcc0, $fa0, $fs5
 	bcnez	$fcc0, .LBB287_3
 # %bb.7:                                #   in Loop: Header=BB287_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -59808,13 +59253,20 @@ _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantI
 .LBB287_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI287_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI287_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI287_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI287_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI287_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI287_2)
-	movgr2fr.d	$fs3, $zero
+	ori	$a0, $zero, 0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -131072
+	lu52i.d	$a2, $a2, -1019
+	movgr2fr.d	$fs0, $a2
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs1, $a0
+	movgr2fr.d	$fs2, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -59828,9 +59280,9 @@ _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantI
                                         # =>This Inner Loop Header: Depth=1
 	fmul.d	$fa1, $fa0, $fs0
 	fmul.d	$fa1, $fa1, $fs1
-	fadd.d	$fa1, $fa1, $fs3
+	fadd.d	$fa1, $fa1, $fs2
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs2
+	fcmp.clt.d	$fcc0, $fa1, $fs3
 	bcnez	$fcc0, .LBB287_9
 # %bb.11:                               #   in Loop: Header=BB287_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -59868,12 +59320,14 @@ _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantI
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB287_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI287_5)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI287_5)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -59911,18 +59365,8 @@ _Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantI
 	.size	_Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc, .Lfunc_end287-_Z13test_constantId24custom_constant_multiplyIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc
-.LCPI288_0:
-	.dword	0x40bf400000000000              # double 8000
-.LCPI288_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI288_2:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI288_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc
+	.weak	_Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc # -- Begin function _Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc,@function
 _Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc: # @_Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc
@@ -59975,15 +59419,23 @@ _Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc: # @_Z13test_
 	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -1016
 	vldi	$vr4, -1008
-	pcalau12i	$a0, %pc_hi20(.LCPI288_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI288_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI288_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI288_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI288_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI288_1)
 	vldi	$vr5, -1004
 	pcalau12i	$s6, %pc_hi20(init_value)
 	vldi	$vr6, -888
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -60042,13 +59494,18 @@ _Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc: # @_Z13test_
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
 	vldi	$vr2, -888
-	pcalau12i	$a0, %pc_hi20(.LCPI288_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI288_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI288_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI288_1)
 	vldi	$vr3, -1008
 	vldi	$vr4, -1004
-	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs0, $a0
+	movgr2fr.d	$fs1, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -60065,9 +59522,9 @@ _Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc: # @_Z13test_
 	fmul.d	$fa1, $fa1, $fa3
 	fmul.d	$fa1, $fa1, $fa4
 	fmul.d	$fa1, $fa1, $fs0
-	fadd.d	$fa1, $fa1, $fs2
+	fadd.d	$fa1, $fa1, $fs1
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB288_9
 # %bb.11:                               #   in Loop: Header=BB288_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -60108,12 +59565,14 @@ _Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc: # @_Z13test_
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB288_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI288_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI288_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -60149,20 +59608,8 @@ _Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc: # @_Z13test_
 	.size	_Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc, .Lfunc_end288-_Z13test_constantId33custom_multiple_constant_multiplyIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc
-.LCPI289_0:
-	.dword	0x405e000000000000              # double 120
-.LCPI289_1:
-	.dword	0xc0bf400000000000              # double -8000
-.LCPI289_2:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI289_3:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI289_4:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc
+	.weak	_Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc # -- Begin function _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc,@function
 _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc: # @_Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc
@@ -60214,16 +59661,26 @@ _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc: # @_Z13test
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB289_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI289_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI289_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI289_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI289_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI289_3)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI289_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI289_2)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI289_2)
-	movgr2fr.d	$fs4, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -131072
+	lu52i.d	$a2, $a2, 1029
+	movgr2fr.d	$fs1, $a2
 	pcalau12i	$s6, %pc_hi20(init_value)
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs4, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -60238,12 +59695,12 @@ _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc: # @_Z13test
                                         #     Child Loop BB289_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.d	$fa0, $fs4
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB289_5:                              #   Parent Loop BB289_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	fld.d	$fa1, $a2, 0
-	fadd.d	$fa1, $fa1, $fs0
+	fadd.d	$fa1, $fa1, $fs1
 	fadd.d	$fa0, $fa0, $fa1
 	addi.d	$a0, $a0, -1
 	addi.d	$a2, $a2, 8
@@ -60251,15 +59708,15 @@ _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc: # @_Z13test
 # %bb.6:                                # %._crit_edge.us
                                         #   in Loop: Header=BB289_4 Depth=1
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
-	fadd.d	$fa1, $fa1, $fs0
-	fmul.d	$fa1, $fa1, $fs1
+	fadd.d	$fa1, $fa1, $fs1
+	fmul.d	$fa1, $fa1, $fs2
 	fadd.d	$fa1, $fa0, $fa1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs2, $fa2
+	fcmp.clt.d	$fcc0, $fs3, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs3
+	fcmp.clt.d	$fcc0, $fa0, $fs4
 	bcnez	$fcc0, .LBB289_3
 # %bb.7:                                #   in Loop: Header=BB289_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -60271,13 +59728,20 @@ _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc: # @_Z13test
 .LBB289_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI289_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI289_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI289_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI289_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI289_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI289_2)
-	movgr2fr.d	$fs3, $zero
+	ori	$a0, $zero, 0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -131072
+	lu52i.d	$a2, $a2, 1029
+	movgr2fr.d	$fs0, $a2
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs1, $a0
+	movgr2fr.d	$fs2, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -60291,9 +59755,9 @@ _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc: # @_Z13test
                                         # =>This Inner Loop Header: Depth=1
 	fadd.d	$fa1, $fa0, $fs0
 	fmul.d	$fa1, $fa1, $fs1
-	fadd.d	$fa1, $fa1, $fs3
+	fadd.d	$fa1, $fa1, $fs2
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs2
+	fcmp.clt.d	$fcc0, $fa1, $fs3
 	bcnez	$fcc0, .LBB289_9
 # %bb.11:                               #   in Loop: Header=BB289_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -60331,12 +59795,14 @@ _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc: # @_Z13test
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB289_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI289_4)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI289_4)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -60373,18 +59839,8 @@ _Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc: # @_Z13test
 	.size	_Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc, .Lfunc_end289-_Z13test_constantId34custom_multiple_constant_multiply2IdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId22custom_constant_divideIdEEvPT_iPKc
-.LCPI290_0:
-	.dword	0x40bf400000000000              # double 8000
-.LCPI290_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI290_2:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI290_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId22custom_constant_divideIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId22custom_constant_divideIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId22custom_constant_divideIdEEvPT_iPKc
+	.weak	_Z13test_constantId22custom_constant_divideIdEEvPT_iPKc # -- Begin function _Z13test_constantId22custom_constant_divideIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId22custom_constant_divideIdEEvPT_iPKc,@function
 _Z13test_constantId22custom_constant_divideIdEEvPT_iPKc: # @_Z13test_constantId22custom_constant_divideIdEEvPT_iPKc
@@ -60435,15 +59891,23 @@ _Z13test_constantId22custom_constant_divideIdEEvPT_iPKc: # @_Z13test_constantId2
 	blez	$s0, .LBB290_8
 # %bb.2:                                # %.preheader.us.preheader
 	movgr2fr.d	$fs0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI290_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI290_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI290_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI290_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI290_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI290_1)
 	vldi	$vr3, -1004
 	pcalau12i	$s6, %pc_hi20(init_value)
 	vldi	$vr4, -876
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -60493,12 +59957,17 @@ _Z13test_constantId22custom_constant_divideIdEEvPT_iPKc: # @_Z13test_constantId2
 .LBB290_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI290_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI290_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI290_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI290_1)
 	vldi	$vr2, -876
-	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs0, $a0
+	movgr2fr.d	$fs1, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -60512,9 +59981,9 @@ _Z13test_constantId22custom_constant_divideIdEEvPT_iPKc: # @_Z13test_constantId2
                                         # =>This Inner Loop Header: Depth=1
 	fdiv.d	$fa1, $fa0, $fa2
 	fmul.d	$fa1, $fa1, $fs0
-	fadd.d	$fa1, $fa1, $fs2
+	fadd.d	$fa1, $fa1, $fs1
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB290_9
 # %bb.11:                               #   in Loop: Header=BB290_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -60553,12 +60022,14 @@ _Z13test_constantId22custom_constant_divideIdEEvPT_iPKc: # @_Z13test_constantId2
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB290_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI290_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI290_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -60594,18 +60065,8 @@ _Z13test_constantId22custom_constant_divideIdEEvPT_iPKc: # @_Z13test_constantId2
 	.size	_Z13test_constantId22custom_constant_divideIdEEvPT_iPKc, .Lfunc_end290-_Z13test_constantId22custom_constant_divideIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc
-.LCPI291_0:
-	.dword	0x40bf400000000000              # double 8000
-.LCPI291_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI291_2:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI291_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc
+	.weak	_Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc # -- Begin function _Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc,@function
 _Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc: # @_Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc
@@ -60659,15 +60120,23 @@ _Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc: # @_Z13test_co
 	vldi	$vr3, -928
 	vldi	$vr4, -1016
 	vldi	$vr5, -944
-	pcalau12i	$a0, %pc_hi20(.LCPI291_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI291_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI291_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI291_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI291_1)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI291_1)
 	vldi	$vr6, -1004
 	pcalau12i	$s6, %pc_hi20(init_value)
 	vldi	$vr7, -800
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -60728,13 +60197,18 @@ _Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc: # @_Z13test_co
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
 	vldi	$vr2, -800
 	vldi	$vr3, -1016
-	pcalau12i	$a0, %pc_hi20(.LCPI291_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI291_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI291_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI291_1)
 	vldi	$vr4, -944
 	vldi	$vr5, -1004
-	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1035
+	movgr2fr.d	$fs0, $a0
+	movgr2fr.d	$fs1, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -60751,9 +60225,9 @@ _Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc: # @_Z13test_co
 	fmul.d	$fa1, $fa1, $fa4
 	fdiv.d	$fa1, $fa1, $fa5
 	fmul.d	$fa1, $fa1, $fs0
-	fadd.d	$fa1, $fa1, $fs2
+	fadd.d	$fa1, $fa1, $fs1
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB291_9
 # %bb.11:                               #   in Loop: Header=BB291_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -60795,12 +60269,14 @@ _Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc: # @_Z13test_co
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB291_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI291_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI291_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -60836,18 +60312,8 @@ _Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc: # @_Z13test_co
 	.size	_Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc, .Lfunc_end291-_Z13test_constantId31custom_multiple_constant_divideIdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc
-.LCPI292_0:
-	.dword	0xc0bf400000000000              # double -8000
-.LCPI292_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI292_2:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI292_3:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc
+	.weak	_Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc # -- Begin function _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc,@function
 _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc: # @_Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc
@@ -60897,15 +60363,23 @@ _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc: # @_Z13test_c
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB292_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI292_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI292_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI292_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI292_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI292_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI292_1)
-	movgr2fr.d	$fs3, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -1024
 	pcalau12i	$s6, %pc_hi20(init_value)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -60920,7 +60394,7 @@ _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc: # @_Z13test_c
                                         #     Child Loop BB292_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.d	$fa0, $fs3
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB292_5:                              #   Parent Loop BB292_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -60934,14 +60408,14 @@ _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc: # @_Z13test_c
                                         #   in Loop: Header=BB292_4 Depth=1
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fadd.d	$fa1, $fa1, $fa3
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fadd.d	$fa1, $fa0, $fa1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs1, $fa2
+	fcmp.clt.d	$fcc0, $fs2, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB292_3
 # %bb.7:                                #   in Loop: Header=BB292_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -60954,12 +60428,17 @@ _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc: # @_Z13test_c
 .LBB292_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI292_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI292_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI292_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI292_1)
 	vldi	$vr2, -1024
-	movgr2fr.d	$fs2, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs0, $a0
+	movgr2fr.d	$fs1, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -60973,9 +60452,9 @@ _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc: # @_Z13test_c
                                         # =>This Inner Loop Header: Depth=1
 	fadd.d	$fa1, $fa0, $fa2
 	fmul.d	$fa1, $fa1, $fs0
-	fadd.d	$fa1, $fa1, $fs2
+	fadd.d	$fa1, $fa1, $fs1
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs1
+	fcmp.clt.d	$fcc0, $fa1, $fs2
 	bcnez	$fcc0, .LBB292_9
 # %bb.11:                               #   in Loop: Header=BB292_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -61014,12 +60493,14 @@ _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc: # @_Z13test_c
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB292_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI292_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI292_3)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3
@@ -61055,20 +60536,8 @@ _Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc: # @_Z13test_c
 	.size	_Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc, .Lfunc_end292-_Z13test_constantId32custom_multiple_constant_divide2IdEEvPT_iPKc
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc
-.LCPI293_0:
-	.dword	0xc003333333333333              # double -2.3999999999999999
-.LCPI293_1:
-	.dword	0xc0bf400000000000              # double -8000
-.LCPI293_2:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI293_3:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI293_4:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.section	.text._Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc,"axG",@progbits,_Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc,comdat
-	.weak	_Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc
+	.weak	_Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc # -- Begin function _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc
 	.p2align	5
 	.type	_Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc,@function
 _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc: # @_Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc
@@ -61120,17 +60589,28 @@ _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc: # @_Z13test_con
 # %bb.1:                                # %.preheader.lr.ph
 	blez	$s0, .LBB293_8
 # %bb.2:                                # %.preheader.us.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI293_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI293_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI293_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI293_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI293_3)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI293_3)
-	pcalau12i	$a0, %pc_hi20(.LCPI293_2)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI293_2)
-	movgr2fr.d	$fs4, $zero
+	movgr2fr.d	$fs0, $zero
 	vldi	$vr3, -1024
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, 209715
+	lu52i.d	$a0, $a0, -1024
+	movgr2fr.d	$fs1, $a0
 	pcalau12i	$s6, %pc_hi20(init_value)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs2, $a0
+	lu12i.w	$a0, -122104
+	ori	$a0, $a0, 3130
+	lu32i.d	$a0, 358798
+	lu52i.d	$a0, $a0, 996
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs4, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.299)
 	move	$s7, $zero
@@ -61145,13 +60625,13 @@ _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc: # @_Z13test_con
                                         #     Child Loop BB293_5 Depth 2
 	move	$a0, $s0
 	move	$a2, $s1
-	fmov.d	$fa0, $fs4
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB293_5:                              #   Parent Loop BB293_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	fld.d	$fa1, $a2, 0
 	fadd.d	$fa1, $fa1, $fa3
-	fadd.d	$fa1, $fa1, $fs0
+	fadd.d	$fa1, $fa1, $fs1
 	fadd.d	$fa0, $fa0, $fa1
 	addi.d	$a0, $a0, -1
 	addi.d	$a2, $a2, 8
@@ -61160,15 +60640,15 @@ _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc: # @_Z13test_con
                                         #   in Loop: Header=BB293_4 Depth=1
 	fld.d	$fa1, $s6, %pc_lo12(init_value)
 	fadd.d	$fa1, $fa1, $fa3
-	fadd.d	$fa1, $fa1, $fs0
-	fmul.d	$fa1, $fa1, $fs1
+	fadd.d	$fa1, $fa1, $fs1
+	fmul.d	$fa1, $fa1, $fs2
 	fadd.d	$fa1, $fa0, $fa1
 	fabs.d	$fa2, $fa0
 	fdiv.d	$fa0, $fa1, $fa0
-	fcmp.clt.d	$fcc0, $fs2, $fa2
+	fcmp.clt.d	$fcc0, $fs3, $fa2
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fabs.d	$fa0, $fa0
-	fcmp.clt.d	$fcc0, $fa0, $fs3
+	fcmp.clt.d	$fcc0, $fa0, $fs4
 	bcnez	$fcc0, .LBB293_3
 # %bb.7:                                #   in Loop: Header=BB293_4 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -61181,14 +60661,22 @@ _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc: # @_Z13test_con
 .LBB293_8:                              # %.preheader.preheader
 	pcalau12i	$s1, %pc_hi20(init_value)
 	fld.d	$fa0, $s1, %pc_lo12(init_value)
-	pcalau12i	$a0, %pc_hi20(.LCPI293_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI293_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI293_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI293_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI293_2)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI293_2)
 	vldi	$vr2, -1024
-	movgr2fr.d	$fs3, $zero
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, 209715
+	lu52i.d	$a0, $a0, -1024
+	movgr2fr.d	$fs0, $a0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, -1013
+	movgr2fr.d	$fs1, $a0
+	movgr2fr.d	$fs2, $zero
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs3, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.299)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.299)
 	move	$s2, $zero
@@ -61203,9 +60691,9 @@ _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc: # @_Z13test_con
 	fadd.d	$fa1, $fa0, $fa2
 	fadd.d	$fa1, $fa1, $fs0
 	fmul.d	$fa1, $fa1, $fs1
-	fadd.d	$fa1, $fa1, $fs3
+	fadd.d	$fa1, $fa1, $fs2
 	fabs.d	$fa1, $fa1
-	fcmp.clt.d	$fcc0, $fa1, $fs2
+	fcmp.clt.d	$fcc0, $fa1, $fs3
 	bcnez	$fcc0, .LBB293_9
 # %bb.11:                               #   in Loop: Header=BB293_10 Depth=1
 	ld.w	$a1, $s3, %pc_lo12(current_test)
@@ -61244,12 +60732,14 @@ _Z13test_constantId30custom_multiple_constant_mixedIdEEvPT_iPKc: # @_Z13test_con
 	move	$a2, $a0
 	ld.w	$a0, $s3, %pc_lo12(current_test)
 .LBB293_16:                             # %_Z13record_resultdPKc.exit
-	pcalau12i	$a1, %pc_hi20(.LCPI293_4)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI293_4)
 	sub.d	$a1, $s0, $s1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	alsl.d	$a1, $a0, $a2, 4
 	slli.d	$a3, $a0, 4
 	fstx.d	$fa0, $a2, $a3

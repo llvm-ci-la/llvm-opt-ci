@@ -100,14 +100,7 @@ loop:                                   # @loop
 .Lfunc_end2:
 	.size	loop, .Lfunc_end2-loop
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI3_0:
-	.dword	0xc043800000000000              # double -39
-.LCPI3_1:
-	.dword	0x4044000000000000              # double 40
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -130,10 +123,14 @@ main:                                   # @main
 	fst.d	$fs6, $sp, 24                   # 8-byte Folded Spill
 	fst.d	$fs7, $sp, 16                   # 8-byte Folded Spill
 	addi.d	$fp, $zero, -39
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI3_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI3_1)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 229376
+	lu52i.d	$a1, $a1, -1020
+	movgr2fr.d	$fs0, $a1
+	lu32i.d	$a0, 262144
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs1, $a0
 	movgr2fr.d	$fs2, $zero
 	pcalau12i	$s0, %pc_hi20(max_i)
 	pcalau12i	$a0, %pc_hi20(.L.str.1)

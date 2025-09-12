@@ -1,24 +1,6 @@
 	.file	"main.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3fc1eb851eb851ec              # double 0.14000000000000001
-.LCPI0_1:
-	.dword	0x40c3880000000000              # double 1.0E+4
-.LCPI0_2:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-.LCPI0_3:
-	.dword	0xbfe4cccccccccccd              # double -0.65000000000000002
-.LCPI0_4:
-	.dword	0x3f847ae147ae147b              # double 0.01
-.LCPI0_5:
-	.dword	0xc059000000000000              # double -100
-.LCPI0_6:
-	.dword	0xbfc0a3d70a3d70a4              # double -0.13
-.LCPI0_7:
-	.dword	0x3f60624dd2f1a9fc              # double 0.002
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -63,31 +45,53 @@ main:                                   # @main
 	vst	$vr1, $fp, 48
 	lu12i.w	$a0, 419430
 	ori	$a0, $a0, 1638
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_0)
 	lu32i.d	$a0, 419430
 	lu52i.d	$a0, $a0, 1022
 	st.d	$a0, $fp, 16
+	lu12i.w	$a0, 125829
+	ori	$a0, $a0, 492
+	lu32i.d	$a0, 125829
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa0, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.3)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_3)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 231424
+	lu52i.d	$a1, $a1, 1036
+	movgr2fr.d	$fs0, $a1
+	lu12i.w	$a1, -487882
+	ori	$a1, $a1, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fs1, $a1
+	lu12i.w	$a1, -209716
+	ori	$a1, $a1, 3277
+	lu32i.d	$a1, 314572
+	lu52i.d	$a1, $a1, -1026
+	movgr2fr.d	$fa1, $a1
 	fst.d	$fa1, $sp, 16                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI0_4)
+	lu12i.w	$a1, 293601
+	ori	$a1, $a1, 1147
+	lu32i.d	$a1, 293601
+	lu52i.d	$a1, $a1, 1016
+	movgr2fr.d	$fs3, $a1
 	ori	$s2, $zero, 35
-	pcalau12i	$a0, %pc_hi20(map_P)
-	addi.d	$s3, $a0, %pc_lo12(map_P)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fs4, $a0, %pc_lo12(.LCPI0_5)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fs5, $a0, %pc_lo12(.LCPI0_6)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.d	$fs6, $a0, %pc_lo12(.LCPI0_7)
+	pcalau12i	$a1, %pc_hi20(map_P)
+	addi.d	$s3, $a1, %pc_lo12(map_P)
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, -1019
+	movgr2fr.d	$fs4, $a0
+	lu12i.w	$a0, 41943
+	ori	$a0, $a0, 164
+	lu32i.d	$a0, 41943
+	lu52i.d	$a0, $a0, -1028
+	movgr2fr.d	$fs5, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1014
+	movgr2fr.d	$fs6, $a0
 	pcalau12i	$a0, %pc_hi20(map_Q)
 	addi.d	$s4, $a0, %pc_lo12(map_Q)
 	pcalau12i	$a0, %pc_hi20(.L.str.4)

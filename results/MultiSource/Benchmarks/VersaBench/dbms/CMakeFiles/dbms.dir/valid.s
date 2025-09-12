@@ -59,12 +59,7 @@ validIndexKey:                          # @validIndexKey
 .Lfunc_end0:
 	.size	validIndexKey, .Lfunc_end0-validIndexKey
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function validAttributes
-.LCPI1_0:
-	.dword	0x47efffffe091ff3d              # double 3.4028234699999998E+38
-	.text
-	.globl	validAttributes
+	.globl	validAttributes                 # -- Begin function validAttributes
 	.p2align	5
 	.type	validAttributes,@function
 validAttributes:                        # @validAttributes
@@ -81,8 +76,10 @@ validAttributes:                        # @validAttributes
 	ori	$a4, $zero, 7
 	pcalau12i	$a5, %pc_hi20(.L.str.5)
 	addi.d	$a5, $a5, %pc_lo12(.L.str.5)
-	pcalau12i	$a6, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a6, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a6, -128737
+	ori	$a6, $a6, 3901
+	lu52i.d	$a6, $a6, 1150
+	movgr2fr.d	$fa0, $a6
 	pcalau12i	$a6, %pc_hi20(.L.str.6)
 	addi.d	$a6, $a6, %pc_lo12(.L.str.6)
 	b	.LBB1_4

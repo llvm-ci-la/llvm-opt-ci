@@ -1,12 +1,6 @@
 	.file	"build.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function build_tree
-.LCPI0_0:
-	.dword	0xc113de0e54d37c9a              # double -325507.58283800783
-.LCPI0_1:
-	.dword	0x4103de1654d37c9a              # double 162754.79141900392
 	.text
-	.globl	build_tree
+	.globl	build_tree                      # -- Begin function build_tree
 	.p2align	5
 	.type	build_tree,@function
 build_tree:                             # @build_tree
@@ -47,14 +41,19 @@ build_tree:                             # @build_tree
 	fcmp.clt.d	$fcc0, $fa2, $fa0
 	fsel	$fa0, $fa0, $fa1, $fcc0
 	vldi	$vr1, -984
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_1)
-	vldi	$vr4, -856
-	fsel	$fs4, $fa4, $fa1, $fcc0
-	fmul.d	$fa0, $fa0, $fa2
-	fdiv.d	$fa0, $fa0, $fa3
+	vldi	$vr2, -856
+	lu12i.w	$a0, 347447
+	ori	$a0, $a0, 3226
+	fsel	$fs4, $fa2, $fa1, $fcc0
+	move	$a1, $a0
+	lu32i.d	$a1, 253454
+	lu52i.d	$a1, $a1, -1007
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
+	lu32i.d	$a0, 253462
+	lu52i.d	$a0, $a0, 1040
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -912
 	fadd.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(log)

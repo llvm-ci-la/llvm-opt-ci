@@ -1,16 +1,6 @@
 	.file	"z34.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function RotateSize
-.LCPI0_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI0_1:
-	.dword	0x40e6800000000000              # double 46080
-.LCPI0_2:
-	.dword	0x415fffffc0000000              # double 8388607
-.LCPI0_3:
-	.dword	0xc15fffffc0000000              # double -8388607
 	.text
-	.globl	RotateSize
+	.globl	RotateSize                      # -- Begin function RotateSize
 	.p2align	5
 	.type	RotateSize,@function
 RotateSize:                             # @RotateSize
@@ -39,18 +29,23 @@ RotateSize:                             # @RotateSize
 	move	$s2, $a0
 	movgr2fr.w	$fa0, $a5
 	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_1)
 	fadd.d	$fa0, $fa0, $fa0
-	ld.w	$s3, $a4, 56
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
-	fdiv.d	$fs3, $fa0, $fa2
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 425984
+	lu52i.d	$a0, $a0, 1038
+	ld.w	$s3, $a4, 56
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs4, $fa0, $fa1
 	ld.w	$s6, $a4, 52
 	movgr2fr.w	$fa0, $s3
 	ffint.s.w	$fa0, $fa0
-	fcvt.d.s	$fs4, $fa0
+	fcvt.d.s	$fs3, $fa0
 	movgr2fr.w	$fa0, $s6
 	ld.w	$s5, $a4, 48
 	ffint.s.w	$fa0, $fa0
@@ -70,17 +65,17 @@ RotateSize:                             # @RotateSize
 	beqz	$a0, .LBB0_2
 # %bb.1:
 	fmov.d	$fa0, $fs5
-	fmov.d	$fa1, $fs4
+	fmov.d	$fa1, $fs3
 	pcaddu18i	$ra, %call36(atan2)
 	jirl	$ra, $ra, 0
-	fmadd.d	$fa1, $fs4, $fs4, $fs7
+	fmadd.d	$fa1, $fs3, $fs3, $fs7
 	fsqrt.d	$fa1, $fa1
 .LBB0_2:
 	fst.d	$fa1, $sp, 56                   # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 16                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 16                   # 8-byte Folded Spill
 	fcvt.d.s	$fs6, $fs1
-	fcvt.d.s	$fs4, $fs2
-	fadd.d	$fs2, $fs3, $fa0
+	fcvt.d.s	$fs3, $fs2
+	fadd.d	$fs2, $fs4, $fa0
 	fmov.d	$fa0, $fs2
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
@@ -102,8 +97,8 @@ RotateSize:                             # @RotateSize
 	fsqrt.d	$fs1, $fa1
 .LBB0_4:
 	or	$s5, $s5, $s4
-	fst.d	$fs3, $sp, 64                   # 8-byte Folded Spill
-	fadd.d	$fs2, $fs3, $fa0
+	fst.d	$fs4, $sp, 64                   # 8-byte Folded Spill
+	fadd.d	$fs2, $fs4, $fa0
 	fmov.d	$fa0, $fs2
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
@@ -112,16 +107,16 @@ RotateSize:                             # @RotateSize
 	pcaddu18i	$ra, %call36(sin)
 	jirl	$ra, $ra, 0
 	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
-	fmul.d	$fs3, $fs4, $fs4
+	fmul.d	$fs4, $fs3, $fs3
 	fmov.d	$fa0, $fs0
 	fmov.d	$fs5, $fs0
 	beqz	$s5, .LBB0_6
 # %bb.5:
-	fmov.d	$fa0, $fs4
+	fmov.d	$fa0, $fs3
 	fmov.d	$fa1, $fs6
 	pcaddu18i	$ra, %call36(atan2)
 	jirl	$ra, $ra, 0
-	fmadd.d	$fa1, $fs6, $fs6, $fs3
+	fmadd.d	$fa1, $fs6, $fs6, $fs4
 	fsqrt.d	$fs5, $fa1
 .LBB0_6:
 	or	$s3, $s3, $s4
@@ -138,52 +133,53 @@ RotateSize:                             # @RotateSize
 	fmov.d	$fs7, $fs0
 	beqz	$s3, .LBB0_8
 # %bb.7:
-	fmov.d	$fa0, $fs4
-	fld.d	$fs4, $sp, 16                   # 8-byte Folded Reload
-	fmov.d	$fa1, $fs4
+	fmov.d	$fa0, $fs3
+	fld.d	$fs3, $sp, 16                   # 8-byte Folded Reload
+	fmov.d	$fa1, $fs3
 	pcaddu18i	$ra, %call36(atan2)
 	jirl	$ra, $ra, 0
 	fmov.d	$fs0, $fa0
-	fmadd.d	$fa0, $fs4, $fs4, $fs3
+	fmadd.d	$fa0, $fs3, $fs3, $fs4
 	fsqrt.d	$fs7, $fa0
 .LBB0_8:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_2)
-	fld.d	$fa6, $sp, 56                   # 8-byte Folded Reload
-	fld.d	$fa1, $sp, 40                   # 8-byte Folded Reload
-	fmul.d	$fa1, $fa6, $fa1
-	fcmp.clt.d	$fcc0, $fa0, $fa1
-	fsel	$fa2, $fa1, $fa0, $fcc0
+	fld.d	$fa5, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 40                   # 8-byte Folded Reload
+	fmul.d	$fa0, $fa5, $fa0
+	lu12i.w	$a0, -262144
+	lu52i.d	$a1, $a0, 1045
+	movgr2fr.d	$fa1, $a1
+	fcmp.clt.d	$fcc0, $fa1, $fa0
+	fsel	$fa2, $fa0, $fa1, $fcc0
 	fld.d	$fa3, $sp, 24                   # 8-byte Folded Reload
 	fmul.d	$fa3, $fs1, $fa3
 	fcmp.clt.d	$fcc0, $fa2, $fa3
 	fsel	$fa2, $fa3, $fa2, $fcc0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa4, $a0, %pc_lo12(.LCPI0_3)
-	fmul.d	$fa5, $fs5, $fs2
-	fcmp.clt.d	$fcc0, $fa2, $fa5
-	fsel	$fs2, $fa5, $fa2, $fcc0
-	fmax.d	$fa1, $fa1, $fa4
+	fmul.d	$fa4, $fs5, $fs2
+	fcmp.clt.d	$fcc0, $fa2, $fa4
+	fsel	$fs2, $fa4, $fa2, $fcc0
+	lu52i.d	$a0, $a0, -1003
+	movgr2fr.d	$fa2, $a0
+	fmax.d	$fa0, $fa0, $fa2
+	fcmp.clt.d	$fcc0, $fa0, $fa3
+	fsel	$fa0, $fa0, $fa3, $fcc0
+	fcmp.clt.d	$fcc0, $fa0, $fa4
+	fsel	$fs3, $fa0, $fa4, $fcc0
+	fld.d	$fa0, $sp, 48                   # 8-byte Folded Reload
+	fmul.d	$fa0, $fa5, $fa0
+	fcmp.clt.d	$fcc0, $fa1, $fa0
+	fsel	$fa1, $fa0, $fa1, $fcc0
+	fld.d	$fa3, $sp, 32                   # 8-byte Folded Reload
+	fmul.d	$fa3, $fs1, $fa3
 	fcmp.clt.d	$fcc0, $fa1, $fa3
-	fsel	$fa1, $fa1, $fa3, $fcc0
-	fcmp.clt.d	$fcc0, $fa1, $fa5
-	fsel	$fs3, $fa1, $fa5, $fcc0
-	fld.d	$fa1, $sp, 48                   # 8-byte Folded Reload
-	fmul.d	$fa1, $fa6, $fa1
-	fcmp.clt.d	$fcc0, $fa0, $fa1
-	fsel	$fa0, $fa1, $fa0, $fcc0
-	fld.d	$fa2, $sp, 32                   # 8-byte Folded Reload
-	fmul.d	$fa2, $fs1, $fa2
-	fcmp.clt.d	$fcc0, $fa0, $fa2
-	fsel	$fa0, $fa2, $fa0, $fcc0
-	fmul.d	$fa3, $fs5, $fs6
+	fsel	$fa1, $fa3, $fa1, $fcc0
+	fmul.d	$fa4, $fs5, $fs6
+	fcmp.clt.d	$fcc0, $fa1, $fa4
+	fsel	$fs1, $fa4, $fa1, $fcc0
+	fmax.d	$fa0, $fa0, $fa2
 	fcmp.clt.d	$fcc0, $fa0, $fa3
-	fsel	$fs1, $fa3, $fa0, $fcc0
-	fmax.d	$fa0, $fa1, $fa4
-	fcmp.clt.d	$fcc0, $fa0, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
-	fcmp.clt.d	$fcc0, $fa0, $fa3
-	fsel	$fs4, $fa0, $fa3, $fcc0
+	fsel	$fa0, $fa0, $fa3, $fcc0
+	fcmp.clt.d	$fcc0, $fa0, $fa4
+	fsel	$fs4, $fa0, $fa4, $fcc0
 	fld.d	$fa0, $sp, 64                   # 8-byte Folded Reload
 	fadd.d	$fs0, $fa0, $fs0
 	fmov.d	$fa0, $fs0

@@ -60,12 +60,7 @@ allocate:                               # @allocate
 .Lfunc_end1:
 	.size	allocate, .Lfunc_end1-allocate
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI2_0:
-	.word	0x3eaa7efa                      # float 0.333000004
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -90,15 +85,16 @@ main:                                   # @main
 	addi.d	$a0, $a0, %pc_lo12(.Lstr.7)
 	pcaddu18i	$ra, %call36(puts)
 	jirl	$ra, $ra, 0
+	lu12i.w	$a0, 256679
 	ori	$a1, $zero, 2
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
+	ori	$a0, $a0, 3834
 	blt	$s3, $a1, .LBB2_13
 # %bb.1:                                # %.lr.ph.preheader
 	ori	$a1, $zero, 196
 	st.d	$a1, $sp, 48                    # 8-byte Folded Spill
 	ori	$a2, $zero, 1
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI2_0)
 	ori	$s0, $zero, 1000
+	movgr2fr.w	$fs0, $a0
 	ori	$s4, $zero, 45
 	ori	$s5, $zero, 16
 	pcalau12i	$a0, %pc_hi20(.LJTI2_0)
@@ -179,11 +175,11 @@ main:                                   # @main
 	move	$s2, $a0
 	b	.LBB2_3
 .LBB2_13:
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI2_0)
 	ori	$s0, $zero, 1000
 	ori	$s2, $zero, 1
-	ori	$a0, $zero, 196
-	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
+	ori	$a1, $zero, 196
+	st.d	$a1, $sp, 48                    # 8-byte Folded Spill
+	movgr2fr.w	$fs0, $a0
 .LBB2_14:                               # %._crit_edge
 	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
 	addi.w	$s5, $a0, 0

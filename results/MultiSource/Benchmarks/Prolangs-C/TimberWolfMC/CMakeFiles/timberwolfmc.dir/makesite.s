@@ -1,10 +1,6 @@
 	.file	"makesite.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Vside
-.LCPI0_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
 	.text
-	.globl	Vside
+	.globl	Vside                           # -- Begin function Vside
 	.p2align	5
 	.type	Vside,@function
 Vside:                                  # @Vside
@@ -32,11 +28,14 @@ Vside:                                  # @Vside
 	slli.d	$a0, $a0, 3
 	ldx.d	$a0, $a1, $a0
 	fld.d	$fa0, $a0, 120
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_0)
-	fld.d	$fa2, $a0, 112
-	fadd.d	$fa1, $fa0, $fa1
-	fcmp.clt.d	$fcc0, $fa2, $fa1
+	lu12i.w	$a1, 293601
+	ori	$a1, $a1, 1147
+	lu32i.d	$a1, 293601
+	fld.d	$fa1, $a0, 112
+	lu52i.d	$a1, $a1, 1016
+	movgr2fr.d	$fa2, $a1
+	fadd.d	$fa2, $fa0, $fa2
+	fcmp.clt.d	$fcc0, $fa1, $fa2
 	bceqz	$fcc0, .LBB0_2
 # %bb.1:
 	vldi	$vr0, -912
@@ -387,12 +386,7 @@ Vside:                                  # @Vside
 .Lfunc_end0:
 	.size	Vside, .Lfunc_end0-Vside
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Hside
-.LCPI1_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-	.text
-	.globl	Hside
+	.globl	Hside                           # -- Begin function Hside
 	.p2align	5
 	.type	Hside,@function
 Hside:                                  # @Hside
@@ -419,10 +413,13 @@ Hside:                                  # @Hside
 	ld.d	$a1, $a1, 0
 	slli.d	$a0, $a0, 3
 	ldx.d	$a0, $a1, $a0
-	fld.d	$fa1, $a0, 120
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI1_0)
 	fld.d	$fa0, $a0, 112
+	fld.d	$fa1, $a0, 120
+	lu12i.w	$a1, 293601
+	ori	$a1, $a1, 1147
+	lu32i.d	$a1, 293601
+	lu52i.d	$a1, $a1, 1016
+	movgr2fr.d	$fa2, $a1
 	fadd.d	$fa1, $fa1, $fa2
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB1_2

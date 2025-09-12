@@ -65,12 +65,7 @@ mdfymtx:                                # @mdfymtx
 .Lfunc_end0:
 	.size	mdfymtx, .Lfunc_end0-mdfymtx
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function score_calc
-.LCPI1_0:
-	.dword	0x7ff8000000000000              # double NaN
-	.text
-	.globl	score_calc
+	.globl	score_calc                      # -- Begin function score_calc
 	.p2align	5
 	.type	score_calc,@function
 score_calc:                             # @score_calc
@@ -219,8 +214,10 @@ score_calc:                             # @score_calc
 	movgr2fr.d	$fa0, $zero
 	b	.LBB1_20
 .LBB1_18:
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
+	movgr2fr.d	$fa0, $a0
 	b	.LBB1_20
 .LBB1_19:                               # %._crit_edge.loopexit
 	fcvt.d.s	$fa0, $fa0

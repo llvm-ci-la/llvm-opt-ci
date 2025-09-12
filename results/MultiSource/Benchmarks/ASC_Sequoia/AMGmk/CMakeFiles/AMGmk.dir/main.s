@@ -133,10 +133,6 @@ main:                                   # @main
 .LCPI1_0:
 	.dword	0x4018000000000000              # double 6
 	.dword	0xbff0000000000000              # double -1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI1_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
 	.globl	test_Matvec
 	.p2align	5
@@ -216,15 +212,17 @@ test_Matvec:                            # @test_Matvec
 	ffint.d.l	$fa0, $fa0
 	sub.d	$a1, $a3, $a4
 	movgr2fr.d	$fa1, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI1_1)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a1, %pc_hi20(totalWallTime)
-	fld.d	$fa3, $a1, %pc_lo12(totalWallTime)
 	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa1, $fa1, $fa2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
+	pcalau12i	$a2, %pc_hi20(totalWallTime)
+	fld.d	$fa2, $a2, %pc_lo12(totalWallTime)
+	movgr2fr.d	$fa3, $a1
+	fdiv.d	$fa1, $fa1, $fa3
 	fadd.d	$fa0, $fa1, $fa0
-	fadd.d	$fa0, $fa3, $fa0
-	fst.d	$fa0, $a1, %pc_lo12(totalWallTime)
+	fadd.d	$fa0, $fa2, $fa0
+	fst.d	$fa0, $a2, %pc_lo12(totalWallTime)
 	sub.d	$a0, $a0, $s1
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
@@ -232,7 +230,7 @@ test_Matvec:                            # @test_Matvec
 	fld.d	$fa1, $a2, %pc_lo12(totalCPUTime)
 	ld.d	$a0, $sp, 16
 	ld.d	$a1, $sp, 8
-	fdiv.d	$fa0, $fa0, $fa2
+	fdiv.d	$fa0, $fa0, $fa3
 	fadd.d	$fa0, $fa0, $fa1
 	ld.d	$a0, $a0, 0
 	ld.d	$a1, $a1, 0
@@ -293,10 +291,6 @@ test_Matvec:                            # @test_Matvec
 .LCPI2_0:
 	.dword	0x4018000000000000              # double 6
 	.dword	0xbff0000000000000              # double -1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI2_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
 	.globl	test_Relax
 	.p2align	5
@@ -368,22 +362,24 @@ test_Relax:                             # @test_Relax
 	ffint.d.l	$fa0, $fa0
 	sub.d	$a1, $a3, $a4
 	movgr2fr.d	$fa1, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI2_1)
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI2_1)
-	pcalau12i	$a1, %pc_hi20(totalWallTime)
-	fld.d	$fa3, $a1, %pc_lo12(totalWallTime)
 	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa1, $fa1, $fa2
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
+	pcalau12i	$a2, %pc_hi20(totalWallTime)
+	fld.d	$fa2, $a2, %pc_lo12(totalWallTime)
+	movgr2fr.d	$fa3, $a1
+	fdiv.d	$fa1, $fa1, $fa3
 	fadd.d	$fa0, $fa1, $fa0
-	fadd.d	$fa0, $fa3, $fa0
-	fst.d	$fa0, $a1, %pc_lo12(totalWallTime)
+	fadd.d	$fa0, $fa2, $fa0
+	fst.d	$fa0, $a2, %pc_lo12(totalWallTime)
 	sub.d	$a0, $a0, $s1
 	movgr2fr.d	$fa0, $a0
 	pcalau12i	$a0, %pc_hi20(totalCPUTime)
 	fld.d	$fa1, $a0, %pc_lo12(totalCPUTime)
 	ffint.d.l	$fa0, $fa0
 	ld.d	$a1, $sp, 32
-	fdiv.d	$fa0, $fa0, $fa2
+	fdiv.d	$fa0, $fa0, $fa3
 	fadd.d	$fa0, $fa0, $fa1
 	fst.d	$fa0, $a0, %pc_lo12(totalCPUTime)
 	ld.d	$a0, $a1, 0
@@ -437,14 +433,7 @@ test_Relax:                             # @test_Relax
 .Lfunc_end2:
 	.size	test_Relax, .Lfunc_end2-test_Relax
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test_Axpy
-.LCPI3_0:
-	.dword	0xc08f400000000000              # double -1000
-.LCPI3_1:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	test_Axpy
+	.globl	test_Axpy                       # -- Begin function test_Axpy
 	.p2align	5
 	.type	test_Axpy,@function
 test_Axpy:                              # @test_Axpy
@@ -504,22 +493,24 @@ test_Axpy:                              # @test_Axpy
 	jirl	$ra, $ra, 0
 	pcaddu18i	$ra, %call36(clock)
 	jirl	$ra, $ra, 0
-	ld.d	$a1, $s0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI3_0)
 	move	$s3, $a0
+	ld.d	$a0, $s0, 0
 	movgr2fr.d	$fa0, $zero
-	vldi	$vr2, -784
+	vldi	$vr1, -784
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, -1016
+	movgr2fr.d	$fa2, $a1
 	.p2align	4, , 16
 .LBB3_3:                                # =>This Inner Loop Header: Depth=1
-	fld.d	$fa3, $a1, 0
-	fadd.d	$fa3, $fa3, $fa2
+	fld.d	$fa3, $a0, 0
 	fadd.d	$fa3, $fa3, $fa1
+	fadd.d	$fa3, $fa3, $fa2
 	fabs.d	$fa3, $fa3
 	fcmp.clt.d	$fcc0, $fa0, $fa3
 	fsel	$fa0, $fa0, $fa3, $fcc0
 	addi.d	$s1, $s1, -1
-	addi.d	$a1, $a1, 8
+	addi.d	$a0, $a0, 8
 	bnez	$s1, .LBB3_3
 # %bb.4:
 	movgr2fr.d	$fa1, $zero
@@ -541,21 +532,23 @@ test_Axpy:                              # @test_Axpy
 	ffint.d.l	$fa0, $fa0
 	sub.d	$a0, $a2, $a3
 	movgr2fr.d	$fa1, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI3_1)
-	pcalau12i	$a0, %pc_hi20(totalWallTime)
-	fld.d	$fa3, $a0, %pc_lo12(totalWallTime)
 	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa1, $fa1, $fa2
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	pcalau12i	$a1, %pc_hi20(totalWallTime)
+	fld.d	$fa2, $a1, %pc_lo12(totalWallTime)
+	movgr2fr.d	$fa3, $a0
+	fdiv.d	$fa1, $fa1, $fa3
 	fadd.d	$fa0, $fa1, $fa0
-	fadd.d	$fa0, $fa3, $fa0
-	fst.d	$fa0, $a0, %pc_lo12(totalWallTime)
+	fadd.d	$fa0, $fa2, $fa0
+	fst.d	$fa0, $a1, %pc_lo12(totalWallTime)
 	sub.d	$a0, $s3, $s2
 	pcalau12i	$a1, %pc_hi20(totalCPUTime)
 	fld.d	$fa0, $a1, %pc_lo12(totalCPUTime)
 	movgr2fr.d	$fa1, $a0
 	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa1, $fa1, $fa2
+	fdiv.d	$fa1, $fa1, $fa3
 	fadd.d	$fa0, $fa1, $fa0
 	fst.d	$fa0, $a1, %pc_lo12(totalCPUTime)
 	move	$a0, $fp

@@ -1474,12 +1474,8 @@ _ZN6btDbvt8ICollideD2Ev:                # @_ZN6btDbvt8ICollideD2Ev
 .Lfunc_end10:
 	.size	_ZN6btDbvt8ICollideD2Ev, .Lfunc_end10-_ZN6btDbvt8ICollideD2Ev
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN16btDbvtBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher
-.LCPI11_0:
-	.word	0x3d4ccccd                      # float 0.0500000007
 	.text
-	.globl	_ZN16btDbvtBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher
+	.globl	_ZN16btDbvtBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher # -- Begin function _ZN16btDbvtBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher
 	.p2align	5
 	.type	_ZN16btDbvtBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher,@function
 _ZN16btDbvtBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher: # @_ZN16btDbvtBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher
@@ -1674,8 +1670,9 @@ _ZN16btDbvtBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher
 	fst.s	$fa0, $sp, 16
 .LBB11_24:
 	addi.d	$a0, $s0, 8
-	pcalau12i	$a2, %pc_hi20(.LCPI11_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI11_0)
+	lu12i.w	$a2, 251084
+	ori	$a2, $a2, 3277
+	movgr2fr.w	$fa0, $a2
 	addi.d	$a2, $sp, 32
 	addi.d	$a3, $sp, 8
 	pcaddu18i	$ra, %call36(_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMmRK9btVector3f)

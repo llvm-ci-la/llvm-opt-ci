@@ -1,12 +1,6 @@
 	.file	"dt.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3ff000001ad7f29b              # double 1.0000001000000001
-.LCPI0_1:
-	.dword	0x3ddb7cdfd9d7bdbb              # double 1.0E-10
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -45,14 +39,19 @@ main:                                   # @main
 	ori	$s3, $zero, 2048
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	ld.d	$s1, $sp, 24
-	ld.d	$s2, $sp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_1)
 	move	$s4, $zero
 	move	$s5, $zero
+	ld.d	$s1, $sp, 24
+	ld.d	$s2, $sp, 16
+	lu12i.w	$a0, 109951
+	ori	$a0, $a0, 667
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fs0, $a0
+	lu12i.w	$a0, -156293
+	ori	$a0, $a0, 3515
+	lu32i.d	$a0, -295713
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fs1, $a0
 	.p2align	4, , 16
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1
 	movgr2fr.d	$fa0, $s3

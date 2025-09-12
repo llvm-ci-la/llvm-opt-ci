@@ -106,12 +106,7 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .Lfunc_end6:
 	.size	polybench_alloc_data, .Lfunc_end6-polybench_alloc_data
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -503,11 +498,14 @@ main:                                   # @main
 	bne	$s8, $a0, .LBB7_31
 	b	.LBB7_22
 .LBB7_32:                               # %kernel_durbin_StrictFP.exit
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_0)
 	move	$a2, $zero
 	lu12i.w	$a0, -4
 	ori	$a0, $a0, 384
+	lu12i.w	$a1, -487882
+	ori	$a1, $a1, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a6, $a1, 1006
+	movgr2fr.d	$fa0, $a6
 	ld.d	$a3, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$s1, $sp, 72                    # 8-byte Folded Reload
 	.p2align	4, , 16
@@ -548,10 +546,6 @@ main:                                   # @main
 	movfr2gr.d	$a5, $fa2
 	pcalau12i	$a1, %pc_hi20(.L.str.2)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.2)
-	lu12i.w	$a4, -487882
-	ori	$a4, $a4, 2289
-	lu32i.d	$a4, 325813
-	lu52i.d	$a6, $a4, 1006
 	move	$a4, $a2
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0

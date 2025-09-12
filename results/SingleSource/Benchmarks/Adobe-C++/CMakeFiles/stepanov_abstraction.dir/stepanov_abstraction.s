@@ -62,12 +62,7 @@ _Z13record_resultdPKc:                  # @_Z13record_resultdPKc
 .Lfunc_end0:
 	.size	_Z13record_resultdPKc, .Lfunc_end0-_Z13record_resultdPKc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z9summarizePKciiii
-.LCPI1_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	_Z9summarizePKciiii
+	.globl	_Z9summarizePKciiii             # -- Begin function _Z9summarizePKciiii
 	.p2align	5
 	.type	_Z9summarizePKciiii,@function
 _Z9summarizePKciiii:                    # @_Z9summarizePKciiii
@@ -135,14 +130,16 @@ _Z9summarizePKciiii:                    # @_Z9summarizePKciiii
 # %bb.5:                                # %.lr.ph45.preheader
 	st.d	$s0, $sp, 8                     # 8-byte Folded Spill
 	st.d	$s5, $sp, 16                    # 8-byte Folded Spill
+	ori	$a0, $zero, 0
 	movgr2fr.w	$fa0, $s3
 	movgr2fr.w	$fa1, $s2
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI1_0)
+	lu32i.d	$a0, -97152
 	ffint.d.w	$fa0, $fa0
 	ffint.d.w	$fa1, $fa1
+	lu52i.d	$a0, $a0, 1042
 	fmul.d	$fa0, $fa0, $fa1
-	fdiv.d	$fs1, $fa0, $fa2
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(.L.str.4)
 	addi.d	$s2, $a0, %pc_lo12(.L.str.4)
 	pcalau12i	$a0, %pc_hi20(.L.str.5)
@@ -409,12 +406,7 @@ _Z11start_timerv:                       # @_Z11start_timerv
 .Lfunc_end3:
 	.size	_Z11start_timerv, .Lfunc_end3-_Z11start_timerv
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z5timerv
-.LCPI4_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	_Z5timerv
+	.globl	_Z5timerv                       # -- Begin function _Z5timerv
 	.p2align	5
 	.type	_Z5timerv,@function
 _Z5timerv:                              # @_Z5timerv
@@ -426,12 +418,14 @@ _Z5timerv:                              # @_Z5timerv
 	pcalau12i	$a1, %pc_hi20(start_time)
 	ld.d	$a1, $a1, %pc_lo12(start_time)
 	pcalau12i	$a2, %pc_hi20(end_time)
-	pcalau12i	$a3, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI4_0)
 	sub.d	$a1, $a0, $a1
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -97152
+	lu52i.d	$a1, $a1, 1042
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fa0, $fa1
 	st.d	$a0, $a2, %pc_lo12(end_time)
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
@@ -439,12 +433,7 @@ _Z5timerv:                              # @_Z5timerv
 .Lfunc_end4:
 	.size	_Z5timerv, .Lfunc_end4-_Z5timerv
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI5_0:
-	.dword	0x409f400000000000              # double 2000
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -650,12 +639,14 @@ main:                                   # @main
 	st.d	$a1, $sp, 136                   # 8-byte Folded Spill
 	blez	$a0, .LBB5_97
 # %bb.26:                               # %.lr.ph.i74
-	pcalau12i	$s4, %pc_hi20(.LCPI5_0)
 	pcalau12i	$s0, %pc_hi20(current_test)
 	beq	$s1, $s6, .LBB5_33
 # %bb.27:                               # %.lr.ph.i.preheader.i.preheader
-	fld.d	$fs0, $s4, %pc_lo12(.LCPI5_0)
-	movgr2fr.d	$fs1, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs1, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
 	move	$s3, $zero
@@ -668,7 +659,7 @@ main:                                   # @main
 .LBB5_29:                               # %.lr.ph.i.preheader.i
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_30 Depth 2
-	fmov.d	$fa0, $fs1
+	fmov.d	$fa0, $fs0
 	move	$a1, $s1
 	.p2align	4, , 16
 .LBB5_30:                               # %.lr.ph.i.i
@@ -682,7 +673,7 @@ main:                                   # @main
 # %bb.31:                               # %_ZN9benchmark10accumulateIPddEET0_T_S3_S2_.exit.loopexit.i
                                         #   in Loop: Header=BB5_29 Depth=1
 	fld.d	$fa1, $s2, %pc_lo12(init_value)
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB5_28
 # %bb.32:                               #   in Loop: Header=BB5_29 Depth=1
@@ -694,7 +685,10 @@ main:                                   # @main
 	b	.LBB5_28
 .LBB5_33:                               # %_ZN9benchmark10accumulateIPddEET0_T_S3_S2_.exit.us.preheader.i
 	fld.d	$fa0, $s2, %pc_lo12(init_value)
-	fld.d	$fs0, $s4, %pc_lo12(.LCPI5_0)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs0, $a1
 	movgr2fr.d	$fs1, $zero
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
@@ -727,9 +721,11 @@ main:                                   # @main
 	ld.d	$s3, $a1, %pc_lo12(dPe)
 	beq	$s1, $s3, .LBB5_45
 # %bb.39:                               # %.lr.ph.preheader.i.i.preheader
-	move	$s6, $s4
-	fld.d	$fs0, $s4, %pc_lo12(.LCPI5_0)
-	movgr2fr.d	$fs1, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs1, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
 	move	$s4, $zero
@@ -742,7 +738,7 @@ main:                                   # @main
 .LBB5_41:                               # %.lr.ph.preheader.i.i
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_42 Depth 2
-	fmov.d	$fa0, $fs1
+	fmov.d	$fa0, $fs0
 	move	$a1, $s1
 	.p2align	4, , 16
 .LBB5_42:                               # %.lr.ph.i.i78
@@ -756,7 +752,7 @@ main:                                   # @main
 # %bb.43:                               # %_ZN9benchmark10accumulateI14PointerWrapperIdEdEET0_T_S4_S3_.exit.loopexit.i
                                         #   in Loop: Header=BB5_41 Depth=1
 	fld.d	$fa1, $s2, %pc_lo12(init_value)
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB5_40
 # %bb.44:                               #   in Loop: Header=BB5_41 Depth=1
@@ -768,8 +764,10 @@ main:                                   # @main
 	b	.LBB5_40
 .LBB5_45:                               # %_ZN9benchmark10accumulateI14PointerWrapperIdEdEET0_T_S4_S3_.exit.us.preheader.i
 	fld.d	$fa0, $s2, %pc_lo12(init_value)
-	move	$s6, $s4
-	fld.d	$fs0, $s4, %pc_lo12(.LCPI5_0)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs0, $a1
 	movgr2fr.d	$fs1, $zero
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
@@ -802,8 +800,11 @@ main:                                   # @main
 	ld.d	$s3, $a1, %pc_lo12(DVpe)
 	beq	$s1, $s3, .LBB5_57
 # %bb.51:                               # %.lr.ph.i.preheader.i87.preheader
-	fld.d	$fs0, $s6, %pc_lo12(.LCPI5_0)
-	movgr2fr.d	$fs1, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs1, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
 	move	$s4, $zero
@@ -817,7 +818,7 @@ main:                                   # @main
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_54 Depth 2
 	move	$a1, $s1
-	fmov.d	$fa0, $fs1
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB5_54:                               # %.lr.ph.i.i89
                                         #   Parent Loop BB5_53 Depth=1
@@ -830,7 +831,7 @@ main:                                   # @main
 # %bb.55:                               # %_ZN9benchmark10accumulateIP12ValueWrapperIdES2_EET0_T_S5_S4_.exit.loopexit.i
                                         #   in Loop: Header=BB5_53 Depth=1
 	fld.d	$fa1, $s2, %pc_lo12(init_value)
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB5_52
 # %bb.56:                               #   in Loop: Header=BB5_53 Depth=1
@@ -842,7 +843,10 @@ main:                                   # @main
 	b	.LBB5_52
 .LBB5_57:                               # %_ZN9benchmark10accumulateIP12ValueWrapperIdES2_EET0_T_S5_S4_.exit.us.preheader.i
 	fld.d	$fa0, $s2, %pc_lo12(init_value)
-	fld.d	$fs0, $s6, %pc_lo12(.LCPI5_0)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs0, $a1
 	movgr2fr.d	$fs1, $zero
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
@@ -875,8 +879,11 @@ main:                                   # @main
 	ld.d	$s3, $a1, %pc_lo12(DVPe)
 	beq	$s1, $s3, .LBB5_69
 # %bb.63:                               # %.lr.ph.preheader.i.i100.preheader
-	fld.d	$fs0, $s6, %pc_lo12(.LCPI5_0)
-	movgr2fr.d	$fs1, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs1, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
 	move	$s4, $zero
@@ -890,7 +897,7 @@ main:                                   # @main
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_66 Depth 2
 	move	$a1, $s1
-	fmov.d	$fa0, $fs1
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB5_66:                               # %.lr.ph.i.i101
                                         #   Parent Loop BB5_65 Depth=1
@@ -903,7 +910,7 @@ main:                                   # @main
 # %bb.67:                               # %_ZN9benchmark10accumulateI14PointerWrapperI12ValueWrapperIdEES3_EET0_T_S6_S5_.exit.loopexit.i
                                         #   in Loop: Header=BB5_65 Depth=1
 	fld.d	$fa1, $s2, %pc_lo12(init_value)
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB5_64
 # %bb.68:                               #   in Loop: Header=BB5_65 Depth=1
@@ -915,7 +922,10 @@ main:                                   # @main
 	b	.LBB5_64
 .LBB5_69:                               # %_ZN9benchmark10accumulateI14PointerWrapperI12ValueWrapperIdEES3_EET0_T_S6_S5_.exit.us.preheader.i
 	fld.d	$fa0, $s2, %pc_lo12(init_value)
-	fld.d	$fs0, $s6, %pc_lo12(.LCPI5_0)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs0, $a1
 	movgr2fr.d	$fs1, $zero
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
@@ -948,8 +958,11 @@ main:                                   # @main
 	ld.d	$s3, $a1, %pc_lo12(DV10pe)
 	beq	$s1, $s3, .LBB5_81
 # %bb.75:                               # %.lr.ph.i.preheader.i109.preheader
-	fld.d	$fs0, $s6, %pc_lo12(.LCPI5_0)
-	movgr2fr.d	$fs1, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs1, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
 	move	$s4, $zero
@@ -963,7 +976,7 @@ main:                                   # @main
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_78 Depth 2
 	move	$a1, $s1
-	fmov.d	$fa0, $fs1
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB5_78:                               # %.lr.ph.i.i111
                                         #   Parent Loop BB5_77 Depth=1
@@ -976,7 +989,7 @@ main:                                   # @main
 # %bb.79:                               # %_ZN9benchmark10accumulateIP12ValueWrapperIS1_IS1_IS1_IS1_IS1_IS1_IS1_IS1_IS1_IdEEEEEEEEEESB_EET0_T_SE_SD_.exit.loopexit.i
                                         #   in Loop: Header=BB5_77 Depth=1
 	fld.d	$fa1, $s2, %pc_lo12(init_value)
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB5_76
 # %bb.80:                               #   in Loop: Header=BB5_77 Depth=1
@@ -988,7 +1001,10 @@ main:                                   # @main
 	b	.LBB5_76
 .LBB5_81:                               # %_ZN9benchmark10accumulateIP12ValueWrapperIS1_IS1_IS1_IS1_IS1_IS1_IS1_IS1_IS1_IdEEEEEEEEEESB_EET0_T_SE_SD_.exit.us.preheader.i
 	fld.d	$fa0, $s2, %pc_lo12(init_value)
-	fld.d	$fs0, $s6, %pc_lo12(.LCPI5_0)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs0, $a1
 	movgr2fr.d	$fs1, $zero
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
@@ -1021,8 +1037,11 @@ main:                                   # @main
 	ld.d	$s3, $a1, %pc_lo12(DV10Pe)
 	beq	$s1, $s3, .LBB5_93
 # %bb.87:                               # %.lr.ph.preheader.i.i124.preheader
-	fld.d	$fs0, $s6, %pc_lo12(.LCPI5_0)
-	movgr2fr.d	$fs1, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs1, $a1
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)
 	move	$s4, $zero
@@ -1036,7 +1055,7 @@ main:                                   # @main
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_90 Depth 2
 	move	$a1, $s1
-	fmov.d	$fa0, $fs1
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB5_90:                               # %.lr.ph.i.i126
                                         #   Parent Loop BB5_89 Depth=1
@@ -1049,7 +1068,7 @@ main:                                   # @main
 # %bb.91:                               # %_ZN9benchmark10accumulateI14PointerWrapperI12ValueWrapperIS2_IS2_IS2_IS2_IS2_IS2_IS2_IS2_IS2_IdEEEEEEEEEEESC_EET0_T_SF_SE_.exit.loopexit.i
                                         #   in Loop: Header=BB5_89 Depth=1
 	fld.d	$fa1, $s2, %pc_lo12(init_value)
-	fmul.d	$fa1, $fa1, $fs0
+	fmul.d	$fa1, $fa1, $fs1
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB5_88
 # %bb.92:                               #   in Loop: Header=BB5_89 Depth=1
@@ -1061,7 +1080,10 @@ main:                                   # @main
 	b	.LBB5_88
 .LBB5_93:                               # %_ZN9benchmark10accumulateI14PointerWrapperI12ValueWrapperIS2_IS2_IS2_IS2_IS2_IS2_IS2_IS2_IS2_IdEEEEEEEEEEESC_EET0_T_SF_SE_.exit.us.preheader.i
 	fld.d	$fa0, $s2, %pc_lo12(init_value)
-	fld.d	$fs0, $s6, %pc_lo12(.LCPI5_0)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fs0, $a1
 	movgr2fr.d	$fs1, $zero
 	pcalau12i	$a1, %pc_hi20(.L.str.50)
 	addi.d	$fp, $a1, %pc_lo12(.L.str.50)

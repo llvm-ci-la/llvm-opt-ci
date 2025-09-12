@@ -87,14 +87,7 @@ _ZN4CruxC2Eiib:                         # @_ZN4CruxC2Eiib
 .Lfunc_end0:
 	.size	_ZN4CruxC2Eiib, .Lfunc_end0-_ZN4CruxC2Eiib
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN4CruxD2Ev
-.LCPI1_0:
-	.dword	0x408f400000000000              # double 1000
-.LCPI1_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	_ZN4CruxD2Ev
+	.globl	_ZN4CruxD2Ev                    # -- Begin function _ZN4CruxD2Ev
 	.p2align	5
 	.type	_ZN4CruxD2Ev,@function
 _ZN4CruxD2Ev:                           # @_ZN4CruxD2Ev
@@ -155,17 +148,22 @@ _ZN4CruxD2Ev:                           # @_ZN4CruxD2Ev
 	bstrpick.d	$a0, $a0, 31, 0
 	movgr2fr.d	$fa1, $a0
 	ffint.s.l	$fa1, $fa1
+	fdiv.s	$fa1, $fa0, $fa1
+	fcvt.d.s	$fa1, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
 	pcalau12i	$s2, %pc_hi20(checkpoint_timing_size)
 	fld.s	$fa2, $s2, %pc_lo12(checkpoint_timing_size)
-	fdiv.s	$fa1, $fa0, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI1_0)
-	fdiv.s	$fa0, $fa2, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI1_1)
-	fcvt.d.s	$fa1, $fa1
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fs0, $a0
 	fmul.d	$fa1, $fa1, $fs0
+	fdiv.s	$fa0, $fa2, $fa0
 	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs1, $a0
 	fmul.d	$fa0, $fa0, $fs1
 	movfr2gr.d	$a2, $fa0
 	movfr2gr.d	$a1, $fa1

@@ -8,10 +8,6 @@
 .LCPI0_0:
 	.dword	8                               # 0x8
 	.dword	8319679458741941614             # 0x737570635f6d756e
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
 	.hidden	_ZN9benchmark12JSONReporter13ReportContextERKNS_17BenchmarkReporter7ContextE
 	.globl	_ZN9benchmark12JSONReporter13ReportContextERKNS_17BenchmarkReporter7ContextE
@@ -350,8 +346,10 @@ _ZN9benchmark12JSONReporter13ReportContextERKNS_17BenchmarkReporter7ContextE: # 
 	st.d	$a0, $sp, 128
 	st.b	$zero, $sp, 147
 	fld.d	$fa0, $s8, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(lround)
 	jirl	$ra, $ra, 0

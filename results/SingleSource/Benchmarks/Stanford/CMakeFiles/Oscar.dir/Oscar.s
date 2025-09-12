@@ -31,16 +31,7 @@ Rand:                                   # @Rand
 .Lfunc_end1:
 	.size	Rand, .Lfunc_end1-Rand
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function Cos
-.LCPI2_0:
-	.word	0xc4340000                      # float -720
-.LCPI2_1:
-	.word	0x471d8000                      # float 40320
-.LCPI2_2:
-	.word	0xca5d7c00                      # float -3628800
-	.text
-	.globl	Cos
+	.globl	Cos                             # -- Begin function Cos
 	.p2align	5
 	.type	Cos,@function
 Cos:                                    # @Cos
@@ -54,24 +45,27 @@ Cos:                                    # @Cos
 	fmul.s	$fa1, $fa0, $fa1
 	vldi	$vr3, -1224
 	fdiv.s	$fa3, $fa1, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI2_0)
 	fadd.s	$fa2, $fa2, $fa3
 	fmul.s	$fa1, $fa0, $fa1
 	fmul.s	$fa1, $fa0, $fa1
-	fdiv.s	$fa3, $fa1, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI2_1)
+	lu12i.w	$a0, -244928
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa3, $a0
+	fdiv.s	$fa3, $fa1, $fa3
 	fadd.s	$fa2, $fa2, $fa3
 	fmul.s	$fa1, $fa0, $fa1
 	fmul.s	$fa1, $fa0, $fa1
-	fdiv.s	$fa3, $fa1, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI2_2)
+	lu12i.w	$a0, 291288
+	movgr2fr.w	$fa3, $a0
+	fdiv.s	$fa3, $fa1, $fa3
 	fadd.s	$fa2, $fa2, $fa3
 	fmul.s	$fa1, $fa0, $fa1
 	fmul.s	$fa0, $fa0, $fa1
-	fdiv.s	$fa0, $fa0, $fa4
+	lu12i.w	$a0, -219689
+	ori	$a0, $a0, 3072
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
+	fdiv.s	$fa0, $fa0, $fa1
 	fadd.s	$fa0, $fa2, $fa0
 	ret
 .Lfunc_end2:
@@ -153,12 +147,7 @@ Printcomplex:                           # @Printcomplex
 .Lfunc_end4:
 	.size	Printcomplex, .Lfunc_end4-Printcomplex
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function Uniform11
-.LCPI5_0:
-	.word	0x39000000                      # float 1.22070313E-4
-	.text
-	.globl	Uniform11
+	.globl	Uniform11                       # -- Begin function Uniform11
 	.p2align	5
 	.type	Uniform11,@function
 Uniform11:                              # @Uniform11
@@ -169,29 +158,18 @@ Uniform11:                              # @Uniform11
 	mul.d	$a2, $a2, $a3
 	addi.d	$a2, $a2, 1731
 	bstrpick.d	$a2, $a2, 12, 0
-	pcalau12i	$a3, %pc_hi20(.LCPI5_0)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI5_0)
 	st.w	$a2, $a0, 0
-	movgr2fr.w	$fa1, $a2
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a2
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 233472
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $a1, 0
 	ret
 .Lfunc_end5:
 	.size	Uniform11, .Lfunc_end5-Uniform11
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function Exptab
-.LCPI6_0:
-	.word	0x40490fdb                      # float 3.14159274
-.LCPI6_1:
-	.word	0xc4340000                      # float -720
-.LCPI6_2:
-	.word	0x471d8000                      # float 40320
-.LCPI6_3:
-	.word	0xca5d7c00                      # float -3628800
-	.text
-	.globl	Exptab
+	.globl	Exptab                          # -- Begin function Exptab
 	.p2align	5
 	.type	Exptab,@function
 Exptab:                                 # @Exptab
@@ -199,17 +177,21 @@ Exptab:                                 # @Exptab
 	addi.d	$sp, $sp, -112
 	ori	$a2, $zero, 4
 	vldi	$vr0, -1264
-	pcalau12i	$a3, %pc_hi20(.LCPI6_0)
-	fld.s	$fa1, $a3, %pc_lo12(.LCPI6_0)
+	lu12i.w	$a3, 263312
+	ori	$a3, $a3, 4059
+	movgr2fr.w	$fa1, $a3
 	vldi	$vr2, -1056
 	vldi	$vr3, -1168
-	pcalau12i	$a3, %pc_hi20(.LCPI6_1)
-	fld.s	$fa4, $a3, %pc_lo12(.LCPI6_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI6_2)
-	fld.s	$fa5, $a3, %pc_lo12(.LCPI6_2)
-	pcalau12i	$a3, %pc_hi20(.LCPI6_3)
-	fld.s	$fa6, $a3, %pc_lo12(.LCPI6_3)
-	vldi	$vr7, -1224
+	vldi	$vr4, -1224
+	lu12i.w	$a3, -244928
+	lu32i.d	$a3, 0
+	movgr2fr.w	$fa5, $a3
+	lu12i.w	$a3, 291288
+	movgr2fr.w	$fa6, $a3
+	lu12i.w	$a3, -219689
+	ori	$a3, $a3, 3072
+	lu32i.d	$a3, 0
+	movgr2fr.w	$fa7, $a3
 	addi.d	$a3, $sp, 8
 	ori	$a4, $zero, 104
 	.p2align	4, , 16
@@ -220,10 +202,6 @@ Exptab:                                 # @Exptab
 	fadd.s	$ft2, $ft2, $fa3
 	fmul.s	$ft1, $ft0, $ft1
 	fmul.s	$ft1, $ft0, $ft1
-	fdiv.s	$ft3, $ft1, $fa7
-	fadd.s	$ft2, $ft2, $ft3
-	fmul.s	$ft1, $ft0, $ft1
-	fmul.s	$ft1, $ft0, $ft1
 	fdiv.s	$ft3, $ft1, $fa4
 	fadd.s	$ft2, $ft2, $ft3
 	fmul.s	$ft1, $ft0, $ft1
@@ -231,8 +209,12 @@ Exptab:                                 # @Exptab
 	fdiv.s	$ft3, $ft1, $fa5
 	fadd.s	$ft2, $ft2, $ft3
 	fmul.s	$ft1, $ft0, $ft1
+	fmul.s	$ft1, $ft0, $ft1
+	fdiv.s	$ft3, $ft1, $fa6
+	fadd.s	$ft2, $ft2, $ft3
+	fmul.s	$ft1, $ft0, $ft1
 	fmul.s	$ft0, $ft0, $ft1
-	fdiv.s	$ft0, $ft0, $fa6
+	fdiv.s	$ft0, $ft0, $fa7
 	fadd.s	$ft0, $ft2, $ft0
 	fadd.s	$ft0, $ft0, $ft0
 	frecip.s	$ft0, $ft0
@@ -489,14 +471,7 @@ Fft:                                    # @Fft
 .Lfunc_end7:
 	.size	Fft, .Lfunc_end7-Fft
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function Oscar
-.LCPI8_0:
-	.word	0x39000000                      # float 1.22070313E-4
-.LCPI8_1:
-	.word	0x3d800000                      # float 0.0625
-	.text
-	.globl	Oscar
+	.globl	Oscar                           # -- Begin function Oscar
 	.p2align	5
 	.type	Oscar,@function
 Oscar:                                  # @Oscar
@@ -514,9 +489,9 @@ Oscar:                                  # @Oscar
 	jirl	$ra, $ra, 0
 	lu12i.w	$a0, 1
 	ori	$a1, $a0, 1671
-	pcalau12i	$a2, %pc_hi20(.LCPI8_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI8_0)
 	ori	$a0, $a0, 759
+	lu12i.w	$a2, 233472
+	movgr2fr.w	$fa0, $a2
 	vldi	$vr1, -1116
 	vldi	$vr2, -1228
 	pcalau12i	$a2, %pc_hi20(z)
@@ -555,8 +530,8 @@ Oscar:                                  # @Oscar
 	addi.d	$s0, $a0, %pc_lo12(w)
 	pcalau12i	$a0, %pc_hi20(e)
 	addi.d	$s1, $a0, %pc_lo12(e)
-	pcalau12i	$a0, %pc_hi20(.LCPI8_1)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI8_1)
+	lu12i.w	$a0, 251904
+	movgr2fr.w	$fs0, $a0
 	ori	$a0, $zero, 256
 	move	$a1, $fp
 	move	$a2, $s0

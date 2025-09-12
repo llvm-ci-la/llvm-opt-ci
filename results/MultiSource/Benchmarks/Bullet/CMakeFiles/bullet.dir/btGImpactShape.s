@@ -2649,14 +2649,8 @@ _ZN18btGImpactMeshShape9setMarginEf:    # @_ZN18btGImpactMeshShape9setMarginEf
 	.size	_ZN18btGImpactMeshShape9setMarginEf, .Lfunc_end61-_ZN18btGImpactMeshShape9setMarginEf
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18btGImpactMeshShape13calcLocalAABBEv
-.LCPI62_0:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-.LCPI62_1:
-	.word	0xff7fffff                      # float -3.40282347E+38
 	.section	.text._ZN18btGImpactMeshShape13calcLocalAABBEv,"axG",@progbits,_ZN18btGImpactMeshShape13calcLocalAABBEv,comdat
-	.weak	_ZN18btGImpactMeshShape13calcLocalAABBEv
+	.weak	_ZN18btGImpactMeshShape13calcLocalAABBEv # -- Begin function _ZN18btGImpactMeshShape13calcLocalAABBEv
 	.p2align	5
 	.type	_ZN18btGImpactMeshShape13calcLocalAABBEv,@function
 _ZN18btGImpactMeshShape13calcLocalAABBEv: # @_ZN18btGImpactMeshShape13calcLocalAABBEv
@@ -2678,42 +2672,41 @@ _ZN18btGImpactMeshShape13calcLocalAABBEv: # @_ZN18btGImpactMeshShape13calcLocalA
 	.cfi_offset 25, -40
 	.cfi_offset 26, -48
 	.cfi_offset 27, -56
+	lu12i.w	$a1, 522239
+	ori	$a1, $a1, 4095
 	move	$fp, $a0
-	lu12i.w	$a0, 522239
-	ori	$a0, $a0, 4095
-	st.w	$a0, $fp, 36
-	bstrins.d	$a0, $a0, 62, 32
+	move	$a0, $a1
+	bstrins.d	$a0, $a1, 62, 32
 	st.d	$a0, $fp, 28
+	st.w	$a1, $fp, 36
 	lu12i.w	$a0, -2049
-	ori	$a0, $a0, 4095
+	ori	$a2, $a0, 4095
 	ld.w	$s1, $fp, 188
-	lu52i.d	$a1, $a0, -9
-	st.d	$a1, $fp, 44
-	lu32i.d	$a0, 0
-	st.w	$a0, $fp, 52
+	lu52i.d	$a0, $a2, -9
+	st.d	$a0, $fp, 44
+	lu32i.d	$a2, 0
+	st.w	$a2, $fp, 52
 	beqz	$s1, .LBB62_5
 # %bb.1:                                # %.lr.ph
 	addi.d	$s2, $fp, 28
-	pcalau12i	$a0, %pc_hi20(.LCPI62_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI62_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI62_1)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI62_1)
-	ld.d	$a0, $fp, 200
 	addi.d	$s3, $fp, 44
-	slli.d	$a1, $s1, 3
-	addi.d	$s4, $a1, -8
-	fmov.s	$fa4, $fa1
-	fmov.s	$fa2, $fa1
+	ld.d	$a0, $fp, 200
+	slli.d	$a3, $s1, 3
+	movgr2fr.w	$fa0, $a1
+	movgr2fr.w	$fa3, $a2
+	addi.d	$s4, $a3, -8
+	fmov.s	$fa4, $fa3
+	fmov.s	$fa1, $fa3
 	fmov.s	$fa5, $fa0
-	fmov.s	$fa3, $fa0
+	fmov.s	$fa2, $fa0
 	b	.LBB62_3
 	.p2align	4, , 16
 .LBB62_2:                               # %_ZN23btGImpactShapeInterface11updateBoundEv.exit
                                         #   in Loop: Header=BB62_3 Depth=1
 	fld.s	$fa6, $s0, 28
-	fcmp.clt.s	$fcc0, $fa6, $fa3
-	fsel	$fa3, $fa3, $fa6, $fcc0
-	fst.s	$fa3, $fp, 28
+	fcmp.clt.s	$fcc0, $fa6, $fa2
+	fsel	$fa2, $fa2, $fa6, $fcc0
+	fst.s	$fa2, $fp, 28
 	fld.s	$fa6, $s0, 32
 	fcmp.clt.s	$fcc0, $fa6, $fa5
 	addi.d	$a1, $s0, 28
@@ -2732,9 +2725,9 @@ _ZN18btGImpactMeshShape13calcLocalAABBEv: # @_ZN18btGImpactMeshShape13calcLocalA
 	fld.s	$fa0, $a1, 8
 	fst.s	$fa0, $fp, 36
 	fld.s	$fa6, $s0, 44
-	fcmp.clt.s	$fcc0, $fa2, $fa6
-	fsel	$fa2, $fa2, $fa6, $fcc0
-	fst.s	$fa2, $fp, 44
+	fcmp.clt.s	$fcc0, $fa1, $fa6
+	fsel	$fa1, $fa1, $fa6, $fcc0
+	fst.s	$fa1, $fp, 44
 	fld.s	$fa6, $s0, 48
 	fcmp.clt.s	$fcc0, $fa4, $fa6
 	addi.d	$a1, $s0, 44
@@ -2745,14 +2738,14 @@ _ZN18btGImpactMeshShape13calcLocalAABBEv: # @_ZN18btGImpactMeshShape13calcLocalA
 	fld.s	$fa4, $a2, 4
 	fst.s	$fa4, $fp, 48
 	fld.s	$fa6, $s0, 52
-	fcmp.clt.s	$fcc0, $fa1, $fa6
+	fcmp.clt.s	$fcc0, $fa3, $fa6
 	movcf2gr	$a2, $fcc0
 	masknez	$a3, $s3, $a2
 	maskeqz	$a1, $a1, $a2
 	or	$a1, $a1, $a3
-	fld.s	$fa1, $a1, 8
+	fld.s	$fa3, $a1, 8
 	addi.d	$s1, $s1, -1
-	fst.s	$fa1, $fp, 52
+	fst.s	$fa3, $fp, 52
 	addi.d	$s4, $s4, -8
 	beqz	$s1, .LBB62_5
 .LBB62_3:                               # =>This Inner Loop Header: Depth=1
@@ -2766,12 +2759,12 @@ _ZN18btGImpactMeshShape13calcLocalAABBEv: # @_ZN18btGImpactMeshShape13calcLocalA
 	jirl	$ra, $a1, 0
 	st.b	$zero, $s0, 60
 	ld.d	$a0, $fp, 200
-	fld.s	$fa3, $fp, 28
+	fld.s	$fa2, $fp, 28
 	fld.s	$fa5, $fp, 32
 	fld.s	$fa0, $fp, 36
-	fld.s	$fa2, $fp, 44
+	fld.s	$fa1, $fp, 44
 	fld.s	$fa4, $fp, 48
-	fld.s	$fa1, $fp, 52
+	fld.s	$fa3, $fp, 52
 	ldx.d	$s0, $a0, $s4
 	b	.LBB62_2
 .LBB62_5:                               # %._crit_edge

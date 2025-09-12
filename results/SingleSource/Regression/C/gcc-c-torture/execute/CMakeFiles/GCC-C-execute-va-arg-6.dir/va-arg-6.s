@@ -1,10 +1,6 @@
 	.file	"va-arg-6.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function f
-.LCPI0_0:
-	.dword	0x4005c28f5c28f5c3              # double 2.7200000000000002
 	.text
-	.globl	f
+	.globl	f                               # -- Begin function f
 	.p2align	5
 	.type	f,@function
 f:                                      # @f
@@ -87,10 +83,13 @@ f:                                      # @f
 	st.d	$a1, $sp, 8
 	bne	$a0, $a2, .LBB0_10
 # %bb.8:
-	fld.d	$fa0, $fp, 48
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
 	addi.d	$a0, $fp, 56
+	fld.d	$fa0, $fp, 48
+	lu12i.w	$a1, 377487
+	ori	$a1, $a1, 1475
+	lu32i.d	$a1, 377487
+	lu52i.d	$a1, $a1, 1024
+	movgr2fr.d	$fa1, $a1
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	st.d	$a0, $sp, 8
 	bceqz	$fcc0, .LBB0_10

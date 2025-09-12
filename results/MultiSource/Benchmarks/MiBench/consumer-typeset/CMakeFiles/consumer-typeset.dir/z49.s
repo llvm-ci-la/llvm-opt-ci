@@ -1472,20 +1472,15 @@ PS_PrintInitialize:                     # @PS_PrintInitialize
 .Lfunc_end9:
 	.size	PS_PrintInitialize, .Lfunc_end9-PS_PrintInitialize
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function PS_PrintLength
-.LCPI10_0:
-	.word	0x440dc000                      # float 567
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function PS_PrintLength
 	.type	PS_PrintLength,@function
 PS_PrintLength:                         # @PS_PrintLength
 # %bb.0:
-	pcalau12i	$a2, %pc_hi20(.LCPI10_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI10_0)
+	movgr2fr.w	$fa0, $a1
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a1, 278748
 	movgr2fr.w	$fa1, $a1
-	ffint.s.w	$fa1, $fa1
-	fdiv.s	$fa0, $fa1, $fa0
+	fdiv.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
 	pcalau12i	$a1, %pc_hi20(.L.str.40)
@@ -3946,24 +3941,19 @@ PS_PrintUnderline:                      # @PS_PrintUnderline
 .Lfunc_end19:
 	.size	PS_PrintUnderline, .Lfunc_end19-PS_PrintUnderline
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function PS_CoordRotate
-.LCPI20_0:
-	.word	0x3c000000                      # float 0.0078125
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function PS_CoordRotate
 	.type	PS_CoordRotate,@function
 PS_CoordRotate:                         # @PS_CoordRotate
 # %bb.0:
 	addi.d	$sp, $sp, -16
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcalau12i	$a1, %pc_hi20(out_fp)
-	pcalau12i	$a2, %pc_hi20(.LCPI20_0)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI20_0)
 	ld.d	$a3, $a1, %pc_lo12(out_fp)
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 245760
 	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fmul.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a2, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.192)

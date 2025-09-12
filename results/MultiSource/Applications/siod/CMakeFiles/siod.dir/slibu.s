@@ -2860,12 +2860,7 @@ decode_st_mode:                         # @decode_st_mode
 .Lfunc_end52:
 	.size	decode_st_mode, .Lfunc_end52-decode_st_mode
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function decode_stat
-.LCPI53_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	decode_stat
+	.globl	decode_stat                     # -- Begin function decode_stat
 	.p2align	5
 	.type	decode_stat,@function
 decode_stat:                            # @decode_stat
@@ -2886,11 +2881,12 @@ decode_stat:                            # @decode_stat
 	move	$s3, $a0
 	ld.d	$a0, $a0, 0
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI53_0)
-	fld.d	$fs0, $a2, %pc_lo12(.LCPI53_0)
 	lu52i.d	$fp, $zero, 1107
 	or	$a1, $a1, $fp
 	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
+	movgr2fr.d	$fs0, $a1
 	fsub.d	$fa0, $fa0, $fs0
 	lu12i.w	$s0, 275200
 	bstrins.d	$a0, $s0, 63, 32
@@ -3892,12 +3888,7 @@ http_date:                              # @http_date
 .Lfunc_end72:
 	.size	http_date, .Lfunc_end72-http_date
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lsleep
-.LCPI73_0:
-	.dword	0x412e848000000000              # double 1.0E+6
-	.text
-	.globl	lsleep
+	.globl	lsleep                          # -- Begin function lsleep
 	.p2align	5
 	.type	lsleep,@function
 lsleep:                                 # @lsleep
@@ -3906,8 +3897,10 @@ lsleep:                                 # @lsleep
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(get_c_double)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI73_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI73_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0
 	movfr2gr.d	$a0, $fa0
@@ -4538,12 +4531,7 @@ html_decode:                            # @html_decode
 .Lfunc_end77:
 	.size	html_decode, .Lfunc_end77-html_decode
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function lgets
-.LCPI78_0:
-	.dword	0x40a0000000000000              # double 2048
-	.text
-	.globl	lgets
+	.globl	lgets                           # -- Begin function lgets
 	.p2align	5
 	.type	lgets,@function
 lgets:                                  # @lgets
@@ -4572,8 +4560,8 @@ lgets:                                  # @lgets
 	ori	$a0, $zero, 2049
 	bltu	$s0, $a0, .LBB78_7
 # %bb.3:
-	pcalau12i	$a0, %pc_hi20(.LCPI78_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI78_0)
+	lu52i.d	$a0, $zero, 1034
+	movgr2fr.d	$fa0, $a0
 	pcaddu18i	$ra, %call36(flocons)
 	jirl	$ra, $ra, 0
 	move	$a2, $a0
@@ -5901,12 +5889,7 @@ err_large_index:                        # @err_large_index
 .Lfunc_end101:
 	.size	err_large_index, .Lfunc_end101-err_large_index
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function datref
-.LCPI102_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	datref
+	.globl	datref                          # -- Begin function datref
 	.p2align	5
 	.type	datref,@function
 datref:                                 # @datref
@@ -5991,12 +5974,13 @@ datref:                                 # @datref
 .LBB102_12:
 	ldx.d	$a0, $fp, $s1
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI102_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI102_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0
@@ -6195,12 +6179,7 @@ mkdatref:                               # @mkdatref
 .Lfunc_end104:
 	.size	mkdatref, .Lfunc_end104-mkdatref
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function datlength
-.LCPI105_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.globl	datlength
+	.globl	datlength                       # -- Begin function datlength
 	.p2align	5
 	.type	datlength,@function
 datlength:                              # @datlength
@@ -6249,12 +6228,13 @@ datlength:                              # @datlength
 .LBB105_7:
 	ld.d	$a0, $sp, 8
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI105_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI105_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa1, $a0

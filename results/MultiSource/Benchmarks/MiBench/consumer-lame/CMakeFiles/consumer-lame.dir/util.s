@@ -1,12 +1,6 @@
 	.file	"util.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function getframebits
-.LCPI0_0:
-	.dword	0x408f400000000000              # double 1000
-.LCPI0_1:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
 	.text
-	.globl	getframebits
+	.globl	getframebits                    # -- Begin function getframebits
 	.p2align	5
 	.type	getframebits,@function
 getframebits:                           # @getframebits
@@ -35,41 +29,46 @@ getframebits:                           # @getframebits
 	ori	$t1, $zero, 104
 	maskeqz	$a6, $t1, $a6
 	or	$a6, $a6, $t0
+	ld.w	$t0, $a0, 60
 	masknez	$a6, $a6, $a5
 	maskeqz	$a5, $a7, $a5
 	or	$a5, $a5, $a6
-	ld.w	$a6, $a0, 60
+	sltui	$a6, $t0, 1
+	addi.d	$a7, $a5, 16
+	maskeqz	$a5, $a5, $a6
 	movgr2fr.w	$fa0, $a3
 	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a3, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI0_0)
-	ld.w	$a3, $a0, 188
+	movgr2fr.w	$fa1, $a4
+	ffint.d.w	$fa1, $fa1
+	ori	$a3, $zero, 0
+	lu32i.d	$a3, -49152
+	ld.w	$a4, $a0, 188
+	lu52i.d	$a3, $a3, 1032
+	movgr2fr.d	$fa2, $a3
+	fdiv.d	$fa1, $fa1, $fa2
 	movgr2fr.w	$fa2, $a4
-	ffint.d.w	$fa2, $fa2
-	fdiv.d	$fa1, $fa2, $fa1
-	movgr2fr.w	$fa2, $a3
 	ffint.d.w	$fa2, $fa2
 	fdiv.d	$fa1, $fa2, $fa1
 	vldi	$vr2, -960
 	fmul.d	$fa0, $fa0, $fa2
-	pcalau12i	$a3, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI0_1)
-	sltui	$a3, $a6, 1
-	addi.d	$a4, $a5, 16
-	maskeqz	$a5, $a5, $a3
+	lu12i.w	$a3, -97683
+	ori	$a3, $a3, 1685
+	lu32i.d	$a3, 77323
+	lu52i.d	$a3, $a3, 993
+	movgr2fr.d	$fa2, $a3
 	fmadd.d	$fa0, $fa1, $fa0, $fa2
 	vreplvei.d	$vr0, $vr0, 0
-	ld.w	$a6, $a0, 196
+	ld.w	$a3, $a0, 196
 	vfrintrm.d	$vr0, $vr0
 	ftintrz.w.d	$fa0, $fa0
-	movfr2gr.s	$a7, $fa0
-	add.d	$a6, $a6, $a7
-	slli.d	$a6, $a6, 3
-	st.w	$a6, $a1, 0
+	movfr2gr.s	$a4, $fa0
+	add.d	$a3, $a3, $a4
+	slli.d	$a3, $a3, 3
+	st.w	$a3, $a1, 0
 	ld.w	$a0, $a0, 200
-	masknez	$a1, $a4, $a3
+	masknez	$a1, $a7, $a6
 	or	$a1, $a5, $a1
-	sub.w	$a1, $a6, $a1
+	sub.w	$a1, $a3, $a1
 	div.w	$a0, $a1, $a0
 	st.w	$a0, $a2, 0
 	ret

@@ -79,12 +79,7 @@ gs_make_scaling:                        # @gs_make_scaling
 .Lfunc_end2:
 	.size	gs_make_scaling, .Lfunc_end2-gs_make_scaling
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_make_rotation
-.LCPI3_0:
-	.dword	0x3f91df46a2529d39              # double 0.017453292519943295
-	.text
-	.globl	gs_make_rotation
+	.globl	gs_make_rotation                # -- Begin function gs_make_rotation
 	.p2align	5
 	.type	gs_make_rotation,@function
 gs_make_rotation:                       # @gs_make_rotation
@@ -93,9 +88,12 @@ gs_make_rotation:                       # @gs_make_rotation
 	st.d	$ra, $sp, 24                    # 8-byte Folded Spill
 	st.d	$fp, $sp, 16                    # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 8                    # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI3_0)
 	move	$fp, $a0
+	lu12i.w	$a0, -383703
+	ori	$a0, $a0, 3385
+	lu32i.d	$a0, 122694
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fs0, $fa0
 	pcalau12i	$a0, %pc_hi20(gs_identity_matrix)
@@ -294,14 +292,7 @@ gs_matrix_invert:                       # @gs_matrix_invert
 .Lfunc_end5:
 	.size	gs_matrix_invert, .Lfunc_end5-gs_matrix_invert
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_matrix_rotate
-.LCPI6_0:
-	.dword	0x4076800000000000              # double 360
-.LCPI6_1:
-	.dword	0x3f91df46a2529d39              # double 0.017453292519943295
-	.text
-	.globl	gs_matrix_rotate
+	.globl	gs_matrix_rotate                # -- Begin function gs_matrix_rotate
 	.p2align	5
 	.type	gs_matrix_rotate,@function
 gs_matrix_rotate:                       # @gs_matrix_rotate
@@ -312,10 +303,12 @@ gs_matrix_rotate:                       # @gs_matrix_rotate
 	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 16                   # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 8                    # 8-byte Folded Spill
-	pcalau12i	$a2, %pc_hi20(.LCPI6_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI6_0)
-	fabs.d	$fa2, $fa0
-	fcmp.cult.d	$fcc0, $fa1, $fa2
+	fabs.d	$fa1, $fa0
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, 425984
+	lu52i.d	$a2, $a2, 1031
+	movgr2fr.d	$fa2, $a2
+	fcmp.cult.d	$fcc0, $fa2, $fa1
 	move	$fp, $a1
 	move	$s0, $a0
 	bcnez	$fcc0, .LBB6_6
@@ -357,8 +350,11 @@ gs_matrix_rotate:                       # @gs_matrix_rotate
 	ffint.s.w	$fa0, $fa0
 	b	.LBB6_7
 .LBB6_6:
-	pcalau12i	$a0, %pc_hi20(.LCPI6_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI6_1)
+	lu12i.w	$a0, -383703
+	ori	$a0, $a0, 3385
+	lu32i.d	$a0, 122694
+	lu52i.d	$a0, $a0, 1017
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	fcvt.d.s	$fs0, $fa0
@@ -651,12 +647,7 @@ gs_distance_transform_inverse:          # @gs_distance_transform_inverse
 .Lfunc_end10:
 	.size	gs_distance_transform_inverse, .Lfunc_end10-gs_distance_transform_inverse
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_bbox_transform_inverse
-.LCPI11_0:
-	.dword	0xb690000000000000              # double -7.0064923216240854E-46
-	.text
-	.globl	gs_bbox_transform_inverse
+	.globl	gs_bbox_transform_inverse       # -- Begin function gs_bbox_transform_inverse
 	.p2align	5
 	.type	gs_bbox_transform_inverse,@function
 gs_bbox_transform_inverse:              # @gs_bbox_transform_inverse
@@ -783,8 +774,8 @@ gs_bbox_transform_inverse:              # @gs_bbox_transform_inverse
 	fdiv.d	$fa3, $fa3, $ft0
 .LBB11_5:
 	move	$a0, $zero
-	pcalau12i	$a1, %pc_hi20(.LCPI11_0)
-	fld.d	$fa6, $a1, %pc_lo12(.LCPI11_0)
+	lu52i.d	$a1, $zero, -1175
+	movgr2fr.d	$fa6, $a1
 	fcvt.s.d	$fa7, $fa3
 	fadd.s	$ft0, $fa5, $fa0
 	movgr2fr.w	$ft1, $zero
@@ -813,21 +804,16 @@ gs_bbox_transform_inverse:              # @gs_bbox_transform_inverse
 .Lfunc_end11:
 	.size	gs_bbox_transform_inverse, .Lfunc_end11-gs_bbox_transform_inverse
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_point_transform2fixed
-.LCPI12_0:
-	.dword	0x40b0000000000000              # double 4096
-	.text
-	.globl	gs_point_transform2fixed
+	.globl	gs_point_transform2fixed        # -- Begin function gs_point_transform2fixed
 	.p2align	5
 	.type	gs_point_transform2fixed,@function
 gs_point_transform2fixed:               # @gs_point_transform2fixed
 # %bb.0:
-	fld.s	$fa3, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI12_0)
-	fld.d	$fa2, $a2, %pc_lo12(.LCPI12_0)
-	fcvt.d.s	$fa3, $fa3
-	fmul.d	$fa3, $fa0, $fa3
+	fld.s	$fa2, $a0, 0
+	fcvt.d.s	$fa2, $fa2
+	fmul.d	$fa3, $fa0, $fa2
+	lu52i.d	$a2, $zero, 1035
+	movgr2fr.d	$fa2, $a2
 	fmul.d	$fa3, $fa3, $fa2
 	ld.d	$a2, $a0, 96
 	ftintrz.l.d	$fa3, $fa3
@@ -874,21 +860,16 @@ gs_point_transform2fixed:               # @gs_point_transform2fixed
 .Lfunc_end12:
 	.size	gs_point_transform2fixed, .Lfunc_end12-gs_point_transform2fixed
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_distance_transform2fixed
-.LCPI13_0:
-	.dword	0x40b0000000000000              # double 4096
-	.text
-	.globl	gs_distance_transform2fixed
+	.globl	gs_distance_transform2fixed     # -- Begin function gs_distance_transform2fixed
 	.p2align	5
 	.type	gs_distance_transform2fixed,@function
 gs_distance_transform2fixed:            # @gs_distance_transform2fixed
 # %bb.0:
-	fld.s	$fa3, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI13_0)
-	fld.d	$fa2, $a2, %pc_lo12(.LCPI13_0)
-	fcvt.d.s	$fa3, $fa3
-	fmul.d	$fa3, $fa0, $fa3
+	fld.s	$fa2, $a0, 0
+	fcvt.d.s	$fa2, $fa2
+	fmul.d	$fa3, $fa0, $fa2
+	lu52i.d	$a2, $zero, 1035
+	movgr2fr.d	$fa2, $a2
 	fld.s	$fa5, $a0, 48
 	fmul.d	$fa3, $fa3, $fa2
 	ftintrz.l.d	$fa4, $fa3

@@ -669,13 +669,9 @@ _ZN23btDiscreteDynamicsWorld18saveKinematicStateEf: # @_ZN23btDiscreteDynamicsWo
 	.size	_ZN23btDiscreteDynamicsWorld18saveKinematicStateEf, .Lfunc_end7-_ZN23btDiscreteDynamicsWorld18saveKinematicStateEf
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN23btDiscreteDynamicsWorld14debugDrawWorldEv
-.LCPI8_0:
-	.word	0x437f0000                      # float 255
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI8_1:
+	.p2align	4, 0x0                          # -- Begin function _ZN23btDiscreteDynamicsWorld14debugDrawWorldEv
+.LCPI8_0:
 	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
 	.word	0x00000000                      # float 0
@@ -890,12 +886,12 @@ _ZN23btDiscreteDynamicsWorld14debugDrawWorldEv: # @_ZN23btDiscreteDynamicsWorld1
 	ld.w	$a0, $fp, 12
 	blez	$a0, .LBB8_46
 # %bb.31:                               # %.lr.ph124
-	pcalau12i	$a0, %pc_hi20(.LCPI8_1)
-	vld	$vr0, $a0, %pc_lo12(.LCPI8_1)
-	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI8_0)
-	movgr2fr.w	$fs1, $zero
+	vld	$vr0, $a0, %pc_lo12(.LCPI8_0)
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	movgr2fr.w	$fs0, $zero
+	lu12i.w	$a0, 276464
+	movgr2fr.w	$fs1, $a0
 	ori	$s0, $zero, 5
 	pcalau12i	$a0, %pc_hi20(.Lswitch.table._ZN23btDiscreteDynamicsWorld14debugDrawWorldEv)
 	addi.d	$s1, $a0, %pc_lo12(.Lswitch.table._ZN23btDiscreteDynamicsWorld14debugDrawWorldEv)
@@ -942,9 +938,9 @@ _ZN23btDiscreteDynamicsWorld14debugDrawWorldEv: # @_ZN23btDiscreteDynamicsWorld1
 # %bb.38:                               #   in Loop: Header=BB8_33 Depth=1
 	ld.w	$a0, $s6, 228
 	addi.w	$a0, $a0, -1
-	fmov.s	$fa1, $fs0
-	fmov.s	$fa2, $fs1
-	fmov.s	$fa0, $fs1
+	fmov.s	$fa1, $fs1
+	fmov.s	$fa2, $fs0
+	fmov.s	$fa0, $fs0
 	bgeu	$a0, $s0, .LBB8_40
 # %bb.39:                               # %switch.lookup
                                         #   in Loop: Header=BB8_33 Depth=1
@@ -1212,24 +1208,8 @@ GCC_except_table8:
 .Lttbase2:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint
-.LCPI9_0:
-	.word	0x3f666666                      # float 0.899999976
-.LCPI9_1:
-	.word	0xc0490fdb                      # float -3.14159274
-.LCPI9_2:
-	.word	0x40490fdb                      # float 3.14159274
-.LCPI9_3:
-	.word	0x40c2c75b                      # float 6.08683538
-.LCPI9_4:
-	.word	0x40c90fda                      # float 6.283185
-.LCPI9_5:
-	.word	0x3d000000                      # float 0.03125
-.LCPI9_6:
-	.word	0x40c90fdb                      # float 6.28318548
 	.text
-	.globl	_ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint
+	.globl	_ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint # -- Begin function _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint
 	.p2align	5
 	.type	_ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint,@function
 _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint: # @_ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint
@@ -1673,8 +1653,9 @@ _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint: # @_ZN23
 	st.d	$a2, $sp, 128
 	move	$a0, $fp
 	jirl	$ra, $a1, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI9_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI9_0)
+	lu12i.w	$a1, 259686
+	ori	$a1, $a1, 1638
+	movgr2fr.w	$fa0, $a1
 	fmul.s	$fa0, $fs0, $fa0
 	vrepli.b	$vr1, 0
 	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
@@ -1773,10 +1754,13 @@ _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint: # @_ZN23
 	jirl	$ra, $a1, 0
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
 	vst	$vr0, $sp, 72
-	pcalau12i	$a1, %pc_hi20(.LCPI9_1)
-	fld.s	$fa2, $a1, %pc_lo12(.LCPI9_1)
-	pcalau12i	$a1, %pc_hi20(.LCPI9_2)
-	fld.s	$fa3, $a1, %pc_lo12(.LCPI9_2)
+	lu12i.w	$a1, 263312
+	ori	$a1, $a1, 4059
+	movgr2fr.w	$fa3, $a1
+	lu12i.w	$a1, -260976
+	ori	$a1, $a1, 4059
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa2, $a1
 	addi.d	$a2, $sp, 88
 	addi.d	$a3, $sp, 104
 	addi.d	$a4, $sp, 72
@@ -2182,8 +2166,9 @@ _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint: # @_ZN23
 	beqz	$s1, .LBB9_36
 .LBB9_19:
 	addi.d	$s1, $sp, 200
-	pcalau12i	$a0, %pc_hi20(.LCPI9_3)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI9_3)
+	lu12i.w	$a0, 265260
+	ori	$a0, $a0, 1883
+	movgr2fr.w	$fa0, $a0
 	move	$a0, $s0
 	fmov.s	$fa1, $fs0
 	pcaddu18i	$ra, %call36(_ZNK21btConeTwistConstraint16GetPointForAngleEff)
@@ -2221,13 +2206,14 @@ _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint: # @_ZN23
 	fmadd.s	$fa0, $fa5, $fa1, $fa0
 	fadd.s	$fa0, $fa6, $fa0
 	st.d	$a0, $sp, 136
-	pcalau12i	$a0, %pc_hi20(.LCPI9_4)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI9_4)
-	pcalau12i	$a0, %pc_hi20(.LCPI9_5)
-	fld.s	$fs3, $a0, %pc_lo12(.LCPI9_5)
 	movfr2gr.s	$a0, $fa0
 	bstrpick.d	$a0, $a0, 31, 0
 	st.d	$a0, $sp, 144
+	lu12i.w	$a0, 265360
+	ori	$a0, $a0, 4058
+	movgr2fr.w	$fs2, $a0
+	lu12i.w	$a0, 249856
+	movgr2fr.w	$fs3, $a0
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
 	ori	$s3, $zero, 32
@@ -2481,10 +2467,11 @@ _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint: # @_ZN23
 	fsel	$fs1, $fs1, $fa1, $fcc0
 	movcf2gr	$a0, $fcc0
 	st.d	$a0, $sp, 16
-	pcalau12i	$a0, %pc_hi20(.LCPI9_6)
+	lu12i.w	$a0, 265360
+	ori	$a0, $a0, 4059
 	ld.w	$a1, $sp, 176
 	ld.wu	$a2, $sp, 160
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI9_6)
+	movgr2fr.w	$fa1, $a0
 	ld.wu	$a0, $sp, 192
 	slli.d	$a1, $a1, 32
 	or	$a1, $a1, $a2
@@ -2738,22 +2725,16 @@ _ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint: # @_ZN23
 	.word	0x00000000                      # float 0
 	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
-.LCPI10_5:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.word	0x00000000                      # float 0
-.LCPI10_6:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
 .LCPI10_3:
-	.word	0x3f3504f3                      # float 0.707106769
+	.word	0x5d5e0b6b                      # float 9.99999984E+17
+	.word	0x5d5e0b6b                      # float 9.99999984E+17
+	.word	0x5d5e0b6b                      # float 9.99999984E+17
+	.word	0x00000000                      # float 0
 .LCPI10_4:
-	.word	0x42c80000                      # float 100
+	.word	0xdd5e0b6b                      # float -9.99999984E+17
+	.word	0xdd5e0b6b                      # float -9.99999984E+17
+	.word	0xdd5e0b6b                      # float -9.99999984E+17
+	.word	0x00000000                      # float 0
 	.text
 	.globl	_ZN23btDiscreteDynamicsWorld15debugDrawObjectERK11btTransformPK16btCollisionShapeRK9btVector3
 	.p2align	5
@@ -2970,11 +2951,11 @@ _ZN23btDiscreteDynamicsWorld15debugDrawObjectERK11btTransformPK16btCollisionShap
 	addi.d	$s4, $s0, 48
 	bltu	$a2, $a1, .LBB10_7
 # %bb.4:
-	pcalau12i	$a0, %pc_hi20(.LCPI10_5)
+	pcalau12i	$a0, %pc_hi20(.LCPI10_3)
 	ld.d	$a1, $s1, 0
-	vld	$vr0, $a0, %pc_lo12(.LCPI10_5)
-	pcalau12i	$a0, %pc_hi20(.LCPI10_6)
-	vld	$vr1, $a0, %pc_lo12(.LCPI10_6)
+	vld	$vr0, $a0, %pc_lo12(.LCPI10_3)
+	pcalau12i	$a0, %pc_hi20(.LCPI10_4)
+	vld	$vr1, $a0, %pc_lo12(.LCPI10_4)
 	ld.d	$a1, $a1, 32
 	vst	$vr0, $sp, 240
 	vst	$vr1, $sp, 224
@@ -3021,11 +3002,11 @@ _ZN23btDiscreteDynamicsWorld15debugDrawObjectERK11btTransformPK16btCollisionShap
 	ori	$a1, $zero, 3
 	bne	$a0, $a1, .LBB10_11
 # %bb.8:
-	pcalau12i	$a0, %pc_hi20(.LCPI10_5)
+	pcalau12i	$a0, %pc_hi20(.LCPI10_3)
 	ld.d	$a1, $s1, 0
-	vld	$vr0, $a0, %pc_lo12(.LCPI10_5)
-	pcalau12i	$a0, %pc_hi20(.LCPI10_6)
-	vld	$vr1, $a0, %pc_lo12(.LCPI10_6)
+	vld	$vr0, $a0, %pc_lo12(.LCPI10_3)
+	pcalau12i	$a0, %pc_hi20(.LCPI10_4)
+	vld	$vr1, $a0, %pc_lo12(.LCPI10_4)
 	ld.d	$a1, $a1, 32
 	vst	$vr0, $sp, 240
 	vst	$vr1, $sp, 224
@@ -3165,30 +3146,31 @@ _ZN23btDiscreteDynamicsWorld15debugDrawObjectERK11btTransformPK16btCollisionShap
 	b	.LBB10_30
 .LBB10_15:
 	fld.s	$fa2, $s2, 76
-	fld.s	$fa5, $s2, 60
-	fmul.s	$fa0, $fa2, $fa5
-	fld.s	$fa4, $s2, 64
-	fld.s	$fa6, $s2, 68
-	pcalau12i	$a0, %pc_hi20(.LCPI10_3)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI10_3)
-	fmul.s	$fa1, $fa2, $fa4
-	fmul.s	$fa2, $fa2, $fa6
-	fabs.s	$fa7, $fa6
-	fcmp.cule.s	$fcc0, $fa7, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI10_4)
+	fld.s	$fa6, $s2, 60
+	fld.s	$fa3, $s2, 64
+	fld.s	$fa4, $s2, 68
+	fmul.s	$fa0, $fa2, $fa6
+	fmul.s	$fa1, $fa2, $fa3
+	fmul.s	$fa2, $fa2, $fa4
+	fabs.s	$fa5, $fa4
+	lu12i.w	$a0, 258896
+	ori	$a0, $a0, 1267
+	movgr2fr.w	$fa7, $a0
+	fcmp.cule.s	$fcc0, $fa5, $fa7
+	lu12i.w	$a0, 273536
 	bcnez	$fcc0, .LBB10_27
 # %bb.16:
-	fmul.s	$fa3, $fa6, $fa6
-	fmadd.s	$fa7, $fa4, $fa4, $fa3
+	fmul.s	$fa5, $fa4, $fa4
+	fmadd.s	$fa7, $fa3, $fa3, $fa5
 	frsqrt.s	$ft0, $fa7
-	fneg.s	$fa3, $fa6
-	fmul.s	$fa3, $ft0, $fa3
-	fmul.s	$ft1, $fa4, $ft0
-	fmul.s	$fa4, $fa7, $ft0
-	fld.s	$fa7, $a0, %pc_lo12(.LCPI10_4)
-	fneg.s	$fa6, $fa5
-	fmul.s	$fa6, $ft1, $fa6
-	fmul.s	$fa5, $fa5, $fa3
+	fneg.s	$fa4, $fa4
+	fmul.s	$fa5, $ft0, $fa4
+	fmul.s	$ft1, $fa3, $ft0
+	fmul.s	$fa3, $fa7, $ft0
+	fneg.s	$fa4, $fa6
+	fmul.s	$fa4, $ft1, $fa4
+	fmul.s	$fa6, $fa6, $fa5
+	movgr2fr.w	$fa7, $a0
 	fmul.s	$fs0, $ft1, $fa7
 	movgr2fr.w	$fa7, $zero
 	b	.LBB10_28
@@ -4293,30 +4275,30 @@ _ZN23btDiscreteDynamicsWorld15debugDrawObjectERK11btTransformPK16btCollisionShap
 	addi.d	$a2, $sp, 208
 	b	.LBB10_29
 .LBB10_27:
-	fmul.s	$fa3, $fa4, $fa4
-	fmadd.s	$fa7, $fa5, $fa5, $fa3
+	fmul.s	$fa5, $fa3, $fa3
+	fmadd.s	$fa7, $fa6, $fa6, $fa5
 	frsqrt.s	$ft0, $fa7
-	fneg.s	$fa3, $fa4
+	fneg.s	$fa3, $fa3
 	fmul.s	$ft1, $ft0, $fa3
-	fmul.s	$fa3, $fa5, $ft0
-	fneg.s	$fa4, $fa6
-	fld.s	$ft2, $a0, %pc_lo12(.LCPI10_4)
-	fmul.s	$fa4, $fa3, $fa4
-	fmul.s	$fa6, $fa6, $ft1
-	fmul.s	$fa5, $fa7, $ft0
-	fmul.s	$fa7, $ft1, $ft2
+	fmul.s	$fa5, $fa6, $ft0
+	fneg.s	$fa3, $fa4
+	fmul.s	$fa3, $fa5, $fa3
+	fmul.s	$fa4, $fa4, $ft1
+	fmul.s	$fa6, $fa7, $ft0
+	movgr2fr.w	$fa7, $a0
+	fmul.s	$fa7, $ft1, $fa7
 .LBB10_28:                              # %_Z13btPlaneSpace1RK9btVector3RS_S2_.exit
-	fld.s	$ft0, $a0, %pc_lo12(.LCPI10_4)
-	fmul.s	$fa3, $fa3, $ft0
+	movgr2fr.w	$ft0, $a0
+	fmul.s	$fa5, $fa5, $ft0
 	fadd.s	$fs2, $fa0, $fa7
-	fadd.s	$fs3, $fa1, $fa3
+	fadd.s	$fs3, $fa1, $fa5
 	fadd.s	$fs4, $fa2, $fs0
 	fsub.s	$fs6, $fa0, $fa7
-	fsub.s	$fs1, $fa1, $fa3
+	fsub.s	$fs1, $fa1, $fa5
 	fsub.s	$fs7, $fa2, $fs0
-	fmul.s	$fa3, $fa4, $ft0
-	fmul.s	$fa4, $fa6, $ft0
-	fmul.s	$fa5, $fa5, $ft0
+	fmul.s	$fa3, $fa3, $ft0
+	fmul.s	$fa4, $fa4, $ft0
+	fmul.s	$fa5, $fa6, $ft0
 	ld.d	$a0, $s1, 0
 	fadd.s	$fs0, $fa0, $fa3
 	fadd.s	$fs5, $fa1, $fa4
@@ -5018,16 +5000,8 @@ _ZN23btDiscreteDynamicsWorld28synchronizeSingleMotionStateEP11btRigidBody: # @_Z
 	.size	_ZN23btDiscreteDynamicsWorld28synchronizeSingleMotionStateEP11btRigidBody, .Lfunc_end14-_ZN23btDiscreteDynamicsWorld28synchronizeSingleMotionStateEP11btRigidBody
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
-.LCPI15_0:
-	.word	0x3f490fdb                      # float 0.785398185
-.LCPI15_1:
-	.word	0x3a83126f                      # float 0.00100000005
-.LCPI15_2:
-	.word	0xbcaaaaab                      # float -0.020833334
 	.section	.text._ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,"axG",@progbits,_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,comdat
-	.weak	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
+	.weak	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_ # -- Begin function _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
 	.p2align	5
 	.type	_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_,@function
 _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_: # @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_
@@ -5080,22 +5054,26 @@ _ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_: # 
 	fmadd.s	$fa0, $fs1, $fs1, $fa0
 	fmadd.s	$fa0, $fs3, $fs3, $fa0
 	fsqrt.s	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI15_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI15_0)
-	fmul.s	$fa2, $fs0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI15_1)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI15_1)
-	fcmp.clt.s	$fcc0, $fa1, $fa2
-	fdiv.s	$fa1, $fa1, $fs0
-	fsel	$fs4, $fa0, $fa1, $fcc0
-	fcmp.cule.s	$fcc0, $fa3, $fs4
+	fmul.s	$fa1, $fs0, $fa0
+	lu12i.w	$a0, 259216
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa2, $a0
+	fdiv.s	$fa3, $fa2, $fs0
+	fcmp.clt.s	$fcc0, $fa2, $fa1
+	fsel	$fs4, $fa0, $fa3, $fcc0
+	lu12i.w	$a0, 239665
+	ori	$a0, $a0, 623
+	movgr2fr.w	$fa0, $a0
+	fcmp.cule.s	$fcc0, $fa0, $fs4
 	bcnez	$fcc0, .LBB15_2
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI15_2)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI15_2)
-	fmul.s	$fa1, $fs0, $fs0
-	fmul.s	$fa1, $fs0, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fmul.s	$fa0, $fs0, $fs0
+	fmul.s	$fa0, $fs0, $fa0
+	lu12i.w	$a0, -275798
+	ori	$a0, $a0, 2731
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	fmul.s	$fa0, $fa0, $fs4
 	fmul.s	$fa0, $fa0, $fs4
 	vldi	$vr1, -1184
@@ -5435,12 +5413,8 @@ GCC_except_table16:
 .Lttbase4:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN23btDiscreteDynamicsWorld14stepSimulationEfif
-.LCPI17_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
-	.globl	_ZN23btDiscreteDynamicsWorld14stepSimulationEfif
+	.globl	_ZN23btDiscreteDynamicsWorld14stepSimulationEfif # -- Begin function _ZN23btDiscreteDynamicsWorld14stepSimulationEfif
 	.p2align	5
 	.type	_ZN23btDiscreteDynamicsWorld14stepSimulationEfif,@function
 _ZN23btDiscreteDynamicsWorld14stepSimulationEfif: # @_ZN23btDiscreteDynamicsWorld14stepSimulationEfif
@@ -5484,10 +5458,10 @@ _ZN23btDiscreteDynamicsWorld14stepSimulationEfif: # @_ZN23btDiscreteDynamicsWorl
 	move	$s1, $zero
 	b	.LBB17_5
 .LBB17_3:
-	pcalau12i	$a0, %pc_hi20(.LCPI17_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI17_0)
-	fabs.s	$fa1, $fs1
-	fcmp.cule.s	$fcc0, $fa0, $fa1
+	fabs.s	$fa0, $fs1
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa1, $a0
+	fcmp.cule.s	$fcc0, $fa1, $fa0
 	fst.s	$fs1, $fp, 328
 	movcf2gr	$s1, $fcc0
 	fmov.s	$fs0, $fs1
@@ -8805,12 +8779,8 @@ _ZN12btIDebugDraw13drawTransformERK11btTransformf: # @_ZN12btIDebugDraw13drawTra
 	.size	_ZN12btIDebugDraw13drawTransformERK11btTransformf, .Lfunc_end45-_ZN12btIDebugDraw13drawTransformERK11btTransformf
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf
-.LCPI46_0:
-	.word	0x3c8efa35                      # float 0.0174532924
 	.section	.text._ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf,"axG",@progbits,_ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf,comdat
-	.weak	_ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf
+	.weak	_ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf # -- Begin function _ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf
 	.p2align	5
 	.type	_ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf,@function
 _ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf: # @_ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf
@@ -8871,12 +8841,13 @@ _ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf: # @_ZN12btIDebugDraw7draw
 	fmul.s	$fa6, $fa7, $fa6
 	fmadd.s	$fa1, $fa1, $ft0, $fa6
 	fst.s	$fa1, $sp, 16                   # 4-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI46_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI46_0)
-	fneg.s	$fa6, $ft0
-	fmul.s	$fa2, $fa2, $fa6
-	fmadd.s	$fa2, $fa7, $ft1, $fa2
-	fst.s	$fa2, $sp, 12                   # 4-byte Folded Spill
+	fneg.s	$fa1, $ft0
+	fmul.s	$fa1, $fa2, $fa1
+	fmadd.s	$fa1, $fa7, $ft1, $fa1
+	fst.s	$fa1, $sp, 12                   # 4-byte Folded Spill
+	lu12i.w	$a0, 248047
+	ori	$a0, $a0, 2613
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa1, $fa4, $fa1
 	fsub.s	$fs3, $fa3, $fs0
 	fdiv.s	$fa1, $fs3, $fa1
@@ -9048,22 +9019,8 @@ _ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf: # @_ZN12btIDebugDraw7draw
 	.size	_ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf, .Lfunc_end46-_ZN12btIDebugDraw7drawArcERK9btVector3S2_S2_ffffS2_bf
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f
-.LCPI47_0:
-	.word	0x3c8efa35                      # float 0.0174532924
-.LCPI47_1:
-	.word	0xbfc90fdb                      # float -1.57079637
-.LCPI47_2:
-	.word	0x3fc90fdb                      # float 1.57079637
-.LCPI47_3:
-	.word	0xc0490fdb                      # float -3.14159274
-.LCPI47_4:
-	.word	0x40c90fdb                      # float 6.28318548
-.LCPI47_5:
-	.word	0x40490fdb                      # float 3.14159274
 	.section	.text._ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f,"axG",@progbits,_ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f,comdat
-	.weak	_ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f
+	.weak	_ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f # -- Begin function _ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f
 	.p2align	5
 	.type	_ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f,@function
 _ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f: # @_ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f
@@ -9142,30 +9099,34 @@ _ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f: # @_ZN12btIDebug
 	movfr2gr.s	$a0, $ft0
 	movfr2gr.s	$a1, $ft1
 	bstrins.d	$a0, $a1, 63, 32
-	pcalau12i	$a1, %pc_hi20(.LCPI47_0)
-	fld.s	$ft1, $a1, %pc_lo12(.LCPI47_0)
 	movfr2gr.s	$a1, $ft2
 	bstrpick.d	$a1, $a1, 31, 0
 	st.d	$a0, $sp, 136
-	fld.s	$ft0, $a3, 4
 	st.d	$a1, $sp, 144
+	lu12i.w	$a0, 248047
+	ori	$a0, $a0, 2613
+	fld.s	$ft0, $a3, 4
+	movgr2fr.w	$ft1, $a0
 	fmul.s	$fa5, $fa5, $ft1
 	fld.s	$ft1, $a3, 8
-	fneg.s	$ft2, $ft0
-	fmul.s	$ft2, $ft9, $ft2
-	fld.s	$ft3, $a3, 0
+	fneg.s	$ft3, $ft0
+	fld.s	$ft2, $a3, 0
+	fmul.s	$ft3, $ft9, $ft3
 	fneg.s	$ft4, $ft1
 	fmul.s	$ft4, $fa6, $ft4
-	pcalau12i	$a0, %pc_hi20(.LCPI47_1)
-	fld.s	$ft5, $a0, %pc_lo12(.LCPI47_1)
-	fneg.s	$ft7, $ft3
-	pcalau12i	$a0, %pc_hi20(.LCPI47_2)
-	fld.s	$ft6, $a0, %pc_lo12(.LCPI47_2)
+	fneg.s	$ft7, $ft2
+	lu12i.w	$a0, -263024
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$ft5, $a0
 	fcmp.cle.s	$fcc0, $fa1, $ft5
 	fadd.s	$ft5, $fa5, $ft5
 	fsel	$ft8, $fa1, $ft5, $fcc0
-	fcmp.cle.s	$fcc1, $ft6, $fa2
-	fsub.s	$ft6, $ft6, $fa5
+	lu12i.w	$a0, 261264
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa1, $a0
+	fcmp.cle.s	$fcc1, $fa1, $fa2
+	fsub.s	$ft6, $fa1, $fa5
 	fsel	$fa2, $fa2, $ft6, $fcc1
 	fcmp.cule.s	$fcc2, $ft8, $fa2
 	fmul.s	$fa1, $fa7, $ft7
@@ -9185,9 +9146,9 @@ _ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f: # @_ZN12btIDebug
 	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 .LBB47_3:
 	move	$a0, $zero
-	fmadd.s	$fa0, $fa7, $ft1, $ft2
+	fmadd.s	$fa0, $fa7, $ft1, $ft3
 	fst.s	$fa0, $sp, 108                  # 4-byte Folded Spill
-	fmadd.s	$fs6, $ft9, $ft3, $ft4
+	fmadd.s	$fs6, $ft9, $ft2, $ft4
 	fmadd.s	$fs7, $fa6, $ft0, $fa1
 	fsub.s	$fa0, $fa2, $ft8
 	fdiv.s	$fa1, $fa0, $fa5
@@ -9203,16 +9164,20 @@ _ZN12btIDebugDraw15drawSpherePatchERK9btVector3S2_S2_fffffS2_f: # @_ZN12btIDebug
 	fdiv.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $sp, 28                   # 4-byte Folded Spill
 	fcmp.clt.s	$fcc0, $fa4, $fa3
-	pcalau12i	$a1, %pc_hi20(.LCPI47_3)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI47_3)
-	pcalau12i	$a1, %pc_hi20(.LCPI47_4)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI47_4)
-	pcalau12i	$a1, %pc_hi20(.LCPI47_5)
-	fld.s	$fa2, $a1, %pc_lo12(.LCPI47_5)
+	lu12i.w	$a1, -260976
+	ori	$a1, $a1, 4059
+	lu32i.d	$a1, 0
+	movgr2fr.w	$fa0, $a1
 	fadd.s	$fa0, $fa5, $fa0
-	fsub.s	$fa6, $fa4, $fa3
-	fcmp.cle.s	$fcc1, $fa1, $fa6
-	fsel	$fa1, $fa4, $fa2, $fcc0
+	fsub.s	$fa1, $fa4, $fa3
+	lu12i.w	$a1, 265360
+	ori	$a1, $a1, 4059
+	movgr2fr.w	$fa2, $a1
+	fcmp.cle.s	$fcc1, $fa2, $fa1
+	lu12i.w	$a1, 263312
+	ori	$a1, $a1, 4059
+	movgr2fr.w	$fa1, $a1
+	fsel	$fa1, $fa4, $fa1, $fcc0
 	fsel	$fs4, $fa3, $fa0, $fcc0
 	movcf2gr	$a1, $fcc0
 	movcf2gr	$a3, $fcc1

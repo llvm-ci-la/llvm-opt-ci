@@ -163,12 +163,7 @@ zdiv:                                   # @zdiv
 .Lfunc_end1:
 	.size	zdiv, .Lfunc_end1-zdiv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function zmul
-.LCPI2_0:
-	.word	0xcf000000                      # float -2.14748365E+9
-	.text
-	.globl	zmul
+	.globl	zmul                            # -- Begin function zmul
 	.p2align	5
 	.type	zmul,@function
 zmul:                                   # @zmul
@@ -250,8 +245,9 @@ zmul:                                   # @zmul
 	fmul.s	$fa0, $fa0, $fa1
 	bne	$a1, $a2, .LBB2_10
 # %bb.15:
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a2, -200704
+	lu32i.d	$a2, 0
+	movgr2fr.w	$fa1, $a2
 	fcmp.ceq.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB2_10
 .LBB2_16:

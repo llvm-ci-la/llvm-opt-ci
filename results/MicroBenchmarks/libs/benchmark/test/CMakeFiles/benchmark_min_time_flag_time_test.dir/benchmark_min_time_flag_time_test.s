@@ -125,12 +125,7 @@ main:                                   # @main
 	.size	main, .Lfunc_end1-main
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN12_GLOBAL__N_112DoTestHelperEPiPPKcd
-.LCPI2_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZN12_GLOBAL__N_112DoTestHelperEPiPPKcd
 	.type	_ZN12_GLOBAL__N_112DoTestHelperEPiPPKcd,@function
 _ZN12_GLOBAL__N_112DoTestHelperEPiPPKcd: # @_ZN12_GLOBAL__N_112DoTestHelperEPiPPKcd
 .Lfunc_begin0:
@@ -206,11 +201,11 @@ _ZN12_GLOBAL__N_112DoTestHelperEPiPPKcd: # @_ZN12_GLOBAL__N_112DoTestHelperEPiPP
 	beq	$a0, $a1, .LBB2_8
 # %bb.5:
 	fld.d	$fa0, $a0, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_0)
-	vldi	$vr2, -880
-	fadd.d	$fa0, $fa0, $fa2
+	vldi	$vr1, -880
+	fadd.d	$fa0, $fa0, $fa1
 	fabs.d	$fa0, $fa0
+	lu52i.d	$a1, $zero, 971
+	movgr2fr.d	$fa1, $a1
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB2_8
 # %bb.6:                                # %_ZNSt6vectorIdSaIdEED2Ev.exit.i

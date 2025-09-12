@@ -622,12 +622,7 @@ _ZN10BinaryNodeC2EPc4TreeS1_:           # @_ZN10BinaryNodeC2EPc4TreeS1_
 	.size	_ZN10BinaryNodeC2EPc4TreeS1_, .Lfunc_end11-_ZN10BinaryNodeC2EPc4TreeS1_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN10BinaryNode9nodeValueEv
-.LCPI12_0:
-	.word	0x4b18967f                      # float 9999999
-	.text
-	.globl	_ZN10BinaryNode9nodeValueEv
+	.globl	_ZN10BinaryNode9nodeValueEv     # -- Begin function _ZN10BinaryNode9nodeValueEv
 	.p2align	5
 	.type	_ZN10BinaryNode9nodeValueEv,@function
 _ZN10BinaryNode9nodeValueEv:            # @_ZN10BinaryNode9nodeValueEv
@@ -659,9 +654,10 @@ _ZN10BinaryNode9nodeValueEv:            # @_ZN10BinaryNode9nodeValueEv
 	ld.d	$a1, $a1, 0
 	fmov.s	$fs0, $fa0
 	jirl	$ra, $a1, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI12_0)
 	fadd.s	$fa0, $fs0, $fa0
+	lu12i.w	$a0, 307593
+	ori	$a0, $a0, 1663
+	movgr2fr.w	$fa1, $a0
 	movgr2cf	$fcc0, $s0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fld.d	$fs0, $sp, 0                    # 8-byte Folded Reload

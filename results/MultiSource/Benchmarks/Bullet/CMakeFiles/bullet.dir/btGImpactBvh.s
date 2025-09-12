@@ -248,14 +248,7 @@ _ZN9btBvhTree30_sort_and_calc_splitting_indexER18GIM_BVH_DATA_ARRAYiii: # @_ZN9b
 .Lfunc_end1:
 	.size	_ZN9btBvhTree30_sort_and_calc_splitting_indexER18GIM_BVH_DATA_ARRAYiii, .Lfunc_end1-_ZN9btBvhTree30_sort_and_calc_splitting_indexER18GIM_BVH_DATA_ARRAYiii
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii
-.LCPI2_0:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-.LCPI2_1:
-	.word	0xff7fffff                      # float -3.40282347E+38
-	.text
-	.globl	_ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii
+	.globl	_ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii # -- Begin function _ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii
 	.p2align	5
 	.type	_ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii,@function
 _ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii: # @_ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii
@@ -310,19 +303,22 @@ _ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii: # @_ZN9btBvhTree15_build
 	jirl	$ra, $ra, 0
 	move	$a2, $s2
 	move	$s2, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_1)
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	lu12i.w	$a1, -2049
+	ori	$a1, $a1, 4095
+	lu32i.d	$a1, 0
 	bge	$a2, $s1, .LBB2_5
 # %bb.3:                                # %.lr.ph
 	ld.d	$a3, $s0, 16
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI2_1)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI2_0)
-	slli.d	$a0, $a2, 5
-	alsl.d	$a0, $a2, $a0, 2
-	add.d	$a0, $a0, $a3
-	addi.d	$a0, $a0, 16
-	fmov.s	$fa5, $fa1
-	fmov.s	$fa2, $fa1
+	slli.d	$a4, $a2, 5
+	alsl.d	$a4, $a2, $a4, 2
+	add.d	$a3, $a4, $a3
+	movgr2fr.w	$fa2, $a0
+	movgr2fr.w	$fa0, $a1
+	addi.d	$a0, $a3, 16
+	fmov.s	$fa5, $fa2
+	fmov.s	$fa1, $fa2
 	fmov.s	$fa3, $fa0
 	fmov.s	$fa4, $fa0
 	.p2align	4, , 16
@@ -330,14 +326,14 @@ _ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii: # @_ZN9btBvhTree15_build
                                         # =>This Inner Loop Header: Depth=1
 	fld.s	$fa6, $a0, -16
 	fld.s	$fa7, $a0, -12
-	fcmp.clt.s	$fcc0, $fa6, $fa1
-	fsel	$fa1, $fa1, $fa6, $fcc0
+	fcmp.clt.s	$fcc0, $fa6, $fa2
+	fsel	$fa2, $fa2, $fa6, $fcc0
 	fld.s	$fa6, $a0, -8
 	fcmp.clt.s	$fcc0, $fa7, $fa5
 	fsel	$fa5, $fa5, $fa7, $fcc0
 	fld.s	$fa7, $a0, 0
-	fcmp.clt.s	$fcc0, $fa6, $fa2
-	fsel	$fa2, $fa2, $fa6, $fcc0
+	fcmp.clt.s	$fcc0, $fa6, $fa1
+	fsel	$fa1, $fa1, $fa6, $fcc0
 	fld.s	$fa6, $a0, 4
 	fcmp.clt.s	$fcc0, $fa0, $fa7
 	fld.s	$ft0, $a0, 8
@@ -351,20 +347,20 @@ _ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii: # @_ZN9btBvhTree15_build
 	bnez	$s4, .LBB2_4
 	b	.LBB2_6
 .LBB2_5:
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI2_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI2_1)
+	movgr2fr.w	$fa1, $a0
+	movgr2fr.w	$fa4, $a1
 	fmov.s	$fa3, $fa4
 	fmov.s	$fa0, $fa4
-	fmov.s	$fa5, $fa2
-	fmov.s	$fa1, $fa2
+	fmov.s	$fa5, $fa1
+	fmov.s	$fa2, $fa1
 .LBB2_6:                                # %._crit_edge
 	ld.d	$a0, $fp, 24
 	slli.d	$a1, $s3, 5
 	alsl.d	$s4, $s3, $a1, 2
 	add.d	$a1, $a0, $s4
-	fstx.s	$fa1, $a0, $s4
+	fstx.s	$fa2, $a0, $s4
 	fst.s	$fa5, $a1, 4
-	fst.s	$fa2, $a1, 8
+	fst.s	$fa1, $a1, 8
 	fst.s	$fa0, $a1, 16
 	fst.s	$fa4, $a1, 20
 	fst.s	$fa3, $a1, 24
@@ -542,14 +538,7 @@ _ZN9btBvhTree10build_treeER18GIM_BVH_DATA_ARRAY: # @_ZN9btBvhTree10build_treeER1
 	.size	_ZN9btBvhTree10build_treeER18GIM_BVH_DATA_ARRAY, .Lfunc_end3-_ZN9btBvhTree10build_treeER18GIM_BVH_DATA_ARRAY
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12btGImpactBvh5refitEv
-.LCPI4_0:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-.LCPI4_1:
-	.word	0xff7fffff                      # float -3.40282347E+38
-	.text
-	.globl	_ZN12btGImpactBvh5refitEv
+	.globl	_ZN12btGImpactBvh5refitEv       # -- Begin function _ZN12btGImpactBvh5refitEv
 	.p2align	5
 	.type	_ZN12btGImpactBvh5refitEv,@function
 _ZN12btGImpactBvh5refitEv:              # @_ZN12btGImpactBvh5refitEv
@@ -577,12 +566,15 @@ _ZN12btGImpactBvh5refitEv:              # @_ZN12btGImpactBvh5refitEv
 	beqz	$s0, .LBB4_7
 # %bb.1:                                # %.lr.ph
 	move	$fp, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI4_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI4_1)
 	slli.d	$a0, $s0, 5
 	alsl.d	$s1, $s0, $a0, 2
+	lu12i.w	$a0, 522239
+	ori	$a0, $a0, 4095
+	movgr2fr.w	$fs0, $a0
+	lu12i.w	$a0, -2049
+	ori	$a0, $a0, 4095
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs1, $a0
 	ori	$s2, $zero, 1
 	move	$s3, $s0
 	b	.LBB4_3
@@ -1405,12 +1397,7 @@ _ZNK12btGImpactBvh8rayQueryERK9btVector3S2_R20btAlignedObjectArrayIiE: # @_ZNK12
 	.size	_ZNK12btGImpactBvh8rayQueryERK9btVector3S2_R20btAlignedObjectArrayIiE, .Lfunc_end8-_ZNK12btGImpactBvh8rayQueryERK9btVector3S2_R20btAlignedObjectArrayIiE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN12btGImpactBvh14find_collisionEPS_RK11btTransformS0_S3_R9btPairSet
-.LCPI9_0:
-	.word	0x358637bd                      # float 9.99999997E-7
-	.text
-	.globl	_ZN12btGImpactBvh14find_collisionEPS_RK11btTransformS0_S3_R9btPairSet
+	.globl	_ZN12btGImpactBvh14find_collisionEPS_RK11btTransformS0_S3_R9btPairSet # -- Begin function _ZN12btGImpactBvh14find_collisionEPS_RK11btTransformS0_S3_R9btPairSet
 	.p2align	5
 	.type	_ZN12btGImpactBvh14find_collisionEPS_RK11btTransformS0_S3_R9btPairSet,@function
 _ZN12btGImpactBvh14find_collisionEPS_RK11btTransformS0_S3_R9btPairSet: # @_ZN12btGImpactBvh14find_collisionEPS_RK11btTransformS0_S3_R9btPairSet
@@ -1449,108 +1436,109 @@ _ZN12btGImpactBvh14find_collisionEPS_RK11btTransformS0_S3_R9btPairSet: # @_ZN12b
 	fneg.s	$ft3, $ft3
 	fmul.s	$ft4, $fa7, $ft2
 	fmadd.s	$ft4, $fa2, $ft1, $ft4
-	fmadd.s	$ft9, $fa5, $ft3, $ft4
-	fmul.s	$ft4, $fa6, $ft2
-	fmadd.s	$ft4, $fa1, $ft1, $ft4
-	fmadd.s	$ft10, $fa3, $ft3, $ft4
+	fmadd.s	$ft4, $fa5, $ft3, $ft4
+	fmul.s	$ft5, $fa6, $ft2
+	fmadd.s	$ft5, $fa1, $ft1, $ft5
+	fmadd.s	$ft5, $fa3, $ft3, $ft5
 	fmul.s	$ft2, $fa4, $ft2
-	fld.s	$ft7, $a3, 16
+	fld.s	$ft6, $a3, 16
 	fmadd.s	$ft1, $fa0, $ft1, $ft2
-	fmadd.s	$ft11, $ft0, $ft3, $ft1
-	fld.s	$ft8, $a3, 0
-	fmul.s	$ft1, $fa7, $ft7
-	fld.s	$ft12, $a3, 32
-	fld.s	$ft13, $a3, 20
-	fld.s	$ft14, $a3, 4
-	fmadd.s	$ft1, $ft8, $fa2, $ft1
-	fmadd.s	$ft1, $ft12, $fa5, $ft1
-	fmul.s	$ft2, $fa7, $ft13
-	fmadd.s	$ft2, $ft14, $fa2, $ft2
-	fld.s	$ft15, $a3, 36
-	fld.s	$fs0, $a3, 24
-	fld.s	$fs1, $a3, 8
-	fld.s	$fs2, $a3, 40
-	fmadd.s	$ft2, $ft15, $fa5, $ft2
-	fmul.s	$ft3, $fa7, $fs0
-	fmadd.s	$ft3, $fs1, $fa2, $ft3
-	fmadd.s	$ft3, $fs2, $fa5, $ft3
-	fmul.s	$ft4, $fa6, $ft7
-	fmadd.s	$ft4, $ft8, $fa1, $ft4
-	fmadd.s	$ft4, $ft12, $fa3, $ft4
-	fmul.s	$ft5, $fa6, $ft13
-	fmadd.s	$ft5, $ft14, $fa1, $ft5
-	fmadd.s	$ft5, $ft15, $fa3, $ft5
-	fmul.s	$ft6, $fa6, $fs0
-	fmadd.s	$ft6, $fs1, $fa1, $ft6
-	fmadd.s	$ft6, $fs2, $fa3, $ft6
-	fmul.s	$ft7, $fa4, $ft7
-	fmadd.s	$ft7, $ft8, $fa0, $ft7
-	fmadd.s	$ft7, $ft12, $ft0, $ft7
-	fmul.s	$ft8, $fa4, $ft13
-	fmadd.s	$ft8, $ft14, $fa0, $ft8
-	fmadd.s	$ft8, $ft15, $ft0, $ft8
-	fmul.s	$ft12, $fa4, $fs0
-	fmadd.s	$ft12, $fs1, $fa0, $ft12
-	fld.s	$ft13, $a3, 52
-	fld.s	$ft14, $a3, 48
-	fld.s	$ft15, $a3, 56
-	fmadd.s	$ft12, $fs2, $ft0, $ft12
-	fmul.s	$fa7, $fa7, $ft13
-	fmadd.s	$fa2, $fa2, $ft14, $fa7
-	fmadd.s	$fa2, $fa5, $ft15, $fa2
-	fadd.s	$fa2, $ft9, $fa2
-	fmul.s	$fa5, $fa6, $ft13
-	fmadd.s	$fa1, $fa1, $ft14, $fa5
-	fmadd.s	$fa1, $fa3, $ft15, $fa1
-	fadd.s	$fa1, $ft10, $fa1
-	fmul.s	$fa3, $fa4, $ft13
-	fmadd.s	$fa0, $fa0, $ft14, $fa3
-	fmadd.s	$fa0, $ft0, $ft15, $fa0
-	fadd.s	$fa0, $ft11, $fa0
+	fmadd.s	$ft2, $ft0, $ft3, $ft1
+	fld.s	$ft3, $a3, 0
+	fmul.s	$ft1, $fa7, $ft6
+	fld.s	$ft7, $a3, 32
+	fld.s	$ft8, $a3, 20
+	fld.s	$ft9, $a3, 4
+	fmadd.s	$ft1, $ft3, $fa2, $ft1
+	fmadd.s	$ft1, $ft7, $fa5, $ft1
+	fmul.s	$ft10, $fa7, $ft8
+	fmadd.s	$ft10, $ft9, $fa2, $ft10
+	fld.s	$ft11, $a3, 36
+	fld.s	$ft12, $a3, 24
+	fld.s	$ft13, $a3, 8
+	fld.s	$ft14, $a3, 40
+	fmadd.s	$ft10, $ft11, $fa5, $ft10
+	fmul.s	$ft15, $fa7, $ft12
+	fmadd.s	$ft15, $ft13, $fa2, $ft15
+	fmadd.s	$ft15, $ft14, $fa5, $ft15
+	fmul.s	$fs0, $fa6, $ft6
+	fmadd.s	$fs0, $ft3, $fa1, $fs0
+	fmadd.s	$fs0, $ft7, $fa3, $fs0
+	fmul.s	$fs1, $fa6, $ft8
+	fmadd.s	$fs1, $ft9, $fa1, $fs1
+	fmadd.s	$fs1, $ft11, $fa3, $fs1
+	fmul.s	$fs2, $fa6, $ft12
+	fmadd.s	$fs2, $ft13, $fa1, $fs2
+	fmadd.s	$fs2, $ft14, $fa3, $fs2
+	fmul.s	$ft6, $fa4, $ft6
+	fmadd.s	$ft3, $ft3, $fa0, $ft6
+	fmadd.s	$ft3, $ft7, $ft0, $ft3
+	fmul.s	$ft6, $fa4, $ft8
+	fmadd.s	$ft6, $ft9, $fa0, $ft6
+	fmadd.s	$ft6, $ft11, $ft0, $ft6
+	fmul.s	$ft7, $fa4, $ft12
+	fmadd.s	$ft7, $ft13, $fa0, $ft7
+	fld.s	$ft8, $a3, 52
+	fld.s	$ft9, $a3, 48
+	fld.s	$ft11, $a3, 56
+	fmadd.s	$ft7, $ft14, $ft0, $ft7
+	fmul.s	$fa7, $fa7, $ft8
+	fmadd.s	$fa2, $fa2, $ft9, $fa7
+	fmadd.s	$fa2, $fa5, $ft11, $fa2
+	fadd.s	$fa2, $ft4, $fa2
+	fmul.s	$fa5, $fa6, $ft8
+	fmadd.s	$fa1, $fa1, $ft9, $fa5
+	fmadd.s	$fa1, $fa3, $ft11, $fa1
+	fadd.s	$fa1, $ft5, $fa1
+	fmul.s	$fa3, $fa4, $ft8
+	fmadd.s	$fa0, $fa0, $ft9, $fa3
+	fmadd.s	$fa0, $ft0, $ft11, $fa0
+	fadd.s	$fa0, $ft2, $fa0
 	fst.s	$fa2, $sp, 16
 	fst.s	$fa1, $sp, 20
 	fst.s	$fa0, $sp, 24
 	st.w	$zero, $sp, 28
 	fst.s	$ft1, $sp, 32
-	fst.s	$ft2, $sp, 36
-	fst.s	$ft3, $sp, 40
+	fst.s	$ft10, $sp, 36
+	fst.s	$ft15, $sp, 40
 	st.w	$zero, $sp, 44
-	fst.s	$ft4, $sp, 48
-	fst.s	$ft5, $sp, 52
-	fst.s	$ft6, $sp, 56
+	fst.s	$fs0, $sp, 48
+	fst.s	$fs1, $sp, 52
+	fst.s	$fs2, $sp, 56
 	st.w	$zero, $sp, 60
-	fst.s	$ft7, $sp, 64
-	fst.s	$ft8, $sp, 68
-	pcalau12i	$a1, %pc_hi20(.LCPI9_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI9_0)
-	fst.s	$ft12, $sp, 72
+	fst.s	$ft3, $sp, 64
+	fst.s	$ft6, $sp, 68
+	fst.s	$ft7, $sp, 72
 	st.w	$zero, $sp, 76
-	fabs.s	$fa1, $ft1
-	fadd.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $sp, 80
-	fabs.s	$fa1, $ft2
-	fadd.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $sp, 84
-	fabs.s	$fa1, $ft3
-	fadd.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $sp, 88
-	fabs.s	$fa1, $ft4
-	fadd.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $sp, 96
-	fabs.s	$fa1, $ft5
-	fadd.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $sp, 100
-	fabs.s	$fa1, $ft6
-	fadd.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $sp, 104
-	fabs.s	$fa1, $ft7
-	fadd.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $sp, 112
-	fabs.s	$fa1, $ft8
-	fadd.s	$fa1, $fa1, $fa0
-	fst.s	$fa1, $sp, 116
-	fabs.s	$fa1, $ft12
-	fadd.s	$fa0, $fa1, $fa0
+	fabs.s	$fa0, $ft1
+	lu12i.w	$a1, 219235
+	ori	$a1, $a1, 1981
+	movgr2fr.w	$fa1, $a1
+	fadd.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 80
+	fabs.s	$fa0, $ft10
+	fadd.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 84
+	fabs.s	$fa0, $ft15
+	fadd.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 88
+	fabs.s	$fa0, $fs0
+	fadd.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 96
+	fabs.s	$fa0, $fs1
+	fadd.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 100
+	fabs.s	$fa0, $fs2
+	fadd.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 104
+	fabs.s	$fa0, $ft3
+	fadd.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 112
+	fabs.s	$fa0, $ft6
+	fadd.s	$fa0, $fa0, $fa1
+	fst.s	$fa0, $sp, 116
+	fabs.s	$fa0, $ft7
+	fadd.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $sp, 120
 	addi.d	$a3, $sp, 16
 	ori	$a6, $zero, 1

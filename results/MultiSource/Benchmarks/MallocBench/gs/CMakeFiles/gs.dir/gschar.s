@@ -1194,12 +1194,7 @@ show_move:                              # @show_move
 .Lfunc_end23:
 	.size	show_move, .Lfunc_end23-show_move
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function show_proceed
-.LCPI24_0:
-	.dword	0x3f30000000000000              # double 2.44140625E-4
-	.text
-	.globl	show_proceed
+	.globl	show_proceed                    # -- Begin function show_proceed
 	.p2align	5
 	.type	show_proceed,@function
 show_proceed:                           # @show_proceed
@@ -1227,13 +1222,13 @@ show_proceed:                           # @show_proceed
 	addi.w	$a0, $zero, -14
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	ori	$a0, $zero, 2048
-	pcalau12i	$a1, %pc_hi20(.LCPI24_0)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI24_0)
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
 	lu12i.w	$a0, -1
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	lu52i.d	$a0, $zero, 1011
+	movgr2fr.d	$fs0, $a0
 	pcalau12i	$a0, %pc_hi20(continue_show_update)
 	addi.d	$s1, $a0, %pc_lo12(continue_show_update)
 	move	$s2, $zero

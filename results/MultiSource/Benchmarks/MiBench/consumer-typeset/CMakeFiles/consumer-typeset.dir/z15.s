@@ -72,12 +72,7 @@ EnlargeToConstraint:                    # @EnlargeToConstraint
 .Lfunc_end2:
 	.size	EnlargeToConstraint, .Lfunc_end2-EnlargeToConstraint
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function ScaleToConstraint
-.LCPI3_0:
-	.word	0x43000000                      # float 128
-	.text
-	.globl	ScaleToConstraint
+	.globl	ScaleToConstraint               # -- Begin function ScaleToConstraint
 	.p2align	5
 	.type	ScaleToConstraint,@function
 ScaleToConstraint:                      # @ScaleToConstraint
@@ -119,8 +114,8 @@ ScaleToConstraint:                      # @ScaleToConstraint
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	fsel	$fa0, $fa1, $fa0, $fcc0
 .LBB3_5:
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a0, 274432
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
@@ -218,36 +213,7 @@ InvScaleConstraint:                     # @InvScaleConstraint
 .Lfunc_end4:
 	.size	InvScaleConstraint, .Lfunc_end4-InvScaleConstraint
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function RotateConstraint
-.LCPI5_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI5_1:
-	.dword	0x40e6800000000000              # double 46080
-.LCPI5_2:
-	.dword	0xb690000000000000              # double -7.0064923216240854E-46
-.LCPI5_3:
-	.dword	0x401921fb54442d18              # double 6.2831853071795862
-.LCPI5_4:
-	.dword	0xc01921fb54442d18              # double -6.2831853071795862
-.LCPI5_5:
-	.dword	0x3ff921fb54442d18              # double 1.5707963267948966
-.LCPI5_6:
-	.dword	0xbff921fb54442d18              # double -1.5707963267948966
-.LCPI5_7:
-	.dword	0x4012d97c7f3321d2              # double 4.7123889803846897
-.LCPI5_8:
-	.dword	0xc00921fb54442d18              # double -3.1415926535897931
-.LCPI5_9:
-	.dword	0xc012d97c7f3321d2              # double -4.7123889803846897
-.LCPI5_10:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI5_11:
-	.word	0x4afffffe                      # float 8388607
-	.text
-	.globl	RotateConstraint
+	.globl	RotateConstraint                # -- Begin function RotateConstraint
 	.p2align	5
 	.type	RotateConstraint,@function
 RotateConstraint:                       # @RotateConstraint
@@ -275,22 +241,27 @@ RotateConstraint:                       # @RotateConstraint
 	move	$fp, $a0
 	movgr2fr.w	$fa0, $a2
 	ffint.s.w	$fa0, $fa0
-	fadd.s	$fa1, $fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI5_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI5_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI5_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI5_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_2)
-	fcvt.d.s	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fs1
-	fdiv.d	$fa1, $fa1, $fa2
+	fadd.s	$fa0, $fa0, $fa0
+	fcvt.d.s	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$s4, $a0, 3352
+	lu32i.d	$s4, -450053
+	lu52i.d	$a0, $s4, 1024
+	movgr2fr.d	$fs1, $a0
+	fmul.d	$fa0, $fa0, $fs1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 425984
+	lu52i.d	$a0, $a0, 1038
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa1, $fa0, $fa1
+	lu52i.d	$a0, $zero, -1175
+	movgr2fr.d	$fa0, $a0
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	fcvt.s.d	$fs0, $fa1
 	bcnez	$fcc0, .LBB5_3
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_3)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_3)
+	lu52i.d	$a0, $s4, 1025
+	movgr2fr.d	$fa1, $a0
 	.p2align	4, , 16
 .LBB5_2:                                # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
@@ -300,14 +271,14 @@ RotateConstraint:                       # @RotateConstraint
 	fcvt.s.d	$fs0, $fa2
 	bcnez	$fcc0, .LBB5_2
 .LBB5_3:                                # %.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI5_3)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_3)
 	fcvt.d.s	$fs2, $fs0
+	lu52i.d	$a0, $s4, 1025
+	movgr2fr.d	$fa0, $a0
 	fcmp.cult.d	$fcc0, $fs2, $fa0
 	bcnez	$fcc0, .LBB5_6
 # %bb.4:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_4)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_4)
+	lu52i.d	$a0, $s4, -1023
+	movgr2fr.d	$fa1, $a0
 	.p2align	4, , 16
 .LBB5_5:                                # %.lr.ph99
                                         # =>This Inner Loop Header: Depth=1
@@ -324,21 +295,24 @@ RotateConstraint:                       # @RotateConstraint
 	fcmp.cle.d	$fcc0, $fs2, $fa0
 	bceqz	$fcc0, .LBB5_12
 # %bb.8:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_5)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_5)
+	lu52i.d	$a0, $s4, 1023
+	movgr2fr.d	$fa0, $a0
 	fcmp.cult.d	$fcc0, $fa0, $fs2
 	bceqz	$fcc0, .LBB5_13
 .LBB5_9:
 	fcmp.cult.d	$fcc0, $fs1, $fs2
 	bceqz	$fcc0, .LBB5_14
 # %bb.10:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_7)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_7)
+	lu12i.w	$a0, 521010
+	ori	$a0, $a0, 466
+	lu32i.d	$a0, 186748
+	lu52i.d	$a1, $a0, 1025
+	movgr2fr.d	$fa1, $a1
 	fcmp.cult.d	$fcc0, $fa1, $fs2
 	bceqz	$fcc0, .LBB5_15
 # %bb.11:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_9)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_9)
+	lu52i.d	$a0, $a0, -1023
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa1, $fs2, $fa1
 	fcvt.s.d	$fs0, $fa1
 	addi.d	$a0, $s2, 4
@@ -361,8 +335,8 @@ RotateConstraint:                       # @RotateConstraint
 	move	$a3, $zero
 	pcaddu18i	$ra, %call36(Error)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI5_5)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_5)
+	lu52i.d	$a0, $s4, 1023
+	movgr2fr.d	$fa0, $a0
 	fcmp.cult.d	$fcc0, $fa0, $fs2
 	bcnez	$fcc0, .LBB5_9
 .LBB5_13:
@@ -374,8 +348,8 @@ RotateConstraint:                       # @RotateConstraint
 	move	$a3, $s3
 	b	.LBB5_16
 .LBB5_14:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_6)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_6)
+	lu52i.d	$a0, $s4, -1025
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa1, $fs2, $fa1
 	fcvt.s.d	$fs0, $fa1
 	addi.d	$a3, $s2, 8
@@ -385,8 +359,8 @@ RotateConstraint:                       # @RotateConstraint
 	move	$a2, $s3
 	b	.LBB5_16
 .LBB5_15:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_8)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI5_8)
+	lu52i.d	$a0, $s4, -1024
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa1, $fs2, $fa1
 	fcvt.s.d	$fs0, $fa1
 	addi.d	$a3, $s3, 8
@@ -408,7 +382,7 @@ RotateConstraint:                       # @RotateConstraint
 	fcvt.s.d	$fs1, $fa0
 	beqz	$s1, .LBB5_21
 # %bb.17:
-	st.d	$s4, $sp, 8                     # 8-byte Folded Spill
+	move	$s7, $s4
 	move	$s4, $s3
 	ld.w	$s3, $s0, 48
 	ld.w	$s2, $s0, 56
@@ -421,13 +395,16 @@ RotateConstraint:                       # @RotateConstraint
 	pcaddu18i	$ra, %call36(sin)
 	jirl	$ra, $ra, 0
 	fabs.s	$fa1, $fs2
-	pcalau12i	$a0, %pc_hi20(.LCPI5_10)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI5_10)
 	fcvt.d.s	$fa1, $fa1
 	lu12i.w	$a0, 2047
 	ori	$s1, $a0, 4095
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs1, $a0
 	fcmp.clt.d	$fcc0, $fa1, $fs1
-	pcalau12i	$s7, %pc_hi20(.LCPI5_11)
+	lu12i.w	$a3, 307199
 	move	$a0, $s1
 	move	$a1, $s1
 	move	$a2, $s1
@@ -438,10 +415,11 @@ RotateConstraint:                       # @RotateConstraint
 	ffint.s.w	$fa1, $fa1
 	movgr2fr.w	$fa2, $s3
 	ffint.s.w	$fa2, $fa2
-	fld.s	$fa3, $s7, %pc_lo12(.LCPI5_11)
 	fneg.s	$fa2, $fa2
 	fmadd.s	$fa1, $fa2, $fa0, $fa1
 	fdiv.s	$fa1, $fa1, $fs2
+	ori	$a0, $a3, 4094
+	movgr2fr.w	$fa3, $a0
 	fcmp.cle.s	$fcc0, $fa3, $fa1
 	fsel	$fa1, $fa1, $fa3, $fcc0
 	ftintrz.w.s	$fa1, $fa1
@@ -467,6 +445,7 @@ RotateConstraint:                       # @RotateConstraint
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$a2, $fa0
 .LBB5_19:                               # %SemiRotateConstraint.exit70
+	move	$s3, $a3
 	st.w	$a0, $fp, 0
 	st.w	$a1, $fp, 4
 	st.w	$a2, $fp, 8
@@ -492,10 +471,11 @@ RotateConstraint:                       # @RotateConstraint
 	ffint.s.w	$fa1, $fa1
 	movgr2fr.w	$fa2, $s2
 	ffint.s.w	$fa2, $fa2
-	fld.s	$fa3, $s7, %pc_lo12(.LCPI5_11)
 	fneg.s	$fa2, $fa2
 	fmadd.s	$fa1, $fa2, $fa0, $fa1
 	fdiv.s	$fa1, $fa1, $fs2
+	ori	$a0, $s3, 4094
+	movgr2fr.w	$fa3, $a0
 	fcmp.cle.s	$fcc0, $fa3, $fa1
 	fsel	$fa1, $fa1, $fa3, $fcc0
 	ftintrz.w.s	$fa1, $fa1
@@ -512,8 +492,7 @@ RotateConstraint:                       # @RotateConstraint
 	fsel	$fa1, $fa1, $fa3, $fcc0
 	ftintrz.w.s	$fa1, $fa1
 	movfr2gr.s	$a0, $fa1
-	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
-	movgr2fr.w	$fa1, $a1
+	movgr2fr.w	$fa1, $s7
 	ffint.s.w	$fa1, $fa1
 	fmadd.s	$fa0, $fa2, $fa0, $fa1
 	fdiv.s	$fa0, $fa0, $fs2
@@ -529,11 +508,14 @@ RotateConstraint:                       # @RotateConstraint
 	pcaddu18i	$ra, %call36(sin)
 	jirl	$ra, $ra, 0
 	fabs.s	$fa1, $fs3
-	pcalau12i	$a0, %pc_hi20(.LCPI5_10)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI5_10)
 	fcvt.d.s	$fa1, $fa1
 	lu12i.w	$a0, 2047
 	ori	$s1, $a0, 4095
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs2, $a0
 	fcmp.clt.d	$fcc0, $fa1, $fs2
 	move	$a0, $s1
 	move	$a1, $s1
@@ -545,11 +527,12 @@ RotateConstraint:                       # @RotateConstraint
 	ffint.s.w	$fa1, $fa1
 	movgr2fr.w	$fa2, $s2
 	ffint.s.w	$fa2, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI5_11)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI5_11)
 	fneg.s	$fa2, $fa2
 	fmadd.s	$fa1, $fa2, $fa0, $fa1
 	fdiv.s	$fa1, $fa1, $fs3
+	lu12i.w	$a0, 307199
+	ori	$a0, $a0, 4094
+	movgr2fr.w	$fa3, $a0
 	fcmp.cle.s	$fcc0, $fa3, $fa1
 	fsel	$fa1, $fa1, $fa3, $fcc0
 	ftintrz.w.s	$fa1, $fa1
@@ -600,11 +583,12 @@ RotateConstraint:                       # @RotateConstraint
 	ffint.s.w	$fa1, $fa1
 	movgr2fr.w	$fa2, $s2
 	ffint.s.w	$fa2, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI5_11)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI5_11)
 	fneg.s	$fa2, $fa2
 	fmadd.s	$fa1, $fa2, $fa0, $fa1
 	fdiv.s	$fa1, $fa1, $fs1
+	lu12i.w	$a0, 307199
+	ori	$a0, $a0, 4094
+	movgr2fr.w	$fa3, $a0
 	fcmp.cle.s	$fcc0, $fa3, $fa1
 	fsel	$fa1, $fa1, $fa3, $fcc0
 	ftintrz.w.s	$fa1, $fa1
@@ -670,12 +654,7 @@ RotateConstraint:                       # @RotateConstraint
 .Lfunc_end5:
 	.size	RotateConstraint, .Lfunc_end5-RotateConstraint
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function InsertScale
-.LCPI6_0:
-	.word	0x43000000                      # float 128
-	.text
-	.globl	InsertScale
+	.globl	InsertScale                     # -- Begin function InsertScale
 	.p2align	5
 	.type	InsertScale,@function
 InsertScale:                            # @InsertScale
@@ -728,8 +707,8 @@ InsertScale:                            # @InsertScale
 	fcmp.clt.s	$fcc0, $fa0, $fa1
 	fsel	$fa0, $fa1, $fa0, $fcc0
 .LBB6_5:                                # %ScaleToConstraint.exit
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI6_0)
+	lu12i.w	$a0, 274432
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	ftintrz.w.s	$fa0, $fa0
 	movfr2gr.s	$s4, $fa0

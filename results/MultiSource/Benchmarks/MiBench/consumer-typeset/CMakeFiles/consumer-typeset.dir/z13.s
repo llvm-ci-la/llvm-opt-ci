@@ -1,14 +1,6 @@
 	.file	"z13.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function BreakObject
-.LCPI0_0:
-	.word	0x3c000000                      # float 0.0078125
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x3ff199999999999a              # double 1.1000000000000001
 	.text
-	.globl	BreakObject
+	.globl	BreakObject                     # -- Begin function BreakObject
 	.p2align	5
 	.type	BreakObject,@function
 BreakObject:                            # @BreakObject
@@ -204,14 +196,14 @@ BreakObject:                            # @BreakObject
 	ld.bu	$a0, $s0, 32
 	beqz	$a0, .LBB0_27
 # %bb.28:
-	addi.d	$a4, $s0, 32
 	ld.w	$a0, $s0, 64
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI0_0)
+	addi.d	$a4, $s0, 32
 	addi.d	$a5, $fp, 64
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 245760
 	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fmul.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a6, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.6)
@@ -250,14 +242,14 @@ BreakObject:                            # @BreakObject
 	masknez	$a1, $a1, $a0
 	pcalau12i	$a2, %pc_hi20(.L.str.9)
 	addi.d	$a2, $a2, %pc_lo12(.L.str.9)
+	ld.w	$a3, $fp, 64
 	maskeqz	$a0, $a2, $a0
-	ld.w	$a2, $fp, 64
-	pcalau12i	$a3, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI0_0)
 	or	$a5, $a0, $a1
-	movgr2fr.w	$fa1, $a2
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a3
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 245760
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a6, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.8)
@@ -324,12 +316,12 @@ BreakObject:                            # @BreakObject
 	beqz	$a0, .LBB0_41
 # %bb.42:
 	ld.w	$a0, $fp, 64
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a1, %pc_lo12(.LCPI0_0)
 	addi.d	$a4, $fp, 32
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a0, 245760
 	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
-	fmul.s	$fa0, $fa1, $fa0
+	fmul.s	$fa0, $fa0, $fa1
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a6, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.2)
@@ -741,11 +733,14 @@ BreakObject:                            # @BreakObject
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(FontSize)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_1)
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, 104857
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0
 	ld.hu	$a0, $s1, 68
 	movfr2gr.d	$a1, $fa0

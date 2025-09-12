@@ -282,16 +282,7 @@ gs_type1_init:                          # @gs_type1_init
 .Lfunc_end3:
 	.size	gs_type1_init, .Lfunc_end3-gs_type1_init
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_type1_interpret
-.LCPI4_0:
-	.dword	0x3f30000000000000              # double 2.44140625E-4
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI4_1:
-	.word	0x45800000                      # float 4096
-	.text
-	.globl	gs_type1_interpret
+	.globl	gs_type1_interpret              # -- Begin function gs_type1_interpret
 	.p2align	5
 	.type	gs_type1_interpret,@function
 gs_type1_interpret:                     # @gs_type1_interpret
@@ -308,6 +299,7 @@ gs_type1_interpret:                     # @gs_type1_interpret
 	st.d	$s6, $sp, 392                   # 8-byte Folded Spill
 	st.d	$s7, $sp, 384                   # 8-byte Folded Spill
 	st.d	$s8, $sp, 376                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 368                  # 8-byte Folded Spill
 	ld.d	$a2, $a0, 8
 	ld.d	$s6, $a2, 256
 	ld.d	$a3, $a0, 16
@@ -374,6 +366,8 @@ gs_type1_interpret:                     # @gs_type1_interpret
 	lu12i.w	$a0, 1
 	ori	$a0, $a0, 234
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
+	lu12i.w	$a0, 284672
+	movgr2fr.w	$fs0, $a0
 	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
 .LBB4_6:                                # =>This Loop Header: Depth=1
                                         #     Child Loop BB4_9 Depth 2
@@ -1354,16 +1348,14 @@ gs_type1_interpret:                     # @gs_type1_interpret
 	b	.LBB4_14
 .LBB4_118:                              #   in Loop: Header=BB4_14 Depth=2
 	ld.d	$a0, $s6, -8
+	ld.d	$a1, $s6, 0
 	addi.d	$s8, $s6, -8
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $s6, 0
 	ffint.s.l	$fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI4_1)
-	fld.s	$fa1, $a1, %pc_lo12(.LCPI4_1)
-	movgr2fr.d	$fa2, $a0
-	ffint.s.l	$fa2, $fa2
-	fdiv.s	$fa0, $fa0, $fa2
-	fmul.s	$fa0, $fa0, $fa1
+	movgr2fr.d	$fa1, $a1
+	ffint.s.l	$fa1, $fa1
+	fdiv.s	$fa0, $fa0, $fa1
+	fmul.s	$fa0, $fa0, $fs0
 	ftintrz.l.s	$fa0, $fa0
 	fst.d	$fa0, $s6, -8
 	b	.LBB4_14
@@ -1438,6 +1430,7 @@ gs_type1_interpret:                     # @gs_type1_interpret
 .LBB4_129:                              # %.loopexit
 	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
 	addi.w	$a0, $a0, 0
+	fld.d	$fs0, $sp, 368                  # 8-byte Folded Reload
 	ld.d	$s8, $sp, 376                   # 8-byte Folded Reload
 	ld.d	$s7, $sp, 384                   # 8-byte Folded Reload
 	ld.d	$s6, $sp, 392                   # 8-byte Folded Reload
@@ -1463,11 +1456,11 @@ gs_type1_interpret:                     # @gs_type1_interpret
 	beqz	$a0, .LBB4_133
 # %bb.131:
 	ld.d	$a1, $s0, 480
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
 	ld.d	$a0, $s0, 0
 	movgr2fr.d	$fa0, $a1
 	ffint.d.l	$fa0, $fa0
+	lu52i.d	$a1, $zero, 1011
+	movgr2fr.d	$fa1, $a1
 	ld.d	$a1, $s0, 488
 	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
@@ -1609,11 +1602,11 @@ gs_type1_interpret:                     # @gs_type1_interpret
 	fld.s	$fa5, $sp, 172
 .LBB4_145:
 	ld.d	$a1, $s0, 480
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
 	ld.d	$a0, $s0, 0
 	movgr2fr.d	$fa0, $a1
 	ffint.d.l	$fa0, $fa0
+	lu52i.d	$a1, $zero, 1011
+	movgr2fr.d	$fa1, $a1
 	ld.d	$a1, $s0, 488
 	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0

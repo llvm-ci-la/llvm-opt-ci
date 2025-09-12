@@ -3,16 +3,8 @@
 	.globl	_ZSt21ios_base_library_initv
 
                                         # End of file scope inline assembly
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z14MyBusySpinwaitv
-.LCPI0_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
-.LCPI0_1:
-	.dword	0x408f400000000000              # double 1000
-.LCPI0_2:
-	.dword	0x4049000000000000              # double 50
 	.text
-	.hidden	_Z14MyBusySpinwaitv
+	.hidden	_Z14MyBusySpinwaitv             # -- Begin function _Z14MyBusySpinwaitv
 	.globl	_Z14MyBusySpinwaitv
 	.p2align	5
 	.type	_Z14MyBusySpinwaitv,@function
@@ -26,15 +18,21 @@ _Z14MyBusySpinwaitv:                    # @_Z14MyBusySpinwaitv
 	fst.d	$fs3, $sp, 8                    # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(_ZNSt6chrono3_V212steady_clock3nowEv)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
-	fld.d	$fs2, $a1, %pc_lo12(.LCPI0_2)
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
-	fdiv.d	$fs3, $fa0, $fs0
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -144027
+	lu52i.d	$a1, $a1, 1052
+	movgr2fr.d	$fs0, $a1
+	fdiv.d	$fs1, $fa0, $fs0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fs2, $a1
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs3, $a0
 	.p2align	4, , 16
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1
 	pcaddu18i	$ra, %call36(_ZNSt6chrono3_V212steady_clock3nowEv)
@@ -42,9 +40,9 @@ _Z14MyBusySpinwaitv:                    # @_Z14MyBusySpinwaitv
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
 	fdiv.d	$fa0, $fa0, $fs0
-	fsub.d	$fa0, $fa0, $fs3
-	fmul.d	$fa0, $fa0, $fs1
-	fcmp.clt.d	$fcc0, $fa0, $fs2
+	fsub.d	$fa0, $fa0, $fs1
+	fmul.d	$fa0, $fa0, $fs2
+	fcmp.clt.d	$fcc0, $fa0, $fs3
 	bcnez	$fcc0, .LBB0_1
 # %bb.2:
 	fld.d	$fs3, $sp, 8                    # 8-byte Folded Reload
@@ -57,18 +55,7 @@ _Z14MyBusySpinwaitv:                    # @_Z14MyBusySpinwaitv
 .Lfunc_end0:
 	.size	_Z14MyBusySpinwaitv, .Lfunc_end0-_Z14MyBusySpinwaitv
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z13BM_MainThreadRN9benchmark5StateE
-.LCPI1_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
-.LCPI1_1:
-	.dword	0x408f400000000000              # double 1000
-.LCPI1_2:
-	.dword	0x4049000000000000              # double 50
-.LCPI1_3:
-	.dword	0x3fa999999999999a              # double 0.050000000000000003
-	.text
-	.hidden	_Z13BM_MainThreadRN9benchmark5StateE
+	.hidden	_Z13BM_MainThreadRN9benchmark5StateE # -- Begin function _Z13BM_MainThreadRN9benchmark5StateE
 	.globl	_Z13BM_MainThreadRN9benchmark5StateE
 	.p2align	5
 	.type	_Z13BM_MainThreadRN9benchmark5StateE,@function
@@ -107,14 +94,23 @@ _Z13BM_MainThreadRN9benchmark5StateE:   # @_Z13BM_MainThreadRN9benchmark5StateE
 # %bb.1:                                # %_ZN9benchmark5State13StateIteratorC2EPS0_.exit
 	beqz	$s0, .LBB1_7
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI1_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI1_3)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -144027
+	lu52i.d	$a1, $a1, 1052
+	movgr2fr.d	$fs1, $a1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fs2, $a1
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB1_3:                                # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -394,12 +390,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7Counte
 	.size	_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7CounterESt4lessIS5_ESaISt4pairIKS5_S7_EEEixEOS5_, .Lfunc_end2-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7CounterESt4lessIS5_ESaISt4pairIKS5_S7_EEEixEOS5_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z15BM_WorkerThreadRN9benchmark5StateE
-.LCPI3_0:
-	.dword	0x3fa999999999999a              # double 0.050000000000000003
 	.text
-	.hidden	_Z15BM_WorkerThreadRN9benchmark5StateE
+	.hidden	_Z15BM_WorkerThreadRN9benchmark5StateE # -- Begin function _Z15BM_WorkerThreadRN9benchmark5StateE
 	.globl	_Z15BM_WorkerThreadRN9benchmark5StateE
 	.p2align	5
 	.type	_Z15BM_WorkerThreadRN9benchmark5StateE,@function
@@ -440,8 +432,11 @@ _Z15BM_WorkerThreadRN9benchmark5StateE: # @_Z15BM_WorkerThreadRN9benchmark5State
 	addi.d	$s3, $a0, %pc_lo12(_Z14MyBusySpinwaitv)
 	pcalau12i	$a0, %pc_hi20(_ZNSt6thread24_M_thread_deps_never_runEv)
 	addi.d	$s0, $a0, %pc_lo12(_ZNSt6thread24_M_thread_deps_never_runEv)
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB3_3:                                # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
@@ -624,18 +619,8 @@ GCC_except_table3:
 .Lcst_end1:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z28BM_MainThreadAndWorkerThreadRN9benchmark5StateE
-.LCPI4_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
-.LCPI4_1:
-	.dword	0x408f400000000000              # double 1000
-.LCPI4_2:
-	.dword	0x4049000000000000              # double 50
-.LCPI4_3:
-	.dword	0x3fa999999999999a              # double 0.050000000000000003
 	.text
-	.hidden	_Z28BM_MainThreadAndWorkerThreadRN9benchmark5StateE
+	.hidden	_Z28BM_MainThreadAndWorkerThreadRN9benchmark5StateE # -- Begin function _Z28BM_MainThreadAndWorkerThreadRN9benchmark5StateE
 	.globl	_Z28BM_MainThreadAndWorkerThreadRN9benchmark5StateE
 	.p2align	5
 	.type	_Z28BM_MainThreadAndWorkerThreadRN9benchmark5StateE,@function
@@ -684,14 +669,23 @@ _Z28BM_MainThreadAndWorkerThreadRN9benchmark5StateE: # @_Z28BM_MainThreadAndWork
 	addi.d	$s3, $a0, %pc_lo12(_Z14MyBusySpinwaitv)
 	pcalau12i	$a0, %pc_hi20(_ZNSt6thread24_M_thread_deps_never_runEv)
 	addi.d	$s0, $a0, %pc_lo12(_ZNSt6thread24_M_thread_deps_never_runEv)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI4_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI4_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_2)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI4_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_3)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI4_3)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -144027
+	lu52i.d	$a1, $a1, 1052
+	movgr2fr.d	$fs1, $a1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -49152
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fs2, $a1
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs3, $a0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB4_3:                                # %.lr.ph
                                         # =>This Loop Header: Depth=1

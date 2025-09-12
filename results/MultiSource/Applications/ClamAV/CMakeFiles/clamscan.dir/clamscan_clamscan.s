@@ -1,12 +1,6 @@
 	.file	"clamscan_clamscan.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI0_1:
-	.dword	0x3f50000000000000              # double 9.765625E-4
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -419,20 +413,21 @@ main:                                   # @main
 	ld.d	$a0, $s1, 24
 	slli.d	$a0, $a0, 2
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	bstrpick.d	$a0, $a0, 31, 2
 	slli.d	$a0, $a0, 2
 	lu52i.d	$a1, $zero, 1075
-	pcalau12i	$a2, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI0_1)
 	or	$a0, $a0, $a1
-	movgr2fr.d	$fa2, $a0
-	fadd.d	$fa0, $fa2, $fa0
+	movgr2fr.d	$fa1, $a0
+	fadd.d	$fa0, $fa1, $fa0
+	lu52i.d	$a0, $zero, 1013
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.41)

@@ -1,14 +1,6 @@
 	.file	"z01.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.word	0x42f00000                      # float 120
-.LCPI0_1:
-	.word	0x44b40000                      # float 1440
-.LCPI0_2:
-	.word	0x440dc000                      # float 567
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -427,8 +419,7 @@ main:                                   # @main
 	ori	$a0, $zero, 2336
 	add.d	$a0, $sp, $a0
 	fld.s	$fa0, $a0, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, 278748
 	b	.LBB0_177
 .LBB0_34:                               #   in Loop: Header=BB0_10 Depth=1
 	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
@@ -1454,16 +1445,15 @@ main:                                   # @main
 	ori	$a0, $zero, 2336
 	add.d	$a0, $sp, $a0
 	fld.s	$fa0, $a0, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 274176
 	b	.LBB0_177
 .LBB0_176:                              #   in Loop: Header=BB0_10 Depth=1
 	ori	$a0, $zero, 2336
 	add.d	$a0, $sp, $a0
 	fld.s	$fa0, $a0, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, 281408
 .LBB0_177:                              #   in Loop: Header=BB0_10 Depth=1
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	b	.LBB0_179
 .LBB0_178:                              #   in Loop: Header=BB0_10 Depth=1
@@ -1490,20 +1480,18 @@ main:                                   # @main
 	jr	$a0
 .LBB0_181:                              #   in Loop: Header=BB0_10 Depth=1
 	fld.s	$fa0, $sp, 276
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, 278748
 	b	.LBB0_184
 .LBB0_182:                              #   in Loop: Header=BB0_10 Depth=1
 	fld.s	$fa0, $sp, 276
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 274176
 	b	.LBB0_184
 .LBB0_183:                              #   in Loop: Header=BB0_10 Depth=1
 	fld.s	$fa0, $sp, 276
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, 281408
 .LBB0_184:                              # %GetArg.exit205
                                         #   in Loop: Header=BB0_10 Depth=1
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fa0, $fa0, $fa1
 	b	.LBB0_186
 .LBB0_185:                              #   in Loop: Header=BB0_10 Depth=1

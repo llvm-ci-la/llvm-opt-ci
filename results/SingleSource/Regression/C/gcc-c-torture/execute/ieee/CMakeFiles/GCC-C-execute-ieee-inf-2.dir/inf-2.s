@@ -1,23 +1,17 @@
 	.file	"inf-2.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function test
-.LCPI0_0:
-	.dword	0x7ff0000000000000              # double +Inf
-.LCPI0_1:
-	.dword	0xfff0000000000000              # double -Inf
 	.text
-	.globl	test
+	.globl	test                            # -- Begin function test
 	.p2align	5
 	.type	test,@function
 test:                                   # @test
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a0, $zero, 2047
+	movgr2fr.d	$fa2, $a0
 	fcmp.cune.d	$fcc0, $fa0, $fa2
 	bceqz	$fcc0, .LBB0_5
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_1)
+	lu52i.d	$a0, $zero, -1
+	movgr2fr.d	$fa2, $a0
 	fcmp.cune.d	$fcc0, $fa0, $fa2
 	bceqz	$fcc0, .LBB0_5
 # %bb.2:
@@ -38,25 +32,19 @@ test:                                   # @test
 .Lfunc_end0:
 	.size	test, .Lfunc_end0-test
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function testf
-.LCPI1_0:
-	.word	0x7f800000                      # float +Inf
-.LCPI1_1:
-	.word	0xff800000                      # float -Inf
-	.text
-	.globl	testf
+	.globl	testf                           # -- Begin function testf
 	.p2align	5
 	.type	testf,@function
 testf:                                  # @testf
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, 522240
+	movgr2fr.w	$fa2, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa2
 	bceqz	$fcc0, .LBB1_5
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI1_1)
+	lu12i.w	$a0, -2048
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa2, $a0
 	fcmp.cune.s	$fcc0, $fa0, $fa2
 	bceqz	$fcc0, .LBB1_5
 # %bb.2:

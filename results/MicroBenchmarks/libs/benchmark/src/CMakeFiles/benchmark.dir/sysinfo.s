@@ -110,17 +110,9 @@ GCC_except_table0:
 .Lcst_end0:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark7CPUInfoC2Ev
-.LCPI1_0:
-	.dword	0x41cdcd6500000000              # double 1.0E+9
-.LCPI1_2:
-	.dword	0x412e848000000000              # double 1.0E+6
-.LCPI1_3:
-	.dword	0x408f400000000000              # double 1000
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI1_1:
+	.p2align	4, 0x0                          # -- Begin function _ZN9benchmark7CPUInfoC2Ev
+.LCPI1_0:
 	.dword	8                               # 0x8
 	.dword	8318264430494707554             # 0x7370696d6f676f62
 	.text
@@ -827,11 +819,13 @@ _ZN9benchmark7CPUInfoC2Ev:              # @_ZN9benchmark7CPUInfoC2Ev
 	beqz	$fp, .LBB1_99
 # %bb.98:
 	ld.d	$a0, $sp, 920
-	pcalau12i	$a1, %pc_hi20(.LCPI1_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI1_3)
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a0, $a0, 1032
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	b	.LBB1_180
 .LBB1_99:
 	pcalau12i	$a0, %pc_hi20(.L.str.1)
@@ -855,11 +849,13 @@ _ZN9benchmark7CPUInfoC2Ev:              # @_ZN9benchmark7CPUInfoC2Ev
 	pcalau12i	$a0, %pc_hi20(.L.str.20)
 	addi.d	$s8, $a0, %pc_lo12(.L.str.20)
 	ori	$s7, $zero, 6
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI1_2)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	movgr2fr.d	$fs1, $a0
 	movgr2fr.d	$fs0, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	vld	$vr0, $a0, %pc_lo12(.LCPI1_1)
+	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI1_0)
 	vst	$vr0, $sp, 80                   # 16-byte Folded Spill
                                         # implicit-def: $f0_64
 	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
@@ -2316,10 +2312,12 @@ _ZN9benchmark7CPUInfoC2Ev:              # @_ZN9benchmark7CPUInfoC2Ev
 .LBB1_322:
 	pcaddu18i	$ra, %call36(_ZNSt6chrono3_V212steady_clock3nowEv)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI1_0)
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -144027
+	lu52i.d	$a0, $a0, 1052
+	movgr2fr.d	$fs1, $a0
 	fdiv.d	$fs0, $fa0, $fs1
 	addi.d	$a0, $sp, 144
 	move	$a1, $zero
@@ -2417,7 +2415,11 @@ _ZN9benchmark7CPUInfoC2Ev:              # @_ZN9benchmark7CPUInfoC2Ev
 	mul.d	$a0, $s5, $s2
 	movgr2fr.d	$fa0, $s1
 	ffint.d.l	$fa0, $fa0
-	fdiv.d	$fa0, $fa0, $fs1
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -144027
+	lu52i.d	$a1, $a1, 1052
+	movgr2fr.d	$fa1, $a1
+	fdiv.d	$fa0, $fa0, $fa1
 	sub.d	$a1, $s4, $fp
 	add.d	$a0, $a1, $a0
 	movgr2fr.d	$fa1, $a0

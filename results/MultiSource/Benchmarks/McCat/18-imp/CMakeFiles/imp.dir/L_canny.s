@@ -170,12 +170,7 @@ L_canny:                                # @L_canny
 .Lfunc_end0:
 	.size	L_canny, .Lfunc_end0-L_canny
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function GaussianMask
-.LCPI1_0:
-	.dword	0x3ff6a09e667f3bcd              # double 1.4142135623730951
-	.text
-	.globl	GaussianMask
+	.globl	GaussianMask                    # -- Begin function GaussianMask
 	.p2align	5
 	.type	GaussianMask,@function
 GaussianMask:                           # @GaussianMask
@@ -240,10 +235,13 @@ GaussianMask:                           # @GaussianMask
 	addi.d	$sp, $sp, 96
 	ret
 .LBB1_5:                                # %.lr.ph
-	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI1_0)
-	fcvt.d.s	$fa1, $fs0
-	fmul.d	$fs1, $fa1, $fa0
+	fcvt.d.s	$fa0, $fs0
+	lu12i.w	$a2, 419827
+	ori	$a2, $a2, 3021
+	lu32i.d	$a2, 434334
+	lu52i.d	$a2, $a2, 1023
+	movgr2fr.d	$fa1, $a2
+	fmul.d	$fs1, $fa0, $fa1
 	vldi	$vr1, -928
 	move	$s4, $s1
 	b	.LBB1_8
@@ -303,14 +301,7 @@ GaussianMask:                           # @GaussianMask
 .Lfunc_end1:
 	.size	GaussianMask, .Lfunc_end1-GaussianMask
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DGaussianMask
-.LCPI2_0:
-	.dword	0x4026a09e667f3bcd              # double 11.313708498984761
-.LCPI2_1:
-	.dword	0x40040d931ff62705              # double 2.5066282746310002
-	.text
-	.globl	DGaussianMask
+	.globl	DGaussianMask                   # -- Begin function DGaussianMask
 	.p2align	5
 	.type	DGaussianMask,@function
 DGaussianMask:                          # @DGaussianMask
@@ -329,14 +320,17 @@ DGaussianMask:                          # @DGaussianMask
 	fst.d	$fs3, $sp, 24                   # 8-byte Folded Spill
 	fst.d	$fs4, $sp, 16                   # 8-byte Folded Spill
 	fst.d	$fs5, $sp, 8                    # 8-byte Folded Spill
-	pcalau12i	$a3, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI2_0)
 	move	$s3, $a2
 	move	$fp, $a1
 	move	$s0, $a0
 	fcvt.s.d	$fa0, $fa0
 	fcvt.d.s	$fs0, $fa0
-	fmul.d	$fa0, $fs0, $fa1
+	lu12i.w	$a0, 419827
+	ori	$a0, $a0, 3021
+	lu32i.d	$a0, 434334
+	lu52i.d	$a0, $a0, 1026
+	movgr2fr.d	$fa0, $a0
+	fmul.d	$fa0, $fs0, $fa0
 	ftintrz.l.d	$fa0, $fa0
 	movfr2gr.d	$a0, $fa0
 	ori	$s2, $a0, 1
@@ -383,10 +377,13 @@ DGaussianMask:                          # @DGaussianMask
 	addi.d	$sp, $sp, 112
 	ret
 .LBB2_5:                                # %.lr.ph
-	pcalau12i	$a2, %pc_hi20(.LCPI2_1)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI2_1)
-	fadd.d	$fa1, $fs0, $fs0
-	fmul.d	$fs1, $fa1, $fs0
+	fadd.d	$fa0, $fs0, $fs0
+	fmul.d	$fs1, $fa0, $fs0
+	lu12i.w	$a2, 130914
+	ori	$a2, $a2, 1797
+	lu32i.d	$a2, 265619
+	lu52i.d	$a2, $a2, 1024
+	movgr2fr.d	$fa0, $a2
 	fmul.d	$fs2, $fs0, $fa0
 	vldi	$vr0, -784
 	fdiv.d	$fa0, $fa0, $fs2
@@ -686,20 +683,7 @@ dfilter:                                # @dfilter
 .Lfunc_end3:
 	.size	dfilter, .Lfunc_end3-dfilter
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function dnon_max
-.LCPI4_0:
-	.dword	0x3e45798ee2308c3a              # double 1.0E-8
-.LCPI4_1:
-	.dword	0x3fd999999999999a              # double 0.40000000000000002
-.LCPI4_2:
-	.dword	0xbfd999999999999a              # double -0.40000000000000002
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI4_3:
-	.word	0x437f0000                      # float 255
-	.text
-	.globl	dnon_max
+	.globl	dnon_max                        # -- Begin function dnon_max
 	.p2align	5
 	.type	dnon_max,@function
 dnon_max:                               # @dnon_max
@@ -738,17 +722,23 @@ dnon_max:                               # @dnon_max
 	add.d	$a6, $s1, $t0
 	alsl.d	$a7, $s0, $fp, 3
 	add.d	$t0, $a0, $t0
-	pcalau12i	$t1, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $t1, %pc_lo12(.LCPI4_0)
-	pcalau12i	$t1, %pc_hi20(.LCPI4_1)
-	fld.d	$fa1, $t1, %pc_lo12(.LCPI4_1)
-	pcalau12i	$t1, %pc_hi20(.LCPI4_2)
-	fld.d	$fa2, $t1, %pc_lo12(.LCPI4_2)
-	pcalau12i	$t1, %pc_hi20(.LCPI4_3)
-	fld.s	$fa3, $t1, %pc_lo12(.LCPI4_3)
 	ori	$t1, $zero, 1
-	movgr2fr.w	$fa4, $zero
-	vldi	$vr5, -912
+	lu12i.w	$t2, -122104
+	ori	$t2, $t2, 3130
+	lu32i.d	$t2, 358798
+	lu52i.d	$t2, $t2, 996
+	movgr2fr.d	$fa0, $t2
+	movgr2fr.w	$fa1, $zero
+	lu12i.w	$t2, -419431
+	ori	$t2, $t2, 2458
+	lu32i.d	$t2, -419431
+	lu52i.d	$t3, $t2, 1021
+	movgr2fr.d	$fa2, $t3
+	vldi	$vr3, -912
+	lu52i.d	$t2, $t2, -1027
+	movgr2fr.d	$fa4, $t2
+	lu12i.w	$t2, 276464
+	movgr2fr.w	$fa5, $t2
 	b	.LBB4_4
 	.p2align	4, , 16
 .LBB4_3:                                # %._crit_edge.us
@@ -784,11 +774,11 @@ dnon_max:                               # @dnon_max
 # %bb.8:                                #   in Loop: Header=BB4_7 Depth=2
 	fldx.s	$fa7, $a6, $t2
 	fdiv.s	$fa6, $fa7, $fa6
-	fcmp.cult.s	$fcc0, $fa6, $fa4
+	fcmp.cult.s	$fcc0, $fa6, $fa1
 	fcvt.d.s	$fa7, $fa6
 	bcnez	$fcc0, .LBB4_12
 # %bb.9:                                #   in Loop: Header=BB4_7 Depth=2
-	fcmp.clt.d	$fcc0, $fa7, $fa1
+	fcmp.clt.d	$fcc0, $fa7, $fa2
 	bceqz	$fcc0, .LBB4_12
 # %bb.10:                               #   in Loop: Header=BB4_7 Depth=2
 	add.d	$t4, $a7, $t2
@@ -796,7 +786,7 @@ dnon_max:                               # @dnon_max
 	fld.s	$ft1, $t4, 4
 	fmul.s	$ft0, $fa6, $ft0
 	fcvt.d.s	$ft0, $ft0
-	fsub.d	$fa7, $fa5, $fa7
+	fsub.d	$fa7, $fa3, $fa7
 	fcvt.d.s	$ft1, $ft1
 	fldx.s	$ft2, $fp, $t2
 	fmadd.d	$ft0, $fa7, $ft1, $ft0
@@ -814,12 +804,12 @@ dnon_max:                               # @dnon_max
 	b	.LBB4_16
 	.p2align	4, , 16
 .LBB4_12:                               #   in Loop: Header=BB4_7 Depth=2
-	fcmp.cult.s	$fcc0, $fa4, $fa6
-	fmov.s	$ft0, $fa4
+	fcmp.cult.s	$fcc0, $fa1, $fa6
+	fmov.s	$ft0, $fa1
 	bcnez	$fcc0, .LBB4_5
 # %bb.13:                               #   in Loop: Header=BB4_7 Depth=2
-	fcmp.cule.d	$fcc0, $fa7, $fa2
-	fmov.s	$ft0, $fa4
+	fcmp.cule.d	$fcc0, $fa7, $fa4
+	fmov.s	$ft0, $fa1
 	bcnez	$fcc0, .LBB4_5
 # %bb.14:                               #   in Loop: Header=BB4_7 Depth=2
 	fldx.s	$ft0, $a7, $t2
@@ -830,7 +820,7 @@ dnon_max:                               # @dnon_max
 	fld.s	$ft1, $t4, 4
 	add.d	$t4, $fp, $t2
 	fld.s	$ft2, $t4, 8
-	fadd.d	$fa7, $fa7, $fa5
+	fadd.d	$fa7, $fa7, $fa3
 	fcvt.d.s	$ft1, $ft1
 	fmadd.d	$ft0, $fa7, $ft1, $ft0
 	fneg.s	$ft1, $ft2
@@ -853,7 +843,7 @@ dnon_max:                               # @dnon_max
 	fcvt.d.s	$fa6, $fa7
 	fadd.d	$fa6, $fa6, $fa0
 	fcmp.cule.d	$fcc0, $ft0, $fa6
-	fmov.s	$ft0, $fa3
+	fmov.s	$ft0, $fa5
 	bceqz	$fcc0, .LBB4_5
 	b	.LBB4_6
 .LBB4_18:                               # %._crit_edge104

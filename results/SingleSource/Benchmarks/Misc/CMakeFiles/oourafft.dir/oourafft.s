@@ -4,18 +4,6 @@
 .LCPI0_0:
 	.dword	0x3ff0000000000000              # double 1
 	.dword	0x0000000000000000              # double 0
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x3f6921fb54442d18              # double 0.0030679615757712823
-.LCPI0_2:
-	.dword	0x3ed02e85c0898b71              # double 3.8580246913580248E-6
-.LCPI0_3:
-	.dword	0xbf50000000000000              # double -9.765625E-4
-.LCPI0_4:
-	.dword	0x3ddb7cdfd9d7bdbb              # double 1.0E-10
-.LCPI0_5:
-	.dword	0x3e112e0be826d695              # double 1.0000000000000001E-9
 	.text
 	.globl	main
 	.p2align	5
@@ -68,10 +56,13 @@ main:                                   # @main
 	vstx	$vr0, $s0, $a0
 	addi.d	$a0, $s0, 2047
 	addi.d	$s2, $a0, 2041
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI0_1)
 	addi.d	$s3, $s0, 24
 	ori	$s4, $zero, 2
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1014
+	movgr2fr.d	$fs2, $a0
 	ori	$s5, $zero, 254
 	.p2align	4, , 16
 .LBB0_1:                                # %.lr.ph.i
@@ -126,10 +117,13 @@ main:                                   # @main
 	ori	$s6, $a2, 1525
 	lu12i.w	$a2, 8285
 	ori	$s7, $a2, 185
-	pcalau12i	$a2, %pc_hi20(.LCPI0_2)
-	fld.d	$fs0, $a2, %pc_lo12(.LCPI0_2)
 	lu12i.w	$a2, 63
 	ori	$s8, $a2, 1152
+	lu12i.w	$a2, -259944
+	ori	$a2, $a2, 2929
+	lu32i.d	$a2, 11909
+	lu52i.d	$a2, $a2, 1005
+	movgr2fr.d	$fs0, $a2
 	ori	$a2, $zero, 2048
 	move	$a3, $s3
 	.p2align	4, , 16
@@ -170,11 +164,11 @@ main:                                   # @main
 	move	$a4, $s0
 	pcaddu18i	$ra, %call36(cdft)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_3)
 	move	$a2, $zero
 	movgr2fr.d	$fa0, $zero
 	ori	$a0, $zero, 1
+	lu52i.d	$a1, $zero, -1035
+	movgr2fr.d	$fa1, $a1
 	move	$a1, $s3
 	.p2align	4, , 16
 .LBB0_5:                                # =>This Inner Loop Header: Depth=1
@@ -199,8 +193,11 @@ main:                                   # @main
 	addi.d	$a1, $a1, 8
 	bne	$a3, $s4, .LBB0_5
 # %bb.6:                                # %errorcheck.exit
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_4)
+	lu12i.w	$a0, -156293
+	ori	$a0, $a0, 3515
+	lu32i.d	$a0, -295713
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fa1, $a0
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB0_20
 # %bb.7:
@@ -352,9 +349,12 @@ main:                                   # @main
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(gettimeofday)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_5)
 	lu12i.w	$s2, -4
+	lu12i.w	$a0, -97683
+	ori	$a0, $a0, 1685
+	lu32i.d	$a0, 77323
+	lu52i.d	$a0, $a0, 993
+	movgr2fr.d	$fs0, $a0
 	movgr2fr.d	$fs1, $zero
 	pcalau12i	$a0, %pc_hi20(.L.str.1)
 	addi.d	$s5, $a0, %pc_lo12(.L.str.1)
@@ -420,12 +420,7 @@ main:                                   # @main
 .Lfunc_end0:
 	.size	main, .Lfunc_end0-main
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function get_time
-.LCPI1_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	get_time
+	.globl	get_time                        # -- Begin function get_time
 	.p2align	5
 	.type	get_time,@function
 get_time:                               # @get_time
@@ -437,27 +432,26 @@ get_time:                               # @get_time
 	pcaddu18i	$ra, %call36(gettimeofday)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 8
+	ld.d	$a1, $sp, 16
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $sp, 16
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_0)
 	ffint.d.l	$fa0, $fa0
+	movgr2fr.d	$fa1, $a1
+	ffint.d.l	$fa1, $fa1
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
 	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fmadd.d	$fa0, $fa2, $fa1, $fa0
+	fmadd.d	$fa0, $fa1, $fa2, $fa0
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32
 	ret
 .Lfunc_end1:
 	.size	get_time, .Lfunc_end1-get_time
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function makewt
-.LCPI2_0:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI2_1:
+	.p2align	4, 0x0                          # -- Begin function makewt
+.LCPI2_0:
 	.dword	0x3ff0000000000000              # double 1
 	.dword	0x0000000000000000              # double 0
 	.text
@@ -486,15 +480,18 @@ makewt:                                 # @makewt
 	move	$s0, $a1
 	move	$s1, $a0
 	bstrpick.d	$s2, $a0, 31, 1
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI2_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	vld	$vr1, $a0, %pc_lo12(.LCPI2_1)
-	movgr2fr.d	$fa2, $s2
-	ffint.d.l	$fa2, $fa2
-	fdiv.d	$fs2, $fa0, $fa2
+	movgr2fr.d	$fa0, $s2
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
+	vld	$vr1, $a1, %pc_lo12(.LCPI2_0)
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa2, $a0
+	fdiv.d	$fs2, $fa2, $fa0
 	vst	$vr1, $a2, 0
-	fmul.d	$fa0, $fs2, $fa2
+	fmul.d	$fa0, $fs2, $fa0
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	alsl.d	$a0, $s2, $fp, 3
@@ -570,12 +567,7 @@ makewt:                                 # @makewt
 .Lfunc_end2:
 	.size	makewt, .Lfunc_end2-makewt
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function putdata
-.LCPI3_0:
-	.dword	0x3ed02e85c0898b71              # double 3.8580246913580248E-6
-	.text
-	.globl	putdata
+	.globl	putdata                         # -- Begin function putdata
 	.p2align	5
 	.type	putdata,@function
 putdata:                                # @putdata
@@ -591,9 +583,12 @@ putdata:                                # @putdata
 	lu12i.w	$a4, 13
 	ori	$a4, $a4, 1525
 	lu12i.w	$a5, 8285
-	pcalau12i	$a6, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a6, %pc_lo12(.LCPI3_0)
 	ori	$a5, $a5, 185
+	lu12i.w	$a6, -259944
+	ori	$a6, $a6, 2929
+	lu32i.d	$a6, 11909
+	lu52i.d	$a6, $a6, 1005
+	movgr2fr.d	$fa0, $a6
 	lu12i.w	$a6, 63
 	ori	$a6, $a6, 1152
 	.p2align	4, , 16
@@ -1048,12 +1043,7 @@ cdft:                                   # @cdft
 .Lfunc_end4:
 	.size	cdft, .Lfunc_end4-cdft
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function errorcheck
-.LCPI5_0:
-	.dword	0x3ed02e85c0898b71              # double 3.8580246913580248E-6
-	.text
-	.globl	errorcheck
+	.globl	errorcheck                      # -- Begin function errorcheck
 	.p2align	5
 	.type	errorcheck,@function
 errorcheck:                             # @errorcheck
@@ -1074,9 +1064,12 @@ errorcheck:                             # @errorcheck
 	lu12i.w	$a4, 13
 	ori	$a4, $a4, 1525
 	lu12i.w	$a5, 8285
-	pcalau12i	$a6, %pc_hi20(.LCPI5_0)
-	fld.d	$fa2, $a6, %pc_lo12(.LCPI5_0)
 	ori	$a5, $a5, 185
+	lu12i.w	$a6, -259944
+	ori	$a6, $a6, 2929
+	lu32i.d	$a6, 11909
+	lu52i.d	$a6, $a6, 1005
+	movgr2fr.d	$fa2, $a6
 	lu12i.w	$a6, 63
 	ori	$a6, $a6, 1152
 	.p2align	4, , 16

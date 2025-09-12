@@ -178,14 +178,7 @@ generate_n_windows:                     # @generate_n_windows
 .Lfunc_end1:
 	.size	generate_n_windows, .Lfunc_end1-generate_n_windows
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function generate_poles
-.LCPI2_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
-.LCPI2_1:
-	.dword	0x4063100000000000              # double 152.5
-	.text
-	.globl	generate_poles
+	.globl	generate_poles                  # -- Begin function generate_poles
 	.p2align	5
 	.type	generate_poles,@function
 generate_poles:                         # @generate_poles
@@ -239,15 +232,15 @@ generate_poles:                         # @generate_poles
 	bnez	$a2, .LBB2_2
 # %bb.3:                                # %.preheader.lr.ph
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs0, $a0
 	movgr2fr.d	$fs1, $zero
 	ori	$a0, $zero, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI2_1)
-	fld.d	$fs2, $a1, %pc_lo12(.LCPI2_1)
 	lu32i.d	$a0, 200704
 	lu52i.d	$a0, $a0, 1030
 	vreplgr2vr.d	$vr0, $a0
+	movgr2fr.d	$fs2, $a0
 	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
 	b	.LBB2_5
 	.p2align	4, , 16
@@ -367,12 +360,7 @@ generate_poles:                         # @generate_poles
 .Lfunc_end2:
 	.size	generate_poles, .Lfunc_end2-generate_poles
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function generate_window_params
-.LCPI3_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
-	.text
-	.globl	generate_window_params
+	.globl	generate_window_params          # -- Begin function generate_window_params
 	.p2align	5
 	.type	generate_window_params,@function
 generate_window_params:                 # @generate_window_params
@@ -423,9 +411,10 @@ generate_window_params:                 # @generate_window_params
 	addi.d	$a3, $a3, 8
 	bnez	$a2, .LBB3_2
 # %bb.3:                                # %.lr.ph61.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI3_0)
 	move	$s3, $zero
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs0, $a0
 	b	.LBB3_5
 	.p2align	4, , 16
 .LBB3_4:                                # %._crit_edge
@@ -514,10 +503,6 @@ generate_window_params:                 # @generate_window_params
 .LCPI4_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI4_1:
-	.dword	0x41dfffffffc00000              # double 2147483647
 	.text
 	.globl	generate_pseudo_K0RS
 	.p2align	5
@@ -596,9 +581,10 @@ generate_pseudo_K0RS:                   # @generate_pseudo_K0RS
 .LBB4_8:                                # %.preheader.lr.ph
 	blez	$s1, .LBB4_15
 # %bb.9:                                # %.preheader.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI4_1)
 	move	$s3, $zero
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs0, $a0
 	b	.LBB4_11
 	.p2align	4, , 16
 .LBB4_10:                               # %._crit_edge

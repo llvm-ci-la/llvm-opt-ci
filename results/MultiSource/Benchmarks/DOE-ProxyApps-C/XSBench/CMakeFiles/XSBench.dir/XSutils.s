@@ -161,12 +161,7 @@ binary_search:                          # @binary_search
 .Lfunc_end3:
 	.size	binary_search, .Lfunc_end3-binary_search
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function rn
-.LCPI4_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
-	.text
-	.globl	rn
+	.globl	rn                              # -- Begin function rn
 	.p2align	5
 	.type	rn,@function
 rn:                                     # @rn
@@ -184,23 +179,19 @@ rn:                                     # @rn
 	srli.d	$a2, $a2, 30
 	slli.d	$a3, $a2, 31
 	sub.d	$a2, $a2, $a3
-	pcalau12i	$a3, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI4_0)
 	add.d	$a1, $a1, $a2
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a2, -1024
+	lu52i.d	$a2, $a2, 1053
+	movgr2fr.d	$fa1, $a2
+	fdiv.d	$fa0, $fa0, $fa1
 	st.d	$a1, $a0, 0
 	ret
 .Lfunc_end4:
 	.size	rn, .Lfunc_end4-rn
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function rn_v
-.LCPI5_0:
-	.dword	0x41dfffffffc00000              # double 2147483647
-	.text
-	.globl	rn_v
+	.globl	rn_v                            # -- Begin function rn_v
 	.p2align	5
 	.type	rn_v,@function
 rn_v:                                   # @rn_v
@@ -219,12 +210,13 @@ rn_v:                                   # @rn_v
 	srli.d	$a2, $a2, 30
 	slli.d	$a3, $a2, 31
 	sub.d	$a2, $a2, $a3
-	pcalau12i	$a3, %pc_hi20(.LCPI5_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI5_0)
 	add.d	$a1, $a1, $a2
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a2, -1024
+	lu52i.d	$a2, $a2, 1053
+	movgr2fr.d	$fa1, $a2
+	fdiv.d	$fa0, $fa0, $fa1
 	st.d	$a1, $a0, %pc_lo12(rn_v.seed)
 	ret
 .Lfunc_end5:

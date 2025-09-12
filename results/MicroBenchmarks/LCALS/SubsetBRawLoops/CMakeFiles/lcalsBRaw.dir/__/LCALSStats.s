@@ -868,12 +868,7 @@ _Z19getLoopSuiteRunInfov:               # @_Z19getLoopSuiteRunInfov
 .Lfunc_end1:
 	.size	_Z19getLoopSuiteRunInfov, .Lfunc_end1-_Z19getLoopSuiteRunInfov
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z24allocateLoopSuiteRunInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjjPbm
-.LCPI2_0:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-	.text
-	.globl	_Z24allocateLoopSuiteRunInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjjPbm
+	.globl	_Z24allocateLoopSuiteRunInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjjPbm # -- Begin function _Z24allocateLoopSuiteRunInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjjPbm
 	.p2align	5
 	.type	_Z24allocateLoopSuiteRunInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjjPbm,@function
 _Z24allocateLoopSuiteRunInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjjPbm: # @_Z24allocateLoopSuiteRunInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjjPbm
@@ -1018,10 +1013,13 @@ _Z24allocateLoopSuiteRunInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 	st.d	$a0, $s4, 560
 	beqz	$a1, .LBB2_15
 # %bb.13:                               # %.lr.ph18.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI2_0)
 	move	$fp, $zero
 	move	$s0, $zero
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fs0, $a0
 	.p2align	4, , 16
 .LBB2_14:                               # %.lr.ph18
                                         # =>This Inner Loop Header: Depth=1

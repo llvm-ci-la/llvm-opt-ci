@@ -1,12 +1,6 @@
 	.file	"timeit.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI0_1:
-	.dword	0x412e848000000000              # double 1.0E+6
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -421,11 +415,14 @@ main:                                   # @main
 	movgr2fr.d	$fa0, $s1
 	ffint.d.l	$fs0, $fa0
 	movgr2fr.d	$fa0, $s0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
+	ffint.d.l	$fs2, $fa0
+	lu12i.w	$a1, -390306
+	ori	$a1, $a1, 3469
+	lu32i.d	$a1, 50935
 	ld.d	$s0, $sp, 128                   # 8-byte Folded Reload
 	ld.w	$a2, $s0, %pc_lo12(g_timeout_in_seconds)
-	fld.d	$fs1, $a1, %pc_lo12(.LCPI0_0)
-	ffint.d.l	$fs2, $fa0
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$fs1, $a1
 	pcalau12i	$fp, %pc_hi20(g_monitored_pid)
 	st.w	$a0, $fp, %pc_lo12(g_monitored_pid)
 	beqz	$a2, .LBB0_61
@@ -480,31 +477,33 @@ main:                                   # @main
 # %bb.66:
 	movgr2fr.d	$fa0, $s0
 	ffint.d.l	$fa0, $fa0
-	ld.d	$a0, $sp, 160
 	movgr2fr.d	$fa1, $fp
+	ld.d	$a0, $sp, 160
 	ffint.d.l	$fa1, $fa1
+	ld.d	$a1, $sp, 168
 	fmadd.d	$fs1, $fa1, $fs1, $fa0
 	movgr2fr.d	$fa0, $a0
-	ld.d	$a0, $sp, 168
 	ffint.d.l	$fs2, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_1)
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -97152
+	lu52i.d	$a0, $a0, 1042
+	ld.d	$a1, $sp, 176
 	movgr2fr.d	$fa1, $a0
-	ld.d	$a0, $sp, 176
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fs3, $fa1, $fa0
-	ld.d	$a1, $sp, 184
-	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs3, $fa0, $fa1
+	ld.d	$a2, $sp, 184
+	movgr2fr.d	$fa0, $a1
 	ld.wu	$a0, $sp, 144
-	ffint.d.l	$fs4, $fa1
-	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
+	ffint.d.l	$fs4, $fa0
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
 	andi	$a3, $a0, 127
 	slli.d	$a1, $a3, 24
 	addu16i.d	$a1, $a1, 256
 	addi.w	$a1, $a1, 0
 	lu12i.w	$a2, 8192
-	fdiv.d	$fs6, $fa1, $fa0
+	fdiv.d	$fs6, $fa0, $fa1
 	bge	$a1, $a2, .LBB0_111
 # %bb.67:
 	ori	$s3, $zero, 66

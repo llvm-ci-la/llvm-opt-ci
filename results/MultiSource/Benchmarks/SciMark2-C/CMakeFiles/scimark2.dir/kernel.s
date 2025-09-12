@@ -1,12 +1,6 @@
 	.file	"kernel.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function kernel_measureFFT
-.LCPI0_0:
-	.dword	0x40c0000000000000              # double 8192
-.LCPI0_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
 	.text
-	.globl	kernel_measureFFT
+	.globl	kernel_measureFFT               # -- Begin function kernel_measureFFT
 	.p2align	5
 	.type	kernel_measureFFT,@function
 kernel_measureFFT:                      # @kernel_measureFFT
@@ -716,15 +710,18 @@ kernel_measureFFT:                      # @kernel_measureFFT
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(FFT_num_flops)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a0, $zero, 1036
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs0, $fa0, $fa1
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(Stopwatch_read)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
 	fdiv.d	$fa0, $fs0, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs0, $fa0, $fa1
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(Stopwatch_delete)
@@ -745,12 +742,7 @@ kernel_measureFFT:                      # @kernel_measureFFT
 .Lfunc_end0:
 	.size	kernel_measureFFT, .Lfunc_end0-kernel_measureFFT
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function kernel_measureSOR
-.LCPI1_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	kernel_measureSOR
+	.globl	kernel_measureSOR               # -- Begin function kernel_measureSOR
 	.p2align	5
 	.type	kernel_measureSOR,@function
 kernel_measureSOR:                      # @kernel_measureSOR
@@ -962,9 +954,12 @@ kernel_measureSOR:                      # @kernel_measureSOR
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(Stopwatch_read)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
 	fdiv.d	$fa0, $fs0, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs0, $fa0, $fa1
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(Stopwatch_delete)
@@ -986,12 +981,7 @@ kernel_measureSOR:                      # @kernel_measureSOR
 .Lfunc_end1:
 	.size	kernel_measureSOR, .Lfunc_end1-kernel_measureSOR
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function kernel_measureMonteCarlo
-.LCPI2_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	kernel_measureMonteCarlo
+	.globl	kernel_measureMonteCarlo        # -- Begin function kernel_measureMonteCarlo
 	.p2align	5
 	.type	kernel_measureMonteCarlo,@function
 kernel_measureMonteCarlo:               # @kernel_measureMonteCarlo
@@ -1135,9 +1125,12 @@ kernel_measureMonteCarlo:               # @kernel_measureMonteCarlo
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(Stopwatch_read)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_0)
 	fdiv.d	$fa0, $fs0, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs0, $fa0, $fa1
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(Stopwatch_delete)
@@ -1158,10 +1151,6 @@ kernel_measureMonteCarlo:               # @kernel_measureMonteCarlo
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI3_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
 	.text
 	.globl	kernel_measureSparseMatMult
 	.p2align	5
@@ -1554,9 +1543,12 @@ kernel_measureSparseMatMult:            # @kernel_measureSparseMatMult
 	move	$a0, $s6
 	pcaddu18i	$ra, %call36(Stopwatch_read)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI3_1)
 	fdiv.d	$fa0, $fs0, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs0, $fa0, $fa1
 	move	$a0, $s6
 	pcaddu18i	$ra, %call36(Stopwatch_delete)
@@ -1593,14 +1585,7 @@ kernel_measureSparseMatMult:            # @kernel_measureSparseMatMult
 .Lfunc_end3:
 	.size	kernel_measureSparseMatMult, .Lfunc_end3-kernel_measureSparseMatMult
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function kernel_measureLU
-.LCPI4_0:
-	.dword	0x40c0000000000000              # double 8192
-.LCPI4_1:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-	.text
-	.globl	kernel_measureLU
+	.globl	kernel_measureLU                # -- Begin function kernel_measureLU
 	.p2align	5
 	.type	kernel_measureLU,@function
 kernel_measureLU:                       # @kernel_measureLU
@@ -2261,15 +2246,18 @@ kernel_measureLU:                       # @kernel_measureLU
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(LU_num_flops)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_0)
+	lu52i.d	$a0, $zero, 1036
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs0, $fa0, $fa1
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(Stopwatch_read)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI4_1)
 	fdiv.d	$fa0, $fs0, $fa0
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fs0, $fa0, $fa1
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(Stopwatch_delete)

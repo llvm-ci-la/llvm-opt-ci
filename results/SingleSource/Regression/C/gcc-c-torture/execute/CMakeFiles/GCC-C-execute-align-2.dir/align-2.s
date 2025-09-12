@@ -1,20 +1,13 @@
 	.file	"align-2.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.word	0x42000000                      # float 32
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x4041000000000000              # double 34
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
 	addi.d	$sp, $sp, -16
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
+	st.d	$fp, $sp, 0                     # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(s_c_s)
 	addi.d	$a0, $a0, %pc_lo12(s_c_s)
 	ld.bu	$a1, $a0, 0
@@ -163,8 +156,8 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(s_f_ld)
 	addi.d	$a1, $a0, %pc_lo12(s_f_ld)
 	fld.s	$fa0, $a1, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 270336
+	movgr2fr.w	$fa1, $a0
 	fcmp.ceq.s	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB0_29
 # %bb.25:
@@ -173,6 +166,7 @@ main:                                   # @main
 	ori	$a2, $zero, 0
 	lu32i.d	$a2, 264192
 	lu52i.d	$a3, $a2, 1024
+	ori	$fp, $zero, 0
 	move	$a2, $zero
 	pcaddu18i	$ra, %call36(__eqtf2)
 	jirl	$ra, $ra, 0
@@ -181,8 +175,9 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(s_d_ld)
 	addi.d	$a1, $a0, %pc_lo12(s_d_ld)
 	fld.d	$fa0, $a1, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
+	lu32i.d	$fp, 65536
+	lu52i.d	$a0, $fp, 1028
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB0_29
 # %bb.27:
@@ -197,6 +192,7 @@ main:                                   # @main
 	bnez	$a0, .LBB0_29
 # %bb.28:
 	move	$a0, $zero
+	ld.d	$fp, $sp, 0                     # 8-byte Folded Reload
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16
 	ret

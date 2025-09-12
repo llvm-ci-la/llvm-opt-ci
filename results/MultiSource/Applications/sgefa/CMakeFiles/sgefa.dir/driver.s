@@ -245,14 +245,6 @@ main:                                   # @main
 	.word	1                               # 0x1
 	.word	2                               # 0x2
 	.word	3                               # 0x3
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI1_1:
-	.dword	0x47d2ced32a16a1b1              # double 9.9999999999999997E+37
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI1_2:
-	.word	0x42c80000                      # float 100
 	.text
 	.globl	matgen
 	.p2align	5
@@ -589,8 +581,8 @@ matgen:                                 # @matgen
 	move	$t2, $zero
 	addi.d	$a1, $s6, -7
 	sltui	$a1, $a1, 1
-	pcalau12i	$a2, %pc_hi20(.LCPI1_2)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI1_2)
+	lu12i.w	$a2, 273536
+	movgr2fr.w	$fa1, $a2
 	vldi	$vr2, -1168
 	movgr2cf	$fcc0, $a1
 	addi.d	$a1, $s6, -8
@@ -1077,11 +1069,10 @@ matgen:                                 # @matgen
 	slli.d	$a3, $a4, 2
 	slli.d	$a4, $a4, 4
 	vreplvei.d	$vr1, $vr0, 0
-	pcalau12i	$a5, %pc_hi20(.LCPI1_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI1_1)
 	pcalau12i	$a5, %pc_hi20(.LCPI1_0)
-	vld	$vr3, $a5, %pc_lo12(.LCPI1_0)
+	vld	$vr2, $a5, %pc_lo12(.LCPI1_0)
 	ori	$a5, $zero, 4
+	movgr2fr.d	$fa3, $s5
 	vrepli.b	$vr4, 0
 	vreplgr2vr.d	$vr5, $s5
 	b	.LBB1_102
@@ -1119,7 +1110,7 @@ matgen:                                 # @matgen
 	vreplgr2vr.w	$vr8, $a6
 	vreplvei.w	$vr9, $vr6, 0
 	move	$t1, $a3
-	vori.b	$vr10, $vr3, 0
+	vori.b	$vr10, $vr2, 0
 	.p2align	4, , 16
 .LBB1_105:                              # %vector.body632
                                         #   Parent Loop BB1_102 Depth=1
@@ -1184,7 +1175,7 @@ matgen:                                 # @matgen
 	ffint.s.l	$fa7, $fa7
 	fdiv.s	$fa7, $fa6, $fa7
 	fcvt.d.s	$fa7, $fa7
-	fmul.d	$fa7, $fa7, $fa2
+	fmul.d	$fa7, $fa7, $fa3
 	fdiv.d	$fa7, $fa7, $fa0
 	fcvt.s.d	$fa7, $fa7
 	fst.s	$fa7, $a7, 0
@@ -1417,17 +1408,16 @@ matgen:                                 # @matgen
 	slli.d	$a3, $a4, 2
 	slli.d	$a4, $a4, 4
 	vreplvei.w	$vr1, $vr0, 0
-	pcalau12i	$a5, %pc_hi20(.LCPI1_1)
-	fld.d	$fa2, $a5, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI1_0)
-	vld	$vr3, $a5, %pc_lo12(.LCPI1_0)
-	lu12i.w	$a5, 172394
-	ori	$a5, $a5, 433
-	lu32i.d	$a5, 184019
-	lu52i.d	$a5, $a5, 1149
-	vreplgr2vr.d	$vr4, $a5
 	ori	$a5, $zero, 4
-	vrepli.b	$vr5, 0
+	pcalau12i	$a6, %pc_hi20(.LCPI1_0)
+	vld	$vr2, $a6, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a6, 172394
+	ori	$a6, $a6, 433
+	lu32i.d	$a6, 184019
+	lu52i.d	$a6, $a6, 1149
+	movgr2fr.d	$fa3, $a6
+	vrepli.b	$vr4, 0
+	vreplgr2vr.d	$vr5, $a6
 	b	.LBB1_139
 .LBB1_138:                              # %._crit_edge461
                                         #   in Loop: Header=BB1_139 Depth=1
@@ -1463,13 +1453,13 @@ matgen:                                 # @matgen
 	vreplgr2vr.w	$vr8, $a6
 	vreplvei.w	$vr9, $vr6, 0
 	move	$t1, $a3
-	vori.b	$vr10, $vr3, 0
+	vori.b	$vr10, $vr2, 0
 	.p2align	4, , 16
 .LBB1_142:                              # %vector.body
                                         #   Parent Loop BB1_139 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vilvh.w	$vr11, $vr5, $vr10
-	vilvl.w	$vr12, $vr5, $vr10
+	vilvh.w	$vr11, $vr4, $vr10
+	vilvl.w	$vr12, $vr4, $vr10
 	vslt.du	$vr12, $vr7, $vr12
 	vslt.du	$vr11, $vr7, $vr11
 	vpickev.w	$vr11, $vr11, $vr12
@@ -1488,8 +1478,8 @@ matgen:                                 # @matgen
 	vreplvei.w	$vr11, $vr11, 2
 	fcvt.d.s	$ft3, $ft3
 	vextrins.d	$vr11, $vr12, 16
-	vfdiv.d	$vr11, $vr11, $vr4
-	vfdiv.d	$vr12, $vr13, $vr4
+	vfdiv.d	$vr11, $vr11, $vr5
+	vfdiv.d	$vr12, $vr13, $vr5
 	vreplvei.d	$vr13, $vr12, 1
 	fcvt.s.d	$ft5, $ft5
 	vreplvei.d	$vr12, $vr12, 0
@@ -1528,7 +1518,7 @@ matgen:                                 # @matgen
 	fdiv.s	$fa7, $fa7, $fa6
 	fmul.s	$fa7, $fa7, $fa0
 	fcvt.d.s	$fa7, $fa7
-	fdiv.d	$fa7, $fa7, $fa2
+	fdiv.d	$fa7, $fa7, $fa3
 	fcvt.s.d	$fa7, $fa7
 	fst.s	$fa7, $a7, 0
 	addi.d	$a7, $a7, 4

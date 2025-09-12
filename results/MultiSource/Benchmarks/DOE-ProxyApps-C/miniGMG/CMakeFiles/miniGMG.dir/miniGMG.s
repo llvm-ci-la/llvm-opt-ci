@@ -1,12 +1,6 @@
 	.file	"miniGMG.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3feccccccccccccd              # double 0.90000000000000002
-.LCPI0_1:
-	.dword	0x3cd203af9ee75616              # double 1.0000000000000001E-15
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -199,8 +193,11 @@ main:                                   # @main
 	ld.d	$a0, $s7, 0
 	pcaddu18i	$ra, %call36(fflush)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, -209716
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, -209716
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs1, $a0
 	addi.d	$a0, $sp, 88
 	move	$a1, $zero
 	fmov.d	$fa0, $fs0
@@ -229,8 +226,11 @@ main:                                   # @main
 	move	$a2, $zero
 	pcaddu18i	$ra, %call36(zero_grid)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, -397707
+	ori	$a0, $a0, 1558
+	lu32i.d	$a0, 132015
+	lu52i.d	$a0, $a0, 973
+	movgr2fr.d	$fs2, $a0
 	addi.d	$a0, $sp, 88
 	ori	$a2, $zero, 1
 	move	$a1, $zero

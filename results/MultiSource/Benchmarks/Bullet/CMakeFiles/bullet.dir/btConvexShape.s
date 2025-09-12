@@ -34,14 +34,8 @@ _ZN13btConvexShapeD0Ev:                 # @_ZN13btConvexShapeD0Ev
 .Lfunc_end2:
 	.size	_ZN13btConvexShapeD0Ev, .Lfunc_end2-_ZN13btConvexShapeD0Ev
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3
-.LCPI3_0:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-.LCPI3_1:
-	.word	0x38d1b717                      # float 9.99999974E-5
 	.text
-	.globl	_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3
+	.globl	_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3 # -- Begin function _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3
 	.p2align	5
 	.type	_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3,@function
 _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: # @_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3
@@ -98,11 +92,11 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 .LBB3_4:
 	fld.s	$fa1, $a1, 0
 	ld.w	$a2, $a0, 64
-	fld.s	$fa3, $a1, 4
-	fld.s	$fa4, $a1, 8
+	fld.s	$fa2, $a1, 4
+	fld.s	$fa3, $a1, 8
 	addi.d	$a3, $a0, 40
 	slli.d	$a1, $a2, 2
-	fldx.s	$fa2, $a3, $a1
+	fldx.s	$fa4, $a3, $a1
 	addi.w	$a2, $a2, 2
 	lu12i.w	$a4, 349525
 	ori	$a4, $a4, 1366
@@ -114,18 +108,19 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 	sub.w	$a2, $a2, $a4
 	slli.d	$a2, $a2, 2
 	fldx.s	$fa7, $a3, $a2
-	pcalau12i	$a2, %pc_hi20(.LCPI3_1)
-	fld.s	$fa0, $a2, %pc_lo12(.LCPI3_1)
-	fmul.s	$fa5, $fa3, $fa3
-	fmadd.s	$fa5, $fa1, $fa1, $fa5
-	fmadd.s	$fa5, $fa4, $fa4, $fa5
+	fmul.s	$fa0, $fa2, $fa2
+	fmadd.s	$fa0, $fa1, $fa1, $fa0
+	fmadd.s	$fa5, $fa3, $fa3, $fa0
+	lu12i.w	$a2, 232731
+	ori	$a2, $a2, 1815
+	movgr2fr.w	$fa0, $a2
 	fcmp.clt.s	$fcc0, $fa5, $fa0
 	movgr2fr.w	$fa0, $zero
 	bceqz	$fcc0, .LBB3_18
 # %bb.5:
 	vldi	$vr1, -1168
+	fmov.s	$fa2, $fa0
 	fmov.s	$fa3, $fa0
-	fmov.s	$fa4, $fa0
 	b	.LBB3_19
 .LBB3_6:
 	vld	$vr0, $a0, 40
@@ -198,15 +193,17 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 # %bb.11:                               # %.lr.ph.preheader.i214
 	fld.s	$fa3, $a1, 0
 	fld.s	$fa4, $a1, 4
-	move	$a0, $zero
+	fld.s	$fa5, $a1, 8
+	move	$a1, $zero
 	fmul.s	$fa3, $fa3, $fa0
-	fld.s	$fa6, $a1, 8
 	fmul.s	$fa4, $fa4, $fa1
-	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
-	fld.s	$fa5, $a1, %pc_lo12(.LCPI3_0)
-	fmul.s	$fa6, $fa6, $fa2
+	fmul.s	$fa5, $fa5, $fa2
 	addi.d	$a4, $a2, 8
-	addi.w	$a1, $zero, -1
+	addi.w	$a0, $zero, -1
+	lu12i.w	$a5, -141856
+	ori	$a5, $a5, 2923
+	lu32i.d	$a5, 0
+	movgr2fr.w	$fa6, $a5
 	.p2align	4, , 16
 .LBB3_12:                               # %.lr.ph.i216
                                         # =>This Inner Loop Header: Depth=1
@@ -215,15 +212,15 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 	fld.s	$ft1, $a4, 0
 	fmul.s	$fa7, $fa4, $fa7
 	fmadd.s	$fa7, $fa3, $ft0, $fa7
-	fmadd.s	$fa7, $fa6, $ft1, $fa7
-	fcmp.clt.s	$fcc0, $fa5, $fa7
-	fsel	$fa5, $fa5, $fa7, $fcc0
+	fmadd.s	$fa7, $fa5, $ft1, $fa7
+	fcmp.clt.s	$fcc0, $fa6, $fa7
+	fsel	$fa6, $fa6, $fa7, $fcc0
 	movcf2gr	$a5, $fcc0
-	masknez	$a1, $a1, $a5
-	maskeqz	$a5, $a0, $a5
-	or	$a1, $a5, $a1
+	masknez	$a0, $a0, $a5
+	maskeqz	$a5, $a1, $a5
+	or	$a0, $a5, $a0
 	addi.d	$a3, $a3, -1
-	addi.w	$a0, $a0, 1
+	addi.w	$a1, $a1, 1
 	addi.d	$a4, $a4, 16
 	bnez	$a3, .LBB3_12
 	b	.LBB3_17
@@ -237,15 +234,17 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 # %bb.14:                               # %.lr.ph.preheader.i
 	fld.s	$fa3, $a1, 0
 	fld.s	$fa4, $a1, 4
-	move	$a0, $zero
+	fld.s	$fa5, $a1, 8
+	move	$a1, $zero
 	fmul.s	$fa3, $fa3, $fa0
-	fld.s	$fa6, $a1, 8
 	fmul.s	$fa4, $fa4, $fa1
-	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
-	fld.s	$fa5, $a1, %pc_lo12(.LCPI3_0)
-	fmul.s	$fa6, $fa6, $fa2
+	fmul.s	$fa5, $fa5, $fa2
 	addi.d	$a4, $a2, 8
-	addi.w	$a1, $zero, -1
+	addi.w	$a0, $zero, -1
+	lu12i.w	$a5, -141856
+	ori	$a5, $a5, 2923
+	lu32i.d	$a5, 0
+	movgr2fr.w	$fa6, $a5
 	.p2align	4, , 16
 .LBB3_15:                               # %.lr.ph.i
                                         # =>This Inner Loop Header: Depth=1
@@ -254,26 +253,26 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 	fld.s	$ft1, $a4, 0
 	fmul.s	$fa7, $fa4, $fa7
 	fmadd.s	$fa7, $fa3, $ft0, $fa7
-	fmadd.s	$fa7, $fa6, $ft1, $fa7
-	fcmp.clt.s	$fcc0, $fa5, $fa7
-	fsel	$fa5, $fa5, $fa7, $fcc0
+	fmadd.s	$fa7, $fa5, $ft1, $fa7
+	fcmp.clt.s	$fcc0, $fa6, $fa7
+	fsel	$fa6, $fa6, $fa7, $fcc0
 	movcf2gr	$a5, $fcc0
-	masknez	$a1, $a1, $a5
-	maskeqz	$a5, $a0, $a5
-	or	$a1, $a5, $a1
+	masknez	$a0, $a0, $a5
+	maskeqz	$a5, $a1, $a5
+	or	$a0, $a5, $a0
 	addi.d	$a3, $a3, -1
-	addi.w	$a0, $a0, 1
+	addi.w	$a1, $a1, 1
 	addi.d	$a4, $a4, 16
 	bnez	$a3, .LBB3_15
 	b	.LBB3_17
 .LBB3_16:
-	addi.w	$a1, $zero, -1
+	addi.w	$a0, $zero, -1
 .LBB3_17:                               # %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit
-	alsl.d	$a0, $a1, $a2, 4
-	slli.d	$a1, $a1, 4
-	fldx.s	$fa3, $a2, $a1
-	fld.s	$fa4, $a0, 4
-	fld.s	$fa5, $a0, 8
+	alsl.d	$a1, $a0, $a2, 4
+	slli.d	$a0, $a0, 4
+	fldx.s	$fa3, $a2, $a0
+	fld.s	$fa4, $a1, 4
+	fld.s	$fa5, $a1, 8
 	move	$a2, $zero
 	fmul.s	$fa0, $fa0, $fa3
 	fmul.s	$fa1, $fa1, $fa4
@@ -282,8 +281,8 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 .LBB3_18:
 	frsqrt.s	$fa5, $fa5
 	fmul.s	$fa1, $fa1, $fa5
+	fmul.s	$fa2, $fa2, $fa5
 	fmul.s	$fa3, $fa3, $fa5
-	fmul.s	$fa4, $fa4, $fa5
 .LBB3_19:
 	vrepli.b	$vr11, 0
 	vst	$vr11, $sp, 24
@@ -291,10 +290,10 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 	fld.s	$fa5, $a0, 24
 	fld.s	$fa6, $a0, 28
 	fld.s	$ft0, $a0, 32
-	fstx.s	$fa2, $a1, $a2
+	fstx.s	$fa4, $a1, $a2
 	fmul.s	$fa5, $fa1, $fa5
-	fmul.s	$fa6, $fa3, $fa6
-	fmul.s	$ft0, $fa4, $ft0
+	fmul.s	$fa6, $fa2, $fa6
+	fmul.s	$ft0, $fa3, $ft0
 	fmul.s	$fa5, $fa7, $fa5
 	fmul.s	$fa6, $fa7, $fa6
 	fmul.s	$fa7, $fa7, $ft0
@@ -306,46 +305,48 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 	fadd.s	$ft6, $fa6, $ft1
 	fadd.s	$ft9, $fa7, $ft2
 	fmul.s	$ft0, $fa1, $ft4
-	fmul.s	$ft1, $fa3, $ft4
-	fmul.s	$ft2, $fa4, $ft4
+	fmul.s	$ft1, $fa2, $ft4
+	fmul.s	$ft2, $fa3, $ft4
 	fsub.s	$ft7, $ft5, $ft0
 	fsub.s	$ft8, $ft6, $ft1
 	fsub.s	$ft9, $ft9, $ft2
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$ft4, $a0, %pc_lo12(.LCPI3_0)
-	fmul.s	$ft5, $fa3, $ft8
-	fmadd.s	$ft5, $fa1, $ft7, $ft5
-	fmadd.s	$ft10, $fa4, $ft9, $ft5
-	fcmp.cule.s	$fcc0, $ft10, $ft4
+	fmul.s	$ft4, $fa2, $ft8
+	fmadd.s	$ft4, $fa1, $ft7, $ft4
+	fmadd.s	$ft10, $fa3, $ft9, $ft4
+	lu12i.w	$a0, -141856
+	ori	$a0, $a0, 2923
+	lu32i.d	$a0, 0
+	movgr2fr.w	$ft6, $a0
+	fcmp.cule.s	$fcc0, $ft10, $ft6
+	fmov.s	$ft4, $fa0
 	fmov.s	$ft5, $fa0
-	fmov.s	$ft6, $fa0
 	bcnez	$fcc0, .LBB3_21
 # %bb.20:
 	fmov.s	$fa0, $ft7
-	fmov.s	$ft5, $ft8
-	fmov.s	$ft6, $ft9
-	fmov.s	$ft4, $ft10
+	fmov.s	$ft4, $ft8
+	fmov.s	$ft5, $ft9
+	fmov.s	$ft6, $ft10
 .LBB3_21:
-	fneg.s	$fa2, $fa2
+	fneg.s	$fa4, $fa4
 	vst	$vr11, $sp, 24
-	fstx.s	$fa2, $a1, $a2
-	fld.s	$fa2, $sp, 24
+	fstx.s	$fa4, $a1, $a2
+	fld.s	$fa4, $sp, 24
 	fld.s	$ft3, $sp, 28
 	fld.s	$ft7, $sp, 32
 	move	$a2, $zero
-	fadd.s	$fa2, $fa5, $fa2
+	fadd.s	$fa4, $fa5, $fa4
 	fadd.s	$fa5, $fa6, $ft3
 	fadd.s	$fa6, $fa7, $ft7
-	fsub.s	$fa2, $fa2, $ft0
+	fsub.s	$fa4, $fa4, $ft0
 	fsub.s	$fa5, $fa5, $ft1
 	fsub.s	$fa6, $fa6, $ft2
-	fmul.s	$fa3, $fa3, $fa5
-	fmadd.s	$fa1, $fa1, $fa2, $fa3
-	fmadd.s	$fa1, $fa4, $fa6, $fa1
-	fcmp.clt.s	$fcc0, $ft4, $fa1
-	fsel	$fa0, $fa0, $fa2, $fcc0
-	fsel	$fa1, $ft5, $fa5, $fcc0
-	fsel	$fa2, $ft6, $fa6, $fcc0
+	fmul.s	$fa2, $fa2, $fa5
+	fmadd.s	$fa1, $fa1, $fa4, $fa2
+	fmadd.s	$fa1, $fa3, $fa6, $fa1
+	fcmp.clt.s	$fcc0, $ft6, $fa1
+	fsel	$fa0, $fa0, $fa4, $fcc0
+	fsel	$fa1, $ft4, $fa5, $fcc0
+	fsel	$fa2, $ft5, $fa6, $fcc0
 	b	.LBB3_29
 .LBB3_22:
 	addi.d	$a6, $sp, 24
@@ -429,12 +430,8 @@ _ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3: 
 	.word	.LBB3_3-.LJTI3_0
 	.word	.LBB3_6-.LJTI3_0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3
-.LCPI4_0:
-	.word	0x28800000                      # float 1.42108547E-14
 	.text
-	.globl	_ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3
+	.globl	_ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3 # -- Begin function _ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3
 	.p2align	5
 	.type	_ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3,@function
 _ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3: # @_ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3
@@ -450,15 +447,15 @@ _ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3: # @_ZNK13btCo
 	.cfi_offset 23, -24
 	vld	$vr0, $a1, 0
 	vst	$vr0, $sp, 8
-	fld.s	$fa2, $sp, 8
 	fld.s	$fa1, $sp, 12
+	fld.s	$fa2, $sp, 8
 	fld.s	$fa0, $sp, 16
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.s	$fa3, $a1, %pc_lo12(.LCPI4_0)
-	fmul.s	$fa4, $fa1, $fa1
-	fmadd.s	$fa4, $fa2, $fa2, $fa4
-	fmadd.s	$fa4, $fa0, $fa0, $fa4
-	fcmp.cule.s	$fcc0, $fa3, $fa4
+	fmul.s	$fa3, $fa1, $fa1
+	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	lu12i.w	$a1, 165888
+	movgr2fr.w	$fa4, $a1
+	fcmp.cule.s	$fcc0, $fa4, $fa3
 	move	$fp, $a0
 	bcnez	$fcc0, .LBB4_2
 # %bb.1:

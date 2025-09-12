@@ -17126,12 +17126,8 @@ _ZN3APM1pEiii:                          # @_ZN3APM1pEiii
 	.size	_ZN3APM1pEiii, .Lfunc_end60-_ZN3APM1pEiii
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z8wavModelR5Mixer
-.LCPI61_0:
-	.dword	0x3fefdf3b645a1cac              # double 0.99599999999999999
 	.text
-	.globl	_Z8wavModelR5Mixer
+	.globl	_Z8wavModelR5Mixer              # -- Begin function _Z8wavModelR5Mixer
 	.p2align	5
 	.type	_Z8wavModelR5Mixer,@function
 _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
@@ -17260,7 +17256,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ori	$a1, $zero, 97
 	bne	$a0, $a1, .LBB61_45
 # %bb.15:                               # %.preheader511
-	st.d	$s0, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
 	ori	$a7, $zero, 32
 	addi.d	$a3, $zero, -32
 	ori	$s8, $zero, 102
@@ -17286,12 +17282,12 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ori	$s5, $zero, 1001
 	ori	$s3, $zero, 32
 	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
-	st.d	$a5, $sp, 184                   # 8-byte Folded Spill
+	st.d	$a5, $sp, 192                   # 8-byte Folded Spill
 	b	.LBB61_18
 .LBB61_16:                              #   in Loop: Header=BB61_18 Depth=1
 	st.w	$a0, $fp, %pc_lo12(_ZZ8wavModelR5MixerE3eof)
 	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$a5, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a5, $sp, 192                   # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB61_17:                              #   in Loop: Header=BB61_18 Depth=1
 	addi.w	$a0, $s3, 1
@@ -17337,7 +17333,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ldx.bu	$a4, $a1, $a4
 	slli.d	$a5, $a5, 8
 	or	$a4, $a5, $a4
-	ld.d	$a5, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a5, $sp, 192                   # 8-byte Folded Reload
 	bstrpick.d	$a4, $a4, 15, 0
 	beq	$a4, $t1, .LBB61_24
 # %bb.23:                               #   in Loop: Header=BB61_18 Depth=1
@@ -17387,8 +17383,8 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	st.d	$t5, $sp, 136                   # 8-byte Folded Spill
 	st.d	$t4, $sp, 144                   # 8-byte Folded Spill
 	st.d	$t3, $sp, 152                   # 8-byte Folded Spill
-	st.d	$t2, $sp, 176                   # 8-byte Folded Spill
-	st.d	$t1, $sp, 192                   # 8-byte Folded Spill
+	st.d	$t2, $sp, 160                   # 8-byte Folded Spill
+	st.d	$t1, $sp, 184                   # 8-byte Folded Spill
 	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
 	ld.bu	$a3, $ra, %pc_lo12(_ZL1D)
 	st.d	$t8, $sp, 128                   # 8-byte Folded Spill
@@ -17402,7 +17398,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 # %bb.28:                               # %.preheader510.preheader
                                         #   in Loop: Header=BB61_18 Depth=1
 	add.d	$a0, $a2, $a0
-	st.d	$s6, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 176                   # 8-byte Folded Spill
 	addi.d	$a0, $a0, 1
 	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
 	slli.d	$s6, $s7, 2
@@ -17421,7 +17417,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	move	$a0, $zero
 	ld.d	$a1, $sp, 112                   # 8-byte Folded Reload
 	bstrpick.d	$a1, $a1, 31, 0
-	ld.d	$s6, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 176                   # 8-byte Folded Reload
 	lu12i.w	$a2, 4
 	ori	$a2, $a2, 3048
 	add.d	$a2, $sp, $a2
@@ -17570,11 +17566,11 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	st.b	$s2, $ra, %pc_lo12(_ZL1D)
 .LBB61_43:                              #   in Loop: Header=BB61_18 Depth=1
 	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$a5, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a5, $sp, 192                   # 8-byte Folded Reload
 	ori	$a7, $zero, 32
 	ori	$t0, $zero, 116
-	ld.d	$t1, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$t2, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$t1, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$t2, $sp, 160                   # 8-byte Folded Reload
 	ld.d	$t3, $sp, 152                   # 8-byte Folded Reload
 	ld.d	$t4, $sp, 144                   # 8-byte Folded Reload
 	ld.d	$t5, $sp, 136                   # 8-byte Folded Reload
@@ -17583,7 +17579,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	b	.LBB61_17
 .LBB61_44:                              # %.loopexit512.loopexit
 	ld.w	$a2, $a5, %pc_lo12(pos)
-	ld.d	$s0, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
 .LBB61_45:                              # %.loopexit512
 	ld.w	$a0, $fp, %pc_lo12(_ZZ8wavModelR5MixerE3eof)
 	bge	$a0, $a2, .LBB61_47
@@ -17594,7 +17590,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	st.w	$zero, $a1, %pc_lo12(_ZZ8wavModelR5MixerE4bits)
 	b	.LBB61_132
 .LBB61_47:
-	st.d	$a5, $sp, 184                   # 8-byte Folded Spill
+	st.d	$a5, $sp, 192                   # 8-byte Folded Spill
 	ld.w	$a1, $s0, %pc_lo12(bpos)
 	pcalau12i	$a3, %pc_hi20(buf)
 	addi.d	$s8, $a3, %pc_lo12(buf)
@@ -17614,7 +17610,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	addi.d	$fp, $a3, %pc_lo12(_ZZ8wavModelR5MixerE4scm8)
 	bnez	$a1, .LBB61_131
 # %bb.48:
-	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$ra, $sp, 112                   # 8-byte Folded Spill
 	pcalau12i	$a1, %pc_hi20(_ZZ8wavModelR5MixerE2cm)
 	addi.d	$t1, $a1, %pc_lo12(_ZZ8wavModelR5MixerE2cm)
 	pcalau12i	$a1, %pc_hi20(_ZZ8wavModelR5MixerE1s)
@@ -17628,16 +17624,16 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	mod.w	$a3, $a0, $a4
 	mod.w	$t8, $a0, $a1
 	div.w	$a0, $t8, $a4
-	st.d	$a0, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 160                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
-	st.d	$t1, $sp, 96                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 120                   # 8-byte Folded Spill
+	st.d	$t1, $sp, 104                   # 8-byte Folded Spill
 	beqz	$a3, .LBB61_54
 # %bb.49:                               # %_Z1ciiiii.exit395
 	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
@@ -17680,7 +17676,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	add.d	$a2, $a2, $t2
 	slli.d	$t2, $t2, 2
 	stx.w	$a2, $a4, $t2
-	ld.d	$t6, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$t6, $sp, 192                   # 8-byte Folded Reload
 	ld.w	$a2, $t6, %pc_lo12(pos)
 	ld.w	$t2, $s8, 0
 	addi.w	$t3, $a2, -1
@@ -17698,8 +17694,8 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	mul.d	$t3, $t3, $t0
 	mul.d	$t4, $t2, $a5
 	lu12i.w	$t5, 17091
-	ori	$s5, $t5, 71
-	mul.d	$a2, $a2, $s5
+	ori	$s4, $t5, 71
+	mul.d	$a2, $a2, $s4
 	lu12i.w	$t5, 26856
 	ori	$t5, $t5, 323
 	mul.d	$t5, $t8, $t5
@@ -17807,9 +17803,9 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	or	$t6, $t6, $fp
 	slli.d	$t6, $t6, 5
 	srli.d	$fp, $s2, 3
-	alsl.d	$s4, $a1, $a1, 2
+	alsl.d	$s5, $a1, $a1, 2
 	alsl.d	$s2, $a1, $s0, 1
-	sub.w	$s3, $t2, $s4
+	sub.w	$s3, $t2, $s5
 	and	$s3, $t5, $s3
 	sub.w	$t2, $t2, $s2
 	and	$t2, $t5, $t2
@@ -17822,8 +17818,8 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	bstrins.d	$t2, $t5, 9, 5
 	mul.d	$t5, $t6, $t0
 	mul.d	$s3, $t2, $a5
-	move	$s1, $s5
-	mul.d	$a2, $t8, $s5
+	move	$s1, $s4
+	mul.d	$a2, $t8, $s4
 	st.d	$a2, $sp, 32                    # 8-byte Folded Spill
 	add.d	$t5, $a2, $t5
 	add.w	$t5, $t5, $s3
@@ -17852,22 +17848,22 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	add.d	$t2, $t2, $t5
 	slli.d	$t5, $t5, 2
 	stx.w	$t2, $a4, $t5
-	ld.w	$s5, $a3, %pc_lo12(pos)
+	ld.w	$s4, $a3, %pc_lo12(pos)
 	ld.w	$t2, $s8, 0
-	sub.w	$t5, $s5, $a1
+	sub.w	$t5, $s4, $a1
 	addi.w	$s7, $t2, -1
 	and	$t2, $s7, $t5
-	sub.w	$t5, $s5, $t4
+	sub.w	$t5, $s4, $t4
 	and	$t5, $s7, $t5
 	ldx.bu	$t5, $a0, $t5
 	ldx.bu	$t2, $a0, $t2
 	srli.d	$t5, $t5, 4
 	srli.d	$t2, $t2, 4
 	bstrins.d	$t5, $t2, 7, 4
-	sub.w	$t2, $s5, $t3
+	sub.w	$t2, $s4, $t3
 	and	$t2, $s7, $t2
 	ldx.bu	$t2, $a0, $t2
-	sub.w	$t7, $s5, $s0
+	sub.w	$t7, $s4, $s0
 	and	$t7, $s7, $t7
 	ldx.bu	$t7, $a0, $t7
 	slli.d	$t5, $t5, 8
@@ -17875,9 +17871,9 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	bstrins.d	$t5, $t2, 7, 4
 	srli.d	$t2, $t7, 4
 	or	$t2, $t5, $t2
-	sub.w	$t5, $s5, $s4
+	sub.w	$t5, $s4, $s5
 	and	$t5, $s7, $t5
-	sub.w	$t7, $s5, $s2
+	sub.w	$t7, $s4, $s2
 	and	$t7, $s7, $t7
 	ldx.bu	$t7, $a0, $t7
 	ldx.b	$t5, $a0, $t5
@@ -17886,15 +17882,15 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	srli.d	$t7, $t7, 5
 	srli.d	$t5, $t5, 5
 	bstrins.d	$t7, $t5, 5, 3
-	sub.w	$t5, $s5, $s3
+	sub.w	$t5, $s4, $s3
 	and	$t5, $s7, $t5
 	ldx.bu	$ra, $a0, $t5
 	slli.d	$t5, $t7, 6
 	alsl.d	$s6, $a1, $a1, 3
-	sub.w	$t7, $s5, $s6
+	sub.w	$t7, $s4, $s6
 	and	$t7, $s7, $t7
 	alsl.d	$a2, $a1, $fp, 1
-	sub.w	$t6, $s5, $a2
+	sub.w	$t6, $s4, $a2
 	and	$t6, $s7, $t6
 	ldx.bu	$t6, $a0, $t6
 	ldx.b	$t7, $a0, $t7
@@ -17903,22 +17899,22 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	srli.d	$t6, $t6, 6
 	srli.d	$t7, $t7, 6
 	bstrins.d	$t6, $t7, 3, 2
-	sub.w	$t7, $s5, $fp
+	sub.w	$t7, $s4, $fp
 	and	$t8, $s7, $t7
-	alsl.d	$t7, $s4, $a1, 1
-	sub.w	$ra, $s5, $t7
+	alsl.d	$t7, $s5, $a1, 1
+	sub.w	$ra, $s4, $t7
 	and	$ra, $s7, $ra
 	ldx.b	$a3, $a0, $ra
 	alsl.d	$ra, $a1, $fp, 2
-	sub.w	$s5, $s5, $ra
-	and	$s5, $s7, $s5
+	sub.w	$s4, $s4, $ra
+	and	$s4, $s7, $s4
 	ldx.bu	$t8, $a0, $t8
 	bstrpick.d	$a3, $a3, 7, 6
-	ldx.b	$s5, $a0, $s5
+	ldx.b	$s4, $a0, $s4
 	slli.d	$t6, $t6, 4
 	slli.d	$a3, $a3, 2
 	or	$a3, $t6, $a3
-	bstrpick.d	$t6, $s5, 7, 6
+	bstrpick.d	$t6, $s4, 7, 6
 	or	$a3, $a3, $t6
 	srli.d	$t6, $t8, 5
 	or	$t6, $t5, $t6
@@ -17960,25 +17956,25 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	stx.w	$a3, $a4, $t2
 	move	$s1, $s8
 	ld.w	$a3, $s8, 0
-	ld.d	$a4, $sp, 184                   # 8-byte Folded Reload
-	ld.w	$s5, $a4, %pc_lo12(pos)
+	ld.d	$a4, $sp, 192                   # 8-byte Folded Reload
+	ld.w	$s4, $a4, %pc_lo12(pos)
 	addi.w	$s7, $a3, -1
-	sub.w	$a3, $s5, $a1
+	sub.w	$a3, $s4, $a1
 	and	$a3, $s7, $a3
 	ldx.b	$a3, $a0, $a3
 	st.d	$t4, $sp, 8                     # 8-byte Folded Spill
-	sub.w	$t2, $s5, $t4
+	sub.w	$t2, $s4, $t4
 	and	$t2, $s7, $t2
 	ldx.bu	$t2, $a0, $t2
-	sub.w	$t4, $s5, $t3
+	sub.w	$t4, $s4, $t3
 	and	$t4, $s7, $t4
 	ldx.b	$t4, $a0, $t4
 	srli.d	$t2, $t2, 6
 	srli.d	$a3, $a3, 6
 	bstrins.d	$t2, $a3, 3, 2
 	bstrpick.d	$a3, $t4, 7, 6
-	st.d	$s0, $sp, 192                   # 8-byte Folded Spill
-	sub.w	$t4, $s5, $s0
+	st.d	$s0, $sp, 96                    # 8-byte Folded Spill
+	sub.w	$t4, $s4, $s0
 	and	$t4, $s7, $t4
 	ldx.b	$t4, $a0, $t4
 	slli.d	$t2, $t2, 4
@@ -17986,20 +17982,20 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	or	$a3, $t2, $a3
 	bstrpick.d	$t2, $t4, 7, 6
 	or	$t4, $a3, $t2
-	sub.w	$a3, $s5, $s4
+	sub.w	$a3, $s4, $s5
 	and	$a3, $s7, $a3
 	ldx.b	$a3, $a0, $a3
-	sub.w	$t2, $s5, $s2
+	sub.w	$t2, $s4, $s2
 	and	$t2, $s7, $t2
 	ldx.bu	$t2, $a0, $t2
-	sub.w	$t5, $s5, $s3
+	sub.w	$t5, $s4, $s3
 	and	$t5, $s7, $t5
 	ldx.b	$t5, $a0, $t5
 	srli.d	$t2, $t2, 6
 	srli.d	$a3, $a3, 6
 	bstrins.d	$t2, $a3, 3, 2
 	bstrpick.d	$a3, $t5, 7, 6
-	sub.w	$t5, $s5, $fp
+	sub.w	$t5, $s4, $fp
 	and	$t5, $s7, $t5
 	ldx.b	$t5, $a0, $t5
 	slli.d	$t2, $t2, 4
@@ -18007,20 +18003,20 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	or	$a3, $t2, $a3
 	bstrpick.d	$t2, $t5, 7, 6
 	or	$fp, $a3, $t2
-	sub.w	$a3, $s5, $s6
+	sub.w	$a3, $s4, $s6
 	and	$a3, $s7, $a3
 	ldx.b	$a3, $a0, $a3
-	sub.w	$t2, $s5, $a2
+	sub.w	$t2, $s4, $a2
 	and	$t2, $s7, $t2
 	ldx.bu	$t2, $a0, $t2
-	sub.w	$t5, $s5, $t7
+	sub.w	$t5, $s4, $t7
 	and	$t5, $s7, $t5
 	ldx.b	$t5, $a0, $t5
 	srli.d	$t2, $t2, 6
 	srli.d	$a3, $a3, 6
 	bstrins.d	$t2, $a3, 3, 2
 	bstrpick.d	$a3, $t5, 7, 6
-	sub.w	$t5, $s5, $ra
+	sub.w	$t5, $s4, $ra
 	and	$t5, $s7, $t5
 	ldx.b	$t5, $a0, $t5
 	slli.d	$t2, $t2, 4
@@ -18034,20 +18030,20 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	mul.d	$t5, $a1, $t5
 	slli.d	$t6, $a1, 4
 	sub.d	$t7, $a1, $t6
-	add.w	$t2, $s5, $t2
+	add.w	$t2, $s4, $t2
 	and	$t2, $s7, $t2
 	ldx.b	$t2, $a0, $t2
-	add.w	$t5, $s5, $t5
+	add.w	$t5, $s4, $t5
 	and	$t5, $s7, $t5
 	ldx.bu	$t5, $a0, $t5
-	add.w	$t7, $s5, $t7
+	add.w	$t7, $s4, $t7
 	and	$t7, $s7, $t7
 	ldx.b	$t7, $a0, $t7
 	srli.d	$t5, $t5, 6
 	srli.d	$t2, $t2, 6
 	bstrins.d	$t5, $t2, 3, 2
 	bstrpick.d	$t2, $t7, 7, 6
-	sub.w	$t6, $s5, $t6
+	sub.w	$t6, $s4, $t6
 	and	$t6, $s7, $t6
 	ldx.b	$t6, $a0, $t6
 	slli.d	$t5, $t5, 4
@@ -18055,7 +18051,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	or	$t2, $t5, $t2
 	bstrpick.d	$t5, $t6, 7, 6
 	alsl.d	$t6, $a1, $a1, 4
-	sub.w	$t6, $s5, $t6
+	sub.w	$t6, $s4, $t6
 	and	$t6, $s7, $t6
 	ldx.bu	$t6, $a0, $t6
 	or	$t5, $t2, $t5
@@ -18068,7 +18064,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	mul.d	$a3, $a1, $a3
 	addi.d	$t4, $zero, -18
 	mul.d	$t4, $a1, $t4
-	add.w	$t4, $s5, $t4
+	add.w	$t4, $s4, $t4
 	and	$t4, $s7, $t4
 	ldx.bu	$t4, $a0, $t4
 	addi.d	$t6, $zero, -19
@@ -18076,10 +18072,10 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	slli.d	$t8, $s3, 4
 	srli.d	$t4, $t4, 6
 	bstrins.d	$t8, $t4, 3, 2
-	add.w	$t4, $s5, $t6
+	add.w	$t4, $s4, $t6
 	and	$t4, $s7, $t4
 	ldx.bu	$t4, $a0, $t4
-	add.w	$a3, $s5, $a3
+	add.w	$a3, $s4, $a3
 	and	$a3, $s7, $a3
 	ldx.bu	$a3, $a0, $a3
 	srli.d	$t4, $t4, 6
@@ -18088,14 +18084,14 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	srli.d	$a3, $a3, 6
 	or	$s3, $t4, $a3
 .LBB61_51:                              # %_Z1ciiiii.exit402
-	ld.d	$a2, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
 	alsl.w	$a3, $a1, $a1, 1
 	st.d	$a3, $sp, 16                    # 8-byte Folded Spill
 	alsl.w	$a3, $a1, $a1, 2
-	st.d	$a3, $sp, 104                   # 8-byte Folded Spill
+	st.d	$a3, $sp, 112                   # 8-byte Folded Spill
 	addi.d	$a3, $zero, -21
 	mul.d	$a3, $a1, $a3
-	add.w	$a3, $s5, $a3
+	add.w	$a3, $s4, $a3
 	and	$a3, $s7, $a3
 	ldx.bu	$a3, $a0, $a3
 	or	$t2, $t2, $fp
@@ -18109,7 +18105,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	mul.d	$a3, $a1, $a3
 	addi.d	$t6, $zero, -22
 	mul.d	$t6, $a1, $t6
-	add.w	$t6, $s5, $t6
+	add.w	$t6, $s4, $t6
 	and	$t6, $s7, $t6
 	ldx.bu	$t6, $a0, $t6
 	addi.d	$t8, $zero, -23
@@ -18117,10 +18113,10 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	slli.d	$fp, $fp, 4
 	srli.d	$t6, $t6, 6
 	bstrins.d	$fp, $t6, 3, 2
-	add.w	$t6, $s5, $t8
+	add.w	$t6, $s4, $t8
 	and	$t6, $s7, $t6
 	ldx.bu	$t6, $a0, $t6
-	add.w	$a3, $s5, $a3
+	add.w	$a3, $s4, $a3
 	and	$a3, $s7, $a3
 	ldx.bu	$a3, $a0, $a3
 	srli.d	$t6, $t6, 6
@@ -18130,7 +18126,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	or	$fp, $t6, $a3
 .LBB61_53:                              # %_Z1ciiiii.exit409
 	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
 	or	$a3, $fp, $t7
 	ld.d	$t0, $sp, 48                    # 8-byte Folded Reload
 	mul.d	$t6, $t2, $t0
@@ -18171,7 +18167,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	stx.w	$a3, $a5, $t2
 	pcalau12i	$a3, %pc_hi20(_ZZ8wavModelR5MixerE2pr)
 	addi.d	$a3, $a3, %pc_lo12(_ZZ8wavModelR5MixerE2pr)
-	ld.d	$a5, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$a5, $sp, 184                   # 8-byte Folded Reload
 	slli.d	$t2, $a5, 2
 	ldx.w	$t8, $a3, $t2
 	srai.d	$t2, $t8, 8
@@ -18200,7 +18196,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	add.d	$t2, $t2, $t6
 	slli.d	$t5, $t6, 2
 	stx.w	$t2, $s2, $t5
-	ld.d	$s5, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 192                   # 8-byte Folded Reload
 	ld.w	$t2, $s5, %pc_lo12(pos)
 	ld.w	$t5, $s8, 0
 	addi.d	$s0, $a1, 1
@@ -18389,7 +18385,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	add.d	$a5, $a5, $a7
 	add.d	$a7, $t0, $t1
 	sub.w	$a5, $a5, $a7
-	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 120                   # 8-byte Folded Reload
 	ld.wu	$a7, $s5, 0
 	srli.d	$t0, $a5, 1
 	addi.w	$a5, $zero, -256
@@ -18434,7 +18430,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	or	$t5, $t5, $t6
 	ldx.bu	$t6, $a0, $a6
 	srli.d	$t5, $t5, 16
-	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 128                   # 8-byte Folded Reload
 	ld.wu	$t7, $s4, 0
 	add.d	$t3, $t8, $t3
 	add.d	$t5, $t5, $t6
@@ -18469,7 +18465,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ldx.bu	$s0, $a0, $a6
 	sub.d	$t6, $fp, $t6
 	alsl.d	$t6, $t6, $t6, 1
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 144                   # 8-byte Folded Reload
 	ld.wu	$fp, $s2, 0
 	sub.d	$t7, $t7, $s0
 	add.d	$t6, $t7, $t6
@@ -18497,7 +18493,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ldx.bu	$t7, $a0, $a6
 	srli.d	$t6, $t6, 16
 	alsl.d	$a1, $t8, $a1, 1
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 136                   # 8-byte Folded Reload
 	ld.wu	$fp, $s3, 0
 	sub.d	$a1, $a1, $t7
 	add.w	$a1, $a1, $t6
@@ -18525,7 +18521,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	slli.w	$a1, $t7, 24
 	slli.w	$t7, $fp, 16
 	or	$t7, $a1, $t7
-	ld.d	$fp, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
 	sub.w	$a1, $fp, $a3
 	andn	$a1, $a4, $a1
 	move	$ra, $a2
@@ -18541,7 +18537,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ldx.bu	$fp, $a0, $a6
 	srli.d	$t7, $t7, 16
 	alsl.d	$t6, $t6, $s0, 2
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 152                   # 8-byte Folded Reload
 	ld.wu	$s0, $s1, 0
 	add.d	$t7, $t7, $fp
 	sub.d	$t6, $t6, $t7
@@ -18565,7 +18561,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	slli.w	$t1, $t2, 24
 	slli.w	$t2, $t3, 16
 	or	$t1, $t1, $t2
-	ld.d	$t3, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$t3, $sp, 112                   # 8-byte Folded Reload
 	sub.w	$t2, $t3, $a3
 	sub.w	$a3, $a3, $t3
 	ldx.b	$a2, $a0, $a2
@@ -18592,7 +18588,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	sub.d	$a0, $t8, $a0
 	srli.d	$a2, $a2, 16
 	add.d	$a0, $a0, $a3
-	ld.d	$fp, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
 	ld.wu	$a3, $fp, 0
 	add.d	$a0, $a0, $a2
 	alsl.d	$a1, $a1, $a1, 2
@@ -18602,7 +18598,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	addi.d	$a1, $a1, -256
 	and	$a0, $a1, $a0
 	st.w	$a0, $fp, 24
-	ld.d	$s0, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
 	b	.LBB61_130
 .LBB61_54:                              # %.preheader508
 	st.d	$t8, $sp, 48                    # 8-byte Folded Spill
@@ -18618,22 +18614,24 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	add.w	$a2, $a2, $a0
 	pcalau12i	$a3, %pc_hi20(_ZZ8wavModelR5MixerE7counter)
 	addi.d	$a4, $a3, %pc_lo12(_ZZ8wavModelR5MixerE7counter)
-	pcalau12i	$a6, %pc_hi20(.LCPI61_0)
 	st.d	$a5, $sp, 40                    # 8-byte Folded Spill
 	st.d	$a4, $sp, 72                    # 8-byte Folded Spill
-	st.d	$a6, $sp, 192                   # 8-byte Folded Spill
 	bltz	$a2, .LBB61_61
 # %bb.55:                               # %.lr.ph
 	move	$s2, $zero
 	move	$s3, $zero
-	ld.d	$a3, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 184                   # 8-byte Folded Reload
 	alsl.d	$s4, $a3, $a4, 2
-	fld.d	$fs0, $a6, %pc_lo12(.LCPI61_0)
 	lu12i.w	$a2, 4
 	ori	$a2, $a2, 3048
 	add.d	$a2, $sp, $a2
 	alsl.d	$s6, $a3, $a2, 3
 	addi.w	$s8, $zero, -1
+	lu12i.w	$a2, 411041
+	ori	$a2, $a2, 3244
+	lu32i.d	$a2, -8389
+	lu52i.d	$a2, $a2, 1022
+	movgr2fr.d	$fs0, $a2
 	b	.LBB61_58
 	.p2align	4, , 16
 .LBB61_56:                              #   in Loop: Header=BB61_58 Depth=1
@@ -18678,7 +18676,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	blt	$a3, $a2, .LBB61_56
 	b	.LBB61_57
 .LBB61_61:                              # %._crit_edge529
-	ld.d	$s6, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 176                   # 8-byte Folded Reload
 	ld.w	$a2, $s6, %pc_lo12(_ZZ8wavModelR5MixerE8channels)
 	ori	$a3, $zero, 2
 	bne	$a2, $a3, .LBB61_72
@@ -18686,7 +18684,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	andi	$a1, $a1, 1
 	beqz	$a1, .LBB61_67
 # %bb.63:                               # %.lr.ph536
-	ld.d	$a2, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	alsl.d	$fp, $a2, $a1, 2
 	slli.d	$a1, $a0, 4
@@ -18695,10 +18693,13 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ori	$a2, $a2, 3048
 	add.d	$a2, $sp, $a2
 	add.d	$s2, $a2, $a1
-	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI61_0)
 	ori	$a1, $zero, 1
 	ori	$s3, $zero, 784
+	lu12i.w	$a2, 411041
+	ori	$a2, $a2, 3244
+	lu32i.d	$a2, -8389
+	lu52i.d	$a2, $a2, 1022
+	movgr2fr.d	$fs0, $a2
 	ori	$s4, $zero, 12
 	move	$s5, $a0
 	move	$s0, $a0
@@ -18745,17 +18746,20 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	blez	$a0, .LBB61_72
 # %bb.68:                               # %.lr.ph539
 	move	$fp, $zero
-	ld.d	$s4, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	alsl.d	$s2, $s4, $a1, 2
 	lu12i.w	$a1, 4
 	ori	$a1, $a1, 3048
 	add.d	$a1, $sp, $a1
-	ld.d	$a2, $sp, 192                   # 8-byte Folded Reload
-	fld.d	$fs0, $a2, %pc_lo12(.LCPI61_0)
 	alsl.d	$a1, $s4, $a1, 3
 	addi.d	$s3, $a1, 800
 	ori	$s0, $zero, 1
+	lu12i.w	$a1, 411041
+	ori	$a1, $a1, 3244
+	lu32i.d	$a1, -8389
+	lu52i.d	$a1, $a1, 1022
+	movgr2fr.d	$fs0, $a1
 	ld.d	$s8, $sp, 208                   # 8-byte Folded Reload
 	b	.LBB61_70
 	.p2align	4, , 16
@@ -18789,7 +18793,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	fstx.d	$fa0, $s3, $a1
 	b	.LBB61_69
 .LBB61_72:
-	ld.d	$s4, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$s8, $sp, 208                   # 8-byte Folded Reload
 .LBB61_73:                              # %.loopexit506
 	pcalau12i	$a1, %pc_hi20(_ZZ8wavModelR5MixerE1n)
@@ -18818,30 +18822,34 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	st.d	$a5, $sp, 32                    # 8-byte Folded Spill
 	bne	$a3, $a4, .LBB61_99
 # %bb.75:                               # %.preheader499
-	ld.d	$a3, $sp, 192                   # 8-byte Folded Reload
 	blez	$a2, .LBB61_110
 # %bb.76:                               # %.preheader498.preheader
 	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
-	fld.d	$fs0, $a3, %pc_lo12(.LCPI61_0)
 	move	$s1, $zero
-	move	$s8, $zero
+	move	$a4, $zero
 	ori	$a3, $zero, 1
-	ori	$s6, $zero, 12
+	ori	$s4, $zero, 12
+	lu12i.w	$a2, 411041
+	ori	$a2, $a2, 3244
+	lu32i.d	$a2, -8389
+	lu52i.d	$a2, $a2, 1022
+	movgr2fr.d	$fs0, $a2
 .LBB61_77:                              # %.preheader498
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB61_79 Depth 2
 	andi	$a2, $a1, 1
-	maskeqz	$a2, $s6, $a2
+	maskeqz	$a2, $s4, $a2
 	add.w	$a2, $a2, $a0
 	blt	$a2, $a3, .LBB61_81
 # %bb.78:                               # %.lr.ph560
                                         #   in Loop: Header=BB61_77 Depth=1
-	move	$s4, $a3
+	move	$s6, $a3
 	addi.d	$s0, $a3, -1
-	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
 	move	$s7, $s5
-	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
-	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
+	move	$fp, $s8
+	st.d	$a4, $sp, 88                    # 8-byte Folded Spill
+	move	$s8, $a4
 	ld.d	$s3, $sp, 200                   # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB61_79:                              #   Parent Loop BB61_77 Depth=1
@@ -18864,7 +18872,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ld.w	$a0, $fp, %pc_lo12(_ZL1S)
 	fdiv.d	$fa0, $fa0, $fs0
 	fst.d	$fa0, $s7, 800
-	maskeqz	$a2, $s6, $a1
+	maskeqz	$a2, $s4, $a1
 	add.w	$a2, $a2, $a0
 	addi.d	$s8, $s8, 1
 	addi.d	$s7, $s7, 16
@@ -18872,13 +18880,14 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	blt	$s8, $a2, .LBB61_79
 # %bb.80:                               # %._crit_edge561
                                         #   in Loop: Header=BB61_77 Depth=1
-	addi.d	$a3, $s4, 1
-	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
-	addi.d	$s8, $s8, 1
+	addi.d	$a3, $s6, 1
+	ld.d	$a4, $sp, 88                    # 8-byte Folded Reload
+	addi.d	$a4, $a4, 1
 	addi.d	$s5, $s5, 800
-	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
 	addi.w	$s1, $s1, 1
-	blt	$s4, $a2, .LBB61_77
+	move	$s8, $fp
+	blt	$s6, $a2, .LBB61_77
 .LBB61_81:                              # %.loopexit500
 	blez	$a2, .LBB61_108
 # %bb.82:                               # %.lr.ph597.preheader
@@ -18888,7 +18897,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	lu12i.w	$a2, 4
 	ori	$a2, $a2, 3048
 	add.d	$t2, $sp, $a2
-	ld.d	$a3, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 184                   # 8-byte Folded Reload
 	alsl.d	$a2, $a3, $t2, 3
 	addi.d	$t3, $a2, 816
 	ori	$t4, $zero, 2
@@ -18968,7 +18977,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	bgeu	$t5, $s1, .LBB61_95
 # %bb.91:                               # %.lr.ph582.us.preheader
                                         #   in Loop: Header=BB61_84 Depth=1
-	ld.d	$a2, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 184                   # 8-byte Folded Reload
 	alsl.d	$a2, $a2, $s5, 3
 	add.d	$a5, $a0, $a5
 	addi.w	$a5, $a5, 1
@@ -19023,7 +19032,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	b	.LBB61_83
 .LBB61_97:                              # %call.sqrt
                                         #   in Loop: Header=BB61_84 Depth=1
-	st.d	$t1, $sp, 192                   # 8-byte Folded Spill
+	st.d	$t1, $sp, 96                    # 8-byte Folded Spill
 	st.d	$t3, $sp, 88                    # 8-byte Folded Spill
 	st.d	$t7, $sp, 24                    # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(sqrt)
@@ -19038,13 +19047,13 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	lu12i.w	$a0, 4
 	ori	$a0, $a0, 3048
 	add.d	$t2, $sp, $a0
-	ld.d	$t1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$t1, $sp, 96                    # 8-byte Folded Reload
 	fmov.d	$fa1, $fa0
 	b	.LBB61_89
 .LBB61_98:                              # %.loopexit506._crit_edge
 	ld.d	$a1, $sp, 200                   # 8-byte Folded Reload
 	ld.b	$a1, $a1, %pc_lo12(_ZL1D)
-	ld.d	$s6, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
 	ld.d	$s3, $sp, 48                    # 8-byte Folded Reload
 	b	.LBB61_124
 .LBB61_99:                              # %.preheader503
@@ -19054,45 +19063,50 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	move	$s7, $zero
 	move	$s3, $zero
 	ori	$a3, $zero, 1
-	ori	$s6, $zero, 12
+	ori	$s4, $zero, 12
+	lu12i.w	$a2, 411041
+	ori	$a2, $a2, 3244
+	lu32i.d	$a2, -8389
+	lu52i.d	$a2, $a2, 1022
+	movgr2fr.d	$fs0, $a2
 	b	.LBB61_102
 	.p2align	4, , 16
 .LBB61_101:                             # %.loopexit502
                                         #   in Loop: Header=BB61_102 Depth=1
-	addi.d	$a3, $s8, 1
+	addi.d	$a3, $s6, 1
 	andi	$a2, $a1, 1
-	maskeqz	$a2, $s6, $a2
+	maskeqz	$a2, $s4, $a2
 	add.w	$a2, $a2, $a0
 	addi.d	$s5, $s5, 800
 	addi.w	$s3, $s3, 1
 	addi.d	$s7, $s7, 1
-	bge	$s8, $a2, .LBB61_81
+	bge	$s6, $a2, .LBB61_81
 .LBB61_102:                             # %.lr.ph556
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB61_106 Depth 2
 	addi.d	$a2, $a0, 1
 	bstrpick.d	$a2, $a2, 31, 0
-	move	$s8, $a3
+	move	$s6, $a3
 	beq	$a3, $a2, .LBB61_101
 # %bb.103:                              # %.preheader501
                                         #   in Loop: Header=BB61_102 Depth=1
 	andi	$a2, $a1, 1
-	maskeqz	$a2, $s6, $a2
+	maskeqz	$a2, $s4, $a2
 	add.w	$a2, $a2, $a0
-	blt	$a2, $s8, .LBB61_101
+	blt	$a2, $s6, .LBB61_101
 # %bb.104:                              # %.lr.ph543
                                         #   in Loop: Header=BB61_102 Depth=1
-	addi.d	$s0, $s8, -1
+	addi.d	$s0, $s6, -1
 	move	$fp, $s7
 	move	$s1, $s3
-	move	$s4, $s5
+	move	$s8, $s5
 	b	.LBB61_106
 	.p2align	4, , 16
 .LBB61_105:                             #   in Loop: Header=BB61_106 Depth=2
 	andi	$a2, $a1, 1
-	maskeqz	$a2, $s6, $a2
+	maskeqz	$a2, $s4, $a2
 	add.w	$a2, $a2, $a0
-	addi.d	$s4, $s4, 16
+	addi.d	$s8, $s8, 16
 	addi.w	$s1, $s1, 1
 	bge	$fp, $a2, .LBB61_101
 .LBB61_106:                             #   Parent Loop BB61_102 Depth=1
@@ -19102,7 +19116,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	bstrpick.d	$a2, $a2, 31, 0
 	beq	$fp, $a2, .LBB61_105
 # %bb.107:                              #   in Loop: Header=BB61_106 Depth=2
-	fld.d	$fs0, $s4, 0
+	fld.d	$fs1, $s8, 0
 	ori	$a1, $zero, 1
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_Z1Xii)
@@ -19115,21 +19129,19 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	mul.d	$a0, $a0, $s2
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
-	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI61_0)
 	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
 	ld.w	$a0, $a0, %pc_lo12(_ZL1S)
 	ld.d	$a1, $sp, 200                   # 8-byte Folded Reload
 	ld.b	$a1, $a1, %pc_lo12(_ZL1D)
-	fsub.d	$fa0, $fs0, $fa0
-	fdiv.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $s4, 800
+	fsub.d	$fa0, $fs1, $fa0
+	fdiv.d	$fa0, $fa0, $fs0
+	fst.d	$fa0, $s8, 800
 	b	.LBB61_105
 .LBB61_108:
 	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
-.LBB61_109:                             # %.thread
-	ld.d	$s4, $sp, 176                   # 8-byte Folded Reload
-.LBB61_110:                             # %.thread
+.LBB61_109:
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
+.LBB61_110:
 	ld.d	$fp, $sp, 72                    # 8-byte Folded Reload
 	ld.d	$a3, $sp, 64                    # 8-byte Folded Reload
 	ldx.w	$a3, $fp, $a3
@@ -19256,8 +19268,8 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 .LBB61_123:                             # %.loopexit
 	ld.d	$a2, $sp, 32                    # 8-byte Folded Reload
 	st.w	$zero, $a2, 0
-	ld.d	$s6, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$s3, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$s8, $sp, 208                   # 8-byte Folded Reload
 .LBB61_124:
@@ -19322,7 +19334,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	st.w	$a3, $a4, 8
 	stx.w	$a1, $a0, $a7
 	addi.d	$a0, $a5, 1
-	ld.d	$s8, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 192                   # 8-byte Folded Reload
 	ld.w	$a4, $s8, %pc_lo12(pos)
 	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
 	ld.w	$a5, $ra, 0
@@ -19637,7 +19649,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	addi.w	$a3, $a3, 1
 	and	$a3, $a2, $a3
 	ldx.b	$a6, $a0, $a3
-	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 120                   # 8-byte Folded Reload
 	ld.w	$a7, $s5, 0
 	bstrins.d	$a5, $a6, 8, 8
 	slli.d	$a5, $a5, 8
@@ -19654,7 +19666,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	ldx.b	$t1, $a0, $a4
 	slli.d	$a7, $a7, 16
 	slli.d	$t0, $t0, 8
-	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 112                   # 8-byte Folded Reload
 	ld.w	$t2, $ra, 0
 	or	$a7, $a7, $t0
 	slli.d	$t0, $t1, 9
@@ -19686,7 +19698,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	alsl.d	$a2, $a3, $a3, 1
 	add.d	$a2, $a4, $a2
 	slli.d	$a1, $a1, 8
-	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 128                   # 8-byte Folded Reload
 	ld.w	$a3, $s4, 0
 	or	$a0, $a1, $a0
 	add.d	$a0, $a2, $a0
@@ -19696,13 +19708,13 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	and	$a0, $a1, $a0
 	and	$a0, $a0, $t0
 	st.w	$a0, $s4, 24
-	ld.d	$s0, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 136                   # 8-byte Folded Reload
 .LBB61_130:
-	ld.d	$s6, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 176                   # 8-byte Folded Reload
 .LBB61_131:
 	ld.d	$a0, $s5, 32
 	pcalau12i	$a1, %pc_hi20(y)
@@ -19858,7 +19870,7 @@ _Z8wavModelR5Mixer:                     # @_Z8wavModelR5Mixer
 	addi.d	$a1, $a4, 8
 	st.w	$a1, $s7, 96
 	st.h	$a0, $a6, 14
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
 	ld.w	$a0, $a0, %pc_lo12(pos)
 	ld.w	$a1, $s8, 0
 	ld.w	$a3, $s0, %pc_lo12(bpos)

@@ -657,12 +657,7 @@ _ZN14btQuantizedBvh9buildTreeEii:       # @_ZN14btQuantizedBvh9buildTreeEii
 	.size	_ZN14btQuantizedBvh9buildTreeEii, .Lfunc_end5-_ZN14btQuantizedBvh9buildTreeEii
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f
-.LCPI6_0:
-	.word	0x477ffd00                      # float 65533
-	.text
-	.globl	_ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f
+	.globl	_ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f # -- Begin function _ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f
 	.p2align	5
 	.type	_ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f,@function
 _ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f: # @_ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f
@@ -693,14 +688,15 @@ _ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f: # @_ZN14btQuantized
 	bstrpick.d	$a2, $a2, 31, 0
 	st.d	$a1, $a0, 24
 	st.d	$a2, $a0, 32
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	fld.s	$fa6, $a1, %pc_lo12(.LCPI6_0)
 	fsub.s	$fa1, $fa4, $fa1
 	fsub.s	$fa2, $fa5, $fa2
 	fsub.s	$fa0, $fa0, $fa3
-	fdiv.s	$fa1, $fa6, $fa1
-	fdiv.s	$fa2, $fa6, $fa2
-	fdiv.s	$fa0, $fa6, $fa0
+	lu12i.w	$a1, 292863
+	ori	$a1, $a1, 3328
+	movgr2fr.w	$fa3, $a1
+	fdiv.s	$fa1, $fa3, $fa1
+	fdiv.s	$fa2, $fa3, $fa2
+	fdiv.s	$fa0, $fa3, $fa0
 	movfr2gr.s	$a1, $fa1
 	movfr2gr.s	$a2, $fa2
 	bstrins.d	$a1, $a2, 63, 32
@@ -2903,12 +2899,7 @@ _ZNK14btQuantizedBvh17walkStacklessTreeEP21btNodeOverlapCallbackRK9btVector3S4_:
 	.size	_ZNK14btQuantizedBvh17walkStacklessTreeEP21btNodeOverlapCallbackRK9btVector3S4_, .Lfunc_end19-_ZNK14btQuantizedBvh17walkStacklessTreeEP21btNodeOverlapCallbackRK9btVector3S4_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
-.LCPI20_0:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.text
-	.globl	_ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
+	.globl	_ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii # -- Begin function _ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
 	.p2align	5
 	.type	_ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii,@function
 _ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii: # @_ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
@@ -3005,19 +2996,20 @@ _ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btV
 	fmul.s	$fa1, $fa1, $fa5
 	fmadd.s	$fa0, $fa4, $fa0, $fa1
 	fmadd.s	$ft6, $fa3, $fa2, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI20_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI20_0)
-	frecip.s	$fa1, $fa4
+	frecip.s	$fa0, $fa4
 	movgr2fr.w	$fs7, $zero
 	fcmp.ceq.s	$fcc0, $fa4, $fs7
-	fsel	$fs6, $fa1, $fa0, $fcc0
-	frecip.s	$fa1, $fa5
+	lu12i.w	$a0, 382432
+	ori	$a0, $a0, 2923
+	movgr2fr.w	$fa1, $a0
+	fsel	$fs6, $fa0, $fa1, $fcc0
+	frecip.s	$fa0, $fa5
 	fcmp.ceq.s	$fcc0, $fa5, $fs7
-	fsel	$fs4, $fa1, $fa0, $fcc0
-	frecip.s	$fa1, $fa3
+	fsel	$fs4, $fa0, $fa1, $fcc0
+	frecip.s	$fa0, $fa3
 	ld.d	$s6, $fp, 120
 	fcmp.ceq.s	$fcc0, $fa3, $fs7
-	fsel	$fs1, $fa1, $fa0, $fcc0
+	fsel	$fs1, $fa0, $fa1, $fcc0
 	addi.w	$s7, $zero, -1
 	fst.s	$ft4, $sp, 28                   # 4-byte Folded Spill
 	fst.s	$ft6, $sp, 24                   # 4-byte Folded Spill
@@ -3192,12 +3184,7 @@ _ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btV
 	.size	_ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii, .Lfunc_end20-_ZNK14btQuantizedBvh27walkStacklessTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK14btQuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
-.LCPI21_0:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.text
-	.globl	_ZNK14btQuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
+	.globl	_ZNK14btQuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii # -- Begin function _ZNK14btQuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
 	.p2align	5
 	.type	_ZNK14btQuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii,@function
 _ZNK14btQuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii: # @_ZNK14btQuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21btNodeOverlapCallbackRK9btVector3S4_S4_S4_ii
@@ -3265,18 +3252,19 @@ _ZNK14btQuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21btNodeOverlapCallb
 	fmul.s	$fa7, $fa7, $ft3
 	fmadd.s	$fa6, $ft2, $fa6, $fa7
 	fmadd.s	$fs0, $ft1, $ft0, $fa6
-	pcalau12i	$a0, %pc_hi20(.LCPI21_0)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI21_0)
-	frecip.s	$fa7, $ft2
+	frecip.s	$fa6, $ft2
 	movgr2fr.w	$fs1, $zero
 	fcmp.ceq.s	$fcc0, $ft2, $fs1
-	fsel	$fs2, $fa7, $fa6, $fcc0
-	frecip.s	$fa7, $ft3
+	lu12i.w	$a0, 382432
+	ori	$a0, $a0, 2923
+	movgr2fr.w	$fa7, $a0
+	fsel	$fs2, $fa6, $fa7, $fcc0
+	frecip.s	$fa6, $ft3
 	fcmp.ceq.s	$fcc0, $ft3, $fs1
-	fsel	$fs3, $fa7, $fa6, $fcc0
-	frecip.s	$fa7, $ft1
+	fsel	$fs3, $fa6, $fa7, $fcc0
+	frecip.s	$fa6, $ft1
 	fcmp.ceq.s	$fcc0, $ft1, $fs1
-	fsel	$fs4, $fa7, $fa6, $fcc0
+	fsel	$fs4, $fa6, $fa7, $fcc0
 	fcmp.clt.s	$fcc0, $fa0, $fa2
 	fsel	$fa6, $fa2, $fa0, $fcc0
 	fcmp.clt.s	$fcc0, $fa3, $fa5

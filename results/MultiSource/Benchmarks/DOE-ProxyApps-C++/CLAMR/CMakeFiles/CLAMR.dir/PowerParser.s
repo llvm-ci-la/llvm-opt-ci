@@ -2708,19 +2708,9 @@ GCC_except_table6:
 .Lcst_end5:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN2PP11PowerParser4initEv
-.LCPI7_0:
-	.dword	0x7fdfffffffffffff              # double 8.9884656743115785E+307
-.LCPI7_1:
-	.dword	0x47efffffe0000000              # double 3.4028234663852886E+38
-.LCPI7_2:
-	.dword	0x0010000000000000              # double 2.2250738585072014E-308
-.LCPI7_3:
-	.dword	0x3810000000000000              # double 1.1754943508222875E-38
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI7_4:
+	.p2align	4, 0x0                          # -- Begin function _ZN2PP11PowerParser4initEv
+.LCPI7_0:
 	.dword	8                               # 0x8
 	.dword	7310293764108612723             # 0x6573617265727473
 	.text
@@ -2784,8 +2774,9 @@ _ZN2PP11PowerParser4initEv:             # @_ZN2PP11PowerParser4initEv
 	add.d	$a0, $sp, $a0
 	st.b	$zero, $a0, 0
 .Ltmp162:                               # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_0)
+	addi.w	$a0, $zero, -1
+	lu52i.d	$a0, $a0, 2045
+	movgr2fr.d	$fa0, $a0
 	lu12i.w	$a0, 2
 	ori	$a0, $a0, 240
 	add.d	$a0, $sp, $a0
@@ -3215,8 +3206,9 @@ _ZN2PP11PowerParser4initEv:             # @_ZN2PP11PowerParser4initEv
 	add.d	$a0, $sp, $a0
 	st.b	$zero, $a0, 0
 .Ltmp183:                               # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a0, -131072
+	lu52i.d	$a0, $a0, 1150
+	movgr2fr.d	$fa0, $a0
 	lu12i.w	$a0, 1
 	ori	$a0, $a0, 3776
 	add.d	$a0, $sp, $a0
@@ -4023,8 +4015,8 @@ _ZN2PP11PowerParser4initEv:             # @_ZN2PP11PowerParser4initEv
 	add.d	$a0, $sp, $a0
 	st.b	$zero, $a0, 0
 .Ltmp219:                               # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI7_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_2)
+	lu52i.d	$a0, $zero, 1
+	movgr2fr.d	$fa0, $a0
 	lu12i.w	$a0, 1
 	ori	$a0, $a0, 2992
 	add.d	$a0, $sp, $a0
@@ -4427,8 +4419,8 @@ _ZN2PP11PowerParser4initEv:             # @_ZN2PP11PowerParser4initEv
 	add.d	$a0, $sp, $a0
 	st.b	$zero, $a0, 0
 .Ltmp237:                               # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI7_3)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_3)
+	lu52i.d	$a0, $zero, 897
+	movgr2fr.d	$fa0, $a0
 	lu12i.w	$a0, 1
 	ori	$a0, $a0, 2600
 	add.d	$a0, $sp, $a0
@@ -12982,8 +12974,8 @@ _ZN2PP11PowerParser4initEv:             # @_ZN2PP11PowerParser4initEv
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_907:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2134
-	pcalau12i	$a0, %pc_hi20(.LCPI7_4)
-	vld	$vr0, $a0, %pc_lo12(.LCPI7_4)
+	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI7_0)
 	addi.d	$s1, $sp, 928
 	st.d	$s1, $sp, 912
 	vst	$vr0, $sp, 920

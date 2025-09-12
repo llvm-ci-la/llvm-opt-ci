@@ -1,14 +1,6 @@
 	.file	"gaussianBlurKernel.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gaussianBlurKernel
-.LCPI0_0:
-	.word	0x43220000                      # float 162
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
-	.dword	0x407fcf0216a64912              # double 508.93800988154646
 	.text
-	.globl	gaussianBlurKernel
+	.globl	gaussianBlurKernel              # -- Begin function gaussianBlurKernel
 	.p2align	5
 	.type	gaussianBlurKernel,@function
 gaussianBlurKernel:                     # @gaussianBlurKernel
@@ -44,11 +36,14 @@ gaussianBlurKernel:                     # @gaussianBlurKernel
 	movgr2fr.w	$fs1, $zero
 	addi.w	$s3, $zero, -4
 	addi.d	$s4, $sp, 40
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fs4, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs5, $a0, %pc_lo12(.LCPI0_1)
 	addi.w	$s5, $zero, -16
+	lu12i.w	$a0, 274976
+	movgr2fr.w	$fs4, $a0
+	lu12i.w	$a0, 92772
+	ori	$a0, $a0, 2322
+	lu32i.d	$a0, -12542
+	lu52i.d	$a0, $a0, 1031
+	movgr2fr.d	$fs5, $a0
 	addi.w	$s6, $zero, -9
 	ori	$s7, $zero, 5
 	move	$s8, $s3

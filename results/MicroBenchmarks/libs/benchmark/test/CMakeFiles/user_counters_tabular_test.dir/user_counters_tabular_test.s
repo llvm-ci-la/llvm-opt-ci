@@ -3842,20 +3842,8 @@ GCC_except_table6:
 .Lcst_end2:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _Z16CheckTabularRateRK7Results
-.LCPI7_0:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI7_1:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-.LCPI7_2:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-.LCPI7_3:
-	.dword	0x4059000000000000              # double 100
-.LCPI7_4:
-	.dword	0x4040000000000000              # double 32
 	.text
-	.hidden	_Z16CheckTabularRateRK7Results
+	.hidden	_Z16CheckTabularRateRK7Results  # -- Begin function _Z16CheckTabularRateRK7Results
 	.globl	_Z16CheckTabularRateRK7Results
 	.p2align	5
 	.type	_Z16CheckTabularRateRK7Results,@function
@@ -3865,24 +3853,23 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception3
 # %bb.0:                                # %._crit_edge.i.i
-	addi.d	$sp, $sp, -336
-	.cfi_def_cfa_offset 336
-	st.d	$ra, $sp, 328                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 320                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 312                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 304                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 296                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 288                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 280                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 272                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 264                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 256                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 248                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 240                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 232                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 224                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 216                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 208                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -320
+	.cfi_def_cfa_offset 320
+	st.d	$ra, $sp, 312                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 304                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 296                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 288                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 280                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 272                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 264                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 256                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 248                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 240                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 232                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 224                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 216                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 208                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 200                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -3893,12 +3880,11 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	.cfi_offset 28, -64
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
-	.cfi_offset 31, -88
-	.cfi_offset 56, -96
-	.cfi_offset 57, -104
-	.cfi_offset 58, -112
-	.cfi_offset 59, -120
-	.cfi_offset 60, -128
+	.cfi_offset 56, -88
+	.cfi_offset 57, -96
+	.cfi_offset 58, -104
+	.cfi_offset 59, -112
+	.cfi_offset 60, -120
 	move	$fp, $a0
 	pcaddu18i	$ra, %call36(_ZNK7Results13NumIterationsEv)
 	jirl	$ra, $ra, 0
@@ -3908,34 +3894,37 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	pcaddu18i	$ra, %call36(_ZNK7Results7GetTimeENS_13BenchmarkTimeE)
 	jirl	$ra, $ra, 0
 	fmov.d	$fs1, $fa0
-	addi.d	$s0, $sp, 192
-	st.d	$s0, $sp, 176
+	addi.d	$s0, $sp, 184
+	st.d	$s0, $sp, 168
 	pcalau12i	$a0, %pc_hi20(.L.str.21)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.21)
 	ld.h	$s4, $a0, 0
 	ld.b	$s5, $a0, 2
-	st.h	$s4, $sp, 192
-	st.b	$s5, $sp, 194
+	st.h	$s4, $sp, 184
+	st.b	$s5, $sp, 186
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 184
-	st.b	$zero, $sp, 195
+	st.d	$a0, $sp, 176
+	st.b	$zero, $sp, 187
 .Ltmp359:                               # EH_LABEL
-	addi.d	$a1, $sp, 176
+	addi.d	$a1, $sp, 168
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp360:                               # EH_LABEL
 # %bb.1:                                # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 	fmul.d	$fs2, $fs0, $fs1
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI7_0)
 	frecip.d	$fs1, $fs2
 	fsub.d	$fa0, $fa0, $fs1
 	fabs.d	$fs4, $fa0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs3, $a0
 	fmul.d	$fs0, $fs1, $fs3
 	fcmp.cule.d	$fcc0, $fs0, $fs4
 	movcf2gr	$a0, $fcc0
-	st.d	$a0, $sp, 24
+	st.d	$a0, $sp, 16
 	bceqz	$fcc0, .LBB7_4
 # %bb.2:
 .Ltmp362:                               # EH_LABEL
@@ -3945,13 +3934,13 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	addi.d	$a2, $a0, %pc_lo12(.L.str.101)
 	pcalau12i	$a0, %pc_hi20(.L__func__._Z16CheckTabularRateRK7Results)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__._Z16CheckTabularRateRK7Results)
-	addi.d	$a0, $sp, 168
+	addi.d	$a0, $sp, 160
 	ori	$a4, $zero, 419
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
 .Ltmp363:                               # EH_LABEL
 # %bb.3:
-	ld.d	$s6, $sp, 168
+	ld.d	$s6, $sp, 160
 	b	.LBB7_5
 .LBB7_4:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
@@ -4132,15 +4121,15 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp397:                               # EH_LABEL
 .LBB7_37:                               # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit378
-	addi.d	$s1, $sp, 152
-	st.d	$s1, $sp, 136
-	st.h	$s4, $sp, 152
-	st.b	$s5, $sp, 154
+	addi.d	$s1, $sp, 144
+	st.d	$s1, $sp, 128
+	st.h	$s4, $sp, 144
+	st.b	$s5, $sp, 146
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 144
-	st.b	$zero, $sp, 155
+	st.d	$a0, $sp, 136
+	st.b	$zero, $sp, 147
 .Ltmp399:                               # EH_LABEL
-	addi.d	$a1, $sp, 136
+	addi.d	$a1, $sp, 128
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
@@ -4262,8 +4251,11 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	beqz	$a0, .LBB7_66
 # %bb.61:
 .Ltmp427:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a1, $a1, 1019
+	movgr2fr.d	$fa0, $a1
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp428:                               # EH_LABEL
@@ -4290,15 +4282,15 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp432:                               # EH_LABEL
 .LBB7_66:                               # %_ZN9benchmark8internallsIA15_cEERNS0_7LogTypeES4_RKT_.exit
-	addi.d	$s2, $sp, 120
-	st.d	$s2, $sp, 104
-	st.h	$s4, $sp, 120
-	st.b	$s5, $sp, 122
+	addi.d	$s2, $sp, 112
+	st.d	$s2, $sp, 96
+	st.h	$s4, $sp, 112
+	st.b	$s5, $sp, 114
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 112
-	st.b	$zero, $sp, 123
+	st.d	$a0, $sp, 104
+	st.b	$zero, $sp, 115
 .Ltmp434:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
+	addi.d	$a1, $sp, 96
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
@@ -4324,33 +4316,38 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp439:                               # EH_LABEL
 .LBB7_71:                               # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit433
-	addi.d	$s3, $sp, 88
-	st.d	$s3, $sp, 72
-	st.h	$s4, $sp, 88
-	st.b	$s5, $sp, 90
+	addi.d	$s3, $sp, 80
+	st.d	$s3, $sp, 64
+	st.h	$s4, $sp, 80
+	st.b	$s5, $sp, 82
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 80
-	st.b	$zero, $sp, 91
+	st.d	$a0, $sp, 72
+	st.b	$zero, $sp, 83
 .Ltmp441:                               # EH_LABEL
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 64
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp442:                               # EH_LABEL
 # %bb.72:                               # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit439
 	ld.d	$a0, $s6, 0
-	pcalau12i	$s5, %pc_hi20(.LCPI7_2)
-	pcalau12i	$s4, %pc_hi20(.LCPI7_3)
+	lu12i.w	$s4, -487882
 	beqz	$a0, .LBB7_76
 # %bb.73:
-	fld.d	$fa1, $s5, %pc_lo12(.LCPI7_2)
 	fsub.d	$fa0, $fa0, $fs1
-	fabs.d	$fa2, $fs1
-	fld.d	$fa3, $s4, %pc_lo12(.LCPI7_3)
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa1, $fa1, $fs1, $fcc0
+	fabs.d	$fa1, $fs1
+	ori	$a1, $s4, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa2, $a1
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa2, $fs1, $fcc0
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa3
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 .Ltmp443:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
@@ -4367,26 +4364,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp446:                               # EH_LABEL
 .LBB7_76:                               # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit445
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 64
 	beq	$a0, $s3, .LBB7_78
 # %bb.77:                               # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-	ld.d	$a1, $sp, 88
+	ld.d	$a1, $sp, 80
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_78:                               # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_80
 # %bb.79:                               # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i446
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_80:                               # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit448
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_82
 # %bb.81:                               # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i449
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -4394,26 +4391,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fcmp.clt.d	$fcc0, $fs4, $fs0
 	bceqz	$fcc0, .LBB7_511
 # %bb.83:
-	ld.d	$a0, $sp, 176
+	ld.d	$a0, $sp, 168
 	beq	$a0, $s0, .LBB7_85
 # %bb.84:                               # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i461
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 184
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_85:                               # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463
-	st.d	$s0, $sp, 176
+	st.d	$s0, $sp, 168
 	pcalau12i	$a0, %pc_hi20(.L.str.22)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.22)
-	ld.h	$s6, $a0, 0
-	ld.b	$s7, $a0, 2
-	st.h	$s6, $sp, 192
-	st.b	$s7, $sp, 194
+	ld.h	$s5, $a0, 0
+	ld.b	$s6, $a0, 2
+	st.h	$s5, $sp, 184
+	st.b	$s6, $sp, 186
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 184
-	st.b	$zero, $sp, 195
+	st.d	$a0, $sp, 176
+	st.b	$zero, $sp, 187
 .Ltmp448:                               # EH_LABEL
-	addi.d	$a1, $sp, 176
+	addi.d	$a1, $sp, 168
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
@@ -4426,7 +4423,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fmul.d	$fs0, $fs1, $fs3
 	fcmp.cule.d	$fcc0, $fs0, $fs4
 	movcf2gr	$a0, $fcc0
-	st.d	$a0, $sp, 24
+	st.d	$a0, $sp, 16
 	bceqz	$fcc0, .LBB7_89
 # %bb.87:
 .Ltmp451:                               # EH_LABEL
@@ -4436,23 +4433,23 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	addi.d	$a2, $a0, %pc_lo12(.L.str.101)
 	pcalau12i	$a0, %pc_hi20(.L__func__._Z16CheckTabularRateRK7Results)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__._Z16CheckTabularRateRK7Results)
-	addi.d	$a0, $sp, 64
+	addi.d	$a0, $sp, 56
 	ori	$a4, $zero, 420
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
 .Ltmp452:                               # EH_LABEL
 # %bb.88:
-	ld.d	$s8, $sp, 64
+	ld.d	$s7, $sp, 56
 	b	.LBB7_90
 .LBB7_89:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	ld.b	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	dbar	20
 	pcalau12i	$a1, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s8, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	addi.d	$s7, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	beqz	$a0, .LBB7_525
 .LBB7_90:                               # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit471
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.91:
 .Ltmp453:                               # EH_LABEL
@@ -4463,7 +4460,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp454:                               # EH_LABEL
 # %bb.92:                               # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit474
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.93:
 .Ltmp455:                               # EH_LABEL
@@ -4474,7 +4471,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp456:                               # EH_LABEL
 # %bb.94:                               # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit477
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.95:
 .Ltmp457:                               # EH_LABEL
@@ -4485,7 +4482,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp458:                               # EH_LABEL
 # %bb.96:                               # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit480
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.97:
 .Ltmp460:                               # EH_LABEL
@@ -4494,7 +4491,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp461:                               # EH_LABEL
 # %bb.98:                               # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit483
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.99:
 .Ltmp462:                               # EH_LABEL
@@ -4505,7 +4502,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp463:                               # EH_LABEL
 # %bb.100:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit486
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.101:
 	ld.d	$a1, $fp, 0
@@ -4515,7 +4512,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp465:                               # EH_LABEL
 # %bb.102:                              # %_ZN9benchmark8internallsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS0_7LogTypeES9_RKT_.exit489
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.103:
 .Ltmp466:                               # EH_LABEL
@@ -4526,7 +4523,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp467:                               # EH_LABEL
 # %bb.104:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit492
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.105:
 .Ltmp468:                               # EH_LABEL
@@ -4537,7 +4534,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp469:                               # EH_LABEL
 # %bb.106:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit495
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.107:
 .Ltmp470:                               # EH_LABEL
@@ -4548,7 +4545,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp471:                               # EH_LABEL
 # %bb.108:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit498
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.109:
 .Ltmp473:                               # EH_LABEL
@@ -4557,7 +4554,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp474:                               # EH_LABEL
 # %bb.110:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit501
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.111:
 .Ltmp475:                               # EH_LABEL
@@ -4568,7 +4565,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp476:                               # EH_LABEL
 # %bb.112:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit504
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.113:
 .Ltmp477:                               # EH_LABEL
@@ -4579,7 +4576,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp478:                               # EH_LABEL
 # %bb.114:                              # %_ZN9benchmark8internallsIA11_cEERNS0_7LogTypeES4_RKT_.exit507
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.115:
 .Ltmp479:                               # EH_LABEL
@@ -4590,7 +4587,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp480:                               # EH_LABEL
 # %bb.116:                              # %_ZN9benchmark8internallsIA7_cEERNS0_7LogTypeES4_RKT_.exit510
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.117:
 .Ltmp481:                               # EH_LABEL
@@ -4601,7 +4598,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp482:                               # EH_LABEL
 # %bb.118:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit513
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.119:
 .Ltmp483:                               # EH_LABEL
@@ -4612,7 +4609,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp484:                               # EH_LABEL
 # %bb.120:                              # %_ZN9benchmark8internallsIA4_cEERNS0_7LogTypeES4_RKT_.exit516
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_122
 # %bb.121:
 .Ltmp485:                               # EH_LABEL
@@ -4623,20 +4620,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp486:                               # EH_LABEL
 .LBB7_122:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit519
-	st.d	$s1, $sp, 136
-	st.h	$s6, $sp, 152
-	st.b	$s7, $sp, 154
+	st.d	$s1, $sp, 128
+	st.h	$s5, $sp, 144
+	st.b	$s6, $sp, 146
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 144
-	st.b	$zero, $sp, 155
+	st.d	$a0, $sp, 136
+	st.b	$zero, $sp, 147
 .Ltmp488:                               # EH_LABEL
-	addi.d	$a1, $sp, 136
+	addi.d	$a1, $sp, 128
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp489:                               # EH_LABEL
 # %bb.123:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit525
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.124:
 .Ltmp490:                               # EH_LABEL
@@ -4644,7 +4641,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp491:                               # EH_LABEL
 # %bb.125:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit528
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.126:
 .Ltmp492:                               # EH_LABEL
@@ -4655,7 +4652,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp493:                               # EH_LABEL
 # %bb.127:                              # %_ZN9benchmark8internallsIA14_cEERNS0_7LogTypeES4_RKT_.exit531
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.128:
 .Ltmp495:                               # EH_LABEL
@@ -4664,7 +4661,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp496:                               # EH_LABEL
 # %bb.129:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit534
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.130:
 .Ltmp497:                               # EH_LABEL
@@ -4675,7 +4672,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp498:                               # EH_LABEL
 # %bb.131:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit537
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.132:
 .Ltmp499:                               # EH_LABEL
@@ -4686,7 +4683,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp500:                               # EH_LABEL
 # %bb.133:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit540
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.134:
 .Ltmp501:                               # EH_LABEL
@@ -4697,7 +4694,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp502:                               # EH_LABEL
 # %bb.135:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit543
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.136:
 .Ltmp504:                               # EH_LABEL
@@ -4706,7 +4703,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp505:                               # EH_LABEL
 # %bb.137:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit546
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.138:
 .Ltmp506:                               # EH_LABEL
@@ -4717,7 +4714,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp507:                               # EH_LABEL
 # %bb.139:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit549
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.140:
 .Ltmp508:                               # EH_LABEL
@@ -4728,7 +4725,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp509:                               # EH_LABEL
 # %bb.141:                              # %_ZN9benchmark8internallsIA19_cEERNS0_7LogTypeES4_RKT_.exit552
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.142:
 .Ltmp511:                               # EH_LABEL
@@ -4737,7 +4734,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp512:                               # EH_LABEL
 # %bb.143:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit555
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.144:
 .Ltmp513:                               # EH_LABEL
@@ -4748,17 +4745,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp514:                               # EH_LABEL
 # %bb.145:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit558
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.146:
 .Ltmp516:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a1, $a1, 1019
+	movgr2fr.d	$fa0, $a1
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp517:                               # EH_LABEL
 # %bb.147:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit561
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.148:
 .Ltmp518:                               # EH_LABEL
@@ -4769,7 +4769,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp519:                               # EH_LABEL
 # %bb.149:                              # %_ZN9benchmark8internallsIA5_cEERNS0_7LogTypeES4_RKT_.exit564
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_151
 # %bb.150:
 .Ltmp520:                               # EH_LABEL
@@ -4780,20 +4780,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp521:                               # EH_LABEL
 .LBB7_151:                              # %_ZN9benchmark8internallsIA15_cEERNS0_7LogTypeES4_RKT_.exit567
-	st.d	$s2, $sp, 104
-	st.h	$s6, $sp, 120
-	st.b	$s7, $sp, 122
+	st.d	$s2, $sp, 96
+	st.h	$s5, $sp, 112
+	st.b	$s6, $sp, 114
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 112
-	st.b	$zero, $sp, 123
+	st.d	$a0, $sp, 104
+	st.b	$zero, $sp, 115
 .Ltmp523:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
+	addi.d	$a1, $sp, 96
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp524:                               # EH_LABEL
 # %bb.152:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit573
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_156
 # %bb.153:
 	fsub.d	$fa0, $fa0, $fs1
@@ -4802,7 +4802,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp526:                               # EH_LABEL
 # %bb.154:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit576
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_156
 # %bb.155:
 .Ltmp527:                               # EH_LABEL
@@ -4813,36 +4813,42 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp528:                               # EH_LABEL
 .LBB7_156:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit579
-	st.d	$s3, $sp, 72
-	st.h	$s6, $sp, 88
-	st.b	$s7, $sp, 90
+	st.d	$s3, $sp, 64
+	st.h	$s5, $sp, 80
+	st.b	$s6, $sp, 82
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 80
-	st.b	$zero, $sp, 91
+	st.d	$a0, $sp, 72
+	st.b	$zero, $sp, 83
 .Ltmp530:                               # EH_LABEL
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 64
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp531:                               # EH_LABEL
 # %bb.157:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit585
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_161
 # %bb.158:
-	fld.d	$fa1, $s5, %pc_lo12(.LCPI7_2)
 	fsub.d	$fa0, $fa0, $fs1
-	fabs.d	$fa2, $fs1
-	fld.d	$fa3, $s4, %pc_lo12(.LCPI7_3)
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa1, $fa1, $fs1, $fcc0
+	fabs.d	$fa1, $fs1
+	ori	$a1, $s4, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa2, $a1
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa2, $fs1, $fcc0
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa3
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 .Ltmp532:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp533:                               # EH_LABEL
 # %bb.159:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit588
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_161
 # %bb.160:
 .Ltmp534:                               # EH_LABEL
@@ -4853,26 +4859,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp535:                               # EH_LABEL
 .LBB7_161:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit591
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 64
 	beq	$a0, $s3, .LBB7_163
 # %bb.162:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i592
-	ld.d	$a1, $sp, 88
+	ld.d	$a1, $sp, 80
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_163:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit594
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_165
 # %bb.164:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i595
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_165:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit597
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_167
 # %bb.166:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i598
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -4880,26 +4886,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fcmp.clt.d	$fcc0, $fs4, $fs0
 	bceqz	$fcc0, .LBB7_513
 # %bb.168:
-	ld.d	$a0, $sp, 176
+	ld.d	$a0, $sp, 168
 	beq	$a0, $s0, .LBB7_170
 # %bb.169:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i613
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 184
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_170:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit615
-	st.d	$s0, $sp, 176
+	st.d	$s0, $sp, 168
 	pcalau12i	$a0, %pc_hi20(.L.str.23)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.23)
-	ld.h	$s6, $a0, 0
-	ld.b	$s7, $a0, 2
-	st.h	$s6, $sp, 192
-	st.b	$s7, $sp, 194
+	ld.h	$s5, $a0, 0
+	ld.b	$s6, $a0, 2
+	st.h	$s5, $sp, 184
+	st.b	$s6, $sp, 186
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 184
-	st.b	$zero, $sp, 195
+	st.d	$a0, $sp, 176
+	st.b	$zero, $sp, 187
 .Ltmp537:                               # EH_LABEL
-	addi.d	$a1, $sp, 176
+	addi.d	$a1, $sp, 168
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
@@ -4912,7 +4918,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fmul.d	$fs0, $fs1, $fs3
 	fcmp.cule.d	$fcc0, $fs0, $fs4
 	movcf2gr	$a0, $fcc0
-	st.d	$a0, $sp, 24
+	st.d	$a0, $sp, 16
 	bceqz	$fcc0, .LBB7_174
 # %bb.172:
 .Ltmp540:                               # EH_LABEL
@@ -4922,23 +4928,23 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	addi.d	$a2, $a0, %pc_lo12(.L.str.101)
 	pcalau12i	$a0, %pc_hi20(.L__func__._Z16CheckTabularRateRK7Results)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__._Z16CheckTabularRateRK7Results)
-	addi.d	$a0, $sp, 56
+	addi.d	$a0, $sp, 48
 	ori	$a4, $zero, 421
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
 .Ltmp541:                               # EH_LABEL
 # %bb.173:
-	ld.d	$s8, $sp, 56
+	ld.d	$s7, $sp, 48
 	b	.LBB7_175
 .LBB7_174:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	ld.b	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	dbar	20
 	pcalau12i	$a1, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s8, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	addi.d	$s7, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	beqz	$a0, .LBB7_527
 .LBB7_175:                              # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit623
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.176:
 .Ltmp542:                               # EH_LABEL
@@ -4949,7 +4955,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp543:                               # EH_LABEL
 # %bb.177:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit626
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.178:
 .Ltmp544:                               # EH_LABEL
@@ -4960,7 +4966,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp545:                               # EH_LABEL
 # %bb.179:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit629
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.180:
 .Ltmp546:                               # EH_LABEL
@@ -4971,7 +4977,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp547:                               # EH_LABEL
 # %bb.181:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit632
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.182:
 .Ltmp549:                               # EH_LABEL
@@ -4980,7 +4986,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp550:                               # EH_LABEL
 # %bb.183:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit635
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.184:
 .Ltmp551:                               # EH_LABEL
@@ -4991,7 +4997,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp552:                               # EH_LABEL
 # %bb.185:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit638
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.186:
 	ld.d	$a1, $fp, 0
@@ -5001,7 +5007,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp554:                               # EH_LABEL
 # %bb.187:                              # %_ZN9benchmark8internallsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS0_7LogTypeES9_RKT_.exit641
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.188:
 .Ltmp555:                               # EH_LABEL
@@ -5012,7 +5018,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp556:                               # EH_LABEL
 # %bb.189:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit644
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.190:
 .Ltmp557:                               # EH_LABEL
@@ -5023,7 +5029,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp558:                               # EH_LABEL
 # %bb.191:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit647
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.192:
 .Ltmp559:                               # EH_LABEL
@@ -5034,7 +5040,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp560:                               # EH_LABEL
 # %bb.193:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit650
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.194:
 .Ltmp562:                               # EH_LABEL
@@ -5043,7 +5049,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp563:                               # EH_LABEL
 # %bb.195:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit653
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.196:
 .Ltmp564:                               # EH_LABEL
@@ -5054,7 +5060,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp565:                               # EH_LABEL
 # %bb.197:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit656
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.198:
 .Ltmp566:                               # EH_LABEL
@@ -5065,7 +5071,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp567:                               # EH_LABEL
 # %bb.199:                              # %_ZN9benchmark8internallsIA11_cEERNS0_7LogTypeES4_RKT_.exit659
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.200:
 .Ltmp568:                               # EH_LABEL
@@ -5076,7 +5082,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp569:                               # EH_LABEL
 # %bb.201:                              # %_ZN9benchmark8internallsIA7_cEERNS0_7LogTypeES4_RKT_.exit662
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.202:
 .Ltmp570:                               # EH_LABEL
@@ -5087,7 +5093,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp571:                               # EH_LABEL
 # %bb.203:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit665
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.204:
 .Ltmp572:                               # EH_LABEL
@@ -5098,7 +5104,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp573:                               # EH_LABEL
 # %bb.205:                              # %_ZN9benchmark8internallsIA4_cEERNS0_7LogTypeES4_RKT_.exit668
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_207
 # %bb.206:
 .Ltmp574:                               # EH_LABEL
@@ -5109,20 +5115,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp575:                               # EH_LABEL
 .LBB7_207:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit671
-	st.d	$s1, $sp, 136
-	st.h	$s6, $sp, 152
-	st.b	$s7, $sp, 154
+	st.d	$s1, $sp, 128
+	st.h	$s5, $sp, 144
+	st.b	$s6, $sp, 146
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 144
-	st.b	$zero, $sp, 155
+	st.d	$a0, $sp, 136
+	st.b	$zero, $sp, 147
 .Ltmp577:                               # EH_LABEL
-	addi.d	$a1, $sp, 136
+	addi.d	$a1, $sp, 128
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp578:                               # EH_LABEL
 # %bb.208:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit677
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.209:
 .Ltmp579:                               # EH_LABEL
@@ -5130,7 +5136,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp580:                               # EH_LABEL
 # %bb.210:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit680
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.211:
 .Ltmp581:                               # EH_LABEL
@@ -5141,7 +5147,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp582:                               # EH_LABEL
 # %bb.212:                              # %_ZN9benchmark8internallsIA14_cEERNS0_7LogTypeES4_RKT_.exit683
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.213:
 .Ltmp584:                               # EH_LABEL
@@ -5150,7 +5156,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp585:                               # EH_LABEL
 # %bb.214:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit686
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.215:
 .Ltmp586:                               # EH_LABEL
@@ -5161,7 +5167,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp587:                               # EH_LABEL
 # %bb.216:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit689
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.217:
 .Ltmp588:                               # EH_LABEL
@@ -5172,7 +5178,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp589:                               # EH_LABEL
 # %bb.218:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit692
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.219:
 .Ltmp590:                               # EH_LABEL
@@ -5183,7 +5189,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp591:                               # EH_LABEL
 # %bb.220:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit695
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.221:
 .Ltmp593:                               # EH_LABEL
@@ -5192,7 +5198,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp594:                               # EH_LABEL
 # %bb.222:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit698
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.223:
 .Ltmp595:                               # EH_LABEL
@@ -5203,7 +5209,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp596:                               # EH_LABEL
 # %bb.224:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit701
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.225:
 .Ltmp597:                               # EH_LABEL
@@ -5214,7 +5220,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp598:                               # EH_LABEL
 # %bb.226:                              # %_ZN9benchmark8internallsIA19_cEERNS0_7LogTypeES4_RKT_.exit704
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.227:
 .Ltmp600:                               # EH_LABEL
@@ -5223,7 +5229,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp601:                               # EH_LABEL
 # %bb.228:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit707
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.229:
 .Ltmp602:                               # EH_LABEL
@@ -5234,17 +5240,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp603:                               # EH_LABEL
 # %bb.230:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit710
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.231:
 .Ltmp605:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a1, $a1, 1019
+	movgr2fr.d	$fa0, $a1
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp606:                               # EH_LABEL
 # %bb.232:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit713
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.233:
 .Ltmp607:                               # EH_LABEL
@@ -5255,7 +5264,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp608:                               # EH_LABEL
 # %bb.234:                              # %_ZN9benchmark8internallsIA5_cEERNS0_7LogTypeES4_RKT_.exit716
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_236
 # %bb.235:
 .Ltmp609:                               # EH_LABEL
@@ -5266,20 +5275,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp610:                               # EH_LABEL
 .LBB7_236:                              # %_ZN9benchmark8internallsIA15_cEERNS0_7LogTypeES4_RKT_.exit719
-	st.d	$s2, $sp, 104
-	st.h	$s6, $sp, 120
-	st.b	$s7, $sp, 122
+	st.d	$s2, $sp, 96
+	st.h	$s5, $sp, 112
+	st.b	$s6, $sp, 114
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 112
-	st.b	$zero, $sp, 123
+	st.d	$a0, $sp, 104
+	st.b	$zero, $sp, 115
 .Ltmp612:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
+	addi.d	$a1, $sp, 96
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp613:                               # EH_LABEL
 # %bb.237:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit725
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_241
 # %bb.238:
 	fsub.d	$fa0, $fa0, $fs1
@@ -5288,7 +5297,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp615:                               # EH_LABEL
 # %bb.239:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit728
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_241
 # %bb.240:
 .Ltmp616:                               # EH_LABEL
@@ -5299,36 +5308,42 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp617:                               # EH_LABEL
 .LBB7_241:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit731
-	st.d	$s3, $sp, 72
-	st.h	$s6, $sp, 88
-	st.b	$s7, $sp, 90
+	st.d	$s3, $sp, 64
+	st.h	$s5, $sp, 80
+	st.b	$s6, $sp, 82
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 80
-	st.b	$zero, $sp, 91
+	st.d	$a0, $sp, 72
+	st.b	$zero, $sp, 83
 .Ltmp619:                               # EH_LABEL
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 64
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp620:                               # EH_LABEL
 # %bb.242:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit737
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_246
 # %bb.243:
-	fld.d	$fa1, $s5, %pc_lo12(.LCPI7_2)
 	fsub.d	$fa0, $fa0, $fs1
-	fabs.d	$fa2, $fs1
-	fld.d	$fa3, $s4, %pc_lo12(.LCPI7_3)
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa1, $fa1, $fs1, $fcc0
+	fabs.d	$fa1, $fs1
+	ori	$a1, $s4, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa2, $a1
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa2, $fs1, $fcc0
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa3
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 .Ltmp621:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp622:                               # EH_LABEL
 # %bb.244:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit740
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_246
 # %bb.245:
 .Ltmp623:                               # EH_LABEL
@@ -5339,26 +5354,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp624:                               # EH_LABEL
 .LBB7_246:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit743
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 64
 	beq	$a0, $s3, .LBB7_248
 # %bb.247:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i744
-	ld.d	$a1, $sp, 88
+	ld.d	$a1, $sp, 80
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_248:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit746
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_250
 # %bb.249:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i747
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_250:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit749
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_252
 # %bb.251:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i750
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -5366,26 +5381,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fcmp.clt.d	$fcc0, $fs4, $fs0
 	bceqz	$fcc0, .LBB7_515
 # %bb.253:
-	ld.d	$a0, $sp, 176
+	ld.d	$a0, $sp, 168
 	beq	$a0, $s0, .LBB7_255
 # %bb.254:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i765
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 184
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_255:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit767
-	st.d	$s0, $sp, 176
+	st.d	$s0, $sp, 168
 	pcalau12i	$a0, %pc_hi20(.L.str.24)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.24)
-	ld.h	$s6, $a0, 0
-	ld.b	$s7, $a0, 2
-	st.h	$s6, $sp, 192
-	st.b	$s7, $sp, 194
+	ld.h	$s5, $a0, 0
+	ld.b	$s6, $a0, 2
+	st.h	$s5, $sp, 184
+	st.b	$s6, $sp, 186
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 184
-	st.b	$zero, $sp, 195
+	st.d	$a0, $sp, 176
+	st.b	$zero, $sp, 187
 .Ltmp626:                               # EH_LABEL
-	addi.d	$a1, $sp, 176
+	addi.d	$a1, $sp, 168
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
@@ -5398,7 +5413,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fmul.d	$fs0, $fs1, $fs3
 	fcmp.cule.d	$fcc0, $fs0, $fs4
 	movcf2gr	$a0, $fcc0
-	st.d	$a0, $sp, 24
+	st.d	$a0, $sp, 16
 	bceqz	$fcc0, .LBB7_259
 # %bb.257:
 .Ltmp629:                               # EH_LABEL
@@ -5408,23 +5423,23 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	addi.d	$a2, $a0, %pc_lo12(.L.str.101)
 	pcalau12i	$a0, %pc_hi20(.L__func__._Z16CheckTabularRateRK7Results)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__._Z16CheckTabularRateRK7Results)
-	addi.d	$a0, $sp, 48
+	addi.d	$a0, $sp, 40
 	ori	$a4, $zero, 422
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
 .Ltmp630:                               # EH_LABEL
 # %bb.258:
-	ld.d	$s8, $sp, 48
+	ld.d	$s7, $sp, 40
 	b	.LBB7_260
 .LBB7_259:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	ld.b	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	dbar	20
 	pcalau12i	$a1, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s8, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	addi.d	$s7, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	beqz	$a0, .LBB7_529
 .LBB7_260:                              # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit775
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.261:
 .Ltmp631:                               # EH_LABEL
@@ -5435,7 +5450,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp632:                               # EH_LABEL
 # %bb.262:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit778
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.263:
 .Ltmp633:                               # EH_LABEL
@@ -5446,7 +5461,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp634:                               # EH_LABEL
 # %bb.264:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit781
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.265:
 .Ltmp635:                               # EH_LABEL
@@ -5457,7 +5472,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp636:                               # EH_LABEL
 # %bb.266:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit784
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.267:
 .Ltmp638:                               # EH_LABEL
@@ -5466,7 +5481,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp639:                               # EH_LABEL
 # %bb.268:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit787
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.269:
 .Ltmp640:                               # EH_LABEL
@@ -5477,7 +5492,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp641:                               # EH_LABEL
 # %bb.270:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit790
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.271:
 	ld.d	$a1, $fp, 0
@@ -5487,7 +5502,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp643:                               # EH_LABEL
 # %bb.272:                              # %_ZN9benchmark8internallsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS0_7LogTypeES9_RKT_.exit793
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.273:
 .Ltmp644:                               # EH_LABEL
@@ -5498,7 +5513,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp645:                               # EH_LABEL
 # %bb.274:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit796
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.275:
 .Ltmp646:                               # EH_LABEL
@@ -5509,7 +5524,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp647:                               # EH_LABEL
 # %bb.276:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit799
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.277:
 .Ltmp648:                               # EH_LABEL
@@ -5520,7 +5535,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp649:                               # EH_LABEL
 # %bb.278:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit802
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.279:
 .Ltmp651:                               # EH_LABEL
@@ -5529,7 +5544,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp652:                               # EH_LABEL
 # %bb.280:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit805
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.281:
 .Ltmp653:                               # EH_LABEL
@@ -5540,7 +5555,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp654:                               # EH_LABEL
 # %bb.282:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit808
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.283:
 .Ltmp655:                               # EH_LABEL
@@ -5551,7 +5566,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp656:                               # EH_LABEL
 # %bb.284:                              # %_ZN9benchmark8internallsIA11_cEERNS0_7LogTypeES4_RKT_.exit811
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.285:
 .Ltmp657:                               # EH_LABEL
@@ -5562,7 +5577,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp658:                               # EH_LABEL
 # %bb.286:                              # %_ZN9benchmark8internallsIA7_cEERNS0_7LogTypeES4_RKT_.exit814
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.287:
 .Ltmp659:                               # EH_LABEL
@@ -5573,7 +5588,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp660:                               # EH_LABEL
 # %bb.288:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit817
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.289:
 .Ltmp661:                               # EH_LABEL
@@ -5584,7 +5599,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp662:                               # EH_LABEL
 # %bb.290:                              # %_ZN9benchmark8internallsIA4_cEERNS0_7LogTypeES4_RKT_.exit820
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_292
 # %bb.291:
 .Ltmp663:                               # EH_LABEL
@@ -5595,20 +5610,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp664:                               # EH_LABEL
 .LBB7_292:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit823
-	st.d	$s1, $sp, 136
-	st.h	$s6, $sp, 152
-	st.b	$s7, $sp, 154
+	st.d	$s1, $sp, 128
+	st.h	$s5, $sp, 144
+	st.b	$s6, $sp, 146
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 144
-	st.b	$zero, $sp, 155
+	st.d	$a0, $sp, 136
+	st.b	$zero, $sp, 147
 .Ltmp666:                               # EH_LABEL
-	addi.d	$a1, $sp, 136
+	addi.d	$a1, $sp, 128
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp667:                               # EH_LABEL
 # %bb.293:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit829
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.294:
 .Ltmp668:                               # EH_LABEL
@@ -5616,7 +5631,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp669:                               # EH_LABEL
 # %bb.295:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit832
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.296:
 .Ltmp670:                               # EH_LABEL
@@ -5627,7 +5642,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp671:                               # EH_LABEL
 # %bb.297:                              # %_ZN9benchmark8internallsIA14_cEERNS0_7LogTypeES4_RKT_.exit835
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.298:
 .Ltmp673:                               # EH_LABEL
@@ -5636,7 +5651,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp674:                               # EH_LABEL
 # %bb.299:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit838
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.300:
 .Ltmp675:                               # EH_LABEL
@@ -5647,7 +5662,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp676:                               # EH_LABEL
 # %bb.301:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit841
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.302:
 .Ltmp677:                               # EH_LABEL
@@ -5658,7 +5673,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp678:                               # EH_LABEL
 # %bb.303:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit844
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.304:
 .Ltmp679:                               # EH_LABEL
@@ -5669,7 +5684,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp680:                               # EH_LABEL
 # %bb.305:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit847
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.306:
 .Ltmp682:                               # EH_LABEL
@@ -5678,7 +5693,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp683:                               # EH_LABEL
 # %bb.307:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit850
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.308:
 .Ltmp684:                               # EH_LABEL
@@ -5689,7 +5704,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp685:                               # EH_LABEL
 # %bb.309:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit853
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.310:
 .Ltmp686:                               # EH_LABEL
@@ -5700,7 +5715,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp687:                               # EH_LABEL
 # %bb.311:                              # %_ZN9benchmark8internallsIA19_cEERNS0_7LogTypeES4_RKT_.exit856
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.312:
 .Ltmp689:                               # EH_LABEL
@@ -5709,7 +5724,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp690:                               # EH_LABEL
 # %bb.313:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit859
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.314:
 .Ltmp691:                               # EH_LABEL
@@ -5720,17 +5735,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp692:                               # EH_LABEL
 # %bb.315:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit862
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.316:
 .Ltmp694:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a1, $a1, 1019
+	movgr2fr.d	$fa0, $a1
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp695:                               # EH_LABEL
 # %bb.317:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit865
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.318:
 .Ltmp696:                               # EH_LABEL
@@ -5741,7 +5759,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp697:                               # EH_LABEL
 # %bb.319:                              # %_ZN9benchmark8internallsIA5_cEERNS0_7LogTypeES4_RKT_.exit868
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_321
 # %bb.320:
 .Ltmp698:                               # EH_LABEL
@@ -5752,20 +5770,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp699:                               # EH_LABEL
 .LBB7_321:                              # %_ZN9benchmark8internallsIA15_cEERNS0_7LogTypeES4_RKT_.exit871
-	st.d	$s2, $sp, 104
-	st.h	$s6, $sp, 120
-	st.b	$s7, $sp, 122
+	st.d	$s2, $sp, 96
+	st.h	$s5, $sp, 112
+	st.b	$s6, $sp, 114
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 112
-	st.b	$zero, $sp, 123
+	st.d	$a0, $sp, 104
+	st.b	$zero, $sp, 115
 .Ltmp701:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
+	addi.d	$a1, $sp, 96
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp702:                               # EH_LABEL
 # %bb.322:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit877
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_326
 # %bb.323:
 	fsub.d	$fa0, $fa0, $fs1
@@ -5774,7 +5792,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp704:                               # EH_LABEL
 # %bb.324:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit880
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_326
 # %bb.325:
 .Ltmp705:                               # EH_LABEL
@@ -5785,36 +5803,42 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp706:                               # EH_LABEL
 .LBB7_326:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit883
-	st.d	$s3, $sp, 72
-	st.h	$s6, $sp, 88
-	st.b	$s7, $sp, 90
+	st.d	$s3, $sp, 64
+	st.h	$s5, $sp, 80
+	st.b	$s6, $sp, 82
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 80
-	st.b	$zero, $sp, 91
+	st.d	$a0, $sp, 72
+	st.b	$zero, $sp, 83
 .Ltmp708:                               # EH_LABEL
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 64
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp709:                               # EH_LABEL
 # %bb.327:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit889
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_331
 # %bb.328:
-	fld.d	$fa1, $s5, %pc_lo12(.LCPI7_2)
 	fsub.d	$fa0, $fa0, $fs1
-	fabs.d	$fa2, $fs1
-	fld.d	$fa3, $s4, %pc_lo12(.LCPI7_3)
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa1, $fa1, $fs1, $fcc0
+	fabs.d	$fa1, $fs1
+	ori	$a1, $s4, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa2, $a1
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa2, $fs1, $fcc0
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa3
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 .Ltmp710:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp711:                               # EH_LABEL
 # %bb.329:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit892
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_331
 # %bb.330:
 .Ltmp712:                               # EH_LABEL
@@ -5825,26 +5849,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp713:                               # EH_LABEL
 .LBB7_331:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit895
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 64
 	beq	$a0, $s3, .LBB7_333
 # %bb.332:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i896
-	ld.d	$a1, $sp, 88
+	ld.d	$a1, $sp, 80
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_333:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit898
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_335
 # %bb.334:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i899
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_335:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit901
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_337
 # %bb.336:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i902
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -5852,23 +5876,23 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fcmp.clt.d	$fcc0, $fs4, $fs0
 	bceqz	$fcc0, .LBB7_517
 # %bb.338:
-	ld.d	$a0, $sp, 176
+	ld.d	$a0, $sp, 168
 	beq	$a0, $s0, .LBB7_340
 # %bb.339:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i917
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 184
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_340:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit919
-	st.d	$s0, $sp, 176
+	st.d	$s0, $sp, 168
 	lu12i.w	$a0, 403191
-	ori	$s6, $a0, 582
-	st.w	$s6, $sp, 192
+	ori	$s5, $a0, 582
+	st.w	$s5, $sp, 184
 	ori	$a0, $zero, 4
-	st.d	$a0, $sp, 184
-	st.b	$zero, $sp, 196
+	st.d	$a0, $sp, 176
+	st.b	$zero, $sp, 188
 .Ltmp715:                               # EH_LABEL
-	addi.d	$a1, $sp, 176
+	addi.d	$a1, $sp, 168
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
@@ -5881,7 +5905,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fmul.d	$fs0, $fs1, $fs3
 	fcmp.cule.d	$fcc0, $fs0, $fs4
 	movcf2gr	$a0, $fcc0
-	st.d	$a0, $sp, 24
+	st.d	$a0, $sp, 16
 	bceqz	$fcc0, .LBB7_344
 # %bb.342:
 .Ltmp718:                               # EH_LABEL
@@ -5891,23 +5915,23 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	addi.d	$a2, $a0, %pc_lo12(.L.str.101)
 	pcalau12i	$a0, %pc_hi20(.L__func__._Z16CheckTabularRateRK7Results)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__._Z16CheckTabularRateRK7Results)
-	addi.d	$a0, $sp, 40
+	addi.d	$a0, $sp, 32
 	ori	$a4, $zero, 423
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
 .Ltmp719:                               # EH_LABEL
 # %bb.343:
-	ld.d	$s7, $sp, 40
+	ld.d	$s6, $sp, 32
 	b	.LBB7_345
 .LBB7_344:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	ld.b	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	dbar	20
 	pcalau12i	$a1, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s7, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	addi.d	$s6, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	beqz	$a0, .LBB7_531
 .LBB7_345:                              # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit927
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.346:
 .Ltmp720:                               # EH_LABEL
@@ -5918,7 +5942,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp721:                               # EH_LABEL
 # %bb.347:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit930
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.348:
 .Ltmp722:                               # EH_LABEL
@@ -5929,7 +5953,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp723:                               # EH_LABEL
 # %bb.349:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit933
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.350:
 .Ltmp724:                               # EH_LABEL
@@ -5940,7 +5964,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp725:                               # EH_LABEL
 # %bb.351:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit936
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.352:
 .Ltmp727:                               # EH_LABEL
@@ -5949,7 +5973,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp728:                               # EH_LABEL
 # %bb.353:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit939
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.354:
 .Ltmp729:                               # EH_LABEL
@@ -5960,7 +5984,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp730:                               # EH_LABEL
 # %bb.355:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit942
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.356:
 	ld.d	$a1, $fp, 0
@@ -5970,7 +5994,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp732:                               # EH_LABEL
 # %bb.357:                              # %_ZN9benchmark8internallsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS0_7LogTypeES9_RKT_.exit945
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.358:
 .Ltmp733:                               # EH_LABEL
@@ -5981,7 +6005,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp734:                               # EH_LABEL
 # %bb.359:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit948
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.360:
 .Ltmp735:                               # EH_LABEL
@@ -5992,7 +6016,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp736:                               # EH_LABEL
 # %bb.361:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit951
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.362:
 .Ltmp737:                               # EH_LABEL
@@ -6003,7 +6027,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp738:                               # EH_LABEL
 # %bb.363:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit954
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.364:
 .Ltmp740:                               # EH_LABEL
@@ -6012,7 +6036,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp741:                               # EH_LABEL
 # %bb.365:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit957
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.366:
 .Ltmp742:                               # EH_LABEL
@@ -6023,7 +6047,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp743:                               # EH_LABEL
 # %bb.367:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit960
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.368:
 .Ltmp744:                               # EH_LABEL
@@ -6034,7 +6058,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp745:                               # EH_LABEL
 # %bb.369:                              # %_ZN9benchmark8internallsIA11_cEERNS0_7LogTypeES4_RKT_.exit963
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.370:
 .Ltmp746:                               # EH_LABEL
@@ -6045,7 +6069,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp747:                               # EH_LABEL
 # %bb.371:                              # %_ZN9benchmark8internallsIA7_cEERNS0_7LogTypeES4_RKT_.exit966
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.372:
 .Ltmp748:                               # EH_LABEL
@@ -6056,7 +6080,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp749:                               # EH_LABEL
 # %bb.373:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit969
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.374:
 .Ltmp750:                               # EH_LABEL
@@ -6067,7 +6091,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp751:                               # EH_LABEL
 # %bb.375:                              # %_ZN9benchmark8internallsIA5_cEERNS0_7LogTypeES4_RKT_.exit972
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_377
 # %bb.376:
 .Ltmp752:                               # EH_LABEL
@@ -6078,19 +6102,19 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp753:                               # EH_LABEL
 .LBB7_377:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit975
-	st.d	$s1, $sp, 136
-	st.w	$s6, $sp, 152
+	st.d	$s1, $sp, 128
+	st.w	$s5, $sp, 144
 	ori	$a0, $zero, 4
-	st.d	$a0, $sp, 144
-	st.b	$zero, $sp, 156
+	st.d	$a0, $sp, 136
+	st.b	$zero, $sp, 148
 .Ltmp755:                               # EH_LABEL
-	addi.d	$a1, $sp, 136
+	addi.d	$a1, $sp, 128
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp756:                               # EH_LABEL
 # %bb.378:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit981
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.379:
 .Ltmp757:                               # EH_LABEL
@@ -6098,7 +6122,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp758:                               # EH_LABEL
 # %bb.380:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit984
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.381:
 .Ltmp759:                               # EH_LABEL
@@ -6109,7 +6133,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp760:                               # EH_LABEL
 # %bb.382:                              # %_ZN9benchmark8internallsIA14_cEERNS0_7LogTypeES4_RKT_.exit987
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.383:
 .Ltmp762:                               # EH_LABEL
@@ -6118,7 +6142,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp763:                               # EH_LABEL
 # %bb.384:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit990
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.385:
 .Ltmp764:                               # EH_LABEL
@@ -6129,7 +6153,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp765:                               # EH_LABEL
 # %bb.386:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit993
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.387:
 .Ltmp766:                               # EH_LABEL
@@ -6140,7 +6164,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp767:                               # EH_LABEL
 # %bb.388:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit996
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.389:
 .Ltmp768:                               # EH_LABEL
@@ -6151,7 +6175,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp769:                               # EH_LABEL
 # %bb.390:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit999
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.391:
 .Ltmp771:                               # EH_LABEL
@@ -6160,7 +6184,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp772:                               # EH_LABEL
 # %bb.392:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit1002
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.393:
 .Ltmp773:                               # EH_LABEL
@@ -6171,7 +6195,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp774:                               # EH_LABEL
 # %bb.394:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1005
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.395:
 .Ltmp775:                               # EH_LABEL
@@ -6182,7 +6206,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp776:                               # EH_LABEL
 # %bb.396:                              # %_ZN9benchmark8internallsIA19_cEERNS0_7LogTypeES4_RKT_.exit1008
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.397:
 .Ltmp778:                               # EH_LABEL
@@ -6191,7 +6215,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp779:                               # EH_LABEL
 # %bb.398:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1011
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.399:
 .Ltmp780:                               # EH_LABEL
@@ -6202,17 +6226,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp781:                               # EH_LABEL
 # %bb.400:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1014
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.401:
 .Ltmp783:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a1, $a1, 1019
+	movgr2fr.d	$fa0, $a1
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp784:                               # EH_LABEL
 # %bb.402:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1017
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.403:
 .Ltmp785:                               # EH_LABEL
@@ -6223,7 +6250,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp786:                               # EH_LABEL
 # %bb.404:                              # %_ZN9benchmark8internallsIA5_cEERNS0_7LogTypeES4_RKT_.exit1020
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_406
 # %bb.405:
 .Ltmp787:                               # EH_LABEL
@@ -6234,19 +6261,19 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp788:                               # EH_LABEL
 .LBB7_406:                              # %_ZN9benchmark8internallsIA15_cEERNS0_7LogTypeES4_RKT_.exit1023
-	st.d	$s2, $sp, 104
-	st.w	$s6, $sp, 120
+	st.d	$s2, $sp, 96
+	st.w	$s5, $sp, 112
 	ori	$a0, $zero, 4
-	st.d	$a0, $sp, 112
-	st.b	$zero, $sp, 124
+	st.d	$a0, $sp, 104
+	st.b	$zero, $sp, 116
 .Ltmp790:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
+	addi.d	$a1, $sp, 96
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp791:                               # EH_LABEL
 # %bb.407:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1029
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_411
 # %bb.408:
 	fsub.d	$fa0, $fa0, $fs1
@@ -6255,7 +6282,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp793:                               # EH_LABEL
 # %bb.409:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1032
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_411
 # %bb.410:
 .Ltmp794:                               # EH_LABEL
@@ -6266,35 +6293,41 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp795:                               # EH_LABEL
 .LBB7_411:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1035
-	st.d	$s3, $sp, 72
-	st.w	$s6, $sp, 88
+	st.d	$s3, $sp, 64
+	st.w	$s5, $sp, 80
 	ori	$a0, $zero, 4
-	st.d	$a0, $sp, 80
-	st.b	$zero, $sp, 92
+	st.d	$a0, $sp, 72
+	st.b	$zero, $sp, 84
 .Ltmp797:                               # EH_LABEL
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 64
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp798:                               # EH_LABEL
 # %bb.412:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1041
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_416
 # %bb.413:
-	fld.d	$fa1, $s5, %pc_lo12(.LCPI7_2)
 	fsub.d	$fa0, $fa0, $fs1
-	fabs.d	$fa2, $fs1
-	fld.d	$fa3, $s4, %pc_lo12(.LCPI7_3)
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa1, $fa1, $fs1, $fcc0
+	fabs.d	$fa1, $fs1
+	ori	$a1, $s4, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa2, $a1
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa2, $fs1, $fcc0
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa3
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 .Ltmp799:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp800:                               # EH_LABEL
 # %bb.414:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1044
-	ld.d	$a0, $s7, 0
+	ld.d	$a0, $s6, 0
 	beqz	$a0, .LBB7_416
 # %bb.415:
 .Ltmp801:                               # EH_LABEL
@@ -6305,26 +6338,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp802:                               # EH_LABEL
 .LBB7_416:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1047
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 64
 	beq	$a0, $s3, .LBB7_418
 # %bb.417:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1048
-	ld.d	$a1, $sp, 88
+	ld.d	$a1, $sp, 80
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_418:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1050
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_420
 # %bb.419:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1051
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_420:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1053
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_422
 # %bb.421:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1054
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -6332,33 +6365,33 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fcmp.clt.d	$fcc0, $fs4, $fs0
 	bceqz	$fcc0, .LBB7_519
 # %bb.423:
-	ld.d	$a0, $sp, 176
+	ld.d	$a0, $sp, 168
 	beq	$a0, $s0, .LBB7_425
 # %bb.424:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1069
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 184
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_425:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1071
-	st.d	$s0, $sp, 176
+	st.d	$s0, $sp, 168
 	pcalau12i	$a0, %pc_hi20(.L.str.26)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.26)
-	ld.h	$s6, $a0, 0
-	ld.b	$s7, $a0, 2
-	st.h	$s6, $sp, 192
-	st.b	$s7, $sp, 194
+	ld.h	$s5, $a0, 0
+	ld.b	$s6, $a0, 2
+	st.h	$s5, $sp, 184
+	st.b	$s6, $sp, 186
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 184
-	st.b	$zero, $sp, 195
+	st.d	$a0, $sp, 176
+	st.b	$zero, $sp, 187
 .Ltmp804:                               # EH_LABEL
-	addi.d	$a1, $sp, 176
+	addi.d	$a1, $sp, 168
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp805:                               # EH_LABEL
 # %bb.426:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1077
-	pcalau12i	$a0, %pc_hi20(.LCPI7_4)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI7_4)
+	lu52i.d	$a0, $zero, 1028
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fs1, $fa1, $fs2
 	fsub.d	$fa0, $fa0, $fs1
 	fabs.d	$fs2, $fa0
@@ -6373,23 +6406,23 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	addi.d	$a2, $a0, %pc_lo12(.L.str.101)
 	pcalau12i	$a0, %pc_hi20(.L__func__._Z16CheckTabularRateRK7Results)
 	addi.d	$a3, $a0, %pc_lo12(.L__func__._Z16CheckTabularRateRK7Results)
-	addi.d	$a0, $sp, 32
+	addi.d	$a0, $sp, 24
 	ori	$a4, $zero, 424
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerC2EPKcS3_S3_i)
 	jirl	$ra, $ra, 0
 .Ltmp808:                               # EH_LABEL
 # %bb.428:
-	ld.d	$s8, $sp, 32
+	ld.d	$s7, $sp, 24
 	b	.LBB7_430
 .LBB7_429:
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	ld.b	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	dbar	20
 	pcalau12i	$a1, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s8, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	addi.d	$s7, $a1, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	beqz	$a0, .LBB7_533
 .LBB7_430:                              # %_ZN9benchmark8internal18GetNullLogInstanceEv.exit1079
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.431:
 .Ltmp809:                               # EH_LABEL
@@ -6400,7 +6433,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp810:                               # EH_LABEL
 # %bb.432:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit1082
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.433:
 .Ltmp811:                               # EH_LABEL
@@ -6411,7 +6444,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp812:                               # EH_LABEL
 # %bb.434:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit1085
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.435:
 .Ltmp813:                               # EH_LABEL
@@ -6422,7 +6455,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp814:                               # EH_LABEL
 # %bb.436:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit1088
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.437:
 .Ltmp816:                               # EH_LABEL
@@ -6431,7 +6464,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp817:                               # EH_LABEL
 # %bb.438:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit1091
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.439:
 .Ltmp818:                               # EH_LABEL
@@ -6442,7 +6475,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp819:                               # EH_LABEL
 # %bb.440:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1094
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.441:
 	ld.d	$a1, $fp, 0
@@ -6452,7 +6485,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp821:                               # EH_LABEL
 # %bb.442:                              # %_ZN9benchmark8internallsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS0_7LogTypeES9_RKT_.exit1097
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.443:
 .Ltmp822:                               # EH_LABEL
@@ -6463,7 +6496,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp823:                               # EH_LABEL
 # %bb.444:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1100
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.445:
 .Ltmp824:                               # EH_LABEL
@@ -6474,7 +6507,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp825:                               # EH_LABEL
 # %bb.446:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit1103
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.447:
 .Ltmp826:                               # EH_LABEL
@@ -6485,7 +6518,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp827:                               # EH_LABEL
 # %bb.448:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit1106
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.449:
 .Ltmp829:                               # EH_LABEL
@@ -6494,7 +6527,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp830:                               # EH_LABEL
 # %bb.450:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit1109
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.451:
 .Ltmp831:                               # EH_LABEL
@@ -6505,7 +6538,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp832:                               # EH_LABEL
 # %bb.452:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1112
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.453:
 .Ltmp833:                               # EH_LABEL
@@ -6516,7 +6549,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp834:                               # EH_LABEL
 # %bb.454:                              # %_ZN9benchmark8internallsIA11_cEERNS0_7LogTypeES4_RKT_.exit1115
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.455:
 .Ltmp835:                               # EH_LABEL
@@ -6527,7 +6560,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp836:                               # EH_LABEL
 # %bb.456:                              # %_ZN9benchmark8internallsIA7_cEERNS0_7LogTypeES4_RKT_.exit1118
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.457:
 .Ltmp837:                               # EH_LABEL
@@ -6538,7 +6571,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp838:                               # EH_LABEL
 # %bb.458:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit1121
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.459:
 .Ltmp839:                               # EH_LABEL
@@ -6549,7 +6582,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp840:                               # EH_LABEL
 # %bb.460:                              # %_ZN9benchmark8internallsIA4_cEERNS0_7LogTypeES4_RKT_.exit1124
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_462
 # %bb.461:
 .Ltmp841:                               # EH_LABEL
@@ -6560,20 +6593,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp842:                               # EH_LABEL
 .LBB7_462:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit1127
-	st.d	$s1, $sp, 136
-	st.h	$s6, $sp, 152
-	st.b	$s7, $sp, 154
+	st.d	$s1, $sp, 128
+	st.h	$s5, $sp, 144
+	st.b	$s6, $sp, 146
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 144
-	st.b	$zero, $sp, 155
+	st.d	$a0, $sp, 136
+	st.b	$zero, $sp, 147
 .Ltmp844:                               # EH_LABEL
-	addi.d	$a1, $sp, 136
+	addi.d	$a1, $sp, 128
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp845:                               # EH_LABEL
 # %bb.463:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1133
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.464:
 .Ltmp846:                               # EH_LABEL
@@ -6581,7 +6614,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp847:                               # EH_LABEL
 # %bb.465:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1136
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.466:
 .Ltmp848:                               # EH_LABEL
@@ -6592,7 +6625,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp849:                               # EH_LABEL
 # %bb.467:                              # %_ZN9benchmark8internallsIA14_cEERNS0_7LogTypeES4_RKT_.exit1139
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.468:
 .Ltmp851:                               # EH_LABEL
@@ -6601,7 +6634,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp852:                               # EH_LABEL
 # %bb.469:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1142
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.470:
 .Ltmp853:                               # EH_LABEL
@@ -6612,7 +6645,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp854:                               # EH_LABEL
 # %bb.471:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit1145
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.472:
 .Ltmp855:                               # EH_LABEL
@@ -6623,7 +6656,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp856:                               # EH_LABEL
 # %bb.473:                              # %_ZN9benchmark8internallsIA149_cEERNS0_7LogTypeES4_RKT_.exit1148
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.474:
 .Ltmp857:                               # EH_LABEL
@@ -6634,7 +6667,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp858:                               # EH_LABEL
 # %bb.475:                              # %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit1151
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.476:
 .Ltmp860:                               # EH_LABEL
@@ -6643,7 +6676,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp861:                               # EH_LABEL
 # %bb.477:                              # %_ZN9benchmark8internallsIiEERNS0_7LogTypeES3_RKT_.exit1154
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.478:
 .Ltmp862:                               # EH_LABEL
@@ -6654,7 +6687,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp863:                               # EH_LABEL
 # %bb.479:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1157
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.480:
 .Ltmp864:                               # EH_LABEL
@@ -6665,7 +6698,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp865:                               # EH_LABEL
 # %bb.481:                              # %_ZN9benchmark8internallsIA19_cEERNS0_7LogTypeES4_RKT_.exit1160
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.482:
 .Ltmp867:                               # EH_LABEL
@@ -6674,7 +6707,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp868:                               # EH_LABEL
 # %bb.483:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1163
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.484:
 .Ltmp869:                               # EH_LABEL
@@ -6685,17 +6718,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp870:                               # EH_LABEL
 # %bb.485:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1166
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.486:
 .Ltmp872:                               # EH_LABEL
-	pcalau12i	$a1, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_1)
+	lu12i.w	$a1, -419431
+	ori	$a1, $a1, 2458
+	lu32i.d	$a1, -419431
+	lu52i.d	$a1, $a1, 1019
+	movgr2fr.d	$fa0, $a1
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp873:                               # EH_LABEL
 # %bb.487:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1169
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.488:
 .Ltmp874:                               # EH_LABEL
@@ -6706,7 +6742,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp875:                               # EH_LABEL
 # %bb.489:                              # %_ZN9benchmark8internallsIA5_cEERNS0_7LogTypeES4_RKT_.exit1172
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_491
 # %bb.490:
 .Ltmp876:                               # EH_LABEL
@@ -6717,20 +6753,20 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp877:                               # EH_LABEL
 .LBB7_491:                              # %_ZN9benchmark8internallsIA15_cEERNS0_7LogTypeES4_RKT_.exit1175
-	st.d	$s2, $sp, 104
-	st.h	$s6, $sp, 120
-	st.b	$s7, $sp, 122
+	st.d	$s2, $sp, 96
+	st.h	$s5, $sp, 112
+	st.b	$s6, $sp, 114
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 112
-	st.b	$zero, $sp, 123
+	st.d	$a0, $sp, 104
+	st.b	$zero, $sp, 115
 .Ltmp879:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
+	addi.d	$a1, $sp, 96
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp880:                               # EH_LABEL
 # %bb.492:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1181
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_496
 # %bb.493:
 	fsub.d	$fa0, $fa0, $fs1
@@ -6739,7 +6775,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp882:                               # EH_LABEL
 # %bb.494:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1184
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_496
 # %bb.495:
 .Ltmp883:                               # EH_LABEL
@@ -6750,36 +6786,42 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp884:                               # EH_LABEL
 .LBB7_496:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1187
-	st.d	$s3, $sp, 72
-	st.h	$s6, $sp, 88
-	st.b	$s7, $sp, 90
+	st.d	$s3, $sp, 64
+	st.h	$s5, $sp, 80
+	st.b	$s6, $sp, 82
 	ori	$a0, $zero, 3
-	st.d	$a0, $sp, 80
-	st.b	$zero, $sp, 91
+	st.d	$a0, $sp, 72
+	st.b	$zero, $sp, 83
 .Ltmp886:                               # EH_LABEL
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 64
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZNK7Results5GetAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
 	jirl	$ra, $ra, 0
 .Ltmp887:                               # EH_LABEL
 # %bb.497:                              # %_ZNK7Results12GetCounterAsIdEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit1193
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_501
 # %bb.498:
-	fld.d	$fa1, $s5, %pc_lo12(.LCPI7_2)
 	fsub.d	$fa0, $fa0, $fs1
-	fabs.d	$fa2, $fs1
-	fld.d	$fa3, $s4, %pc_lo12(.LCPI7_3)
-	fcmp.clt.d	$fcc0, $fa1, $fa2
-	fsel	$fa1, $fa1, $fs1, $fcc0
+	fabs.d	$fa1, $fs1
+	ori	$a1, $s4, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa2, $a1
+	fcmp.clt.d	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa2, $fs1, $fcc0
 	fdiv.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa3
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
+	fmul.d	$fa0, $fa0, $fa1
 .Ltmp888:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp889:                               # EH_LABEL
 # %bb.499:                              # %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit1196
-	ld.d	$a0, $s8, 0
+	ld.d	$a0, $s7, 0
 	beqz	$a0, .LBB7_501
 # %bb.500:
 .Ltmp890:                               # EH_LABEL
@@ -6790,26 +6832,26 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	jirl	$ra, $ra, 0
 .Ltmp891:                               # EH_LABEL
 .LBB7_501:                              # %_ZN9benchmark8internallsIA3_cEERNS0_7LogTypeES4_RKT_.exit1199
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 64
 	beq	$a0, $s3, .LBB7_503
 # %bb.502:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1200
-	ld.d	$a1, $sp, 88
+	ld.d	$a1, $sp, 80
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_503:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1202
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_505
 # %bb.504:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1203
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_505:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1205
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_507
 # %bb.506:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1206
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -6817,70 +6859,69 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	fcmp.clt.d	$fcc0, $fs2, $fs0
 	bceqz	$fcc0, .LBB7_521
 # %bb.508:
-	ld.d	$a0, $sp, 176
+	ld.d	$a0, $sp, 168
 	beq	$a0, $s0, .LBB7_510
 # %bb.509:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1221
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 184
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_510:                              # %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1223
-	fld.d	$fs4, $sp, 208                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 240                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 248                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 256                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 264                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 328                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 336
+	fld.d	$fs4, $sp, 200                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 216                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 224                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 232                  # 8-byte Folded Reload
+	ld.d	$s7, $sp, 240                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 248                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 256                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 264                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 272                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 280                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 288                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 312                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 320
 	ret
 .LBB7_511:
 .Ltmp911:                               # EH_LABEL
-	addi.d	$a0, $sp, 168
+	addi.d	$a0, $sp, 160
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .Ltmp912:                               # EH_LABEL
 # %bb.512:
 .LBB7_513:
 .Ltmp908:                               # EH_LABEL
-	addi.d	$a0, $sp, 64
+	addi.d	$a0, $sp, 56
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .Ltmp909:                               # EH_LABEL
 # %bb.514:
 .LBB7_515:
 .Ltmp905:                               # EH_LABEL
-	addi.d	$a0, $sp, 56
+	addi.d	$a0, $sp, 48
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .Ltmp906:                               # EH_LABEL
 # %bb.516:
 .LBB7_517:
 .Ltmp902:                               # EH_LABEL
-	addi.d	$a0, $sp, 48
+	addi.d	$a0, $sp, 40
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .Ltmp903:                               # EH_LABEL
 # %bb.518:
 .LBB7_519:
 .Ltmp899:                               # EH_LABEL
-	addi.d	$a0, $sp, 40
+	addi.d	$a0, $sp, 32
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .Ltmp900:                               # EH_LABEL
 # %bb.520:
 .LBB7_521:
 .Ltmp896:                               # EH_LABEL
-	addi.d	$a0, $sp, 32
+	addi.d	$a0, $sp, 24
 	pcaddu18i	$ra, %call36(_ZN9benchmark8internal12CheckHandlerD2Ev)
 	jirl	$ra, $ra, 0
 .Ltmp897:                               # EH_LABEL
@@ -6910,8 +6951,8 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	beqz	$a0, .LBB7_90
 # %bb.526:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s8, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	st.d	$zero, $s8, 0
+	addi.d	$s7, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	st.d	$zero, $s7, 0
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcaddu18i	$ra, %call36(__cxa_guard_release)
@@ -6926,8 +6967,8 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	beqz	$a0, .LBB7_175
 # %bb.528:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s8, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	st.d	$zero, $s8, 0
+	addi.d	$s7, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	st.d	$zero, $s7, 0
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcaddu18i	$ra, %call36(__cxa_guard_release)
@@ -6942,8 +6983,8 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	beqz	$a0, .LBB7_260
 # %bb.530:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s8, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	st.d	$zero, $s8, 0
+	addi.d	$s7, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	st.d	$zero, $s7, 0
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcaddu18i	$ra, %call36(__cxa_guard_release)
@@ -6958,8 +6999,8 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	beqz	$a0, .LBB7_345
 # %bb.532:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s7, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	st.d	$zero, $s7, 0
+	addi.d	$s6, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	st.d	$zero, $s6, 0
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcaddu18i	$ra, %call36(__cxa_guard_release)
@@ -6974,8 +7015,8 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	beqz	$a0, .LBB7_430
 # %bb.534:
 	pcalau12i	$a0, %pc_hi20(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	addi.d	$s8, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
-	st.d	$zero, $s8, 0
+	addi.d	$s7, $a0, %pc_lo12(_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
+	st.d	$zero, $s7, 0
 	pcalau12i	$a0, %pc_hi20(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	addi.d	$a0, $a0, %pc_lo12(_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log)
 	pcaddu18i	$ra, %call36(__cxa_guard_release)
@@ -6984,73 +7025,73 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 .LBB7_535:
 .Ltmp878:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_599
 	b	.LBB7_607
 .LBB7_536:
 .Ltmp789:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_611
 	b	.LBB7_616
 .LBB7_537:
 .Ltmp700:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_620
 	b	.LBB7_625
 .LBB7_538:
 .Ltmp611:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_629
 	b	.LBB7_634
 .LBB7_539:
 .Ltmp522:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_638
 	b	.LBB7_643
 .LBB7_540:
 .Ltmp433:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_647
 	b	.LBB7_648
 .LBB7_541:
 .Ltmp871:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_599
 	b	.LBB7_607
 .LBB7_542:
 .Ltmp782:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_611
 	b	.LBB7_616
 .LBB7_543:
 .Ltmp693:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_620
 	b	.LBB7_625
 .LBB7_544:
 .Ltmp604:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_629
 	b	.LBB7_634
 .LBB7_545:
 .Ltmp515:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_638
 	b	.LBB7_643
 .LBB7_546:
 .Ltmp426:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_647
 	b	.LBB7_648
 .LBB7_547:
@@ -7074,37 +7115,37 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 .LBB7_553:
 .Ltmp866:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_599
 	b	.LBB7_607
 .LBB7_554:
 .Ltmp777:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_611
 	b	.LBB7_616
 .LBB7_555:
 .Ltmp688:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_620
 	b	.LBB7_625
 .LBB7_556:
 .Ltmp599:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_629
 	b	.LBB7_634
 .LBB7_557:
 .Ltmp510:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_638
 	b	.LBB7_643
 .LBB7_558:
 .Ltmp421:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_647
 	b	.LBB7_648
 .LBB7_559:
@@ -7128,37 +7169,37 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 .LBB7_565:
 .Ltmp859:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_599
 	b	.LBB7_607
 .LBB7_566:
 .Ltmp770:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_611
 	b	.LBB7_616
 .LBB7_567:
 .Ltmp681:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_620
 	b	.LBB7_625
 .LBB7_568:
 .Ltmp592:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_629
 	b	.LBB7_634
 .LBB7_569:
 .Ltmp503:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_638
 	b	.LBB7_643
 .LBB7_570:
 .Ltmp414:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_647
 	b	.LBB7_648
 .LBB7_571:
@@ -7184,7 +7225,7 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 .LBB7_578:
 	move	$fp, $a0
 	fcmp.clt.d	$fcc0, $fs2, $fs0
-	addi.d	$a0, $sp, 32
+	addi.d	$a0, $sp, 24
 	bcnez	$fcc0, .LBB7_600
 	b	.LBB7_650
 .LBB7_579:
@@ -7234,24 +7275,24 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	b	.LBB7_600
 .LBB7_596:
 .Ltmp892:                               # EH_LABEL
-	ld.d	$a2, $sp, 72
+	ld.d	$a2, $sp, 64
 	move	$fp, $a0
 	bne	$a2, $s3, .LBB7_603
 # %bb.597:
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	bne	$a0, $s2, .LBB7_605
 .LBB7_598:
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_607
 .LBB7_599:
 	fcmp.clt.d	$fcc0, $fs2, $fs0
-	addi.d	$a0, $sp, 32
+	addi.d	$a0, $sp, 24
 	bceqz	$fcc0, .LBB7_650
 .LBB7_600:
-	ld.d	$a0, $sp, 176
+	ld.d	$a0, $sp, 168
 	beq	$a0, $s0, .LBB7_602
 # %bb.601:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1224
-	ld.d	$a1, $sp, 192
+	ld.d	$a1, $sp, 184
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -7260,253 +7301,253 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 	pcaddu18i	$ra, %call36(_Unwind_Resume)
 	jirl	$ra, $ra, 0
 .LBB7_603:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1212
-	ld.d	$a0, $sp, 88
+	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_598
 	b	.LBB7_605
 .LBB7_604:
 .Ltmp885:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_598
 .LBB7_605:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1215
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_599
 	b	.LBB7_607
 .LBB7_606:
 .Ltmp850:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_599
 .LBB7_607:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1218
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 	fcmp.clt.d	$fcc0, $fs2, $fs0
-	addi.d	$a0, $sp, 32
+	addi.d	$a0, $sp, 24
 	bcnez	$fcc0, .LBB7_600
 	b	.LBB7_650
 .LBB7_608:
 .Ltmp803:                               # EH_LABEL
-	ld.d	$a2, $sp, 72
+	ld.d	$a2, $sp, 64
 	move	$fp, $a0
 	bne	$a2, $s3, .LBB7_612
 # %bb.609:
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	bne	$a0, $s2, .LBB7_614
 .LBB7_610:
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_616
 .LBB7_611:
-	addi.d	$a0, $sp, 40
+	addi.d	$a0, $sp, 32
 	b	.LBB7_649
 .LBB7_612:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1060
-	ld.d	$a0, $sp, 88
+	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_610
 	b	.LBB7_614
 .LBB7_613:
 .Ltmp796:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_610
 .LBB7_614:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1063
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_611
 	b	.LBB7_616
 .LBB7_615:
 .Ltmp761:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_611
 .LBB7_616:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1066
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 40
+	addi.d	$a0, $sp, 32
 	b	.LBB7_649
 .LBB7_617:
 .Ltmp714:                               # EH_LABEL
-	ld.d	$a2, $sp, 72
+	ld.d	$a2, $sp, 64
 	move	$fp, $a0
 	bne	$a2, $s3, .LBB7_621
 # %bb.618:
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	bne	$a0, $s2, .LBB7_623
 .LBB7_619:
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_625
 .LBB7_620:
-	addi.d	$a0, $sp, 48
+	addi.d	$a0, $sp, 40
 	b	.LBB7_649
 .LBB7_621:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i908
-	ld.d	$a0, $sp, 88
+	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_619
 	b	.LBB7_623
 .LBB7_622:
 .Ltmp707:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_619
 .LBB7_623:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i911
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_620
 	b	.LBB7_625
 .LBB7_624:
 .Ltmp672:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_620
 .LBB7_625:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i914
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 48
+	addi.d	$a0, $sp, 40
 	b	.LBB7_649
 .LBB7_626:
 .Ltmp625:                               # EH_LABEL
-	ld.d	$a2, $sp, 72
+	ld.d	$a2, $sp, 64
 	move	$fp, $a0
 	bne	$a2, $s3, .LBB7_630
 # %bb.627:
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	bne	$a0, $s2, .LBB7_632
 .LBB7_628:
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_634
 .LBB7_629:
-	addi.d	$a0, $sp, 56
+	addi.d	$a0, $sp, 48
 	b	.LBB7_649
 .LBB7_630:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i756
-	ld.d	$a0, $sp, 88
+	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_628
 	b	.LBB7_632
 .LBB7_631:
 .Ltmp618:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_628
 .LBB7_632:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i759
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_629
 	b	.LBB7_634
 .LBB7_633:
 .Ltmp583:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_629
 .LBB7_634:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i762
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 56
+	addi.d	$a0, $sp, 48
 	b	.LBB7_649
 .LBB7_635:
 .Ltmp536:                               # EH_LABEL
-	ld.d	$a2, $sp, 72
+	ld.d	$a2, $sp, 64
 	move	$fp, $a0
 	bne	$a2, $s3, .LBB7_639
 # %bb.636:
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	bne	$a0, $s2, .LBB7_641
 .LBB7_637:
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_643
 .LBB7_638:
-	addi.d	$a0, $sp, 64
+	addi.d	$a0, $sp, 56
 	b	.LBB7_649
 .LBB7_639:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i604
-	ld.d	$a0, $sp, 88
+	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_637
 	b	.LBB7_641
 .LBB7_640:
 .Ltmp529:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_637
 .LBB7_641:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i607
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_638
 	b	.LBB7_643
 .LBB7_642:
 .Ltmp494:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_638
 .LBB7_643:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i610
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $sp, 64
+	addi.d	$a0, $sp, 56
 	b	.LBB7_649
 .LBB7_644:
 .Ltmp447:                               # EH_LABEL
-	ld.d	$a2, $sp, 72
+	ld.d	$a2, $sp, 64
 	move	$fp, $a0
 	bne	$a2, $s3, .LBB7_652
 # %bb.645:
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	bne	$a0, $s2, .LBB7_654
 .LBB7_646:
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	beq	$a0, $s1, .LBB7_648
 .LBB7_647:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i458
-	ld.d	$a1, $sp, 152
+	ld.d	$a1, $sp, 144
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB7_648:
-	addi.d	$a0, $sp, 168
+	addi.d	$a0, $sp, 160
 .LBB7_649:
-	ld.d	$a1, $sp, 24
+	ld.d	$a1, $sp, 16
 	movgr2cf	$fcc0, $a1
 	bceqz	$fcc0, .LBB7_600
 .LBB7_650:                              # %.invoke
@@ -7516,31 +7557,31 @@ _Z16CheckTabularRateRK7Results:         # @_Z16CheckTabularRateRK7Results
 .Ltmp894:                               # EH_LABEL
 # %bb.651:                              # %.cont
 .LBB7_652:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i452
-	ld.d	$a0, $sp, 88
+	ld.d	$a0, $sp, 80
 	addi.d	$a1, $a0, 1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_646
 	b	.LBB7_654
 .LBB7_653:
 .Ltmp440:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 104
+	ld.d	$a0, $sp, 96
 	beq	$a0, $s2, .LBB7_646
 .LBB7_654:                              # %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i455
-	ld.d	$a1, $sp, 120
+	ld.d	$a1, $sp, 112
 	addi.d	$a1, $a1, 1
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_647
 	b	.LBB7_648
 .LBB7_655:
 .Ltmp405:                               # EH_LABEL
 	move	$fp, $a0
-	ld.d	$a0, $sp, 136
+	ld.d	$a0, $sp, 128
 	bne	$a0, $s1, .LBB7_647
 	b	.LBB7_648
 .LBB7_656:

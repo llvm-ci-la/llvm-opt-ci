@@ -496,14 +496,7 @@ WeirdHouse:                             # @WeirdHouse
 .Lfunc_end2:
 	.size	WeirdHouse, .Lfunc_end2-WeirdHouse
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function DivideAndSolve
-.LCPI3_0:
-	.dword	0x4049000000000000              # double 50
-.LCPI3_1:
-	.dword	0x3ddb7cdfd9d7bdbb              # double 1.0E-10
-	.text
-	.globl	DivideAndSolve
+	.globl	DivideAndSolve                  # -- Begin function DivideAndSolve
 	.p2align	5
 	.type	DivideAndSolve,@function
 DivideAndSolve:                         # @DivideAndSolve
@@ -550,16 +543,23 @@ DivideAndSolve:                         # @DivideAndSolve
 	addi.d	$a0, $s0, 16
 	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	vldi	$vr2, -784
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.d	$fs3, $a0, %pc_lo12(.LCPI3_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1028
+	movgr2fr.d	$fs3, $a0
 	movgr2fr.d	$fs4, $zero
+	lu12i.w	$a0, -156293
+	ori	$a0, $a0, 3515
+	lu32i.d	$a0, -295713
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fs5, $a0
 	ori	$s5, $zero, 51
 	ori	$s3, $zero, 408
 	b	.LBB3_3
 	.p2align	4, , 16
 .LBB3_2:                                # %._crit_edge110
                                         #   in Loop: Header=BB3_3 Depth=1
-	ftintrz.w.d	$fa0, $fs5
+	ftintrz.w.d	$fa0, $fs6
 	movfr2gr.s	$s8, $fa0
 	vldi	$vr2, -784
 	bge	$s8, $s5, .LBB3_37
@@ -583,7 +583,7 @@ DivideAndSolve:                         # @DivideAndSolve
 	fadd.d	$fa1, $fa1, $fa2
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$s1, $fa1
-	fadd.d	$fs5, $fs2, $fa0
+	fadd.d	$fs6, $fs2, $fa0
 	bge	$s1, $s2, .LBB3_5
 # %bb.4:                                # %._crit_edge108.thread
                                         #   in Loop: Header=BB3_3 Depth=1
@@ -595,7 +595,7 @@ DivideAndSolve:                         # @DivideAndSolve
 	.p2align	4, , 16
 .LBB3_5:                                # %.lr.ph107
                                         #   in Loop: Header=BB3_3 Depth=1
-	fadd.d	$fa0, $fs5, $fa2
+	fadd.d	$fa0, $fs6, $fa2
 	fmin.d	$fa0, $fa0, $fs3
 	ftintrz.w.d	$fa0, $fa0
 	move	$a1, $s2
@@ -1007,11 +1007,9 @@ DivideAndSolve:                         # @DivideAndSolve
 	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
 	slli.d	$s8, $a2, 3
 	fldx.d	$fa1, $a1, $s8
-	pcalau12i	$a0, %pc_hi20(.LCPI3_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI3_1)
 	fldx.d	$fa2, $a1, $s7
 	fsub.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fs1
+	fmul.d	$fa0, $fa0, $fs5
 	fcmp.cule.d	$fcc0, $fa2, $fa0
 	bcnez	$fcc0, .LBB3_2
 # %bb.34:                               # %.lr.ph109
@@ -1029,7 +1027,7 @@ DivideAndSolve:                         # @DivideAndSolve
 	ld.d	$a1, $s6, 0
 	fldx.d	$fa0, $a0, $s7
 	fldx.d	$fa1, $a1, $s8
-	fldx.d	$fs6, $a1, $s7
+	fldx.d	$fs1, $a1, $s7
 	fsub.d	$fa0, $fa0, $fa1
 	vldi	$vr2, -928
 	fmul.d	$fs0, $fa0, $fa2
@@ -1039,7 +1037,7 @@ DivideAndSolve:                         # @DivideAndSolve
 	jirl	$ra, $ra, 0
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
-	fmul.d	$fa1, $fs6, $fs6
+	fmul.d	$fa1, $fs1, $fs1
 	ld.d	$a0, $s1, 0
 	ld.d	$a1, $s6, 0
 	fmadd.d	$fa1, $fs0, $fs0, $fa1
@@ -1074,7 +1072,7 @@ DivideAndSolve:                         # @DivideAndSolve
 	fldx.d	$fa1, $a1, $s8
 	fldx.d	$fa2, $a1, $s7
 	fsub.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fs1
+	fmul.d	$fa0, $fa0, $fs5
 	fcmp.clt.d	$fcc0, $fa0, $fa2
 	bcnez	$fcc0, .LBB3_35
 	b	.LBB3_2

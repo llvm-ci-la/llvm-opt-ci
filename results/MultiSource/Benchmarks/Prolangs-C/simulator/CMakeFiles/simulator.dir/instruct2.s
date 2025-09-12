@@ -380,14 +380,7 @@ DIVR_P:                                 # @DIVR_P
 .Lfunc_end4:
 	.size	DIVR_P, .Lfunc_end4-DIVR_P
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function MULR_P
-.LCPI5_0:
-	.dword	0x4160000000000000              # double 8388608
-.LCPI5_1:
-	.dword	0x3e70000000000000              # double 5.9604644775390625E-8
-	.text
-	.globl	MULR_P
+	.globl	MULR_P                          # -- Begin function MULR_P
 	.p2align	5
 	.type	MULR_P,@function
 MULR_P:                                 # @MULR_P
@@ -431,11 +424,11 @@ MULR_P:                                 # @MULR_P
 # %bb.5:
 	movgr2fr.w	$fa0, $a4
 	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a5, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI5_0)
-	movgr2fr.w	$fa2, $a7
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa2, $fa0
+	movgr2fr.w	$fa1, $a7
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa0, $fa1, $fa0
+	lu52i.d	$a5, $zero, 1046
+	movgr2fr.d	$fa1, $a5
 	fcmp.cle.d	$fcc0, $fa1, $fa0
 	ori	$a5, $zero, 1
 	bcnez	$fcc0, .LBB5_7
@@ -451,24 +444,24 @@ MULR_P:                                 # @MULR_P
 	bnez	$a7, .LBB5_10
 # %bb.8:
 	lu12i.w	$a7, 4096
+	ld.w	$t0, $a6, 0
 	sub.d	$a7, $a7, $a4
 	movgr2fr.w	$fa0, $a7
-	ld.w	$a7, $a6, 0
 	ffint.d.w	$fa0, $fa0
-	pcalau12i	$t0, %pc_hi20(.LCPI5_1)
-	fld.d	$fa1, $t0, %pc_lo12(.LCPI5_1)
-	movgr2fr.w	$fa2, $a7
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $t0
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	lu52i.d	$a7, $zero, 999
+	movgr2fr.d	$fa1, $a7
 	fmul.d	$fa1, $fa0, $fa1
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a7, $fa1
 	slli.d	$a7, $a7, 24
-	pcalau12i	$t0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $t0, %pc_lo12(.LCPI5_0)
-	movgr2fr.w	$fa2, $a7
-	ffint.d.w	$fa2, $fa2
-	fsub.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a7
+	ffint.d.w	$fa1, $fa1
+	fsub.d	$fa0, $fa0, $fa1
+	lu52i.d	$a7, $zero, 1046
+	movgr2fr.d	$fa1, $a7
 	fcmp.cult.d	$fcc0, $fa0, $fa1
 	ori	$a7, $zero, 1
 	bcnez	$fcc0, .LBB5_12
@@ -486,20 +479,20 @@ MULR_P:                                 # @MULR_P
 	ffint.d.w	$fa0, $fa0
 	lu12i.w	$t0, 4096
 	sub.d	$a7, $t0, $a7
-	pcalau12i	$t0, %pc_hi20(.LCPI5_1)
-	fld.d	$fa1, $t0, %pc_lo12(.LCPI5_1)
-	movgr2fr.w	$fa2, $a7
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a7
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	lu52i.d	$a7, $zero, 999
+	movgr2fr.d	$fa1, $a7
 	fmul.d	$fa1, $fa0, $fa1
 	ftintrz.w.d	$fa1, $fa1
 	movfr2gr.s	$a7, $fa1
 	slli.d	$a7, $a7, 24
-	pcalau12i	$t0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $t0, %pc_lo12(.LCPI5_0)
-	movgr2fr.w	$fa2, $a7
-	ffint.d.w	$fa2, $fa2
-	fsub.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a7
+	ffint.d.w	$fa1, $fa1
+	fsub.d	$fa0, $fa0, $fa1
+	lu52i.d	$a7, $zero, 1046
+	movgr2fr.d	$fa1, $a7
 	fcmp.cle.d	$fcc0, $fa1, $fa0
 	ori	$a7, $zero, 1
 	bcnez	$fcc0, .LBB5_9
@@ -520,11 +513,11 @@ MULR_P:                                 # @MULR_P
 	movgr2fr.w	$fa0, $a4
 	ffint.d.w	$fa0, $fa0
 	sub.d	$a2, $a2, $a3
-	pcalau12i	$a3, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI5_0)
-	movgr2fr.w	$fa2, $a2
-	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa0, $fa0, $fa2
+	movgr2fr.w	$fa1, $a2
+	ffint.d.w	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	lu52i.d	$a2, $zero, 1046
+	movgr2fr.d	$fa1, $a2
 	fcmp.cle.d	$fcc0, $fa1, $fa0
 	ori	$s1, $zero, 1
 	bcnez	$fcc0, .LBB5_17

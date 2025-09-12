@@ -10,28 +10,22 @@ gx_default_open_device:                 # @gx_default_open_device
 .Lfunc_end0:
 	.size	gx_default_open_device, .Lfunc_end0-gx_default_open_device
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function gx_default_get_initial_matrix
-.LCPI1_0:
-	.word	0x42900000                      # float 72
-.LCPI1_1:
-	.word	0xc2900000                      # float -72
-	.text
-	.globl	gx_default_get_initial_matrix
+	.globl	gx_default_get_initial_matrix   # -- Begin function gx_default_get_initial_matrix
 	.p2align	5
 	.type	gx_default_get_initial_matrix,@function
 gx_default_get_initial_matrix:          # @gx_default_get_initial_matrix
 # %bb.0:
 	fld.s	$fa0, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a2, 272640
+	movgr2fr.w	$fa1, $a2
 	fdiv.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $a1, 0
-	fld.s	$fa0, $a0, 36
-	pcalau12i	$a2, %pc_hi20(.LCPI1_1)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI1_1)
 	st.w	$zero, $a1, 16
 	st.w	$zero, $a1, 32
+	fld.s	$fa0, $a0, 36
+	lu12i.w	$a2, -251648
+	lu32i.d	$a2, 0
+	movgr2fr.w	$fa1, $a2
 	ld.w	$a0, $a0, 28
 	fdiv.s	$fa0, $fa0, $fa1
 	fst.s	$fa0, $a1, 48
@@ -388,18 +382,7 @@ gs_makedevice:                          # @gs_makedevice
 .Lfunc_end21:
 	.size	gs_makedevice, .Lfunc_end21-gs_makedevice
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_makeimagedevice
-.LCPI22_0:
-	.dword	0xbf50624dd2f1a9fc              # double -0.001
-.LCPI22_1:
-	.dword	0x3ff004189374bc6a              # double 1.0009999999999999
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI22_2:
-	.word	0x437f0000                      # float 255
-	.text
-	.globl	gs_makeimagedevice
+	.globl	gs_makeimagedevice              # -- Begin function gs_makeimagedevice
 	.p2align	5
 	.type	gs_makeimagedevice,@function
 gs_makeimagedevice:                     # @gs_makeimagedevice
@@ -469,13 +452,19 @@ gs_makeimagedevice:                     # @gs_makeimagedevice
 	addi.d	$t1, $sp, 40
 	lu12i.w	$t2, -349526
 	ori	$t2, $t2, 2731
-	pcalau12i	$t3, %pc_hi20(.LCPI22_0)
-	fld.d	$fa0, $t3, %pc_lo12(.LCPI22_0)
-	pcalau12i	$t3, %pc_hi20(.LCPI22_1)
-	fld.d	$fa1, $t3, %pc_lo12(.LCPI22_1)
-	pcalau12i	$t3, %pc_hi20(.LCPI22_2)
-	fld.s	$fa2, $t3, %pc_lo12(.LCPI22_2)
 	lu32i.d	$t2, 0
+	lu12i.w	$t3, -184550
+	ori	$t3, $t3, 2556
+	lu32i.d	$t3, 25165
+	lu52i.d	$t3, $t3, -1035
+	movgr2fr.d	$fa0, $t3
+	lu12i.w	$t3, -444597
+	ori	$t3, $t3, 3178
+	lu32i.d	$t3, 1048
+	lu52i.d	$t3, $t3, 1023
+	movgr2fr.d	$fa1, $t3
+	lu12i.w	$t3, 276464
+	movgr2fr.w	$fa2, $t3
 	vldi	$vr3, -928
 	ori	$t3, $zero, 255
 	move	$t4, $s3

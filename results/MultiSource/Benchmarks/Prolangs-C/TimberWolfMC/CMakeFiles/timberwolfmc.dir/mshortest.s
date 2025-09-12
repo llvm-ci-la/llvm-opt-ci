@@ -1,11 +1,7 @@
 	.file	"mshortest.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function mshortest
-.LCPI0_0:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_1:
+	.p2align	4, 0x0                          # -- Begin function mshortest
+.LCPI0_0:
 	.half	7                               # 0x7
 	.half	6                               # 0x6
 	.half	5                               # 0x5
@@ -101,11 +97,14 @@ mshortest:                              # @mshortest
 # %bb.6:                                # %._crit_edge460.loopexit
 	ld.w	$a0, $s5, 0
 .LBB0_7:                                # %._crit_edge460
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_0)
-	movgr2fr.w	$fa1, $a1
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a1
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a2, -419431
+	ori	$a2, $a2, 2458
+	lu32i.d	$a2, -419431
+	lu52i.d	$a2, $a2, 1019
+	movgr2fr.d	$fa1, $a2
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a2, $fa0
 	alsl.d	$a0, $a0, $a2, 1
@@ -521,7 +520,7 @@ mshortest:                              # @mshortest
 	bstrpick.d	$a4, $s0, 31, 0
 	addi.d	$a3, $s0, 1
 	bstrpick.d	$a3, $a3, 31, 0
-	pcalau12i	$s6, %pc_hi20(.LCPI0_1)
+	pcalau12i	$s6, %pc_hi20(.LCPI0_0)
 	ori	$a5, $zero, 8
 	bltu	$s0, $a5, .LBB0_52
 # %bb.47:                               # %vector.memcheck810
@@ -553,7 +552,7 @@ mshortest:                              # @mshortest
                                         #   Parent Loop BB0_30 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr0, $a5, 0
-	vld	$vr1, $s6, %pc_lo12(.LCPI0_1)
+	vld	$vr1, $s6, %pc_lo12(.LCPI0_0)
 	vshuf.h	$vr1, $vr0, $vr0
 	vst	$vr1, $a7, 0
 	addi.d	$a5, $a5, 16
@@ -1361,7 +1360,7 @@ mshortest:                              # @mshortest
                                         #       Parent Loop BB0_79 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
 	vld	$vr0, $a6, 0
-	vld	$vr1, $s0, %pc_lo12(.LCPI0_1)
+	vld	$vr1, $s0, %pc_lo12(.LCPI0_0)
 	vshuf.h	$vr1, $vr0, $vr0
 	vst	$vr1, $t0, 0
 	addi.d	$a6, $a6, 16
@@ -1460,7 +1459,7 @@ mshortest:                              # @mshortest
                                         #       Parent Loop BB0_79 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
 	vld	$vr0, $t0, 0
-	vld	$vr1, $s0, %pc_lo12(.LCPI0_1)
+	vld	$vr1, $s0, %pc_lo12(.LCPI0_0)
 	vshuf.h	$vr1, $vr0, $vr0
 	vst	$vr1, $a3, 0
 	addi.d	$a3, $a3, 16
@@ -1774,7 +1773,7 @@ mshortest:                              # @mshortest
                                         #     Parent Loop BB0_58 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr0, $a6, 0
-	vld	$vr1, $s6, %pc_lo12(.LCPI0_1)
+	vld	$vr1, $s6, %pc_lo12(.LCPI0_0)
 	vshuf.h	$vr1, $vr0, $vr0
 	vst	$vr1, $t0, 0
 	addi.d	$a6, $a6, 16
@@ -1863,7 +1862,7 @@ mshortest:                              # @mshortest
                                         #     Parent Loop BB0_58 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr0, $a7, 0
-	vld	$vr1, $s6, %pc_lo12(.LCPI0_1)
+	vld	$vr1, $s6, %pc_lo12(.LCPI0_0)
 	vshuf.h	$vr1, $vr0, $vr0
 	vst	$vr1, $a2, 0
 	addi.d	$a2, $a2, 16

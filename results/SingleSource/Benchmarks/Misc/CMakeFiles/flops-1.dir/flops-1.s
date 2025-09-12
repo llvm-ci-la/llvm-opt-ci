@@ -1,14 +1,6 @@
 	.file	"flops-1.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x41b2a05f20000000              # double 3.125E+8
-.LCPI0_1:
-	.dword	0xc039333333333333              # double -25.199999999999999
-.LCPI0_2:
-	.dword	0x39b4484bfeebc2a0              # double 1.0000000000000001E-30
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -65,8 +57,10 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(puts)
 	jirl	$ra, $ra, 0
 	fld.d	$fa0, $s0, %pc_lo12(one)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 131072
+	lu32i.d	$a0, 172127
+	lu52i.d	$a0, $a0, 1051
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa1, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(D1)
 	fld.d	$fa2, $a0, %pc_lo12(D1)
@@ -110,16 +104,22 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(sa)
 	fst.d	$fa1, $a0, %pc_lo12(sa)
 	fdiv.d	$fa0, $fa0, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
 	pcalau12i	$a0, %pc_hi20(sb)
 	fst.d	$fa0, $a0, %pc_lo12(sb)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, 209715
+	ori	$a0, $a0, 819
+	lu32i.d	$a0, -445645
+	lu52i.d	$a0, $a0, -1021
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa0, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(sc)
 	fst.d	$fa0, $a0, %pc_lo12(sc)
-	fmul.d	$fa0, $fa0, $fa2
+	lu12i.w	$a0, -4420
+	ori	$a0, $a0, 672
+	lu32i.d	$a0, 280651
+	lu52i.d	$a0, $a0, 923
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.4)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.4)

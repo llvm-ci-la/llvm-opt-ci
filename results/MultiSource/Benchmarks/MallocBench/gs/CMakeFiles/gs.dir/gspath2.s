@@ -48,12 +48,7 @@ gs_reversepath:                         # @gs_reversepath
 .Lfunc_end1:
 	.size	gs_reversepath, .Lfunc_end1-gs_reversepath
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_pathbbox
-.LCPI2_0:
-	.dword	0x3f30000000000000              # double 2.44140625E-4
-	.text
-	.globl	gs_pathbbox
+	.globl	gs_pathbbox                     # -- Begin function gs_pathbbox
 	.p2align	5
 	.type	gs_pathbbox,@function
 gs_pathbbox:                            # @gs_pathbbox
@@ -71,29 +66,29 @@ gs_pathbbox:                            # @gs_pathbbox
 	bltz	$a0, .LBB2_2
 # %bb.1:
 	ld.d	$a0, $sp, 24
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI2_0)
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	lu52i.d	$a0, $zero, 1011
 	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
 	ld.d	$a0, $sp, 32
-	fmul.d	$fa1, $fa1, $fa0
-	fcvt.s.d	$fa1, $fa1
-	fst.s	$fa1, $sp, 8
-	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	fcvt.s.d	$fa0, $fa0
+	fst.s	$fa0, $sp, 8
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
 	ld.d	$a0, $sp, 40
-	fmul.d	$fa1, $fa1, $fa0
-	fcvt.s.d	$fa1, $fa1
-	fst.s	$fa1, $sp, 12
-	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
+	fmul.d	$fa0, $fa0, $fa1
+	fcvt.s.d	$fa0, $fa0
+	fst.s	$fa0, $sp, 12
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
 	ld.d	$a0, $sp, 48
-	fmul.d	$fa1, $fa1, $fa0
-	fcvt.s.d	$fa1, $fa1
-	fst.s	$fa1, $sp, 16
-	movgr2fr.d	$fa1, $a0
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	fmul.d	$fa0, $fa0, $fa1
+	fcvt.s.d	$fa0, $fa0
+	fst.s	$fa0, $sp, 16
+	movgr2fr.d	$fa0, $a0
+	ffint.d.l	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	fst.s	$fa0, $sp, 20
 	addi.d	$a1, $s0, 24
@@ -123,12 +118,7 @@ gs_path_enum_init:                      # @gs_path_enum_init
 .Lfunc_end3:
 	.size	gs_path_enum_init, .Lfunc_end3-gs_path_enum_init
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_path_enum_next
-.LCPI4_0:
-	.dword	0x3f30000000000000              # double 2.44140625E-4
-	.text
-	.globl	gs_path_enum_next
+	.globl	gs_path_enum_next               # -- Begin function gs_path_enum_next
 	.p2align	5
 	.type	gs_path_enum_next,@function
 gs_path_enum_next:                      # @gs_path_enum_next
@@ -152,10 +142,10 @@ gs_path_enum_next:                      # @gs_path_enum_next
 # %bb.2:
 	move	$fp, $a1
 	ld.d	$a0, $s1, 24
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.d	$fs0, $a1, %pc_lo12(.LCPI4_0)
 	movgr2fr.d	$fa0, $a0
 	ffint.d.l	$fa0, $fa0
+	lu52i.d	$a0, $zero, 1011
+	movgr2fr.d	$fs0, $a0
 	ld.d	$a0, $s1, 32
 	fmul.d	$fa0, $fa0, $fs0
 	fcvt.s.d	$fa0, $fa0

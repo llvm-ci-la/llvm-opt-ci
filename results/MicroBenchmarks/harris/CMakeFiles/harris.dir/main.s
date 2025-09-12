@@ -3,12 +3,8 @@
 	.globl	_ZSt21ios_base_library_initv
 
                                         # End of file scope inline assembly
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z19initCheckboardImageiiPA2052_f
-.LCPI0_0:
-	.word	0x437f0000                      # float 255
 	.text
-	.globl	_Z19initCheckboardImageiiPA2052_f
+	.globl	_Z19initCheckboardImageiiPA2052_f # -- Begin function _Z19initCheckboardImageiiPA2052_f
 	.p2align	5
 	.type	_Z19initCheckboardImageiiPA2052_f,@function
 _Z19initCheckboardImageiiPA2052_f:      # @_Z19initCheckboardImageiiPA2052_f
@@ -25,8 +21,8 @@ _Z19initCheckboardImageiiPA2052_f:      # @_Z19initCheckboardImageiiPA2052_f
 	ori	$a6, $a6, 2458
 	move	$a7, $a5
 	lu32i.d	$a7, 0
-	pcalau12i	$t0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $t0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$t0, 276464
+	movgr2fr.w	$fa0, $t0
 	movgr2fr.w	$fa1, $zero
 	lu12i.w	$t0, 2
 	ori	$t0, $t0, 16
@@ -74,12 +70,7 @@ _Z19initCheckboardImageiiPA2052_f:      # @_Z19initCheckboardImageiiPA2052_f
 .Lfunc_end0:
 	.size	_Z19initCheckboardImageiiPA2052_f, .Lfunc_end0-_Z19initCheckboardImageiiPA2052_f
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z10printImageiiPA2048_fi
-.LCPI1_0:
-	.word	0x437f0000                      # float 255
-	.text
-	.globl	_Z10printImageiiPA2048_fi
+	.globl	_Z10printImageiiPA2048_fi       # -- Begin function _Z10printImageiiPA2048_fi
 	.p2align	5
 	.type	_Z10printImageiiPA2048_fi,@function
 _Z10printImageiiPA2048_fi:              # @_Z10printImageiiPA2048_fi
@@ -158,10 +149,10 @@ _Z10printImageiiPA2048_fi:              # @_Z10printImageiiPA2048_fi
 	movgr2fr.w	$fs0, $zero
 	pcalau12i	$a0, %pc_hi20(.L.str.1)
 	addi.d	$s4, $a0, %pc_lo12(.L.str.1)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI1_0)
 	move	$s5, $zero
 	lu12i.w	$s6, 2
+	lu12i.w	$a0, 276464
+	movgr2fr.w	$fs1, $a0
 	.p2align	4, , 16
 .LBB1_8:                                # %.preheader.us
                                         # =>This Loop Header: Depth=1
@@ -330,12 +321,8 @@ GCC_except_table1:
 .Lcst_end0:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z16BENCHMARK_HARRISRN9benchmark5StateE
-.LCPI2_0:
-	.word	0x437f0000                      # float 255
 	.text
-	.globl	_Z16BENCHMARK_HARRISRN9benchmark5StateE
+	.globl	_Z16BENCHMARK_HARRISRN9benchmark5StateE # -- Begin function _Z16BENCHMARK_HARRISRN9benchmark5StateE
 	.p2align	5
 	.type	_Z16BENCHMARK_HARRISRN9benchmark5StateE,@function
 _Z16BENCHMARK_HARRISRN9benchmark5StateE: # @_Z16BENCHMARK_HARRISRN9benchmark5StateE
@@ -389,8 +376,8 @@ _Z16BENCHMARK_HARRISRN9benchmark5StateE: # @_Z16BENCHMARK_HARRISRN9benchmark5Sta
 	ori	$a4, $a4, 4080
 	move	$a5, $a2
 	lu32i.d	$a5, 0
-	pcalau12i	$a6, %pc_hi20(.LCPI2_0)
-	fld.s	$fa0, $a6, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a6, 276464
+	movgr2fr.w	$fa0, $a6
 	movgr2fr.w	$fa1, $zero
 	lu12i.w	$a6, 2
 	ori	$a6, $a6, 16
@@ -736,12 +723,8 @@ GCC_except_table2:
 .Lcst_end1:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI3_0:
-	.word	0x437f0000                      # float 255
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -805,8 +788,8 @@ main:                                   # @main
 	ori	$a4, $a4, 4080
 	move	$a5, $a2
 	lu32i.d	$a5, 0
-	pcalau12i	$a6, %pc_hi20(.LCPI3_0)
-	fld.s	$fa0, $a6, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a6, 276464
+	movgr2fr.w	$fa0, $a6
 	movgr2fr.w	$fa1, $zero
 	lu12i.w	$a6, 2
 	ori	$a6, $a6, 16

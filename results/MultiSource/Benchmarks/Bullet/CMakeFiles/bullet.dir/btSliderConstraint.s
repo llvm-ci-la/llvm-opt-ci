@@ -510,16 +510,7 @@ _ZN18btSliderConstraint13buildJacobianEv: # @_ZN18btSliderConstraint13buildJacob
 	.size	_ZN18btSliderConstraint13buildJacobianEv, .Lfunc_end6-_ZN18btSliderConstraint13buildJacobianEv
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18btSliderConstraint16buildJacobianIntER11btRigidBodyS1_RK11btTransformS4_
-.LCPI7_0:
-	.word	0x3f490fdb                      # float 0.785398185
-.LCPI7_1:
-	.word	0xbf490fdb                      # float -0.785398185
-.LCPI7_2:
-	.word	0x4016cbe4                      # float 2.3561945
-	.text
-	.globl	_ZN18btSliderConstraint16buildJacobianIntER11btRigidBodyS1_RK11btTransformS4_
+	.globl	_ZN18btSliderConstraint16buildJacobianIntER11btRigidBodyS1_RK11btTransformS4_ # -- Begin function _ZN18btSliderConstraint16buildJacobianIntER11btRigidBodyS1_RK11btTransformS4_
 	.p2align	5
 	.type	_ZN18btSliderConstraint16buildJacobianIntER11btRigidBodyS1_RK11btTransformS4_,@function
 _ZN18btSliderConstraint16buildJacobianIntER11btRigidBodyS1_RK11btTransformS4_: # @_ZN18btSliderConstraint16buildJacobianIntER11btRigidBodyS1_RK11btTransformS4_
@@ -1171,23 +1162,25 @@ _ZN18btSliderConstraint16buildJacobianIntER11btRigidBodyS1_RK11btTransformS4_: #
 	fabs.s	$fa5, $fa0
 	bceqz	$fcc0, .LBB7_12
 # %bb.11:
-	pcalau12i	$a0, %pc_hi20(.LCPI7_2)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI7_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI7_1)
-	fld.s	$fa7, $a0, %pc_lo12(.LCPI7_1)
-	fadd.s	$ft0, $fa4, $fa5
+	fadd.s	$fa6, $fa4, $fa5
 	fsub.s	$fa4, $fa5, $fa4
+	fdiv.s	$fa4, $fa6, $fa4
+	lu12i.w	$a0, 262508
+	ori	$a0, $a0, 3044
 	b	.LBB7_13
 .LBB7_12:
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI7_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI7_1)
-	fld.s	$fa7, $a0, %pc_lo12(.LCPI7_1)
-	fsub.s	$ft0, $fa4, $fa5
+	fsub.s	$fa6, $fa4, $fa5
 	fadd.s	$fa4, $fa4, $fa5
+	fdiv.s	$fa4, $fa6, $fa4
+	lu12i.w	$a0, 259216
+	ori	$a0, $a0, 4059
 .LBB7_13:                               # %_Z11btAtan2Fastff.exit.i
-	fdiv.s	$fa4, $ft0, $fa4
-	fmadd.s	$fa4, $fa4, $fa7, $fa6
+	movgr2fr.w	$fa5, $a0
+	lu12i.w	$a0, -265072
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa6, $a0
+	fmadd.s	$fa4, $fa4, $fa6, $fa5
 	fneg.s	$fa5, $fa4
 	fcmp.clt.s	$fcc0, $fa0, $fa3
 	fsel	$fa0, $fa4, $fa5, $fcc0
@@ -1432,16 +1425,7 @@ _ZN18btSliderConstraint13testLinLimitsEv: # @_ZN18btSliderConstraint13testLinLim
 .Lfunc_end9:
 	.size	_ZN18btSliderConstraint13testLinLimitsEv, .Lfunc_end9-_ZN18btSliderConstraint13testLinLimitsEv
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18btSliderConstraint13testAngLimitsEv
-.LCPI10_0:
-	.word	0x3f490fdb                      # float 0.785398185
-.LCPI10_1:
-	.word	0xbf490fdb                      # float -0.785398185
-.LCPI10_2:
-	.word	0x4016cbe4                      # float 2.3561945
-	.text
-	.globl	_ZN18btSliderConstraint13testAngLimitsEv
+	.globl	_ZN18btSliderConstraint13testAngLimitsEv # -- Begin function _ZN18btSliderConstraint13testAngLimitsEv
 	.p2align	5
 	.type	_ZN18btSliderConstraint13testAngLimitsEv,@function
 _ZN18btSliderConstraint13testAngLimitsEv: # @_ZN18btSliderConstraint13testAngLimitsEv
@@ -1481,23 +1465,25 @@ _ZN18btSliderConstraint13testAngLimitsEv: # @_ZN18btSliderConstraint13testAngLim
 	fabs.s	$fa5, $fa0
 	bceqz	$fcc0, .LBB10_3
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI10_2)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI10_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI10_1)
-	fld.s	$fa7, $a0, %pc_lo12(.LCPI10_1)
-	fadd.s	$ft0, $fa4, $fa5
+	fadd.s	$fa6, $fa4, $fa5
 	fsub.s	$fa4, $fa5, $fa4
+	fdiv.s	$fa4, $fa6, $fa4
+	lu12i.w	$a0, 262508
+	ori	$a0, $a0, 3044
 	b	.LBB10_4
 .LBB10_3:
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI10_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI10_1)
-	fld.s	$fa7, $a0, %pc_lo12(.LCPI10_1)
-	fsub.s	$ft0, $fa4, $fa5
+	fsub.s	$fa6, $fa4, $fa5
 	fadd.s	$fa4, $fa4, $fa5
+	fdiv.s	$fa4, $fa6, $fa4
+	lu12i.w	$a0, 259216
+	ori	$a0, $a0, 4059
 .LBB10_4:                               # %_Z11btAtan2Fastff.exit
-	fdiv.s	$fa4, $ft0, $fa4
-	fmadd.s	$fa4, $fa4, $fa7, $fa6
+	movgr2fr.w	$fa5, $a0
+	lu12i.w	$a0, -265072
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa6, $a0
+	fmadd.s	$fa4, $fa4, $fa6, $fa5
 	fneg.s	$fa5, $fa4
 	fcmp.clt.s	$fcc0, $fa0, $fa3
 	fsel	$fa0, $fa4, $fa5, $fcc0
@@ -1526,16 +1512,7 @@ _ZN18btSliderConstraint13testAngLimitsEv: # @_ZN18btSliderConstraint13testAngLim
 	.size	_ZN18btSliderConstraint13testAngLimitsEv, .Lfunc_end10-_ZN18btSliderConstraint13testAngLimitsEv
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E
-.LCPI11_0:
-	.word	0x3f490fdb                      # float 0.785398185
-.LCPI11_1:
-	.word	0xbf490fdb                      # float -0.785398185
-.LCPI11_2:
-	.word	0x4016cbe4                      # float 2.3561945
-	.text
-	.globl	_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E
+	.globl	_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E # -- Begin function _ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E
 	.p2align	5
 	.type	_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E,@function
 _ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E: # @_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E
@@ -1636,23 +1613,25 @@ _ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E: # @_
 	fabs.s	$fa5, $fa0
 	bceqz	$fcc0, .LBB11_13
 # %bb.12:
-	pcalau12i	$a0, %pc_hi20(.LCPI11_2)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI11_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI11_1)
-	fld.s	$fa7, $a0, %pc_lo12(.LCPI11_1)
-	fadd.s	$ft0, $fa4, $fa5
+	fadd.s	$fa6, $fa4, $fa5
 	fsub.s	$fa4, $fa5, $fa4
+	fdiv.s	$fa4, $fa6, $fa4
+	lu12i.w	$a0, 262508
+	ori	$a0, $a0, 3044
 	b	.LBB11_14
 .LBB11_13:
-	pcalau12i	$a0, %pc_hi20(.LCPI11_0)
-	fld.s	$fa6, $a0, %pc_lo12(.LCPI11_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI11_1)
-	fld.s	$fa7, $a0, %pc_lo12(.LCPI11_1)
-	fsub.s	$ft0, $fa4, $fa5
+	fsub.s	$fa6, $fa4, $fa5
 	fadd.s	$fa4, $fa4, $fa5
+	fdiv.s	$fa4, $fa6, $fa4
+	lu12i.w	$a0, 259216
+	ori	$a0, $a0, 4059
 .LBB11_14:                              # %_Z11btAtan2Fastff.exit.i
-	fdiv.s	$fa4, $ft0, $fa4
-	fmadd.s	$fa4, $fa4, $fa7, $fa6
+	movgr2fr.w	$fa5, $a0
+	lu12i.w	$a0, -265072
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa6, $a0
+	fmadd.s	$fa4, $fa4, $fa6, $fa5
 	fneg.s	$fa5, $fa4
 	fcmp.clt.s	$fcc0, $fa0, $fa3
 	fsel	$fa0, $fa4, $fa5, $fcc0
@@ -2152,24 +2131,7 @@ _ZN18btSliderConstraint8getInfo2EPN17btTypedConstraint17btConstraintInfo2E: # @_
 	.size	_ZN18btSliderConstraint8getInfo2EPN17btTypedConstraint17btConstraintInfo2E, .Lfunc_end14-_ZN18btSliderConstraint8getInfo2EPN17btTypedConstraint17btConstraintInfo2E
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_ff
-.LCPI15_0:
-	.word	0x3f490fdb                      # float 0.785398185
-.LCPI15_1:
-	.word	0xbf490fdb                      # float -0.785398185
-.LCPI15_2:
-	.word	0x4016cbe4                      # float 2.3561945
-.LCPI15_3:
-	.word	0x3f7d70a4                      # float 0.990000009
-.LCPI15_4:
-	.word	0x3c23d70a                      # float 0.00999999977
-.LCPI15_5:
-	.word	0xff7fffff                      # float -3.40282347E+38
-.LCPI15_6:
-	.word	0x7f7fffff                      # float 3.40282347E+38
-	.text
-	.globl	_ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_ff
+	.globl	_ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_ff # -- Begin function _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_ff
 	.p2align	5
 	.type	_ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_ff,@function
 _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_ff: # @_ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_ff
@@ -2275,23 +2237,25 @@ _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintI
 	movgr2fr.w	$fa3, $zero
 	fcmp.cult.s	$fcc0, $fa4, $fa3
 	fadd.s	$fa6, $fa4, $fa5
-	pcalau12i	$a0, %pc_hi20(.LCPI15_1)
+	lu12i.w	$a0, -265072
 	bceqz	$fcc0, .LBB15_10
 # %bb.9:
-	pcalau12i	$a1, %pc_hi20(.LCPI15_2)
-	fld.s	$fa7, $a1, %pc_lo12(.LCPI15_2)
-	fld.s	$ft0, $a0, %pc_lo12(.LCPI15_1)
 	fsub.s	$fa4, $fa5, $fa4
 	fdiv.s	$fa4, $fa6, $fa4
+	lu12i.w	$a1, 262508
+	ori	$a1, $a1, 3044
 	b	.LBB15_11
 .LBB15_10:
-	pcalau12i	$a1, %pc_hi20(.LCPI15_0)
-	fld.s	$fa7, $a1, %pc_lo12(.LCPI15_0)
-	fld.s	$ft0, $a0, %pc_lo12(.LCPI15_1)
 	fsub.s	$fa4, $fa4, $fa5
 	fdiv.s	$fa4, $fa4, $fa6
+	lu12i.w	$a1, 259216
+	ori	$a1, $a1, 4059
 .LBB15_11:                              # %_Z11btAtan2Fastff.exit.i
-	fmadd.s	$fa4, $fa4, $ft0, $fa7
+	movgr2fr.w	$fa5, $a1
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa6, $a0
+	fmadd.s	$fa4, $fa4, $fa6, $fa5
 	fneg.s	$fa5, $fa4
 	fcmp.clt.s	$fcc0, $fa0, $fa3
 	fsel	$fa0, $fa4, $fa5, $fcc0
@@ -2382,25 +2346,27 @@ _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintI
 	fld.s	$ft1, $s4, 56
 	fld.s	$ft8, $s3, 48
 	fld.s	$ft9, $s3, 52
+	fld.s	$ft10, $s3, 56
+	slli.w	$t3, $t0, 1
 	fadd.s	$fa6, $fs1, $fs0
-	fdiv.s	$ft10, $fs0, $fa6
+	fdiv.s	$ft11, $fs0, $fa6
 	movgr2fr.w	$fs0, $zero
-	pcalau12i	$t2, %pc_hi20(.LCPI15_3)
-	fld.s	$ft11, $t2, %pc_lo12(.LCPI15_3)
 	fcmp.clt.s	$fcc0, $fs0, $fa6
 	vldi	$vr6, -1184
-	fsel	$fa6, $fa6, $ft10, $fcc0
-	fcmp.clt.s	$fcc0, $ft11, $fa6
-	pcalau12i	$t2, %pc_hi20(.LCPI15_4)
-	fld.s	$ft10, $t2, %pc_lo12(.LCPI15_4)
 	fsel	$fa6, $fa6, $ft11, $fcc0
-	fld.s	$ft11, $s3, 56
-	slli.w	$t4, $t0, 1
-	fcmp.clt.s	$fcc0, $fa6, $ft10
-	fsel	$fa6, $fa6, $ft10, $fcc0
+	lu12i.w	$t2, 260055
+	ori	$t2, $t2, 164
+	movgr2fr.w	$ft11, $t2
+	fcmp.clt.s	$fcc0, $ft11, $fa6
+	fsel	$fa6, $fa6, $ft11, $fcc0
+	lu12i.w	$t2, 246333
+	ori	$t2, $t2, 1802
+	movgr2fr.w	$ft11, $t2
+	fcmp.clt.s	$fcc0, $fa6, $ft11
+	fsel	$fa6, $fa6, $ft11, $fcc0
 	fsub.s	$fa7, $ft8, $fa7
 	fsub.s	$ft0, $ft9, $ft0
-	fsub.s	$ft1, $ft11, $ft1
+	fsub.s	$ft1, $ft10, $ft1
 	fmul.s	$ft6, $ft1, $ft6
 	fmadd.s	$ft6, $ft0, $fa0, $ft6
 	fmul.s	$ft7, $fa7, $ft7
@@ -2408,11 +2374,11 @@ _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintI
 	fmul.s	$ft2, $ft0, $ft2
 	fmadd.s	$ft8, $fa7, $fa4, $ft2
 	fmul.s	$ft2, $fa6, $ft6
-	slli.d	$t2, $t4, 2
+	slli.d	$t2, $t3, 2
 	fstx.s	$ft2, $a0, $t2
 	fmul.s	$ft2, $fa6, $ft7
-	addi.d	$t3, $t2, 4
-	fstx.s	$ft2, $a0, $t3
+	addi.d	$t4, $t2, 4
+	fstx.s	$ft2, $a0, $t4
 	fmul.s	$ft2, $fa6, $ft8
 	addi.d	$t5, $t2, 8
 	fstx.s	$ft2, $a0, $t5
@@ -2421,7 +2387,7 @@ _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintI
 	fmul.s	$ft6, $ft2, $ft6
 	fstx.s	$ft6, $a1, $t2
 	fmul.s	$ft6, $ft2, $ft7
-	fstx.s	$ft6, $a1, $t3
+	fstx.s	$ft6, $a1, $t4
 	fmul.s	$ft6, $ft2, $ft8
 	fstx.s	$ft6, $a1, $t5
 	alsl.w	$t5, $t0, $t0, 1
@@ -2432,27 +2398,27 @@ _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintI
 	fmul.s	$ft3, $ft0, $ft3
 	fmadd.s	$ft3, $fa7, $fa5, $ft3
 	fmul.s	$ft6, $fa6, $ft4
-	slli.d	$t3, $t5, 2
-	fstx.s	$ft6, $a0, $t3
+	slli.d	$t4, $t5, 2
+	fstx.s	$ft6, $a0, $t4
 	fmul.s	$ft6, $fa6, $ft5
-	addi.d	$t0, $t3, 4
+	addi.d	$t0, $t4, 4
 	fstx.s	$ft6, $a0, $t0
 	fmul.s	$ft6, $fa6, $ft3
-	addi.d	$t6, $t3, 8
+	addi.d	$t6, $t4, 8
 	fstx.s	$ft6, $a0, $t6
 	fmul.s	$ft4, $ft2, $ft4
 	fmul.s	$ft5, $ft2, $ft5
 	fstx.s	$ft5, $a1, $t0
 	ld.d	$t0, $s0, 8
-	fstx.s	$ft4, $a1, $t3
+	fstx.s	$ft4, $a1, $t4
 	fmul.s	$ft3, $ft2, $ft3
 	fstx.s	$ft3, $a1, $t6
-	alsl.d	$t4, $t4, $t0, 2
+	alsl.d	$t3, $t3, $t0, 2
 	stx.w	$a5, $t0, $t2
-	st.w	$a6, $t4, 4
-	fst.s	$fa0, $t4, 8
+	st.w	$a6, $t3, 4
+	fst.s	$fa0, $t3, 8
 	alsl.d	$a5, $t5, $t0, 2
-	stx.w	$a4, $t0, $t3
+	stx.w	$a4, $t0, $t4
 	st.w	$a7, $a5, 4
 	fst.s	$fa1, $a5, 8
 	fld.s	$ft3, $fp, 956
@@ -2482,7 +2448,7 @@ _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintI
 	fmadd.s	$fa0, $fa1, $ft5, $fa0
 	fmul.s	$fa0, $fa0, $ft6
 	ld.bu	$s5, $fp, 320
-	fstx.s	$fa0, $a3, $t3
+	fstx.s	$fa0, $a3, $t4
 	fneg.s	$fs5, $fs4
 	fneg.s	$fs7, $fs2
 	fneg.s	$ft5, $fs3
@@ -2767,15 +2733,18 @@ _ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintI
 	fstx.s	$fa0, $a0, $s3
 	stx.w	$zero, $a1, $s3
 	ld.d	$a1, $s0, 64
-	pcalau12i	$a2, %pc_hi20(.LCPI15_5)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI15_5)
+	lu12i.w	$a2, -2049
+	ori	$a2, $a2, 4095
+	lu32i.d	$a2, 0
+	movgr2fr.w	$fa1, $a2
 	andi	$a2, $s1, 1
 	movgr2fr.w	$fa0, $zero
 	movgr2cf	$fcc0, $a2
-	pcalau12i	$a2, %pc_hi20(.LCPI15_6)
-	fld.s	$fa2, $a2, %pc_lo12(.LCPI15_6)
-	fsel	$fa3, $fa1, $fa0, $fcc0
-	fsel	$fa1, $fa3, $fa1, $fcc1
+	fsel	$fa2, $fa1, $fa0, $fcc0
+	fsel	$fa1, $fa2, $fa1, $fcc1
+	lu12i.w	$a2, 522239
+	ori	$a2, $a2, 4095
+	movgr2fr.w	$fa2, $a2
 	ld.d	$a2, $s0, 72
 	fsel	$fa3, $fa0, $fa2, $fcc0
 	fsel	$fa2, $fa3, $fa2, $fcc1
@@ -2888,12 +2857,7 @@ _ZN18btSliderConstraint23solveConstraintObsoleteER12btSolverBodyS1_f: # @_ZN18bt
 .Lfunc_end16:
 	.size	_ZN18btSliderConstraint23solveConstraintObsoleteER12btSolverBodyS1_f, .Lfunc_end16-_ZN18btSliderConstraint23solveConstraintObsoleteER12btSolverBodyS1_f
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_
-.LCPI17_0:
-	.word	0x3727c5ac                      # float 9.99999974E-6
-	.text
-	.globl	_ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_
+	.globl	_ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_ # -- Begin function _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_
 	.p2align	5
 	.type	_ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_,@function
 _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_: # @_ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_
@@ -3386,40 +3350,40 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 	fmul.s	$fa7, $ft10, $fa3
 	fmul.s	$ft0, $ft9, $fa3
 	fmul.s	$ft2, $ft11, $fa3
-	fst.s	$fa4, $sp, 36                   # 4-byte Folded Spill
+	fst.s	$fa4, $sp, 40                   # 4-byte Folded Spill
 	fsub.s	$fa3, $ft5, $fa4
-	fst.s	$fa5, $sp, 32                   # 4-byte Folded Spill
+	fst.s	$fa5, $sp, 36                   # 4-byte Folded Spill
 	fsub.s	$fa4, $ft4, $fa5
-	fst.s	$fa6, $sp, 28                   # 4-byte Folded Spill
+	fst.s	$fa6, $sp, 32                   # 4-byte Folded Spill
 	fsub.s	$ft8, $ft3, $fa6
-	fst.s	$fa7, $sp, 24                   # 4-byte Folded Spill
+	fst.s	$fa7, $sp, 28                   # 4-byte Folded Spill
 	fst.s	$ft12, $sp, 44                  # 4-byte Folded Spill
 	fsub.s	$ft12, $ft12, $fa7
-	fst.s	$ft0, $sp, 20                   # 4-byte Folded Spill
+	fst.s	$ft0, $sp, 24                   # 4-byte Folded Spill
 	fsub.s	$ft13, $fs2, $ft0
-	fst.s	$ft2, $sp, 16                   # 4-byte Folded Spill
+	fst.s	$ft2, $sp, 20                   # 4-byte Folded Spill
 	fsub.s	$fs0, $ft6, $ft2
 	fsub.s	$ft14, $fa3, $ft12
 	fsub.s	$ft15, $fa4, $ft13
 	fsub.s	$ft13, $ft8, $fs0
 	fmul.s	$fa3, $ft15, $ft15
 	fmadd.s	$fa3, $ft14, $ft14, $fa3
-	fmadd.s	$fa4, $ft13, $ft13, $fa3
+	fmadd.s	$fa3, $ft13, $ft13, $fa3
+	fsqrt.s	$fa4, $fa3
 	fld.s	$ft0, $a1, 280
 	fld.s	$fs7, $a1, 284
 	fld.s	$ft8, $a1, 288
 	fld.s	$fs3, $a1, 296
-	fld.s	$fa3, $a1, 300
-	fld.s	$fs6, $a1, 304
+	fld.s	$ft2, $a1, 300
+	fld.s	$fa3, $a1, 304
 	fld.s	$fs4, $a1, 312
-	pcalau12i	$a5, %pc_hi20(.LCPI17_0)
-	fld.s	$ft12, $a5, %pc_lo12(.LCPI17_0)
-	fld.s	$ft2, $a1, 316
-	fld.s	$fs1, $a1, 320
-	fsqrt.s	$fa4, $fa4
+	fld.s	$fs1, $a1, 316
+	fld.s	$fs6, $a1, 320
+	lu12i.w	$a5, 225916
+	ori	$a5, $a5, 1452
+	movgr2fr.w	$ft12, $a5
 	fcmp.cule.s	$fcc0, $fa4, $ft12
 	fmov.s	$fs0, $ft1
-	fst.s	$ft2, $sp, 40                   # 4-byte Folded Spill
 	bcnez	$fcc0, .LBB17_16
 # %bb.15:
 	frecip.s	$fa4, $fa4
@@ -3429,16 +3393,17 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 	fmul.s	$fa6, $fa5, $fs3
 	fmadd.s	$fa6, $ft0, $fs0, $fa6
 	fmadd.s	$fa6, $fs4, $fa4, $fa6
-	fmul.s	$fa7, $fa5, $fa3
+	fmul.s	$fa7, $fa5, $ft2
 	fmadd.s	$fa7, $fs7, $fs0, $fa7
-	fmadd.s	$fa7, $ft2, $fa4, $fa7
-	fst.s	$fs4, $sp, 12                   # 4-byte Folded Spill
+	fmadd.s	$fa7, $fs1, $fa4, $fa7
+	fst.s	$fs4, $sp, 16                   # 4-byte Folded Spill
 	fst.s	$fs3, $sp, 8                    # 4-byte Folded Spill
 	fmov.s	$fs4, $ft0
-	fmul.s	$ft0, $fa5, $fs6
+	fmul.s	$ft0, $fa5, $fa3
 	fmadd.s	$ft0, $ft8, $fs0, $ft0
-	fmadd.s	$ft0, $fs1, $fa4, $ft0
+	fmadd.s	$ft0, $fs6, $fa4, $ft0
 	fmul.s	$fa7, $fa5, $fa7
+	fst.s	$ft2, $sp, 12                   # 4-byte Folded Spill
 	fld.s	$ft2, $a3, 296
 	fmadd.s	$fa6, $fs0, $fa6, $fa7
 	fmadd.s	$fs5, $fa4, $ft0, $fa6
@@ -3462,10 +3427,10 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 	fmov.s	$fa6, $fa2
 	fmov.s	$fa2, $fa1
 	fmov.s	$fa1, $fa0
-	fmov.s	$fa0, $fa3
-	fmov.s	$fa3, $fs7
+	fmov.s	$fa0, $fs7
 	fmov.s	$fs7, $fs6
-	fmov.s	$fs6, $ft8
+	fmov.s	$fs6, $fa3
+	fmov.s	$fa3, $ft8
 	fmov.s	$ft8, $ft5
 	fld.s	$ft5, $a3, 320
 	fmadd.s	$ft0, $ft2, $fa4, $ft0
@@ -3478,20 +3443,20 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 	fmov.s	$ft4, $ft7
 	fmadd.s	$ft2, $ft5, $fa4, $ft2
 	fmov.s	$ft5, $ft8
-	fmov.s	$ft8, $fs6
+	fmov.s	$ft8, $fa3
+	fmov.s	$fa3, $fs6
 	fmov.s	$fs6, $fs7
-	fmov.s	$fs7, $fa3
-	fmov.s	$fa3, $fa0
+	fmov.s	$fs7, $fa0
 	fmov.s	$fa0, $fa1
 	fmov.s	$fa1, $fa2
 	fmov.s	$fa2, $fa6
 	fmul.s	$fa5, $fa5, $ft0
 	fmov.s	$ft0, $fs4
 	fld.s	$fs3, $sp, 8                    # 4-byte Folded Reload
-	fld.s	$fs4, $sp, 12                   # 4-byte Folded Reload
+	fld.s	$fs4, $sp, 16                   # 4-byte Folded Reload
 	fmadd.s	$fa5, $fs0, $fa7, $fa5
 	fmadd.s	$fa4, $fa4, $ft2, $fa5
-	fld.s	$ft2, $sp, 40                   # 4-byte Folded Reload
+	fld.s	$ft2, $sp, 12                   # 4-byte Folded Reload
 	fld.s	$fa5, $a0, 316
 	fld.s	$fa7, $a0, 308
 	fadd.s	$fa4, $fs5, $fa4
@@ -3528,16 +3493,17 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 	fmul.s	$fa7, $fa6, $fs3
 	fmadd.s	$fa7, $ft0, $fa5, $fa7
 	fmadd.s	$fa7, $fs4, $fa4, $fa7
-	fst.s	$ft0, $sp, 12                   # 4-byte Folded Spill
-	fmul.s	$ft0, $fa6, $fa3
+	fst.s	$ft0, $sp, 16                   # 4-byte Folded Spill
+	fmul.s	$ft0, $fa6, $ft2
 	fmadd.s	$ft0, $fs7, $fa5, $ft0
-	fmadd.s	$ft0, $ft2, $fa4, $ft0
-	fmul.s	$ft2, $fa6, $fs6
-	fmadd.s	$ft2, $ft8, $fa5, $ft2
-	fmadd.s	$ft2, $fs1, $fa4, $ft2
-	fmul.s	$ft0, $fa6, $ft0
+	fmadd.s	$ft0, $fs1, $fa4, $ft0
 	fst.s	$fs1, $sp, 8                    # 4-byte Folded Spill
-	fmov.s	$fs1, $ft6
+	fmov.s	$fs1, $ft2
+	fmul.s	$ft2, $fa6, $fa3
+	fmadd.s	$ft2, $ft8, $fa5, $ft2
+	fmadd.s	$ft2, $fs6, $fa4, $ft2
+	fmul.s	$ft0, $fa6, $ft0
+	fst.s	$ft6, $sp, 12                   # 4-byte Folded Spill
 	fmov.s	$ft6, $ft3
 	fld.s	$ft3, $a3, 296
 	fmadd.s	$fa7, $fa5, $fa7, $ft0
@@ -3566,13 +3532,13 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 	fmov.s	$ft8, $fs5
 	fmadd.s	$ft3, $ft12, $fa4, $ft3
 	fmul.s	$fa6, $fa6, $ft2
-	fld.s	$ft2, $sp, 40                   # 4-byte Folded Reload
+	fmov.s	$ft2, $fs1
+	fld.s	$fs1, $sp, 8                    # 4-byte Folded Reload
 	fmadd.s	$fa5, $fa5, $ft0, $fa6
-	fld.s	$ft0, $sp, 12                   # 4-byte Folded Reload
+	fld.s	$ft0, $sp, 16                   # 4-byte Folded Reload
 	fmadd.s	$fa4, $fa4, $ft3, $fa5
 	fmov.s	$ft3, $ft6
-	fmov.s	$ft6, $fs1
-	fld.s	$fs1, $sp, 8                    # 4-byte Folded Reload
+	fld.s	$ft6, $sp, 12                   # 4-byte Folded Reload
 	fld.s	$fa5, $a0, 312
 	fld.s	$fa6, $a0, 308
 	fadd.s	$fa4, $fa7, $fa4
@@ -3583,12 +3549,12 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 	fmul.s	$fa4, $ft15, $fs7
 	fmadd.s	$fa4, $ft0, $ft14, $fa4
 	fmadd.s	$fa4, $ft8, $ft13, $fa4
-	fmul.s	$fa5, $ft15, $fa3
+	fmul.s	$fa5, $ft15, $ft2
 	fmadd.s	$fa5, $fs3, $ft14, $fa5
-	fmadd.s	$fa5, $fs6, $ft13, $fa5
-	fmul.s	$fa3, $ft15, $ft2
+	fmadd.s	$fa5, $fa3, $ft13, $fa5
+	fmul.s	$fa3, $ft15, $fs1
 	fmadd.s	$fa3, $fs4, $ft14, $fa3
-	fmadd.s	$fa3, $fs1, $ft13, $fa3
+	fmadd.s	$fa3, $fs6, $ft13, $fa3
 	fld.s	$fa6, $a2, 0
 	fneg.s	$ft8, $ft1
 	fmul.s	$fa7, $fs0, $ft8
@@ -3890,14 +3856,14 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 	fcmp.cule.s	$fcc0, $ft1, $fa3
 	bcnez	$fcc0, .LBB17_21
 # %bb.20:
-	fld.s	$fa4, $sp, 36                   # 4-byte Folded Reload
-	fld.s	$fa5, $sp, 24                   # 4-byte Folded Reload
+	fld.s	$fa4, $sp, 40                   # 4-byte Folded Reload
+	fld.s	$fa5, $sp, 28                   # 4-byte Folded Reload
 	fsub.s	$fa4, $fa4, $fa5
-	fld.s	$fa5, $sp, 32                   # 4-byte Folded Reload
-	fld.s	$fa6, $sp, 20                   # 4-byte Folded Reload
+	fld.s	$fa5, $sp, 36                   # 4-byte Folded Reload
+	fld.s	$fa6, $sp, 24                   # 4-byte Folded Reload
 	fsub.s	$fa5, $fa5, $fa6
-	fld.s	$fa6, $sp, 28                   # 4-byte Folded Reload
-	fld.s	$fa7, $sp, 16                   # 4-byte Folded Reload
+	fld.s	$fa6, $sp, 32                   # 4-byte Folded Reload
+	fld.s	$fa7, $sp, 20                   # 4-byte Folded Reload
 	fsub.s	$fa6, $fa6, $fa7
 	fmul.s	$fa5, $fa2, $fa5
 	fld.s	$fa7, $a0, 1136
@@ -4029,18 +3995,8 @@ _ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_:
 .Lfunc_end17:
 	.size	_ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_, .Lfunc_end17-_ZN18btSliderConstraint18solveConstraintIntER11btRigidBodyR12btSolverBodyS1_S3_
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z21btAdjustAngleToLimitsfff
-.LCPI18_0:
-	.word	0x40c90fdb                      # float 6.28318548
-.LCPI18_1:
-	.word	0xc0490fdb                      # float -3.14159274
-.LCPI18_2:
-	.word	0x40490fdb                      # float 3.14159274
-.LCPI18_3:
-	.word	0xc0c90fdb                      # float -6.28318548
 	.section	.text._Z21btAdjustAngleToLimitsfff,"axG",@progbits,_Z21btAdjustAngleToLimitsfff,comdat
-	.weak	_Z21btAdjustAngleToLimitsfff
+	.weak	_Z21btAdjustAngleToLimitsfff    # -- Begin function _Z21btAdjustAngleToLimitsfff
 	.p2align	5
 	.type	_Z21btAdjustAngleToLimitsfff,@function
 _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
@@ -4073,14 +4029,17 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 # %bb.2:
 	fmov.s	$fs4, $fa2
 	fsub.s	$fa0, $fa1, $fs0
-	pcalau12i	$a0, %pc_hi20(.LCPI18_0)
-	fld.s	$fs1, $a0, %pc_lo12(.LCPI18_0)
+	lu12i.w	$a0, 265360
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fs1, $a0
 	fmov.s	$fa1, $fs1
 	pcaddu18i	$ra, %call36(fmodf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI18_1)
-	fld.s	$fs3, $a0, %pc_lo12(.LCPI18_1)
 	fmov.s	$fs2, $fa0
+	lu12i.w	$a0, -260976
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs3, $a0
 	fcmp.cule.s	$fcc0, $fs3, $fa0
 	bcnez	$fcc0, .LBB18_7
 # %bb.3:
@@ -4092,29 +4051,35 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 # %bb.5:
 	fmov.s	$fs4, $fa1
 	fsub.s	$fa0, $fs0, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI18_0)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI18_0)
+	lu12i.w	$a0, 265360
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fs2, $a0
 	fmov.s	$fa1, $fs2
 	pcaddu18i	$ra, %call36(fmodf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI18_1)
-	fld.s	$fs3, $a0, %pc_lo12(.LCPI18_1)
 	fmov.s	$fs1, $fa0
+	lu12i.w	$a0, -260976
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs3, $a0
 	fcmp.cule.s	$fcc0, $fs3, $fa0
-	pcalau12i	$s0, %pc_hi20(.LCPI18_2)
-	pcalau12i	$fp, %pc_hi20(.LCPI18_3)
+	lu12i.w	$s0, 263312
+	lu12i.w	$fp, -258928
 	bcnez	$fcc0, .LBB18_14
 # %bb.6:
 	fadd.s	$fs1, $fs1, $fs2
 	b	.LBB18_16
 .LBB18_7:
-	pcalau12i	$a0, %pc_hi20(.LCPI18_2)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI18_2)
+	lu12i.w	$a0, 263312
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa0, $a0
 	fcmp.cule.s	$fcc0, $fs2, $fa0
 	bcnez	$fcc0, .LBB18_9
 # %bb.8:
-	pcalau12i	$a0, %pc_hi20(.LCPI18_3)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI18_3)
+	lu12i.w	$a0, -258928
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa0, $a0
 	fadd.s	$fs2, $fs2, $fa0
 .LBB18_9:                               # %_Z16btNormalizeAnglef.exit
 	fsub.s	$fa0, $fs4, $fs0
@@ -4127,13 +4092,16 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 	fadd.s	$fa0, $fa0, $fs1
 	b	.LBB18_13
 .LBB18_11:
-	pcalau12i	$a0, %pc_hi20(.LCPI18_2)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI18_2)
+	lu12i.w	$a0, 263312
+	ori	$a0, $a0, 4059
+	movgr2fr.w	$fa1, $a0
 	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB18_13
 # %bb.12:
-	pcalau12i	$a0, %pc_hi20(.LCPI18_3)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI18_3)
+	lu12i.w	$a0, -258928
+	ori	$a0, $a0, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
 	fadd.s	$fa0, $fa0, $fa1
 .LBB18_13:                              # %_Z16btNormalizeAnglef.exit29
 	fabs.s	$fa0, $fa0
@@ -4142,11 +4110,14 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 	fsel	$fs0, $fa1, $fs0, $fcc0
 	b	.LBB18_21
 .LBB18_14:
-	fld.s	$fa0, $s0, %pc_lo12(.LCPI18_2)
+	ori	$a0, $s0, 4059
+	movgr2fr.w	$fa0, $a0
 	fcmp.cule.s	$fcc0, $fs1, $fa0
 	bcnez	$fcc0, .LBB18_16
 # %bb.15:
-	fld.s	$fa0, $fp, %pc_lo12(.LCPI18_3)
+	ori	$a0, $fp, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa0, $a0
 	fadd.s	$fs1, $fs1, $fa0
 .LBB18_16:                              # %_Z16btNormalizeAnglef.exit31
 	fsub.s	$fa0, $fs0, $fs4
@@ -4159,15 +4130,20 @@ _Z21btAdjustAngleToLimitsfff:           # @_Z21btAdjustAngleToLimitsfff
 	fadd.s	$fa0, $fa0, $fs2
 	b	.LBB18_20
 .LBB18_18:
-	fld.s	$fa1, $s0, %pc_lo12(.LCPI18_2)
+	ori	$a0, $s0, 4059
+	movgr2fr.w	$fa1, $a0
 	fcmp.cule.s	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB18_20
 # %bb.19:
-	fld.s	$fa1, $fp, %pc_lo12(.LCPI18_3)
+	ori	$a0, $fp, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
 	fadd.s	$fa0, $fa0, $fa1
 .LBB18_20:                              # %_Z16btNormalizeAnglef.exit33
-	fld.s	$fa1, $fp, %pc_lo12(.LCPI18_3)
 	fabs.s	$fa0, $fa0
+	ori	$a0, $fp, 4059
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
 	fadd.s	$fa1, $fs0, $fa1
 	fcmp.clt.s	$fcc0, $fa0, $fs1
 	fsel	$fs0, $fs0, $fa1, $fcc0

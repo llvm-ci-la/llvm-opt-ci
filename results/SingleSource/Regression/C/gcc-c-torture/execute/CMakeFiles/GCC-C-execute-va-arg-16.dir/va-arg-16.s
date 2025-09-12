@@ -1,12 +1,6 @@
 	.file	"va-arg-16.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function vafunction
-.LCPI0_0:
-	.dword	0x408bc00000000000              # double 888
-.LCPI0_1:
-	.dword	0x408f380000000000              # double 999
 	.text
-	.globl	vafunction
+	.globl	vafunction                      # -- Begin function vafunction
 	.p2align	5
 	.type	vafunction,@function
 vafunction:                             # @vafunction
@@ -18,17 +12,21 @@ vafunction:                             # @vafunction
 	st.d	$a4, $sp, 48
 	st.d	$a3, $sp, 40
 	st.d	$a2, $sp, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a2, %pc_lo12(.LCPI0_0)
 	st.d	$a1, $sp, 24
 	st.d	$a0, $sp, 16
 	addi.d	$a0, $sp, 16
-	fcmp.ceq.d	$fcc0, $fa0, $fa2
 	st.d	$a0, $sp, 8
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -278528
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa2, $a0
+	fcmp.ceq.d	$fcc0, $fa0, $fa2
+	ori	$a0, $zero, 0
 	bceqz	$fcc0, .LBB0_12
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu32i.d	$a0, -51200
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa0, $a0
 	fcmp.ceq.d	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB0_12
 # %bb.2:
@@ -104,14 +102,7 @@ vafunction:                             # @vafunction
 .Lfunc_end0:
 	.size	vafunction, .Lfunc_end0-vafunction
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.dword	0x408bc00000000000              # double 888
-.LCPI1_1:
-	.dword	0x408f380000000000              # double 999
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -122,10 +113,6 @@ main:                                   # @main
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, 131072
 	lu52i.d	$t0, $a1, 1026
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI1_1)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI1_1)
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, -524288
 	lu52i.d	$a2, $a1, 1024
@@ -133,8 +120,16 @@ main:                                   # @main
 	lu32i.d	$a3, 262144
 	lu52i.d	$a4, $a3, 1025
 	lu52i.d	$a5, $a1, 1025
-	lu32i.d	$a0, -262144
-	lu52i.d	$a6, $a0, 1025
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -262144
+	lu52i.d	$a6, $a1, 1025
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -278528
+	lu52i.d	$a1, $a1, 1032
+	movgr2fr.d	$fa0, $a1
+	lu32i.d	$a0, -51200
+	lu52i.d	$a0, $a0, 1032
+	movgr2fr.d	$fa1, $a0
 	lu52i.d	$a0, $zero, 1023
 	lu52i.d	$a1, $zero, 1024
 	lu52i.d	$a3, $zero, 1025

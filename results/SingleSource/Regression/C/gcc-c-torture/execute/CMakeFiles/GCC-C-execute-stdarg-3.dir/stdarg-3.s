@@ -423,31 +423,18 @@ f8:                                     # @f8
 .Lfunc_end8:
 	.size	f8, .Lfunc_end8-f8
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI9_0:
-	.dword	0x4040000000000000              # double 32
-.LCPI9_1:
-	.dword	0x4066400000000000              # double 178
-.LCPI9_2:
-	.dword	0x4067e00000000000              # double 191
-.LCPI9_3:
-	.dword	0x4066000000000000              # double 176
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -176
-	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 120                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 112                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -160
+	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
 	ori	$a0, $zero, 13
 	st.d	$a0, $sp, 0
 	ori	$a0, $zero, 7
@@ -470,15 +457,15 @@ main:                                   # @main
 	lu52i.d	$a3, $zero, 1025
 	lu52i.d	$a4, $zero, 1026
 	lu52i.d	$a5, $zero, 1027
-	lu52i.d	$a6, $zero, 1028
+	lu52i.d	$fp, $zero, 1028
 	lu52i.d	$a7, $zero, 1029
 	ori	$a0, $zero, 6
+	move	$a6, $fp
 	pcaddu18i	$ra, %call36(f2)
 	jirl	$ra, $ra, 0
 	pcalau12i	$s1, %pc_hi20(d)
 	fld.d	$fa0, $s1, %pc_lo12(d)
-	pcalau12i	$a0, %pc_hi20(.LCPI9_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI9_0)
+	movgr2fr.d	$fa1, $fp
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB9_26
 # %bb.2:
@@ -557,35 +544,34 @@ main:                                   # @main
 	bcnez	$fcc0, .LBB9_26
 # %bb.9:
 	fld.d	$fa0, $s0, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI9_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI9_1)
-	fcmp.ceq.d	$fcc0, $fa0, $fs0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 409600
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
+	fcmp.ceq.d	$fcc0, $fa0, $fa1
+	ori	$a1, $zero, 0
 	bceqz	$fcc0, .LBB9_26
 # %bb.10:
 	ori	$s2, $zero, 131
 	st.w	$s2, $sp, 80
-	ori	$a0, $zero, 0
-	ori	$a1, $zero, 0
-	lu32i.d	$a1, -131072
-	lu52i.d	$a1, $a1, 1026
-	st.d	$a1, $sp, 88
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -131072
+	lu52i.d	$a2, $a2, 1026
+	st.d	$a2, $sp, 88
 	ori	$s1, $zero, 251
 	st.w	$s1, $sp, 96
-	ori	$a2, $zero, 0
-	lu32i.d	$a2, 516096
-	lu52i.d	$a2, $a2, 1030
-	st.d	$a2, $sp, 104
+	lu32i.d	$a1, 516096
+	lu52i.d	$a1, $a1, 1030
+	st.d	$a1, $sp, 104
 	st.w	$s2, $sp, 48
-	st.d	$a1, $sp, 56
+	st.d	$a2, $sp, 56
 	ori	$a3, $zero, 254
 	st.w	$a3, $sp, 64
-	lu32i.d	$a0, 409600
-	lu52i.d	$a0, $a0, 1030
 	st.d	$a0, $sp, 72
 	st.w	$s2, $sp, 16
-	st.d	$a1, $sp, 24
+	st.d	$a2, $sp, 24
 	st.w	$s1, $sp, 32
-	st.d	$a2, $sp, 40
+	st.d	$a1, $sp, 40
 	ori	$a0, $zero, 3
 	addi.d	$a1, $sp, 80
 	addi.d	$a2, $sp, 48
@@ -604,12 +590,14 @@ main:                                   # @main
 	bcnez	$fcc0, .LBB9_26
 # %bb.13:
 	fld.d	$fa0, $s0, 24
-	pcalau12i	$a0, %pc_hi20(.LCPI9_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI9_2)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 516096
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
 	fcmp.ceq.d	$fcc0, $fa0, $fa1
+	ori	$a0, $zero, 0
 	bceqz	$fcc0, .LBB9_26
 # %bb.14:
-	ori	$a0, $zero, 0
 	lu32i.d	$a0, 393216
 	lu52i.d	$a3, $a0, 1030
 	lu52i.d	$a1, $zero, 1027
@@ -627,14 +615,13 @@ main:                                   # @main
 	bne	$a0, $s2, .LBB9_26
 # %bb.15:
 	fld.d	$fa0, $s1, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI9_3)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI9_3)
-	fcmp.ceq.d	$fcc0, $fa0, $fs1
-	bceqz	$fcc0, .LBB9_26
-# %bb.16:
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, 393216
 	lu52i.d	$a3, $a0, 1030
+	movgr2fr.d	$fa1, $a3
+	fcmp.ceq.d	$fcc0, $fa0, $fa1
+	bceqz	$fcc0, .LBB9_26
+# %bb.16:
 	lu52i.d	$a1, $zero, 1027
 	ori	$a0, $zero, 3
 	ori	$a2, $zero, 138
@@ -694,7 +681,11 @@ main:                                   # @main
 	bcnez	$fcc0, .LBB9_26
 # %bb.21:
 	fld.d	$fa0, $s0, 24
-	fcmp.ceq.d	$fcc0, $fa0, $fs0
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 409600
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa1, $a0
+	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB9_26
 # %bb.22:
 	ld.w	$a0, $fp, %pc_lo12(bar_arg)
@@ -703,33 +694,33 @@ main:                                   # @main
 # %bb.23:
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, 393216
-	lu52i.d	$a1, $a0, 1030
+	lu52i.d	$fp, $a0, 1030
 	lu52i.d	$a3, $zero, 1027
 	ori	$a0, $zero, 3
 	ori	$a2, $zero, 257
 	ori	$a4, $zero, 138
 	ori	$a6, $zero, 138
-	ori	$fp, $zero, 257
+	ori	$s0, $zero, 257
+	move	$a1, $fp
 	move	$a5, $a3
 	pcaddu18i	$ra, %call36(f8)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s1, 8
-	bne	$a0, $fp, .LBB9_26
+	bne	$a0, $s0, .LBB9_26
 # %bb.24:
 	fld.d	$fa0, $s1, 0
-	fcmp.ceq.d	$fcc0, $fa0, $fs1
+	movgr2fr.d	$fa1, $fp
+	fcmp.ceq.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB9_26
 # %bb.25:
 	move	$a0, $zero
-	fld.d	$fs1, $sp, 112                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 120                  # 8-byte Folded Reload
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 176
+	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 160
 	ret
 .LBB9_26:
 	pcaddu18i	$ra, %call36(abort)

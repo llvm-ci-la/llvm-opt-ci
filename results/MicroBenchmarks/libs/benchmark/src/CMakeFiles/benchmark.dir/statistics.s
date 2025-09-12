@@ -3,12 +3,8 @@
 	.globl	_ZSt21ios_base_library_initv
 
                                         # End of file scope inline assembly
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE
-.LCPI0_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.hidden	_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE
+	.hidden	_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE # -- Begin function _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE
 	.globl	_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE
 	.p2align	5
 	.type	_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE,@function
@@ -31,12 +27,13 @@ _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE: # @_ZN9benchmark14StatisticsM
 	sub.d	$a0, $a0, $a1
 	srai.d	$a0, $a0, 3
 	srli.d	$a1, $a0, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI0_0)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa1, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa2, $a1
-	fsub.d	$fa1, $fa2, $fa1
+	fsub.d	$fa1, $fa1, $fa2
 	lu12i.w	$a1, 275200
 	bstrins.d	$a0, $a1, 63, 32
 	movgr2fr.d	$fa2, $a0
@@ -262,12 +259,8 @@ GCC_except_table1:
 .Lcst_end0:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE
-.LCPI2_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.hidden	_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE
+	.hidden	_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE # -- Begin function _ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE
 	.globl	_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE
 	.p2align	5
 	.type	_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE,@function
@@ -297,12 +290,13 @@ _ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE: # @_ZN9benchmark16Statistic
 .LBB2_6:                                # %.lr.ph.i.i.preheader
 	srai.d	$a2, $a2, 3
 	srli.d	$a3, $a2, 32
-	pcalau12i	$a4, %pc_hi20(.LCPI2_0)
-	fld.d	$fa1, $a4, %pc_lo12(.LCPI2_0)
 	lu52i.d	$a4, $zero, 1107
 	or	$a3, $a3, $a4
+	movgr2fr.d	$fa1, $a3
+	lu12i.w	$a3, 256
+	lu52i.d	$a3, $a3, 1107
 	movgr2fr.d	$fa2, $a3
-	fsub.d	$fa1, $fa2, $fa1
+	fsub.d	$fa1, $fa1, $fa2
 	lu12i.w	$a3, 275200
 	bstrins.d	$a2, $a3, 63, 32
 	movgr2fr.d	$fa2, $a2
@@ -339,12 +333,7 @@ _ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE: # @_ZN9benchmark16Statistic
 .Lfunc_end2:
 	.size	_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE, .Lfunc_end2-_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE
-.LCPI3_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.hidden	_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE
+	.hidden	_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE # -- Begin function _ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE
 	.globl	_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE
 	.p2align	5
 	.type	_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE,@function
@@ -377,12 +366,13 @@ _ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE: # @_ZN9benchmark12StatisticsCVE
 	bne	$a2, $fp, .LBB3_3
 # %bb.4:
 	srli.d	$a2, $a1, 32
-	pcalau12i	$a3, %pc_hi20(.LCPI3_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI3_0)
 	lu52i.d	$a3, $zero, 1107
 	or	$a2, $a2, $a3
+	movgr2fr.d	$fa0, $a2
+	lu12i.w	$a2, 256
+	lu52i.d	$a2, $a2, 1107
 	movgr2fr.d	$fa2, $a2
-	fsub.d	$fa0, $fa2, $fa0
+	fsub.d	$fa0, $fa0, $fa2
 	lu12i.w	$a2, 275200
 	bstrins.d	$a1, $a2, 63, 32
 	movgr2fr.d	$fa2, $a1
@@ -449,12 +439,7 @@ _ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE: # @_ZN9benchmark12StatisticsCVE
 .Lfunc_end3:
 	.size	_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE, .Lfunc_end3-_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN9benchmark12ComputeStatsERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE
-.LCPI4_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-	.text
-	.hidden	_ZN9benchmark12ComputeStatsERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE
+	.hidden	_ZN9benchmark12ComputeStatsERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE # -- Begin function _ZN9benchmark12ComputeStatsERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE
 	.globl	_ZN9benchmark12ComputeStatsERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE
 	.p2align	5
 	.type	_ZN9benchmark12ComputeStatsERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE,@function
@@ -1589,12 +1574,13 @@ _ZN9benchmark12ComputeStatsERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE: # @
 	beq	$a1, $a0, .LBB4_201
 # %bb.142:                              # %.lr.ph356
 	srli.d	$a0, $s1, 32
-	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI4_0)
 	lu52i.d	$a1, $zero, 1107
 	or	$a0, $a0, $a1
+	movgr2fr.d	$fa0, $a0
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
 	movgr2fr.d	$fa1, $a0
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a0, 275200
 	bstrins.d	$s1, $a0, 63, 32
 	movgr2fr.d	$fa1, $s1

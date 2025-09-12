@@ -106,19 +106,9 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .Lfunc_end6:
 	.size	polybench_alloc_data, .Lfunc_end6-polybench_alloc_data
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI7_2:
-	.dword	0x4095e00000000000              # double 1400
-.LCPI7_3:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
-.LCPI7_4:
-	.dword	0x4042b5524ae1278e              # double 37.416573867739416
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI7_1:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI7_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
 	.text
@@ -193,11 +183,12 @@ main:                                   # @main
 # %bb.8:                                # %polybench_alloc_data.exit19
 	move	$a0, $zero
 	lu52i.d	$a1, $zero, 1107
-	pcalau12i	$a2, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a2, 256
+	lu52i.d	$a2, $a2, 1107
+	movgr2fr.d	$fa0, $a2
 	lu12i.w	$a2, 275200
-	pcalau12i	$a3, %pc_hi20(.LCPI7_1)
-	vld	$vr1, $a3, %pc_lo12(.LCPI7_1)
+	pcalau12i	$a3, %pc_hi20(.LCPI7_0)
+	vld	$vr1, $a3, %pc_lo12(.LCPI7_0)
 	lu12i.w	$a3, -3
 	ori	$a3, $a3, 2688
 	ori	$a4, $zero, 0
@@ -248,10 +239,12 @@ main:                                   # @main
 	add.d	$a6, $a6, $s2
 	bne	$a0, $a5, .LBB7_9
 # %bb.12:                               # %init_array.exit.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI7_2)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI7_2)
 	move	$a0, $zero
 	movgr2fr.d	$fa0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 385024
+	lu52i.d	$a1, $a1, 1033
+	movgr2fr.d	$fa1, $a1
 	ori	$a1, $zero, 1200
 	move	$a2, $s5
 	.p2align	4, , 16
@@ -263,27 +256,34 @@ main:                                   # @main
 	stx.d	$zero, $s1, $a4
 	ori	$a4, $zero, 1400
 	move	$a5, $a2
-	fmov.d	$fa1, $fa0
+	fmov.d	$fa2, $fa0
 	.p2align	4, , 16
 .LBB7_14:                               #   Parent Loop BB7_13 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	fld.d	$fa2, $a5, 0
-	fadd.d	$fa1, $fa1, $fa2
-	fst.d	$fa1, $a3, 0
+	fld.d	$fa3, $a5, 0
+	fadd.d	$fa2, $fa2, $fa3
+	fst.d	$fa2, $a3, 0
 	addi.d	$a4, $a4, -1
 	add.d	$a5, $a5, $s2
 	bnez	$a4, .LBB7_14
 # %bb.15:                               #   in Loop: Header=BB7_13 Depth=1
-	fdiv.d	$fa1, $fa1, $fs0
-	fst.d	$fa1, $a3, 0
+	fdiv.d	$fa2, $fa2, $fa1
+	fst.d	$fa2, $a3, 0
 	addi.d	$a0, $a0, 1
 	addi.d	$a2, $a2, 8
 	bne	$a0, $a1, .LBB7_13
 # %bb.16:                               # %.preheader111.i.preheader
 	move	$fp, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI7_3)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI7_3)
-	movgr2fr.d	$fs2, $zero
+	movgr2fr.d	$fs0, $zero
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 385024
+	lu52i.d	$a0, $a0, 1033
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fs2, $a0
 	vldi	$vr3, -912
 	ori	$s7, $zero, 1200
 	st.d	$s5, $sp, 8                     # 8-byte Folded Spill
@@ -298,7 +298,7 @@ main:                                   # @main
 	alsl.d	$a0, $fp, $s1, 3
 	ori	$a1, $zero, 1400
 	move	$a2, $s8
-	fmov.d	$fa0, $fs2
+	fmov.d	$fa0, $fs0
 	.p2align	4, , 16
 .LBB7_18:                               #   Parent Loop BB7_17 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -312,13 +312,13 @@ main:                                   # @main
 	add.d	$a2, $a2, $s2
 	bnez	$a1, .LBB7_18
 # %bb.19:                               #   in Loop: Header=BB7_17 Depth=1
-	fdiv.d	$fa1, $fa0, $fs0
+	fdiv.d	$fa1, $fa0, $fs1
 	fsqrt.d	$fa0, $fa1
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB7_21
 .LBB7_20:                               # %.split
                                         #   in Loop: Header=BB7_17 Depth=1
-	fcmp.cult.d	$fcc0, $fs1, $fa0
+	fcmp.cult.d	$fcc0, $fs2, $fa0
 	fsel	$fa0, $fa3, $fa0, $fcc0
 	fst.d	$fa0, $s5, 0
 	addi.d	$fp, $fp, 1
@@ -347,13 +347,12 @@ main:                                   # @main
 	or	$a1, $a2, $a1
 	lu12i.w	$s5, -3
 	ori	$a2, $s5, 2688
-	pcalau12i	$a3, %pc_hi20(.LCPI7_4)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI7_4)
+	lu12i.w	$a3, 306706
+	ori	$a3, $a3, 1934
+	lu32i.d	$a3, 177490
+	lu52i.d	$a4, $a3, 1028
+	movgr2fr.d	$fa0, $a4
 	ori	$a3, $zero, 1400
-	lu12i.w	$a4, 306706
-	ori	$a4, $a4, 1934
-	lu32i.d	$a4, 177490
-	lu52i.d	$a4, $a4, 1028
 	vreplgr2vr.d	$vr1, $a4
 	move	$a4, $t0
 	b	.LBB7_24

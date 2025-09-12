@@ -29,12 +29,7 @@ _ZNK13btSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVect
 .Lfunc_end1:
 	.size	_ZNK13btSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i, .Lfunc_end1-_ZNK13btSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK13btSphereShape24localGetSupportingVertexERK9btVector3
-.LCPI2_0:
-	.word	0x28800000                      # float 1.42108547E-14
-	.text
-	.globl	_ZNK13btSphereShape24localGetSupportingVertexERK9btVector3
+	.globl	_ZNK13btSphereShape24localGetSupportingVertexERK9btVector3 # -- Begin function _ZNK13btSphereShape24localGetSupportingVertexERK9btVector3
 	.p2align	5
 	.type	_ZNK13btSphereShape24localGetSupportingVertexERK9btVector3,@function
 _ZNK13btSphereShape24localGetSupportingVertexERK9btVector3: # @_ZNK13btSphereShape24localGetSupportingVertexERK9btVector3
@@ -62,40 +57,40 @@ _ZNK13btSphereShape24localGetSupportingVertexERK9btVector3: # @_ZNK13btSphereSha
 	.cfi_offset 59, -64
 	.cfi_offset 60, -72
 	.cfi_offset 61, -80
-	move	$s0, $a0
+	move	$fp, $a0
 	ld.d	$a0, $a0, 0
 	ld.d	$a2, $a0, 104
-	move	$s1, $a1
-	move	$a0, $s0
+	move	$s0, $a1
+	move	$a0, $fp
 	jirl	$ra, $a2, 0
-	move	$fp, $a1
+	move	$s1, $a1
 	movgr2fr.w	$fs0, $a0
 	srli.d	$a0, $a0, 32
 	movgr2fr.w	$fs1, $a0
+	fld.s	$fa0, $s0, 4
+	fld.s	$fa1, $s0, 0
+	fld.s	$fa2, $s0, 8
 	movgr2fr.w	$fs2, $a1
-	fld.s	$fa0, $s1, 0
-	fld.s	$fa1, $s1, 4
-	fld.s	$fa2, $s1, 8
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI2_0)
-	fmul.s	$fa4, $fa1, $fa1
-	fmadd.s	$fa4, $fa0, $fa0, $fa4
-	fmadd.s	$fa4, $fa2, $fa2, $fa4
-	fcmp.clt.s	$fcc0, $fa4, $fa3
+	fmul.s	$fa3, $fa0, $fa0
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	lu12i.w	$a0, 165888
+	movgr2fr.w	$fa4, $a0
+	fcmp.clt.s	$fcc0, $fa3, $fa4
 	vldi	$vr3, -1040
-	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa1, $fa1, $fa3, $fcc0
+	fsel	$fa0, $fa0, $fa3, $fcc0
 	fsel	$fa2, $fa2, $fa3, $fcc0
-	fmul.s	$fa3, $fa1, $fa1
-	ld.d	$a0, $s0, 0
-	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	fmul.s	$fa3, $fa0, $fa0
+	ld.d	$a0, $fp, 0
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
 	frsqrt.s	$fa3, $fa3
 	ld.d	$a1, $a0, 88
-	fmul.s	$fs3, $fa0, $fa3
-	fmul.s	$fs4, $fa1, $fa3
+	fmul.s	$fs3, $fa1, $fa3
+	fmul.s	$fs4, $fa0, $fa3
 	fmul.s	$fs5, $fa2, $fa3
-	move	$a0, $s0
+	move	$a0, $fp
 	jirl	$ra, $a1, 0
 	fmul.s	$fa1, $fa0, $fs3
 	fmul.s	$fa2, $fa0, $fs4
@@ -108,8 +103,8 @@ _ZNK13btSphereShape24localGetSupportingVertexERK9btVector3: # @_ZNK13btSphereSha
 	bstrins.d	$a0, $a1, 63, 32
 	movfr2gr.s	$a1, $fa0
 	bstrpick.d	$a1, $a1, 31, 0
-	bstrins.d	$fp, $a1, 31, 0
-	move	$a1, $fp
+	bstrins.d	$s1, $a1, 31, 0
+	move	$a1, $s1
 	fld.d	$fs5, $sp, 16                   # 8-byte Folded Reload
 	fld.d	$fs4, $sp, 24                   # 8-byte Folded Reload
 	fld.d	$fs3, $sp, 32                   # 8-byte Folded Reload
@@ -205,12 +200,7 @@ _ZNK13btSphereShape7getAabbERK11btTransformR9btVector3S4_: # @_ZNK13btSphereShap
 	.size	_ZNK13btSphereShape7getAabbERK11btTransformR9btVector3S4_, .Lfunc_end3-_ZNK13btSphereShape7getAabbERK11btTransformR9btVector3S4_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3
-.LCPI4_0:
-	.word	0x3ecccccd                      # float 0.400000006
-	.text
-	.globl	_ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3
+	.globl	_ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3 # -- Begin function _ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3
 	.p2align	5
 	.type	_ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3,@function
 _ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3: # @_ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3
@@ -228,10 +218,11 @@ _ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3: # @_ZNK13btSphereShape2
 	.cfi_offset 56, -32
 	move	$fp, $a0
 	ld.d	$a0, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI4_0)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI4_0)
-	ld.d	$a2, $a0, 88
 	move	$s0, $a1
+	lu12i.w	$a1, 257228
+	ld.d	$a2, $a0, 88
+	ori	$a0, $a1, 3277
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fs0, $fa0, $fa1
 	move	$a0, $fp
 	jirl	$ra, $a2, 0

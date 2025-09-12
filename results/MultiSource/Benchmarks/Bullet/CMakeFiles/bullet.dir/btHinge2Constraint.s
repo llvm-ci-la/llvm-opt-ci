@@ -11,12 +11,6 @@
 	.word	0x00000000                      # float 0
 	.word	0x3f800000                      # float 1
 	.word	0x00000000                      # float 0
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI0_2:
-	.word	0x421de9e7                      # float 39.4784203
-.LCPI0_3:
-	.word	0x3c23d70a                      # float 0.00999999977
 	.text
 	.globl	_ZN18btHinge2ConstraintC2ER11btRigidBodyS1_R9btVector3S3_S3_
 	.p2align	5
@@ -315,14 +309,16 @@ _ZN18btHinge2ConstraintC2ER11btRigidBodyS1_R9btVector3S3_S3_: # @_ZN18btHinge2Co
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN29btGeneric6DofSpringConstraint12enableSpringEib)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI0_2)
+	lu12i.w	$a0, 270814
+	ori	$a0, $a0, 2535
+	movgr2fr.w	$fa0, $a0
 	ori	$a1, $zero, 2
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN29btGeneric6DofSpringConstraint12setStiffnessEif)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI0_3)
+	lu12i.w	$a0, 246333
+	ori	$a0, $a0, 1802
+	movgr2fr.w	$fa0, $a0
 	ori	$a1, $zero, 2
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN29btGeneric6DofSpringConstraint10setDampingEif)

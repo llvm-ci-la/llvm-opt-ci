@@ -26,14 +26,7 @@ _ZN23btPolyhedralConvexShapeC2Ev:       # @_ZN23btPolyhedralConvexShapeC2Ev
 	.size	_ZN23btPolyhedralConvexShapeC2Ev, .Lfunc_end0-_ZN23btPolyhedralConvexShapeC2Ev
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector3
-.LCPI1_0:
-	.word	0x38d1b717                      # float 9.99999974E-5
-.LCPI1_1:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.text
-	.globl	_ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector3
+	.globl	_ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector3 # -- Begin function _ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector3
 	.p2align	5
 	.type	_ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector3,@function
 _ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector3: # @_ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector3
@@ -61,14 +54,15 @@ _ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector
 	.cfi_offset 56, -64
 	.cfi_offset 57, -72
 	.cfi_offset 58, -80
-	fld.s	$fa0, $a1, 0
-	fld.s	$fa1, $a1, 4
-	fld.s	$fa2, $a1, 8
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
-	fld.s	$fa4, $a1, %pc_lo12(.LCPI1_0)
-	fmul.s	$fa3, $fa1, $fa1
-	fmadd.s	$fa3, $fa0, $fa0, $fa3
+	fld.s	$fa0, $a1, 4
+	fld.s	$fa2, $a1, 0
+	fld.s	$fa1, $a1, 8
+	fmul.s	$fa3, $fa0, $fa0
 	fmadd.s	$fa3, $fa2, $fa2, $fa3
+	fmadd.s	$fa3, $fa1, $fa1, $fa3
+	lu12i.w	$a1, 232731
+	ori	$a1, $a1, 1815
+	movgr2fr.w	$fa4, $a1
 	fcmp.clt.s	$fcc0, $fa3, $fa4
 	move	$fp, $a0
 	bceqz	$fcc0, .LBB1_2
@@ -80,10 +74,10 @@ _ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector
 	b	.LBB1_3
 .LBB1_2:
 	frsqrt.s	$fa3, $fa3
-	fmul.s	$fa0, $fa0, $fa3
-	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
-	fmul.s	$fs1, $fa1, $fa3
-	fmul.s	$fs0, $fa2, $fa3
+	fmul.s	$fa2, $fa2, $fa3
+	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
+	fmul.s	$fs1, $fa0, $fa3
+	fmul.s	$fs0, $fa1, $fa3
 .LBB1_3:
 	ld.d	$a0, $fp, 0
 	ld.d	$a1, $a0, 144
@@ -91,13 +85,15 @@ _ZNK23btPolyhedralConvexShape37localGetSupportingVertexWithoutMarginERK9btVector
 	jirl	$ra, $a1, 0
 	blez	$a0, .LBB1_9
 # %bb.4:                                # %.lr.ph
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI1_1)
 	move	$s2, $zero
 	move	$s4, $zero
 	move	$s0, $zero
 	move	$s3, $zero
 	move	$s1, $zero
+	lu12i.w	$a0, -141856
+	ori	$a0, $a0, 2923
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs2, $a0
 	b	.LBB1_6
 	.p2align	4, , 16
 .LBB1_5:                                #   in Loop: Header=BB1_6 Depth=1
@@ -297,12 +293,7 @@ _ZNK23btPolyhedralConvexShape49batchedUnitVectorGetSupportingVertexWithoutMargin
 	.size	_ZNK23btPolyhedralConvexShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i, .Lfunc_end2-_ZNK23btPolyhedralConvexShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZNK23btPolyhedralConvexShape21calculateLocalInertiaEfR9btVector3
-.LCPI3_0:
-	.word	0x3daaaaaa                      # float 0.0833333284
-	.text
-	.globl	_ZNK23btPolyhedralConvexShape21calculateLocalInertiaEfR9btVector3
+	.globl	_ZNK23btPolyhedralConvexShape21calculateLocalInertiaEfR9btVector3 # -- Begin function _ZNK23btPolyhedralConvexShape21calculateLocalInertiaEfR9btVector3
 	.p2align	5
 	.type	_ZNK23btPolyhedralConvexShape21calculateLocalInertiaEfR9btVector3,@function
 _ZNK23btPolyhedralConvexShape21calculateLocalInertiaEfR9btVector3: # @_ZNK23btPolyhedralConvexShape21calculateLocalInertiaEfR9btVector3
@@ -363,11 +354,12 @@ _ZNK23btPolyhedralConvexShape21calculateLocalInertiaEfR9btVector3: # @_ZNK23btPo
 	fadd.s	$fa1, $fa1, $fa1
 	fadd.s	$fa2, $fs1, $fa2
 	fadd.s	$fa2, $fa2, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI3_0)
 	fmul.s	$fa0, $fa0, $fa0
 	fmul.s	$fa1, $fa1, $fa1
 	fmul.s	$fa2, $fa2, $fa2
+	lu12i.w	$a0, 252586
+	ori	$a0, $a0, 2730
+	movgr2fr.w	$fa3, $a0
 	fmul.s	$fa3, $fs0, $fa3
 	fadd.s	$fa4, $fa1, $fa2
 	fadd.s	$fa2, $fa0, $fa2

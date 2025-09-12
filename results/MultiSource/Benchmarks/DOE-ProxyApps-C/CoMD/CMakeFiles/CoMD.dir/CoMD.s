@@ -1,12 +1,6 @@
 	.file	"CoMD.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.word	0x3a800000                      # float 9.765625E-4
-.LCPI0_1:
-	.word	0x45b00000                      # float 5632
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -470,41 +464,41 @@ main:                                   # @main
 	ld.w	$a1, $a0, 0
 	ori	$a2, $zero, 88
 	mul.d	$a1, $a1, $a2
-	pcalau12i	$a3, %pc_hi20(.LCPI0_0)
-	fld.s	$fa0, $a3, %pc_lo12(.LCPI0_0)
+	movgr2fr.w	$fa0, $a1
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a1, 239616
 	movgr2fr.w	$fa1, $a1
-	ffint.s.w	$fa1, $fa1
 	ld.w	$a0, $a0, 4
-	fmul.s	$fa1, $fa1, $fa0
-	fmul.s	$fs0, $fa1, $fa0
+	fmul.s	$fa0, $fa0, $fa1
+	fmul.s	$fs0, $fa0, $fa1
 	ld.d	$a1, $fp, 24
 	mul.d	$a0, $a0, $a2
-	movgr2fr.w	$fa1, $a0
-	ffint.s.w	$fa1, $fa1
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
 	ld.w	$a0, $a1, 0
 	ld.w	$a2, $a1, 4
 	ld.w	$a1, $a1, 8
-	fmul.s	$fa1, $fa1, $fa0
-	fmul.s	$fs1, $fa1, $fa0
+	fmul.s	$fa0, $fa0, $fa1
+	fmul.s	$fs1, $fa0, $fa1
 	mul.d	$a3, $a2, $a0
 	mul.d	$a3, $a3, $a1
 	addi.d	$a0, $a0, 2
 	addi.d	$a2, $a2, 2
 	mul.d	$a0, $a2, $a0
 	addi.d	$a1, $a1, 2
-	pcalau12i	$a2, %pc_hi20(.LCPI0_1)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI0_1)
 	mul.d	$a0, $a0, $a1
-	movgr2fr.w	$fa2, $a3
-	ffint.s.w	$fa2, $fa2
-	fmul.s	$fa2, $fa2, $fa1
-	fmul.s	$fa2, $fa2, $fa0
-	fmul.s	$fs2, $fa2, $fa0
-	movgr2fr.w	$fa2, $a0
-	ffint.s.w	$fa2, $fa2
-	fmul.s	$fa1, $fa2, $fa1
-	fmul.s	$fa1, $fa1, $fa0
-	fmul.s	$fs3, $fa1, $fa0
+	movgr2fr.w	$fa0, $a3
+	ffint.s.w	$fa0, $fa0
+	lu12i.w	$a1, 285440
+	movgr2fr.w	$fa2, $a1
+	fmul.s	$fa0, $fa0, $fa2
+	fmul.s	$fa0, $fa0, $fa1
+	fmul.s	$fs2, $fa0, $fa1
+	movgr2fr.w	$fa0, $a0
+	ffint.s.w	$fa0, $fa0
+	fmul.s	$fa0, $fa0, $fa2
+	fmul.s	$fa0, $fa0, $fa1
+	fmul.s	$fs3, $fa0, $fa1
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(printSeparator)
 	jirl	$ra, $ra, 0
@@ -1025,12 +1019,7 @@ main:                                   # @main
 .Lfunc_end0:
 	.size	main, .Lfunc_end0-main
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function printThings
-.LCPI1_0:
-	.dword	0x3f20f13ed339f07f              # double 1.2925998599999999E-4
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function printThings
 	.type	printThings,@function
 printThings:                            # @printThings
 # %bb.0:
@@ -1075,12 +1064,15 @@ printThings:                            # @printThings
 	fadd.d	$fa1, $fa2, $fa3
 	movgr2fr.w	$fa4, $a1
 	ffint.d.w	$fa4, $fa4
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa5, $a0, %pc_lo12(.LCPI1_0)
 	fdiv.d	$fa1, $fa1, $fa4
 	fdiv.d	$fa3, $fa3, $fa4
 	fdiv.d	$fa2, $fa2, $fa4
-	fdiv.d	$fa4, $fa3, $fa5
+	lu12i.w	$a0, -183393
+	ori	$a0, $a0, 127
+	lu32i.d	$a0, 61758
+	lu52i.d	$a0, $a0, 1010
+	movgr2fr.d	$fa4, $a0
+	fdiv.d	$fa4, $fa3, $fa4
 	pcalau12i	$a0, %got_pc_hi20(stdout)
 	ld.d	$a0, $a0, %got_pc_lo12(stdout)
 	ld.d	$a0, $a0, 0

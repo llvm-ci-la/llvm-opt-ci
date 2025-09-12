@@ -1,12 +1,6 @@
 	.file	"MM.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function MakeMatrix
-.LCPI0_0:
-	.dword	0xbfd47ae147ae147b              # double -0.32000000000000001
-.LCPI0_1:
-	.dword	0x3fd46d04297691db              # double 0.3191538243211462
 	.text
-	.globl	MakeMatrix
+	.globl	MakeMatrix                      # -- Begin function MakeMatrix
 	.p2align	5
 	.type	MakeMatrix,@function
 MakeMatrix:                             # @MakeMatrix
@@ -32,12 +26,18 @@ MakeMatrix:                             # @MakeMatrix
 	move	$s0, $a0
 	move	$s4, $zero
 	move	$s2, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_1)
-	movgr2fr.d	$fs2, $zero
+	movgr2fr.d	$fs0, $zero
 	ori	$s3, $zero, 408
+	lu12i.w	$a0, 293601
+	ori	$a0, $a0, 1147
+	lu32i.d	$a0, 293601
+	lu52i.d	$a0, $a0, -1027
+	movgr2fr.d	$fs1, $a0
+	lu12i.w	$a0, 169833
+	ori	$a0, $a0, 475
+	lu32i.d	$a0, 290052
+	lu52i.d	$a0, $a0, 1021
+	movgr2fr.d	$fs2, $a0
 	b	.LBB0_2
 	.p2align	4, , 16
 .LBB0_1:                                #   in Loop: Header=BB0_2 Depth=1
@@ -65,16 +65,16 @@ MakeMatrix:                             # @MakeMatrix
 	beq	$s1, $s3, .LBB0_1
 .LBB0_4:                                #   Parent Loop BB0_2 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	fmov.d	$fa0, $fs2
+	fmov.d	$fa0, $fs0
 	blt	$fp, $s7, .LBB0_3
 # %bb.5:                                #   in Loop: Header=BB0_4 Depth=2
 	movgr2fr.w	$fa0, $s8
 	ffint.d.w	$fa0, $fa0
-	fmul.d	$fa1, $fa0, $fs0
+	fmul.d	$fa1, $fa0, $fs1
 	fmul.d	$fa0, $fa1, $fa0
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	fmul.d	$fa0, $fa0, $fs1
+	fmul.d	$fa0, $fa0, $fs2
 	b	.LBB0_3
 .LBB0_6:
 	move	$a0, $s0

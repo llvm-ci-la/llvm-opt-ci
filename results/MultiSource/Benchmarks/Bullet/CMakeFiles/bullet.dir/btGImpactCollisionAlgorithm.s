@@ -3716,12 +3716,8 @@ GCC_except_table16:
 .Lttbase7:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCollisionObjectS1_P22btGImpactMeshShapePartP18btStaticPlaneShapeb
-.LCPI17_0:
-	.word	0x358637bd                      # float 9.99999997E-7
 	.text
-	.globl	_ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCollisionObjectS1_P22btGImpactMeshShapePartP18btStaticPlaneShapeb
+	.globl	_ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCollisionObjectS1_P22btGImpactMeshShapePartP18btStaticPlaneShapeb # -- Begin function _ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCollisionObjectS1_P22btGImpactMeshShapePartP18btStaticPlaneShapeb
 	.p2align	5
 	.type	_ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCollisionObjectS1_P22btGImpactMeshShapePartP18btStaticPlaneShapeb,@function
 _ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCollisionObjectS1_P22btGImpactMeshShapePartP18btStaticPlaneShapeb: # @_ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCollisionObjectS1_P22btGImpactMeshShapePartP18btStaticPlaneShapeb
@@ -3792,8 +3788,8 @@ _ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCol
 	fst.s	$fs0, $sp, 80
 	fmul.s	$fa0, $fa4, $ft2
 	fmadd.s	$fa0, $fa3, $ft3, $fa0
-	fmadd.s	$fs2, $fa5, $ft5, $fa0
-	fst.s	$fs2, $sp, 84
+	fmadd.s	$fs1, $fa5, $ft5, $fa0
+	fst.s	$fs1, $sp, 84
 	fmul.s	$fa0, $fa7, $ft2
 	fmadd.s	$fa0, $fa6, $ft3, $fa0
 	fmadd.s	$fs3, $ft0, $ft5, $fa0
@@ -3804,8 +3800,8 @@ _ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCol
 	fmadd.s	$fa0, $ft1, $ft3, $fa0
 	fmadd.s	$fa0, $fa1, $ft5, $fa0
 	ld.d	$a4, $a0, 16
-	fadd.s	$fs1, $fa0, $fa2
-	fst.s	$fs1, $sp, 92
+	fadd.s	$fs2, $fa0, $fa2
+	fst.s	$fs2, $sp, 92
 	addi.d	$a3, $sp, 64
 	addi.d	$a1, $sp, 96
 	addi.d	$a2, $sp, 48
@@ -3842,26 +3838,27 @@ _ZN27btGImpactCollisionAlgorithm37gimpacttrimeshpart_vs_plane_collisionEP17btCol
 	fsub.s	$fa3, $fa4, $fa0
 	fsub.s	$fa4, $fa5, $fa1
 	fsub.s	$fa5, $fa6, $fa2
-	fmul.s	$fa1, $fa1, $fs2
+	fmul.s	$fa1, $fa1, $fs1
 	fmadd.s	$fa0, $fs0, $fa0, $fa1
 	fmadd.s	$fa0, $fs3, $fa2, $fa0
-	fabs.s	$fa2, $fs0
-	fabs.s	$fa1, $fs2
+	fabs.s	$fa1, $fs0
+	fabs.s	$fa2, $fs1
 	fabs.s	$fa7, $fs3
-	fmul.s	$fa4, $fa4, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI17_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI17_0)
-	fmadd.s	$fa2, $fa3, $fa2, $fa4
-	fmadd.s	$fa2, $fa5, $fa7, $fa2
-	fsub.s	$fa3, $fa0, $fa2
-	fadd.s	$fa4, $fs1, $fa1
+	fmul.s	$fa2, $fa4, $fa2
+	fmadd.s	$fa1, $fa3, $fa1, $fa2
+	fmadd.s	$fa1, $fa5, $fa7, $fa1
+	fsub.s	$fa3, $fa0, $fa1
+	lu12i.w	$a0, 219235
+	ori	$a0, $a0, 1981
+	movgr2fr.w	$fa2, $a0
+	fadd.s	$fa4, $fs2, $fa2
 	fcmp.cult.s	$fcc0, $fa4, $fa3
 	fst.s	$fa6, $sp, 72
 	bcnez	$fcc0, .LBB17_18
 # %bb.1:
-	fadd.s	$fa0, $fa0, $fa2
 	fadd.s	$fa0, $fa0, $fa1
-	fcmp.clt.s	$fcc0, $fa0, $fs1
+	fadd.s	$fa0, $fa0, $fa2
+	fcmp.clt.s	$fcc0, $fa0, $fs2
 	bcnez	$fcc0, .LBB17_18
 # %bb.2:
 	ld.d	$a0, $fp, 0

@@ -23,12 +23,7 @@ rd_pic_decision:                        # @rd_pic_decision
 .Lfunc_end0:
 	.size	rd_pic_decision, .Lfunc_end0-rd_pic_decision
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function picture_coding_decision
-.LCPI1_0:
-	.dword	0x3fe5c28f5c28f5c3              # double 0.68000000000000005
-	.text
-	.globl	picture_coding_decision
+	.globl	picture_coding_decision         # -- Begin function picture_coding_decision
 	.p2align	5
 	.type	picture_coding_decision,@function
 picture_coding_decision:                # @picture_coding_decision
@@ -57,8 +52,11 @@ picture_coding_decision:                # @picture_coding_decision
 	fdiv.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(exp2)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, 377487
+	ori	$a0, $a0, 1475
+	lu32i.d	$a0, 377487
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	addi.w	$a0, $zero, -3
 	lu32i.d	$a0, 0
@@ -78,8 +76,11 @@ picture_coding_decision:                # @picture_coding_decision
 	fdiv.d	$fa0, $fa0, $fa1
 	pcaddu18i	$ra, %call36(exp2)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
+	lu12i.w	$a0, 377487
+	ori	$a0, $a0, 1475
+	lu32i.d	$a0, 377487
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
 .LBB1_3:
 	fmul.d	$fa0, $fa0, $fa1
 	fld.s	$fa1, $s0, 812

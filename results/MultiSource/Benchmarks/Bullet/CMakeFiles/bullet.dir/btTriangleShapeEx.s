@@ -1,30 +1,23 @@
 	.file	"btTriangleShapeEx.cpp"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i
-.LCPI0_0:
-	.word	0xc47a0000                      # float -1000
-.LCPI0_1:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
-	.globl	_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i
+	.globl	_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i # -- Begin function _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i
 	.p2align	5
 	.type	_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i,@function
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i: # @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i
 # %bb.0:
-	lu12i.w	$a4, -243808
-	lu32i.d	$a4, 0
-	st.d	$a4, $a0, 0
+	lu12i.w	$a7, -243808
+	lu32i.d	$a7, 0
+	st.d	$a7, $a0, 0
 	blez	$a3, .LBB0_13
 # %bb.1:                                # %.lr.ph
 	addi.d	$sp, $sp, -80
 	move	$a5, $zero
 	move	$a4, $zero
-	pcalau12i	$a6, %pc_hi20(.LCPI0_0)
-	fld.s	$fa3, $a6, %pc_lo12(.LCPI0_0)
-	pcalau12i	$a6, %pc_hi20(.LCPI0_1)
-	fld.s	$fa1, $a6, %pc_lo12(.LCPI0_1)
 	addi.d	$a6, $a2, 8
-	movgr2fr.w	$fa2, $zero
+	movgr2fr.w	$fa3, $a7
+	movgr2fr.w	$fa1, $zero
+	lu12i.w	$a7, 212992
+	movgr2fr.w	$fa2, $a7
 	addi.d	$a7, $sp, 16
 	b	.LBB0_5
 	.p2align	4, , 16
@@ -54,13 +47,13 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i: # @_ZN20GIM_
 	fmadd.s	$fa4, $ft0, $ft1, $fa4
 	fsub.s	$fa4, $fa4, $ft2
 	fsub.s	$fa4, $fa0, $fa4
-	fcmp.cult.s	$fcc0, $fa4, $fa2
+	fcmp.cult.s	$fcc0, $fa4, $fa1
 	bcnez	$fcc0, .LBB0_4
 # %bb.6:                                #   in Loop: Header=BB0_5 Depth=1
 	fcmp.cule.s	$fcc0, $fa4, $fa3
 	bceqz	$fcc0, .LBB0_2
 # %bb.7:                                #   in Loop: Header=BB0_5 Depth=1
-	fadd.s	$fa4, $fa4, $fa1
+	fadd.s	$fa4, $fa4, $fa2
 	fcmp.cult.s	$fcc0, $fa4, $fa3
 	bcnez	$fcc0, .LBB0_4
 # %bb.8:                                #   in Loop: Header=BB0_5 Depth=1
@@ -328,31 +321,27 @@ _ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3: # @_ZN19btPrimitiveTrian
 	.size	_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3, .Lfunc_end2-_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_
-.LCPI3_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.section	.text._Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_,"axG",@progbits,_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_,comdat
-	.weak	_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_
+	.weak	_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_ # -- Begin function _Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_
 	.p2align	5
 	.type	_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_,@function
 _Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_: # @_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_
 	.cfi_startproc
 # %bb.0:
 	move	$a5, $a0
-	fld.s	$fa0, $a1, 4
-	fld.s	$fa2, $a0, 4
-	fld.s	$fa6, $a1, 0
-	fld.s	$fa3, $a0, 0
-	fmul.s	$fa0, $fa0, $fa2
-	fld.s	$fa7, $a1, 8
+	fld.s	$fa0, $a1, 0
+	fld.s	$fa2, $a0, 0
+	fld.s	$fa1, $a1, 4
+	fld.s	$fa3, $a0, 4
+	fld.s	$fa6, $a1, 8
 	fld.s	$fa4, $a0, 8
 	fld.s	$fa5, $a0, 12
-	pcalau12i	$a0, %pc_hi20(.LCPI3_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI3_0)
-	fmadd.s	$fa0, $fa6, $fa3, $fa0
-	fmadd.s	$fa0, $fa7, $fa4, $fa0
+	fmul.s	$fa1, $fa1, $fa3
+	fmadd.s	$fa0, $fa0, $fa2, $fa1
+	fmadd.s	$fa0, $fa6, $fa4, $fa0
 	fsub.s	$fa0, $fa0, $fa5
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB3_2
 # %bb.1:
@@ -361,8 +350,8 @@ _Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_: # @_Z22bt_plane_cl
 .LBB3_2:
 	vld	$vr2, $a1, 0
 	vst	$vr2, $a4, 0
-	fld.s	$fa3, $a5, 0
-	fld.s	$fa2, $a5, 4
+	fld.s	$fa2, $a5, 0
+	fld.s	$fa3, $a5, 4
 	fld.s	$fa4, $a5, 8
 	fld.s	$fa5, $a5, 12
 	ori	$a0, $zero, 1
@@ -370,8 +359,8 @@ _Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_: # @_Z22bt_plane_cl
 	fld.s	$fa6, $a2, 4
 	fld.s	$fa7, $a2, 0
 	fld.s	$ft0, $a2, 8
-	fmul.s	$fa2, $fa6, $fa2
-	fmadd.s	$fa2, $fa7, $fa3, $fa2
+	fmul.s	$fa3, $fa6, $fa3
+	fmadd.s	$fa2, $fa7, $fa2, $fa3
 	fmadd.s	$fa2, $ft0, $fa4, $fa2
 	fsub.s	$fa2, $fa2, $fa5
 	fcmp.clt.s	$fcc1, $fa1, $fa2
@@ -520,31 +509,27 @@ _Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_: # @_Z22bt_plane_cl
 	.size	_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_, .Lfunc_end3-_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_
-.LCPI4_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.section	.text._Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_,"axG",@progbits,_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_,comdat
-	.weak	_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_
+	.weak	_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_ # -- Begin function _Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_
 	.p2align	5
 	.type	_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_,@function
 _Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_: # @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_
 	.cfi_startproc
 # %bb.0:
 	move	$a4, $a0
-	fld.s	$fa0, $a1, 4
-	fld.s	$fa1, $a0, 4
-	fld.s	$fa2, $a1, 0
-	fld.s	$fa3, $a0, 0
-	fmul.s	$fa0, $fa0, $fa1
+	fld.s	$fa0, $a1, 0
+	fld.s	$fa1, $a0, 0
+	fld.s	$fa2, $a1, 4
+	fld.s	$fa3, $a0, 4
 	fld.s	$fa4, $a1, 8
 	fld.s	$fa5, $a0, 8
 	fld.s	$fa6, $a0, 12
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI4_0)
-	fmadd.s	$fa0, $fa2, $fa3, $fa0
+	fmul.s	$fa2, $fa2, $fa3
+	fmadd.s	$fa0, $fa0, $fa1, $fa2
 	fmadd.s	$fa0, $fa4, $fa5, $fa0
 	fsub.s	$fa0, $fa0, $fa6
+	lu12i.w	$a0, 212992
+	movgr2fr.w	$fa1, $a0
 	fcmp.clt.s	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB4_6
 # %bb.1:
@@ -679,14 +664,8 @@ _Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_: # @_Z21bt_plane_clip_pol
 	.size	_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_, .Lfunc_end4-_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT
-.LCPI5_0:
-	.word	0xc47a0000                      # float -1000
-.LCPI5_1:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
-	.globl	_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT
+	.globl	_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT # -- Begin function _ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT
 	.p2align	5
 	.type	_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT,@function
 _ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT: # @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT
@@ -741,12 +720,13 @@ _ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE
 	fld.s	$fa0, $sp, 312
 	fld.s	$fa3, $sp, 316
 	addi.d	$a2, $a0, -1
-	pcalau12i	$s5, %pc_hi20(.LCPI5_0)
-	fld.s	$fs0, $s5, %pc_lo12(.LCPI5_0)
-	pcalau12i	$a3, %pc_hi20(.LCPI5_1)
-	fld.s	$fs2, $a3, %pc_lo12(.LCPI5_1)
 	addi.d	$s4, $sp, 580
-	movgr2fr.w	$fs3, $zero
+	lu12i.w	$s5, -243808
+	lu32i.d	$s5, 0
+	movgr2fr.w	$fs0, $s5
+	movgr2fr.w	$fs2, $zero
+	lu12i.w	$a3, 212992
+	movgr2fr.w	$fs3, $a3
 	addi.d	$a3, $sp, 16
 .LBB5_3:                                # %.outer84
                                         # =>This Loop Header: Depth=1
@@ -771,13 +751,13 @@ _ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE
 	fmadd.s	$fa4, $fa6, $fa0, $fa4
 	fsub.s	$fa4, $fa4, $fa3
 	fsub.s	$fa4, $fs1, $fa4
-	fcmp.cult.s	$fcc0, $fa4, $fs3
+	fcmp.cult.s	$fcc0, $fa4, $fs2
 	bcnez	$fcc0, .LBB5_4
 # %bb.6:                                #   in Loop: Header=BB5_5 Depth=2
 	fcmp.clt.s	$fcc0, $fs0, $fa4
 	bcnez	$fcc0, .LBB5_9
 # %bb.7:                                #   in Loop: Header=BB5_5 Depth=2
-	fadd.s	$fa4, $fa4, $fs2
+	fadd.s	$fa4, $fa4, $fs3
 	fcmp.cult.s	$fcc0, $fa4, $fs0
 	bcnez	$fcc0, .LBB5_4
 # %bb.8:                                #   in Loop: Header=BB5_5 Depth=2
@@ -835,13 +815,13 @@ _ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE
 # %bb.17:                               # %.lr.ph.i16
 	move	$a2, $zero
 	move	$a3, $zero
+	addi.d	$a1, $sp, 24
 	fld.s	$fa1, $sp, 24
 	fld.s	$fa2, $sp, 28
 	fld.s	$fa3, $sp, 32
 	fld.s	$fa4, $sp, 36
-	fld.s	$fa0, $s5, %pc_lo12(.LCPI5_0)
-	addi.d	$a1, $sp, 24
 	addi.d	$a4, $a0, -1
+	movgr2fr.w	$fa0, $s5
 	addi.d	$a5, $sp, 832
 .LBB5_18:                               # %.outer
                                         # =>This Loop Header: Depth=1
@@ -866,13 +846,13 @@ _ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE
 	fmadd.s	$fa5, $fa7, $fa3, $fa5
 	fsub.s	$fa5, $fa5, $fa4
 	fsub.s	$fa5, $fs1, $fa5
-	fcmp.cult.s	$fcc0, $fa5, $fs3
+	fcmp.cult.s	$fcc0, $fa5, $fs2
 	bcnez	$fcc0, .LBB5_19
 # %bb.21:                               #   in Loop: Header=BB5_20 Depth=2
 	fcmp.clt.s	$fcc0, $fa0, $fa5
 	bcnez	$fcc0, .LBB5_24
 # %bb.22:                               #   in Loop: Header=BB5_20 Depth=2
-	fadd.s	$fa5, $fa5, $fs2
+	fadd.s	$fa5, $fa5, $fs3
 	fcmp.cult.s	$fcc0, $fa5, $fa0
 	bcnez	$fcc0, .LBB5_19
 # %bb.23:                               #   in Loop: Header=BB5_20 Depth=2

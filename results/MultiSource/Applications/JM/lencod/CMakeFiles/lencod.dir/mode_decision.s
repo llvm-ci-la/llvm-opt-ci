@@ -60,14 +60,7 @@ rc_store_diff:                          # @rc_store_diff
 .Lfunc_end0:
 	.size	rc_store_diff, .Lfunc_end0-rc_store_diff
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fast_mode_intra_decision
-.LCPI1_0:
-	.dword	0x3f65555555555555              # double 0.0026041666666666665
-.LCPI1_1:
-	.dword	0x3f90000000000000              # double 0.015625
-	.text
-	.globl	fast_mode_intra_decision
+	.globl	fast_mode_intra_decision        # -- Begin function fast_mode_intra_decision
 	.p2align	5
 	.type	fast_mode_intra_decision,@function
 fast_mode_intra_decision:               # @fast_mode_intra_decision
@@ -109,17 +102,20 @@ fast_mode_intra_decision:               # @fast_mode_intra_decision
 	move	$a2, $s0
 	move	$a3, $zero
 	jirl	$ra, $a5, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
+	lu12i.w	$a0, 349525
+	ori	$a1, $a0, 1365
+	lu32i.d	$a1, 349525
 	ld.d	$a0, $s2, 0
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI1_0)
+	lu52i.d	$a2, $a1, 1014
 	lu12i.w	$a1, 3
-	ori	$a2, $a1, 3056
-	ldx.w	$a2, $a0, $a2
-	ld.w	$a3, $a0, 164
+	ori	$a3, $a1, 3056
+	ldx.w	$a3, $a0, $a3
+	ld.w	$a4, $a0, 164
+	movgr2fr.d	$fa0, $a2
 	fmul.d	$fa0, $fs0, $fa0
-	addi.w	$a2, $a2, -1
+	addi.w	$a2, $a3, -1
 	movgr2fr.d	$fa1, $zero
-	beq	$a3, $a2, .LBB1_7
+	beq	$a4, $a2, .LBB1_7
 # %bb.1:
 	ori	$a1, $a1, 3048
 	ldx.w	$a1, $a0, $a1
@@ -447,11 +443,11 @@ fast_mode_intra_decision:               # @fast_mode_intra_decision
 	bne	$a2, $t3, .LBB1_5
 # %bb.6:                                # %middle.block78
 	vhaddw.q.d	$vr1, $vr2, $vr2
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI1_1)
 	vpickve2gr.d	$a0, $vr1, 0
 	movgr2fr.d	$fa1, $a0
 	ffint.d.l	$fa1, $fa1
+	lu52i.d	$a0, $zero, 1017
+	movgr2fr.d	$fa2, $a0
 	fmul.d	$fa1, $fa1, $fa2
 .LBB1_7:
 	fcmp.cult.d	$fcc0, $fa1, $fa0
@@ -2005,12 +2001,7 @@ compute_mode_RD_cost:                   # @compute_mode_RD_cost
 .Lfunc_end7:
 	.size	compute_mode_RD_cost, .Lfunc_end7-compute_mode_RD_cost
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function submacroblock_mode_decision
-.LCPI8_0:
-	.dword	0x46293e5939a08cea              # double 1.0E+30
-	.text
-	.globl	submacroblock_mode_decision
+	.globl	submacroblock_mode_decision     # -- Begin function submacroblock_mode_decision
 	.p2align	5
 	.type	submacroblock_mode_decision,@function
 submacroblock_mode_decision:            # @submacroblock_mode_decision
@@ -2195,11 +2186,14 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	add.d	$a0, $a0, $a3
 	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
 	movgr2fr.d	$fs0, $zero
-	lu12i.w	$a1, 524287
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI8_0)
-	ori	$a0, $a1, 4095
+	lu12i.w	$a0, 524287
+	ori	$a0, $a0, 4095
 	st.d	$a0, $sp, 360                   # 8-byte Folded Spill
+	lu12i.w	$a0, 236040
+	ori	$a0, $a0, 3306
+	lu32i.d	$a0, -442791
+	lu52i.d	$a0, $a0, 1122
+	movgr2fr.d	$fs1, $a0
 	st.d	$s7, $sp, 328                   # 8-byte Folded Spill
 	st.d	$s5, $sp, 440                   # 8-byte Folded Spill
 	st.d	$s4, $sp, 368                   # 8-byte Folded Spill
@@ -2713,8 +2707,8 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	st.w	$a4, $a1, 376
 	ld.d	$a1, $s5, 0
 	ldptr.w	$a1, $a1, 4168
-	ld.w	$s4, $sp, 564
-	st.d	$s4, $sp, 280                   # 8-byte Folded Spill
+	ld.w	$a2, $sp, 564
+	st.d	$a2, $sp, 280                   # 8-byte Folded Spill
 	beqz	$a1, .LBB8_79
 # %bb.50:                               # %.preheader362
                                         #   in Loop: Header=BB8_6 Depth=1
@@ -2823,8 +2817,8 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$t8, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 152                   # 8-byte Folded Reload
 	b	.LBB8_52
 	.p2align	4, , 16
 .LBB8_51:                               #   in Loop: Header=BB8_52 Depth=2
@@ -2953,7 +2947,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.w	$t1, $a0, 176
 	ld.w	$t2, $a0, 20
 .LBB8_70:                               #   in Loop: Header=BB8_52 Depth=2
-	add.w	$t3, $t1, $s5
+	add.w	$t3, $t1, $s4
 	slli.d	$t4, $t3, 1
 	ldx.h	$t4, $a7, $t4
 	st.h	$t4, $a2, -514
@@ -2971,7 +2965,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.w	$t1, $a0, 176
 	ld.w	$t2, $a0, 20
 .LBB8_73:                               #   in Loop: Header=BB8_52 Depth=2
-	add.w	$t0, $t1, $s7
+	add.w	$t0, $t1, $s5
 	slli.d	$t1, $t0, 1
 	ldx.h	$a7, $a7, $t1
 	st.h	$a7, $a2, -512
@@ -3100,7 +3094,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	bge	$a1, $a0, .LBB8_4
 	b	.LBB8_49
 .LBB8_89:
-	move	$s2, $s1
+	move	$s8, $s1
 	ld.d	$a0, $sp, 376                   # 8-byte Folded Reload
 	beqz	$a0, .LBB8_92
 # %bb.90:                               # %.thread354
@@ -3110,7 +3104,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ldptr.w	$a0, $a0, 4168
 	lu12i.w	$s0, 3
 	ld.d	$s1, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 280                   # 8-byte Folded Reload
 	bnez	$a0, .LBB8_99
 # %bb.91:                               # %.thread356
 	ld.w	$a0, $s1, 0
@@ -3129,7 +3123,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$a0, $a0, 0
 	ldptr.w	$a0, $a0, 4168
 	lu12i.w	$s0, 3
-	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 280                   # 8-byte Folded Reload
 	bnez	$a0, .LBB8_99
 .LBB8_93:                               # %.preheader361
 	ld.d	$a0, $sp, 304                   # 8-byte Folded Reload
@@ -3153,7 +3147,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	move	$a2, $fp
 	pcaddu18i	$ra, %call36(LumaResidualCoding8x8)
 	jirl	$ra, $ra, 0
-	move	$s8, $a0
+	move	$s4, $a0
 	pcalau12i	$a0, %got_pc_hi20(cbp_blk8x8)
 	ld.d	$a0, $a0, %got_pc_lo12(cbp_blk8x8)
 	ld.w	$a1, $a0, 0
@@ -3166,8 +3160,8 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	st.w	$a1, $a0, 0
 	slli.d	$fp, $fp, 3
 	ldx.d	$a0, $a2, $fp
-	ld.d	$s4, $sp, 232                   # 8-byte Folded Reload
-	ld.d	$a1, $s4, 0
+	ld.d	$s2, $sp, 232                   # 8-byte Folded Reload
+	ld.d	$a1, $s2, 0
 	ld.d	$a2, $a0, 0
 	ld.d	$a0, $a1, 0
 	ld.d	$a1, $a2, 0
@@ -3177,7 +3171,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$a0, $s7, 0
 	ldptr.d	$a0, $a0, 14160
 	ldx.d	$a0, $a0, $fp
-	ld.d	$a1, $s4, 0
+	ld.d	$a1, $s2, 0
 	ld.d	$a2, $a0, 0
 	ld.d	$a0, $a1, 8
 	ld.d	$a1, $a2, 8
@@ -3187,7 +3181,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$a0, $s7, 0
 	ldptr.d	$a0, $a0, 14160
 	ldx.d	$a0, $a0, $fp
-	ld.d	$a1, $s4, 8
+	ld.d	$a1, $s2, 8
 	ld.d	$a2, $a0, 8
 	ld.d	$a0, $a1, 0
 	ld.d	$a1, $a2, 0
@@ -3197,7 +3191,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$a0, $s7, 0
 	ldptr.d	$a0, $a0, 14160
 	ldx.d	$a0, $a0, $fp
-	ld.d	$a1, $s4, 8
+	ld.d	$a1, $s2, 8
 	ld.d	$a2, $a0, 8
 	ld.d	$a0, $a1, 8
 	ld.d	$a1, $a2, 8
@@ -3207,7 +3201,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$a0, $s7, 0
 	ldptr.d	$a0, $a0, 14160
 	ldx.d	$a0, $a0, $fp
-	ld.d	$a1, $s4, 16
+	ld.d	$a1, $s2, 16
 	ld.d	$a2, $a0, 16
 	ld.d	$a0, $a1, 0
 	ld.d	$a1, $a2, 0
@@ -3217,7 +3211,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$a0, $s7, 0
 	ldptr.d	$a0, $a0, 14160
 	ldx.d	$a0, $a0, $fp
-	ld.d	$a1, $s4, 16
+	ld.d	$a1, $s2, 16
 	ld.d	$a2, $a0, 16
 	ld.d	$a0, $a1, 8
 	ld.d	$a1, $a2, 8
@@ -3227,7 +3221,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$a0, $s7, 0
 	ldptr.d	$a0, $a0, 14160
 	ldx.d	$a0, $a0, $fp
-	ld.d	$a1, $s4, 24
+	ld.d	$a1, $s2, 24
 	ld.d	$a2, $a0, 24
 	ld.d	$a0, $a1, 0
 	ld.d	$a1, $a2, 0
@@ -3237,7 +3231,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.d	$a0, $s7, 0
 	ldptr.d	$a0, $a0, 14160
 	ldx.d	$a0, $a0, $fp
-	ld.d	$a1, $s4, 24
+	ld.d	$a1, $s2, 24
 	ld.d	$a2, $a0, 24
 	ld.d	$a0, $a1, 8
 	ld.d	$a1, $a2, 8
@@ -3292,7 +3286,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.w	$t1, $s6, %pc_lo12(si_frame_indicator)
 	bnez	$t1, .LBB8_94
 # %bb.97:                               #   in Loop: Header=BB8_95 Depth=1
-	ld.d	$t1, $s2, %pc_lo12(lrec)
+	ld.d	$t1, $s8, %pc_lo12(lrec)
 	ld.w	$t2, $t0, 180
 	ld.w	$t0, $t0, 176
 	alsl.d	$t1, $t2, $t1, 3
@@ -3311,7 +3305,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 .LBB8_98:
 	ld.d	$fp, $sp, 320                   # 8-byte Folded Reload
 .LBB8_99:                               # %.loopexit360
-	beqz	$s8, .LBB8_101
+	beqz	$s4, .LBB8_101
 # %bb.100:
 	ori	$a0, $zero, 1
 	sll.w	$a0, $a0, $fp
@@ -3323,7 +3317,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	pcalau12i	$a0, %got_pc_hi20(cnt_nonz_8x8)
 	ld.d	$a0, $a0, %got_pc_lo12(cnt_nonz_8x8)
 	ld.w	$a1, $a0, 0
-	add.d	$a1, $a1, $s8
+	add.d	$a1, $a1, $s4
 	st.w	$a1, $a0, 0
 .LBB8_101:
 	ld.d	$a0, $sp, 376                   # 8-byte Folded Reload
@@ -3500,7 +3494,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 	ld.w	$a7, $s6, %pc_lo12(si_frame_indicator)
 	bnez	$a7, .LBB8_114
 # %bb.117:                              #   in Loop: Header=BB8_115 Depth=1
-	ld.d	$a7, $s2, %pc_lo12(lrec)
+	ld.d	$a7, $s8, %pc_lo12(lrec)
 	ld.w	$t0, $a5, 180
 	alsl.d	$a7, $t0, $a7, 3
 	ldx.d	$a7, $a7, $a0
@@ -3544,12 +3538,7 @@ submacroblock_mode_decision:            # @submacroblock_mode_decision
 .Lfunc_end8:
 	.size	submacroblock_mode_decision, .Lfunc_end8-submacroblock_mode_decision
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function get_initial_mb16x16_cost
-.LCPI9_0:
-	.dword	0x4080000000000000              # double 512
-	.text
-	.globl	get_initial_mb16x16_cost
+	.globl	get_initial_mb16x16_cost        # -- Begin function get_initial_mb16x16_cost
 	.p2align	5
 	.type	get_initial_mb16x16_cost,@function
 get_initial_mb16x16_cost:               # @get_initial_mb16x16_cost
@@ -3559,27 +3548,26 @@ get_initial_mb16x16_cost:               # @get_initial_mb16x16_cost
 	pcalau12i	$a0, %got_pc_hi20(img)
 	ld.d	$a0, $a0, %got_pc_lo12(img)
 	ld.d	$a0, $a0, 0
-	ld.w	$a2, $a0, 12
-	ldptr.d	$a1, $a0, 14224
+	ld.w	$a1, $a0, 12
+	ldptr.d	$a2, $a0, 14224
 	ori	$a3, $zero, 536
-	mul.d	$a3, $a2, $a3
-	add.d	$a1, $a1, $a3
-	ld.d	$a4, $a1, 64
-	ld.d	$a3, $a1, 56
-	pcalau12i	$a1, %pc_hi20(.LCPI9_0)
-	beqz	$a4, .LBB9_3
+	mul.d	$a3, $a1, $a3
+	add.d	$a2, $a2, $a3
+	ld.d	$a3, $a2, 64
+	ld.d	$a2, $a2, 56
+	beqz	$a3, .LBB9_3
 # %bb.1:
-	pcalau12i	$a4, %pc_hi20(mb16x16_cost_frame)
-	ld.d	$a4, $a4, %pc_lo12(mb16x16_cost_frame)
-	alsl.d	$a5, $a2, $a4, 3
-	fld.d	$fa0, $a5, -8
-	beqz	$a3, .LBB9_5
+	pcalau12i	$a3, %pc_hi20(mb16x16_cost_frame)
+	ld.d	$a3, $a3, %pc_lo12(mb16x16_cost_frame)
+	alsl.d	$a4, $a1, $a3, 3
+	fld.d	$fa0, $a4, -8
+	beqz	$a2, .LBB9_5
 # %bb.2:
-	ld.w	$a3, $a0, 52
-	srli.d	$a3, $a3, 4
-	sub.w	$a2, $a2, $a3
-	slli.d	$a2, $a2, 3
-	fldx.d	$fa1, $a4, $a2
+	ld.w	$a2, $a0, 52
+	srli.d	$a2, $a2, 4
+	sub.w	$a1, $a1, $a2
+	slli.d	$a1, $a1, 3
+	fldx.d	$fa1, $a3, $a1
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -912
 	fadd.d	$fa0, $fa0, $fa1
@@ -3587,40 +3575,42 @@ get_initial_mb16x16_cost:               # @get_initial_mb16x16_cost
 	fmul.d	$fa0, $fa0, $fa1
 	b	.LBB9_5
 .LBB9_3:
-	beqz	$a3, .LBB9_7
+	beqz	$a2, .LBB9_7
 # %bb.4:
-	ld.w	$a3, $a0, 52
-	pcalau12i	$a4, %pc_hi20(mb16x16_cost_frame)
-	ld.d	$a4, $a4, %pc_lo12(mb16x16_cost_frame)
-	srli.d	$a3, $a3, 4
-	sub.w	$a2, $a2, $a3
-	slli.d	$a2, $a2, 3
-	fldx.d	$fa0, $a4, $a2
+	ld.w	$a2, $a0, 52
+	pcalau12i	$a3, %pc_hi20(mb16x16_cost_frame)
+	ld.d	$a3, $a3, %pc_lo12(mb16x16_cost_frame)
+	srli.d	$a2, $a2, 4
+	sub.w	$a1, $a1, $a2
+	slli.d	$a1, $a1, 3
+	fldx.d	$fa0, $a3, $a1
 .LBB9_5:
-	pcalau12i	$a2, %got_pc_hi20(mb16x16_cost)
-	ld.d	$a2, $a2, %got_pc_lo12(mb16x16_cost)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI9_0)
+	pcalau12i	$a1, %got_pc_hi20(mb16x16_cost)
+	ld.d	$a1, $a1, %got_pc_lo12(mb16x16_cost)
+	lu52i.d	$a2, $zero, 1032
+	movgr2fr.d	$fa1, $a2
 	fcmp.clt.d	$fcc0, $fa0, $fa1
-	fst.d	$fa0, $a2, 0
+	fst.d	$fa0, $a1, 0
 	bceqz	$fcc0, .LBB9_8
 # %bb.6:
 	vldi	$vr0, -912
 	b	.LBB9_9
 .LBB9_7:                                # %.thread7
-	pcalau12i	$a2, %got_pc_hi20(mb16x16_cost)
-	ld.d	$a2, $a2, %got_pc_lo12(mb16x16_cost)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI9_0)
-	lu52i.d	$a3, $zero, 1032
-	st.d	$a3, $a2, 0
+	pcalau12i	$a1, %got_pc_hi20(mb16x16_cost)
+	ld.d	$a1, $a1, %got_pc_lo12(mb16x16_cost)
+	lu52i.d	$a2, $zero, 1032
+	st.d	$a2, $a1, 0
+	movgr2fr.d	$fa0, $a2
 .LBB9_8:
-	ld.w	$a2, $a0, 20
-	ldptr.d	$a3, $a0, 15504
-	slli.d	$a2, $a2, 3
+	ld.w	$a1, $a0, 20
+	ldptr.d	$a2, $a0, 15504
+	slli.d	$a1, $a1, 3
 	ld.w	$a0, $a0, 36
-	ldx.d	$a2, $a3, $a2
+	ldx.d	$a1, $a2, $a1
 	slli.d	$a0, $a0, 3
-	fldx.d	$fa1, $a2, $a0
-	fld.d	$fa2, $a1, %pc_lo12(.LCPI9_0)
+	fldx.d	$fa1, $a1, $a0
+	lu52i.d	$a0, $zero, 1032
+	movgr2fr.d	$fa2, $a0
 	fmul.d	$fa1, $fa1, $fa2
 	fdiv.d	$fa1, $fa0, $fa1
 	fsqrt.d	$fa0, $fa1
@@ -3642,12 +3632,7 @@ get_initial_mb16x16_cost:               # @get_initial_mb16x16_cost
 .Lfunc_end9:
 	.size	get_initial_mb16x16_cost, .Lfunc_end9-get_initial_mb16x16_cost
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function adjust_mb16x16_cost
-.LCPI10_0:
-	.dword	0x4080000000000000              # double 512
-	.text
-	.globl	adjust_mb16x16_cost
+	.globl	adjust_mb16x16_cost             # -- Begin function adjust_mb16x16_cost
 	.p2align	5
 	.type	adjust_mb16x16_cost,@function
 adjust_mb16x16_cost:                    # @adjust_mb16x16_cost
@@ -3668,8 +3653,8 @@ adjust_mb16x16_cost:                    # @adjust_mb16x16_cost
 	slli.d	$a3, $a3, 3
 	fstx.d	$fa0, $a2, $a3
 	fld.d	$fa0, $a1, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI10_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI10_0)
+	lu52i.d	$a1, $zero, 1032
+	movgr2fr.d	$fa1, $a1
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	bceqz	$fcc0, .LBB10_2
 # %bb.1:

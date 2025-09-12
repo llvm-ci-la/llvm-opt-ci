@@ -46,10 +46,6 @@
 .LCPI0_14:
 	.dword	0x3fe1517a7bdb3895              # double 0.54119610014619701
 	.dword	0x3ff4e7ae9144f0fb              # double 1.3065629648763764
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_15:
-	.dword	0x3ef0000000000000              # double 1.52587890625E-5
 	.text
 	.globl	make_decode_tables
 	.p2align	5
@@ -123,8 +119,8 @@ make_decode_tables:                     # @make_decode_tables
 	move	$a6, $zero
 	move	$a3, $zero
 	move	$a7, $zero
-	pcalau12i	$a2, %pc_hi20(.LCPI0_15)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI0_15)
+	lu52i.d	$a2, $zero, 1007
+	movgr2fr.d	$fa0, $a2
 	lu12i.w	$a2, -2
 	ori	$a2, $a2, 8
 	ori	$t0, $zero, 2048

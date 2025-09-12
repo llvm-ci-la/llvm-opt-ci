@@ -1392,12 +1392,7 @@ interpolateTable:                       # @interpolateTable
 .Lfunc_end1:
 	.size	interpolateTable, .Lfunc_end1-interpolateTable
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function transport_sweep
-.LCPI2_0:
-	.dword	0x3690000000000000              # double 7.0064923216240854E-46
-	.text
-	.globl	transport_sweep
+	.globl	transport_sweep                 # -- Begin function transport_sweep
 	.p2align	5
 	.type	transport_sweep,@function
 transport_sweep:                        # @transport_sweep
@@ -1735,6 +1730,7 @@ transport_sweep:                        # @transport_sweep
 .LBB2_24:                               #   in Loop: Header=BB2_22 Depth=5
 	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	add.d	$a0, $s6, $a0
+	addi.w	$s6, $a0, 0
 	movgr2fr.w	$fa1, $a0
 	ffint.s.w	$fa1, $fa1
 	fcvt.d.s	$fa1, $fa1
@@ -1742,12 +1738,11 @@ transport_sweep:                        # @transport_sweep
 	fcvt.s.d	$fs6, $fa1
 	fsub.s	$fa2, $fs6, $fs2
 	fcvt.d.s	$fa2, $fa2
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	fld.d	$fa3, $a1, %pc_lo12(.LCPI2_0)
 	fdiv.d	$fa0, $fa2, $fa0
-	addi.w	$s6, $a0, 0
 	fcvt.s.d	$fa2, $fa0
-	fcmp.cle.d	$fcc0, $fa1, $fa3
+	lu52i.d	$a0, $zero, 873
+	movgr2fr.d	$fa0, $a0
+	fcmp.cle.d	$fcc0, $fa1, $fa0
 	fsub.s	$fs5, $fs5, $fa2
 	vst	$vr2, $sp, 208                  # 16-byte Folded Spill
 	bcnez	$fcc0, .LBB2_27
@@ -4399,12 +4394,7 @@ alt_attenuate_fluxes:                   # @alt_attenuate_fluxes
 .Lfunc_end8:
 	.size	alt_attenuate_fluxes, .Lfunc_end8-alt_attenuate_fluxes
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function renormalize_flux
-.LCPI9_0:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-	.text
-	.globl	renormalize_flux
+	.globl	renormalize_flux                # -- Begin function renormalize_flux
 	.p2align	5
 	.type	renormalize_flux,@function
 renormalize_flux:                       # @renormalize_flux
@@ -4544,12 +4534,15 @@ renormalize_flux:                       # @renormalize_flux
 # %bb.14:                               # %.preheader74.lr.ph.us.us.preheader
 	move	$a3, $zero
 	ld.d	$a4, $s0, 16
-	pcalau12i	$a5, %pc_hi20(.LCPI9_0)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI9_0)
-	vldi	$vr2, -1264
-	fmul.s	$fa2, $fa0, $fa2
-	fcvt.d.s	$fa2, $fa2
-	fmul.d	$fa1, $fa2, $fa1
+	vldi	$vr1, -1264
+	fmul.s	$fa1, $fa0, $fa1
+	fcvt.d.s	$fa1, $fa1
+	lu12i.w	$a5, 345154
+	ori	$a5, $a5, 3352
+	lu32i.d	$a5, -450053
+	lu52i.d	$a5, $a5, 1024
+	movgr2fr.d	$fa2, $a5
+	fmul.d	$fa1, $fa1, $fa2
 	movgr2fr.w	$fa2, $a1
 	ffint.d.w	$fa2, $fa2
 	fmul.d	$fa1, $fa1, $fa2
@@ -4797,34 +4790,30 @@ renormalize_flux:                       # @renormalize_flux
 .Lfunc_end9:
 	.size	renormalize_flux, .Lfunc_end9-renormalize_flux
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function update_sources
-.LCPI10_0:
-	.dword	0x402921fb54442d18              # double 12.566370614359172
-	.text
-	.globl	update_sources
+	.globl	update_sources                  # -- Begin function update_sources
 	.p2align	5
 	.type	update_sources,@function
 update_sources:                         # @update_sources
 # %bb.0:
-	addi.d	$sp, $sp, -176
-	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 80                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 72                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -192
+	st.d	$ra, $sp, 184                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 104                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 96                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 80                   # 8-byte Folded Spill
 	move	$s0, $a1
 	ld.w	$a1, $a1, 36
 	fmov.s	$fs0, $fa0
-	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
+	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	slli.d	$s5, $a1, 2
 	move	$a0, $s5
 	pcaddu18i	$ra, %call36(malloc)
@@ -4835,11 +4824,11 @@ update_sources:                         # @update_sources
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
 	ld.d	$s6, $s0, 120
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
 	slli.d	$a0, $s6, 2
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	move	$a0, $s5
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
@@ -4850,25 +4839,30 @@ update_sources:                         # @update_sources
 	move	$s5, $a0
 	blez	$s6, .LBB10_23
 # %bb.1:                                # %.lr.ph84
-	st.d	$zero, $sp, 24                  # 8-byte Folded Spill
+	st.d	$zero, $sp, 32                  # 8-byte Folded Spill
 	frecip.s	$fs0, $fs0
 	addi.d	$a0, $s5, 16
-	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 32                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1026
+	movgr2fr.d	$fs1, $a0
+	st.d	$s2, $sp, 40                    # 8-byte Folded Spill
 	b	.LBB10_3
 	.p2align	4, , 16
 .LBB10_2:                               # %._crit_edge81
                                         #   in Loop: Header=BB10_3 Depth=1
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(pairwise_sum)
 	jirl	$ra, $ra, 0
 	ld.d	$s6, $s0, 120
-	ld.d	$a2, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 32                    # 8-byte Folded Reload
 	slli.d	$a0, $a2, 2
 	addi.d	$a2, $a2, 1
-	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 24                    # 8-byte Folded Reload
 	fstx.s	$fa0, $a1, $a0
-	st.d	$a2, $sp, 24                    # 8-byte Folded Spill
+	st.d	$a2, $sp, 32                    # 8-byte Folded Spill
 	bge	$a2, $s6, .LBB10_23
 .LBB10_3:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB10_7 Depth 2
@@ -4880,35 +4874,35 @@ update_sources:                         # @update_sources
 	blez	$a1, .LBB10_2
 # %bb.4:                                # %.preheader69.preheader
                                         #   in Loop: Header=BB10_3 Depth=1
-	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$a0, $a0, 16
-	ld.d	$a2, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 32                    # 8-byte Folded Reload
 	slli.d	$a1, $a2, 5
 	alsl.d	$a1, $a2, $a1, 4
 	add.d	$a2, $a0, $a1
 	ldx.d	$s3, $a0, $a1
 	ld.d	$a0, $a2, 8
-	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	ld.d	$s7, $a2, 32
 	ld.d	$s1, $a2, 40
-	move	$s6, $zero
-	st.d	$s3, $sp, 48                    # 8-byte Folded Spill
+	move	$s4, $zero
+	st.d	$s3, $sp, 56                    # 8-byte Folded Spill
 	b	.LBB10_7
 	.p2align	4, , 16
 .LBB10_5:                               #   in Loop: Header=BB10_7 Depth=2
-	ld.d	$s2, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 56                    # 8-byte Folded Reload
 .LBB10_6:                               # %._crit_edge78
                                         #   in Loop: Header=BB10_7 Depth=2
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(pairwise_sum)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $s0, 12
-	slli.d	$a0, $s6, 2
-	addi.d	$s6, $s6, 1
-	ld.d	$a2, $sp, 56                    # 8-byte Folded Reload
+	slli.d	$a0, $s4, 2
+	addi.d	$s4, $s4, 1
+	ld.d	$a2, $sp, 64                    # 8-byte Folded Reload
 	fstx.s	$fa0, $a2, $a0
-	bge	$s6, $a1, .LBB10_2
+	bge	$s4, $a1, .LBB10_2
 .LBB10_7:                               # %.preheader69
                                         #   Parent Loop BB10_3 Depth=1
                                         # =>  This Loop Header: Depth=2
@@ -4920,7 +4914,7 @@ update_sources:                         # @update_sources
 	blez	$a1, .LBB10_10
 # %bb.8:                                # %.lr.ph
                                         #   in Loop: Header=BB10_7 Depth=2
-	slli.d	$a0, $s6, 3
+	slli.d	$a0, $s4, 3
 	ldx.d	$a0, $s3, $a0
 	move	$a2, $a1
 	move	$a3, $s7
@@ -4948,11 +4942,11 @@ update_sources:                         # @update_sources
 	blez	$a1, .LBB10_6
 # %bb.11:                               # %.preheader.lr.ph
                                         #   in Loop: Header=BB10_7 Depth=2
-	move	$s4, $zero
-	fmul.s	$fs1, $fs0, $fa0
-	alsl.d	$s8, $s6, $s3, 3
-	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
-	alsl.d	$s2, $s6, $a0, 3
+	move	$s6, $zero
+	fmul.s	$fs2, $fs0, $fa0
+	alsl.d	$s8, $s4, $s3, 3
+	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	alsl.d	$s2, $s4, $a0, 3
 	b	.LBB10_13
 	.p2align	4, , 16
 .LBB10_12:                              # %._crit_edge76
@@ -4962,31 +4956,29 @@ update_sources:                         # @update_sources
 	jirl	$ra, $ra, 0
 	ldx.d	$a0, $s7, $s3
 	fld.s	$fa1, $a0, 8
-	fmadd.s	$fa0, $fs1, $fa1, $fa0
 	ld.d	$a0, $s2, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI10_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI10_0)
-	slli.d	$a2, $s4, 2
-	fldx.s	$fa2, $a0, $a2
+	fmadd.s	$fa0, $fs2, $fa1, $fa0
+	slli.d	$a2, $s6, 2
+	fldx.s	$fa1, $a0, $a2
 	fcvt.d.s	$fa0, $fa0
-	fdiv.d	$fa0, $fa0, $fa1
+	fdiv.d	$fa0, $fa0, $fs1
 	fcvt.s.d	$fa0, $fa0
-	fsub.s	$fa1, $fa0, $fa2
-	fmul.s	$fa1, $fa1, $fa1
+	fsub.s	$fa2, $fa0, $fa1
 	fmul.s	$fa2, $fa2, $fa2
+	fmul.s	$fa1, $fa1, $fa1
 	ld.w	$a1, $s0, 36
-	fdiv.s	$fa1, $fa1, $fa2
+	fdiv.s	$fa1, $fa2, $fa1
 	fstx.s	$fa1, $fp, $a2
-	addi.d	$s4, $s4, 1
+	addi.d	$s6, $s6, 1
 	fstx.s	$fa0, $a0, $a2
-	bge	$s4, $a1, .LBB10_5
+	bge	$s6, $a1, .LBB10_5
 .LBB10_13:                              # %.preheader
                                         #   Parent Loop BB10_3 Depth=1
                                         #     Parent Loop BB10_7 Depth=2
                                         # =>    This Loop Header: Depth=3
                                         #         Child Loop BB10_21 Depth 4
                                         #         Child Loop BB10_17 Depth 4
-	slli.d	$s3, $s4, 3
+	slli.d	$s3, $s6, 3
 	blez	$a1, .LBB10_12
 # %bb.14:                               # %.lr.ph75
                                         #   in Loop: Header=BB10_13 Depth=3
@@ -5035,7 +5027,7 @@ update_sources:                         # @update_sources
 	slli.d	$a3, $a3, 3
 	addi.d	$a4, $a2, 16
 	addi.d	$a5, $a0, 16
-	ld.d	$a6, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$a6, $sp, 72                    # 8-byte Folded Reload
 	move	$a7, $a3
 	.p2align	4, , 16
 .LBB10_21:                              # %vector.body
@@ -5061,7 +5053,7 @@ update_sources:                         # @update_sources
 	beq	$a3, $a1, .LBB10_12
 	b	.LBB10_16
 .LBB10_23:                              # %._crit_edge85
-	ld.d	$s0, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
 	move	$a0, $s0
 	move	$a1, $s6
 	pcaddu18i	$ra, %call36(pairwise_sum)
@@ -5076,27 +5068,28 @@ update_sources:                         # @update_sources
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(free)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(free)
 	jirl	$ra, $ra, 0
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(free)
 	jirl	$ra, $ra, 0
 	fmov.s	$fa0, $fs0
-	fld.d	$fs1, $sp, 72                   # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 80                   # 8-byte Folded Reload
-	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 176
+	fld.d	$fs2, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 88                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 96                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 184                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 192
 	ret
 .Lfunc_end10:
 	.size	update_sources, .Lfunc_end10-update_sources

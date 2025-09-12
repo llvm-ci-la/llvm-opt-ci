@@ -305,12 +305,7 @@ Sort:                                   # @Sort
 .Lfunc_end3:
 	.size	Sort, .Lfunc_end3-Sort
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function calc_buffer
-.LCPI4_0:
-	.word	0x5f000000                      # float 9.22337203E+18
-	.text
-	.globl	calc_buffer
+	.globl	calc_buffer                     # -- Begin function calc_buffer
 	.p2align	5
 	.type	calc_buffer,@function
 calc_buffer:                            # @calc_buffer
@@ -455,12 +450,12 @@ calc_buffer:                            # @calc_buffer
 	fadd.s	$fa1, $fa1, $fa1
 	slti	$a1, $a0, 0
 	movgr2fr.d	$fa2, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI4_0)
 	ffint.s.l	$fa2, $fa2
 	movgr2cf	$fcc0, $a1
 	fsel	$fa1, $fa2, $fa1, $fcc0
 	fdiv.s	$fa0, $fa0, $fa1
+	lu12i.w	$a0, 389120
+	movgr2fr.w	$fs0, $a0
 	fcmp.clt.s	$fcc0, $fa0, $fs0
 	ftintrz.l.s	$fa1, $fa0
 	movfr2gr.d	$a0, $fa1

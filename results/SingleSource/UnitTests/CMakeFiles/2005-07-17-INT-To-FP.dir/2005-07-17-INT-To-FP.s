@@ -1,10 +1,6 @@
 	.file	"2005-07-17-INT-To-FP.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -28,8 +24,9 @@ main:                                   # @main
 	move	$s1, $zero
 	move	$s2, $zero
 	move	$s3, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fs0, $a0
 	lu52i.d	$s6, $zero, 64
 	ori	$s7, $zero, 64
 	.p2align	4, , 16

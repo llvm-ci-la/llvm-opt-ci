@@ -1,10 +1,6 @@
 	.file	"profile.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function profile
-.LCPI0_0:
-	.dword	0x4090000000000000              # double 1024
 	.text
-	.globl	profile
+	.globl	profile                         # -- Begin function profile
 	.p2align	5
 	.type	profile,@function
 profile:                                # @profile
@@ -68,8 +64,8 @@ profile:                                # @profile
 	addi.d	$a0, $a0, %pc_lo12(average)
 	st.d	$a0, $sp, 376                   # 8-byte Folded Spill
 	fld.d	$fa0, $a0, 304
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu52i.d	$a0, $zero, 1033
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	fmul.d	$fa0, $fa0, $fa1
 	fmul.d	$fa0, $fa0, $fa1

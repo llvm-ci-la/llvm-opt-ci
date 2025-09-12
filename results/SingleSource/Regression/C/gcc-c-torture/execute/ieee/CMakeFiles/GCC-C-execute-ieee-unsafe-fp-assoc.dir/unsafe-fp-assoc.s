@@ -1,16 +1,13 @@
 	.file	"unsafe-fp-assoc.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function foo
-.LCPI0_0:
-	.dword	0x7fefffffffffffff              # double 1.7976931348623157E+308
 	.text
-	.globl	foo
+	.globl	foo                             # -- Begin function foo
 	.p2align	5
 	.type	foo,@function
 foo:                                    # @foo
 # %bb.0:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	addi.w	$a0, $zero, -1
+	lu52i.d	$a0, $a0, 2046
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	fmul.d	$fa0, $fa0, $fa1
 	fmul.d	$fa0, $fa0, $fa1

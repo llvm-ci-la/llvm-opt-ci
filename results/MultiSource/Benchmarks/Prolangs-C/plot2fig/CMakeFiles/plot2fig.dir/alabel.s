@@ -1,14 +1,6 @@
 	.file	"alabel.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function alabel
-.LCPI0_0:
-	.dword	0x3ff199999999999a              # double 1.1000000000000001
-.LCPI0_1:
-	.dword	0x4052000000000000              # double 72
-.LCPI0_2:
-	.dword	0x4054000000000000              # double 80
 	.text
-	.globl	alabel
+	.globl	alabel                          # -- Begin function alabel
 	.p2align	5
 	.type	alabel,@function
 alabel:                                 # @alabel
@@ -39,18 +31,21 @@ alabel:                                 # @alabel
 	andi	$a1, $a2, 255
 	beqz	$a1, .LBB0_4
 # %bb.3:
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI0_0)
 	addi.d	$a1, $s0, -116
 	sltui	$a1, $a1, 1
 	addi.d	$a2, $s0, -99
 	sltui	$a2, $a2, 1
-	vldi	$vr1, -928
-	movgr2fr.d	$fa2, $zero
+	vldi	$vr0, -928
+	movgr2fr.d	$fa1, $zero
 	movgr2cf	$fcc0, $a2
-	fsel	$fa1, $fa2, $fa1, $fcc0
-	movgr2cf	$fcc0, $a1
 	fsel	$fa0, $fa1, $fa0, $fcc0
+	lu12i.w	$a2, -419431
+	ori	$a2, $a2, 2458
+	lu32i.d	$a2, 104857
+	lu52i.d	$a2, $a2, 1023
+	movgr2fr.d	$fa1, $a2
+	movgr2cf	$fcc0, $a1
+	fsel	$fa0, $fa0, $fa1, $fcc0
 	addi.d	$a1, $fp, -114
 	sltui	$a1, $a1, 1
 	addi.d	$a2, $fp, -99
@@ -106,14 +101,18 @@ alabel:                                 # @alabel
 	fld.d	$fa3, $a5, 0
 	fadd.d	$fa2, $fa2, $fa3
 	movgr2fr.w	$fa3, $a4
-	pcalau12i	$a5, %pc_hi20(.LCPI0_1)
-	fld.d	$fa4, $a5, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a5, %pc_hi20(.LCPI0_2)
-	fld.d	$fa5, $a5, %pc_lo12(.LCPI0_2)
 	ffint.d.w	$fa3, $fa3
 	fmul.d	$fa0, $fa0, $fa3
-	fmul.d	$fa0, $fa0, $fa4
-	fdiv.d	$fa0, $fa0, $fa5
+	ori	$a5, $zero, 0
+	ori	$a6, $zero, 0
+	lu32i.d	$a6, 131072
+	lu52i.d	$a6, $a6, 1029
+	movgr2fr.d	$fa3, $a6
+	fmul.d	$fa0, $fa0, $fa3
+	lu32i.d	$a5, 262144
+	lu52i.d	$a5, $a5, 1029
+	movgr2fr.d	$fa3, $a5
+	fdiv.d	$fa0, $fa0, $fa3
 	fadd.d	$fa0, $fa0, $fa2
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a5, $fa0

@@ -1,15 +1,9 @@
 	.file	"cfrac.c"
-	.section	.rodata.cst4,"aM",@progbits,4
+	.section	.rodata.cst8,"aM",@progbits,8
 	.p2align	2, 0x0                          # -- Begin function pfKnuthEx28
 .LCPI0_0:
-	.word	0x3eaaaaab                      # float 0.333333343
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI0_1:
 	.word	0x3f2aaaab                      # float 0.666666686
 	.word	0x3faaaaab                      # float 1.33333337
-.LCPI0_2:
-	.dword	0x3fe5555555555555              # double 0.66666666666666663
 	.text
 	.globl	pfKnuthEx28
 	.p2align	5
@@ -59,8 +53,8 @@ pfKnuthEx28:                            # @pfKnuthEx28
 	jirl	$ra, $ra, 0
 	sltui	$a0, $a0, 1
 	slli.d	$a0, $a0, 2
-	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	addi.d	$a1, $a1, %pc_lo12(.LCPI0_1)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
+	addi.d	$a1, $a1, %pc_lo12(.LCPI0_0)
 	fldx.s	$fs0, $a1, $a0
 	ld.d	$a0, $sp, 0
 	bnez	$a0, .LBB0_12
@@ -98,8 +92,9 @@ pfKnuthEx28:                            # @pfKnuthEx28
 .LBB0_8:
 	beqz	$a0, .LBB0_11
 .LBB0_9:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fs0, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 256682
+	ori	$a0, $a0, 2731
+	movgr2fr.w	$fs0, $a0
 	ld.d	$a0, $sp, 0
 	bnez	$a0, .LBB0_12
 	b	.LBB0_14
@@ -127,11 +122,14 @@ pfKnuthEx28:                            # @pfKnuthEx28
 	ori	$a0, $zero, 2
 	pcaddu18i	$ra, %call36(pfKnuthEx28)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_2)
 	fcvt.d.s	$fa0, $fa0
-	vldi	$vr2, -928
-	fmul.d	$fa0, $fa0, $fa2
+	vldi	$vr1, -928
+	fmul.d	$fa0, $fa0, $fa1
+	lu12i.w	$a0, 349525
+	ori	$a0, $a0, 1365
+	lu32i.d	$a0, 349525
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
 	fadd.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fs0, $fa0
 	ld.d	$a0, $sp, 0
@@ -257,12 +255,7 @@ logf_:                                  # @logf_
 .Lfunc_end1:
 	.size	logf_, .Lfunc_end1-logf_
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function findk
-.LCPI2_0:
-	.word	0xd8635fa9                      # float -9.99999986E+14
-	.text
-	.globl	findk
+	.globl	findk                           # -- Begin function findk
 	.p2align	5
 	.type	findk,@function
 findk:                                  # @findk
@@ -298,9 +291,11 @@ findk:                                  # @findk
 	ld.d	$a1, $sp, 64                    # 8-byte Folded Reload
 	bltu	$a1, $a0, .LBB2_22
 # %bb.3:                                # %.lr.ph61.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fs2, $a0, %pc_lo12(.LCPI2_0)
 	ori	$s3, $zero, 1
+	lu12i.w	$a0, -162251
+	ori	$a0, $a0, 4009
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fs2, $a0
 	pcalau12i	$s2, %pc_hi20(debug)
 	pcalau12i	$a0, %got_pc_hi20(primes)
 	ld.d	$a1, $a0, %got_pc_lo12(primes)

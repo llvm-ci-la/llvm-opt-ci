@@ -1,26 +1,6 @@
 	.file	"main.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI0_0:
-	.dword	0x3fd999999999999a              # double 0.40000000000000002
-.LCPI0_1:
-	.dword	0x405fc00000000000              # double 127
-.LCPI0_2:
-	.dword	0x40f86a0000000000              # double 1.0E+5
-.LCPI0_3:
-	.dword	0x3ffccccccccccccd              # double 1.8
-.LCPI0_4:
-	.dword	0x3fb47ae147ae147b              # double 0.080000000000000002
-.LCPI0_5:
-	.dword	0xbfb999999999999a              # double -0.10000000000000001
-.LCPI0_6:
-	.dword	0xbf947ae147ae147b              # double -0.02
-.LCPI0_7:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI0_8:
-	.dword	0x3f947ae147ae147b              # double 0.02
 	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -39,7 +19,6 @@ main:                                   # @main
 	st.d	$s8, $sp, 1144                  # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 1136                 # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 1128                 # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 1120                 # 8-byte Folded Spill
 	pcalau12i	$a2, %got_pc_hi20(offset)
 	ld.d	$s2, $a2, %got_pc_lo12(offset)
 	st.w	$zero, $s2, 0
@@ -89,13 +68,13 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.2)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.2)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	move	$a2, $s0
 	pcaddu18i	$ra, %call36(sprintf)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.3)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(fopen)
 	jirl	$ra, $ra, 0
 	move	$a3, $a0
@@ -106,7 +85,7 @@ main:                                   # @main
 # %bb.2:
 	pcalau12i	$a0, %pc_hi20(.L.str.4)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.4)
-	addi.d	$a1, $sp, 96
+	addi.d	$a1, $sp, 104
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
@@ -211,12 +190,12 @@ main:                                   # @main
 	ld.d	$a2, $s1, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.7)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.7)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(sprintf)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.8)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.8)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(fopen)
 	jirl	$ra, $ra, 0
 	beqz	$a0, .LBB0_15
@@ -230,11 +209,11 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %got_pc_hi20(blockr)
 	ld.d	$a0, $a0, %got_pc_lo12(blockr)
-	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	ld.w	$a0, $a0, 0
 	pcalau12i	$a1, %got_pc_hi20(blockl)
 	ld.d	$a1, $a1, %got_pc_lo12(blockl)
-	st.d	$a1, $sp, 72                    # 8-byte Folded Spill
+	st.d	$a1, $sp, 80                    # 8-byte Folded Spill
 	ld.w	$a1, $a1, 0
 	sub.w	$a2, $a0, $a1
 	pcalau12i	$a0, %got_pc_hi20(bdxlength)
@@ -250,7 +229,7 @@ main:                                   # @main
 	pcalau12i	$a0, %got_pc_hi20(bdylength)
 	ld.d	$a1, $a0, %got_pc_lo12(bdylength)
 	ld.d	$a0, $s0, 0
-	st.d	$a1, $sp, 88                    # 8-byte Folded Spill
+	st.d	$a1, $sp, 96                    # 8-byte Folded Spill
 	st.w	$a3, $a1, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.9)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.9)
@@ -265,12 +244,12 @@ main:                                   # @main
 	ld.d	$a2, $s1, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.10)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.10)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(sprintf)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.8)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.8)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(fopen)
 	jirl	$ra, $ra, 0
 	beqz	$a0, .LBB0_15
@@ -280,12 +259,12 @@ main:                                   # @main
 	ld.d	$a2, $s1, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.11)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.11)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(sprintf)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.3)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(fopen)
 	jirl	$ra, $ra, 0
 	bnez	$a0, .LBB0_17
@@ -293,7 +272,7 @@ main:                                   # @main
 	ld.d	$a0, $s0, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.4)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.4)
-	addi.d	$a2, $sp, 96
+	addi.d	$a2, $sp, 104
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
 .LBB0_16:
@@ -311,7 +290,7 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(initcheck)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s0, 0
-	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 72                    # 8-byte Folded Spill
 	ld.w	$a2, $fp, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.12)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.12)
@@ -328,7 +307,7 @@ main:                                   # @main
 	ld.d	$a0, $s0, 0
 	pcalau12i	$a1, %got_pc_hi20(overfill)
 	ld.d	$a1, $a1, %got_pc_lo12(overfill)
-	st.d	$a1, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
 	ld.w	$a2, $a1, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.14)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.14)
@@ -345,14 +324,14 @@ main:                                   # @main
 	bnez	$a0, .LBB0_16
 # %bb.18:
 	fmov.d	$fs0, $fa0
-	st.d	$s5, $sp, 32                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 56                    # 8-byte Folded Spill
 	pcalau12i	$a0, %got_pc_hi20(T)
 	ld.d	$a1, $a0, %got_pc_lo12(T)
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -144027
 	lu52i.d	$a0, $a0, 1052
-	st.d	$a1, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a1, $sp, 48                    # 8-byte Folded Spill
 	st.d	$a0, $a1, 0
 	pcalau12i	$a0, %got_pc_hi20(numcells)
 	ld.d	$s5, $a0, %got_pc_lo12(numcells)
@@ -360,18 +339,18 @@ main:                                   # @main
 	alsl.d	$a1, $a0, $a0, 2
 	alsl.d	$a1, $a1, $a0, 1
 	pcalau12i	$a2, %pc_hi20(bigcell)
-	st.d	$a2, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a2, $sp, 24                    # 8-byte Folded Spill
 	st.w	$a1, $a2, %pc_lo12(bigcell)
 	addi.d	$a1, $a1, 1
 	pcalau12i	$a2, %pc_hi20(toobig)
-	st.d	$a2, $sp, 24                    # 8-byte Folded Spill
+	st.d	$a2, $sp, 32                    # 8-byte Folded Spill
 	st.w	$a1, $a2, %pc_lo12(toobig)
 	ori	$a1, $zero, 100
 	mul.w	$a0, $a0, $a1
 	pcaddu18i	$ra, %call36(testloop)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a1, %pc_hi20(totFunc)
-	st.d	$a1, $sp, 8                     # 8-byte Folded Spill
+	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	fld.d	$fa0, $a1, %pc_lo12(totFunc)
 	movgr2fr.w	$fa1, $a0
 	ffint.d.w	$fa1, $fa1
@@ -474,14 +453,14 @@ main:                                   # @main
 	st.w	$a0, $s7, 0
 	pcaddu18i	$ra, %call36(config2)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
 	ld.w	$a0, $a0, 0
-	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
 	ld.w	$a1, $a1, 0
 	ld.w	$a2, $s8, 0
 	ld.w	$a3, $s6, 0
 	sub.d	$a0, $a0, $a1
-	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	st.w	$a0, $a1, 0
 	sub.d	$a1, $a2, $a3
 	movgr2fr.w	$fa0, $a0
@@ -495,7 +474,7 @@ main:                                   # @main
 	fdiv.d	$fa1, $fa0, $fa1
 	fsqrt.d	$fa0, $fa1
 	fcmp.cor.d	$fcc0, $fa0, $fa0
-	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
 	st.w	$a1, $a0, 0
 	bcnez	$fcc0, .LBB0_32
 # %bb.31:                               # %call.sqrt246
@@ -504,9 +483,9 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 .LBB0_32:                               # %._crit_edge.split.split
 	ld.d	$a0, $s0, 0
-	ld.d	$s8, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
 	ld.w	$a2, $s8, 0
-	ld.d	$fp, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
 	ld.w	$a3, $fp, 0
 	pcalau12i	$s6, %pc_hi20(aveCellSide)
 	fst.d	$fa0, $s6, %pc_lo12(aveCellSide)
@@ -517,7 +496,7 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(findcost)
 	jirl	$ra, $ra, 0
 	ld.d	$a3, $s0, 0
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 72                    # 8-byte Folded Reload
 	st.w	$a0, $s7, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.15)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.15)
@@ -527,9 +506,9 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s0, 0
 	ld.w	$a2, $s7, 0
-	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
-	ld.w	$a3, $a1, 0
 	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	ld.w	$a3, $a1, 0
+	ld.d	$a1, $sp, 64                    # 8-byte Folded Reload
 	ld.w	$a4, $a1, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.16)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.16)
@@ -541,28 +520,31 @@ main:                                   # @main
 	ld.w	$a0, $s5, 0
 	alsl.d	$a1, $a0, $a0, 2
 	alsl.d	$a1, $a1, $a0, 1
-	ld.d	$s7, $sp, 16                    # 8-byte Folded Reload
-	st.w	$a1, $s7, %pc_lo12(bigcell)
-	addi.d	$a1, $a1, 1
 	ld.d	$a2, $sp, 24                    # 8-byte Folded Reload
+	st.w	$a1, $a2, %pc_lo12(bigcell)
+	addi.d	$a1, $a1, 1
+	ld.d	$a2, $sp, 32                    # 8-byte Folded Reload
 	st.w	$a1, $a2, %pc_lo12(toobig)
 	ori	$a1, $zero, 100
 	mul.w	$a0, $a0, $a1
 	pcaddu18i	$ra, %call36(test2loop)
 	jirl	$ra, $ra, 0
 	movgr2fr.w	$fa0, $a0
-	ld.d	$a2, $sp, 8                     # 8-byte Folded Reload
-	fld.d	$fa1, $a2, %pc_lo12(totFunc)
+	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
+	fld.d	$fa1, $a1, %pc_lo12(totFunc)
 	pcalau12i	$a0, %pc_hi20(totPen)
 	fld.d	$fa2, $a0, %pc_lo12(totPen)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa3, $a1, %pc_lo12(.LCPI0_0)
 	ffint.d.w	$fa0, $fa0
 	fdiv.d	$fa1, $fa1, $fa0
+	fst.d	$fa1, $a1, %pc_lo12(totFunc)
 	fdiv.d	$fa0, $fa2, $fa0
-	fst.d	$fa1, $a2, %pc_lo12(totFunc)
 	fst.d	$fa0, $a0, %pc_lo12(totPen)
-	fmul.d	$fa1, $fa1, $fa3
+	lu12i.w	$a0, -419431
+	ori	$s7, $a0, 2458
+	lu32i.d	$s7, -419431
+	lu52i.d	$a0, $s7, 1021
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa1, $fa1, $fa2
 	fdiv.d	$fa0, $fa1, $fa0
 	fst.d	$fa0, $s3, 0
 	pcalau12i	$a0, %got_pc_hi20(numnets)
@@ -590,14 +572,18 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
 .LBB0_34:                               # %._crit_edge.split.split.split
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI0_2)
-	ld.d	$a0, $s0, 0
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -16384
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
 	fdiv.d	$fa1, $fa0, $fa1
-	fmul.d	$fa1, $fa1, $fs1
-	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
+	lu32i.d	$a0, -497152
+	lu52i.d	$a1, $a0, 1039
+	ld.d	$a0, $s0, 0
+	movgr2fr.d	$fa2, $a1
+	fmul.d	$fa1, $fa1, $fa2
+	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	fst.d	$fa1, $a1, 0
 	movfr2gr.d	$a2, $fs0
 	movfr2gr.d	$a3, $fa0
@@ -609,47 +595,58 @@ main:                                   # @main
 	ld.d	$fp, $a0, %got_pc_lo12(aveChanWid)
 	ld.w	$a0, $fp, 0
 	movgr2fr.w	$fa0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_3)
-	fld.d	$fa2, $s6, %pc_lo12(aveCellSide)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_4)
 	ffint.d.w	$fa0, $fa0
-	fmul.d	$fa0, $fa0, $fa1
-	fdiv.d	$fa0, $fa0, $fa2
-	fcmp.cult.d	$fcc0, $fa3, $fa0
-	pcalau12i	$s6, %pc_hi20(.LCPI0_8)
+	lu12i.w	$a0, -209716
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, -209716
+	fld.d	$fa1, $s6, %pc_lo12(aveCellSide)
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa0, $fa0, $fa2
+	fdiv.d	$fa0, $fa0, $fa1
+	lu12i.w	$a0, 293601
+	ori	$s6, $a0, 1147
+	lu32i.d	$s6, 293601
+	lu52i.d	$a0, $s6, 1019
+	movgr2fr.d	$fa1, $a0
+	fcmp.cult.d	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB0_36
 # %bb.35:
 	fld.d	$fa1, $s3, 0
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI0_8)
+	lu52i.d	$a0, $s6, 1017
+	movgr2fr.d	$fa0, $a0
 	fcmp.clt.d	$fcc0, $fa1, $fa0
 	bcnez	$fcc0, .LBB0_39
 	b	.LBB0_40
 .LBB0_36:                               # %condstore.split
 	pcaddu18i	$ra, %call36(log10)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_5)
+	lu52i.d	$a0, $s7, -1029
+	movgr2fr.d	$fa1, $a0
 	fsub.d	$fa1, $fa1, $fa0
 	vldi	$vr0, -988
 	pcaddu18i	$ra, %call36(pow)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_6)
-	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI0_7)
+	lu52i.d	$a0, $s6, -1031
+	movgr2fr.d	$fa2, $a0
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
 	fld.d	$fa1, $s3, 0
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fa3, $a0
 	fmadd.d	$fa0, $fa0, $fa3, $fa2
 	fcmp.clt.d	$fcc0, $fa1, $fa0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	bcnez	$fcc0, .LBB0_38
 # %bb.37:                               # %condstore.split
-	fld.d	$fa2, $s6, %pc_lo12(.LCPI0_8)
+	lu52i.d	$a0, $s6, 1017
+	movgr2fr.d	$fa2, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa2
 	bceqz	$fcc0, .LBB0_40
 .LBB0_38:
-	fld.d	$fa1, $s6, %pc_lo12(.LCPI0_8)
+	lu52i.d	$a0, $s6, 1017
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	fsel	$fa0, $fa0, $fa1, $fcc0
 .LBB0_39:                               # %.sink.split
@@ -674,7 +671,7 @@ main:                                   # @main
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
 	movgr2fr.d	$fs0, $zero
-	fdiv.d	$fs2, $fs0, $fa0
+	fdiv.d	$fs1, $fs0, $fa0
 	b	.LBB0_53
 .LBB0_42:                               # %.lr.ph118
 	pcalau12i	$a0, %got_pc_hi20(cellarray)
@@ -724,7 +721,7 @@ main:                                   # @main
 .LBB0_46:                               # %._crit_edge119
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fs2, $fs0, $fa0
+	fdiv.d	$fs1, $fs0, $fa0
 	bgtz	$a0, .LBB0_48
 # %bb.47:
 	movgr2fr.d	$fs0, $zero
@@ -761,7 +758,7 @@ main:                                   # @main
 .LBB0_50:                               # %.split249
                                         #   in Loop: Header=BB0_49 Depth=1
 	ld.w	$a0, $s5, 0
-	fsub.d	$fa0, $fa0, $fs2
+	fsub.d	$fa0, $fa0, $fs1
 	fmadd.d	$fs0, $fa0, $fa0, $fs0
 	addi.d	$s2, $s2, 1
 	addi.d	$s3, $s3, 8
@@ -780,9 +777,9 @@ main:                                   # @main
 	fdiv.d	$fa0, $fs0, $fa0
 	fsqrt.d	$fs0, $fa0
 	fcmp.cor.d	$fcc0, $fs0, $fs0
-	ld.d	$s2, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 48                    # 8-byte Folded Reload
 	bcnez	$fcc0, .LBB0_55
 # %bb.54:                               # %call.sqrt251
 	pcaddu18i	$ra, %call36(sqrt)
@@ -797,27 +794,28 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(fwrite)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s0, 0
-	movfr2gr.d	$a2, $fs2
+	movfr2gr.d	$a2, $fs1
 	movfr2gr.d	$a3, $fs0
 	pcalau12i	$a1, %pc_hi20(.L.str.20)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.20)
 	pcaddu18i	$ra, %call36(fprintf)
 	jirl	$ra, $ra, 0
 	vldi	$vr0, -1024
-	fmadd.d	$fa1, $fs0, $fa0, $fs2
+	fmadd.d	$fa0, $fs0, $fa0, $fs1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a1, $fa0
+	pcalau12i	$a2, %pc_hi20(rangeLimit)
 	fld.d	$fa0, $s4, 0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
-	pcalau12i	$a1, %pc_hi20(rangeLimit)
-	fcmp.cule.d	$fcc0, $fs1, $fa0
-	st.w	$a0, $a1, %pc_lo12(rangeLimit)
-	bcnez	$fcc0, .LBB0_57
-# %bb.56:
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -497152
 	lu52i.d	$a0, $a0, 1039
+	movgr2fr.d	$fa1, $a0
+	fcmp.cule.d	$fcc0, $fa1, $fa0
+	st.w	$a1, $a2, %pc_lo12(rangeLimit)
+	bcnez	$fcc0, .LBB0_57
+# %bb.56:
 	st.d	$a0, $s4, 0
-	fmov.d	$fa0, $fs1
+	fmov.d	$fa0, $fa1
 .LBB0_57:
 	pcalau12i	$fp, %pc_hi20(Tsave)
 	fst.d	$fa0, $fp, %pc_lo12(Tsave)
@@ -847,7 +845,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s0, 0
 	ld.w	$a2, $s2, 0
-	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 56                    # 8-byte Folded Reload
 	ld.w	$a3, $fp, 0
 	ld.w	$a4, $s3, 0
 	pcalau12i	$a1, %pc_hi20(.L.str.22)
@@ -860,12 +858,12 @@ main:                                   # @main
 	ld.d	$a2, $s1, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.23)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.23)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(sprintf)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.8)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.8)
-	addi.d	$a0, $sp, 96
+	addi.d	$a0, $sp, 104
 	pcaddu18i	$ra, %call36(fopen)
 	jirl	$ra, $ra, 0
 	ld.d	$a3, $s0, 0
@@ -873,13 +871,13 @@ main:                                   # @main
 # %bb.60:
 	pcalau12i	$a0, %pc_hi20(.L.str.24)
 	addi.d	$a1, $a0, %pc_lo12(.L.str.24)
-	addi.d	$a2, $sp, 96
+	addi.d	$a2, $sp, 104
 	move	$a0, $a3
 	b	.LBB0_62
 .LBB0_61:
 	pcalau12i	$a1, %pc_hi20(.L.str.25)
 	addi.d	$a1, $a1, %pc_lo12(.L.str.25)
-	addi.d	$a2, $sp, 96
+	addi.d	$a2, $sp, 104
 	move	$s1, $fp
 	move	$fp, $a0
 	move	$a0, $a3
@@ -1021,11 +1019,12 @@ main:                                   # @main
 .LBB0_73:
 	alsl.d	$a1, $a0, $a0, 2
 	alsl.d	$a1, $a1, $a0, 1
-	st.w	$a1, $s7, %pc_lo12(bigcell)
+	ld.d	$a2, $sp, 24                    # 8-byte Folded Reload
+	st.w	$a1, $a2, %pc_lo12(bigcell)
 	pcalau12i	$a2, %pc_hi20(choose)
 	st.w	$a0, $a2, %pc_lo12(choose)
 	addi.d	$a0, $a1, 1
-	ld.d	$a1, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
 	st.w	$a0, $a1, %pc_lo12(toobig)
 	pcaddu18i	$ra, %call36(prepSpots)
 	jirl	$ra, $ra, 0

@@ -111,12 +111,6 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .LCPI7_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI7_1:
-	.dword	0x4059000000000000              # double 100
-.LCPI7_2:
-	.dword	0x4058c00000000000              # double 99
 	.text
 	.globl	main
 	.p2align	5
@@ -210,10 +204,12 @@ main:                                   # @main
 	addi.d	$a3, $a3, 640
 	bne	$a0, $a2, .LBB7_7
 # %bb.10:                               # %init_array.exit.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI7_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_1)
 	move	$a0, $zero
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -458752
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
 	ori	$a1, $zero, 80
 	move	$a2, $fp
 	.p2align	4, , 16
@@ -225,7 +221,7 @@ main:                                   # @main
 	stx.d	$zero, $s1, $a4
 	ori	$a4, $zero, 100
 	move	$a5, $a2
-	fmov.d	$fa2, $fa1
+	fmov.d	$fa2, $fa0
 	.p2align	4, , 16
 .LBB7_12:                               #   Parent Loop BB7_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -236,7 +232,7 @@ main:                                   # @main
 	addi.d	$a5, $a5, 640
 	bnez	$a4, .LBB7_12
 # %bb.13:                               #   in Loop: Header=BB7_11 Depth=1
-	fdiv.d	$fa2, $fa2, $fa0
+	fdiv.d	$fa2, $fa2, $fa1
 	fst.d	$fa2, $a3, 0
 	addi.d	$a0, $a0, 1
 	addi.d	$a2, $a2, 8
@@ -443,10 +439,12 @@ main:                                   # @main
 	bne	$a5, $a2, .LBB7_19
 	b	.LBB7_16
 .LBB7_20:                               # %.preheader.i19.preheader
-	pcalau12i	$a0, %pc_hi20(.LCPI7_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_2)
 	move	$a0, $zero
-	movgr2fr.d	$fa1, $zero
+	movgr2fr.d	$fa0, $zero
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -475136
+	lu52i.d	$a1, $a1, 1029
+	movgr2fr.d	$fa1, $a1
 	ori	$a1, $zero, 80
 	move	$a2, $fp
 	.p2align	4, , 16
@@ -470,7 +468,7 @@ main:                                   # @main
 	ori	$t0, $zero, 100
 	move	$t1, $a2
 	move	$t2, $a5
-	fmov.d	$fa2, $fa1
+	fmov.d	$fa2, $fa0
 	.p2align	4, , 16
 .LBB7_23:                               #   Parent Loop BB7_21 Depth=1
                                         #     Parent Loop BB7_22 Depth=2
@@ -485,7 +483,7 @@ main:                                   # @main
 	addi.d	$t1, $t1, 640
 	bnez	$t0, .LBB7_23
 # %bb.24:                               #   in Loop: Header=BB7_22 Depth=2
-	fdiv.d	$fa2, $fa2, $fa0
+	fdiv.d	$fa2, $fa2, $fa1
 	fst.d	$fa2, $a7, 0
 	alsl.d	$a7, $a6, $a6, 2
 	slli.d	$a7, $a7, 7

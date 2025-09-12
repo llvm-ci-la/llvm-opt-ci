@@ -392,28 +392,23 @@ gs_idtransform:                         # @gs_idtransform
 .Lfunc_end11:
 	.size	gs_idtransform, .Lfunc_end11-gs_idtransform
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function gs_translate_to_fixed
-.LCPI12_0:
-	.dword	0x3f30000000000000              # double 2.44140625E-4
-	.text
-	.globl	gs_translate_to_fixed
+	.globl	gs_translate_to_fixed           # -- Begin function gs_translate_to_fixed
 	.p2align	5
 	.type	gs_translate_to_fixed,@function
 gs_translate_to_fixed:                  # @gs_translate_to_fixed
 # %bb.0:
-	pcalau12i	$a3, %pc_hi20(.LCPI12_0)
-	fld.d	$fa0, $a3, %pc_lo12(.LCPI12_0)
 	st.d	$a1, $a0, 120
+	movgr2fr.d	$fa0, $a1
+	ffint.d.l	$fa0, $fa0
+	lu52i.d	$a1, $zero, 1011
 	movgr2fr.d	$fa1, $a1
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	fcvt.s.d	$fa1, $fa1
-	fst.s	$fa1, $a0, 88
+	fmul.d	$fa0, $fa0, $fa1
+	fcvt.s.d	$fa0, $fa0
+	fst.s	$fa0, $a0, 88
 	st.d	$a2, $a0, 128
-	movgr2fr.d	$fa1, $a2
-	ffint.d.l	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.d	$fa0, $a2
+	ffint.d.l	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa0
 	fst.s	$fa0, $a0, 104
 	st.w	$zero, $a0, 232

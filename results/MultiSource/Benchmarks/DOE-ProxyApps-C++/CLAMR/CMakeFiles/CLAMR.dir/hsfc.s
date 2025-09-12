@@ -303,12 +303,8 @@ hsfc3d:                                 # @hsfc3d
 	.word	.LBB1_13-.LJTI1_0
 	.word	.LBB1_11-.LJTI1_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fhsfc2d
-.LCPI2_0:
-	.dword	0x41efffffffe00000              # double 4294967295
 	.text
-	.globl	fhsfc2d
+	.globl	fhsfc2d                         # -- Begin function fhsfc2d
 	.p2align	5
 	.type	fhsfc2d,@function
 fhsfc2d:                                # @fhsfc2d
@@ -335,12 +331,13 @@ fhsfc2d:                                # @fhsfc2d
 .LBB2_2:
 	beqz	$a1, .LBB2_10
 # %bb.3:                                # %.lr.ph62.i
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
+	lu12i.w	$a2, -512
 	fld.d	$fa0, $a0, 0
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI2_0)
-	fld.d	$fa2, $a0, 8
-	fmul.d	$fa0, $fa0, $fa1
-	fmul.d	$fa1, $fa2, $fa1
+	fld.d	$fa1, $a0, 8
+	lu52i.d	$a0, $a2, 1054
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa0, $fa0, $fa2
+	fmul.d	$fa1, $fa1, $fa2
 	sltui	$a0, $a1, 2
 	ori	$a2, $zero, 2
 	ftintrz.l.d	$fa0, $fa0
@@ -423,12 +420,7 @@ fhsfc2d:                                # @fhsfc2d
 .Lfunc_end2:
 	.size	fhsfc2d, .Lfunc_end2-fhsfc2d
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fhsfc3d
-.LCPI3_0:
-	.dword	0x41efffffffe00000              # double 4294967295
-	.text
-	.globl	fhsfc3d
+	.globl	fhsfc3d                         # -- Begin function fhsfc3d
 	.p2align	5
 	.type	fhsfc3d,@function
 fhsfc3d:                                # @fhsfc3d
@@ -436,8 +428,9 @@ fhsfc3d:                                # @fhsfc3d
 	addi.d	$sp, $sp, -32
 	st.d	$ra, $sp, 24                    # 8-byte Folded Spill
 	fld.d	$fa0, $a0, 0
-	pcalau12i	$a3, %pc_hi20(.LCPI3_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI3_0)
+	lu12i.w	$a3, -512
+	lu52i.d	$a3, $a3, 1054
+	movgr2fr.d	$fa1, $a3
 	fld.d	$fa2, $a0, 8
 	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.l.d	$fa0, $fa0

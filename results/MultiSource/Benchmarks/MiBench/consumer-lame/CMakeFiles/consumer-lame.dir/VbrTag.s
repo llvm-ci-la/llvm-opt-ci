@@ -348,18 +348,7 @@ InitVbrTag:                             # @InitVbrTag
 .Lfunc_end4:
 	.size	InitVbrTag, .Lfunc_end4-InitVbrTag
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function PutVbrTag
-.LCPI5_0:
-	.dword	0x3f847ae147ae147b              # double 0.01
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI5_1:
-	.word	0x43800000                      # float 256
-.LCPI5_2:
-	.word	0x437f0000                      # float 255
-	.text
-	.globl	PutVbrTag
+	.globl	PutVbrTag                       # -- Begin function PutVbrTag
 	.p2align	5
 	.type	PutVbrTag,@function
 PutVbrTag:                              # @PutVbrTag
@@ -460,21 +449,24 @@ PutVbrTag:                              # @PutVbrTag
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
 	ld.d	$a1, $s3, %pc_lo12(pVbrFrames)
-	pcalau12i	$a2, %pc_hi20(.LCPI5_0)
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI5_0)
-	pcalau12i	$a2, %pc_hi20(.LCPI5_1)
-	fld.s	$fa2, $a2, %pc_lo12(.LCPI5_1)
-	pcalau12i	$a2, %pc_hi20(.LCPI5_2)
-	fld.s	$fa3, $a2, %pc_lo12(.LCPI5_2)
-	movgr2fr.d	$fa4, $s2
-	ffint.s.l	$fa4, $fa4
+	movgr2fr.d	$fa1, $s2
+	ffint.s.l	$fa1, $fa1
+	lu12i.w	$a2, 293601
+	ori	$a2, $a2, 1147
+	lu32i.d	$a2, 293601
+	lu52i.d	$a2, $a2, 1016
+	movgr2fr.d	$fa2, $a2
+	lu12i.w	$a2, 276480
+	movgr2fr.w	$fa3, $a2
+	lu12i.w	$a2, 276464
+	movgr2fr.w	$fa4, $a2
 	ori	$a2, $zero, 1
 	.p2align	4, , 16
 .LBB5_5:                                # =>This Inner Loop Header: Depth=1
 	bstrpick.d	$a3, $s7, 31, 0
 	movgr2fr.d	$fa5, $a3
 	ffint.d.l	$fa5, $fa5
-	fmul.d	$fa5, $fa5, $fa1
+	fmul.d	$fa5, $fa5, $fa2
 	fmul.d	$fa5, $fa5, $fa0
 	vreplvei.d	$vr5, $vr5, 0
 	vfrintrm.d	$vr5, $vr5
@@ -484,10 +476,10 @@ PutVbrTag:                              # @PutVbrTag
 	ldx.w	$a3, $a1, $a3
 	movgr2fr.w	$fa5, $a3
 	ffint.s.w	$fa5, $fa5
-	fmul.s	$fa5, $fa5, $fa2
-	fdiv.s	$fa5, $fa5, $fa4
-	fcmp.clt.s	$fcc0, $fa3, $fa5
-	fsel	$fa5, $fa5, $fa3, $fcc0
+	fmul.s	$fa5, $fa5, $fa3
+	fdiv.s	$fa5, $fa5, $fa1
+	fcmp.clt.s	$fcc0, $fa4, $fa5
+	fsel	$fa5, $fa5, $fa4, $fcc0
 	ftintrz.l.s	$fa5, $fa5
 	movfr2gr.d	$a3, $fa5
 	stx.b	$a3, $a2, $s8
@@ -574,25 +566,16 @@ PutVbrTag:                              # @PutVbrTag
 .Lfunc_end5:
 	.size	PutVbrTag, .Lfunc_end5-PutVbrTag
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function SeekPoint
-.LCPI6_0:
-	.word	0x42c80000                      # float 100
-.LCPI6_1:
-	.word	0x43800000                      # float 256
-.LCPI6_2:
-	.word	0x3b800000                      # float 0.00390625
-	.text
-	.globl	SeekPoint
+	.globl	SeekPoint                       # -- Begin function SeekPoint
 	.p2align	5
 	.type	SeekPoint,@function
 SeekPoint:                              # @SeekPoint
 # %bb.0:
-	pcalau12i	$a2, %pc_hi20(.LCPI6_0)
-	fld.s	$fa1, $a2, %pc_lo12(.LCPI6_0)
-	movgr2fr.w	$fa2, $zero
-	fcmp.clt.s	$fcc0, $fa0, $fa2
-	fsel	$fa0, $fa0, $fa2, $fcc0
+	movgr2fr.w	$fa1, $zero
+	fcmp.clt.s	$fcc0, $fa0, $fa1
+	fsel	$fa0, $fa0, $fa1, $fcc0
+	lu12i.w	$a2, 273536
+	movgr2fr.w	$fa1, $a2
 	fcmp.clt.s	$fcc0, $fa1, $fa0
 	fsel	$fa0, $fa0, $fa1, $fcc0
 	ftintrz.w.s	$fa1, $fa0
@@ -612,19 +595,19 @@ SeekPoint:                              # @SeekPoint
 	ffint.s.w	$fa1, $fa1
 	b	.LBB6_3
 .LBB6_2:
-	pcalau12i	$a0, %pc_hi20(.LCPI6_1)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI6_1)
+	lu12i.w	$a0, 276480
+	movgr2fr.w	$fa1, $a0
 .LBB6_3:
 	movgr2fr.w	$fa2, $a3
+	ffint.s.w	$fa2, $fa2
+	fsub.s	$fa1, $fa1, $fa2
 	movgr2fr.w	$fa3, $a2
 	ffint.s.w	$fa3, $fa3
 	fsub.s	$fa0, $fa0, $fa3
-	pcalau12i	$a0, %pc_hi20(.LCPI6_2)
-	fld.s	$fa3, $a0, %pc_lo12(.LCPI6_2)
-	ffint.s.w	$fa2, $fa2
-	fsub.s	$fa1, $fa1, $fa2
 	fmadd.s	$fa0, $fa1, $fa0, $fa2
-	fmul.s	$fa0, $fa0, $fa3
+	lu12i.w	$a0, 243712
+	movgr2fr.w	$fa1, $a0
+	fmul.s	$fa0, $fa0, $fa1
 	movgr2fr.w	$fa1, $a1
 	ffint.s.w	$fa1, $fa1
 	fmul.s	$fa0, $fa0, $fa1

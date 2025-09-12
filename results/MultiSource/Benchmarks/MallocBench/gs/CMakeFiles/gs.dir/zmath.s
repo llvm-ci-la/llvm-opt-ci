@@ -129,20 +129,7 @@ zarcsin:                                # @zarcsin
 .Lfunc_end3:
 	.size	zarcsin, .Lfunc_end3-zarcsin
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function zatan
-.LCPI4_0:
-	.dword	0xb690000000000000              # double -7.0064923216240854E-46
-.LCPI4_1:
-	.dword	0x40667ffff0000000              # double 179.99999237060547
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI4_2:
-	.word	0xc3340000                      # float -180
-.LCPI4_3:
-	.word	0x43340000                      # float 180
-	.text
-	.globl	zatan
+	.globl	zatan                           # -- Begin function zatan
 	.p2align	5
 	.type	zatan,@function
 zatan:                                  # @zatan
@@ -178,15 +165,15 @@ zatan:                                  # @zatan
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(radians_to_degrees)
 	fld.d	$fa1, $a0, %pc_lo12(radians_to_degrees)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI4_0)
 	fmul.d	$fa1, $fa0, $fa1
-	fcmp.cule.d	$fcc0, $fa2, $fa1
+	lu52i.d	$a0, $zero, -1175
+	movgr2fr.d	$fa0, $a0
+	fcmp.cule.d	$fcc0, $fa0, $fa1
 	fcvt.s.d	$fa0, $fa1
 	bcnez	$fcc0, .LBB4_8
 # %bb.5:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_3)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI4_3)
+	lu12i.w	$a0, 275264
+	movgr2fr.w	$fa1, $a0
 	.p2align	4, , 16
 .LBB4_6:                                # %.preheader
                                         # =>This Inner Loop Header: Depth=1
@@ -195,21 +182,24 @@ zatan:                                  # @zatan
 	bcnez	$fcc0, .LBB4_6
 	b	.LBB4_11
 .LBB4_7:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_3)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI4_3)
 	fcmp.clt.s	$fcc0, $fa0, $fs0
-	fsel	$fa0, $fs0, $fa1, $fcc0
+	lu12i.w	$a0, 275264
+	movgr2fr.w	$fa0, $a0
+	fsel	$fa0, $fs0, $fa0, $fcc0
 	b	.LBB4_13
 .LBB4_8:                                # %.preheader19
-	pcalau12i	$a0, %pc_hi20(.LCPI4_1)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI4_1)
+	lu12i.w	$a0, -65536
+	lu32i.d	$a0, 425983
+	lu52i.d	$a0, $a0, 1030
+	movgr2fr.d	$fa2, $a0
 	fcmp.cult.d	$fcc0, $fa1, $fa2
 	bcnez	$fcc0, .LBB4_11
 # %bb.9:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_2)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI4_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI4_3)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI4_3)
+	lu12i.w	$a0, -249024
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa1, $a0
+	lu12i.w	$a0, 275264
+	movgr2fr.w	$fa2, $a0
 	.p2align	4, , 16
 .LBB4_10:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
@@ -220,8 +210,8 @@ zatan:                                  # @zatan
 	fcmp.cule.s	$fcc0, $fs0, $fs1
 	bcnez	$fcc0, .LBB4_13
 # %bb.12:
-	pcalau12i	$a0, %pc_hi20(.LCPI4_3)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI4_3)
+	lu12i.w	$a0, 275264
+	movgr2fr.w	$fa1, $a0
 	fadd.s	$fa0, $fa0, $fa1
 .LBB4_13:
 	fst.s	$fa0, $fp, -16

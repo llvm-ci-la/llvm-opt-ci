@@ -640,14 +640,8 @@ SetMotionVectorPredictor:               # @SetMotionVectorPredictor
 	.word	.LBB0_91-.LJTI0_1
 	.word	.LBB0_92-.LJTI0_1
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Init_Motion_Search_Module
-.LCPI1_0:
-	.dword	0x3fe62e42fefa39ef              # double 0.69314718055994529
-.LCPI1_1:
-	.dword	0x3ddb7cdfd9d7bdbb              # double 1.0E-10
 	.text
-	.globl	Init_Motion_Search_Module
+	.globl	Init_Motion_Search_Module       # -- Begin function Init_Motion_Search_Module
 	.p2align	5
 	.type	Init_Motion_Search_Module,@function
 Init_Motion_Search_Module:              # @Init_Motion_Search_Module
@@ -694,11 +688,17 @@ Init_Motion_Search_Module:              # @Init_Motion_Search_Module
 	ffint.d.l	$fa0, $fa0
 	pcaddu18i	$ra, %call36(log)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI1_1)
+	lu12i.w	$a0, -4189
+	ori	$a0, $a0, 2543
+	lu32i.d	$a0, 405058
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fs1, $a0
 	fdiv.d	$fa0, $fa0, $fs1
+	lu12i.w	$a0, -156293
+	ori	$a0, $a0, 3515
+	lu32i.d	$a0, -295713
+	lu52i.d	$a0, $a0, 989
+	movgr2fr.d	$fs2, $a0
 	fadd.d	$fa0, $fa0, $fs2
 	vreplvei.d	$vr0, $vr0, 0
 	vfrintrm.d	$vr0, $vr0

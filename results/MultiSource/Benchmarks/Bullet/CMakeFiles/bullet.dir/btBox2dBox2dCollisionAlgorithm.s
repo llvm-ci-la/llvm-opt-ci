@@ -420,16 +420,7 @@ _ZN30btBox2dBox2dCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK1
 	.size	_ZN30btBox2dBox2dCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult, .Lfunc_end4-_ZN30btBox2dBox2dCollisionAlgorithm16processCollisionEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_
-.LCPI5_0:
-	.word	0x3a83126f                      # float 0.00100000005
-.LCPI5_1:
-	.word	0x3f7ae148                      # float 0.980000019
-.LCPI5_2:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
-	.text
-	.globl	_Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_
+	.globl	_Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_ # -- Begin function _Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_
 	.p2align	5
 	.type	_Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_,@function
 _Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_: # @_Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_
@@ -493,10 +484,12 @@ _Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_: #
 	fcmp.clt.s	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB5_21
 # %bb.2:
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI5_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI5_1)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI5_1)
+	lu12i.w	$a0, 239665
+	ori	$a0, $a0, 623
+	movgr2fr.w	$fa1, $a0
+	lu12i.w	$a0, 260014
+	ori	$a0, $a0, 328
+	movgr2fr.w	$fa2, $a0
 	fmadd.s	$fa1, $fs1, $fa2, $fa1
 	fcmp.cule.s	$fcc0, $fa0, $fa1
 	movcf2gr	$a0, $fcc0
@@ -575,8 +568,9 @@ _Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeRK11btTransformS3_S6_: #
 	fmul.s	$fs4, $fs5, $fs3
 	fmadd.s	$fs4, $fs2, $fs6, $fs4
 	fmadd.s	$fs4, $fs1, $fs7, $fs4
-	pcalau12i	$a5, %pc_hi20(.LCPI5_2)
-	fld.s	$fs5, $a5, %pc_lo12(.LCPI5_2)
+	lu12i.w	$a5, 382432
+	ori	$a5, $a5, 2923
+	movgr2fr.w	$fs5, $a5
 	fld.s	$fs6, $a4, 164
 	fld.s	$fs7, $a4, 160
 	fld.s	$fa0, $a4, 168
@@ -972,12 +966,7 @@ _ZN30btBox2dBox2dCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS
 .Lfunc_end6:
 	.size	_ZN30btBox2dBox2dCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult, .Lfunc_end6-_ZN30btBox2dBox2dCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZL17FindMaxSeparationPiPK12btBox2dShapeRK11btTransformS2_S5_
-.LCPI7_0:
-	.word	0xdd5e0b6b                      # float -9.99999984E+17
-	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL17FindMaxSeparationPiPK12btBox2dShapeRK11btTransformS2_S5_
 	.type	_ZL17FindMaxSeparationPiPK12btBox2dShapeRK11btTransformS2_S5_,@function
 _ZL17FindMaxSeparationPiPK12btBox2dShapeRK11btTransformS2_S5_: # @_ZL17FindMaxSeparationPiPK12btBox2dShapeRK11btTransformS2_S5_
 # %bb.0:
@@ -1071,8 +1060,10 @@ _ZL17FindMaxSeparationPiPK12btBox2dShapeRK11btTransformS2_S5_: # @_ZL17FindMaxSe
 	fmul.s	$fa1, $fa4, $fa2
 	fmadd.s	$fa1, $fa5, $fa3, $fa1
 	fmadd.s	$fa1, $fa6, $fa0, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.s	$fa2, $a0, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a0, -141856
+	ori	$a0, $a0, 2923
+	lu32i.d	$a0, 0
+	movgr2fr.w	$fa2, $a0
 	fld.s	$fa5, $a1, 164
 	fld.s	$fa6, $a1, 160
 	fld.s	$fa7, $a1, 168
@@ -1372,12 +1363,8 @@ _ZN30btBox2dBox2dCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectAr
 	.size	_ZN30btBox2dBox2dCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE, .Lfunc_end8-_ZN30btBox2dBox2dCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZL14EdgeSeparationPK12btBox2dShapeRK11btTransformiS1_S4_
-.LCPI9_0:
-	.word	0x5d5e0b6b                      # float 9.99999984E+17
 	.text
-	.p2align	5
+	.p2align	5                               # -- Begin function _ZL14EdgeSeparationPK12btBox2dShapeRK11btTransformiS1_S4_
 	.type	_ZL14EdgeSeparationPK12btBox2dShapeRK11btTransformiS1_S4_,@function
 _ZL14EdgeSeparationPK12btBox2dShapeRK11btTransformiS1_S4_: # @_ZL14EdgeSeparationPK12btBox2dShapeRK11btTransformiS1_S4_
 # %bb.0:
@@ -1433,8 +1420,9 @@ _ZL14EdgeSeparationPK12btBox2dShapeRK11btTransformiS1_S4_: # @_ZL14EdgeSeparatio
 	fmul.s	$fs0, $ft14, $fs0
 	fmadd.s	$fs0, $fs1, $ft13, $fs0
 	fmadd.s	$fs0, $fs2, $ft15, $fs0
-	pcalau12i	$a2, %pc_hi20(.LCPI9_0)
-	fld.s	$fs1, $a2, %pc_lo12(.LCPI9_0)
+	lu12i.w	$a2, 382432
+	ori	$a2, $a2, 2923
+	movgr2fr.w	$fs1, $a2
 	fld.s	$fs2, $a3, 100
 	fld.s	$fs3, $a3, 96
 	fld.s	$fs4, $a3, 104

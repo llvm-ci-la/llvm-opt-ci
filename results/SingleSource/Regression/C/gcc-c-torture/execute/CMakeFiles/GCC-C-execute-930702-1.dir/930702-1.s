@@ -1,16 +1,14 @@
 	.file	"930702-1.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fp
-.LCPI0_0:
-	.dword	0x4040800000000000              # double 33
 	.text
-	.globl	fp
+	.globl	fp                              # -- Begin function fp
 	.p2align	5
 	.type	fp,@function
 fp:                                     # @fp
 # %bb.0:
-	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI0_0)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 32768
+	lu52i.d	$a1, $a1, 1028
+	movgr2fr.d	$fa1, $a1
 	fcmp.cune.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB0_3
 # %bb.1:

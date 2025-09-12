@@ -1,91 +1,65 @@
 	.file	"main.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function compute_tran_temp
-.LCPI0_0:
-	.dword	0x3f60000000000000              # double 0.001953125
-.LCPI0_1:
-	.dword	0x412ab3f000000000              # double 875000
-.LCPI0_2:
-	.dword	0x4069000000000000              # double 200
-.LCPI0_3:
-	.dword	0x4059000000000000              # double 100
-.LCPI0_4:
-	.dword	0x413ab3f000000000              # double 1.75E+6
-.LCPI0_5:
-	.dword	0x4146e36000000000              # double 3.0E+6
-.LCPI0_6:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
 	.text
-	.globl	compute_tran_temp
+	.globl	compute_tran_temp               # -- Begin function compute_tran_temp
 	.p2align	5
 	.type	compute_tran_temp,@function
 compute_tran_temp:                      # @compute_tran_temp
 # %bb.0:
 	pcalau12i	$a3, %pc_hi20(chip_height)
 	fld.d	$fa0, $a3, %pc_lo12(chip_height)
-	pcalau12i	$a3, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI0_0)
-	fmul.d	$fa3, $fa0, $fa1
 	pcalau12i	$a3, %pc_hi20(chip_width)
-	fld.d	$fa0, $a3, %pc_lo12(chip_width)
+	fld.d	$fa1, $a3, %pc_lo12(chip_width)
+	lu52i.d	$a3, $zero, 1014
+	movgr2fr.d	$fa2, $a3
+	fmul.d	$fa3, $fa0, $fa2
+	fmul.d	$fa4, $fa1, $fa2
 	pcalau12i	$a3, %pc_hi20(t_chip)
-	fld.d	$fa4, $a3, %pc_lo12(t_chip)
-	pcalau12i	$a3, %pc_hi20(.LCPI0_1)
-	fld.d	$fa2, $a3, %pc_lo12(.LCPI0_1)
-	fmul.d	$fa5, $fa0, $fa1
-	pcalau12i	$a3, %pc_hi20(.LCPI0_2)
-	fld.d	$fa1, $a3, %pc_lo12(.LCPI0_2)
-	fmul.d	$fa0, $fa4, $fa2
+	fld.d	$fa5, $a3, %pc_lo12(t_chip)
+	ori	$a3, $zero, 0
+	ori	$a4, $zero, 0
+	lu32i.d	$a4, -347152
+	lu52i.d	$a5, $a4, 1042
+	movgr2fr.d	$fa0, $a5
 	fmul.d	$fa0, $fa5, $fa0
+	fmul.d	$fa0, $fa4, $fa0
 	fmul.d	$fa0, $fa3, $fa0
-	fmul.d	$fa2, $fa4, $fa1
+	ori	$a5, $zero, 0
+	lu32i.d	$a5, -458752
+	lu52i.d	$a6, $a5, 1030
+	movgr2fr.d	$fa1, $a6
+	fmul.d	$fa2, $fa5, $fa1
 	fmul.d	$fa1, $fa3, $fa2
-	pcalau12i	$a3, %pc_hi20(.LCPI0_3)
-	fld.d	$fa6, $a3, %pc_lo12(.LCPI0_3)
-	fdiv.d	$fa1, $fa5, $fa1
-	fmul.d	$fa2, $fa5, $fa2
+	fdiv.d	$fa1, $fa4, $fa1
+	fmul.d	$fa2, $fa4, $fa2
 	fdiv.d	$fa2, $fa3, $fa2
+	lu52i.d	$a5, $a5, 1029
+	movgr2fr.d	$fa6, $a5
 	fmul.d	$fa3, $fa3, $fa6
-	fmul.d	$fa3, $fa3, $fa5
-	fdiv.d	$fa3, $fa4, $fa3
-	vldi	$vr5, -928
+	fmul.d	$fa3, $fa3, $fa4
+	fdiv.d	$fa3, $fa5, $fa3
+	vldi	$vr4, -928
+	fmul.d	$fa4, $fa5, $fa4
+	lu52i.d	$a4, $a4, 1043
+	movgr2fr.d	$fa5, $a4
 	fmul.d	$fa4, $fa4, $fa5
-	pcalau12i	$a3, %pc_hi20(.LCPI0_4)
-	fld.d	$fa6, $a3, %pc_lo12(.LCPI0_4)
-	pcalau12i	$a3, %pc_hi20(.LCPI0_5)
-	fld.d	$fa7, $a3, %pc_lo12(.LCPI0_5)
-	pcalau12i	$a3, %pc_hi20(.LCPI0_6)
-	fld.d	$ft0, $a3, %pc_lo12(.LCPI0_6)
-	pcalau12i	$a3, %pc_hi20(amb_temp)
-	fld.d	$fa5, $a3, %pc_lo12(amb_temp)
-	fmul.d	$fa4, $fa4, $fa6
-	fdiv.d	$fa4, $fa7, $fa4
-	fdiv.d	$fa4, $ft0, $fa4
+	lu32i.d	$a3, 451424
+	lu52i.d	$a3, $a3, 1044
+	movgr2fr.d	$fa5, $a3
+	fdiv.d	$fa4, $fa5, $fa4
+	lu12i.w	$a3, -184550
+	ori	$a3, $a3, 2556
+	lu32i.d	$a3, 25165
+	pcalau12i	$a4, %pc_hi20(amb_temp)
+	fld.d	$fa5, $a4, %pc_lo12(amb_temp)
+	lu52i.d	$a3, $a3, 1013
+	movgr2fr.d	$fa6, $a3
+	fdiv.d	$fa4, $fa6, $fa4
 	pcaddu18i	$t8, %call36(hotspotKernel)
 	jr	$t8
 .Lfunc_end0:
 	.size	compute_tran_temp, .Lfunc_end0-compute_tran_temp
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
-.LCPI1_1:
-	.dword	0x3f50624dd2f1a9fc              # double 0.001
-.LCPI1_2:
-	.dword	0x3f60000000000000              # double 0.001953125
-.LCPI1_3:
-	.dword	0x412ab3f000000000              # double 875000
-.LCPI1_4:
-	.dword	0x4069000000000000              # double 200
-.LCPI1_5:
-	.dword	0x4059000000000000              # double 100
-.LCPI1_6:
-	.dword	0x413ab3f000000000              # double 1.75E+6
-.LCPI1_7:
-	.dword	0x4146e36000000000              # double 3.0E+6
-	.text
-	.globl	main
+	.globl	main                            # -- Begin function main
 	.p2align	5
 	.type	main,@function
 main:                                   # @main
@@ -132,11 +106,17 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$s2, $zero
 	move	$s4, $zero
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI1_1)
+	lu12i.w	$a0, -390306
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fs1, $a0
 	lu12i.w	$s5, -1
+	lu12i.w	$a0, -184550
+	ori	$a0, $a0, 2556
+	lu32i.d	$a0, 25165
+	lu52i.d	$a0, $a0, 1013
+	movgr2fr.d	$fs0, $a0
 	lu12i.w	$s3, 1
 	ori	$s6, $zero, 512
 	.p2align	4, , 16
@@ -195,41 +175,47 @@ main:                                   # @main
 # %bb.7:
 	pcalau12i	$a0, %pc_hi20(chip_height)
 	fld.d	$fa0, $a0, %pc_lo12(chip_height)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_2)
-	fmul.d	$fa3, $fa0, $fa1
 	pcalau12i	$a0, %pc_hi20(chip_width)
-	fld.d	$fa0, $a0, %pc_lo12(chip_width)
+	fld.d	$fa1, $a0, %pc_lo12(chip_width)
+	lu52i.d	$a0, $zero, 1014
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa3, $fa0, $fa2
+	fmul.d	$fa4, $fa1, $fa2
 	pcalau12i	$a0, %pc_hi20(t_chip)
-	fld.d	$fa4, $a0, %pc_lo12(t_chip)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_3)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI1_3)
-	fmul.d	$fa5, $fa0, $fa1
-	pcalau12i	$a0, %pc_hi20(.LCPI1_4)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_4)
-	fmul.d	$fa0, $fa4, $fa2
+	fld.d	$fa5, $a0, %pc_lo12(t_chip)
+	ori	$a0, $zero, 0
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, -347152
+	lu52i.d	$a2, $a1, 1042
+	movgr2fr.d	$fa0, $a2
 	fmul.d	$fa0, $fa5, $fa0
+	fmul.d	$fa0, $fa4, $fa0
 	fmul.d	$fa0, $fa3, $fa0
-	fmul.d	$fa2, $fa4, $fa1
+	ori	$a2, $zero, 0
+	lu32i.d	$a2, -458752
+	lu52i.d	$a3, $a2, 1030
+	movgr2fr.d	$fa1, $a3
+	fmul.d	$fa2, $fa5, $fa1
 	fmul.d	$fa1, $fa3, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI1_5)
-	fld.d	$fa6, $a0, %pc_lo12(.LCPI1_5)
-	fdiv.d	$fa1, $fa5, $fa1
-	fmul.d	$fa2, $fa5, $fa2
+	fdiv.d	$fa1, $fa4, $fa1
+	fmul.d	$fa2, $fa4, $fa2
 	fdiv.d	$fa2, $fa3, $fa2
+	lu52i.d	$a2, $a2, 1029
+	movgr2fr.d	$fa6, $a2
 	fmul.d	$fa3, $fa3, $fa6
-	fmul.d	$fa3, $fa3, $fa5
-	fdiv.d	$fa3, $fa4, $fa3
-	vldi	$vr5, -928
+	fmul.d	$fa3, $fa3, $fa4
+	fdiv.d	$fa3, $fa5, $fa3
+	vldi	$vr4, -928
+	fmul.d	$fa4, $fa5, $fa4
+	lu52i.d	$a1, $a1, 1043
+	movgr2fr.d	$fa5, $a1
 	fmul.d	$fa4, $fa4, $fa5
-	pcalau12i	$a0, %pc_hi20(.LCPI1_6)
-	fld.d	$fa6, $a0, %pc_lo12(.LCPI1_6)
-	pcalau12i	$a0, %pc_hi20(.LCPI1_7)
-	fld.d	$fa7, $a0, %pc_lo12(.LCPI1_7)
-	pcalau12i	$a0, %pc_hi20(amb_temp)
-	fld.d	$fa5, $a0, %pc_lo12(amb_temp)
-	fmul.d	$fa4, $fa4, $fa6
-	fdiv.d	$fa4, $fa7, $fa4
+	lu32i.d	$a0, 451424
+	lu52i.d	$a0, $a0, 1044
+	pcalau12i	$a1, %pc_hi20(amb_temp)
+	fld.d	$fa5, $a1, %pc_lo12(amb_temp)
+	movgr2fr.d	$fa6, $a0
+	fdiv.d	$fa4, $fa6, $fa4
 	fdiv.d	$fa4, $fs0, $fa4
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	st.d	$s8, $sp, 8                     # 8-byte Folded Spill

@@ -214,12 +214,7 @@ Proc5:                                  # @Proc5
 .Lfunc_end6:
 	.size	Proc5, .Lfunc_end6-Proc5
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function Proc6
-.LCPI7_0:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.globl	Proc6
+	.globl	Proc6                           # -- Begin function Proc6
 	.p2align	5
 	.type	Proc6,@function
 Proc6:                                  # @Proc6
@@ -241,8 +236,10 @@ Proc6:                                  # @Proc6
 # %bb.3:
 	pcalau12i	$a0, %pc_hi20(IntGlob)
 	fld.d	$fa0, $a0, %pc_lo12(IntGlob)
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI7_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa1, $a0
 	fcmp.clt.d	$fcc0, $fa1, $fa0
 	movcf2gr	$a0, $fcc0
 	masknez	$a5, $a2, $a0

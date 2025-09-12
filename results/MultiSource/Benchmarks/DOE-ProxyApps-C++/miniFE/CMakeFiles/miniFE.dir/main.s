@@ -3286,22 +3286,12 @@ GCC_except_table6:
 .Lcst_end3:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc
-.LCPI7_0:
-	.dword	0x3faeb851eb851eb8              # double 0.059999999999999998
-.LCPI7_2:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI7_3:
-	.dword	0x3f1a36e2eb1c432d              # double 1.0E-4
-.LCPI7_4:
-	.dword	0x3eb0c6f7a0b5ed8d              # double 9.9999999999999995E-7
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI7_1:
+	.p2align	4, 0x0                          # -- Begin function _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc
+.LCPI7_0:
 	.dword	8                               # 0x8
 	.dword	7311150271011243843             # 0x65766c6f73204743
-.LCPI7_5:
+.LCPI7_1:
 	.dword	8                               # 0x8
 	.dword	7308613580332748612             # 0x656d695420544f44
 	.section	.text._ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc,"axG",@progbits,_ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc,comdat
@@ -4089,8 +4079,11 @@ _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc: # @_ZN6miniFE6dri
 .Ltmp384:                               # EH_LABEL
 # %bb.98:                               # %_ZNSolsEPFRSoS_E.exit396
 .Ltmp385:                               # EH_LABEL
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a0, -83887
+	ori	$a0, $a0, 3768
+	lu32i.d	$a0, -83887
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fa0, $a0
 	addi.d	$a0, $sp, 488
 	addi.d	$a1, $sp, 288
 	move	$a2, $zero
@@ -4100,8 +4093,8 @@ _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc: # @_ZN6miniFE6dri
 # %bb.99:
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 .LBB7_100:                              # %._crit_edge.i.i397
-	pcalau12i	$a0, %pc_hi20(.LCPI7_1)
-	vld	$vr0, $a0, %pc_lo12(.LCPI7_1)
+	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
+	vld	$vr0, $a0, %pc_lo12(.LCPI7_0)
 	st.d	$s5, $sp, 256
 	vst	$vr0, $sp, 264
 	st.b	$zero, $sp, 280
@@ -4470,12 +4463,13 @@ _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc: # @_ZN6miniFE6dri
 	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	mul.d	$a0, $a0, $a1
 	srli.d	$a1, $s2, 32
-	pcalau12i	$a2, %pc_hi20(.LCPI7_2)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI7_2)
 	lu52i.d	$a2, $zero, 1107
 	or	$a1, $a1, $a2
+	movgr2fr.d	$fa0, $a1
+	lu12i.w	$a1, 256
+	lu52i.d	$a1, $a1, 1107
 	movgr2fr.d	$fa1, $a1
-	fsub.d	$fa0, $fa1, $fa0
+	fsub.d	$fa0, $fa0, $fa1
 	lu12i.w	$a1, 275200
 	bstrins.d	$s2, $a1, 63, 32
 	movgr2fr.d	$fa1, $s2
@@ -4493,18 +4487,24 @@ _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc: # @_ZN6miniFE6dri
 	slli.d	$a1, $a0, 1
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa4, $fa0
-	fld.d	$fa6, $sp, 208
-	pcalau12i	$a1, %pc_hi20(.LCPI7_3)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI7_3)
 	alsl.d	$a0, $a0, $a0, 1
 	addi.d	$a0, $a0, 2
 	movgr2fr.w	$fa5, $a0
+	fld.d	$fa6, $sp, 208
+	lu12i.w	$a0, -85564
+	ori	$a0, $a0, 813
+	lu32i.d	$a0, -379166
+	lu52i.d	$a0, $a0, 1009
+	movgr2fr.d	$fa0, $a0
 	fcmp.cule.d	$fcc0, $fa6, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI7_4)
+	lu12i.w	$a0, -390306
 	bcnez	$fcc0, .LBB7_143
 # %bb.142:
-	fld.d	$fa7, $a0, %pc_lo12(.LCPI7_4)
 	fdiv.d	$fa6, $fs2, $fa6
+	ori	$a1, $a0, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$fa7, $a1
 	fmul.d	$fa6, $fa6, $fa7
 	b	.LBB7_144
 .LBB7_143:
@@ -4518,9 +4518,12 @@ _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc: # @_ZN6miniFE6dri
 	ffint.d.w	$fa2, $fa5
 	bcnez	$fcc0, .LBB7_146
 # %bb.145:
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI7_4)
-	fdiv.d	$fa4, $fs3, $fa6
-	fmul.d	$fa3, $fa4, $fa3
+	fdiv.d	$fa3, $fs3, $fa6
+	ori	$a1, $a0, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$fa4, $a1
+	fmul.d	$fa3, $fa3, $fa4
 	b	.LBB7_147
 .LBB7_146:
 	vldi	$vr3, -784
@@ -4532,9 +4535,12 @@ _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc: # @_ZN6miniFE6dri
 	fadd.d	$fa1, $fs2, $fs3
 	bcnez	$fcc0, .LBB7_149
 # %bb.148:
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI7_4)
-	fdiv.d	$fa3, $fs4, $fa3
-	fmul.d	$fa2, $fa3, $fa2
+	fdiv.d	$fa2, $fs4, $fa3
+	ori	$a1, $a0, 3469
+	lu32i.d	$a1, 50935
+	lu52i.d	$a1, $a1, 1003
+	movgr2fr.d	$fa3, $a1
+	fmul.d	$fa2, $fa2, $fa3
 	b	.LBB7_150
 .LBB7_149:
 	vldi	$vr2, -784
@@ -4545,9 +4551,12 @@ _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc: # @_ZN6miniFE6dri
 	fadd.d	$fs1, $fa1, $fs4
 	bcnez	$fcc0, .LBB7_152
 # %bb.151:
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_4)
-	fdiv.d	$fa1, $fs1, $fa2
-	fmul.d	$fa0, $fa1, $fa0
+	fdiv.d	$fa0, $fs1, $fa2
+	ori	$a0, $a0, 3469
+	lu32i.d	$a0, 50935
+	lu52i.d	$a0, $a0, 1003
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
 	b	.LBB7_153
 .LBB7_152:
 	vldi	$vr0, -784
@@ -4704,8 +4713,8 @@ _ZN6miniFE6driverIdiiEEiRK3BoxRS1_RNS_10ParametersER8YAML_Doc: # @_ZN6miniFE6dri
 	jirl	$ra, $ra, 0
 .Ltmp465:                               # EH_LABEL
 # %bb.171:                              # %._crit_edge.i.i571
-	pcalau12i	$a1, %pc_hi20(.LCPI7_5)
-	vld	$vr1, $a1, %pc_lo12(.LCPI7_5)
+	pcalau12i	$a1, %pc_hi20(.LCPI7_1)
+	vld	$vr1, $a1, %pc_lo12(.LCPI7_1)
 	fld.d	$fa0, $sp, 200
 	st.d	$s4, $sp, 160
 	vst	$vr1, $sp, 168
@@ -6282,16 +6291,8 @@ __clang_call_terminate:                 # @__clang_call_terminate
 .Lfunc_end8:
 	.size	__clang_call_terminate, .Lfunc_end8-__clang_call_terminate
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb
-.LCPI9_0:
-	.dword	0x3ee4f8b588e368f1              # double 1.0000000000000001E-5
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0
-.LCPI9_1:
-	.word	0x42c80000                      # float 100
 	.section	.text._ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb,"axG",@progbits,_ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb,comdat
-	.weak	_ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb
+	.weak	_ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb # -- Begin function _ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb
 	.p2align	5
 	.type	_ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb,@function
 _ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb: # @_ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb
@@ -6334,12 +6335,15 @@ _ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb: # @_ZN6miniFE17comp
 	mulw.d.w	$a0, $a6, $a0
 	mul.d	$a0, $a0, $a1
 	movgr2fr.w	$fa0, $a0
-	pcalau12i	$a1, %pc_hi20(.LCPI9_0)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI9_0)
 	ffint.s.w	$fa0, $fa0
-	fabs.s	$fa2, $fa0
-	fcvt.d.s	$fa2, $fa2
-	fcmp.cule.d	$fcc0, $fa2, $fa1
+	fabs.s	$fa1, $fa0
+	fcvt.d.s	$fa1, $fa1
+	lu12i.w	$a1, -487882
+	ori	$a1, $a1, 2289
+	lu32i.d	$a1, 325813
+	lu52i.d	$a1, $a1, 1006
+	movgr2fr.d	$fa2, $a1
+	fcmp.cule.d	$fcc0, $fa1, $fa2
 	move	$s0, $a4
 	move	$fp, $a3
 	move	$s1, $a2
@@ -6355,11 +6359,11 @@ _ZN6miniFE17compute_imbalanceIiEEvRK3BoxS3_RfS4_R8YAML_Docb: # @_ZN6miniFE17comp
 	ffint.s.w	$fa1, $fa1
 	srai.d	$a1, $a0, 63
 	andn	$a0, $a0, $a1
-	pcalau12i	$a1, %pc_hi20(.LCPI9_1)
-	fld.s	$fa2, $a1, %pc_lo12(.LCPI9_1)
 	fsub.s	$fa1, $fa1, $fa0
 	fabs.s	$fa1, $fa1
 	fdiv.s	$fa1, $fa1, $fa0
+	lu12i.w	$a1, 273536
+	movgr2fr.w	$fa2, $a1
 	fmul.s	$fa1, $fa1, $fa2
 	movgr2fr.w	$fa3, $a0
 	ffint.s.w	$fa3, $fa3
@@ -10000,16 +10004,8 @@ _ZN6miniFE16impose_dirichletINS_9CSRMatrixIdiiEENS_6VectorIdiiEEEEvNT_10ScalarTy
 	.size	_ZN6miniFE16impose_dirichletINS_9CSRMatrixIdiiEENS_6VectorIdiiEEEEvNT_10ScalarTypeERS5_RT0_iiiRKSt3setINS5_17GlobalOrdinalTypeESt4lessISB_ESaISB_EE, .Lfunc_end12-_ZN6miniFE16impose_dirichletINS_9CSRMatrixIdiiEENS_6VectorIdiiEEEEvNT_10ScalarTypeERS5_RT0_iiiRKSt3setINS5_17GlobalOrdinalTypeESt4lessISB_ESaISB_EE
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc
-.LCPI13_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI13_1:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI13_2:
-	.dword	0x3e10000000000000              # double 9.3132257461547852E-10
 	.section	.text._ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc,"axG",@progbits,_ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc,comdat
-	.weak	_ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc
+	.weak	_ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc # -- Begin function _ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc
 	.p2align	5
 	.type	_ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc,@function
 _ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc: # @_ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc
@@ -10054,18 +10050,19 @@ _ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc: # @_ZN6
 	ld.w	$a4, $a4, -4
 	move	$s0, $a3
 	srli.d	$a3, $a4, 32
-	pcalau12i	$a5, %pc_hi20(.LCPI13_0)
-	fld.d	$fs3, $a5, %pc_lo12(.LCPI13_0)
 	lu52i.d	$s7, $zero, 1107
 	or	$a3, $a3, $s7
 	movgr2fr.d	$fa0, $a3
+	lu12i.w	$a3, 256
+	lu52i.d	$a3, $a3, 1107
+	movgr2fr.d	$fs3, $a3
 	fsub.d	$fa0, $fa0, $fs3
 	lu12i.w	$s6, 275200
-	pcalau12i	$a3, %pc_hi20(.LCPI13_1)
-	fld.d	$fs1, $a3, %pc_lo12(.LCPI13_1)
 	bstrins.d	$a4, $s6, 63, 32
 	movgr2fr.d	$fa1, $a4
 	fadd.d	$fs0, $fa1, $fa0
+	lu52i.d	$a3, $zero, 1086
+	movgr2fr.d	$fs1, $a3
 	fcmp.clt.d	$fcc0, $fs0, $fs1
 	ftintrz.l.d	$fa0, $fs0
 	movfr2gr.d	$a3, $fa0
@@ -10302,11 +10299,11 @@ _ZN6miniFE20compute_matrix_statsINS_9CSRMatrixIdiiEEEEmRKT_iiR8YAML_Doc: # @_ZN6
 	jirl	$ra, $ra, 0
 .Ltmp777:                               # EH_LABEL
 # %bb.24:                               # %.noexc163
-	pcalau12i	$a1, %pc_hi20(.LCPI13_2)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI13_2)
 	srli.d	$s2, $s8, 2
-	movgr2fr.w	$fa1, $s2
-	ffint.d.w	$fs2, $fa1
+	movgr2fr.w	$fa0, $s2
+	ffint.d.w	$fs2, $fa0
+	lu52i.d	$a1, $zero, 993
+	movgr2fr.d	$fa0, $a1
 	fmul.d	$fa1, $fs2, $fa0
 	vldi	$vr2, -1008
 	fmul.d	$fa1, $fa1, $fa2
@@ -12220,16 +12217,8 @@ GCC_except_table14:
 .Lcst_end9:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd
-.LCPI15_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-.LCPI15_1:
-	.dword	0x4059000000000000              # double 100
-.LCPI15_2:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.section	.text._ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd,"axG",@progbits,_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd,comdat
-	.weak	_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd
+	.weak	_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd # -- Begin function _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd
 	.p2align	5
 	.type	_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd,@function
 _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd: # @_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd
@@ -12238,27 +12227,27 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception10
 # %bb.0:
-	addi.d	$sp, $sp, -368
-	.cfi_def_cfa_offset 368
-	st.d	$ra, $sp, 360                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 352                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 344                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 336                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 328                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 320                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 312                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 304                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 296                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 288                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 280                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 272                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 264                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 256                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 248                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 240                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 232                  # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 224                  # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 216                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -384
+	.cfi_def_cfa_offset 384
+	st.d	$ra, $sp, 376                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 368                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 360                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 352                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 344                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 336                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 328                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 320                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 312                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 304                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 296                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 288                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 280                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 272                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 264                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 256                  # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 248                  # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 240                  # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 232                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -12278,12 +12267,12 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	.cfi_offset 61, -136
 	.cfi_offset 62, -144
 	.cfi_offset 63, -152
-	ld.d	$fp, $sp, 368
+	ld.d	$fp, $sp, 384
 	move	$s1, $a7
-	st.d	$a6, $sp, 152                   # 8-byte Folded Spill
-	st.d	$a5, $sp, 160                   # 8-byte Folded Spill
+	st.d	$a6, $sp, 168                   # 8-byte Folded Spill
+	st.d	$a5, $sp, 176                   # 8-byte Folded Spill
 	move	$s0, $a4
-	st.d	$a2, $sp, 168                   # 8-byte Folded Spill
+	st.d	$a2, $sp, 184                   # 8-byte Folded Spill
 	move	$s2, $a1
 	move	$s7, $a0
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
@@ -12305,7 +12294,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	srai.d	$s5, $a0, 32
 	slli.d	$s4, $s5, 3
 	addi.d	$fp, $s5, -1
-	st.d	$s2, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 224                   # 8-byte Folded Spill
 	beqz	$s6, .LBB15_18
 # %bb.3:                                # %.noexc7.i
 	move	$a0, $s4
@@ -12314,7 +12303,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	alsl.d	$a1, $s5, $a0, 3
 	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
 	st.d	$zero, $a0, 0
-	st.d	$a0, $sp, 184                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 200                   # 8-byte Folded Spill
 	addi.d	$s3, $a0, 8
 	beqz	$fp, .LBB15_5
 # %bb.4:                                # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
@@ -12325,7 +12314,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	jirl	$ra, $ra, 0
 	alsl.d	$s3, $fp, $s3, 3
 .LBB15_5:                               # %.lr.ph.i
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	move	$a1, $zero
 	move	$a2, $s4
 	pcaddu18i	$ra, %call36(memset)
@@ -12333,10 +12322,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	bltz	$s8, .LBB15_19
 .LBB15_6:                               # %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i138
 	move	$s2, $s1
-	st.d	$s0, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 208                   # 8-byte Folded Spill
 	beqz	$s8, .LBB15_23
 # %bb.7:                                # %.noexc7.i140
-	st.d	$s3, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 216                   # 8-byte Folded Spill
 	slli.d	$s1, $s8, 3
 .Ltmp888:                               # EH_LABEL
 	move	$a0, $s1
@@ -12359,14 +12348,14 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	jirl	$ra, $ra, 0
 	alsl.d	$s3, $s8, $s3, 3
 .LBB15_10:                              # %.lr.ph.i143
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	ld.d	$s8, $sp, 184                   # 8-byte Folded Reload
+	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
+	ld.d	$s8, $sp, 200                   # 8-byte Folded Reload
 	move	$a0, $s0
 	move	$a1, $zero
 	move	$a2, $s1
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
-	ld.d	$s3, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 216                   # 8-byte Folded Reload
 	beqz	$s6, .LBB15_24
 .LBB15_11:                              # %.noexc7.i150
 .Ltmp890:                               # EH_LABEL
@@ -12424,7 +12413,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .LBB15_18:
 	st.d	$zero, $sp, 24                  # 8-byte Folded Spill
 	move	$s3, $zero
-	st.d	$zero, $sp, 184                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 200                 # 8-byte Folded Spill
 	bgez	$s8, .LBB15_6
 .LBB15_19:                              # %.noexc.i145
 .Ltmp988:                               # EH_LABEL
@@ -12449,33 +12438,33 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	ld.d	$a0, $a0, %got_pc_lo12(_ZSt4cerr)
 	pcaddu18i	$ra, %call36(_ZNSo3putEc)
 	jirl	$ra, $ra, 0
-	fld.d	$fs7, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 240                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 248                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 256                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 368
+	fld.d	$fs7, $sp, 232                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 240                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 248                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 256                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 264                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 272                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 280                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 288                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 360                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 368                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 376                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 384
 	pcaddu18i	$t8, %call36(_ZNSo5flushEv)
 	jr	$t8
 .LBB15_23:
-	st.d	$zero, $sp, 128                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 144                 # 8-byte Folded Spill
 	st.d	$zero, $sp, 16                  # 8-byte Folded Spill
 	move	$s0, $zero
-	ld.d	$s8, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 200                   # 8-byte Folded Reload
 	bnez	$s6, .LBB15_11
 .LBB15_24:
 	move	$s1, $zero
@@ -12486,10 +12475,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .Ltmp893:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $sp, 200                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 216                  # 8-byte Folded Spill
 .Ltmp894:                               # EH_LABEL
 # %bb.26:
-	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$a1, $a0, 16
 	ld.d	$a0, $a0, 8
 	sub.d	$a1, $a1, $a0
@@ -12549,7 +12538,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .Ltmp895:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $sp, 176                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 192                  # 8-byte Folded Spill
 .Ltmp896:                               # EH_LABEL
 # %bb.35:
 .Ltmp897:                               # EH_LABEL
@@ -12624,7 +12613,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .Ltmp902:                               # EH_LABEL
 # %bb.44:
 	fmov.d	$fs6, $fa0
-	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 224                   # 8-byte Folded Reload
 	ld.d	$a1, $a0, 16
 	ld.d	$a0, $a0, 8
 	sub.d	$a1, $a1, $a0
@@ -12755,8 +12744,8 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	jirl	$ra, $ra, 0
 .Ltmp920:                               # EH_LABEL
 # %bb.65:                               # %_ZNSolsEPFRSoS_E.exit.preheader
-	fld.d	$fa0, $sp, 200                  # 8-byte Folded Reload
-	fld.d	$fa1, $sp, 176                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 216                  # 8-byte Folded Reload
+	fld.d	$fa1, $sp, 192                  # 8-byte Folded Reload
 	fsub.d	$fa0, $fa1, $fa0
 	fsub.d	$fa1, $fs5, $fs4
 	fadd.d	$fa0, $fa0, $fs3
@@ -12764,11 +12753,11 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	fsub.d	$fa3, $fs2, $fs0
 	movgr2fr.d	$fs5, $zero
 	fadd.d	$fa1, $fa1, $fs3
-	fst.d	$fa1, $sp, 200                  # 8-byte Folded Spill
+	fst.d	$fa1, $sp, 216                  # 8-byte Folded Spill
 	fadd.d	$fs7, $fa0, $fa2
 	fadd.d	$fa0, $fa3, $fs5
-	fst.d	$fa0, $sp, 208                  # 8-byte Folded Spill
-	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
+	fst.d	$fa0, $sp, 224                  # 8-byte Folded Spill
+	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
 	blez	$a1, .LBB15_159
 # %bb.66:                               # %.lr.ph
 	lu12i.w	$a0, 419430
@@ -12787,15 +12776,15 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	maskeqz	$a0, $a0, $a1
 	masknez	$a1, $a2, $a1
 	or	$a0, $a0, $a1
-	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
 	move	$a0, $s5
 	bstrpick.d	$s5, $s6, 30, 0
 	sub.d	$a0, $a0, $s1
 	srli.d	$a1, $a0, 3
-	st.d	$a1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 160                   # 8-byte Folded Spill
 	bstrpick.d	$a0, $a0, 33, 3
-	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
-	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	st.d	$a0, $sp, 152                   # 8-byte Folded Spill
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	sub.d	$a0, $a0, $s0
 	srli.d	$a1, $a0, 3
 	bstrpick.d	$a0, $a0, 33, 3
@@ -12805,20 +12794,31 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	addi.d	$a0, $s0, 16
 	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	addi.d	$a0, $s8, 16
-	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
-	sub.d	$a0, $zero, $s5
 	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
+	sub.d	$a0, $zero, $s5
+	st.d	$a0, $sp, 144                   # 8-byte Folded Spill
 	addi.d	$a0, $s1, 16
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI15_0)
-	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI15_0)
-	fst.d	$fa0, $sp, 176                  # 8-byte Folded Spill
-	vrepli.b	$vr0, 0
-	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	lu52i.d	$a0, $zero, 971
+	movgr2fr.d	$fa0, $a0
+	vrepli.b	$vr1, 0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
 	addi.w	$a0, $a1, 0
-	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa1, $a0
+	fst.d	$fa1, $sp, 104                  # 8-byte Folded Spill
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fa1, $a0
+	fst.d	$fa1, $sp, 96                   # 8-byte Folded Spill
 	ori	$a0, $zero, 1
+	fst.d	$fa0, $sp, 120                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 192                  # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB15_67:                              # =>This Loop Header: Depth=1
                                         #     Child Loop BB15_76 Depth 2
@@ -12836,7 +12836,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
                                         #     Child Loop BB15_147 Depth 2
                                         #     Child Loop BB15_150 Depth 2
 	fld.d	$fa0, $s2, 0
-	ld.d	$a1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 176                   # 8-byte Folded Reload
 	fld.d	$fa1, $a1, 0
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB15_159
@@ -12871,7 +12871,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	blez	$fp, .LBB15_77
 # %bb.75:                               # %.lr.ph.i196.preheader
                                         #   in Loop: Header=BB15_67 Depth=1
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	move	$a1, $s5
 	.p2align	4, , 16
 .LBB15_76:                              # %.lr.ph.i196
@@ -12908,7 +12908,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	b	.LBB15_92
 .LBB15_82:                              # %vector.body510.preheader
                                         #   in Loop: Header=BB15_67 Depth=1
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
 	move	$a2, $s6
 	vld	$vr4, $sp, 32                   # 16-byte Folded Reload
@@ -12934,10 +12934,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	beq	$s5, $s6, .LBB15_87
 .LBB15_85:                              # %.lr.ph.i187.preheader537
                                         #   in Loop: Header=BB15_67 Depth=1
-	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a2
 	alsl.d	$a1, $a2, $s0, 3
-	ld.d	$a3, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 200                   # 8-byte Folded Reload
 	alsl.d	$a2, $a2, $a3, 3
 	.p2align	4, , 16
 .LBB15_86:                              # %.lr.ph.i187
@@ -12963,7 +12963,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .LBB15_89:                              # %vector.ph520
                                         #   in Loop: Header=BB15_67 Depth=1
 	vreplvei.d	$vr1, $vr0, 0
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
 	move	$a2, $s6
 	.p2align	4, , 16
@@ -12990,10 +12990,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	beq	$s5, $s6, .LBB15_94
 .LBB15_92:                              # %.lr.ph.i205.preheader538
                                         #   in Loop: Header=BB15_67 Depth=1
-	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a2
 	alsl.d	$a1, $a2, $s0, 3
-	ld.d	$a3, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 200                   # 8-byte Folded Reload
 	alsl.d	$a2, $a2, $a3, 3
 	.p2align	4, , 16
 .LBB15_93:                              # %.lr.ph.i205
@@ -13016,9 +13016,9 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .Ltmp928:                               # EH_LABEL
 # %bb.95:                               #   in Loop: Header=BB15_67 Depth=1
 	fsub.d	$fa1, $fs2, $fs0
-	fld.d	$fa2, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fa2, $sp, 224                  # 8-byte Folded Reload
 	fadd.d	$fa2, $fa2, $fa1
-	fst.d	$fa2, $sp, 208                  # 8-byte Folded Spill
+	fst.d	$fa2, $sp, 224                  # 8-byte Folded Spill
 	fsub.d	$fs4, $fa0, $fs3
 	fmov.d	$fs1, $fs6
 .LBB15_96:                              #   in Loop: Header=BB15_67 Depth=1
@@ -13028,11 +13028,11 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 # %bb.97:                               # %.split706
                                         #   in Loop: Header=BB15_67 Depth=1
 	fst.d	$fa0, $s2, 0
-	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
 	beq	$s8, $a0, .LBB15_99
 .LBB15_98:                              # %.split706
                                         #   in Loop: Header=BB15_67 Depth=1
-	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
 	mod.wu	$a0, $s8, $a0
 	bnez	$a0, .LBB15_110
 .LBB15_99:                              #   in Loop: Header=BB15_67 Depth=1
@@ -13194,7 +13194,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .Ltmp956:                               # EH_LABEL
 # %bb.119:                              #   in Loop: Header=BB15_67 Depth=1
 	fmov.d	$fs3, $fa0
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 160                   # 8-byte Folded Reload
 	addi.w	$s3, $a0, 0
 	fmov.d	$fs6, $fs5
 	blez	$s3, .LBB15_122
@@ -13202,7 +13202,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
                                         #   in Loop: Header=BB15_67 Depth=1
 	move	$a0, $s1
 	move	$a1, $s0
-	ld.d	$a2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 152                   # 8-byte Folded Reload
 	fmov.d	$fs6, $fs5
 	.p2align	4, , 16
 .LBB15_121:                             # %.lr.ph.i239
@@ -13225,15 +13225,15 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 # %bb.123:                              #   in Loop: Header=BB15_67 Depth=1
 	fadd.d	$fs7, $fs7, $fs4
 	fsub.d	$fa1, $fs2, $fs0
-	fld.d	$fa2, $sp, 200                  # 8-byte Folded Reload
+	fld.d	$fa2, $sp, 216                  # 8-byte Folded Reload
 	fadd.d	$fa2, $fa2, $fa1
-	fst.d	$fa2, $sp, 200                  # 8-byte Folded Spill
+	fst.d	$fa2, $sp, 216                  # 8-byte Folded Spill
 	fsub.d	$fa0, $fa0, $fs3
-	fld.d	$fa1, $sp, 176                  # 8-byte Folded Reload
+	fld.d	$fa1, $sp, 192                  # 8-byte Folded Reload
 	fcmp.cule.d	$fcc0, $fa1, $fs6
-	fld.d	$fa1, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fa1, $sp, 224                  # 8-byte Folded Reload
 	fadd.d	$fa1, $fa1, $fa0
-	fst.d	$fa1, $sp, 208                  # 8-byte Folded Spill
+	fst.d	$fa1, $sp, 224                  # 8-byte Folded Spill
 	bcnez	$fcc0, .LBB15_135
 # %bb.124:                              #   in Loop: Header=BB15_67 Depth=1
 	fcmp.clt.d	$fcc0, $fs6, $fs5
@@ -13244,7 +13244,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 # %bb.126:                              # %.lr.ph.i.i.preheader
                                         #   in Loop: Header=BB15_67 Depth=1
 	move	$a0, $s1
-	ld.d	$a1, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	fmov.d	$fa0, $fs5
 	.p2align	4, , 16
 .LBB15_127:                             # %.lr.ph.i.i
@@ -13264,7 +13264,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 # %bb.129:                              # %_ZN6miniFE3dotINS_6VectorIdiiEEEENS_10TypeTraitsINT_10ScalarTypeEE14magnitude_typeERKS4_S9_.exit.i.split
                                         #   in Loop: Header=BB15_67 Depth=1
 	fmov.d	$fa0, $fs5
-	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	blez	$a0, .LBB15_132
 .LBB15_130:                             # %.lr.ph.i10.i.preheader
                                         #   in Loop: Header=BB15_67 Depth=1
@@ -13288,21 +13288,18 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	bceqz	$fcc0, .LBB15_158
 .LBB15_133:                             # %.loopexit.split
                                         #   in Loop: Header=BB15_67 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI15_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI15_1)
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI15_0)
-	fabs.d	$fa3, $fs6
-	fmul.d	$fa0, $fs0, $fa0
-	fmul.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa2
-	fcmp.cult.d	$fcc0, $fa0, $fa3
+	fabs.d	$fa0, $fs6
+	fld.d	$fa2, $sp, 104                  # 8-byte Folded Reload
+	fmul.d	$fa2, $fs0, $fa2
+	fmul.d	$fa1, $fa2, $fa1
+	fld.d	$fa2, $sp, 120                  # 8-byte Folded Reload
+	fmul.d	$fa1, $fa1, $fa2
+	fcmp.cult.d	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB15_166
 # %bb.134:                              #   in Loop: Header=BB15_67 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI15_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI15_2)
+	fld.d	$fa0, $sp, 96                   # 8-byte Folded Reload
 	fmul.d	$fa0, $fs6, $fa0
-	fst.d	$fa0, $sp, 176                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 192                  # 8-byte Folded Spill
 .LBB15_135:                             #   in Loop: Header=BB15_67 Depth=1
 .Ltmp959:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
@@ -13310,7 +13307,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .Ltmp960:                               # EH_LABEL
 # %bb.136:                              #   in Loop: Header=BB15_67 Depth=1
 	fmov.d	$fs2, $fa0
-	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$a1, $a0, 16
 	ld.d	$a0, $a0, 8
 	sub.d	$a1, $a1, $a0
@@ -13365,7 +13362,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .LBB15_146:                             # %vector.ph473
                                         #   in Loop: Header=BB15_67 Depth=1
 	vreplvei.d	$vr1, $vr0, 0
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	move	$a2, $s6
 	.p2align	4, , 16
@@ -13392,10 +13389,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	beq	$s5, $s6, .LBB15_151
 .LBB15_149:                             # %.lr.ph.i260.preheader536
                                         #   in Loop: Header=BB15_67 Depth=1
-	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a2
 	alsl.d	$a1, $a2, $s1, 3
-	ld.d	$a3, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 200                   # 8-byte Folded Reload
 	alsl.d	$a2, $a2, $a3, 3
 	.p2align	4, , 16
 .LBB15_150:                             # %.lr.ph.i260
@@ -13420,10 +13417,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
                                         #   in Loop: Header=BB15_67 Depth=1
 	fsub.d	$fa0, $fa0, $fs2
 	fadd.d	$fs7, $fs7, $fa0
-	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
 	st.w	$s8, $a0, 0
 	addi.w	$a0, $s8, 1
-	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
 	bne	$s8, $a1, .LBB15_67
 	b	.LBB15_159
 .LBB15_153:                             # %vector.ph490
@@ -13462,7 +13459,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
 	fst.d	$fa0, $s2, 0
-	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
 	bne	$s8, $a0, .LBB15_98
 	b	.LBB15_99
 .LBB15_157:                             # %call.sqrt708
@@ -13471,7 +13468,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	jirl	$ra, $ra, 0
 	fmov.d	$fs0, $fa0
 	fmov.d	$fa0, $fs5
-	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	bgtz	$a0, .LBB15_130
 	b	.LBB15_132
 .LBB15_158:                             # %call.sqrt709
@@ -13483,9 +13480,9 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .LBB15_159:                             # %.critedge
 	ld.d	$s3, $sp, 56                    # 8-byte Folded Reload
 	fst.d	$fs7, $s3, 0
-	fld.d	$fa0, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 224                  # 8-byte Folded Reload
 	fst.d	$fa0, $s3, 8
-	fld.d	$fa0, $sp, 200                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 216                  # 8-byte Folded Reload
 	fst.d	$fa0, $s3, 16
 	st.d	$zero, $s3, 24
 .Ltmp982:                               # EH_LABEL
@@ -13493,7 +13490,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	jirl	$ra, $ra, 0
 .Ltmp983:                               # EH_LABEL
 # %bb.160:
-	ld.d	$fp, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 200                   # 8-byte Folded Reload
 	b	.LBB15_175
 .LBB15_161:                             # %vector.memcheck451
 	sub.d	$a5, $s8, $a0
@@ -13537,7 +13534,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	addi.d	$a1, $a0, %pc_lo12(.L.str.109)
 	ori	$a2, $zero, 44
 	move	$a0, $s2
-	ld.d	$fp, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 200                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l)
 	jirl	$ra, $ra, 0
 .Ltmp965:                               # EH_LABEL
@@ -13583,9 +13580,9 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .Ltmp973:                               # EH_LABEL
 # %bb.174:                              # %_ZNSolsEPFRSoS_E.exit248
 	fst.d	$fs7, $s3, 0
-	fld.d	$fa0, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 224                  # 8-byte Folded Reload
 	fst.d	$fa0, $s3, 8
-	fld.d	$fa0, $sp, 200                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 216                  # 8-byte Folded Reload
 	fst.d	$fa0, $s3, 16
 .Ltmp974:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
@@ -13616,49 +13613,49 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	sub.d	$a1, $a0, $fp
 	move	$a0, $fp
-	fld.d	$fs7, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 240                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 248                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 256                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 368
+	fld.d	$fs7, $sp, 232                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 240                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 248                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 256                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 264                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 272                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 280                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 288                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 360                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 368                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 376                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 384
 	pcaddu18i	$t8, %call36(_ZdlPvm)
 	jr	$t8
 .LBB15_181:                             # %_ZN6miniFE6VectorIdiiED2Ev.exit268
-	fld.d	$fs7, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 240                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 248                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 256                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 368
+	fld.d	$fs7, $sp, 232                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 240                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 248                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 256                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 264                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 272                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 280                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 288                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 360                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 368                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 376                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 384
 	ret
 .LBB15_182:
 .Ltmp979:                               # EH_LABEL
@@ -13705,7 +13702,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 .LBB15_194:
 .Ltmp990:                               # EH_LABEL
 	move	$s2, $a0
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	beqz	$a0, .LBB15_203
 	b	.LBB15_206
 .LBB15_195:                             # %.loopexit.split-lp
@@ -13728,7 +13725,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 # %bb.201:                              # %_ZN6miniFE6VectorIdiiED2Ev.exit270
 	bnez	$s0, .LBB15_205
 .LBB15_202:                             # %_ZN6miniFE6VectorIdiiED2Ev.exit272
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	bnez	$a0, .LBB15_206
 .LBB15_203:                             # %_ZN6miniFE6VectorIdiiED2Ev.exit274
 	move	$a0, $s2
@@ -13747,10 +13744,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_14matvec_overlapIS2_S4
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	beqz	$a0, .LBB15_203
 .LBB15_206:
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 24                    # 8-byte Folded Reload
 	sub.d	$a1, $a1, $a0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
@@ -13865,16 +13862,8 @@ GCC_except_table15:
 .Lcst_end10:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd
-.LCPI16_0:
-	.dword	0x3cb0000000000000              # double 2.2204460492503131E-16
-.LCPI16_1:
-	.dword	0x4059000000000000              # double 100
-.LCPI16_2:
-	.dword	0x3fb999999999999a              # double 0.10000000000000001
 	.section	.text._ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd,"axG",@progbits,_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd,comdat
-	.weak	_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd
+	.weak	_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd # -- Begin function _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd
 	.p2align	5
 	.type	_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd,@function
 _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd: # @_ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEEEvRT_RKT0_RS9_T1_NS7_16LocalOrdinalTypeERNS_10TypeTraitsINS7_10ScalarTypeEE14magnitude_typeERSE_SJ_Pd
@@ -13883,27 +13872,27 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception11
 # %bb.0:
-	addi.d	$sp, $sp, -368
-	.cfi_def_cfa_offset 368
-	st.d	$ra, $sp, 360                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 352                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 344                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 336                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 328                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 320                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 312                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 304                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 296                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 288                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 280                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 272                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 264                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 256                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 248                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 240                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 232                  # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 224                  # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 216                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -384
+	.cfi_def_cfa_offset 384
+	st.d	$ra, $sp, 376                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 368                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 360                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 352                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 344                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 336                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 328                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 320                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 312                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 304                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 296                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 288                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 280                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 272                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 264                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 256                  # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 248                  # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 240                  # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 232                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -13923,12 +13912,12 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	.cfi_offset 61, -136
 	.cfi_offset 62, -144
 	.cfi_offset 63, -152
-	ld.d	$fp, $sp, 368
+	ld.d	$fp, $sp, 384
 	move	$s1, $a7
-	st.d	$a6, $sp, 152                   # 8-byte Folded Spill
-	st.d	$a5, $sp, 160                   # 8-byte Folded Spill
+	st.d	$a6, $sp, 168                   # 8-byte Folded Spill
+	st.d	$a5, $sp, 176                   # 8-byte Folded Spill
 	move	$s0, $a4
-	st.d	$a2, $sp, 168                   # 8-byte Folded Spill
+	st.d	$a2, $sp, 184                   # 8-byte Folded Spill
 	move	$s2, $a1
 	move	$s7, $a0
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
@@ -13950,7 +13939,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	srai.d	$s5, $a0, 32
 	slli.d	$s4, $s5, 3
 	addi.d	$fp, $s5, -1
-	st.d	$s2, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 224                   # 8-byte Folded Spill
 	beqz	$s6, .LBB16_18
 # %bb.3:                                # %.noexc7.i
 	move	$a0, $s4
@@ -13959,7 +13948,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	alsl.d	$a1, $s5, $a0, 3
 	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
 	st.d	$zero, $a0, 0
-	st.d	$a0, $sp, 184                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 200                   # 8-byte Folded Spill
 	addi.d	$s3, $a0, 8
 	beqz	$fp, .LBB16_5
 # %bb.4:                                # %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
@@ -13970,7 +13959,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	jirl	$ra, $ra, 0
 	alsl.d	$s3, $fp, $s3, 3
 .LBB16_5:                               # %.lr.ph.i
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	move	$a1, $zero
 	move	$a2, $s4
 	pcaddu18i	$ra, %call36(memset)
@@ -13978,10 +13967,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	bltz	$s8, .LBB16_19
 .LBB16_6:                               # %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i138
 	move	$s2, $s1
-	st.d	$s0, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 208                   # 8-byte Folded Spill
 	beqz	$s8, .LBB16_23
 # %bb.7:                                # %.noexc7.i140
-	st.d	$s3, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 216                   # 8-byte Folded Spill
 	slli.d	$s1, $s8, 3
 .Ltmp991:                               # EH_LABEL
 	move	$a0, $s1
@@ -14004,14 +13993,14 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	jirl	$ra, $ra, 0
 	alsl.d	$s3, $s8, $s3, 3
 .LBB16_10:                              # %.lr.ph.i143
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	ld.d	$s8, $sp, 184                   # 8-byte Folded Reload
+	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
+	ld.d	$s8, $sp, 200                   # 8-byte Folded Reload
 	move	$a0, $s0
 	move	$a1, $zero
 	move	$a2, $s1
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
-	ld.d	$s3, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 216                   # 8-byte Folded Reload
 	beqz	$s6, .LBB16_24
 .LBB16_11:                              # %.noexc7.i150
 .Ltmp993:                               # EH_LABEL
@@ -14069,7 +14058,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .LBB16_18:
 	st.d	$zero, $sp, 24                  # 8-byte Folded Spill
 	move	$s3, $zero
-	st.d	$zero, $sp, 184                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 200                 # 8-byte Folded Spill
 	bgez	$s8, .LBB16_6
 .LBB16_19:                              # %.noexc.i145
 .Ltmp1091:                              # EH_LABEL
@@ -14094,33 +14083,33 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	ld.d	$a0, $a0, %got_pc_lo12(_ZSt4cerr)
 	pcaddu18i	$ra, %call36(_ZNSo3putEc)
 	jirl	$ra, $ra, 0
-	fld.d	$fs7, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 240                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 248                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 256                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 368
+	fld.d	$fs7, $sp, 232                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 240                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 248                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 256                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 264                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 272                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 280                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 288                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 360                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 368                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 376                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 384
 	pcaddu18i	$t8, %call36(_ZNSo5flushEv)
 	jr	$t8
 .LBB16_23:
-	st.d	$zero, $sp, 128                 # 8-byte Folded Spill
+	st.d	$zero, $sp, 144                 # 8-byte Folded Spill
 	st.d	$zero, $sp, 16                  # 8-byte Folded Spill
 	move	$s0, $zero
-	ld.d	$s8, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 200                   # 8-byte Folded Reload
 	bnez	$s6, .LBB16_11
 .LBB16_24:
 	move	$s1, $zero
@@ -14131,10 +14120,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .Ltmp996:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $sp, 200                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 216                  # 8-byte Folded Spill
 .Ltmp997:                               # EH_LABEL
 # %bb.26:
-	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$a1, $a0, 16
 	ld.d	$a0, $a0, 8
 	sub.d	$a1, $a1, $a0
@@ -14194,7 +14183,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .Ltmp998:                               # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
 	jirl	$ra, $ra, 0
-	fst.d	$fa0, $sp, 176                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 192                  # 8-byte Folded Spill
 .Ltmp999:                               # EH_LABEL
 # %bb.35:
 .Ltmp1000:                              # EH_LABEL
@@ -14269,7 +14258,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .Ltmp1005:                              # EH_LABEL
 # %bb.44:
 	fmov.d	$fs6, $fa0
-	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 224                   # 8-byte Folded Reload
 	ld.d	$a1, $a0, 16
 	ld.d	$a0, $a0, 8
 	sub.d	$a1, $a1, $a0
@@ -14400,8 +14389,8 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	jirl	$ra, $ra, 0
 .Ltmp1023:                              # EH_LABEL
 # %bb.65:                               # %_ZNSolsEPFRSoS_E.exit.preheader
-	fld.d	$fa0, $sp, 200                  # 8-byte Folded Reload
-	fld.d	$fa1, $sp, 176                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 216                  # 8-byte Folded Reload
+	fld.d	$fa1, $sp, 192                  # 8-byte Folded Reload
 	fsub.d	$fa0, $fa1, $fa0
 	fsub.d	$fa1, $fs5, $fs4
 	fadd.d	$fa0, $fa0, $fs3
@@ -14409,11 +14398,11 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	fsub.d	$fa3, $fs2, $fs0
 	movgr2fr.d	$fs5, $zero
 	fadd.d	$fa1, $fa1, $fs3
-	fst.d	$fa1, $sp, 200                  # 8-byte Folded Spill
+	fst.d	$fa1, $sp, 216                  # 8-byte Folded Spill
 	fadd.d	$fs7, $fa0, $fa2
 	fadd.d	$fa0, $fa3, $fs5
-	fst.d	$fa0, $sp, 208                  # 8-byte Folded Spill
-	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
+	fst.d	$fa0, $sp, 224                  # 8-byte Folded Spill
+	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
 	blez	$a1, .LBB16_159
 # %bb.66:                               # %.lr.ph
 	lu12i.w	$a0, 419430
@@ -14432,15 +14421,15 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	maskeqz	$a0, $a0, $a1
 	masknez	$a1, $a2, $a1
 	or	$a0, $a0, $a1
-	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
 	move	$a0, $s5
 	bstrpick.d	$s5, $s6, 30, 0
 	sub.d	$a0, $a0, $s1
 	srli.d	$a1, $a0, 3
-	st.d	$a1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 160                   # 8-byte Folded Spill
 	bstrpick.d	$a0, $a0, 33, 3
-	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
-	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	st.d	$a0, $sp, 152                   # 8-byte Folded Spill
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	sub.d	$a0, $a0, $s0
 	srli.d	$a1, $a0, 3
 	bstrpick.d	$a0, $a0, 33, 3
@@ -14450,20 +14439,31 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	addi.d	$a0, $s0, 16
 	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	addi.d	$a0, $s8, 16
-	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
-	sub.d	$a0, $zero, $s5
 	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
+	sub.d	$a0, $zero, $s5
+	st.d	$a0, $sp, 144                   # 8-byte Folded Spill
 	addi.d	$a0, $s1, 16
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI16_0)
-	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI16_0)
-	fst.d	$fa0, $sp, 176                  # 8-byte Folded Spill
-	vrepli.b	$vr0, 0
-	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	lu52i.d	$a0, $zero, 971
+	movgr2fr.d	$fa0, $a0
+	vrepli.b	$vr1, 0
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
 	addi.w	$a0, $a1, 0
-	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa1, $a0
+	fst.d	$fa1, $sp, 104                  # 8-byte Folded Spill
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1019
+	movgr2fr.d	$fa1, $a0
+	fst.d	$fa1, $sp, 96                   # 8-byte Folded Spill
 	ori	$a0, $zero, 1
+	fst.d	$fa0, $sp, 120                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 192                  # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB16_67:                              # =>This Loop Header: Depth=1
                                         #     Child Loop BB16_76 Depth 2
@@ -14481,7 +14481,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
                                         #     Child Loop BB16_147 Depth 2
                                         #     Child Loop BB16_150 Depth 2
 	fld.d	$fa0, $s2, 0
-	ld.d	$a1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 176                   # 8-byte Folded Reload
 	fld.d	$fa1, $a1, 0
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	bcnez	$fcc0, .LBB16_159
@@ -14516,7 +14516,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	blez	$fp, .LBB16_77
 # %bb.75:                               # %.lr.ph.i196.preheader
                                         #   in Loop: Header=BB16_67 Depth=1
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	move	$a1, $s5
 	.p2align	4, , 16
 .LBB16_76:                              # %.lr.ph.i196
@@ -14553,7 +14553,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	b	.LBB16_92
 .LBB16_82:                              # %vector.body510.preheader
                                         #   in Loop: Header=BB16_67 Depth=1
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
 	move	$a2, $s6
 	vld	$vr4, $sp, 32                   # 16-byte Folded Reload
@@ -14579,10 +14579,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	beq	$s5, $s6, .LBB16_87
 .LBB16_85:                              # %.lr.ph.i187.preheader537
                                         #   in Loop: Header=BB16_67 Depth=1
-	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a2
 	alsl.d	$a1, $a2, $s0, 3
-	ld.d	$a3, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 200                   # 8-byte Folded Reload
 	alsl.d	$a2, $a2, $a3, 3
 	.p2align	4, , 16
 .LBB16_86:                              # %.lr.ph.i187
@@ -14608,7 +14608,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .LBB16_89:                              # %vector.ph520
                                         #   in Loop: Header=BB16_67 Depth=1
 	vreplvei.d	$vr1, $vr0, 0
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
 	move	$a2, $s6
 	.p2align	4, , 16
@@ -14635,10 +14635,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	beq	$s5, $s6, .LBB16_94
 .LBB16_92:                              # %.lr.ph.i205.preheader538
                                         #   in Loop: Header=BB16_67 Depth=1
-	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a2
 	alsl.d	$a1, $a2, $s0, 3
-	ld.d	$a3, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 200                   # 8-byte Folded Reload
 	alsl.d	$a2, $a2, $a3, 3
 	.p2align	4, , 16
 .LBB16_93:                              # %.lr.ph.i205
@@ -14661,9 +14661,9 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .Ltmp1031:                              # EH_LABEL
 # %bb.95:                               #   in Loop: Header=BB16_67 Depth=1
 	fsub.d	$fa1, $fs2, $fs0
-	fld.d	$fa2, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fa2, $sp, 224                  # 8-byte Folded Reload
 	fadd.d	$fa2, $fa2, $fa1
-	fst.d	$fa2, $sp, 208                  # 8-byte Folded Spill
+	fst.d	$fa2, $sp, 224                  # 8-byte Folded Spill
 	fsub.d	$fs4, $fa0, $fs3
 	fmov.d	$fs1, $fs6
 .LBB16_96:                              #   in Loop: Header=BB16_67 Depth=1
@@ -14673,11 +14673,11 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 # %bb.97:                               # %.split706
                                         #   in Loop: Header=BB16_67 Depth=1
 	fst.d	$fa0, $s2, 0
-	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
 	beq	$s8, $a0, .LBB16_99
 .LBB16_98:                              # %.split706
                                         #   in Loop: Header=BB16_67 Depth=1
-	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
 	mod.wu	$a0, $s8, $a0
 	bnez	$a0, .LBB16_110
 .LBB16_99:                              #   in Loop: Header=BB16_67 Depth=1
@@ -14839,7 +14839,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .Ltmp1059:                              # EH_LABEL
 # %bb.119:                              #   in Loop: Header=BB16_67 Depth=1
 	fmov.d	$fs3, $fa0
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 160                   # 8-byte Folded Reload
 	addi.w	$s3, $a0, 0
 	fmov.d	$fs6, $fs5
 	blez	$s3, .LBB16_122
@@ -14847,7 +14847,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
                                         #   in Loop: Header=BB16_67 Depth=1
 	move	$a0, $s1
 	move	$a1, $s0
-	ld.d	$a2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 152                   # 8-byte Folded Reload
 	fmov.d	$fs6, $fs5
 	.p2align	4, , 16
 .LBB16_121:                             # %.lr.ph.i239
@@ -14870,15 +14870,15 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 # %bb.123:                              #   in Loop: Header=BB16_67 Depth=1
 	fadd.d	$fs7, $fs7, $fs4
 	fsub.d	$fa1, $fs2, $fs0
-	fld.d	$fa2, $sp, 200                  # 8-byte Folded Reload
+	fld.d	$fa2, $sp, 216                  # 8-byte Folded Reload
 	fadd.d	$fa2, $fa2, $fa1
-	fst.d	$fa2, $sp, 200                  # 8-byte Folded Spill
+	fst.d	$fa2, $sp, 216                  # 8-byte Folded Spill
 	fsub.d	$fa0, $fa0, $fs3
-	fld.d	$fa1, $sp, 176                  # 8-byte Folded Reload
+	fld.d	$fa1, $sp, 192                  # 8-byte Folded Reload
 	fcmp.cule.d	$fcc0, $fa1, $fs6
-	fld.d	$fa1, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fa1, $sp, 224                  # 8-byte Folded Reload
 	fadd.d	$fa1, $fa1, $fa0
-	fst.d	$fa1, $sp, 208                  # 8-byte Folded Spill
+	fst.d	$fa1, $sp, 224                  # 8-byte Folded Spill
 	bcnez	$fcc0, .LBB16_135
 # %bb.124:                              #   in Loop: Header=BB16_67 Depth=1
 	fcmp.clt.d	$fcc0, $fs6, $fs5
@@ -14889,7 +14889,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 # %bb.126:                              # %.lr.ph.i.i.preheader
                                         #   in Loop: Header=BB16_67 Depth=1
 	move	$a0, $s1
-	ld.d	$a1, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	fmov.d	$fa0, $fs5
 	.p2align	4, , 16
 .LBB16_127:                             # %.lr.ph.i.i
@@ -14909,7 +14909,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 # %bb.129:                              # %_ZN6miniFE3dotINS_6VectorIdiiEEEENS_10TypeTraitsINT_10ScalarTypeEE14magnitude_typeERKS4_S9_.exit.i.split
                                         #   in Loop: Header=BB16_67 Depth=1
 	fmov.d	$fa0, $fs5
-	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	blez	$a0, .LBB16_132
 .LBB16_130:                             # %.lr.ph.i10.i.preheader
                                         #   in Loop: Header=BB16_67 Depth=1
@@ -14933,21 +14933,18 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	bceqz	$fcc0, .LBB16_158
 .LBB16_133:                             # %.loopexit.split
                                         #   in Loop: Header=BB16_67 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI16_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI16_1)
-	ld.d	$a0, $sp, 104                   # 8-byte Folded Reload
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI16_0)
-	fabs.d	$fa3, $fs6
-	fmul.d	$fa0, $fs0, $fa0
-	fmul.d	$fa0, $fa0, $fa1
-	fmul.d	$fa0, $fa0, $fa2
-	fcmp.cult.d	$fcc0, $fa0, $fa3
+	fabs.d	$fa0, $fs6
+	fld.d	$fa2, $sp, 104                  # 8-byte Folded Reload
+	fmul.d	$fa2, $fs0, $fa2
+	fmul.d	$fa1, $fa2, $fa1
+	fld.d	$fa2, $sp, 120                  # 8-byte Folded Reload
+	fmul.d	$fa1, $fa1, $fa2
+	fcmp.cult.d	$fcc0, $fa1, $fa0
 	bceqz	$fcc0, .LBB16_166
 # %bb.134:                              #   in Loop: Header=BB16_67 Depth=1
-	pcalau12i	$a0, %pc_hi20(.LCPI16_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI16_2)
+	fld.d	$fa0, $sp, 96                   # 8-byte Folded Reload
 	fmul.d	$fa0, $fs6, $fa0
-	fst.d	$fa0, $sp, 176                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 192                  # 8-byte Folded Spill
 .LBB16_135:                             #   in Loop: Header=BB16_67 Depth=1
 .Ltmp1062:                              # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
@@ -14955,7 +14952,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .Ltmp1063:                              # EH_LABEL
 # %bb.136:                              #   in Loop: Header=BB16_67 Depth=1
 	fmov.d	$fs2, $fa0
-	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$a1, $a0, 16
 	ld.d	$a0, $a0, 8
 	sub.d	$a1, $a1, $a0
@@ -15010,7 +15007,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .LBB16_146:                             # %vector.ph473
                                         #   in Loop: Header=BB16_67 Depth=1
 	vreplvei.d	$vr1, $vr0, 0
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	move	$a2, $s6
 	.p2align	4, , 16
@@ -15037,10 +15034,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	beq	$s5, $s6, .LBB16_151
 .LBB16_149:                             # %.lr.ph.i260.preheader536
                                         #   in Loop: Header=BB16_67 Depth=1
-	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a2
 	alsl.d	$a1, $a2, $s1, 3
-	ld.d	$a3, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 200                   # 8-byte Folded Reload
 	alsl.d	$a2, $a2, $a3, 3
 	.p2align	4, , 16
 .LBB16_150:                             # %.lr.ph.i260
@@ -15065,10 +15062,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
                                         #   in Loop: Header=BB16_67 Depth=1
 	fsub.d	$fa0, $fa0, $fs2
 	fadd.d	$fs7, $fs7, $fa0
-	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
 	st.w	$s8, $a0, 0
 	addi.w	$a0, $s8, 1
-	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
 	bne	$s8, $a1, .LBB16_67
 	b	.LBB16_159
 .LBB16_153:                             # %vector.ph490
@@ -15107,7 +15104,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
 	fst.d	$fa0, $s2, 0
-	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
 	bne	$s8, $a0, .LBB16_98
 	b	.LBB16_99
 .LBB16_157:                             # %call.sqrt708
@@ -15116,7 +15113,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	jirl	$ra, $ra, 0
 	fmov.d	$fs0, $fa0
 	fmov.d	$fa0, $fs5
-	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
 	bgtz	$a0, .LBB16_130
 	b	.LBB16_132
 .LBB16_158:                             # %call.sqrt709
@@ -15128,9 +15125,9 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .LBB16_159:                             # %.critedge
 	ld.d	$s3, $sp, 56                    # 8-byte Folded Reload
 	fst.d	$fs7, $s3, 0
-	fld.d	$fa0, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 224                  # 8-byte Folded Reload
 	fst.d	$fa0, $s3, 8
-	fld.d	$fa0, $sp, 200                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 216                  # 8-byte Folded Reload
 	fst.d	$fa0, $s3, 16
 	st.d	$zero, $s3, 24
 .Ltmp1085:                              # EH_LABEL
@@ -15138,7 +15135,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	jirl	$ra, $ra, 0
 .Ltmp1086:                              # EH_LABEL
 # %bb.160:
-	ld.d	$fp, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 200                   # 8-byte Folded Reload
 	b	.LBB16_175
 .LBB16_161:                             # %vector.memcheck451
 	sub.d	$a5, $s8, $a0
@@ -15182,7 +15179,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	addi.d	$a1, $a0, %pc_lo12(.L.str.109)
 	ori	$a2, $zero, 44
 	move	$a0, $s2
-	ld.d	$fp, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 200                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l)
 	jirl	$ra, $ra, 0
 .Ltmp1068:                              # EH_LABEL
@@ -15228,9 +15225,9 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .Ltmp1076:                              # EH_LABEL
 # %bb.174:                              # %_ZNSolsEPFRSoS_E.exit248
 	fst.d	$fs7, $s3, 0
-	fld.d	$fa0, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 224                  # 8-byte Folded Reload
 	fst.d	$fa0, $s3, 8
-	fld.d	$fa0, $sp, 200                  # 8-byte Folded Reload
+	fld.d	$fa0, $sp, 216                  # 8-byte Folded Reload
 	fst.d	$fa0, $s3, 16
 .Ltmp1077:                              # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN6miniFE7mytimerEv)
@@ -15261,49 +15258,49 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	sub.d	$a1, $a0, $fp
 	move	$a0, $fp
-	fld.d	$fs7, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 240                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 248                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 256                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 368
+	fld.d	$fs7, $sp, 232                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 240                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 248                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 256                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 264                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 272                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 280                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 288                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 360                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 368                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 376                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 384
 	pcaddu18i	$t8, %call36(_ZdlPvm)
 	jr	$t8
 .LBB16_181:                             # %_ZN6miniFE6VectorIdiiED2Ev.exit268
-	fld.d	$fs7, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 240                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 248                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 256                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 264                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 272                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 312                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 368
+	fld.d	$fs7, $sp, 232                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 240                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 248                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 256                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 264                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 272                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 280                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 288                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 360                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 368                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 376                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 384
 	ret
 .LBB16_182:
 .Ltmp1082:                              # EH_LABEL
@@ -15350,7 +15347,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 .LBB16_194:
 .Ltmp1093:                              # EH_LABEL
 	move	$s2, $a0
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	beqz	$a0, .LBB16_203
 	b	.LBB16_206
 .LBB16_195:                             # %.loopexit.split-lp
@@ -15373,7 +15370,7 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 # %bb.201:                              # %_ZN6miniFE6VectorIdiiED2Ev.exit270
 	bnez	$s0, .LBB16_205
 .LBB16_202:                             # %_ZN6miniFE6VectorIdiiED2Ev.exit272
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	bnez	$a0, .LBB16_206
 .LBB16_203:                             # %_ZN6miniFE6VectorIdiiED2Ev.exit274
 	move	$a0, $s2
@@ -15392,10 +15389,10 @@ _ZN6miniFE8cg_solveINS_9CSRMatrixIdiiEENS_6VectorIdiiEENS_10matvec_stdIS2_S4_EEE
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	beqz	$a0, .LBB16_203
 .LBB16_206:
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 24                    # 8-byte Folded Reload
 	sub.d	$a1, $a1, $a0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
@@ -15510,18 +15507,8 @@ GCC_except_table16:
 .Lcst_end11:
 	.p2align	2, 0x0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db
-.LCPI17_0:
-	.dword	0x3fa999999999999a              # double 0.050000000000000003
-.LCPI17_1:
-	.dword	0x400921fb54442d18              # double 3.1415926535897931
-.LCPI17_2:
-	.dword	0x4023bd3cc9be45de              # double 9.869604401089358
-.LCPI17_3:
-	.dword	0x3ff9f02f6222c720              # double 1.6211389382774044
 	.section	.text._ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db,"axG",@progbits,_ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db,comdat
-	.weak	_ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db
+	.weak	_ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db # -- Begin function _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db
 	.p2align	5
 	.type	_ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db,@function
 _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db: # @_ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT_17GlobalOrdinalTypeEEERKS4_db
@@ -15581,7 +15568,7 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	sltui	$a2, $a2, 1
 	and	$a2, $a4, $a2
 	add.w	$a2, $a3, $a2
-	movgr2fr.d	$fs6, $zero
+	movgr2fr.d	$fs7, $zero
 	st.d	$a2, $sp, 40                    # 8-byte Folded Spill
 	bge	$a5, $a2, .LBB17_46
 # %bb.1:                                # %.preheader266.lr.ph
@@ -15616,7 +15603,7 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	move	$s2, $zero
 	move	$s4, $zero
 	move	$t2, $zero
-	move	$fp, $zero
+	move	$s0, $zero
 	move	$s6, $zero
 	move	$t1, $zero
 	move	$s3, $zero
@@ -15655,7 +15642,12 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	add.d	$a0, $a1, $a0
 	st.d	$t0, $sp, 168                   # 8-byte Folded Spill
 	mul.d	$a1, $a0, $t0
-	vldi	$vr2, -800
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1018
+	movgr2fr.d	$fs4, $a0
+	vldi	$vr1, -800
 	st.d	$a7, $sp, 120                   # 8-byte Folded Spill
 	b	.LBB17_5
 	.p2align	4, , 16
@@ -15709,9 +15701,9 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	b	.LBB17_10
 	.p2align	4, , 16
 .LBB17_8:                               #   in Loop: Header=BB17_10 Depth=3
-	fst.d	$fs4, $s7, 0
+	fst.d	$fs5, $s7, 0
 	addi.d	$t2, $s7, 8
-	move	$fp, $s4
+	move	$s0, $s4
 	move	$s4, $a0
 .LBB17_9:                               # %_ZNSt6vectorIdSaIdEE9push_backERKd.exit108.us.us.us
                                         #   in Loop: Header=BB17_10 Depth=3
@@ -15744,18 +15736,18 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	div.w	$a1, $a0, $a2
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fs4, $fa0, $fs0
+	fdiv.d	$fs5, $fa0, $fs0
 	mul.d	$a1, $a1, $a2
 	sub.w	$a1, $a0, $a1
 	ld.d	$a2, $sp, 168                   # 8-byte Folded Reload
 	div.w	$a1, $a1, $a2
 	movgr2fr.w	$fa0, $a1
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fs5, $fa0, $fs2
+	fdiv.d	$fs1, $fa0, $fs2
 	mod.w	$a0, $a0, $a2
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
-	fdiv.d	$fs1, $fa0, $fs3
+	fdiv.d	$fs6, $fa0, $fs3
 	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
 	beqz	$a0, .LBB17_15
 .LBB17_11:                              # %.critedge.us.us.us
@@ -15767,12 +15759,12 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	st.d	$s6, $sp, 192                   # 8-byte Folded Spill
 	beq	$t2, $s4, .LBB17_25
 .LBB17_13:                              #   in Loop: Header=BB17_10 Depth=3
-	fst.d	$fs1, $t2, 0
-	move	$s5, $fp
+	fst.d	$fs6, $t2, 0
+	move	$s5, $s0
 	addi.d	$a0, $t2, 8
 	beq	$a0, $s4, .LBB17_32
 .LBB17_14:                              #   in Loop: Header=BB17_10 Depth=3
-	fst.d	$fs5, $t2, 8
+	fst.d	$fs1, $t2, 8
 	addi.d	$s7, $t2, 16
 	move	$a0, $s4
 	move	$s4, $s5
@@ -15781,21 +15773,19 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	b	.LBB17_39
 	.p2align	4, , 16
 .LBB17_15:                              #   in Loop: Header=BB17_10 Depth=3
-	pcalau12i	$a0, %pc_hi20(.LCPI17_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI17_0)
-	fadd.d	$fa1, $fs1, $fa2
-	fabs.d	$fa1, $fa1
-	fcmp.cule.d	$fcc0, $fa0, $fa1
+	fadd.d	$fa0, $fs6, $fa1
+	fabs.d	$fa0, $fa0
+	fcmp.cule.d	$fcc0, $fs4, $fa0
 	bcnez	$fcc0, .LBB17_9
 # %bb.16:                               #   in Loop: Header=BB17_10 Depth=3
-	fadd.d	$fa1, $fs5, $fa2
-	fabs.d	$fa1, $fa1
-	fcmp.cule.d	$fcc0, $fa0, $fa1
+	fadd.d	$fa0, $fs1, $fa1
+	fabs.d	$fa0, $fa0
+	fcmp.cule.d	$fcc0, $fs4, $fa0
 	bcnez	$fcc0, .LBB17_9
 # %bb.17:                               #   in Loop: Header=BB17_10 Depth=3
-	fadd.d	$fa1, $fs4, $fa2
-	fabs.d	$fa1, $fa1
-	fcmp.cule.d	$fcc0, $fa0, $fa1
+	fadd.d	$fa0, $fs5, $fa1
+	fabs.d	$fa0, $fa0
+	fcmp.cule.d	$fcc0, $fs4, $fa0
 	bcnez	$fcc0, .LBB17_9
 	b	.LBB17_11
 	.p2align	4, , 16
@@ -15808,7 +15798,7 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	beq	$s4, $a0, .LBB17_121
 # %bb.19:                               # %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.us.us.us
                                         #   in Loop: Header=BB17_10 Depth=3
-	move	$s0, $t2
+	move	$fp, $t2
 	srai.d	$a0, $s4, 2
 	ori	$a2, $zero, 1
 	sltu	$a1, $a2, $a0
@@ -15857,13 +15847,13 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	alsl.d	$s6, $s5, $s6, 2
 	move	$s4, $s7
 	ld.d	$a7, $sp, 120                   # 8-byte Folded Reload
-	vldi	$vr2, -800
-	move	$t2, $s0
+	vldi	$vr1, -800
+	move	$t2, $fp
 	st.d	$s6, $sp, 192                   # 8-byte Folded Spill
 	bne	$t2, $s4, .LBB17_13
 .LBB17_25:                              #   in Loop: Header=BB17_10 Depth=3
 	move	$s7, $s4
-	sub.d	$s4, $s4, $fp
+	sub.d	$s4, $s4, $s0
 	addi.w	$a0, $zero, -8
 	lu52i.d	$a0, $a0, 2047
 	beq	$s4, $a0, .LBB17_123
@@ -15888,27 +15878,27 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	or	$s6, $a1, $a0
 	slli.d	$a0, $s6, 3
 .Ltmp1096:                              # EH_LABEL
-	move	$s0, $s3
+	move	$fp, $s3
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
 .Ltmp1097:                              # EH_LABEL
 # %bb.27:                               # %.noexc90.us.us.us
                                         #   in Loop: Header=BB17_10 Depth=3
 	move	$s5, $a0
-	fstx.d	$fs1, $a0, $s4
+	fstx.d	$fs6, $a0, $s4
 	blez	$s4, .LBB17_29
 # %bb.28:                               #   in Loop: Header=BB17_10 Depth=3
 	move	$a0, $s5
-	move	$a1, $fp
+	move	$a1, $s0
 	move	$a2, $s4
 	pcaddu18i	$ra, %call36(memcpy)
 	jirl	$ra, $ra, 0
 .LBB17_29:                              # %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i.i.us.us.us
                                         #   in Loop: Header=BB17_10 Depth=3
-	move	$s3, $s0
-	beqz	$fp, .LBB17_31
+	move	$s3, $fp
+	beqz	$s0, .LBB17_31
 # %bb.30:                               #   in Loop: Header=BB17_10 Depth=3
-	move	$a0, $fp
+	move	$a0, $s0
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -15918,8 +15908,8 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	alsl.d	$s4, $s6, $s5, 3
 	ld.d	$s6, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 120                   # 8-byte Folded Reload
-	vldi	$vr2, -800
 	ld.d	$t1, $sp, 112                   # 8-byte Folded Reload
+	vldi	$vr1, -800
 	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
 	addi.d	$a0, $t2, 8
 	bne	$a0, $s4, .LBB17_14
@@ -15947,18 +15937,18 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	or	$a0, $a0, $a3
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
-	or	$s0, $a1, $a0
-	slli.d	$a0, $s0, 3
+	or	$fp, $a1, $a0
+	slli.d	$a0, $fp, 3
 .Ltmp1098:                              # EH_LABEL
 	move	$s2, $s3
-	move	$fp, $s5
+	move	$s0, $s5
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
 .Ltmp1099:                              # EH_LABEL
 # %bb.34:                               # %.noexc98.us.us.us
                                         #   in Loop: Header=BB17_10 Depth=3
 	move	$s4, $a0
-	fstx.d	$fs5, $a0, $s6
+	fstx.d	$fs1, $a0, $s6
 	blez	$s6, .LBB17_36
 # %bb.35:                               #   in Loop: Header=BB17_10 Depth=3
 	move	$a0, $s4
@@ -15979,11 +15969,11 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
                                         #   in Loop: Header=BB17_10 Depth=3
 	add.d	$a0, $s4, $s6
 	addi.d	$s7, $a0, 8
-	alsl.d	$a0, $s0, $s4, 3
+	alsl.d	$a0, $fp, $s4, 3
 	ld.d	$s6, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 120                   # 8-byte Folded Reload
-	vldi	$vr2, -800
 	ld.d	$t1, $sp, 112                   # 8-byte Folded Reload
+	vldi	$vr1, -800
 	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
 	addi.d	$t1, $t1, 4
 	bne	$s7, $a0, .LBB17_8
@@ -15994,7 +15984,7 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	beq	$s5, $a0, .LBB17_119
 # %bb.40:                               # %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i101.us.us.us
                                         #   in Loop: Header=BB17_10 Depth=3
-	move	$s0, $t1
+	move	$fp, $t1
 	srai.d	$a0, $s5, 3
 	ori	$a3, $zero, 1
 	sltu	$a2, $a3, $a0
@@ -16014,14 +16004,14 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	slli.d	$a0, $s1, 3
 .Ltmp1100:                              # EH_LABEL
 	move	$s2, $s3
-	move	$fp, $s4
+	move	$s0, $s4
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
 .Ltmp1101:                              # EH_LABEL
 # %bb.41:                               # %.noexc107.us.us.us
                                         #   in Loop: Header=BB17_10 Depth=3
 	move	$s6, $a0
-	fstx.d	$fs4, $a0, $s5
+	fstx.d	$fs5, $a0, $s5
 	blez	$s5, .LBB17_43
 # %bb.42:                               #   in Loop: Header=BB17_10 Depth=3
 	move	$a0, $s6
@@ -16043,24 +16033,24 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	add.d	$a0, $s6, $s5
 	addi.d	$t2, $a0, 8
 	alsl.d	$s4, $s1, $s6, 3
-	move	$fp, $s6
+	move	$s0, $s6
 	ld.d	$s6, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$a7, $sp, 120                   # 8-byte Folded Reload
-	vldi	$vr2, -800
-	move	$t1, $s0
+	move	$t1, $fp
+	vldi	$vr1, -800
 	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
 	b	.LBB17_9
 .LBB17_46:
 	move	$s3, $zero
 	move	$s6, $zero
-	move	$fp, $zero
+	move	$s0, $zero
 	move	$s4, $zero
                                         # implicit-def: $f28_64
                                         # implicit-def: $f27_64
                                         # implicit-def: $f25_64
-                                        # implicit-def: $f31_64
+                                        # implicit-def: $f30_64
                                         # implicit-def: $f29_64
-	fcmp.cule.d	$fcc0, $fs6, $fs0
+	fcmp.cule.d	$fcc0, $fs7, $fs0
 	bceqz	$fcc0, .LBB17_76
 .LBB17_47:
 .Ltmp1103:                              # EH_LABEL
@@ -16118,63 +16108,72 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
                                         # implicit-def: $f28_64
                                         # implicit-def: $f27_64
                                         # implicit-def: $f25_64
-                                        # implicit-def: $f31_64
+                                        # implicit-def: $f30_64
                                         # implicit-def: $f29_64
 	move	$s6, $s3
-	move	$fp, $s3
+	move	$s0, $s3
 	move	$s4, $s3
-	fcmp.cule.d	$fcc0, $fs6, $fs0
+	fcmp.cule.d	$fcc0, $fs7, $fs0
 	bceqz	$fcc0, .LBB17_76
 	b	.LBB17_47
 .LBB17_55:                              # %.preheader
 	beq	$t1, $s3, .LBB17_116
 # %bb.56:                               # %.lr.ph
-	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 160                   # 8-byte Folded Spill
 	st.d	$s4, $sp, 80                    # 8-byte Folded Spill
 	st.d	$s6, $sp, 192                   # 8-byte Folded Spill
-	move	$s0, $zero
+	move	$fp, $zero
 	st.d	$s3, $sp, 152                   # 8-byte Folded Spill
 	sub.d	$a0, $t1, $s3
-	srai.d	$fp, $a0, 2
+	srai.d	$s0, $a0, 2
 	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$s1, $a0, 8
 	movgr2fr.d	$fa3, $zero
 	vldi	$vr4, -912
-	pcalau12i	$a0, %pc_hi20(.LCPI17_1)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI17_1)
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1024
+	movgr2fr.d	$fa0, $a0
 	fst.d	$fa0, $sp, 184                  # 8-byte Folded Spill
 	addi.w	$s2, $zero, -7
 	lu32i.d	$s2, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI17_2)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI17_2)
+	lu12i.w	$a0, -222236
+	ori	$a0, $a0, 1502
+	lu32i.d	$a0, 245052
+	lu52i.d	$a0, $a0, 1026
+	movgr2fr.d	$fa0, $a0
 	fst.d	$fa0, $sp, 176                  # 8-byte Folded Spill
 	addi.w	$s3, $zero, -3
 	lu32i.d	$s3, 0
 	ori	$s4, $zero, 603
 	ori	$s5, $zero, 300
-	pcalau12i	$s6, %pc_hi20(.LCPI17_3)
-	fmov.d	$fs6, $fa3
+	lu12i.w	$a0, 401964
+	ori	$a0, $a0, 1824
+	lu32i.d	$a0, -397265
+	lu52i.d	$s6, $a0, 1023
+	fmov.d	$fs7, $fa3
                                         # implicit-def: $f28_64
                                         # implicit-def: $f27_64
                                         # implicit-def: $f2_64
-                                        # implicit-def: $f31_64
+                                        # implicit-def: $f30_64
                                         # implicit-def: $f29_64
 	fst.d	$fa3, $sp, 88                   # 8-byte Folded Spill
 	b	.LBB17_58
 	.p2align	4, , 16
 .LBB17_57:                              #   in Loop: Header=BB17_58 Depth=1
-	addi.d	$s0, $s0, 1
-	beq	$s0, $fp, .LBB17_74
+	addi.d	$fp, $fp, 1
+	beq	$fp, $s0, .LBB17_74
 .LBB17_58:                              # =>This Loop Header: Depth=1
                                         #     Child Loop BB17_68 Depth 2
                                         #       Child Loop BB17_69 Depth 3
-	slli.d	$a0, $s0, 2
+	slli.d	$a0, $fp, 2
 	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	ldx.w	$a0, $a1, $a0
 	slli.d	$a0, $a0, 3
 	fldx.d	$fa5, $s1, $a0
-	slli.d	$a0, $s0, 4
-	alsl.d	$a0, $s0, $a0, 3
+	slli.d	$a0, $fp, 4
+	alsl.d	$a0, $fp, $a0, 3
 	ld.d	$a2, $sp, 160                   # 8-byte Folded Reload
 	add.d	$a1, $a2, $a0
 	fldx.d	$fs2, $a2, $a0
@@ -16187,15 +16186,15 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 .LBB17_59:                              #   in Loop: Header=BB17_58 Depth=1
 	fsub.d	$fa1, $fa0, $fa5
 	fabs.d	$fa1, $fa1
-	fcmp.cule.d	$fcc0, $fa1, $fs6
+	fcmp.cule.d	$fcc0, $fa1, $fs7
 	bcnez	$fcc0, .LBB17_57
 # %bb.60:                               #   in Loop: Header=BB17_58 Depth=1
 	fmov.d	$fs5, $fs1
-	fld.d	$fs7, $sp, 168                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 168                  # 8-byte Folded Reload
 	fmov.d	$fa2, $fs2
 	fmov.d	$fs3, $fa0
 	fmov.d	$fs4, $fa5
-	fmov.d	$fs6, $fa1
+	fmov.d	$fs7, $fa1
 	b	.LBB17_57
 	.p2align	4, , 16
 .LBB17_61:                              #   in Loop: Header=BB17_58 Depth=1
@@ -16224,11 +16223,11 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
                                         #   in Loop: Header=BB17_58 Depth=1
 	fst.d	$fa5, $sp, 96                   # 8-byte Folded Spill
 	fst.d	$fa2, $sp, 104                  # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 112                  # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 112                  # 8-byte Folded Spill
 	fst.d	$fs5, $sp, 120                  # 8-byte Folded Spill
 	fst.d	$fs4, $sp, 128                  # 8-byte Folded Spill
 	fst.d	$fs3, $sp, 136                  # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 144                  # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 144                  # 8-byte Folded Spill
 	move	$a0, $zero
 	fmov.d	$fs5, $fa3
 	b	.LBB17_68
@@ -16313,13 +16312,13 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	b	.LBB17_70
 .LBB17_73:                              # %_ZN6miniFE4solnEdddii.exit
                                         #   in Loop: Header=BB17_58 Depth=1
-	fld.d	$fa0, $s6, %pc_lo12(.LCPI17_3)
+	movgr2fr.d	$fa0, $s6
 	fmul.d	$fa0, $fs5, $fa0
-	fld.d	$fs6, $sp, 144                  # 8-byte Folded Reload
+	fld.d	$fs7, $sp, 144                  # 8-byte Folded Reload
 	fld.d	$fs3, $sp, 136                  # 8-byte Folded Reload
 	fld.d	$fs4, $sp, 128                  # 8-byte Folded Reload
 	fld.d	$fs5, $sp, 120                  # 8-byte Folded Reload
-	fld.d	$fs7, $sp, 112                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 112                  # 8-byte Folded Reload
 	fld.d	$fa2, $sp, 104                  # 8-byte Folded Reload
 	fld.d	$fa3, $sp, 88                   # 8-byte Folded Reload
 	vldi	$vr4, -912
@@ -16327,15 +16326,15 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	b	.LBB17_59
 .LBB17_74:                              # %._crit_edge
 	fmov.d	$fs1, $fa2
-	fcmp.cor.d	$fcc0, $fs6, $fs6
+	fcmp.cor.d	$fcc0, $fs7, $fs7
 	fld.d	$fs0, $sp, 24                   # 8-byte Folded Reload
 	ld.d	$s6, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$s4, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 160                   # 8-byte Folded Reload
 	ld.d	$s3, $sp, 152                   # 8-byte Folded Reload
 	bceqz	$fcc0, .LBB17_111
 # %bb.75:                               # %._crit_edge.thread
-	fcmp.cule.d	$fcc0, $fs6, $fs0
+	fcmp.cule.d	$fcc0, $fs7, $fs0
 	bcnez	$fcc0, .LBB17_47
 .LBB17_76:
 .Ltmp1113:                              # EH_LABEL
@@ -16351,7 +16350,7 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 .Ltmp1115:                              # EH_LABEL
 	pcalau12i	$a0, %got_pc_hi20(_ZSt4cout)
 	ld.d	$a0, $a0, %got_pc_lo12(_ZSt4cout)
-	fmov.d	$fa0, $fs6
+	fmov.d	$fa0, $fs7
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp1116:                              # EH_LABEL
@@ -16434,7 +16433,7 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 # %bb.89:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit119
 .Ltmp1133:                              # EH_LABEL
 	move	$a0, $s1
-	fmov.d	$fa0, $fs7
+	fmov.d	$fa0, $fs6
 	pcaddu18i	$ra, %call36(_ZNSo9_M_insertIdEERSoT_)
 	jirl	$ra, $ra, 0
 .Ltmp1134:                              # EH_LABEL
@@ -16578,10 +16577,10 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	jirl	$ra, $ra, 0
 .Ltmp1164:                              # EH_LABEL
 .LBB17_111:                             # %_ZNSolsEPFRSoS_E.exit139
-	beqz	$fp, .LBB17_113
+	beqz	$s0, .LBB17_113
 # %bb.112:
-	sub.d	$a1, $s4, $fp
-	move	$a0, $fp
+	sub.d	$a1, $s4, $s0
+	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB17_113:                             # %_ZNSt6vectorIdSaIdEED2Ev.exit
@@ -16592,7 +16591,7 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 .LBB17_115:                             # %_ZNSt6vectorIiSaIiEED2Ev.exit
-	fcmp.clt.d	$fcc0, $fs0, $fs6
+	fcmp.clt.d	$fcc0, $fs0, $fs7
 	movcf2gr	$a0, $fcc0
 	fld.d	$fs7, $sp, 200                  # 8-byte Folded Reload
 	fld.d	$fs6, $sp, 208                  # 8-byte Folded Reload
@@ -16619,17 +16618,17 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
                                         # implicit-def: $f28_64
                                         # implicit-def: $f27_64
                                         # implicit-def: $f25_64
-                                        # implicit-def: $f31_64
+                                        # implicit-def: $f30_64
                                         # implicit-def: $f29_64
 	fld.d	$fs0, $sp, 24                   # 8-byte Folded Reload
-	fcmp.cule.d	$fcc0, $fs6, $fs0
+	fcmp.cule.d	$fcc0, $fs7, $fs0
 	bceqz	$fcc0, .LBB17_76
 	b	.LBB17_47
 .LBB17_117:                             # %.split421.us
 .Ltmp1170:                              # EH_LABEL
 	pcalau12i	$a0, %pc_hi20(.L.str.71)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.71)
-	move	$fp, $s5
+	move	$s0, $s5
 	pcaddu18i	$ra, %call36(_ZSt20__throw_length_errorPKc)
 	jirl	$ra, $ra, 0
 .Ltmp1171:                              # EH_LABEL
@@ -16638,7 +16637,7 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 .Ltmp1168:                              # EH_LABEL
 	pcalau12i	$a0, %pc_hi20(.L.str.71)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.71)
-	move	$fp, $s4
+	move	$s0, $s4
 	move	$s4, $s7
 	pcaddu18i	$ra, %call36(_ZSt20__throw_length_errorPKc)
 	jirl	$ra, $ra, 0
@@ -16682,8 +16681,8 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 .LBB17_130:
 	move	$s1, $a0
 .LBB17_131:
-	ld.d	$s7, $sp, 192                   # 8-byte Folded Reload
-	bnez	$fp, .LBB17_134
+	ld.d	$fp, $sp, 192                   # 8-byte Folded Reload
+	bnez	$s0, .LBB17_134
 # %bb.132:                              # %_ZNSt6vectorIdSaIdEED2Ev.exit150
 	bnez	$s3, .LBB17_135
 .LBB17_133:                             # %_ZNSt6vectorIiSaIiEED2Ev.exit152
@@ -16691,13 +16690,13 @@ _ZN6miniFE15verify_solutionINS_6VectorIdiiEEEEiRKNS_23simple_mesh_descriptionINT
 	pcaddu18i	$ra, %call36(_Unwind_Resume)
 	jirl	$ra, $ra, 0
 .LBB17_134:                             # %.thread
-	sub.d	$a1, $s4, $fp
-	move	$a0, $fp
+	sub.d	$a1, $s4, $s0
+	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 	beqz	$s3, .LBB17_133
 .LBB17_135:
-	sub.d	$a1, $s7, $s3
+	sub.d	$a1, $fp, $s3
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
@@ -21027,12 +21026,6 @@ _ZN6miniFE4Hex820diffusionMatrix_symmIdEEvPKT_S4_PS2_: # @_ZN6miniFE4Hex820diffu
 .LCPI40_0:
 	.dword	0xbfe279a74576233f              # double -0.57735026899999997
 	.dword	0x3fe279a74576233f              # double 0.57735026899999997
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI40_1:
-	.dword	0x3ff93cd3a2bb11a0              # double 1.5773502690000001
-.LCPI40_2:
-	.dword	0x3fdb0cb17513b982              # double 0.42264973100000003
 	.section	.text._ZN6miniFE4Hex812sourceVectorIdEEvPKT_S4_PS2_,"axG",@progbits,_ZN6miniFE4Hex812sourceVectorIdEEvPKT_S4_PS2_,comdat
 	.weak	_ZN6miniFE4Hex812sourceVectorIdEEvPKT_S4_PS2_
 	.p2align	5
@@ -21103,18 +21096,24 @@ _ZN6miniFE4Hex812sourceVectorIdEEvPKT_S4_PS2_: # @_ZN6miniFE4Hex812sourceVectorI
 	fst.d	$fa0, $sp, 32                   # 8-byte Folded Spill
 	fadd.d	$fa0, $fa1, $fa2
 	fst.d	$fa0, $sp, 24                   # 8-byte Folded Spill
-	addi.d	$a0, $sp, 160
-	pcalau12i	$a1, %pc_hi20(.LCPI40_1)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI40_1)
-	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
-	pcalau12i	$a1, %pc_hi20(.LCPI40_2)
-	fld.d	$fa0, $a1, %pc_lo12(.LCPI40_2)
-	fst.d	$fa0, $sp, 8                    # 8-byte Folded Spill
-	addi.d	$a1, $sp, 144
+	addi.d	$a1, $sp, 160
+	addi.d	$a0, $sp, 144
 	ori	$s4, $zero, 1
+	lu12i.w	$a2, -382031
+	ori	$a2, $a2, 416
+	lu32i.d	$a2, -443181
+	lu52i.d	$a2, $a2, 1023
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 16                   # 8-byte Folded Spill
+	lu12i.w	$a2, 479547
+	ori	$a2, $a2, 2434
+	lu32i.d	$a2, -324431
+	lu52i.d	$a2, $a2, 1021
+	movgr2fr.d	$fa0, $a2
+	fst.d	$fa0, $sp, 8                    # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB40_1:                               # =>This Inner Loop Header: Depth=1
-	fld.d	$fa0, $a0, 0
+	fld.d	$fa0, $a1, 0
 	vldi	$vr2, -912
 	fadd.d	$fa1, $fa0, $fa2
 	vldi	$vr3, -960
@@ -21123,7 +21122,7 @@ _ZN6miniFE4Hex812sourceVectorIdEEvPKT_S4_PS2_: # @_ZN6miniFE4Hex812sourceVectorI
 	fsub.d	$fa0, $fa2, $fa0
 	fmul.d	$fa5, $fa0, $fa3
 	fst.d	$fa5, $sp, 112                  # 8-byte Folded Spill
-	fld.d	$fs6, $a1, 0
+	fld.d	$fs6, $a0, 0
 	fld.d	$fa1, $sp, 56                   # 8-byte Folded Reload
 	fmul.d	$fa0, $fa5, $fa1
 	fmul.d	$fa1, $fa4, $fa1
@@ -21345,8 +21344,8 @@ _ZN6miniFE4Hex812sourceVectorIdEEvPKT_S4_PS2_: # @_ZN6miniFE4Hex812sourceVectorI
 	fst.d	$fa0, $fp, 56
 	andi	$a2, $s4, 1
 	addi.d	$s0, $s0, 768
-	move	$a1, $s2
-	move	$a0, $s3
+	move	$a0, $s2
+	move	$a1, $s3
 	move	$s4, $zero
 	bnez	$a2, .LBB40_1
 # %bb.2:

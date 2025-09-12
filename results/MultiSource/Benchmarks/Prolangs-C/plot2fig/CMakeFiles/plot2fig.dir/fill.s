@@ -1,10 +1,6 @@
 	.file	"fill.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fill
-.LCPI0_0:
-	.dword	0x40efffc000000000              # double 65534
 	.text
-	.globl	fill
+	.globl	fill                            # -- Begin function fill
 	.p2align	5
 	.type	fill,@function
 fill:                                   # @fill
@@ -15,12 +11,14 @@ fill:                                   # @fill
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
 	vldi	$vr1, -784
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_0)
 	fadd.d	$fa0, $fa0, $fa1
 	vldi	$vr1, -1004
 	fmul.d	$fa0, $fa0, $fa1
-	fdiv.d	$fa0, $fa0, $fa2
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -64
+	lu52i.d	$a0, $a0, 1038
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a2, $fa0
 	ori	$a0, $zero, 5

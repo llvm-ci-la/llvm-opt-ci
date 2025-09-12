@@ -106,17 +106,9 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .Lfunc_end6:
 	.size	polybench_alloc_data, .Lfunc_end6-polybench_alloc_data
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function main
-.LCPI7_0:
-	.dword	0x4530000000100000              # double 1.9342813118337666E+25
-.LCPI7_1:
-	.dword	0x409f400000000000              # double 2000
-.LCPI7_3:
-	.dword	0x3ff3333333333333              # double 1.2
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI7_2:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI7_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
 	.text
@@ -243,24 +235,24 @@ main:                                   # @main
 # %bb.18:                               # %polybench_alloc_data.exit45
 	move	$a7, $zero
 	lu52i.d	$a2, $zero, 1107
-	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI7_0)
+	lu12i.w	$a0, 256
+	lu52i.d	$a0, $a0, 1107
+	movgr2fr.d	$fa0, $a0
 	lu12i.w	$a3, 275200
-	pcalau12i	$a0, %pc_hi20(.LCPI7_1)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI7_1)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -49152
+	lu52i.d	$a1, $a0, 1033
+	movgr2fr.d	$fa1, $a1
 	vldi	$vr2, -928
 	vldi	$vr3, -944
 	vldi	$vr4, -1000
 	vldi	$vr5, -960
 	vldi	$vr6, -990
-	pcalau12i	$a0, %pc_hi20(.LCPI7_2)
-	vld	$vr7, $a0, %pc_lo12(.LCPI7_2)
+	pcalau12i	$a0, %pc_hi20(.LCPI7_0)
+	vld	$vr7, $a0, %pc_lo12(.LCPI7_0)
 	lu12i.w	$a0, -4
 	ori	$a4, $a0, 384
 	ori	$a5, $zero, 2000
-	ori	$a1, $zero, 0
-	lu32i.d	$a1, -49152
-	lu52i.d	$a1, $a1, 1033
 	vreplgr2vr.d	$vr8, $a1
 	lu12i.w	$t5, 3
 	ori	$a1, $t5, 3728
@@ -444,10 +436,13 @@ main:                                   # @main
 	bnez	$t1, .LBB7_28
 	b	.LBB7_23
 .LBB7_29:                               # %.preheader67.i.preheader
-	pcalau12i	$a2, %pc_hi20(.LCPI7_3)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI7_3)
 	move	$a2, $zero
 	ori	$a3, $a0, 384
+	lu12i.w	$a4, 209715
+	ori	$a4, $a4, 819
+	lu32i.d	$a4, 209715
+	lu52i.d	$a4, $a4, 1023
+	movgr2fr.d	$fa0, $a4
 	ori	$a4, $zero, 2000
 	move	$a5, $fp
 	.p2align	4, , 16

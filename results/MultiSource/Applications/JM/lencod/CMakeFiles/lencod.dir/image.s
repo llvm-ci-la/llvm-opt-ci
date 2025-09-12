@@ -988,18 +988,7 @@ code_a_picture:                         # @code_a_picture
 .Lfunc_end1:
 	.size	code_a_picture, .Lfunc_end1-code_a_picture
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function encode_one_frame
-.LCPI2_0:
-	.word	0x3f59999a                      # float 0.850000023
-.LCPI2_1:
-	.word	0x3f933333                      # float 1.14999998
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI2_2:
-	.dword	0x3fe5c28f5c28f5c3              # double 0.68000000000000005
-	.text
-	.globl	encode_one_frame
+	.globl	encode_one_frame                # -- Begin function encode_one_frame
 	.p2align	5
 	.type	encode_one_frame,@function
 encode_one_frame:                       # @encode_one_frame
@@ -2387,13 +2376,14 @@ encode_one_frame:                       # @encode_one_frame
 	ld.d	$a0, $sp, 304                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 0
 	ld.w	$a1, $a0, 1576
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI2_0)
 	ld.d	$a0, $s1, %pc_lo12(quadratic_RC)
 	sltui	$a1, $a1, 1
-	vldi	$vr1, -1168
+	vldi	$vr0, -1168
+	lu12i.w	$a2, 259481
+	ori	$a2, $a2, 2458
+	movgr2fr.w	$fa1, $a2
 	movgr2cf	$fcc0, $a1
-	fsel	$fa0, $fa1, $fa0, $fcc0
+	fsel	$fa0, $fa0, $fa1, $fcc0
 	ori	$a1, $zero, 1
 	ori	$a3, $zero, 1
 	move	$a2, $zero
@@ -2653,13 +2643,14 @@ encode_one_frame:                       # @encode_one_frame
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $s6, 0
 	ld.w	$a1, $a0, 1576
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI2_1)
 	ld.d	$a0, $s0, %pc_lo12(quadratic_RC)
 	sltui	$a1, $a1, 1
-	vldi	$vr1, -1168
+	vldi	$vr0, -1168
+	lu12i.w	$a2, 260403
+	ori	$a2, $a2, 819
+	movgr2fr.w	$fa1, $a2
 	movgr2cf	$fcc0, $a1
-	fsel	$fa0, $fa1, $fa0, $fcc0
+	fsel	$fa0, $fa0, $fa1, $fcc0
 	ori	$a1, $zero, 1
 	ori	$a3, $zero, 1
 	move	$a2, $zero
@@ -2877,14 +2868,17 @@ encode_one_frame:                       # @encode_one_frame
 	fadd.d	$fa0, $fa1, $fa0
 	pcaddu18i	$ra, %call36(exp2)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI2_2)
-	fld.s	$fa3, $s7, 812
-	fld.s	$fa4, $s7, 816
-	fld.s	$fa5, $s7, 820
-	fmul.d	$fa2, $fa0, $fa1
-	fadd.s	$fa0, $fa3, $fa4
-	fadd.s	$fa0, $fa0, $fa5
+	lu12i.w	$a0, 377487
+	ori	$a0, $a0, 1475
+	lu32i.d	$a0, 377487
+	lu52i.d	$a0, $a0, 1022
+	fld.s	$fa1, $s7, 812
+	fld.s	$fa3, $s7, 816
+	fld.s	$fa4, $s7, 820
+	movgr2fr.d	$fa2, $a0
+	fmul.d	$fa2, $fa0, $fa2
+	fadd.s	$fa0, $fa1, $fa3
+	fadd.s	$fa0, $fa0, $fa4
 	fld.s	$fa1, $s1, 812
 	fld.s	$fa3, $s1, 816
 	fld.s	$fa4, $s1, 820

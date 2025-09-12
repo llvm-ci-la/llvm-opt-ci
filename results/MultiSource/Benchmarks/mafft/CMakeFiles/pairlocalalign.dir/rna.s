@@ -132,12 +132,7 @@ rnaalifoldcall:                         # @rnaalifoldcall
 .Lfunc_end0:
 	.size	rnaalifoldcall, .Lfunc_end0-rnaalifoldcall
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function foldrna
-.LCPI1_0:
-	.word	0x44160000                      # float 600
-	.text
-	.globl	foldrna
+	.globl	foldrna                         # -- Begin function foldrna
 	.p2align	5
 	.type	foldrna,@function
 foldrna:                                # @foldrna
@@ -1495,9 +1490,9 @@ foldrna:                                # @foldrna
 	movgr2fr.w	$fa0, $zero
 	pcalau12i	$a7, %got_pc_hi20(consweight_rna)
 	ld.d	$a7, $a7, %got_pc_lo12(consweight_rna)
-	pcalau12i	$t0, %pc_hi20(.LCPI1_0)
-	fld.s	$fa1, $t0, %pc_lo12(.LCPI1_0)
 	move	$t0, $zero
+	lu12i.w	$t1, 278880
+	movgr2fr.w	$fa1, $t1
 	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
 	b	.LBB1_150
 	.p2align	4, , 16

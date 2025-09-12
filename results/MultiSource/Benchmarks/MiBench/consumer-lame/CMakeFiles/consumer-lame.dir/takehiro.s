@@ -1,10 +1,6 @@
 	.file	"takehiro.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function count_bits
-.LCPI0_0:
-	.dword	0x40c0070000000000              # double 8206
 	.text
-	.globl	count_bits
+	.globl	count_bits                      # -- Begin function count_bits
 	.p2align	5
 	.type	count_bits,@function
 count_bits:                             # @count_bits
@@ -25,8 +21,10 @@ count_bits:                             # @count_bits
 	pcalau12i	$a3, %got_pc_hi20(ipow20)
 	ld.d	$a3, $a3, %got_pc_lo12(ipow20)
 	fldx.d	$fa0, $a3, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, 1792
+	lu52i.d	$a0, $a0, 1036
+	movgr2fr.d	$fa1, $a0
 	fdiv.d	$fa0, $fa1, $fa0
 	lu12i.w	$a0, -2
 	ori	$a3, $a0, 3584

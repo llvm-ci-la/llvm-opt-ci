@@ -60,12 +60,7 @@ cdft:                                   # @cdft
 .Lfunc_end0:
 	.size	cdft, .Lfunc_end0-cdft
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function makewt
-.LCPI1_0:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-	.text
-	.globl	makewt
+	.globl	makewt                          # -- Begin function makewt
 	.p2align	5
 	.type	makewt,@function
 makewt:                                 # @makewt
@@ -92,13 +87,16 @@ makewt:                                 # @makewt
 	st.w	$a0, $a1, 4
 	blt	$s0, $a2, .LBB1_12
 # %bb.1:
-	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_0)
 	bstrpick.d	$s1, $s0, 31, 1
-	movgr2fr.d	$fa1, $s1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fs2, $fa0, $fa1
-	fmul.d	$fa0, $fs2, $fa1
+	movgr2fr.d	$fa0, $s1
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs2, $fa1, $fa0
+	fmul.d	$fa0, $fs2, $fa0
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	fmov.d	$fs0, $fa0
@@ -658,12 +656,7 @@ cftbsub:                                # @cftbsub
 .Lfunc_end3:
 	.size	cftbsub, .Lfunc_end3-cftbsub
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function rdft
-.LCPI4_0:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-	.text
-	.globl	rdft
+	.globl	rdft                            # -- Begin function rdft
 	.p2align	5
 	.type	rdft,@function
 rdft:                                   # @rdft
@@ -709,13 +702,16 @@ rdft:                                   # @rdft
 # %bb.4:
 	addi.w	$a0, $s3, 0
 	alsl.d	$s1, $a0, $s7, 3
-	pcalau12i	$a0, %pc_hi20(.LCPI4_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI4_0)
 	bstrpick.d	$s6, $s5, 31, 1
-	movgr2fr.d	$fa1, $s6
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fs1, $fa0, $fa1
-	fmul.d	$fa0, $fs1, $fa1
+	movgr2fr.d	$fa0, $s6
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa1, $fa0
+	fmul.d	$fa0, $fs1, $fa0
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	fst.d	$fa0, $s1, 0
@@ -962,12 +958,7 @@ rdft:                                   # @rdft
 .Lfunc_end4:
 	.size	rdft, .Lfunc_end4-rdft
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function makect
-.LCPI5_0:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-	.text
-	.globl	makect
+	.globl	makect                          # -- Begin function makect
 	.p2align	5
 	.type	makect,@function
 makect:                                 # @makect
@@ -986,13 +977,16 @@ makect:                                 # @makect
 	blt	$s0, $a0, .LBB5_4
 # %bb.1:
 	move	$fp, $a2
-	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI5_0)
 	bstrpick.d	$s1, $s0, 31, 1
-	movgr2fr.d	$fa1, $s1
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fs1, $fa0, $fa1
-	fmul.d	$fa0, $fs1, $fa1
+	movgr2fr.d	$fa0, $s1
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa1, $fa0
+	fmul.d	$fa0, $fs1, $fa0
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	fst.d	$fa0, $fp, 0
@@ -1165,12 +1159,7 @@ rftbsub:                                # @rftbsub
 .Lfunc_end7:
 	.size	rftbsub, .Lfunc_end7-rftbsub
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ddct
-.LCPI8_0:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-	.text
-	.globl	ddct
+	.globl	ddct                            # -- Begin function ddct
 	.p2align	5
 	.type	ddct,@function
 ddct:                                   # @ddct
@@ -1215,13 +1204,16 @@ ddct:                                   # @ddct
 	blt	$fp, $a0, .LBB8_8
 # %bb.4:
 	alsl.d	$s7, $s4, $s2, 3
-	pcalau12i	$a0, %pc_hi20(.LCPI8_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI8_0)
 	bstrpick.d	$s5, $fp, 31, 1
-	movgr2fr.d	$fa1, $s5
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fs1, $fa0, $fa1
-	fmul.d	$fa0, $fs1, $fa1
+	movgr2fr.d	$fa0, $s5
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa1, $fa0
+	fmul.d	$fa0, $fs1, $fa0
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	fst.d	$fa0, $s7, 0
@@ -1603,12 +1595,7 @@ dctsub:                                 # @dctsub
 .Lfunc_end9:
 	.size	dctsub, .Lfunc_end9-dctsub
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function ddst
-.LCPI10_0:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-	.text
-	.globl	ddst
+	.globl	ddst                            # -- Begin function ddst
 	.p2align	5
 	.type	ddst,@function
 ddst:                                   # @ddst
@@ -1653,13 +1640,16 @@ ddst:                                   # @ddst
 	blt	$fp, $a0, .LBB10_8
 # %bb.4:
 	alsl.d	$s7, $s4, $s2, 3
-	pcalau12i	$a0, %pc_hi20(.LCPI10_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI10_0)
 	bstrpick.d	$s5, $fp, 31, 1
-	movgr2fr.d	$fa1, $s5
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fs1, $fa0, $fa1
-	fmul.d	$fa0, $fs1, $fa1
+	movgr2fr.d	$fa0, $s5
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa1, $fa0
+	fmul.d	$fa0, $fs1, $fa0
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	fst.d	$fa0, $s7, 0
@@ -2044,12 +2034,7 @@ dstsub:                                 # @dstsub
 .Lfunc_end11:
 	.size	dstsub, .Lfunc_end11-dstsub
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function dfct
-.LCPI12_0:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-	.text
-	.globl	dfct
+	.globl	dfct                            # -- Begin function dfct
 	.p2align	5
 	.type	dfct,@function
 dfct:                                   # @dfct
@@ -2098,13 +2083,16 @@ dfct:                                   # @dfct
 	blt	$s5, $a0, .LBB12_8
 # %bb.4:
 	alsl.d	$s6, $s7, $s1, 3
-	pcalau12i	$a0, %pc_hi20(.LCPI12_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI12_0)
 	bstrpick.d	$s2, $s5, 31, 1
-	movgr2fr.d	$fa1, $s2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fs1, $fa0, $fa1
-	fmul.d	$fa0, $fs1, $fa1
+	movgr2fr.d	$fa0, $s2
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa1, $fa0
+	fmul.d	$fa0, $fs1, $fa0
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	ld.d	$ra, $sp, 96                    # 8-byte Folded Reload
@@ -2897,12 +2885,7 @@ dfct:                                   # @dfct
 .Lfunc_end12:
 	.size	dfct, .Lfunc_end12-dfct
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function dfst
-.LCPI13_0:
-	.dword	0x3fe921fb54442d18              # double 0.78539816339744828
-	.text
-	.globl	dfst
+	.globl	dfst                            # -- Begin function dfst
 	.p2align	5
 	.type	dfst,@function
 dfst:                                   # @dfst
@@ -2950,13 +2933,16 @@ dfst:                                   # @dfst
 	blt	$s7, $a0, .LBB13_8
 # %bb.4:
 	alsl.d	$s4, $s6, $s1, 3
-	pcalau12i	$a0, %pc_hi20(.LCPI13_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI13_0)
 	bstrpick.d	$s2, $s7, 31, 1
-	movgr2fr.d	$fa1, $s2
-	ffint.d.l	$fa1, $fa1
-	fdiv.d	$fs1, $fa0, $fa1
-	fmul.d	$fa0, $fs1, $fa1
+	movgr2fr.d	$fa0, $s2
+	ffint.d.l	$fa0, $fa0
+	lu12i.w	$a0, 345154
+	ori	$a0, $a0, 3352
+	lu32i.d	$a0, -450053
+	lu52i.d	$a0, $a0, 1022
+	movgr2fr.d	$fa1, $a0
+	fdiv.d	$fs1, $fa1, $fa0
+	fmul.d	$fa0, $fs1, $fa0
 	pcaddu18i	$ra, %call36(cos)
 	jirl	$ra, $ra, 0
 	fst.d	$fa0, $s4, 0

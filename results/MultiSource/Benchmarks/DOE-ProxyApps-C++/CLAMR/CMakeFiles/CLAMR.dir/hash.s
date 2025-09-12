@@ -22,20 +22,7 @@ get_hashtablesize:                      # @get_hashtablesize
 .Lfunc_end1:
 	.size	get_hashtablesize, .Lfunc_end1-get_hashtablesize
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function compact_hash_init
-.LCPI2_0:
-	.dword	0x3fc999999999999a              # double 0.20000000000000001
-.LCPI2_1:
-	.dword	0x41dfffffffc00000              # double 2147483647
-.LCPI2_2:
-	.dword	0x41efffffff400000              # double 4294967290
-.LCPI2_3:
-	.dword	0x43e0000000000000              # double 9.2233720368547758E+18
-.LCPI2_4:
-	.dword	0x4059000000000000              # double 100
-	.text
-	.globl	compact_hash_init
+	.globl	compact_hash_init               # -- Begin function compact_hash_init
 	.p2align	5
 	.type	compact_hash_init,@function
 compact_hash_init:                      # @compact_hash_init
@@ -99,17 +86,19 @@ compact_hash_init:                      # @compact_hash_init
 	pcaddu18i	$ra, %call36(glibc_compat_rand)
 	jirl	$ra, $ra, 0
 	movgr2fr.w	$fa0, $a0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
-	fld.d	$fs0, $a0, %pc_lo12(.LCPI2_1)
 	ffint.d.w	$fa0, $fa0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
-	fld.d	$fs1, $a0, %pc_lo12(.LCPI2_2)
+	lu12i.w	$a0, -1024
+	lu52i.d	$a0, $a0, 1053
+	movgr2fr.d	$fs0, $a0
 	fdiv.d	$fa0, $fa0, $fs0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_3)
-	fld.d	$fs2, $a0, %pc_lo12(.LCPI2_3)
+	lu12i.w	$a0, -3072
+	lu52i.d	$a0, $a0, 1054
+	movgr2fr.d	$fs1, $a0
 	fmul.d	$fa0, $fa0, $fs1
 	vldi	$vr1, -912
 	fadd.d	$fa0, $fa0, $fa1
+	lu52i.d	$a0, $zero, 1086
+	movgr2fr.d	$fs2, $a0
 	fcmp.clt.d	$fcc0, $fa0, $fs2
 	ftintrz.l.d	$fa1, $fa0
 	movfr2gr.d	$a0, $fa1
@@ -266,8 +255,11 @@ compact_hash_init:                      # @compact_hash_init
 	fcvt.d.s	$fa0, $fa2
 	bcnez	$fcc0, .LBB2_32
 # %bb.25:
-	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
-	fld.d	$fa2, $a0, %pc_lo12(.LCPI2_0)
+	lu12i.w	$a0, -419431
+	ori	$a0, $a0, 2458
+	lu32i.d	$a0, -419431
+	lu52i.d	$a0, $a0, 1020
+	movgr2fr.d	$fa2, $a0
 	fmul.d	$fa2, $fa0, $fa2
 	vldi	$vr3, -972
 	fdiv.d	$fa2, $fa3, $fa2
@@ -435,11 +427,13 @@ compact_hash_init:                      # @compact_hash_init
 	bstrpick.d	$a1, $s1, 31, 0
 	movgr2fr.d	$fa0, $a1
 	ffint.d.l	$fa0, $fa0
-	pcalau12i	$a1, %pc_hi20(.LCPI2_4)
-	fld.d	$fa1, $a1, %pc_lo12(.LCPI2_4)
-	movgr2fr.d	$fa2, $a0
-	ffint.d.l	$fa2, $fa2
-	fdiv.d	$fa0, $fa0, $fa2
+	movgr2fr.d	$fa1, $a0
+	ffint.d.l	$fa1, $fa1
+	fdiv.d	$fa0, $fa0, $fa1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -458752
+	lu52i.d	$a0, $a0, 1029
+	movgr2fr.d	$fa1, $a0
 	fmul.d	$fa0, $fa0, $fa1
 	movfr2gr.d	$a4, $fa0
 	addi.w	$a1, $s1, 0

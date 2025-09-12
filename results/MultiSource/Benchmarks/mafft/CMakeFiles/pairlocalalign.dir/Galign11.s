@@ -1,14 +1,10 @@
 	.file	"Galign11.c"
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function G__align11
-.LCPI0_0:
-	.dword	0x3ff4cccccccccccd              # double 1.3
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI0_1:
+	.p2align	4, 0x0                          # -- Begin function G__align11
+.LCPI0_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-.LCPI0_2:
+.LCPI0_1:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -159,23 +155,26 @@ G__align11:                             # @G__align11
 	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	ld.w	$s7, $a0, %pc_lo12(G__align11.orlgth2)
 .LBB0_9:
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.d	$fa0, $a0, %pc_lo12(.LCPI0_0)
 	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a0, $fa1
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a0, -209716
+	ori	$a0, $a0, 3277
+	lu32i.d	$a0, 314572
+	lu52i.d	$a0, $a0, 1023
+	movgr2fr.d	$fa1, $a0
+	fmul.d	$fa0, $fa0, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s5
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $s5, $a1
 	or	$s5, $a1, $a0
 	addi.w	$s3, $s5, 100
 	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
-	movgr2fr.w	$fa1, $a0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $a0
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a0, $fa0
 	slt	$a1, $a0, $s7
@@ -719,8 +718,8 @@ G__align11:                             # @G__align11
 	move	$a2, $zero
 	b	.LBB0_70
 .LBB0_67:                               # %vector.ph311
-	pcalau12i	$a3, %pc_hi20(.LCPI0_1)
-	vld	$vr0, $a3, %pc_lo12(.LCPI0_1)
+	pcalau12i	$a3, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $a3, %pc_lo12(.LCPI0_0)
 	bstrpick.d	$a2, $a2, 31, 2
 	slli.d	$a2, $a2, 2
 	addi.d	$a3, $s6, 16
@@ -775,8 +774,8 @@ G__align11:                             # @G__align11
 .LBB0_75:                               # %vector.ph324
 	bstrpick.d	$a3, $a3, 31, 3
 	slli.d	$a3, $a3, 3
-	pcalau12i	$a4, %pc_hi20(.LCPI0_2)
-	vld	$vr0, $a4, %pc_lo12(.LCPI0_2)
+	pcalau12i	$a4, %pc_hi20(.LCPI0_1)
+	vld	$vr0, $a4, %pc_lo12(.LCPI0_1)
 	addi.d	$a4, $a1, 16
 	vrepli.b	$vr1, -1
 	vrepli.w	$vr2, -5
@@ -994,12 +993,7 @@ G__align11:                             # @G__align11
 .Lfunc_end0:
 	.size	G__align11, .Lfunc_end0-G__align11
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function G__align11_noalign
-.LCPI1_0:
-	.dword	0x3ff4cccccccccccd              # double 1.3
-	.text
-	.globl	G__align11_noalign
+	.globl	G__align11_noalign              # -- Begin function G__align11_noalign
 	.p2align	5
 	.type	G__align11_noalign,@function
 G__align11_noalign:                     # @G__align11_noalign
@@ -1104,20 +1098,23 @@ G__align11_noalign:                     # @G__align11_noalign
 	ld.d	$a0, $sp, 96                    # 8-byte Folded Reload
 	ld.w	$a0, $a0, %pc_lo12(G__align11_noalign.orlgth2)
 .LBB1_7:
-	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
-	fld.d	$fa0, $a2, %pc_lo12(.LCPI1_0)
-	movgr2fr.w	$fa1, $s5
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa1, $fa1, $fa0
-	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a2, $fa1
+	movgr2fr.w	$fa0, $s5
+	ffint.d.w	$fa0, $fa0
+	lu12i.w	$a2, -209716
+	ori	$a2, $a2, 3277
+	lu32i.d	$a2, 314572
+	lu52i.d	$a2, $a2, 1023
+	movgr2fr.d	$fa1, $a2
+	fmul.d	$fa0, $fa0, $fa1
+	ftintrz.w.d	$fa0, $fa0
+	movfr2gr.s	$a2, $fa0
 	slt	$a3, $a2, $a1
 	masknez	$a2, $a2, $a3
 	maskeqz	$a1, $a1, $a3
 	or	$s3, $a1, $a2
-	movgr2fr.w	$fa1, $s0
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa1, $fa0
+	movgr2fr.w	$fa0, $s0
+	ffint.d.w	$fa0, $fa0
+	fmul.d	$fa0, $fa0, $fa1
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a1, $fa0
 	slt	$a2, $a1, $a0

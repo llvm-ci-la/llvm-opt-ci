@@ -111,10 +111,6 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .LCPI7_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0
-.LCPI7_1:
-	.dword	0x405e000000000000              # double 120
 	.text
 	.globl	main
 	.p2align	5
@@ -173,44 +169,46 @@ main:                                   # @main
 	ori	$a3, $zero, 120
 	ori	$a4, $zero, 31
 	vldi	$vr0, -988
-	pcalau12i	$a5, %pc_hi20(.LCPI7_1)
-	fld.d	$fa1, $a5, %pc_lo12(.LCPI7_1)
-	ori	$a6, $zero, 960
+	ori	$a5, $zero, 0
+	lu32i.d	$a5, -131072
+	lu52i.d	$a6, $a5, 1029
+	movgr2fr.d	$fa1, $a6
+	ori	$a7, $zero, 960
 	lu12i.w	$a5, 28
 	ori	$s3, $a5, 512
-	move	$a7, $s1
-	ori	$t0, $zero, 120
-	move	$t1, $fp
+	move	$t0, $s1
+	ori	$t1, $zero, 120
+	move	$t2, $fp
 	b	.LBB7_8
 	.p2align	4, , 16
 .LBB7_7:                                #   in Loop: Header=BB7_8 Depth=1
 	addi.d	$a0, $a0, 1
 	add.d	$a2, $a2, $s3
-	add.d	$t1, $t1, $s3
-	addi.w	$t0, $t0, 1
-	add.d	$a7, $a7, $s3
+	add.d	$t2, $t2, $s3
+	addi.w	$t1, $t1, 1
+	add.d	$t0, $t0, $s3
 	beq	$a0, $a3, .LBB7_15
 .LBB7_8:                                # %.preheader24.i
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB7_10 Depth 2
                                         #       Child Loop BB7_14 Depth 3
                                         #       Child Loop BB7_12 Depth 3
-	move	$t2, $zero
-	addi.d	$t3, $a0, 120
-	move	$t4, $a7
+	move	$t3, $zero
+	addi.d	$t4, $a0, 120
 	move	$t5, $t0
 	move	$t6, $t1
-	move	$t7, $a2
+	move	$t7, $t2
+	move	$t8, $a2
 	b	.LBB7_10
 	.p2align	4, , 16
 .LBB7_9:                                # %middle.block
                                         #   in Loop: Header=BB7_10 Depth=2
-	addi.d	$t2, $t2, 1
+	addi.d	$t3, $t3, 1
+	addi.d	$t8, $t8, 960
 	addi.d	$t7, $t7, 960
-	addi.d	$t6, $t6, 960
-	addi.w	$t5, $t5, 1
-	addi.d	$t4, $t4, 960
-	beq	$t2, $a3, .LBB7_7
+	addi.w	$t6, $t6, 1
+	addi.d	$t5, $t5, 960
+	beq	$t3, $a3, .LBB7_7
 .LBB7_10:                               # %.preheader.i
                                         #   Parent Loop BB7_8 Depth=1
                                         # =>  This Loop Header: Depth=2
@@ -219,31 +217,31 @@ main:                                   # @main
 	bltu	$a4, $a1, .LBB7_13
 # %bb.11:                               # %scalar.ph.preheader
                                         #   in Loop: Header=BB7_10 Depth=2
-	move	$t8, $zero
-	move	$s0, $t5
+	move	$s0, $zero
+	move	$s2, $t6
 	.p2align	4, , 16
 .LBB7_12:                               # %scalar.ph
                                         #   Parent Loop BB7_8 Depth=1
                                         #     Parent Loop BB7_10 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	movgr2fr.w	$fa2, $s0
+	movgr2fr.w	$fa2, $s2
 	ffint.d.w	$fa2, $fa2
 	fmul.d	$fa2, $fa2, $fa0
 	fdiv.d	$fa2, $fa2, $fa1
-	fstx.d	$fa2, $t4, $t8
-	fstx.d	$fa2, $t6, $t8
-	addi.d	$t8, $t8, 8
-	addi.w	$s0, $s0, -1
-	bne	$t8, $a6, .LBB7_12
+	fstx.d	$fa2, $t5, $s0
+	fstx.d	$fa2, $t7, $s0
+	addi.d	$s0, $s0, 8
+	addi.w	$s2, $s2, -1
+	bne	$s0, $a7, .LBB7_12
 	b	.LBB7_9
 	.p2align	4, , 16
 .LBB7_13:                               # %vector.ph
                                         #   in Loop: Header=BB7_10 Depth=2
-	pcalau12i	$t8, %pc_hi20(.LCPI7_0)
-	vld	$vr2, $t8, %pc_lo12(.LCPI7_0)
-	move	$t8, $zero
-	add.d	$s0, $t3, $t2
-	vreplgr2vr.d	$vr3, $s0
+	pcalau12i	$s0, %pc_hi20(.LCPI7_0)
+	vld	$vr2, $s0, %pc_lo12(.LCPI7_0)
+	move	$s0, $zero
+	add.d	$s2, $t4, $t3
+	vreplgr2vr.d	$vr3, $s2
 	.p2align	4, , 16
 .LBB7_14:                               # %vector.body
                                         #   Parent Loop BB7_8 Depth=1
@@ -253,27 +251,24 @@ main:                                   # @main
 	vsubi.du	$vr5, $vr4, 2
 	vffint.d.l	$vr4, $vr4
 	vffint.d.l	$vr5, $vr5
-	ori	$s0, $zero, 0
-	lu32i.d	$s0, 262144
-	lu52i.d	$s0, $s0, 1026
-	vreplgr2vr.d	$vr6, $s0
+	ori	$s2, $zero, 0
+	lu32i.d	$s2, 262144
+	lu52i.d	$s2, $s2, 1026
+	vreplgr2vr.d	$vr6, $s2
 	vfmul.d	$vr4, $vr4, $vr6
 	vfmul.d	$vr5, $vr5, $vr6
-	ori	$s0, $zero, 0
-	lu32i.d	$s0, -131072
-	lu52i.d	$s0, $s0, 1029
-	vreplgr2vr.d	$vr6, $s0
+	vreplgr2vr.d	$vr6, $a6
 	vfdiv.d	$vr4, $vr4, $vr6
 	vfdiv.d	$vr5, $vr5, $vr6
-	add.d	$s0, $t7, $t8
-	vst	$vr4, $s0, -16
-	vstx	$vr5, $t7, $t8
-	add.d	$s0, $t6, $t8
-	vstx	$vr4, $t6, $t8
-	vst	$vr5, $s0, 16
-	addi.d	$t8, $t8, 32
+	add.d	$s2, $t8, $s0
+	vst	$vr4, $s2, -16
+	vstx	$vr5, $t8, $s0
+	add.d	$s2, $t7, $s0
+	vstx	$vr4, $t7, $s0
+	vst	$vr5, $s2, 16
+	addi.d	$s0, $s0, 32
 	vaddi.du	$vr2, $vr2, 4
-	bne	$t8, $a6, .LBB7_14
+	bne	$s0, $a7, .LBB7_14
 	b	.LBB7_9
 .LBB7_15:                               # %.preheader117.i.preheader
 	lu12i.w	$a0, 56

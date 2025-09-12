@@ -1,12 +1,6 @@
 	.file	"FloatPrecision.c"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function print
-.LCPI0_0:
-	.word	0x4f000000                      # float 2.14748365E+9
-.LCPI0_1:
-	.word	0x5f000000                      # float 9.22337203E+18
 	.text
-	.globl	print
+	.globl	print                           # -- Begin function print
 	.p2align	5
 	.type	print,@function
 print:                                  # @print
@@ -14,8 +8,8 @@ print:                                  # @print
 	addi.d	$sp, $sp, -16
 	st.d	$ra, $sp, 8                     # 8-byte Folded Spill
 	fst.d	$fs0, $sp, 0                    # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
-	fld.s	$fa1, $a0, %pc_lo12(.LCPI0_0)
+	lu12i.w	$a0, 323584
+	movgr2fr.w	$fa1, $a0
 	fmul.s	$fs0, $fa0, $fa1
 	fcvt.d.s	$fa0, $fs0
 	movfr2gr.d	$a1, $fa0
@@ -23,8 +17,8 @@ print:                                  # @print
 	addi.d	$a0, $a0, %pc_lo12(.L.str)
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
-	fld.s	$fa0, $a0, %pc_lo12(.LCPI0_1)
+	lu12i.w	$a0, 389120
+	movgr2fr.w	$fa0, $a0
 	fcmp.clt.s	$fcc0, $fs0, $fa0
 	ftintrz.l.s	$fa1, $fs0
 	movfr2gr.d	$a0, $fa1

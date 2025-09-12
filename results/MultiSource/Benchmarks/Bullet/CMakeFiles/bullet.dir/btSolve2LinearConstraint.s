@@ -1,10 +1,6 @@
 	.file	"btSolve2LinearConstraint.cpp"
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
-.LCPI0_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
-	.globl	_ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
+	.globl	_ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_ # -- Begin function _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
 	.p2align	5
 	.type	_ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_,@function
 _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_: # @_ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
@@ -55,11 +51,11 @@ _ZN24btSolve2LinearConstraint31resolveUnilateralPairConstraintEP11btRigidBodyS1_
 	fmadd.s	$fa4, $fa6, $fa6, $fa4
 	fsqrt.s	$fa4, $fa4
 	fabs.s	$fa4, $fa4
-	pcalau12i	$a6, %pc_hi20(.LCPI0_0)
-	fld.s	$fa5, $a6, %pc_lo12(.LCPI0_0)
-	vldi	$vr6, -1040
-	fadd.s	$fa4, $fa4, $fa6
+	vldi	$vr5, -1040
+	fadd.s	$fa4, $fa4, $fa5
 	fabs.s	$fa4, $fa4
+	lu12i.w	$a6, 212992
+	movgr2fr.w	$fa5, $a6
 	fcmp.cle.s	$fcc0, $fa5, $fa4
 	bcnez	$fcc0, .LBB0_2
 # %bb.1:
@@ -402,12 +398,8 @@ _ZN15btJacobianEntryC2ERK11btMatrix3x3S2_RK9btVector3S5_S5_S5_fS5_f: # @_ZN15btJ
 	.size	_ZN15btJacobianEntryC2ERK11btMatrix3x3S2_RK9btVector3S5_S5_S5_fS5_f, .Lfunc_end1-_ZN15btJacobianEntryC2ERK11btMatrix3x3S2_RK9btVector3S5_S5_S5_fS5_f
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
-.LCPI2_0:
-	.word	0x34000000                      # float 1.1920929E-7
 	.text
-	.globl	_ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
+	.globl	_ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_ # -- Begin function _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
 	.p2align	5
 	.type	_ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_,@function
 _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_: # @_ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_RK11btMatrix3x3S4_RK9btVector3fS7_S7_S7_S7_fS7_S7_S7_fS7_S7_S7_fS7_RfS8_
@@ -458,11 +450,11 @@ _ZN24btSolve2LinearConstraint30resolveBilateralPairConstraintEP11btRigidBodyS1_R
 	fmadd.s	$fa4, $fa6, $fa6, $fa4
 	fsqrt.s	$fa4, $fa4
 	fabs.s	$fa4, $fa4
-	pcalau12i	$a6, %pc_hi20(.LCPI2_0)
-	fld.s	$fa5, $a6, %pc_lo12(.LCPI2_0)
-	vldi	$vr6, -1040
-	fadd.s	$fa4, $fa4, $fa6
+	vldi	$vr5, -1040
+	fadd.s	$fa4, $fa4, $fa5
 	fabs.s	$fa4, $fa4
+	lu12i.w	$a6, 212992
+	movgr2fr.w	$fa5, $a6
 	fcmp.cle.s	$fcc0, $fa5, $fa4
 	bcnez	$fcc0, .LBB2_6
 # %bb.1:
