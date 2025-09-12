@@ -683,10 +683,8 @@ MatchFinder_Normalize3:                 # @MatchFinder_Normalize3
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr1, $a4, -16
 	vld	$vr2, $a4, 0
-	vmax.wu	$vr1, $vr1, $vr0
-	vsub.w	$vr1, $vr1, $vr0
-	vmax.wu	$vr2, $vr2, $vr0
-	vsub.w	$vr2, $vr2, $vr0
+	vssub.wu	$vr1, $vr1, $vr0
+	vssub.wu	$vr2, $vr2, $vr0
 	vst	$vr1, $a4, -16
 	vst	$vr2, $a4, 0
 	addi.d	$a5, $a5, -8
@@ -1093,10 +1091,8 @@ MatchFinder_CheckLimits:                # @MatchFinder_CheckLimits
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr1, $a5, -16
 	vld	$vr2, $a5, 0
-	vmax.wu	$vr1, $vr1, $vr0
-	vsub.w	$vr1, $vr1, $vr0
-	vmax.wu	$vr2, $vr2, $vr0
-	vsub.w	$vr2, $vr2, $vr0
+	vssub.wu	$vr1, $vr1, $vr0
+	vssub.wu	$vr2, $vr2, $vr0
 	vst	$vr1, $a5, -16
 	vst	$vr2, $a5, 0
 	addi.d	$a6, $a6, -8

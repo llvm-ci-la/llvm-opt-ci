@@ -92,54 +92,24 @@ Gsm_Coder:                              # @Gsm_Coder
 	b	.LBB0_5
 .LBB0_4:                                # %vector.body
 	vld	$vr0, $s4, 10
-	vld	$vr1, $fp, 240
-	vld	$vr2, $s4, 26
+	vld	$vr1, $s4, 26
+	vld	$vr2, $fp, 240
 	vld	$vr3, $fp, 256
-	vadd.h	$vr4, $vr0, $vr1
-	vslt.h	$vr0, $vr4, $vr0
-	vslti.h	$vr1, $vr1, 0
-	vxor.v	$vr0, $vr1, $vr0
-	vsrai.h	$vr1, $vr4, 15
-	vbitrevi.h	$vr1, $vr1, 15
-	vbitsel.v	$vr0, $vr4, $vr1, $vr0
-	vadd.h	$vr1, $vr2, $vr3
-	vslt.h	$vr2, $vr1, $vr2
-	vslti.h	$vr3, $vr3, 0
-	vxor.v	$vr2, $vr3, $vr2
-	vsrai.h	$vr3, $vr1, 15
-	vbitrevi.h	$vr3, $vr3, 15
-	vld	$vr4, $s4, 42
-	vld	$vr5, $fp, 272
-	vbitsel.v	$vr1, $vr1, $vr3, $vr2
-	vld	$vr2, $s4, 58
-	vld	$vr3, $fp, 288
-	vadd.h	$vr6, $vr4, $vr5
-	vslt.h	$vr4, $vr6, $vr4
-	vslti.h	$vr5, $vr5, 0
-	vxor.v	$vr4, $vr5, $vr4
-	vsrai.h	$vr5, $vr6, 15
-	vbitrevi.h	$vr5, $vr5, 15
-	vbitsel.v	$vr4, $vr6, $vr5, $vr4
+	vsadd.h	$vr0, $vr0, $vr2
+	vsadd.h	$vr1, $vr1, $vr3
 	vst	$vr0, $fp, 240
-	vadd.h	$vr0, $vr2, $vr3
-	vslt.h	$vr2, $vr0, $vr2
-	vslti.h	$vr3, $vr3, 0
-	vxor.v	$vr2, $vr3, $vr2
-	vsrai.h	$vr3, $vr0, 15
-	vbitrevi.h	$vr3, $vr3, 15
-	vbitsel.v	$vr0, $vr0, $vr3, $vr2
-	vld	$vr2, $s4, 74
-	vld	$vr3, $fp, 304
+	vld	$vr0, $s4, 42
+	vld	$vr2, $fp, 272
 	vst	$vr1, $fp, 256
-	vst	$vr4, $fp, 272
-	vst	$vr0, $fp, 288
-	vadd.h	$vr0, $vr2, $vr3
-	vslt.h	$vr1, $vr0, $vr2
-	vslti.h	$vr2, $vr3, 0
-	vxor.v	$vr1, $vr2, $vr1
-	vsrai.h	$vr2, $vr0, 15
-	vbitrevi.h	$vr2, $vr2, 15
-	vbitsel.v	$vr0, $vr0, $vr2, $vr1
+	vld	$vr1, $s4, 58
+	vld	$vr3, $fp, 288
+	vsadd.h	$vr0, $vr0, $vr2
+	vld	$vr2, $s4, 74
+	vld	$vr4, $fp, 304
+	vsadd.h	$vr1, $vr1, $vr3
+	vst	$vr0, $fp, 272
+	vst	$vr1, $fp, 288
+	vsadd.h	$vr0, $vr2, $vr4
 	vst	$vr0, $fp, 304
 .LBB0_5:                                # %iter.check66
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
@@ -195,54 +165,24 @@ Gsm_Coder:                              # @Gsm_Coder
 	b	.LBB0_10
 .LBB0_9:                                # %vector.body69
 	vld	$vr0, $s4, 10
-	vld	$vr1, $fp, 320
-	vld	$vr2, $s4, 26
+	vld	$vr1, $s4, 26
+	vld	$vr2, $fp, 320
 	vld	$vr3, $fp, 336
-	vadd.h	$vr4, $vr0, $vr1
-	vslt.h	$vr0, $vr4, $vr0
-	vslti.h	$vr1, $vr1, 0
-	vxor.v	$vr0, $vr1, $vr0
-	vsrai.h	$vr1, $vr4, 15
-	vbitrevi.h	$vr1, $vr1, 15
-	vbitsel.v	$vr0, $vr4, $vr1, $vr0
-	vadd.h	$vr1, $vr2, $vr3
-	vslt.h	$vr2, $vr1, $vr2
-	vslti.h	$vr3, $vr3, 0
-	vxor.v	$vr2, $vr3, $vr2
-	vsrai.h	$vr3, $vr1, 15
-	vbitrevi.h	$vr3, $vr3, 15
-	vld	$vr4, $s4, 42
-	vld	$vr5, $fp, 352
-	vbitsel.v	$vr1, $vr1, $vr3, $vr2
-	vld	$vr2, $s4, 58
-	vld	$vr3, $fp, 368
-	vadd.h	$vr6, $vr4, $vr5
-	vslt.h	$vr4, $vr6, $vr4
-	vslti.h	$vr5, $vr5, 0
-	vxor.v	$vr4, $vr5, $vr4
-	vsrai.h	$vr5, $vr6, 15
-	vbitrevi.h	$vr5, $vr5, 15
-	vbitsel.v	$vr4, $vr6, $vr5, $vr4
+	vsadd.h	$vr0, $vr0, $vr2
+	vsadd.h	$vr1, $vr1, $vr3
 	vst	$vr0, $fp, 320
-	vadd.h	$vr0, $vr2, $vr3
-	vslt.h	$vr2, $vr0, $vr2
-	vslti.h	$vr3, $vr3, 0
-	vxor.v	$vr2, $vr3, $vr2
-	vsrai.h	$vr3, $vr0, 15
-	vbitrevi.h	$vr3, $vr3, 15
-	vbitsel.v	$vr0, $vr0, $vr3, $vr2
-	vld	$vr2, $s4, 74
-	vld	$vr3, $fp, 384
+	vld	$vr0, $s4, 42
+	vld	$vr2, $fp, 352
 	vst	$vr1, $fp, 336
-	vst	$vr4, $fp, 352
-	vst	$vr0, $fp, 368
-	vadd.h	$vr0, $vr2, $vr3
-	vslt.h	$vr1, $vr0, $vr2
-	vslti.h	$vr2, $vr3, 0
-	vxor.v	$vr1, $vr2, $vr1
-	vsrai.h	$vr2, $vr0, 15
-	vbitrevi.h	$vr2, $vr2, 15
-	vbitsel.v	$vr0, $vr0, $vr2, $vr1
+	vld	$vr1, $s4, 58
+	vld	$vr3, $fp, 368
+	vsadd.h	$vr0, $vr0, $vr2
+	vld	$vr2, $s4, 74
+	vld	$vr4, $fp, 384
+	vsadd.h	$vr1, $vr1, $vr3
+	vst	$vr0, $fp, 352
+	vst	$vr1, $fp, 368
+	vsadd.h	$vr0, $vr2, $vr4
 	vst	$vr0, $fp, 384
 .LBB0_10:                               # %iter.check94
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
@@ -301,54 +241,24 @@ Gsm_Coder:                              # @Gsm_Coder
 	b	.LBB0_15
 .LBB0_14:                               # %vector.body97
 	vld	$vr0, $s4, 10
-	vld	$vr1, $fp, 400
-	vld	$vr2, $s4, 26
+	vld	$vr1, $s4, 26
+	vld	$vr2, $fp, 400
 	vld	$vr3, $fp, 416
-	vadd.h	$vr4, $vr0, $vr1
-	vslt.h	$vr0, $vr4, $vr0
-	vslti.h	$vr1, $vr1, 0
-	vxor.v	$vr0, $vr1, $vr0
-	vsrai.h	$vr1, $vr4, 15
-	vbitrevi.h	$vr1, $vr1, 15
-	vbitsel.v	$vr0, $vr4, $vr1, $vr0
-	vadd.h	$vr1, $vr2, $vr3
-	vslt.h	$vr2, $vr1, $vr2
-	vslti.h	$vr3, $vr3, 0
-	vxor.v	$vr2, $vr3, $vr2
-	vsrai.h	$vr3, $vr1, 15
-	vbitrevi.h	$vr3, $vr3, 15
-	vld	$vr4, $s4, 42
-	vld	$vr5, $fp, 432
-	vbitsel.v	$vr1, $vr1, $vr3, $vr2
-	vld	$vr2, $s4, 58
-	vld	$vr3, $fp, 448
-	vadd.h	$vr6, $vr4, $vr5
-	vslt.h	$vr4, $vr6, $vr4
-	vslti.h	$vr5, $vr5, 0
-	vxor.v	$vr4, $vr5, $vr4
-	vsrai.h	$vr5, $vr6, 15
-	vbitrevi.h	$vr5, $vr5, 15
-	vbitsel.v	$vr4, $vr6, $vr5, $vr4
+	vsadd.h	$vr0, $vr0, $vr2
+	vsadd.h	$vr1, $vr1, $vr3
 	vst	$vr0, $fp, 400
-	vadd.h	$vr0, $vr2, $vr3
-	vslt.h	$vr2, $vr0, $vr2
-	vslti.h	$vr3, $vr3, 0
-	vxor.v	$vr2, $vr3, $vr2
-	vsrai.h	$vr3, $vr0, 15
-	vbitrevi.h	$vr3, $vr3, 15
-	vbitsel.v	$vr0, $vr0, $vr3, $vr2
-	vld	$vr2, $s4, 74
-	vld	$vr3, $fp, 464
+	vld	$vr0, $s4, 42
+	vld	$vr2, $fp, 432
 	vst	$vr1, $fp, 416
-	vst	$vr4, $fp, 432
-	vst	$vr0, $fp, 448
-	vadd.h	$vr0, $vr2, $vr3
-	vslt.h	$vr1, $vr0, $vr2
-	vslti.h	$vr2, $vr3, 0
-	vxor.v	$vr1, $vr2, $vr1
-	vsrai.h	$vr2, $vr0, 15
-	vbitrevi.h	$vr2, $vr2, 15
-	vbitsel.v	$vr0, $vr0, $vr2, $vr1
+	vld	$vr1, $s4, 58
+	vld	$vr3, $fp, 448
+	vsadd.h	$vr0, $vr0, $vr2
+	vld	$vr2, $s4, 74
+	vld	$vr4, $fp, 464
+	vsadd.h	$vr1, $vr1, $vr3
+	vst	$vr0, $fp, 432
+	vst	$vr1, $fp, 448
+	vsadd.h	$vr0, $vr2, $vr4
 	vst	$vr0, $fp, 464
 .LBB0_15:                               # %iter.check122
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
@@ -405,54 +315,24 @@ Gsm_Coder:                              # @Gsm_Coder
 	b	.LBB0_20
 .LBB0_19:                               # %vector.body125
 	vld	$vr0, $s4, 10
-	vld	$vr1, $fp, 480
-	vld	$vr2, $s4, 26
+	vld	$vr1, $s4, 26
+	vld	$vr2, $fp, 480
 	vld	$vr3, $fp, 496
-	vadd.h	$vr4, $vr0, $vr1
-	vslt.h	$vr0, $vr4, $vr0
-	vslti.h	$vr1, $vr1, 0
-	vxor.v	$vr0, $vr1, $vr0
-	vsrai.h	$vr1, $vr4, 15
-	vbitrevi.h	$vr1, $vr1, 15
-	vbitsel.v	$vr0, $vr4, $vr1, $vr0
-	vadd.h	$vr1, $vr2, $vr3
-	vslt.h	$vr2, $vr1, $vr2
-	vslti.h	$vr3, $vr3, 0
-	vxor.v	$vr2, $vr3, $vr2
-	vsrai.h	$vr3, $vr1, 15
-	vbitrevi.h	$vr3, $vr3, 15
-	vld	$vr4, $s4, 42
-	vld	$vr5, $fp, 512
-	vbitsel.v	$vr1, $vr1, $vr3, $vr2
-	vld	$vr2, $s4, 58
-	vld	$vr3, $fp, 528
-	vadd.h	$vr6, $vr4, $vr5
-	vslt.h	$vr4, $vr6, $vr4
-	vslti.h	$vr5, $vr5, 0
-	vxor.v	$vr4, $vr5, $vr4
-	vsrai.h	$vr5, $vr6, 15
-	vbitrevi.h	$vr5, $vr5, 15
-	vbitsel.v	$vr4, $vr6, $vr5, $vr4
+	vsadd.h	$vr0, $vr0, $vr2
+	vsadd.h	$vr1, $vr1, $vr3
 	vst	$vr0, $fp, 480
-	vadd.h	$vr0, $vr2, $vr3
-	vslt.h	$vr2, $vr0, $vr2
-	vslti.h	$vr3, $vr3, 0
-	vxor.v	$vr2, $vr3, $vr2
-	vsrai.h	$vr3, $vr0, 15
-	vbitrevi.h	$vr3, $vr3, 15
-	vbitsel.v	$vr0, $vr0, $vr3, $vr2
-	vld	$vr2, $s4, 74
-	vld	$vr3, $fp, 544
+	vld	$vr0, $s4, 42
+	vld	$vr2, $fp, 512
 	vst	$vr1, $fp, 496
-	vst	$vr4, $fp, 512
-	vst	$vr0, $fp, 528
-	vadd.h	$vr0, $vr2, $vr3
-	vslt.h	$vr1, $vr0, $vr2
-	vslti.h	$vr2, $vr3, 0
-	vxor.v	$vr1, $vr2, $vr1
-	vsrai.h	$vr2, $vr0, 15
-	vbitrevi.h	$vr2, $vr2, 15
-	vbitsel.v	$vr0, $vr0, $vr2, $vr1
+	vld	$vr1, $s4, 58
+	vld	$vr3, $fp, 528
+	vsadd.h	$vr0, $vr0, $vr2
+	vld	$vr2, $s4, 74
+	vld	$vr4, $fp, 544
+	vsadd.h	$vr1, $vr1, $vr3
+	vst	$vr0, $fp, 512
+	vst	$vr1, $fp, 528
+	vsadd.h	$vr0, $vr2, $vr4
 	vst	$vr0, $fp, 544
 .LBB0_20:                               # %vec.epilog.middle.block142
 	ori	$a2, $zero, 240

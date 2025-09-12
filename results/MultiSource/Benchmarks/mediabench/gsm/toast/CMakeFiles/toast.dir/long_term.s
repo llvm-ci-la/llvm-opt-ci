@@ -655,124 +655,93 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vmadd.w	$vr3, $vr2, $vr1
 	vsrli.w	$vr2, $vr3, 15
 	vsrli.w	$vr3, $vr4, 15
-	vpickev.h	$vr3, $vr3, $vr2
-	vst	$vr3, $s1, 0
-	vld	$vr4, $fp, 0
-	vrepli.b	$vr2, 0
-	vslt.h	$vr5, $vr2, $vr3
-	vsub.h	$vr3, $vr4, $vr3
-	vslt.h	$vr4, $vr3, $vr4
-	vxor.v	$vr4, $vr5, $vr4
-	vsrai.h	$vr5, $vr3, 15
-	vbitrevi.h	$vr5, $vr5, 15
-	vbitsel.v	$vr3, $vr3, $vr5, $vr4
-	vst	$vr3, $s0, 0
+	vpickev.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s1, 0
+	vld	$vr3, $fp, 0
+	vssub.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s0, 0
 	ori	$a1, $zero, 8
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
-	vldx	$vr3, $s2, $a1
-	vilvl.h	$vr4, $vr3, $vr3
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvh.h	$vr3, $vr3, $vr3
+	vldx	$vr2, $s2, $a1
+	vilvl.h	$vr3, $vr2, $vr2
 	vslli.w	$vr3, $vr3, 16
 	vsrai.w	$vr3, $vr3, 16
-	vori.b	$vr5, $vr0, 0
-	vmadd.w	$vr5, $vr3, $vr1
-	vori.b	$vr3, $vr0, 0
-	vmadd.w	$vr3, $vr4, $vr1
-	vsrli.w	$vr3, $vr3, 15
-	vsrli.w	$vr4, $vr5, 15
-	vpickev.h	$vr3, $vr4, $vr3
-	vst	$vr3, $s1, 16
-	vld	$vr4, $fp, 16
-	vslt.h	$vr5, $vr2, $vr3
-	vsub.h	$vr3, $vr4, $vr3
-	vslt.h	$vr4, $vr3, $vr4
-	vxor.v	$vr4, $vr5, $vr4
-	vsrai.h	$vr5, $vr3, 15
-	vbitrevi.h	$vr5, $vr5, 15
-	vbitsel.v	$vr3, $vr3, $vr5, $vr4
-	vst	$vr3, $s0, 16
+	vilvh.h	$vr2, $vr2, $vr2
+	vslli.w	$vr2, $vr2, 16
+	vsrai.w	$vr2, $vr2, 16
+	vori.b	$vr4, $vr0, 0
+	vmadd.w	$vr4, $vr2, $vr1
+	vori.b	$vr2, $vr0, 0
+	vmadd.w	$vr2, $vr3, $vr1
+	vsrli.w	$vr2, $vr2, 15
+	vsrli.w	$vr3, $vr4, 15
+	vpickev.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s1, 16
+	vld	$vr3, $fp, 16
+	vssub.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s0, 16
 	ori	$a1, $zero, 16
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
-	vldx	$vr3, $s2, $a1
-	vilvl.h	$vr4, $vr3, $vr3
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvh.h	$vr3, $vr3, $vr3
+	vldx	$vr2, $s2, $a1
+	vilvl.h	$vr3, $vr2, $vr2
 	vslli.w	$vr3, $vr3, 16
 	vsrai.w	$vr3, $vr3, 16
-	vori.b	$vr5, $vr0, 0
-	vmadd.w	$vr5, $vr3, $vr1
-	vori.b	$vr3, $vr0, 0
-	vmadd.w	$vr3, $vr4, $vr1
-	vsrli.w	$vr3, $vr3, 15
-	vsrli.w	$vr4, $vr5, 15
-	vpickev.h	$vr3, $vr4, $vr3
-	vst	$vr3, $s1, 32
-	vld	$vr4, $fp, 32
-	vslt.h	$vr5, $vr2, $vr3
-	vsub.h	$vr3, $vr4, $vr3
-	vslt.h	$vr4, $vr3, $vr4
-	vxor.v	$vr4, $vr5, $vr4
-	vsrai.h	$vr5, $vr3, 15
-	vbitrevi.h	$vr5, $vr5, 15
-	vbitsel.v	$vr3, $vr3, $vr5, $vr4
-	vst	$vr3, $s0, 32
+	vilvh.h	$vr2, $vr2, $vr2
+	vslli.w	$vr2, $vr2, 16
+	vsrai.w	$vr2, $vr2, 16
+	vori.b	$vr4, $vr0, 0
+	vmadd.w	$vr4, $vr2, $vr1
+	vori.b	$vr2, $vr0, 0
+	vmadd.w	$vr2, $vr3, $vr1
+	vsrli.w	$vr2, $vr2, 15
+	vsrli.w	$vr3, $vr4, 15
+	vpickev.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s1, 32
+	vld	$vr3, $fp, 32
+	vssub.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s0, 32
 	ori	$a1, $zero, 24
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
-	vldx	$vr3, $s2, $a1
-	vilvl.h	$vr4, $vr3, $vr3
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvh.h	$vr3, $vr3, $vr3
+	vldx	$vr2, $s2, $a1
+	vilvl.h	$vr3, $vr2, $vr2
 	vslli.w	$vr3, $vr3, 16
 	vsrai.w	$vr3, $vr3, 16
-	vori.b	$vr5, $vr0, 0
-	vmadd.w	$vr5, $vr3, $vr1
-	vori.b	$vr3, $vr0, 0
-	vmadd.w	$vr3, $vr4, $vr1
-	vsrli.w	$vr3, $vr3, 15
-	vsrli.w	$vr4, $vr5, 15
-	vpickev.h	$vr3, $vr4, $vr3
-	vst	$vr3, $s1, 48
-	vld	$vr4, $fp, 48
-	vslt.h	$vr5, $vr2, $vr3
-	vsub.h	$vr3, $vr4, $vr3
-	vslt.h	$vr4, $vr3, $vr4
-	vxor.v	$vr4, $vr5, $vr4
-	vsrai.h	$vr5, $vr3, 15
-	vbitrevi.h	$vr5, $vr5, 15
-	vbitsel.v	$vr3, $vr3, $vr5, $vr4
-	vst	$vr3, $s0, 48
+	vilvh.h	$vr2, $vr2, $vr2
+	vslli.w	$vr2, $vr2, 16
+	vsrai.w	$vr2, $vr2, 16
+	vori.b	$vr4, $vr0, 0
+	vmadd.w	$vr4, $vr2, $vr1
+	vori.b	$vr2, $vr0, 0
+	vmadd.w	$vr2, $vr3, $vr1
+	vsrli.w	$vr2, $vr2, 15
+	vsrli.w	$vr3, $vr4, 15
+	vpickev.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s1, 48
+	vld	$vr3, $fp, 48
+	vssub.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s0, 48
 	ori	$a1, $zero, 32
 	sub.d	$a0, $a1, $a0
 	slli.d	$a0, $a0, 1
-	vldx	$vr3, $s2, $a0
-	vilvl.h	$vr4, $vr3, $vr3
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvh.h	$vr3, $vr3, $vr3
+	vldx	$vr2, $s2, $a0
+	vilvl.h	$vr3, $vr2, $vr2
 	vslli.w	$vr3, $vr3, 16
 	vsrai.w	$vr3, $vr3, 16
-	vori.b	$vr5, $vr0, 0
-	vmadd.w	$vr5, $vr3, $vr1
-	vmadd.w	$vr0, $vr4, $vr1
+	vilvh.h	$vr2, $vr2, $vr2
+	vslli.w	$vr2, $vr2, 16
+	vsrai.w	$vr2, $vr2, 16
+	vori.b	$vr4, $vr0, 0
+	vmadd.w	$vr4, $vr2, $vr1
+	vmadd.w	$vr0, $vr3, $vr1
 	vsrli.w	$vr0, $vr0, 15
-	vsrli.w	$vr1, $vr5, 15
+	vsrli.w	$vr1, $vr4, 15
 	vpickev.h	$vr0, $vr1, $vr0
 	vst	$vr0, $s1, 64
 	vld	$vr1, $fp, 64
-	vslt.h	$vr2, $vr2, $vr0
-	vsub.h	$vr0, $vr1, $vr0
-	vslt.h	$vr1, $vr0, $vr1
-	vxor.v	$vr1, $vr2, $vr1
-	vsrai.h	$vr2, $vr0, 15
-	vbitrevi.h	$vr2, $vr2, 15
-	vbitsel.v	$vr0, $vr0, $vr2, $vr1
+	vssub.h	$vr0, $vr1, $vr0
 	vst	$vr0, $s0, 64
 	b	.LBB0_28
 .LBB0_24:                               # %scalar.ph113.preheader
@@ -1068,13 +1037,7 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	vpickev.w	$vr4, $vr5, $vr4
 	vpickev.w	$vr2, $vr3, $vr2
 	vpickev.h	$vr2, $vr2, $vr4
-	vadd.h	$vr3, $vr2, $vr6
-	vslt.h	$vr2, $vr3, $vr2
-	vslti.h	$vr4, $vr6, 0
-	vxor.v	$vr2, $vr4, $vr2
-	vsrai.h	$vr4, $vr3, 15
-	vbitrevi.h	$vr4, $vr4, 15
-	vbitsel.v	$vr2, $vr3, $vr4, $vr2
+	vsadd.h	$vr2, $vr2, $vr6
 	vst	$vr2, $a4, 0
 	ori	$a1, $zero, 8
 	sub.d	$a1, $a1, $a0
@@ -1110,13 +1073,7 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	vpickev.w	$vr2, $vr5, $vr2
 	vpickev.w	$vr3, $vr4, $vr3
 	vpickev.h	$vr2, $vr3, $vr2
-	vadd.h	$vr3, $vr2, $vr6
-	vslt.h	$vr2, $vr3, $vr2
-	vslti.h	$vr4, $vr6, 0
-	vxor.v	$vr2, $vr4, $vr2
-	vsrai.h	$vr4, $vr3, 15
-	vbitrevi.h	$vr4, $vr4, 15
-	vbitsel.v	$vr2, $vr3, $vr4, $vr2
+	vsadd.h	$vr2, $vr2, $vr6
 	vst	$vr2, $a4, 16
 	ori	$a1, $zero, 16
 	sub.d	$a1, $a1, $a0
@@ -1152,13 +1109,7 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	vpickev.w	$vr2, $vr5, $vr2
 	vpickev.w	$vr3, $vr4, $vr3
 	vpickev.h	$vr2, $vr3, $vr2
-	vadd.h	$vr3, $vr2, $vr6
-	vslt.h	$vr2, $vr3, $vr2
-	vslti.h	$vr4, $vr6, 0
-	vxor.v	$vr2, $vr4, $vr2
-	vsrai.h	$vr4, $vr3, 15
-	vbitrevi.h	$vr4, $vr4, 15
-	vbitsel.v	$vr2, $vr3, $vr4, $vr2
+	vsadd.h	$vr2, $vr2, $vr6
 	vst	$vr2, $a4, 32
 	ori	$a1, $zero, 24
 	sub.d	$a1, $a1, $a0
@@ -1194,13 +1145,7 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	vpickev.w	$vr2, $vr5, $vr2
 	vpickev.w	$vr3, $vr4, $vr3
 	vpickev.h	$vr2, $vr3, $vr2
-	vadd.h	$vr3, $vr2, $vr6
-	vslt.h	$vr2, $vr3, $vr2
-	vslti.h	$vr4, $vr6, 0
-	vxor.v	$vr2, $vr4, $vr2
-	vsrai.h	$vr4, $vr3, 15
-	vbitrevi.h	$vr4, $vr4, 15
-	vbitsel.v	$vr2, $vr3, $vr4, $vr2
+	vsadd.h	$vr2, $vr2, $vr6
 	vst	$vr2, $a4, 48
 	ori	$a1, $zero, 32
 	sub.d	$a0, $a1, $a0
@@ -1235,13 +1180,7 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	vpickev.w	$vr2, $vr3, $vr2
 	vpickev.w	$vr0, $vr1, $vr0
 	vpickev.h	$vr0, $vr0, $vr2
-	vadd.h	$vr1, $vr0, $vr6
-	vslt.h	$vr0, $vr1, $vr0
-	vslti.h	$vr2, $vr6, 0
-	vxor.v	$vr0, $vr2, $vr0
-	vsrai.h	$vr2, $vr1, 15
-	vbitrevi.h	$vr2, $vr2, 15
-	vbitsel.v	$vr0, $vr1, $vr2, $vr0
+	vsadd.h	$vr0, $vr0, $vr6
 	vst	$vr0, $a4, 64
 	addi.d	$a0, $a4, -240
 	addi.d	$a1, $a4, -160
