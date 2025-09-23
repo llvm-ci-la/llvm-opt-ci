@@ -558,18 +558,17 @@ Reference_IDCT:                         # @Reference_IDCT
 	xvrepl128vei.d	$xr31, $xr1, 0
 	xvpermi.d	$xr1, $xr3, 68
 	xvrepl128vei.d	$xr1, $xr1, 0
-	addi.d	$a2, $sp, 1776
 	xvldrepl.d	$xr2, $a1, 504
+	addi.d	$a1, $sp, 1776
 	addi.d	$a0, $a0, 112
-	addi.w	$a1, $zero, -16
-	lu52i.d	$a3, $zero, 1022
+	addi.w	$a2, $zero, -16
 	.p2align	4, , 16
 .LBB1_3:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	xvld	$xr3, $a2, -256
-	xvld	$xr4, $a2, -192
-	xvld	$xr5, $a2, -128
-	xvld	$xr6, $a2, -64
+	xvld	$xr3, $a1, -256
+	xvld	$xr4, $a1, -192
+	xvld	$xr5, $a1, -128
+	xvld	$xr6, $a1, -64
 	xvld	$xr7, $sp, 1488                 # 32-byte Folded Reload
 	xvfmadd.d	$xr7, $xr7, $xr3, $xr0
 	xvld	$xr8, $sp, 1456                 # 32-byte Folded Reload
@@ -578,10 +577,10 @@ Reference_IDCT:                         # @Reference_IDCT
 	xvfmadd.d	$xr7, $xr8, $xr5, $xr7
 	xvld	$xr8, $sp, 1392                 # 32-byte Folded Reload
 	xvfmadd.d	$xr11, $xr8, $xr6, $xr7
-	xvld	$xr7, $a2, 0
-	xvld	$xr8, $a2, 64
-	xvld	$xr9, $a2, 128
-	xvld	$xr10, $a2, 192
+	xvld	$xr7, $a1, 0
+	xvld	$xr8, $a1, 64
+	xvld	$xr9, $a1, 128
+	xvld	$xr10, $a1, 192
 	xvld	$xr12, $sp, 1360                # 32-byte Folded Reload
 	xvfmadd.d	$xr11, $xr12, $xr7, $xr11
 	xvld	$xr12, $sp, 1328                # 32-byte Folded Reload
@@ -590,7 +589,7 @@ Reference_IDCT:                         # @Reference_IDCT
 	xvfmadd.d	$xr11, $xr12, $xr9, $xr11
 	xvld	$xr12, $sp, 1264                # 32-byte Folded Reload
 	xvfmadd.d	$xr12, $xr12, $xr10, $xr11
-	xvreplgr2vr.d	$xr11, $a3
+	xvldi	$xr11, -928
 	xvfadd.d	$xr12, $xr12, $xr11
 	xvpickve.d	$xr13, $xr12, 1
 	vreplvei.d	$vr13, $vr13, 0
@@ -615,8 +614,8 @@ Reference_IDCT:                         # @Reference_IDCT
 	vrepli.w	$vr13, 255
 	vmin.w	$vr14, $vr14, $vr13
 	vpickev.h	$vr14, $vr14, $vr14
-	add.d	$a4, $a0, $a1
-	vstelm.d	$vr14, $a4, -96, 0
+	add.d	$a3, $a0, $a2
+	vstelm.d	$vr14, $a3, -96, 0
 	xvld	$xr14, $sp, 1232                # 32-byte Folded Reload
 	xvfmadd.d	$xr14, $xr14, $xr3, $xr0
 	xvld	$xr15, $sp, 1200                # 32-byte Folded Reload
@@ -655,7 +654,7 @@ Reference_IDCT:                         # @Reference_IDCT
 	vmax.w	$vr14, $vr14, $vr12
 	vmin.w	$vr14, $vr14, $vr13
 	vpickev.h	$vr14, $vr14, $vr14
-	vstelm.d	$vr14, $a4, -80, 0
+	vstelm.d	$vr14, $a3, -80, 0
 	xvld	$xr14, $sp, 976                 # 32-byte Folded Reload
 	xvfmadd.d	$xr14, $xr14, $xr3, $xr0
 	xvld	$xr15, $sp, 944                 # 32-byte Folded Reload
@@ -694,7 +693,7 @@ Reference_IDCT:                         # @Reference_IDCT
 	vmax.w	$vr14, $vr14, $vr12
 	vmin.w	$vr14, $vr14, $vr13
 	vpickev.h	$vr14, $vr14, $vr14
-	vstelm.d	$vr14, $a4, -64, 0
+	vstelm.d	$vr14, $a3, -64, 0
 	xvld	$xr14, $sp, 720                 # 32-byte Folded Reload
 	xvfmadd.d	$xr14, $xr14, $xr3, $xr0
 	xvld	$xr15, $sp, 688                 # 32-byte Folded Reload
@@ -733,7 +732,7 @@ Reference_IDCT:                         # @Reference_IDCT
 	vmax.w	$vr14, $vr14, $vr12
 	vmin.w	$vr14, $vr14, $vr13
 	vpickev.h	$vr14, $vr14, $vr14
-	vstelm.d	$vr14, $a4, -48, 0
+	vstelm.d	$vr14, $a3, -48, 0
 	xvld	$xr14, $sp, 464                 # 32-byte Folded Reload
 	xvfmadd.d	$xr14, $xr14, $xr3, $xr0
 	xvld	$xr15, $sp, 432                 # 32-byte Folded Reload
@@ -772,7 +771,7 @@ Reference_IDCT:                         # @Reference_IDCT
 	vmax.w	$vr14, $vr14, $vr12
 	vmin.w	$vr14, $vr14, $vr13
 	vpickev.h	$vr14, $vr14, $vr14
-	vstelm.d	$vr14, $a4, -32, 0
+	vstelm.d	$vr14, $a3, -32, 0
 	xvld	$xr14, $sp, 208                 # 32-byte Folded Reload
 	xvfmadd.d	$xr14, $xr14, $xr3, $xr0
 	xvld	$xr15, $sp, 176                 # 32-byte Folded Reload
@@ -810,7 +809,7 @@ Reference_IDCT:                         # @Reference_IDCT
 	vmax.w	$vr14, $vr14, $vr12
 	vmin.w	$vr14, $vr14, $vr13
 	vpickev.h	$vr14, $vr14, $vr14
-	vstelm.d	$vr14, $a4, -16, 0
+	vstelm.d	$vr14, $a3, -16, 0
 	xvfmadd.d	$xr14, $xr18, $xr3, $xr0
 	xvfmadd.d	$xr14, $xr19, $xr4, $xr14
 	xvfmadd.d	$xr14, $xr20, $xr5, $xr14
@@ -841,7 +840,7 @@ Reference_IDCT:                         # @Reference_IDCT
 	vmax.w	$vr14, $vr14, $vr12
 	vmin.w	$vr14, $vr14, $vr13
 	vpickev.h	$vr14, $vr14, $vr14
-	vstelm.d	$vr14, $a4, 0, 0
+	vstelm.d	$vr14, $a3, 0, 0
 	xvfmadd.d	$xr3, $xr26, $xr3, $xr0
 	xvfmadd.d	$xr3, $xr27, $xr4, $xr3
 	xvfmadd.d	$xr3, $xr28, $xr5, $xr3
@@ -872,10 +871,10 @@ Reference_IDCT:                         # @Reference_IDCT
 	vmax.w	$vr3, $vr3, $vr12
 	vmin.w	$vr3, $vr3, $vr13
 	vpickev.h	$vr3, $vr3, $vr3
-	vstelm.d	$vr3, $a4, 16, 0
-	addi.d	$a1, $a1, 8
-	addi.d	$a2, $a2, 32
-	bnez	$a1, .LBB1_3
+	vstelm.d	$vr3, $a3, 16, 0
+	addi.d	$a2, $a2, 8
+	addi.d	$a1, $a1, 32
+	bnez	$a2, .LBB1_3
 # %bb.4:                                # %middle.block
 	addi.d	$sp, $sp, 64
 	fld.d	$fs7, $sp, 1968                 # 8-byte Folded Reload

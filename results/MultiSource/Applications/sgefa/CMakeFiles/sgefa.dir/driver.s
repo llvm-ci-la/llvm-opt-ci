@@ -651,11 +651,10 @@ matgen:                                 # @matgen
 	slli.d	$a5, $a5, 5
 	xvreplve0.w	$xr2, $xr0
 	xvreplve0.w	$xr3, $xr1
-	lu12i.w	$a6, 264192
-	xvreplgr2vr.w	$xr4, $a6
 	ori	$a6, $zero, 8
-	xvrepli.b	$xr5, 0
-	xvrepli.b	$xr6, -1
+	xvrepli.b	$xr4, 0
+	xvrepli.b	$xr5, -1
+	xvldi	$xr6, -1520
 	move	$s7, $fp
 	b	.LBB1_41
 	.p2align	4, , 16
@@ -700,7 +699,7 @@ matgen:                                 # @matgen
 .LBB1_45:                               # %vector.body716
                                         #   Parent Loop BB1_41 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	xvst	$xr5, $t1, -16
+	xvst	$xr4, $t1, -16
 	xvpermi.q	$xr12, $xr8, 1
 	vpickve2gr.w	$t3, $vr12, 0
 	bstrpick.d	$t3, $t3, 31, 0
@@ -744,7 +743,7 @@ matgen:                                 # @matgen
 	xvinsgr2vr.w	$xr12, $t3, 6
 	xvpickve2gr.d	$t3, $xr15, 3
 	xvinsgr2vr.w	$xr12, $t3, 7
-	xvxor.v	$xr14, $xr14, $xr6
+	xvxor.v	$xr14, $xr14, $xr5
 	xvpickve2gr.d	$t3, $xr14, 0
 	xvinsgr2vr.w	$xr16, $t3, 0
 	xvpickve2gr.d	$t3, $xr14, 1
@@ -753,7 +752,7 @@ matgen:                                 # @matgen
 	xvinsgr2vr.w	$xr16, $t3, 2
 	xvpickve2gr.d	$t3, $xr14, 3
 	xvinsgr2vr.w	$xr16, $t3, 3
-	xvxor.v	$xr14, $xr15, $xr6
+	xvxor.v	$xr14, $xr15, $xr5
 	xvpickve2gr.d	$t3, $xr14, 0
 	xvinsgr2vr.w	$xr16, $t3, 4
 	xvpickve2gr.d	$t3, $xr14, 1
@@ -787,7 +786,7 @@ matgen:                                 # @matgen
 	xvpickve2gr.w	$t3, $xr13, 0
 	xvbitsel.v	$xr11, $xr3, $xr2, $xr11
 	andi	$t4, $t3, 1
-	xvbitsel.v	$xr11, $xr11, $xr4, $xr12
+	xvbitsel.v	$xr11, $xr11, $xr6, $xr12
 	beqz	$t4, .LBB1_47
 # %bb.46:                               # %pred.store.if
                                         #   in Loop: Header=BB1_45 Depth=2

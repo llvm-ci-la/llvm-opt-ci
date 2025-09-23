@@ -479,8 +479,7 @@ main:                                   # @main
 	lu52i.d	$a0, $zero, -2048
 	xvreplgr2vr.d	$xr0, $a0
 	xvst	$xr0, $sp, 128
-	lu52i.d	$a0, $zero, 1024
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1024
 	xvrotri.b	$xr0, $xr0, 7
 	xvst	$xr0, $sp, 160
 	addi.d	$a0, $sp, 128
@@ -716,8 +715,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 15
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3600
 	xvst	$xr0, $sp, 128
 	xvrepli.w	$xr0, 15
 	xvrotri.w	$xr0, $xr0, 20

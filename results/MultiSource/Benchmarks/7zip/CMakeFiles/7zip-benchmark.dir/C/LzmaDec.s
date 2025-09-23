@@ -140,8 +140,7 @@ LzmaDec_DecodeToDic:                    # @LzmaDec_DecodeToDic
 .LBB2_12:                               # %.lr.ph232
 	addi.d	$s6, $s0, 112
 	ori	$s8, $zero, 18
-	ori	$a1, $zero, 1024
-	xvreplgr2vr.h	$xr0, $a1
+	xvldi	$xr0, -2812
 	lu12i.w	$a1, 16384
 	ori	$a1, $a1, 1024
 	st.d	$a1, $sp, 16                    # 8-byte Folded Spill

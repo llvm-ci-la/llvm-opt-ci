@@ -476,8 +476,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $sp, 128
-	lu12i.w	$a0, -4096
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1544
 	xvld	$xr1, $sp, 96                   # 32-byte Folded Reload
 	xvfcmp.cun.d	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 160

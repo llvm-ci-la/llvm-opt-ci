@@ -455,8 +455,7 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 1024
-	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr0, -2812
 	vst	$vr0, $sp, 32
 	vst	$vr0, $sp, 48
 	addi.d	$a0, $sp, 32
@@ -730,9 +729,7 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 65535
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1729
 	vst	$vr0, $sp, 32
 	vst	$vr0, $sp, 48
 	addi.d	$a0, $sp, 32

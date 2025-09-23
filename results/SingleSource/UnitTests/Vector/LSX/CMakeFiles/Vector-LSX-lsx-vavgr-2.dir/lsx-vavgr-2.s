@@ -534,9 +534,7 @@ main:                                   # @main
 	ori	$a0, $a0, 128
 	vreplgr2vr.w	$vr0, $a0
 	vst	$vr0, $sp, 64
-	lu12i.w	$a0, 3
-	ori	$a0, $a0, 4095
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -2497
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vavgr.bu	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 80

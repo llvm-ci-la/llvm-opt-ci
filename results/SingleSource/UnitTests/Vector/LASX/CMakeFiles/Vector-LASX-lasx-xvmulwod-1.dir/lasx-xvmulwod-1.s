@@ -1313,8 +1313,7 @@ main:                                   # @main
 	lu32i.d	$a0, 256
 	xvreplgr2vr.d	$xr0, $a0
 	xvst	$xr0, $sp, 224
-	lu12i.w	$a0, 256
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3568
 	xvmulwod.d.w	$xr0, $xr0, $xr0
 	xvst	$xr0, $sp, 256
 	addi.d	$a0, $sp, 224

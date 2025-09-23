@@ -139,7 +139,7 @@ bigTableSetup:                          # @bigTableSetup
 	pcalau12i	$a2, %pc_hi20(lookupTable3B)
 	addi.d	$a2, $a2, %pc_lo12(lookupTable3B)
 	lu12i.w	$a3, 16
-	xvreplgr2vr.w	$xr3, $a3
+	xvldi	$xr3, -3583
 	xvrepli.w	$xr4, 29
 	pcalau12i	$a4, %pc_hi20(bigTable)
 	addi.d	$a4, $a4, %pc_lo12(bigTable)

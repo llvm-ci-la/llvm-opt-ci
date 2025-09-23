@@ -16,11 +16,10 @@ setpwates:                              # @setpwates
 	pcalau12i	$a2, %got_pc_hi20(pinsPerLen)
 	ld.d	$a2, $a2, %got_pc_lo12(pinsPerLen)
 	addi.d	$a1, $a1, 1
-	bstrpick.d	$a1, $a1, 31, 0
 	xvldrepl.d	$xr0, $a2, 0
+	bstrpick.d	$a1, $a1, 31, 0
 	ori	$a2, $zero, 1
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr1, $a3
+	xvldi	$xr1, -912
 	b	.LBB0_3
 	.p2align	4, , 16
 .LBB0_2:                                # %._crit_edge

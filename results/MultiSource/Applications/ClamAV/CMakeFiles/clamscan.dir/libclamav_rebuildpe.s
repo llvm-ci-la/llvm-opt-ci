@@ -76,8 +76,7 @@ cli_rebuildpe:                          # @cli_rebuildpe
 	addi.d	$a2, $a1, 300
 	xvrepli.b	$xr0, 0
 	xvrepli.w	$xr1, 511
-	ori	$t0, $zero, 512
-	xvreplgr2vr.w	$xr2, $t0
+	xvldi	$xr2, -3838
 	xvrepli.w	$xr3, -512
 	move	$t0, $a0
 	xvori.b	$xr4, $xr0, 0
@@ -154,8 +153,7 @@ cli_rebuildpe:                          # @cli_rebuildpe
 	add.d	$t0, $t0, $a1
 	addi.d	$t0, $t0, 84
 	vrepli.w	$vr1, 511
-	ori	$t1, $zero, 512
-	vreplgr2vr.w	$vr2, $t1
+	vldi	$vr2, -3838
 	vrepli.w	$vr3, -512
 	.p2align	4, , 16
 .LBB0_14:                               # %vec.epilog.vector.body

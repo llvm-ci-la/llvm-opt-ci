@@ -1009,8 +1009,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_44)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_44)
 	vst	$vr0, $sp, 96
-	lu12i.w	$a0, 1
-	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr0, -2800
 	vssrlrn.hu.w	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 112
 	addi.d	$a0, $sp, 96

@@ -581,7 +581,7 @@ init_array:                             # @init_array
 	lu32i.d	$a0, -49152
 	lu52i.d	$a0, $a0, 1033
 	xvreplgr2vr.d	$xr3, $a0
-	xvreplgr2vr.d	$xr4, $s3
+	xvldi	$xr4, -912
 	move	$fp, $s5
 	xvst	$xr3, $sp, 48                   # 32-byte Folded Spill
 	xvst	$xr4, $sp, 16                   # 32-byte Folded Spill

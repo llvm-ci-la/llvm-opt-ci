@@ -354,7 +354,6 @@ main:                                   # @main
 	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
 	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
 	addi.d	$fp, $sp, 224
 	bstrins.d	$sp, $zero, 4, 0
 	xvrepli.b	$xr0, 0
@@ -441,7 +440,6 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr0, $sp, 96                   # 32-byte Folded Reload
 	xvst	$xr0, $sp, 128
-	ori	$s1, $zero, 0
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -32768
 	xvreplgr2vr.d	$xr0, $a0
@@ -511,8 +509,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr1, $sp, 96                   # 32-byte Folded Reload
 	xvst	$xr1, $sp, 128
-	lu32i.d	$s1, -1
-	xvreplgr2vr.d	$xr0, $s1
+	xvldi	$xr0, -1552
 	xvfcmp.caf.s	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 160
 	addi.d	$a0, $sp, 128
@@ -652,7 +649,6 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
 	addi.d	$sp, $fp, -224
-	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
 	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload

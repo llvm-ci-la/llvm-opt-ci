@@ -9650,8 +9650,7 @@ _ZN6miniFE16impose_dirichletINS_9CSRMatrixIdiiEENS_6VectorIdiiEEEEvNT_10ScalarTy
 	st.d	$a1, $sp, 8                     # 8-byte Folded Spill
 	vldi	$vr4, -912
 	movgr2fr.d	$fs1, $zero
-	lu52i.d	$a1, $zero, 1023
-	xvreplgr2vr.d	$xr5, $a1
+	xvldi	$xr5, -912
 	xvst	$xr5, $sp, 48                   # 32-byte Folded Spill
 	b	.LBB12_5
 	.p2align	4, , 16

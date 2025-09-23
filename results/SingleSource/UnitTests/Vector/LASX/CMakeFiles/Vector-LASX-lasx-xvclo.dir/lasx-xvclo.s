@@ -736,9 +736,7 @@ main:                                   # @main
 	ori	$a0, $a0, 16
 	xvreplgr2vr.d	$xr0, $a0
 	xvst	$xr0, $sp, 96
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1777
 	xvclo.h	$xr0, $xr0
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96

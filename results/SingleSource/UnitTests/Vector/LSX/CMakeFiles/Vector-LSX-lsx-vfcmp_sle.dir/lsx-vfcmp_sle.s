@@ -569,13 +569,11 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 80
 	pcalau12i	$a0, %pc_hi20(.LCPI2_16)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_16)
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr1, $a0
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
+	vst	$vr1, $sp, 80
+	vldi	$vr1, -1777
 	vfcmp.sle.d	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 96
 	addi.d	$a0, $sp, 80

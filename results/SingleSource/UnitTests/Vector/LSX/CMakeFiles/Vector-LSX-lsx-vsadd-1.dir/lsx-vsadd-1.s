@@ -436,9 +436,7 @@ main:                                   # @main
 	addi.d	$sp, $sp, -96
 	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
 	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1777
 	vst	$vr0, $sp, 48
 	vrepli.b	$vr1, 0
 	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
@@ -714,16 +712,16 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	lu12i.w	$a0, 260096
-	vreplgr2vr.w	$vr0, $a0
 	lu32i.d	$a0, -256
 	lu52i.d	$a0, $a0, 2039
-	vreplgr2vr.d	$vr1, $a0
-	vst	$vr1, $sp, 48
+	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 48
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -256
 	lu52i.d	$a0, $a0, 1023
-	vreplgr2vr.d	$vr1, $a0
-	vsadd.w	$vr0, $vr0, $vr1
+	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr1, -1424
+	vsadd.w	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 64
 	addi.d	$a0, $sp, 48
 	addi.d	$a1, $sp, 64

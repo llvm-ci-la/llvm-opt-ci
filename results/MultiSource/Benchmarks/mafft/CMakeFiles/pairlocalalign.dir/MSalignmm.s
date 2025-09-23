@@ -474,10 +474,8 @@ MSalignmm:                              # @MSalignmm
 	bstrpick.d	$a1, $a1, 30, 3
 	slli.d	$a1, $a1, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a2
-	lu52i.d	$a2, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a2
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
 	move	$a2, $a7
 	move	$a3, $a5
 	move	$a4, $a1
@@ -604,10 +602,8 @@ MSalignmm:                              # @MSalignmm
 	bstrpick.d	$a1, $a1, 30, 3
 	slli.d	$a1, $a1, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a2
-	lu52i.d	$a2, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a2
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
 	move	$a2, $s0
 	move	$a3, $a6
 	move	$a4, $a1

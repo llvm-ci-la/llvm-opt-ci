@@ -155,12 +155,12 @@ build_branch:                           # @build_branch
 # %bb.0:
 	beqz	$a2, .LBB2_2
 # %bb.1:
-	addi.d	$sp, $sp, -80
-	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 40                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -48
+	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
 	move	$s2, $a2
 	move	$s0, $a1
 	move	$s1, $a0
@@ -177,69 +177,67 @@ build_branch:                           # @build_branch
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	lu52i.d	$a1, $zero, 1023
-	vreplgr2vr.d	$vr0, $a1
-	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 56
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 64
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 72
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 80
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 88
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 96
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 104
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 112
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 120
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 128
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	st.d	$a0, $fp, 136
 	ori	$a0, $zero, 32
@@ -249,18 +247,18 @@ build_branch:                           # @build_branch
 	vld	$vr0, $a1, %pc_lo12(.LCPI2_0)
 	move	$a1, $a0
 	move	$a0, $fp
-	vld	$vr1, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr1, -912
 	vst	$vr1, $a1, 0
 	st.d	$a1, $fp, 144
 	vst	$vr0, $fp, 32
 	vrepli.b	$vr0, 0
 	vst	$vr0, $fp, 16
-	ld.d	$s2, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 80
+	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 48
 	ret
 .LBB2_2:
 	move	$a0, $zero
@@ -278,8 +276,7 @@ build_leaf:                             # @build_leaf
 	ori	$a0, $zero, 32
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	lu52i.d	$a1, $zero, 1023
-	vreplgr2vr.d	$vr0, $a1
+	vldi	$vr0, -912
 	vst	$vr0, $a0, 0
 	ld.d	$ra, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$sp, $sp, 16

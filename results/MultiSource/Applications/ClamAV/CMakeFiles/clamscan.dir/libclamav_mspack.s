@@ -12746,9 +12746,7 @@ mszip_make_decode_table:                # @mszip_make_decode_table
 	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	bstrpick.d	$a4, $a0, 15, 0
 	addi.w	$t2, $zero, -1
-	ori	$t3, $zero, 0
-	lu32i.d	$t3, -1
-	vreplgr2vr.d	$vr0, $t3
+	vldi	$vr0, -1552
 	ori	$t3, $zero, 14
 	ori	$t7, $zero, 1
 	st.d	$t4, $sp, 8                     # 8-byte Folded Spill

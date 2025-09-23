@@ -10,8 +10,7 @@ foo:                                    # @foo
 	pcalau12i	$a0, %pc_hi20(s2)
 	xvld	$xr1, $a0, %pc_lo12(s2)
 	xvfcmp.clt.d	$xr2, $xr1, $xr0
-	lu52i.d	$a0, $zero, -1025
-	xvreplgr2vr.d	$xr3, $a0
+	xvldi	$xr3, -784
 	xvand.v	$xr2, $xr2, $xr3
 	pcalau12i	$a0, %pc_hi20(s3)
 	addi.d	$a0, $a0, %pc_lo12(s3)

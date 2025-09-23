@@ -77,9 +77,7 @@ write_node_info:                        # @write_node_info
 	addi.d	$a3, $a3, 40
 	xvrepli.b	$xr1, 0
 	xvrepli.b	$xr2, -1
-	lu12i.w	$a4, 15
-	ori	$a4, $a4, 4095
-	xvreplgr2vr.w	$xr3, $a4
+	xvldi	$xr3, -2305
 	pcalau12i	$a4, %got_pc_hi20(countbits16)
 	ld.d	$a4, $a4, %got_pc_lo12(countbits16)
 	move	$a5, $a2
@@ -385,9 +383,7 @@ write_node_info:                        # @write_node_info
 	addi.d	$a4, $a4, 40
 	xvrepli.b	$xr1, 0
 	xvrepli.b	$xr2, -1
-	lu12i.w	$a5, 15
-	ori	$a5, $a5, 4095
-	xvreplgr2vr.w	$xr3, $a5
+	xvldi	$xr3, -2305
 	pcalau12i	$a5, %got_pc_hi20(countbits16)
 	ld.d	$a5, $a5, %got_pc_lo12(countbits16)
 	move	$a6, $a3
@@ -726,9 +722,7 @@ write_node_info:                        # @write_node_info
 	slli.d	$a1, $a1, 4
 	xvrepli.b	$xr0, 0
 	xvrepli.b	$xr1, -1
-	lu12i.w	$a3, 15
-	ori	$a3, $a3, 4095
-	xvreplgr2vr.w	$xr2, $a3
+	xvldi	$xr2, -2305
 	pcalau12i	$a3, %got_pc_hi20(countbits16)
 	ld.d	$a3, $a3, %got_pc_lo12(countbits16)
 	move	$a4, $a1
@@ -1053,9 +1047,7 @@ write_node_info:                        # @write_node_info
 	add.d	$a3, $s3, $a0
 	addi.d	$a3, $a3, 36
 	xvrepli.b	$xr1, 0
-	lu12i.w	$a4, 15
-	ori	$a4, $a4, 4095
-	xvreplgr2vr.w	$xr2, $a4
+	xvldi	$xr2, -2305
 	pcalau12i	$a4, %got_pc_hi20(countbits16)
 	ld.d	$a4, $a4, %got_pc_lo12(countbits16)
 	move	$a5, $a2
@@ -1344,9 +1336,7 @@ write_node_info:                        # @write_node_info
 	add.d	$a2, $s3, $a2
 	addi.d	$a2, $a2, 36
 	xvrepli.b	$xr0, 0
-	lu12i.w	$a3, 15
-	ori	$a3, $a3, 4095
-	xvreplgr2vr.w	$xr1, $a3
+	xvldi	$xr1, -2305
 	pcalau12i	$a3, %got_pc_hi20(countbits16)
 	ld.d	$a3, $a3, %got_pc_lo12(countbits16)
 	move	$a4, $a1
@@ -1727,9 +1717,7 @@ tr_non_safe_moves_a_little_touchy:      # @tr_non_safe_moves_a_little_touchy
 	add.d	$a5, $a2, $a3
 	addi.d	$a5, $a5, 40
 	xvrepli.b	$xr1, 0
-	lu12i.w	$a6, 15
-	ori	$a6, $a6, 4095
-	xvreplgr2vr.w	$xr2, $a6
+	xvldi	$xr2, -2305
 	pcalau12i	$a6, %got_pc_hi20(countbits16)
 	ld.d	$a6, $a6, %got_pc_lo12(countbits16)
 	move	$a7, $a4

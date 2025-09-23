@@ -156,8 +156,7 @@ _ZN10btSoftBodyC2EP19btSoftBodyWorldInfoiPK9btVector3PKf: # @_ZN10btSoftBodyC2EP
 	vst	$vr1, $fp, 320
 	st.w	$zero, $fp, 336
 	xvst	$xr0, $fp, 340
-	lu12i.w	$a1, 258048
-	vreplgr2vr.w	$vr0, $a1
+	vldi	$vr0, -3265
 	vst	$vr0, $fp, 372
 	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
 	vld	$vr0, $a1, %pc_lo12(.LCPI0_1)

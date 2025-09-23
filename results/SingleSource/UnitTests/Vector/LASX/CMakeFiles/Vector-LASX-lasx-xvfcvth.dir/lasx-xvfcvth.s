@@ -582,8 +582,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_11)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_11)
-	lu12i.w	$a0, -524288
-	xvreplgr2vr.w	$xr1, $a0
+	xvldi	$xr1, -3200
 	xvst	$xr1, $sp, 128
 	xvfcvth.s.h	$xr0, $xr0
 	xvst	$xr0, $sp, 224

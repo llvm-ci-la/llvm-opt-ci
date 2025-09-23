@@ -83,8 +83,7 @@ mew_lzma:                               # @mew_lzma
 	st.d	$a1, $sp, 176                   # 8-byte Folded Spill
 	lu12i.w	$a6, -7
 	ori	$t0, $a6, 448
-	ori	$a1, $zero, 1024
-	xvreplgr2vr.h	$xr0, $a1
+	xvldi	$xr0, -2812
 	ori	$s4, $a5, 3648
 	lu12i.w	$a1, 16384
 	ori	$t1, $a1, 1024

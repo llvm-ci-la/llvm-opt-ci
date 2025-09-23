@@ -531,12 +531,11 @@ _ZNK16ComplexBenchmark9oop_styleEv:     # @_ZNK16ComplexBenchmark9oop_styleEv
 	addi.d	$a1, $a1, %pc_lo12(Y)
 	pcalau12i	$a2, %pc_hi20(X)
 	addi.d	$a2, $a2, %pc_lo12(X)
+	pcalau12i	$a3, %pc_hi20(.LCPI13_0)
+	vld	$vr0, $a3, %pc_lo12(.LCPI13_0)
 	lu12i.w	$a3, 3
-	pcalau12i	$a4, %pc_hi20(.LCPI13_0)
-	vld	$vr0, $a4, %pc_lo12(.LCPI13_0)
 	ori	$a3, $a3, 3712
-	lu52i.d	$a4, $zero, 1022
-	vreplgr2vr.d	$vr1, $a4
+	vldi	$vr1, -928
 	.p2align	4, , 16
 .LBB13_1:                               # =>This Inner Loop Header: Depth=1
 	add.d	$a4, $a2, $a0

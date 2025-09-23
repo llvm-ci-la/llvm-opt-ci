@@ -49,17 +49,13 @@ Crystal_div:                            # @Crystal_div
 	slli.d	$t1, $t0, 2
 	addi.d	$t2, $sp, 8
 	addi.d	$t3, $sp, 104
-	lu52i.d	$t4, $zero, 1023
-	xvreplgr2vr.d	$xr2, $t4
+	xvldi	$xr2, -912
 	lu12i.w	$t4, -419431
 	ori	$t4, $t4, 2458
 	lu32i.d	$t4, -419431
 	lu52i.d	$t4, $t4, 1020
 	xvreplgr2vr.d	$xr3, $t4
-	ori	$t4, $zero, 0
-	lu32i.d	$t4, -524288
-	lu52i.d	$t4, $t4, 1026
-	xvreplgr2vr.d	$xr4, $t4
+	xvldi	$xr4, -984
 	lu12i.w	$t4, -209716
 	ori	$t4, $t4, 3277
 	lu32i.d	$t4, -209716

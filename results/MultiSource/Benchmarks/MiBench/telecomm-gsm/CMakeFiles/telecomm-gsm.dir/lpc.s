@@ -34,15 +34,14 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	xvld	$xr2, $a1, 32
 	xvslti.h	$xr3, $xr1, 0
 	xvslti.h	$xr4, $xr2, 0
-	lu12i.w	$a0, 8
-	xvreplgr2vr.h	$xr0, $a0
+	xvldi	$xr0, -2688
 	xvseq.h	$xr5, $xr1, $xr0
 	xvseq.h	$xr6, $xr2, $xr0
 	xvneg.h	$xr7, $xr1
 	xvneg.h	$xr8, $xr2
 	lu12i.w	$a0, 7
-	ori	$s4, $a0, 4095
-	xvreplgr2vr.h	$xr9, $s4
+	ori	$s3, $a0, 4095
+	xvreplgr2vr.h	$xr9, $s3
 	xvbitsel.v	$xr5, $xr7, $xr9, $xr5
 	xvbitsel.v	$xr6, $xr8, $xr9, $xr6
 	xvld	$xr7, $a1, 64
@@ -138,8 +137,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	jr	$a0
 .LBB0_4:                                # %vector.body108.preheader
 	move	$a0, $zero
-	lu12i.w	$a3, 4
-	vreplgr2vr.w	$vr0, $a3
+	vldi	$vr0, -3776
 	ori	$a3, $zero, 320
 	.p2align	4, , 16
 .LBB0_5:                                # %vector.body108
@@ -177,8 +175,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	b	.LBB0_14
 .LBB0_8:                                # %vector.body124.preheader
 	move	$a0, $zero
-	lu12i.w	$a3, 4
-	vreplgr2vr.w	$vr0, $a3
+	vldi	$vr0, -3776
 	ori	$a3, $zero, 320
 	.p2align	4, , 16
 .LBB0_9:                                # %vector.body124
@@ -209,8 +206,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	b	.LBB0_14
 .LBB0_10:                               # %vector.body132.preheader
 	move	$a0, $zero
-	lu12i.w	$a3, 4
-	vreplgr2vr.w	$vr0, $a3
+	vldi	$vr0, -3776
 	ori	$a3, $zero, 320
 	.p2align	4, , 16
 .LBB0_11:                               # %vector.body132
@@ -241,8 +237,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	b	.LBB0_14
 .LBB0_12:                               # %vector.body116.preheader
 	move	$a0, $zero
-	lu12i.w	$a3, 4
-	vreplgr2vr.w	$vr0, $a3
+	vldi	$vr0, -3776
 	ori	$a3, $zero, 320
 	.p2align	4, , 16
 .LBB0_13:                               # %vector.body116
@@ -718,6 +713,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vpackev.d	$vr16, $vr16, $vr17
 	vst	$vr16, $s0, 304
 .LBB0_18:                               # %Autocorrelation.exit
+	lu12i.w	$ra, 8
 	st.d	$s2, $sp, 16                    # 8-byte Folded Spill
 	beqz	$s1, .LBB0_21
 # %bb.19:                               # %.preheader69.preheader.i
@@ -748,7 +744,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	slli.d	$fp, $a7, 1
 	slli.d	$s0, $a6, 1
 	slli.d	$s2, $a5, 1
-	slli.d	$s3, $a4, 1
+	slli.d	$s4, $a4, 1
 	slli.d	$s6, $a3, 1
 	slli.d	$s7, $a2, 1
 	slli.d	$s8, $a1, 1
@@ -769,7 +765,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	srli.d	$a6, $a6, 16
 	sll.d	$a7, $s6, $a0
 	srli.d	$a7, $a7, 16
-	sll.d	$t0, $s3, $a0
+	sll.d	$t0, $s4, $a0
 	srli.d	$t0, $t0, 16
 	sll.d	$t1, $s2, $a0
 	ld.d	$t3, $sp, 16                    # 8-byte Folded Reload
@@ -799,7 +795,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	sltui	$a2, $a2, 1
 	sub.d	$a4, $zero, $s5
 	masknez	$a4, $a4, $a2
-	maskeqz	$a2, $s4, $a2
+	maskeqz	$a2, $s3, $a2
 	or	$a2, $a2, $a4
 	masknez	$a4, $s5, $a0
 	maskeqz	$a0, $a2, $a0
@@ -813,6 +809,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
+	lu12i.w	$ra, 8
 	b	.LBB0_22
 .LBB0_21:                               # %.preheader.preheader.i
 	vrepli.b	$vr0, 0
@@ -822,12 +819,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$a1, $s1, 0
 	ext.w.h	$a0, $a1
 	slti	$a0, $a0, 0
-	lu12i.w	$fp, 8
-	xor	$a2, $a1, $fp
+	xor	$a2, $a1, $ra
 	sltui	$a2, $a2, 1
 	sub.d	$a3, $zero, $a1
 	masknez	$a3, $a3, $a2
-	maskeqz	$a2, $s4, $a2
+	maskeqz	$a2, $s3, $a2
 	or	$a2, $a2, $a3
 	maskeqz	$a2, $a2, $a0
 	masknez	$a1, $a1, $a0
@@ -853,9 +849,9 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 .LBB0_26:                               # %.lr.ph.preheader
 	move	$s6, $zero
 	ori	$s7, $zero, 8
-	ori	$s3, $zero, 0
-	lu32i.d	$s3, 32768
-	lu12i.w	$fp, -8
+	ori	$fp, $zero, 0
+	lu32i.d	$fp, 32768
+	lu12i.w	$s4, -8
 	ori	$s8, $zero, 7
 	move	$s0, $t3
 	ori	$a2, $zero, 1
@@ -865,16 +861,16 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
                                         #   in Loop: Header=BB0_28 Depth=1
 	mul.d	$a0, $a1, $a0
 	slli.d	$a0, $a0, 33
-	add.d	$a0, $a0, $s3
+	add.d	$a0, $a0, $fp
 	srai.d	$a0, $a0, 48
 	add.d	$a0, $a0, $s1
-	slt	$a1, $a0, $s4
+	slt	$a1, $a0, $s3
+	maskeqz	$a0, $a0, $a1
+	masknez	$a1, $s3, $a1
+	or	$a0, $a0, $a1
+	slt	$a1, $s4, $a0
 	maskeqz	$a0, $a0, $a1
 	masknez	$a1, $s4, $a1
-	or	$a0, $a0, $a1
-	slt	$a1, $fp, $a0
-	maskeqz	$a0, $a0, $a1
-	masknez	$a1, $fp, $a1
 	or	$a1, $a0, $a1
 	addi.d	$a2, $s2, 1
 	addi.d	$s0, $s0, 2
@@ -882,12 +878,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ext.w.h	$a0, $s5
 	slti	$a0, $a0, 0
 	bstrpick.d	$a3, $s5, 15, 0
-	lu12i.w	$a4, 8
-	xor	$a3, $a3, $a4
+	xor	$a3, $a3, $ra
 	sltui	$a3, $a3, 1
 	sub.d	$a4, $zero, $s5
 	masknez	$a4, $a4, $a3
-	maskeqz	$a3, $s4, $a3
+	maskeqz	$a3, $s3, $a3
 	or	$a3, $a3, $a4
 	maskeqz	$a3, $a3, $a0
 	masknez	$a0, $s5, $a0
@@ -905,6 +900,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	move	$a1, $s1
 	pcaddu18i	$ra, %call36(gsm_div)
 	jirl	$ra, $ra, 0
+	lu12i.w	$ra, 8
 	ext.w.h	$a1, $s5
 	slt	$a2, $zero, $a1
 	sub.d	$a3, $zero, $a0
@@ -933,29 +929,29 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.h	$a6, $a4, 0
 	ld.h	$a7, $a5, 0
 	mul.d	$t0, $a3, $a6
-	add.d	$t0, $t0, $s3
+	add.d	$t0, $t0, $fp
 	srai.d	$t0, $t0, 48
 	add.d	$t0, $t0, $a7
-	slt	$t1, $t0, $s4
+	slt	$t1, $t0, $s3
+	maskeqz	$t0, $t0, $t1
+	masknez	$t1, $s3, $t1
+	or	$t0, $t0, $t1
+	slt	$t1, $s4, $t0
 	maskeqz	$t0, $t0, $t1
 	masknez	$t1, $s4, $t1
 	or	$t0, $t0, $t1
-	slt	$t1, $fp, $t0
-	maskeqz	$t0, $t0, $t1
-	masknez	$t1, $fp, $t1
-	or	$t0, $t0, $t1
 	st.h	$t0, $a5, -2
 	mul.d	$a7, $a3, $a7
-	add.d	$a7, $a7, $s3
+	add.d	$a7, $a7, $fp
 	srai.d	$a7, $a7, 48
 	add.d	$a6, $a7, $a6
-	slt	$a7, $a6, $s4
+	slt	$a7, $a6, $s3
+	maskeqz	$a6, $a6, $a7
+	masknez	$a7, $s3, $a7
+	or	$a6, $a6, $a7
+	slt	$a7, $s4, $a6
 	maskeqz	$a6, $a6, $a7
 	masknez	$a7, $s4, $a7
-	or	$a6, $a6, $a7
-	slt	$a7, $fp, $a6
-	maskeqz	$a6, $a6, $a7
-	masknez	$a7, $fp, $a7
 	or	$a6, $a6, $a7
 	st.h	$a6, $a4, 0
 	addi.d	$a2, $a2, -1
@@ -974,11 +970,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$a4, $s1, 2
 	ext.w.h	$a2, $a4
 	slti	$a2, $a2, 0
-	xor	$a5, $a4, $fp
+	xor	$a5, $a4, $ra
 	sltui	$a5, $a5, 1
 	sub.d	$a6, $zero, $a4
 	masknez	$a6, $a6, $a5
-	maskeqz	$a5, $s4, $a5
+	maskeqz	$a5, $s3, $a5
 	or	$a5, $a5, $a6
 	maskeqz	$a5, $a5, $a2
 	masknez	$a4, $a4, $a2
@@ -1006,11 +1002,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$a6, $s1, 4
 	ext.w.h	$a4, $a6
 	slti	$a4, $a4, 0
-	xor	$a7, $a6, $fp
+	xor	$a7, $a6, $ra
 	sltui	$a7, $a7, 1
 	sub.d	$t0, $zero, $a6
 	masknez	$t0, $t0, $a7
-	maskeqz	$a7, $s4, $a7
+	maskeqz	$a7, $s3, $a7
 	or	$a7, $a7, $t0
 	maskeqz	$a7, $a7, $a4
 	masknez	$a6, $a6, $a4
@@ -1037,11 +1033,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t0, $s1, 6
 	ext.w.h	$a7, $t0
 	slti	$a7, $a7, 0
-	xor	$t1, $t0, $fp
+	xor	$t1, $t0, $ra
 	sltui	$t1, $t1, 1
 	sub.d	$t2, $zero, $t0
 	masknez	$t2, $t2, $t1
-	maskeqz	$t1, $s4, $t1
+	maskeqz	$t1, $s3, $t1
 	or	$t1, $t1, $t2
 	maskeqz	$t1, $t1, $a7
 	masknez	$t0, $t0, $a7
@@ -1068,11 +1064,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t2, $s1, 8
 	ext.w.h	$t1, $t2
 	slti	$t1, $t1, 0
-	xor	$t3, $t2, $fp
+	xor	$t3, $t2, $ra
 	sltui	$t3, $t3, 1
 	sub.d	$t4, $zero, $t2
 	masknez	$t4, $t4, $t3
-	maskeqz	$t3, $s4, $t3
+	maskeqz	$t3, $s3, $t3
 	or	$t3, $t3, $t4
 	maskeqz	$t3, $t3, $t1
 	masknez	$t2, $t2, $t1
@@ -1099,11 +1095,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t4, $s1, 10
 	ext.w.h	$t3, $t4
 	slti	$t3, $t3, 0
-	xor	$t5, $t4, $fp
+	xor	$t5, $t4, $ra
 	sltui	$t5, $t5, 1
 	sub.d	$t6, $zero, $t4
 	masknez	$t6, $t6, $t5
-	maskeqz	$t5, $s4, $t5
+	maskeqz	$t5, $s3, $t5
 	or	$t5, $t5, $t6
 	maskeqz	$t5, $t5, $t3
 	masknez	$t4, $t4, $t3
@@ -1130,11 +1126,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t6, $s1, 12
 	ext.w.h	$t5, $t6
 	slti	$t5, $t5, 0
-	xor	$t7, $t6, $fp
+	xor	$t7, $t6, $ra
 	sltui	$t7, $t7, 1
 	sub.d	$t8, $zero, $t6
 	masknez	$t8, $t8, $t7
-	maskeqz	$t7, $s4, $t7
+	maskeqz	$t7, $s3, $t7
 	or	$t7, $t7, $t8
 	maskeqz	$t7, $t7, $t5
 	masknez	$t6, $t6, $t5
@@ -1161,11 +1157,11 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t8, $s1, 14
 	ext.w.h	$t6, $t8
 	slti	$t6, $t6, 0
-	xor	$fp, $t8, $fp
+	xor	$fp, $t8, $ra
 	sltui	$fp, $fp, 1
 	sub.d	$s0, $zero, $t8
 	masknez	$s0, $s0, $fp
-	maskeqz	$fp, $s4, $fp
+	maskeqz	$fp, $s3, $fp
 	or	$fp, $fp, $s0
 	maskeqz	$fp, $fp, $t6
 	masknez	$t8, $t8, $t6

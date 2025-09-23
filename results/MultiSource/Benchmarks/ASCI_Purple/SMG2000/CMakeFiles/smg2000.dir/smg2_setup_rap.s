@@ -4597,8 +4597,7 @@ hypre_SMG2RAPPeriodicSym:               # @hypre_SMG2RAPPeriodicSym
 	lu32i.d	$a0, -1
 	st.d	$a0, $sp, 104                   # 8-byte Folded Spill
 	xvrepli.b	$xr6, 0
-	lu52i.d	$a0, $zero, 1024
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1024
 	xvst	$xr0, $sp, 16                   # 32-byte Folded Spill
 	st.d	$s0, $sp, 48                    # 8-byte Folded Spill
 	st.d	$fp, $sp, 128                   # 8-byte Folded Spill

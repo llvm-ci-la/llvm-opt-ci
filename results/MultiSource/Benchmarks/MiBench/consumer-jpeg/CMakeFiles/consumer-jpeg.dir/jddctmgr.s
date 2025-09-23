@@ -177,8 +177,6 @@ start_pass:                             # @start_pass
 	pcalau12i	$a0, %got_pc_hi20(jpeg_idct_1x1)
 	ld.d	$s3, $a0, %got_pc_lo12(jpeg_idct_1x1)
 	ori	$s4, $zero, 7
-	vrepli.b	$vr0, 0
-	vst	$vr0, $sp, 272                  # 16-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
 	fld.d	$fs0, $a0, %pc_lo12(.LCPI1_0)
 	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
@@ -193,27 +191,28 @@ start_pass:                             # @start_pass
 	fld.d	$fs5, $a0, %pc_lo12(.LCPI1_5)
 	pcalau12i	$a0, %pc_hi20(.LCPI1_6)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI1_6)
-	xvst	$xr0, $sp, 240                  # 32-byte Folded Spill
+	xvst	$xr0, $sp, 256                  # 32-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI1_7)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI1_7)
-	xvst	$xr0, $sp, 208                  # 32-byte Folded Spill
+	xvst	$xr0, $sp, 224                  # 32-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI1_8)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI1_8)
-	xvst	$xr0, $sp, 176                  # 32-byte Folded Spill
+	xvst	$xr0, $sp, 192                  # 32-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI1_9)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI1_9)
-	xvst	$xr0, $sp, 144                  # 32-byte Folded Spill
+	xvst	$xr0, $sp, 160                  # 32-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI1_10)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI1_10)
-	xvst	$xr0, $sp, 112                  # 32-byte Folded Spill
+	xvst	$xr0, $sp, 128                  # 32-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI1_11)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI1_11)
-	xvst	$xr0, $sp, 80                   # 32-byte Folded Spill
+	xvst	$xr0, $sp, 96                   # 32-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI1_12)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI1_12)
-	xvst	$xr0, $sp, 48                   # 32-byte Folded Spill
-	ori	$a0, $zero, 2048
-	xvreplgr2vr.w	$xr0, $a0
+	xvst	$xr0, $sp, 64                   # 32-byte Folded Spill
+	vrepli.b	$vr0, 0
+	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
+	xvldi	$xr0, -3832
 	xvst	$xr0, $sp, 16                   # 32-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LJTI1_0)
 	addi.d	$s7, $a0, %pc_lo12(.LJTI1_0)
@@ -230,7 +229,7 @@ start_pass:                             # @start_pass
 	ld.d	$a5, $a3, 8
 	vinsgr2vr.d	$vr0, $a4, 0
 	vinsgr2vr.d	$vr1, $a5, 0
-	vld	$vr2, $sp, 272                  # 16-byte Folded Reload
+	vld	$vr2, $sp, 48                   # 16-byte Folded Reload
 	vilvl.h	$vr0, $vr2, $vr0
 	vilvl.h	$vr1, $vr2, $vr1
 	ld.d	$a4, $a3, 16
@@ -813,7 +812,7 @@ start_pass:                             # @start_pass
 	xvld	$xr5, $sp, 16                   # 32-byte Folded Reload
 	xvori.b	$xr0, $xr5, 0
 	vld	$vr2, $a3, 16
-	xvld	$xr3, $sp, 240                  # 32-byte Folded Reload
+	xvld	$xr3, $sp, 256                  # 32-byte Folded Reload
 	xvmadd.w	$xr0, $xr1, $xr3
 	xvsrli.w	$xr0, $xr0, 12
 	xvst	$xr0, $a2, 0
@@ -843,7 +842,7 @@ start_pass:                             # @start_pass
 	xvinsgr2vr.w	$xr0, $a4, 7
 	xvori.b	$xr1, $xr5, 0
 	vld	$vr2, $a3, 32
-	xvld	$xr4, $sp, 208                  # 32-byte Folded Reload
+	xvld	$xr4, $sp, 224                  # 32-byte Folded Reload
 	xvmadd.w	$xr1, $xr0, $xr4
 	xvsrli.w	$xr0, $xr1, 12
 	xvst	$xr0, $a2, 32
@@ -873,7 +872,7 @@ start_pass:                             # @start_pass
 	xvinsgr2vr.w	$xr0, $a4, 7
 	xvori.b	$xr1, $xr5, 0
 	vld	$vr2, $a3, 48
-	xvld	$xr4, $sp, 176                  # 32-byte Folded Reload
+	xvld	$xr4, $sp, 192                  # 32-byte Folded Reload
 	xvmadd.w	$xr1, $xr0, $xr4
 	xvsrli.w	$xr0, $xr1, 12
 	xvst	$xr0, $a2, 64
@@ -903,7 +902,7 @@ start_pass:                             # @start_pass
 	xvinsgr2vr.w	$xr0, $a4, 7
 	xvori.b	$xr1, $xr5, 0
 	vld	$vr2, $a3, 64
-	xvld	$xr4, $sp, 144                  # 32-byte Folded Reload
+	xvld	$xr4, $sp, 160                  # 32-byte Folded Reload
 	xvmadd.w	$xr1, $xr0, $xr4
 	xvsrli.w	$xr0, $xr1, 12
 	xvst	$xr0, $a2, 96
@@ -962,7 +961,7 @@ start_pass:                             # @start_pass
 	xvinsgr2vr.w	$xr0, $a4, 7
 	xvori.b	$xr1, $xr5, 0
 	vld	$vr2, $a3, 96
-	xvld	$xr3, $sp, 112                  # 32-byte Folded Reload
+	xvld	$xr3, $sp, 128                  # 32-byte Folded Reload
 	xvmadd.w	$xr1, $xr0, $xr3
 	xvsrli.w	$xr0, $xr1, 12
 	xvst	$xr0, $a2, 160
@@ -992,7 +991,7 @@ start_pass:                             # @start_pass
 	xvinsgr2vr.w	$xr0, $a4, 7
 	xvori.b	$xr1, $xr5, 0
 	vld	$vr2, $a3, 112
-	xvld	$xr3, $sp, 80                   # 32-byte Folded Reload
+	xvld	$xr3, $sp, 96                   # 32-byte Folded Reload
 	xvmadd.w	$xr1, $xr0, $xr3
 	xvsrli.w	$xr0, $xr1, 12
 	xvst	$xr0, $a2, 192
@@ -1021,7 +1020,7 @@ start_pass:                             # @start_pass
 	bstrpick.d	$a3, $a3, 15, 0
 	xvinsgr2vr.w	$xr0, $a3, 7
 	xvori.b	$xr1, $xr5, 0
-	xvld	$xr2, $sp, 48                   # 32-byte Folded Reload
+	xvld	$xr2, $sp, 64                   # 32-byte Folded Reload
 	xvmadd.w	$xr1, $xr0, $xr2
 	xvsrli.w	$xr0, $xr1, 12
 	xvst	$xr0, $a2, 224

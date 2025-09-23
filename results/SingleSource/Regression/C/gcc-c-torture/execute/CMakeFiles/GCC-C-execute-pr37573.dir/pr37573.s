@@ -233,25 +233,24 @@ foo:                                    # @foo
 	b	.LBB2_5
 .LBB2_2:                                # %vector.ph
 	ld.w	$a2, $a0, 12
-	move	$a4, $zero
+	move	$a3, $zero
 	addi.d	$a1, $a0, 12
 	xvinsgr2vr.w	$xr0, $a2, 7
 	lu12i.w	$a2, 524287
 	ori	$a2, $a2, 4094
 	xvreplgr2vr.w	$xr1, $a2
-	lu12i.w	$a3, -524288
-	xvreplgr2vr.w	$xr2, $a3
+	xvldi	$xr2, -3200
 	xvrepli.w	$xr3, 1
 	lu12i.w	$a2, -421749
 	ori	$a2, $a2, 223
 	xvreplgr2vr.w	$xr4, $a2
-	ori	$a5, $zero, 896
+	ori	$a4, $zero, 896
 	.p2align	4, , 16
 .LBB2_3:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	xvori.b	$xr5, $xr0, 0
-	add.d	$a6, $a0, $a4
-	xvld	$xr0, $a6, 16
+	add.d	$a5, $a0, $a3
+	xvld	$xr0, $a5, 16
 	xvpickve.w	$xr5, $xr5, 7
 	xvinsve0.w	$xr5, $xr5, 0
 	xvinsve0.w	$xr5, $xr0, 1
@@ -271,23 +270,24 @@ foo:                                    # @foo
 	xvand.v	$xr5, $xr5, $xr2
 	xvor.v	$xr5, $xr6, $xr5
 	xvsrli.w	$xr5, $xr5, 1
-	xvld	$xr6, $a6, 1600
+	xvld	$xr6, $a5, 1600
 	xvand.v	$xr7, $xr0, $xr3
 	xvseqi.w	$xr7, $xr7, 0
 	xvandn.v	$xr7, $xr7, $xr4
 	xvxor.v	$xr6, $xr7, $xr6
 	xvxor.v	$xr5, $xr6, $xr5
-	addi.d	$a4, $a4, 32
-	xvst	$xr5, $a6, 12
-	bne	$a4, $a5, .LBB2_3
+	addi.d	$a3, $a3, 32
+	xvst	$xr5, $a5, 12
+	bne	$a3, $a4, .LBB2_3
 # %bb.4:                                # %.loopexit.loopexit
+	xvpickve2gr.w	$a3, $xr0, 7
 	ld.wu	$a4, $a0, 912
-	xvpickve2gr.w	$a5, $xr0, 7
-	lu32i.d	$a3, 0
-	and	$a5, $a5, $a3
+	lu12i.w	$a5, -524288
+	lu32i.d	$a5, 0
+	and	$a3, $a3, $a5
 	srli.d	$a6, $a4, 1
-	bstrins.d	$a5, $a6, 30, 1
-	srli.d	$a5, $a5, 1
+	bstrins.d	$a3, $a6, 30, 1
+	srli.d	$a3, $a3, 1
 	andi	$a6, $a4, 1
 	ori	$a7, $zero, 2496
 	ldx.w	$a7, $a0, $a7
@@ -296,22 +296,22 @@ foo:                                    # @foo
 	and	$a6, $a6, $a2
 	xor	$a6, $a6, $a7
 	ld.wu	$a7, $a0, 916
-	xor	$a5, $a6, $a5
-	st.w	$a5, $a0, 908
-	and	$a4, $a4, $a3
-	srli.d	$a5, $a7, 1
-	bstrins.d	$a4, $a5, 30, 1
-	srli.d	$a4, $a4, 1
-	ori	$a5, $zero, 2500
-	ldx.w	$a5, $a0, $a5
+	xor	$a3, $a6, $a3
+	st.w	$a3, $a0, 908
+	and	$a3, $a4, $a5
+	srli.d	$a4, $a7, 1
+	bstrins.d	$a3, $a4, 30, 1
+	srli.d	$a3, $a3, 1
+	ori	$a4, $zero, 2500
+	ldx.w	$a4, $a0, $a4
 	andi	$a6, $a7, 1
 	sub.d	$a6, $zero, $a6
 	and	$a6, $a6, $a2
-	xor	$a5, $a6, $a5
+	xor	$a4, $a6, $a4
 	ld.wu	$a6, $a0, 920
-	xor	$a4, $a5, $a4
-	st.w	$a4, $a0, 912
-	and	$a3, $a7, $a3
+	xor	$a3, $a4, $a3
+	st.w	$a3, $a0, 912
+	and	$a3, $a7, $a5
 	srli.d	$a4, $a6, 1
 	bstrins.d	$a3, $a4, 30, 1
 	srli.d	$a3, $a3, 1

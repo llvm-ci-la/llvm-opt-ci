@@ -297,18 +297,16 @@ check_lsx_fp_out:                       # @check_lsx_fp_out
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -80
-	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 48                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -48
+	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
 	vrepli.b	$vr0, 2
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
 	pcalau12i	$a0, %pc_hi20(.L.str.5)
 	addi.d	$fp, $a0, %pc_lo12(.L.str.5)
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 22
 	move	$a3, $fp
@@ -316,10 +314,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_0)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 27
 	move	$a3, $fp
@@ -327,30 +325,30 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_1)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 32
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.b	$vr0, 64
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 37
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.b	$vr0, 8
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 42
 	move	$a3, $fp
@@ -361,20 +359,20 @@ main:                                   # @main
 	lu32i.d	$a0, 263428
 	lu52i.d	$a0, $a0, 64
 	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 47
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.b	$vr0, -65
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 52
 	move	$a3, $fp
@@ -382,20 +380,20 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_2)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 57
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.b	$vr0, -128
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 62
 	move	$a3, $fp
@@ -403,10 +401,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_3)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_3)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 67
 	move	$a3, $fp
@@ -414,21 +412,20 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_4)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_4)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 72
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 4
-	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr0, -2752
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 77
 	move	$a3, $fp
@@ -436,21 +433,20 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_5)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_5)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 82
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 1024
-	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr0, -2812
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 87
 	move	$a3, $fp
@@ -458,10 +454,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_6)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_6)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 92
 	move	$a3, $fp
@@ -469,20 +465,20 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_7)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_7)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 97
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.h	$vr0, 64
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 102
 	move	$a3, $fp
@@ -490,10 +486,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_8)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_8)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 107
 	move	$a3, $fp
@@ -501,10 +497,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_9)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_9)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 112
 	move	$a3, $fp
@@ -514,32 +510,30 @@ main:                                   # @main
 	lu32i.d	$a0, 16400
 	lu52i.d	$a0, $a0, 1916
 	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 117
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$s1, 1
-	vreplgr2vr.h	$vr0, $s1
+	vldi	$vr0, -2800
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 122
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$s0, 2
-	vreplgr2vr.h	$vr0, $s0
+	vldi	$vr0, -2784
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 127
 	move	$a3, $fp
@@ -547,10 +541,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_10)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_10)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 132
 	move	$a3, $fp
@@ -558,20 +552,20 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_11)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_11)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 137
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.w	$vr0, 1
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 142
 	move	$a3, $fp
@@ -579,21 +573,20 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_12)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_12)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 147
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 256
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -3568
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 152
 	move	$a3, $fp
@@ -601,10 +594,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_13)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_13)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 157
 	move	$a3, $fp
@@ -612,31 +605,32 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_14)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_14)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 162
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu32i.d	$s1, -4097
-	vreplgr2vr.d	$vr0, $s1
+	lu12i.w	$a0, 1
+	lu32i.d	$a0, -4097
+	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 167
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.w	$vr0, 256
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 172
 	move	$a3, $fp
@@ -644,10 +638,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_15)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_15)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 177
 	move	$a3, $fp
@@ -655,20 +649,20 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_16)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_16)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 182
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.w	$vr0, -129
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 187
 	move	$a3, $fp
@@ -677,10 +671,10 @@ main:                                   # @main
 	addi.w	$a0, $zero, -1
 	lu52i.d	$a0, $a0, -17
 	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 192
 	move	$a3, $fp
@@ -688,10 +682,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_17)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_17)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 197
 	move	$a3, $fp
@@ -702,21 +696,20 @@ main:                                   # @main
 	lu32i.d	$a0, -522232
 	lu52i.d	$a0, $a0, 128
 	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 202
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 262144
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1280
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 207
 	move	$a3, $fp
@@ -724,20 +717,20 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	lu12i.w	$a0, 32
 	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 212
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.d	$vr0, 256
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 217
 	move	$a3, $fp
@@ -746,20 +739,21 @@ main:                                   # @main
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, 2
 	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 222
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vreplgr2vr.d	$vr0, $s0
+	lu12i.w	$a0, 2
+	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 227
 	move	$a3, $fp
@@ -767,10 +761,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_18)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_18)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 232
 	move	$a3, $fp
@@ -778,10 +772,10 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_19)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_19)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 237
 	move	$a3, $fp
@@ -789,21 +783,19 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_20)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_20)
+	vst	$vr0, $sp, 0
 	vst	$vr0, $sp, 16
-	vst	$vr0, $sp, 32
-	addi.d	$a0, $sp, 16
-	addi.d	$a1, $sp, 32
+	addi.d	$a0, $sp, 0
+	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 242
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	ld.d	$s1, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 80
+	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 48
 	ret
 .Lfunc_end2:
 	.size	main, .Lfunc_end2-main

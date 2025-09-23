@@ -1292,8 +1292,7 @@ main:                                   # @main
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_6)
 	xvld	$xr1, $sp, 96                   # 32-byte Folded Reload
 	xvst	$xr1, $sp, 128
-	lu52i.d	$a0, $zero, -16
-	xvreplgr2vr.d	$xr1, $a0
+	xvldi	$xr1, -1664
 	xvssrarni.b.h	$xr0, $xr1, 14
 	xvst	$xr0, $sp, 160
 	addi.d	$a0, $sp, 128

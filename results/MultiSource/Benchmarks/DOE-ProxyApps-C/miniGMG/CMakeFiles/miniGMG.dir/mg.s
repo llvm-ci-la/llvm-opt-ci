@@ -381,8 +381,7 @@ create_domain:                          # @create_domain
 	addi.d	$a2, $s4, 1696
 	bstrpick.d	$a1, $a4, 30, 2
 	slli.d	$a1, $a1, 2
-	lu52i.d	$a3, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -784
 	move	$a3, $a1
 	.p2align	4, , 16
 .LBB4_9:                                # %vector.body

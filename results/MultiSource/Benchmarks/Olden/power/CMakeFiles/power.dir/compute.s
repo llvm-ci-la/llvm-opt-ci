@@ -1226,8 +1226,7 @@ find_dd_grad_f:                         # @find_dd_grad_f
                                         # kill: def $f1_64 killed $f1_64 def $vr1
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 	vextrins.d	$vr2, $vr3, 16
-	lu52i.d	$a1, $zero, 1023
-	vreplgr2vr.d	$vr3, $a1
+	vldi	$vr3, -912
 	vfadd.d	$vr2, $vr2, $vr3
 	vfrecip.d	$vr2, $vr2
 	vextrins.d	$vr0, $vr1, 16

@@ -4779,22 +4779,22 @@ MT_decrypt:                             # @MT_decrypt
 	lu12i.w	$a6, 524287
 	ori	$t4, $a6, 4094
 	xvreplgr2vr.w	$xr0, $t4
-	lu12i.w	$a6, -524288
-	xvreplgr2vr.w	$xr1, $a6
+	xvldi	$xr1, -3200
 	xvrepli.w	$xr2, 1
-	lu12i.w	$a7, -421749
-	ori	$a7, $a7, 223
-	xvreplgr2vr.w	$xr3, $a7
-	ori	$t0, $zero, 896
+	lu12i.w	$a6, -421749
+	ori	$a6, $a6, 223
+	xvreplgr2vr.w	$xr3, $a6
+	ori	$a7, $zero, 896
+	lu12i.w	$t0, -524288
+	lu32i.d	$t0, 0
 	ori	$t1, $zero, 2484
 	ori	$t2, $zero, 2488
 	ori	$t3, $zero, 2492
 	vreplgr2vr.w	$vr4, $t4
-	vreplgr2vr.w	$vr5, $a6
-	lu32i.d	$a6, 0
+	vldi	$vr5, -3200
 	vrepli.w	$vr6, 1
-	vreplgr2vr.w	$vr7, $a7
-	lu32i.d	$a7, 0
+	vreplgr2vr.w	$vr7, $a6
+	lu32i.d	$a6, 0
 	ori	$t4, $zero, 1584
 	lu12i.w	$t5, -404795
 	ori	$t5, $t5, 1664
@@ -4874,43 +4874,43 @@ MT_decrypt:                             # @MT_decrypt
 	xvxor.v	$xr9, $xr10, $xr9
 	xvstx	$xr9, $t7, $a3
 	addi.d	$t7, $t7, 32
-	bne	$t7, $t0, .LBB1_8
+	bne	$t7, $a7, .LBB1_8
 # %bb.9:                                # %vector.ph
                                         #   in Loop: Header=BB1_6 Depth=1
 	ld.wu	$t7, $sp, 916
 	move	$a2, $zero
 	xvpickve2gr.w	$t8, $xr8, 7
-	and	$t8, $t8, $a6
+	and	$t8, $t8, $t0
 	srli.d	$fp, $t7, 1
 	bstrins.d	$t8, $fp, 30, 1
 	srli.d	$t8, $t8, 1
 	ldx.w	$fp, $t1, $a3
 	andi	$s0, $t7, 1
 	sub.d	$s0, $zero, $s0
-	and	$s0, $s0, $a7
+	and	$s0, $s0, $a6
 	xor	$fp, $s0, $fp
 	ld.wu	$s0, $sp, 920
 	xor	$t8, $fp, $t8
 	st.w	$t8, $sp, 912
-	and	$t7, $t7, $a6
+	and	$t7, $t7, $t0
 	srli.d	$t8, $s0, 1
 	bstrins.d	$t7, $t8, 30, 1
 	srli.d	$t7, $t7, 1
 	ldx.w	$t8, $t2, $a3
 	andi	$fp, $s0, 1
 	sub.d	$fp, $zero, $fp
-	and	$fp, $fp, $a7
+	and	$fp, $fp, $a6
 	xor	$t8, $fp, $t8
 	ld.wu	$fp, $sp, 924
 	xor	$t7, $t8, $t7
 	st.w	$t7, $sp, 916
-	and	$t7, $s0, $a6
+	and	$t7, $s0, $t0
 	srli.d	$t8, $fp, 1
 	bstrins.d	$t7, $t8, 30, 1
 	ldx.w	$t8, $t3, $a3
 	andi	$s0, $fp, 1
 	sub.d	$s0, $zero, $s0
-	and	$s0, $s0, $a7
+	and	$s0, $s0, $a6
 	xor	$t8, $s0, $t8
 	srli.d	$t7, $t7, 1
 	xor	$t7, $t8, $t7
@@ -4944,14 +4944,14 @@ MT_decrypt:                             # @MT_decrypt
 	addi.d	$t7, $sp, 16
 	ldx.wu	$t8, $t3, $t7
 	ld.wu	$a2, $sp, 16
-	and	$t8, $t8, $a6
+	and	$t8, $t8, $t0
 	srli.d	$fp, $a2, 1
 	bstrins.d	$t8, $fp, 30, 1
 	srli.d	$t8, $t8, 1
 	ld.w	$fp, $sp, 1600
 	andi	$s0, $a2, 1
 	sub.d	$s0, $zero, $s0
-	and	$s0, $s0, $a7
+	and	$s0, $s0, $a6
 	xor	$fp, $s0, $fp
 	xor	$t8, $fp, $t8
 	ori	$fp, $zero, 2508

@@ -786,9 +786,7 @@ main:                                   # @main
 	lu12i.w	$a0, 991
 	ori	$a0, $a0, 4034
 	vreplgr2vr.d	$vr0, $a0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	vreplgr2vr.d	$vr1, $a0
+	vldi	$vr1, -1552
 	vmaddwev.d.wu.w	$vr1, $vr0, $vr0
 	vst	$vr1, $sp, 64
 	addi.d	$a0, $sp, 48
@@ -866,14 +864,12 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_28)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_28)
-	vst	$vr0, $sp, 48
 	pcalau12i	$a0, %pc_hi20(.LCPI2_29)
-	vld	$vr0, $a0, %pc_lo12(.LCPI2_29)
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 65535
-	vreplgr2vr.d	$vr1, $a0
-	vmaddwev.d.wu.w	$vr1, $vr1, $vr0
-	vst	$vr1, $sp, 64
+	vld	$vr1, $a0, %pc_lo12(.LCPI2_29)
+	vst	$vr0, $sp, 48
+	vldi	$vr0, -1729
+	vmaddwev.d.wu.w	$vr0, $vr0, $vr1
+	vst	$vr0, $sp, 64
 	addi.d	$a0, $sp, 48
 	addi.d	$a1, $sp, 64
 	ori	$a2, $zero, 16

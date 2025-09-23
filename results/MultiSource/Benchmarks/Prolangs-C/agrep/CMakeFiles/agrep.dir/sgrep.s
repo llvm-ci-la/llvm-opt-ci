@@ -1328,7 +1328,7 @@ initmask:                               # @initmask
 	move	$a2, $a1
 	bstrins.d	$a2, $zero, 3, 0
 	xvrepli.b	$xr1, 0
-	xvreplgr2vr.w	$xr2, $s2
+	xvldi	$xr2, -3200
 	move	$a3, $a2
 	xvori.b	$xr3, $xr1, 0
 	.p2align	4, , 16
@@ -1366,7 +1366,7 @@ initmask:                               # @initmask
 	vreplgr2vr.w	$vr2, $a5
 	vor.v	$vr1, $vr2, $vr1
 	sub.d	$a3, $a5, $a2
-	vreplgr2vr.w	$vr2, $s2
+	vldi	$vr2, -3200
 	.p2align	4, , 16
 .LBB4_11:                               # %vec.epilog.vector.body
                                         # =>This Inner Loop Header: Depth=1

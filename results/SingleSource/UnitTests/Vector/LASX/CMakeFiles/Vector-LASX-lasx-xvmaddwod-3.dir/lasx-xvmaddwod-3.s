@@ -969,8 +969,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu52i.d	$a0, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -784
 	xvst	$xr0, $sp, 128
 	xvld	$xr1, $sp, 96                   # 32-byte Folded Reload
 	xvmaddwod.w.hu.h	$xr0, $xr1, $xr1

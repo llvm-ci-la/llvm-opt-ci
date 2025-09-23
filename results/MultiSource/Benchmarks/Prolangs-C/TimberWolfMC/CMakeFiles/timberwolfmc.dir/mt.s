@@ -897,7 +897,7 @@ MTDecodeP:                              # @MTDecodeP
 	stptr.d	$zero, $a0, 3656
 	stptr.w	$a3, $a0, 3664
 	stptr.w	$a2, $a0, 3668
-	vreplgr2vr.d	$vr0, $a4
+	vldi	$vr0, -1552
 	ori	$a4, $zero, 3640
 	vstx	$vr0, $a0, $a4
 	ori	$a4, $zero, 1

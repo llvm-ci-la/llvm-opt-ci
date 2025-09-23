@@ -1119,14 +1119,12 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_15)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_15)
-	xvst	$xr0, $sp, 160
 	pcalau12i	$a0, %pc_hi20(.LCPI2_16)
-	xvld	$xr0, $a0, %pc_lo12(.LCPI2_16)
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.d	$xr1, $a0
-	xvsrani.b.h	$xr1, $xr0, 9
-	xvst	$xr1, $sp, 192
+	xvld	$xr1, $a0, %pc_lo12(.LCPI2_16)
+	xvst	$xr0, $sp, 160
+	xvldi	$xr0, -1789
+	xvsrani.b.h	$xr0, $xr1, 9
+	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160
 	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32

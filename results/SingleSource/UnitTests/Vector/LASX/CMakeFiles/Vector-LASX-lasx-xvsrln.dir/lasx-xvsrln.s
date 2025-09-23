@@ -524,9 +524,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr1, $sp, 96                   # 32-byte Folded Reload
 	xvst	$xr1, $sp, 128
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -2305
 	xvst	$xr0, $sp, 32                   # 32-byte Folded Spill
 	xvsrln.b.h	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 160
@@ -732,8 +730,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr1, $sp, 96                   # 32-byte Folded Reload
 	xvst	$xr1, $sp, 128
-	lu12i.w	$a0, 2048
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3456
 	xvsrln.h.w	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 160
 	addi.d	$a0, $sp, 128

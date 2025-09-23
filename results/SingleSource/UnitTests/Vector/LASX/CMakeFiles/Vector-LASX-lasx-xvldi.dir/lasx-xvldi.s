@@ -231,129 +231,119 @@ check_lasx_fp_out:                      # @check_lasx_fp_out
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -320
-	st.d	$ra, $sp, 312                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 304                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 296                   # 8-byte Folded Spill
-	addi.d	$fp, $sp, 320
+	addi.d	$sp, $sp, -256
+	st.d	$ra, $sp, 248                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 240                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 232                   # 8-byte Folded Spill
+	addi.d	$fp, $sp, 256
 	bstrins.d	$sp, $zero, 4, 0
 	xvrepli.w	$xr0, 16
-	xvst	$xr0, $sp, 192                  # 32-byte Folded Spill
-	xvst	$xr0, $sp, 224
+	xvst	$xr0, $sp, 128                  # 32-byte Folded Spill
+	xvst	$xr0, $sp, 160
 	xvldi	$xr0, -4080
-	xvst	$xr0, $sp, 160                  # 32-byte Folded Spill
-	xvst	$xr0, $sp, 256
+	xvst	$xr0, $sp, 96                   # 32-byte Folded Spill
+	xvst	$xr0, $sp, 192
 	pcalau12i	$a0, %pc_hi20(.L.str.5)
 	addi.d	$s0, $a0, %pc_lo12(.L.str.5)
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 22
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
 	xvrepli.h	$xr0, -324
-	xvst	$xr0, $sp, 224
+	xvst	$xr0, $sp, 160
 	xvldi	$xr0, 1724
-	xvst	$xr0, $sp, 256
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	xvst	$xr0, $sp, 192
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 27
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, 65536
-	lu52i.d	$a0, $a0, 1021
-	xvreplgr2vr.d	$xr0, $a0
-	xvst	$xr0, $sp, 128                  # 32-byte Folded Spill
-	xvst	$xr0, $sp, 224
 	xvldi	$xr0, -943
-	xvst	$xr0, $sp, 96                   # 32-byte Folded Spill
-	xvst	$xr0, $sp, 256
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	xvst	$xr0, $sp, 64                   # 32-byte Folded Spill
+	xvst	$xr0, $sp, 160
+	xvst	$xr0, $sp, 192
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 32
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
 	xvrepli.h	$xr0, -228
-	xvst	$xr0, $sp, 224
+	xvst	$xr0, $sp, 160
 	xvldi	$xr0, 1820
-	xvst	$xr0, $sp, 256
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	xvst	$xr0, $sp, 192
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 37
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 466944
-	xvreplgr2vr.w	$xr0, $a0
-	xvst	$xr0, $sp, 64                   # 32-byte Folded Spill
-	xvst	$xr0, $sp, 224
 	xvldi	$xr0, -3214
 	xvst	$xr0, $sp, 32                   # 32-byte Folded Spill
-	xvst	$xr0, $sp, 256
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	xvst	$xr0, $sp, 160
+	xvst	$xr0, $sp, 192
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 42
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
 	xvrepli.w	$xr0, -227
-	xvst	$xr0, $sp, 224
+	xvst	$xr0, $sp, 160
 	xvldi	$xr0, 2845
-	xvst	$xr0, $sp, 256
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	xvst	$xr0, $sp, 192
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 47
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	xvld	$xr0, $sp, 192                  # 32-byte Folded Reload
-	xvst	$xr0, $sp, 224
-	xvld	$xr0, $sp, 160                  # 32-byte Folded Reload
-	xvst	$xr0, $sp, 256
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	xvld	$xr0, $sp, 128                  # 32-byte Folded Reload
+	xvst	$xr0, $sp, 160
+	xvld	$xr0, $sp, 96                   # 32-byte Folded Reload
+	xvst	$xr0, $sp, 192
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 52
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	xvld	$xr0, $sp, 128                  # 32-byte Folded Reload
-	xvst	$xr0, $sp, 224
-	xvld	$xr0, $sp, 96                   # 32-byte Folded Reload
-	xvst	$xr0, $sp, 256
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
+	xvst	$xr0, $sp, 160
+	xvst	$xr0, $sp, 192
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 57
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
-	xvst	$xr0, $sp, 224
 	xvld	$xr0, $sp, 32                   # 32-byte Folded Reload
-	xvst	$xr0, $sp, 256
-	addi.d	$a0, $sp, 224
-	addi.d	$a1, $sp, 256
+	xvst	$xr0, $sp, 160
+	xvst	$xr0, $sp, 192
+	addi.d	$a0, $sp, 160
+	addi.d	$a1, $sp, 192
 	ori	$a2, $zero, 32
 	ori	$a4, $zero, 62
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	addi.d	$sp, $fp, -320
-	ld.d	$s0, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 312                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 320
+	addi.d	$sp, $fp, -256
+	ld.d	$s0, $sp, 232                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 240                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 248                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 256
 	ret
 .Lfunc_end2:
 	.size	main, .Lfunc_end2-main

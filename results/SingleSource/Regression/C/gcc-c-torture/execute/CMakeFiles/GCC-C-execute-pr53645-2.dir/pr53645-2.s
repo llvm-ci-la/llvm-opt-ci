@@ -331,8 +331,7 @@ sq65656565:                             # @sq65656565
 	ori	$a1, $a1, 2731
 	vreplgr2vr.w	$vr1, $a1
 	vmuh.h	$vr0, $vr0, $vr1
-	lu12i.w	$a1, 16
-	vreplgr2vr.w	$vr1, $a1
+	vldi	$vr1, -3583
 	vsra.h	$vr0, $vr0, $vr1
 	vsrli.h	$vr1, $vr0, 15
 	vadd.h	$vr0, $vr0, $vr1
@@ -351,8 +350,7 @@ sr65656565:                             # @sr65656565
 	ori	$a1, $a1, 2731
 	vreplgr2vr.w	$vr1, $a1
 	vmuh.h	$vr1, $vr0, $vr1
-	lu12i.w	$a1, 16
-	vreplgr2vr.w	$vr2, $a1
+	vldi	$vr2, -3583
 	vsra.h	$vr1, $vr1, $vr2
 	vsrli.h	$vr2, $vr1, 15
 	vadd.h	$vr1, $vr1, $vr2

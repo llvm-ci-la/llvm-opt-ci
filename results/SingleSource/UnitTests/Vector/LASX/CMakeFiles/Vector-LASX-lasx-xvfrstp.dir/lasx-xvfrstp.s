@@ -861,9 +861,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_22)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_22)
 	xvst	$xr0, $sp, 160
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -2305
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvfrstp.h	$xr0, $xr1, $xr1
 	xvst	$xr0, $sp, 192

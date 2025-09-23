@@ -317,10 +317,7 @@ main:                                   # @main
 	ori	$a6, $zero, 1200
 	ori	$a7, $zero, 1000
 	ori	$t0, $s3, 2688
-	ori	$t1, $zero, 0
-	lu32i.d	$t1, -524288
-	lu52i.d	$t1, $t1, 1023
-	xvreplgr2vr.d	$xr1, $t1
+	xvldi	$xr1, -904
 	ori	$t1, $zero, 999
 	move	$t2, $s0
 	b	.LBB7_18

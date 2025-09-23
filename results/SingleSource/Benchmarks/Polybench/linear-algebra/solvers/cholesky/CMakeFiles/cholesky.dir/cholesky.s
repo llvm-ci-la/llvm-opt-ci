@@ -185,7 +185,7 @@ main:                                   # @main
 	lu32i.d	$t5, -49152
 	lu52i.d	$t5, $t5, 1033
 	xvreplgr2vr.d	$xr3, $t5
-	xvreplgr2vr.d	$xr4, $t1
+	xvldi	$xr4, -912
 	ori	$t5, $zero, 1999
 	move	$t6, $fp
 	move	$t7, $s0

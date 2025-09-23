@@ -486,8 +486,7 @@ unupack:                                # @unupack
 	addi.d	$a5, $a5, 256
 	add.d	$a4, $a4, $a0
 	addi.d	$a4, $a4, 60
-	ori	$a6, $zero, 1024
-	xvreplgr2vr.w	$xr0, $a6
+	xvldi	$xr0, -3836
 .LBB0_71:                               # %vector.body1225
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a4, -32
@@ -1062,8 +1061,7 @@ unupack:                                # @unupack
 	addi.d	$a4, $a4, 256
 	ld.d	$a5, $sp, 88                    # 8-byte Folded Reload
 	addi.d	$a5, $a5, 56
-	ori	$a6, $zero, 1024
-	xvreplgr2vr.w	$xr0, $a6
+	xvldi	$xr0, -3836
 .LBB0_145:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a5, -32

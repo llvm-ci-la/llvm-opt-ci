@@ -245,9 +245,7 @@ main:                                   # @main
 	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
 	vrepli.d	$vr0, 256
 	vst	$vr0, $sp, 48
-	lu12i.w	$a0, 31
-	ori	$a0, $a0, 4095
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -2303
 	vfclass.d	$vr0, $vr0
 	vst	$vr0, $sp, 64
 	pcalau12i	$a0, %pc_hi20(.L.str.5)

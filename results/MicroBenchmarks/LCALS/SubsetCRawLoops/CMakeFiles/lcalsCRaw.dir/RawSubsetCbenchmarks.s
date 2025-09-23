@@ -1837,8 +1837,7 @@ _ZL13BM_PIC_1D_RAWRN9benchmark5StateE:  # @_ZL13BM_PIC_1D_RAWRN9benchmark5StateE
 	xvreplve0.d	$xr0, $xr9
 	movgr2fr.d	$fa1, $zero
 	vldi	$vr2, -912
-	ori	$a3, $zero, 2047
-	vreplgr2vr.w	$vr3, $a3
+	vldi	$vr3, -2553
 	b	.LBB12_4
 	.p2align	4, , 16
 .LBB12_3:                               # %._crit_edge

@@ -367,10 +367,7 @@ main:                                   # @main
 	slli.d	$a2, $a2, 6
 	add.d	$a2, $a0, $a2
 	addi.d	$a5, $a0, 32
-	ori	$a6, $zero, 0
-	lu32i.d	$a6, -524288
-	lu52i.d	$a6, $a6, 1024
-	xvreplgr2vr.d	$xr0, $a6
+	xvldi	$xr0, -1016
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB2_5:                                # %vector.body
@@ -415,10 +412,7 @@ main:                                   # @main
 	slli.d	$a3, $a3, 6
 	add.d	$a3, $a6, $a3
 	addi.d	$a6, $a6, 32
-	ori	$a7, $zero, 0
-	lu32i.d	$a7, -524288
-	lu52i.d	$a7, $a7, 1024
-	xvreplgr2vr.d	$xr0, $a7
+	xvldi	$xr0, -1016
 	move	$a7, $a5
 	.p2align	4, , 16
 .LBB2_13:                               # %vector.body36

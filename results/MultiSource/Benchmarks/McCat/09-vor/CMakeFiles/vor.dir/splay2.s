@@ -696,8 +696,7 @@ CHdelete:                               # @CHdelete
 	pcaddu18i	$ra, %call36(CHsplay)
 	jirl	$ra, $ra, 0
 	st.d	$zero, $s0, 32
-	lu52i.d	$a0, $zero, -1025
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -784
 	vst	$vr0, $sp, 16
 	addi.w	$a0, $zero, -1
 	lu32i.d	$a0, 0

@@ -649,8 +649,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 4095
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -2545
 	xvst	$xr0, $sp, 96
 	lu12i.w	$a0, 3
 	ori	$a0, $a0, 2452
@@ -861,11 +860,9 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 2047
-	pcalau12i	$a1, %pc_hi20(.LCPI2_20)
-	xvld	$xr0, $a1, %pc_lo12(.LCPI2_20)
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.w	$xr1, $a0
+	pcalau12i	$a0, %pc_hi20(.LCPI2_20)
+	xvld	$xr0, $a0, %pc_lo12(.LCPI2_20)
+	xvldi	$xr1, -2177
 	xvst	$xr1, $sp, 96
 	xvsat.w	$xr0, $xr0, 23
 	xvst	$xr0, $sp, 128

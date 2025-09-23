@@ -573,8 +573,7 @@ GenerateSeqLaplacian:                   # @GenerateSeqLaplacian
 	addi.d	$a2, $a0, 32
 	addi.d	$a3, $s1, 32
 	xvrepli.b	$xr0, 0
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr1, $a4
+	xvldi	$xr1, -912
 	move	$a4, $a5
 	.p2align	4, , 16
 .LBB0_72:                               # %vector.body

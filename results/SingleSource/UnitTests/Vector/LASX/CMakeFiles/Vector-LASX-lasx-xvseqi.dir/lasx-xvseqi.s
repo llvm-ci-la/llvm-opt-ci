@@ -382,7 +382,6 @@ main:                                   # @main
 	st.d	$ra, $sp, 184                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 176                   # 8-byte Folded Spill
 	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 160                   # 8-byte Folded Spill
 	addi.d	$fp, $sp, 192
 	bstrins.d	$sp, $zero, 4, 0
 	xvrepli.b	$xr0, 0
@@ -494,10 +493,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $sp, 96
-	ori	$s1, $zero, 0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1552
 	xvseqi.b	$xr0, $xr0, -15
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96
@@ -509,8 +505,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $sp, 96
-	lu12i.w	$a0, -4096
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1544
 	xvseqi.h	$xr0, $xr0, -8
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96
@@ -592,8 +587,9 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $sp, 96
-	lu32i.d	$s1, -32768
-	xvreplgr2vr.d	$xr0, $s1
+	ori	$a0, $zero, 0
+	lu32i.d	$a0, -32768
+	xvreplgr2vr.d	$xr0, $a0
 	xvseqi.h	$xr0, $xr0, -11
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96
@@ -815,8 +811,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $sp, 96
-	lu52i.d	$a0, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -784
 	xvseqi.d	$xr0, $xr0, -3
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96
@@ -863,7 +858,6 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
 	addi.d	$sp, $fp, -192
-	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
 	ld.d	$ra, $sp, 184                   # 8-byte Folded Reload

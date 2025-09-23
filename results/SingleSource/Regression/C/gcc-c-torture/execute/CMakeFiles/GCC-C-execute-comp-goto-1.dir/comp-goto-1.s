@@ -39,9 +39,7 @@ simulator_kernel:                       # @simulator_kernel
 	addi.d	$t0, $a6, 16
 	vinsgr2vr.w	$vr0, $a5, 0
 	vinsgr2vr.w	$vr0, $a5, 1
-	lu12i.w	$t1, 63
-	ori	$t1, $t1, 4095
-	vreplgr2vr.w	$vr1, $t1
+	vldi	$vr1, -2301
 	vrepli.b	$vr2, 0
 	lu12i.w	$t1, -64
 	vreplgr2vr.d	$vr3, $t1

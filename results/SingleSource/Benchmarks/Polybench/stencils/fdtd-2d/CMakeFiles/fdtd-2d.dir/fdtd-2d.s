@@ -433,8 +433,7 @@ main:                                   # @main
 	lu32i.d	$a3, 419430
 	lu52i.d	$a3, $a3, -1026
 	xvreplgr2vr.d	$xr0, $a3
-	lu52i.d	$a3, $zero, -1026
-	xvreplgr2vr.d	$xr5, $a3
+	xvldi	$xr5, -800
 	st.d	$t8, $sp, 112                   # 8-byte Folded Spill
 	.p2align	4, , 16
 .LBB7_24:                               # %vector.ph180
@@ -881,8 +880,7 @@ main:                                   # @main
 	vldi	$vr1, -800
 	ori	$t8, $zero, 1000
 	ori	$t3, $zero, 999
-	lu52i.d	$a7, $zero, 1022
-	xvreplgr2vr.d	$xr2, $a7
+	xvldi	$xr2, -928
 	.p2align	4, , 16
 .LBB7_59:                               # %vector.ph278
                                         # =>This Loop Header: Depth=1

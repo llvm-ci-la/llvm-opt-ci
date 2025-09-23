@@ -871,8 +871,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	slli.d	$s0, $t3, 3
 	xvrepli.w	$xr1, 20
 	xvrepli.w	$xr2, -5
-	ori	$a6, $zero, 512
-	xvreplgr2vr.w	$xr3, $a6
+	xvldi	$xr3, -3838
 	move	$a6, $t4
 	move	$a7, $t5
 	move	$s1, $t6
@@ -972,8 +971,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	slli.d	$s0, $t3, 3
 	xvrepli.w	$xr1, 20
 	xvrepli.w	$xr2, -5
-	ori	$a6, $zero, 512
-	xvreplgr2vr.w	$xr3, $a6
+	xvldi	$xr3, -3838
 	move	$s1, $t5
 	move	$s2, $t6
 	move	$s3, $t4
@@ -1088,8 +1086,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ori	$t5, $zero, 8
 	xvrepli.w	$xr1, 20
 	xvrepli.w	$xr2, -5
-	ori	$a1, $zero, 512
-	xvreplgr2vr.w	$xr3, $a1
+	xvldi	$xr3, -3838
 	b	.LBB2_32
 	.p2align	4, , 16
 .LBB2_31:                               # %..loopexit235_crit_edge.us
@@ -1283,8 +1280,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	xvreplgr2vr.w	$xr0, $t3
 	xvrepli.w	$xr1, 20
 	xvrepli.w	$xr2, -5
-	ori	$a1, $zero, 512
-	xvreplgr2vr.w	$xr3, $a1
+	xvldi	$xr3, -3838
 	move	$s2, $t5
 	move	$s3, $t6
 	move	$s4, $t7
@@ -2085,8 +2081,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	xvreplgr2vr.w	$xr0, $t3
 	xvrepli.w	$xr1, 20
 	xvrepli.w	$xr2, -5
-	ori	$a1, $zero, 512
-	xvreplgr2vr.w	$xr3, $a1
+	xvldi	$xr3, -3838
 	move	$s2, $t5
 	move	$s3, $t6
 	move	$s4, $t7
@@ -2216,8 +2211,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	xvreplgr2vr.w	$xr0, $a1
 	xvrepli.w	$xr1, 20
 	xvrepli.w	$xr2, -5
-	ori	$t0, $zero, 512
-	xvreplgr2vr.w	$xr3, $t0
+	xvldi	$xr3, -3838
 	move	$t0, $a6
 	move	$t1, $a5
 	move	$t4, $a7

@@ -120,8 +120,7 @@ makewt:                                 # @makewt
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 	vld	$vr1, $sp, 16                   # 16-byte Folded Reload
 	vextrins.d	$vr1, $vr0, 16
-	lu52i.d	$a0, $zero, 1022
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -928
 	vfdiv.d	$vr0, $vr0, $vr1
 	ori	$a0, $zero, 10
 	vst	$vr0, $fp, 16
@@ -169,8 +168,7 @@ makewt:                                 # @makewt
 	addi.d	$a0, $fp, 32
 	addi.d	$a1, $fp, 64
 	ori	$a2, $zero, 8
-	lu52i.d	$a3, $zero, 1022
-	vreplgr2vr.d	$vr0, $a3
+	vldi	$vr0, -928
 	ori	$a3, $zero, 10
 	ori	$a4, $zero, 6
 	b	.LBB1_8

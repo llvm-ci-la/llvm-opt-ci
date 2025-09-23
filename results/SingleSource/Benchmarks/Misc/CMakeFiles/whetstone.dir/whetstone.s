@@ -81,7 +81,7 @@ main:                                   # @main
 .LBB0_9:                                # %.preheader
 	st.d	$a1, $sp, 192                   # 8-byte Folded Spill
 	alsl.d	$a1, $a0, $a0, 1
-	slli.d	$s3, $a1, 2
+	slli.d	$s2, $a1, 2
 	ori	$a1, $zero, 14
 	mul.d	$s1, $a0, $a1
 	ori	$a1, $zero, 345
@@ -98,9 +98,9 @@ main:                                   # @main
 	ori	$a1, $zero, 93
 	mul.d	$a5, $a0, $a1
 	ori	$a2, $zero, 1
-	slt	$a0, $a2, $s3
+	slt	$a0, $a2, $s2
 	masknez	$a1, $a2, $a0
-	maskeqz	$a0, $s3, $a0
+	maskeqz	$a0, $s2, $a0
 	or	$a0, $a0, $a1
 	st.d	$a0, $sp, 136                   # 8-byte Folded Spill
 	slt	$a0, $a2, $s1
@@ -168,12 +168,13 @@ main:                                   # @main
 	lu52i.d	$a0, $a0, 1025
 	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
 	st.d	$s1, $sp, 184                   # 8-byte Folded Spill
-	pcalau12i	$s6, %pc_hi20(J)
+	pcalau12i	$s6, %pc_hi20(T2)
+	pcalau12i	$s3, %pc_hi20(J)
 	b	.LBB0_11
 	.p2align	4, , 16
 .LBB0_10:                               # %._crit_edge267
                                         #   in Loop: Header=BB0_11 Depth=1
-	ld.w	$a2, $s6, %pc_lo12(J)
+	ld.w	$a2, $s3, %pc_lo12(J)
 	ld.w	$a3, $s1, %pc_lo12(K)
 	movfr2gr.d	$a4, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
@@ -212,9 +213,8 @@ main:                                   # @main
 	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
 	st.d	$a1, $sp, 200                   # 8-byte Folded Spill
 	st.d	$a0, $a1, %pc_lo12(T1)
-	pcalau12i	$s0, %pc_hi20(T2)
 	lu52i.d	$a0, $zero, 1024
-	st.d	$a0, $s0, %pc_lo12(T2)
+	st.d	$a0, $s6, %pc_lo12(T2)
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.3)
 	move	$a1, $zero
@@ -256,30 +256,30 @@ main:                                   # @main
 # %bb.13:                               # %.lr.ph211
                                         #   in Loop: Header=BB0_11 Depth=1
 	pcalau12i	$a0, %pc_hi20(E1)
-	addi.d	$s2, $a0, %pc_lo12(E1)
-	fst.d	$fa1, $s2, 8
-	fst.d	$fa0, $s2, 16
-	fst.d	$fa2, $s2, 24
-	fst.d	$fa4, $s2, 32
+	addi.d	$s0, $a0, %pc_lo12(E1)
+	fst.d	$fa1, $s0, 8
+	fst.d	$fa0, $s0, 16
+	fst.d	$fa2, $s0, 24
+	fst.d	$fa4, $s0, 32
 	movfr2gr.d	$a4, $fa1
 	movfr2gr.d	$a5, $fa0
 	movfr2gr.d	$a6, $fa2
 	movfr2gr.d	$a7, $fa4
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.3)
-	move	$a1, $s3
+	move	$a1, $s2
 	move	$a2, $s1
-	move	$a3, $s3
+	move	$a3, $s2
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	fld.d	$fa2, $s2, 32
-	fld.d	$fa3, $s2, 24
-	fld.d	$fa4, $s2, 16
-	fld.d	$fa5, $s2, 8
+	fld.d	$fa2, $s0, 32
+	fld.d	$fa3, $s0, 24
+	fld.d	$fa4, $s0, 16
+	fld.d	$fa5, $s0, 8
 	fld.d	$fa0, $s5, %pc_lo12(T)
-	fld.d	$fa1, $s0, %pc_lo12(T2)
+	fld.d	$fa1, $s6, %pc_lo12(T2)
 	ori	$a0, $zero, 6
-	st.w	$a0, $s6, %pc_lo12(J)
+	st.w	$a0, $s3, %pc_lo12(J)
 	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB0_14:                               # %PA.exit
@@ -385,10 +385,10 @@ main:                                   # @main
 	bnez	$a0, .LBB0_14
 # %bb.15:                               # %iter.check
                                         #   in Loop: Header=BB0_11 Depth=1
-	fst.d	$fa5, $s2, 8
-	fst.d	$fa4, $s2, 16
-	fst.d	$fa3, $s2, 24
-	fst.d	$fa2, $s2, 32
+	fst.d	$fa5, $s0, 8
+	fst.d	$fa4, $s0, 16
+	fst.d	$fa3, $s0, 24
+	fst.d	$fa2, $s0, 32
 	movfr2gr.d	$a4, $fa5
 	movfr2gr.d	$a5, $fa4
 	movfr2gr.d	$a6, $fa3
@@ -396,8 +396,8 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.3)
 	move	$a1, $s1
-	move	$a2, $s3
-	move	$a3, $s3
+	move	$a2, $s2
+	move	$a3, $s2
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 1
@@ -484,7 +484,7 @@ main:                                   # @main
 	bnez	$a0, .LBB0_26
 .LBB0_27:                               # %.lr.ph224.preheader
                                         #   in Loop: Header=BB0_11 Depth=1
-	st.w	$a2, $s6, %pc_lo12(J)
+	st.w	$a2, $s3, %pc_lo12(J)
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$s4, $a0, %pc_lo12(.L.str.3)
 	move	$a0, $s4
@@ -497,15 +497,14 @@ main:                                   # @main
 	move	$a7, $s8
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	ld.d	$a4, $sp, 80                    # 8-byte Folded Reload
-	vreplgr2vr.d	$vr0, $a4
-	vst	$vr0, $s2, 8
+	vldi	$vr0, -1000
+	vst	$vr0, $s0, 8
 	ori	$a0, $zero, 1
-	st.w	$a0, $s6, %pc_lo12(J)
+	st.w	$a0, $s3, %pc_lo12(J)
 	pcalau12i	$s1, %pc_hi20(K)
-	ld.d	$a7, $s2, 32
-	ld.d	$a6, $s2, 24
-	ld.d	$a5, $s2, 16
+	ld.d	$a7, $s0, 32
+	ld.d	$a6, $s0, 24
+	ld.d	$a5, $s0, 16
 	ori	$a0, $zero, 2
 	st.w	$a0, $s1, %pc_lo12(K)
 	pcalau12i	$s7, %pc_hi20(L)
@@ -515,10 +514,11 @@ main:                                   # @main
 	ori	$a3, $zero, 2
 	move	$a0, $s4
 	ld.d	$a1, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 80                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	fld.d	$fs1, $s5, %pc_lo12(T)
-	fld.d	$fs2, $s0, %pc_lo12(T2)
+	fld.d	$fs2, $s6, %pc_lo12(T2)
 	vldi	$vr0, -928
 	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
 	vldi	$vr1, -928
@@ -589,7 +589,7 @@ main:                                   # @main
 	bnez	$s4, .LBB0_28
 # %bb.29:                               # %.lr.ph257.preheader
                                         #   in Loop: Header=BB0_11 Depth=1
-	ld.w	$a2, $s6, %pc_lo12(J)
+	ld.w	$a2, $s3, %pc_lo12(J)
 	ld.w	$a3, $s1, %pc_lo12(K)
 	vld	$vr1, $sp, 224                  # 16-byte Folded Reload
 	movfr2gr.d	$a4, $fa1
@@ -607,8 +607,8 @@ main:                                   # @main
 	vldi	$vr2, -912
 	fadd.d	$fa2, $fa1, $fa2
 	fmul.d	$fa0, $fa0, $fa2
-	fld.d	$fa2, $s0, %pc_lo12(T2)
-	ld.w	$a2, $s6, %pc_lo12(J)
+	fld.d	$fa2, $s6, %pc_lo12(T2)
+	ld.w	$a2, $s3, %pc_lo12(J)
 	ld.w	$a3, $s1, %pc_lo12(K)
 	fadd.d	$fa0, $fa1, $fa0
 	fdiv.d	$fa0, $fa0, $fa2
@@ -621,7 +621,7 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 1
-	st.w	$a0, $s6, %pc_lo12(J)
+	st.w	$a0, $s3, %pc_lo12(J)
 	ori	$a0, $zero, 2
 	st.w	$a0, $s1, %pc_lo12(K)
 	ori	$a0, $zero, 3
@@ -640,10 +640,10 @@ main:                                   # @main
 	bnez	$a0, .LBB0_30
 # %bb.31:                               # %.lr.ph266
                                         #   in Loop: Header=BB0_11 Depth=1
-	ld.d	$a7, $s2, 32
-	fst.d	$fa0, $s2, 8
-	fst.d	$fa1, $s2, 16
-	fst.d	$fa0, $s2, 24
+	ld.d	$a7, $s0, 32
+	fst.d	$fa0, $s0, 8
+	fst.d	$fa1, $s0, 16
+	fst.d	$fa0, $s0, 24
 	movfr2gr.d	$a5, $fa1
 	movfr2gr.d	$a4, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
@@ -656,7 +656,7 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 2
-	st.w	$a0, $s6, %pc_lo12(J)
+	st.w	$a0, $s3, %pc_lo12(J)
 	ori	$a0, $zero, 3
 	st.w	$a0, $s1, %pc_lo12(K)
 	ori	$a2, $zero, 2

@@ -3331,8 +3331,7 @@ _ZN4Mesh15partition_cellsEiRSt6vectorIiSaIiEE16partition_method: # @_ZN4Mesh15pa
 	xvreplve0.d	$xr5, $xr1
 	xvreplve0.d	$xr6, $xr2
 	xvreplve0.d	$xr7, $xr3
-	lu52i.d	$a5, $zero, 1022
-	xvreplgr2vr.d	$xr8, $a5
+	xvldi	$xr8, -928
 	move	$a5, $a0
 	move	$a6, $a1
 	move	$a7, $s3

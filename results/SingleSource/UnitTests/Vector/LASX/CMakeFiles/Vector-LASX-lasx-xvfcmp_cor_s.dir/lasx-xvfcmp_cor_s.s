@@ -558,13 +558,11 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	xvld	$xr0, $sp, 160                  # 32-byte Folded Reload
-	xvst	$xr0, $sp, 192
 	pcalau12i	$a0, %pc_hi20(.LCPI2_14)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_14)
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	xvreplgr2vr.d	$xr1, $a0
+	xvld	$xr1, $sp, 160                  # 32-byte Folded Reload
+	xvst	$xr1, $sp, 192
+	xvldi	$xr1, -1552
 	xvfcmp.cor.d	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 224
 	addi.d	$a0, $sp, 192

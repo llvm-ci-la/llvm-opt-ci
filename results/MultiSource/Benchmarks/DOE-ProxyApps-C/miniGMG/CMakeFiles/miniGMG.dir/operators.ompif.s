@@ -3645,8 +3645,6 @@ restriction_betas:                      # @restriction_betas
 	lu32i.d	$a0, 1
 	st.d	$a0, $sp, 208                   # 8-byte Folded Spill
 	vreplgr2vr.d	$vr1, $a0
-	lu52i.d	$a0, $zero, 1021
-	vreplgr2vr.d	$vr2, $a0
 	b	.LBB8_3
 	.p2align	4, , 16
 .LBB8_2:                                # %._crit_edge224
@@ -3751,11 +3749,11 @@ restriction_betas:                      # @restriction_betas
 	bstrpick.d	$a0, $t1, 30, 1
 	slli.d	$a0, $a0, 1
 	st.d	$a0, $sp, 216                   # 8-byte Folded Spill
-	vinsgr2vr.w	$vr3, $t5, 0
-	vinsgr2vr.w	$vr3, $t5, 1
-	vinsgr2vr.w	$vr4, $t4, 0
-	vinsgr2vr.w	$vr4, $t4, 1
-	vadd.w	$vr5, $vr3, $vr4
+	vinsgr2vr.w	$vr2, $t5, 0
+	vinsgr2vr.w	$vr2, $t5, 1
+	vinsgr2vr.w	$vr3, $t4, 0
+	vinsgr2vr.w	$vr3, $t4, 1
+	vadd.w	$vr4, $vr2, $vr3
 	b	.LBB8_8
 	.p2align	4, , 16
 .LBB8_7:                                # %._crit_edge203.split.us.us.us
@@ -3811,22 +3809,22 @@ restriction_betas:                      # @restriction_betas
                                         #       Parent Loop BB8_9 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
 	slli.d	$t0, $a6, 3
-	fldx.d	$fa6, $s1, $t0
+	fldx.d	$fa5, $s1, $t0
 	add.w	$t0, $t5, $a6
 	slli.d	$t0, $t0, 3
-	fldx.d	$fa7, $s1, $t0
+	fldx.d	$fa6, $s1, $t0
 	add.w	$t0, $t4, $a6
 	slli.d	$t0, $t0, 3
-	fldx.d	$ft0, $s1, $t0
+	fldx.d	$fa7, $s1, $t0
 	add.w	$t0, $a4, $a6
 	slli.d	$t0, $t0, 3
-	fldx.d	$ft1, $s1, $t0
-	fadd.d	$fa6, $fa6, $fa7
-	fadd.d	$fa6, $fa6, $ft0
-	fadd.d	$fa6, $fa6, $ft1
-	fmul.d	$fa6, $fa6, $fa0
+	fldx.d	$ft0, $s1, $t0
+	fadd.d	$fa5, $fa5, $fa6
+	fadd.d	$fa5, $fa5, $fa7
+	fadd.d	$fa5, $fa5, $ft0
+	fmul.d	$fa5, $fa5, $fa0
 	slli.d	$t0, $a1, 3
-	fstx.d	$fa6, $fp, $t0
+	fstx.d	$fa5, $fp, $t0
 	addi.w	$a6, $a6, 2
 	addi.d	$s3, $s3, -1
 	addi.w	$a1, $a1, 1
@@ -3914,41 +3912,29 @@ restriction_betas:                      # @restriction_betas
 	mul.d	$a1, $a0, $t5
 	ld.d	$a6, $sp, 200                   # 8-byte Folded Reload
 	add.d	$a1, $a1, $a6
-	vinsgr2vr.w	$vr6, $a1, 0
-	vinsgr2vr.w	$vr6, $a1, 1
+	vinsgr2vr.w	$vr5, $a1, 0
+	vinsgr2vr.w	$vr5, $a1, 1
 	move	$s3, $s8
 	ld.d	$a6, $sp, 216                   # 8-byte Folded Reload
-	vori.b	$vr7, $vr1, 0
+	vori.b	$vr6, $vr1, 0
 	.p2align	4, , 16
 .LBB8_25:                               # %vector.body454
                                         #   Parent Loop BB8_3 Depth=1
                                         #     Parent Loop BB8_8 Depth=2
                                         #       Parent Loop BB8_9 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vadd.w	$vr8, $vr6, $vr7
-	vslli.w	$vr8, $vr8, 1
-	vshuf4i.w	$vr9, $vr8, 16
-	vslli.d	$vr9, $vr9, 32
-	vsrai.d	$vr9, $vr9, 32
-	vpickve2gr.d	$a1, $vr9, 0
+	vadd.w	$vr7, $vr5, $vr6
+	vslli.w	$vr7, $vr7, 1
+	vshuf4i.w	$vr8, $vr7, 16
+	vslli.d	$vr8, $vr8, 32
+	vsrai.d	$vr8, $vr8, 32
+	vpickve2gr.d	$a1, $vr8, 0
 	slli.d	$a1, $a1, 3
-	vpickve2gr.d	$t0, $vr9, 1
+	vpickve2gr.d	$t0, $vr8, 1
 	slli.d	$t0, $t0, 3
-	fldx.d	$ft1, $s1, $a1
-	fldx.d	$ft2, $s1, $t0
-	vadd.w	$vr11, $vr8, $vr3
-	vshuf4i.w	$vr11, $vr11, 16
-	vslli.d	$vr11, $vr11, 32
-	vsrai.d	$vr11, $vr11, 32
-	vpickve2gr.d	$a1, $vr11, 0
-	slli.d	$a1, $a1, 3
-	vpickve2gr.d	$t0, $vr11, 1
-	slli.d	$t0, $t0, 3
-	fldx.d	$ft3, $s1, $a1
-	fldx.d	$ft4, $s1, $t0
-	vextrins.d	$vr9, $vr10, 16
-	vextrins.d	$vr11, $vr12, 16
-	vadd.w	$vr10, $vr8, $vr4
+	fldx.d	$ft0, $s1, $a1
+	fldx.d	$ft1, $s1, $t0
+	vadd.w	$vr10, $vr7, $vr2
 	vshuf4i.w	$vr10, $vr10, 16
 	vslli.d	$vr10, $vr10, 32
 	vsrai.d	$vr10, $vr10, 32
@@ -3957,26 +3943,38 @@ restriction_betas:                      # @restriction_betas
 	vpickve2gr.d	$t0, $vr10, 1
 	slli.d	$t0, $t0, 3
 	fldx.d	$ft2, $s1, $a1
-	fldx.d	$ft4, $s1, $t0
-	vadd.w	$vr8, $vr8, $vr5
-	vshuf4i.w	$vr8, $vr8, 16
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
-	vpickve2gr.d	$a1, $vr8, 0
+	fldx.d	$ft3, $s1, $t0
+	vextrins.d	$vr8, $vr9, 16
+	vextrins.d	$vr10, $vr11, 16
+	vadd.w	$vr9, $vr7, $vr3
+	vshuf4i.w	$vr9, $vr9, 16
+	vslli.d	$vr9, $vr9, 32
+	vsrai.d	$vr9, $vr9, 32
+	vpickve2gr.d	$a1, $vr9, 0
 	slli.d	$a1, $a1, 3
-	vpickve2gr.d	$t0, $vr8, 1
+	vpickve2gr.d	$t0, $vr9, 1
 	slli.d	$t0, $t0, 3
-	fldx.d	$ft0, $s1, $a1
-	fldx.d	$ft5, $s1, $t0
-	vfadd.d	$vr9, $vr9, $vr11
-	vextrins.d	$vr10, $vr12, 16
-	vfadd.d	$vr9, $vr9, $vr10
-	vextrins.d	$vr8, $vr13, 16
-	vfadd.d	$vr8, $vr9, $vr8
-	vfmul.d	$vr8, $vr8, $vr2
+	fldx.d	$ft1, $s1, $a1
+	fldx.d	$ft3, $s1, $t0
+	vadd.w	$vr7, $vr7, $vr4
+	vshuf4i.w	$vr7, $vr7, 16
+	vslli.d	$vr7, $vr7, 32
+	vsrai.d	$vr7, $vr7, 32
+	vpickve2gr.d	$a1, $vr7, 0
+	slli.d	$a1, $a1, 3
+	vpickve2gr.d	$t0, $vr7, 1
+	slli.d	$t0, $t0, 3
+	fldx.d	$fa7, $s1, $a1
+	fldx.d	$ft4, $s1, $t0
+	vfadd.d	$vr8, $vr8, $vr10
+	vextrins.d	$vr9, $vr11, 16
+	vfadd.d	$vr8, $vr8, $vr9
+	vextrins.d	$vr7, $vr12, 16
+	vfadd.d	$vr7, $vr8, $vr7
+	vfmul.d	$vr7, $vr7, $vr0
 	slli.d	$a1, $s3, 3
-	vstx	$vr8, $fp, $a1
-	vaddi.wu	$vr7, $vr7, 2
+	vstx	$vr7, $fp, $a1
+	vaddi.wu	$vr6, $vr6, 2
 	addi.d	$a6, $a6, -2
 	addi.w	$s3, $s3, 2
 	bnez	$a6, .LBB8_25
@@ -4042,8 +4040,8 @@ restriction_betas:                      # @restriction_betas
 	bstrpick.d	$a0, $t1, 30, 1
 	slli.d	$a0, $a0, 1
 	st.d	$a0, $sp, 216                   # 8-byte Folded Spill
-	vinsgr2vr.w	$vr3, $t4, 0
-	vinsgr2vr.w	$vr3, $t4, 1
+	vinsgr2vr.w	$vr2, $t4, 0
+	vinsgr2vr.w	$vr2, $t4, 1
 	b	.LBB8_32
 	.p2align	4, , 16
 .LBB8_31:                               # %._crit_edge212.split.us.us.us
@@ -4102,22 +4100,22 @@ restriction_betas:                      # @restriction_betas
                                         #       Parent Loop BB8_33 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
 	slli.d	$a0, $s0, 3
-	fldx.d	$fa4, $s1, $a0
+	fldx.d	$fa3, $s1, $a0
 	addi.w	$a0, $s0, 1
 	slli.d	$a0, $a0, 3
-	fldx.d	$fa5, $s1, $a0
+	fldx.d	$fa4, $s1, $a0
 	add.w	$a0, $t4, $s0
 	slli.d	$a1, $a0, 3
-	fldx.d	$fa6, $s1, $a1
+	fldx.d	$fa5, $s1, $a1
 	addi.w	$a0, $a0, 1
 	slli.d	$a0, $a0, 3
-	fldx.d	$fa7, $s1, $a0
-	fadd.d	$fa4, $fa4, $fa5
-	fadd.d	$fa4, $fa4, $fa6
-	fadd.d	$fa4, $fa4, $fa7
-	fmul.d	$fa4, $fa4, $fa0
+	fldx.d	$fa6, $s1, $a0
+	fadd.d	$fa3, $fa3, $fa4
+	fadd.d	$fa3, $fa3, $fa5
+	fadd.d	$fa3, $fa3, $fa6
+	fmul.d	$fa3, $fa3, $fa0
 	slli.d	$a0, $s8, 3
-	fstx.d	$fa4, $a2, $a0
+	fstx.d	$fa3, $a2, $a0
 	addi.w	$s0, $s0, 2
 	addi.d	$s3, $s3, -1
 	addi.w	$s8, $s8, 1
@@ -4205,10 +4203,10 @@ restriction_betas:                      # @restriction_betas
 	mul.d	$a0, $s4, $t5
 	ld.d	$a1, $sp, 200                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a1
-	vinsgr2vr.w	$vr4, $a0, 0
-	vinsgr2vr.w	$vr4, $a0, 1
+	vinsgr2vr.w	$vr3, $a0, 0
+	vinsgr2vr.w	$vr3, $a0, 1
 	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
-	vreplgr2vr.d	$vr5, $a0
+	vreplgr2vr.d	$vr4, $a0
 	move	$s3, $a6
 	ld.d	$s0, $sp, 216                   # 8-byte Folded Reload
 	.p2align	4, , 16
@@ -4217,31 +4215,9 @@ restriction_betas:                      # @restriction_betas
                                         #     Parent Loop BB8_32 Depth=2
                                         #       Parent Loop BB8_33 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vadd.w	$vr6, $vr4, $vr5
-	vslli.w	$vr6, $vr6, 1
-	vshuf4i.w	$vr7, $vr6, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
-	vpickve2gr.d	$a0, $vr7, 0
-	slli.d	$a0, $a0, 3
-	vpickve2gr.d	$a1, $vr7, 1
-	slli.d	$a1, $a1, 3
-	fldx.d	$fa7, $s1, $a0
-	fldx.d	$ft0, $s1, $a1
-	vbitseti.w	$vr9, $vr6, 0
-	vshuf4i.w	$vr10, $vr9, 16
-	vslli.d	$vr10, $vr10, 32
-	vsrai.d	$vr10, $vr10, 32
-	vpickve2gr.d	$a0, $vr10, 0
-	slli.d	$a0, $a0, 3
-	vpickve2gr.d	$a1, $vr10, 1
-	slli.d	$a1, $a1, 3
-	fldx.d	$ft2, $s1, $a0
-	fldx.d	$ft3, $s1, $a1
-	vextrins.d	$vr7, $vr8, 16
-	vextrins.d	$vr10, $vr11, 16
-	vadd.w	$vr6, $vr6, $vr3
-	vshuf4i.w	$vr6, $vr6, 16
+	vadd.w	$vr5, $vr3, $vr4
+	vslli.w	$vr5, $vr5, 1
+	vshuf4i.w	$vr6, $vr5, 16
 	vslli.d	$vr6, $vr6, 32
 	vsrai.d	$vr6, $vr6, 32
 	vpickve2gr.d	$a0, $vr6, 0
@@ -4249,9 +4225,9 @@ restriction_betas:                      # @restriction_betas
 	vpickve2gr.d	$a1, $vr6, 1
 	slli.d	$a1, $a1, 3
 	fldx.d	$fa6, $s1, $a0
-	fldx.d	$ft0, $s1, $a1
-	vadd.w	$vr9, $vr9, $vr3
-	vshuf4i.w	$vr9, $vr9, 16
+	fldx.d	$fa7, $s1, $a1
+	vbitseti.w	$vr8, $vr5, 0
+	vshuf4i.w	$vr9, $vr8, 16
 	vslli.d	$vr9, $vr9, 32
 	vsrai.d	$vr9, $vr9, 32
 	vpickve2gr.d	$a0, $vr9, 0
@@ -4259,16 +4235,38 @@ restriction_betas:                      # @restriction_betas
 	vpickve2gr.d	$a1, $vr9, 1
 	slli.d	$a1, $a1, 3
 	fldx.d	$ft1, $s1, $a0
-	fldx.d	$ft3, $s1, $a1
-	vfadd.d	$vr7, $vr7, $vr10
-	vextrins.d	$vr6, $vr8, 16
-	vfadd.d	$vr6, $vr7, $vr6
-	vextrins.d	$vr9, $vr11, 16
+	fldx.d	$ft2, $s1, $a1
+	vextrins.d	$vr6, $vr7, 16
+	vextrins.d	$vr9, $vr10, 16
+	vadd.w	$vr5, $vr5, $vr2
+	vshuf4i.w	$vr5, $vr5, 16
+	vslli.d	$vr5, $vr5, 32
+	vsrai.d	$vr5, $vr5, 32
+	vpickve2gr.d	$a0, $vr5, 0
+	slli.d	$a0, $a0, 3
+	vpickve2gr.d	$a1, $vr5, 1
+	slli.d	$a1, $a1, 3
+	fldx.d	$fa5, $s1, $a0
+	fldx.d	$fa7, $s1, $a1
+	vadd.w	$vr8, $vr8, $vr2
+	vshuf4i.w	$vr8, $vr8, 16
+	vslli.d	$vr8, $vr8, 32
+	vsrai.d	$vr8, $vr8, 32
+	vpickve2gr.d	$a0, $vr8, 0
+	slli.d	$a0, $a0, 3
+	vpickve2gr.d	$a1, $vr8, 1
+	slli.d	$a1, $a1, 3
+	fldx.d	$ft0, $s1, $a0
+	fldx.d	$ft2, $s1, $a1
 	vfadd.d	$vr6, $vr6, $vr9
-	vfmul.d	$vr6, $vr6, $vr2
+	vextrins.d	$vr5, $vr7, 16
+	vfadd.d	$vr5, $vr6, $vr5
+	vextrins.d	$vr8, $vr10, 16
+	vfadd.d	$vr5, $vr5, $vr8
+	vfmul.d	$vr5, $vr5, $vr0
 	slli.d	$a0, $s3, 3
-	vstx	$vr6, $a2, $a0
-	vaddi.wu	$vr5, $vr5, 2
+	vstx	$vr5, $a2, $a0
+	vaddi.wu	$vr4, $vr4, 2
 	addi.d	$s0, $s0, -2
 	addi.w	$s3, $s3, 2
 	bnez	$s0, .LBB8_49
@@ -4334,8 +4332,8 @@ restriction_betas:                      # @restriction_betas
 	bstrpick.d	$a0, $t1, 30, 1
 	slli.d	$a0, $a0, 1
 	st.d	$a0, $sp, 216                   # 8-byte Folded Spill
-	vinsgr2vr.w	$vr3, $t5, 0
-	vinsgr2vr.w	$vr3, $t5, 1
+	vinsgr2vr.w	$vr2, $t5, 0
+	vinsgr2vr.w	$vr2, $t5, 1
 	b	.LBB8_56
 	.p2align	4, , 16
 .LBB8_55:                               # %._crit_edge222.split.us.us.us
@@ -4394,22 +4392,22 @@ restriction_betas:                      # @restriction_betas
                                         #       Parent Loop BB8_57 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
 	slli.d	$a0, $s2, 3
-	fldx.d	$fa4, $s1, $a0
+	fldx.d	$fa3, $s1, $a0
 	addi.w	$a0, $s2, 1
 	slli.d	$a0, $a0, 3
-	fldx.d	$fa5, $s1, $a0
+	fldx.d	$fa4, $s1, $a0
 	add.w	$a0, $t5, $s2
 	slli.d	$a1, $a0, 3
-	fldx.d	$fa6, $s1, $a1
+	fldx.d	$fa5, $s1, $a1
 	addi.w	$a0, $a0, 1
 	slli.d	$a0, $a0, 3
-	fldx.d	$fa7, $s1, $a0
-	fadd.d	$fa4, $fa4, $fa5
-	fadd.d	$fa4, $fa4, $fa6
-	fadd.d	$fa4, $fa4, $fa7
-	fmul.d	$fa4, $fa4, $fa0
+	fldx.d	$fa6, $s1, $a0
+	fadd.d	$fa3, $fa3, $fa4
+	fadd.d	$fa3, $fa3, $fa5
+	fadd.d	$fa3, $fa3, $fa6
+	fmul.d	$fa3, $fa3, $fa0
 	slli.d	$a0, $s7, 3
-	fstx.d	$fa4, $a2, $a0
+	fstx.d	$fa3, $a2, $a0
 	addi.w	$s2, $s2, 2
 	addi.d	$s3, $s3, -1
 	addi.w	$s7, $s7, 1
@@ -4497,10 +4495,10 @@ restriction_betas:                      # @restriction_betas
 	mul.d	$a0, $s4, $t5
 	ld.d	$a1, $sp, 200                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a1
-	vinsgr2vr.w	$vr4, $a0, 0
-	vinsgr2vr.w	$vr4, $a0, 1
+	vinsgr2vr.w	$vr3, $a0, 0
+	vinsgr2vr.w	$vr3, $a0, 1
 	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
-	vreplgr2vr.d	$vr5, $a0
+	vreplgr2vr.d	$vr4, $a0
 	move	$s3, $a6
 	ld.d	$s2, $sp, 216                   # 8-byte Folded Reload
 	.p2align	4, , 16
@@ -4509,31 +4507,9 @@ restriction_betas:                      # @restriction_betas
                                         #     Parent Loop BB8_56 Depth=2
                                         #       Parent Loop BB8_57 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vadd.w	$vr6, $vr4, $vr5
-	vslli.w	$vr6, $vr6, 1
-	vshuf4i.w	$vr7, $vr6, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
-	vpickve2gr.d	$a0, $vr7, 0
-	slli.d	$a0, $a0, 3
-	vpickve2gr.d	$a1, $vr7, 1
-	slli.d	$a1, $a1, 3
-	fldx.d	$fa7, $s1, $a0
-	fldx.d	$ft0, $s1, $a1
-	vbitseti.w	$vr9, $vr6, 0
-	vshuf4i.w	$vr10, $vr9, 16
-	vslli.d	$vr10, $vr10, 32
-	vsrai.d	$vr10, $vr10, 32
-	vpickve2gr.d	$a0, $vr10, 0
-	slli.d	$a0, $a0, 3
-	vpickve2gr.d	$a1, $vr10, 1
-	slli.d	$a1, $a1, 3
-	fldx.d	$ft2, $s1, $a0
-	fldx.d	$ft3, $s1, $a1
-	vextrins.d	$vr7, $vr8, 16
-	vextrins.d	$vr10, $vr11, 16
-	vadd.w	$vr6, $vr6, $vr3
-	vshuf4i.w	$vr6, $vr6, 16
+	vadd.w	$vr5, $vr3, $vr4
+	vslli.w	$vr5, $vr5, 1
+	vshuf4i.w	$vr6, $vr5, 16
 	vslli.d	$vr6, $vr6, 32
 	vsrai.d	$vr6, $vr6, 32
 	vpickve2gr.d	$a0, $vr6, 0
@@ -4541,9 +4517,9 @@ restriction_betas:                      # @restriction_betas
 	vpickve2gr.d	$a1, $vr6, 1
 	slli.d	$a1, $a1, 3
 	fldx.d	$fa6, $s1, $a0
-	fldx.d	$ft0, $s1, $a1
-	vadd.w	$vr9, $vr9, $vr3
-	vshuf4i.w	$vr9, $vr9, 16
+	fldx.d	$fa7, $s1, $a1
+	vbitseti.w	$vr8, $vr5, 0
+	vshuf4i.w	$vr9, $vr8, 16
 	vslli.d	$vr9, $vr9, 32
 	vsrai.d	$vr9, $vr9, 32
 	vpickve2gr.d	$a0, $vr9, 0
@@ -4551,16 +4527,38 @@ restriction_betas:                      # @restriction_betas
 	vpickve2gr.d	$a1, $vr9, 1
 	slli.d	$a1, $a1, 3
 	fldx.d	$ft1, $s1, $a0
-	fldx.d	$ft3, $s1, $a1
-	vfadd.d	$vr7, $vr7, $vr10
-	vextrins.d	$vr6, $vr8, 16
-	vfadd.d	$vr6, $vr7, $vr6
-	vextrins.d	$vr9, $vr11, 16
+	fldx.d	$ft2, $s1, $a1
+	vextrins.d	$vr6, $vr7, 16
+	vextrins.d	$vr9, $vr10, 16
+	vadd.w	$vr5, $vr5, $vr2
+	vshuf4i.w	$vr5, $vr5, 16
+	vslli.d	$vr5, $vr5, 32
+	vsrai.d	$vr5, $vr5, 32
+	vpickve2gr.d	$a0, $vr5, 0
+	slli.d	$a0, $a0, 3
+	vpickve2gr.d	$a1, $vr5, 1
+	slli.d	$a1, $a1, 3
+	fldx.d	$fa5, $s1, $a0
+	fldx.d	$fa7, $s1, $a1
+	vadd.w	$vr8, $vr8, $vr2
+	vshuf4i.w	$vr8, $vr8, 16
+	vslli.d	$vr8, $vr8, 32
+	vsrai.d	$vr8, $vr8, 32
+	vpickve2gr.d	$a0, $vr8, 0
+	slli.d	$a0, $a0, 3
+	vpickve2gr.d	$a1, $vr8, 1
+	slli.d	$a1, $a1, 3
+	fldx.d	$ft0, $s1, $a0
+	fldx.d	$ft2, $s1, $a1
 	vfadd.d	$vr6, $vr6, $vr9
-	vfmul.d	$vr6, $vr6, $vr2
+	vextrins.d	$vr5, $vr7, 16
+	vfadd.d	$vr5, $vr6, $vr5
+	vextrins.d	$vr8, $vr10, 16
+	vfadd.d	$vr5, $vr5, $vr8
+	vfmul.d	$vr5, $vr5, $vr0
 	slli.d	$a0, $s3, 3
-	vstx	$vr6, $a2, $a0
-	vaddi.wu	$vr5, $vr5, 2
+	vstx	$vr5, $a2, $a0
+	vaddi.wu	$vr4, $vr4, 2
 	addi.d	$s2, $s2, -2
 	addi.w	$s3, $s3, 2
 	bnez	$s2, .LBB8_73
@@ -7055,8 +7053,7 @@ project_cell_to_face:                   # @project_cell_to_face
 	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
 	ori	$a7, $zero, 7
 	vldi	$vr0, -928
-	lu52i.d	$a4, $zero, 1022
-	xvreplgr2vr.d	$xr1, $a4
+	xvldi	$xr1, -928
                                         # implicit-def: $r13
 	b	.LBB20_3
 	.p2align	4, , 16

@@ -2168,8 +2168,7 @@ main:                                   # @main
 	xvst	$xr0, $sp, 224
 	lu12i.w	$a0, -64
 	xvreplgr2vr.w	$xr0, $a0
-	ori	$a0, $zero, 1024
-	xvreplgr2vr.h	$xr1, $a0
+	xvldi	$xr1, -2812
 	xvssrani.bu.h	$xr1, $xr0, 0
 	xvst	$xr1, $sp, 256
 	addi.d	$a0, $sp, 224
@@ -2250,8 +2249,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 4
-	xvreplgr2vr.h	$xr0, $a0
+	xvldi	$xr0, -2752
 	xvst	$xr0, $sp, 224
 	lu12i.w	$a0, 16448
 	xvreplgr2vr.w	$xr0, $a0
@@ -2569,9 +2567,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_111)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_111)
 	xvst	$xr0, $sp, 224
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1789
 	xvld	$xr1, $sp, 192                  # 32-byte Folded Reload
 	xvssrani.du.q	$xr1, $xr0, 77
 	xvst	$xr1, $sp, 256

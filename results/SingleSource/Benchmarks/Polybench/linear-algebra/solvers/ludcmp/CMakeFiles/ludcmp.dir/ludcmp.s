@@ -700,10 +700,8 @@ init_array:                             # @init_array
 	lu32i.d	$a6, -49152
 	lu52i.d	$a6, $a6, 1033
 	xvreplgr2vr.d	$xr2, $a6
-	lu52i.d	$a6, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a6
-	lu52i.d	$a6, $zero, 1025
-	xvreplgr2vr.d	$xr4, $a6
+	xvldi	$xr3, -928
+	xvldi	$xr4, -1008
 	.p2align	4, , 16
 .LBB8_4:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -778,7 +776,7 @@ init_array:                             # @init_array
 	lu32i.d	$a0, -49152
 	lu52i.d	$a0, $a0, 1033
 	xvreplgr2vr.d	$xr3, $a0
-	xvreplgr2vr.d	$xr4, $s2
+	xvldi	$xr4, -912
 	move	$fp, $s6
 	xvst	$xr3, $sp, 48                   # 32-byte Folded Spill
 	xvst	$xr4, $sp, 16                   # 32-byte Folded Spill

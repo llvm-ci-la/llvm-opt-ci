@@ -1854,8 +1854,7 @@ _ZL16BM_PIC_1D_LAMBDARN9benchmark5StateE: # @_ZL16BM_PIC_1D_LAMBDARN9benchmark5S
 	addi.w	$a3, $a3, 0
 	movgr2fr.d	$fa1, $zero
 	vldi	$vr2, -912
-	ori	$a4, $zero, 2047
-	vreplgr2vr.w	$vr3, $a4
+	vldi	$vr3, -2553
 	b	.LBB12_4
 	.p2align	4, , 16
 .LBB12_3:                               # %"_Z6forallIZL16BM_PIC_1D_LAMBDARN9benchmark5StateEE3$_2Ev9simd_execiiT_.exit"

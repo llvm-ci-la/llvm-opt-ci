@@ -974,8 +974,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	move	$s4, $zero
 	move	$a1, $zero
 	ori	$s8, $zero, 1
-	lu12i.w	$a0, 258048
-	xvreplgr2vr.w	$xr7, $a0
+	xvldi	$xr7, -3265
 	movgr2fr.w	$fa0, $zero
 	lu12i.w	$a0, -1
 	ori	$a0, $a0, 2044

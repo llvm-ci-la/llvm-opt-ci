@@ -715,8 +715,7 @@ generate_polar_angles:                  # @generate_polar_angles
 	pcalau12i	$a2, %pc_hi20(.LCPI6_0)
 	xvld	$xr1, $a2, %pc_lo12(.LCPI6_0)
 	xvreplve0.d	$xr2, $xr0
-	lu52i.d	$a2, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a2
+	xvldi	$xr3, -928
 	lu12i.w	$a2, 345154
 	ori	$a2, $a2, 3352
 	lu32i.d	$a2, -450053

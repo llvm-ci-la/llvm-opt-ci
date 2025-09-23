@@ -933,8 +933,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_30)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_30)
 	vst	$vr0, $sp, 112
-	ori	$a0, $zero, 512
-	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr0, -2814
 	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vextrins.w	$vr1, $vr0, 3
 	vst	$vr1, $sp, 128

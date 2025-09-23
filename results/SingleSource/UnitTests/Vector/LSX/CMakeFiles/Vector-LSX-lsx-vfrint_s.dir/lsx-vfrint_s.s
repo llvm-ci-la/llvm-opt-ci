@@ -668,8 +668,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_14)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_14)
-	lu12i.w	$a0, 260096
-	vreplgr2vr.d	$vr1, $a0
+	vldi	$vr1, -1168
 	vst	$vr1, $sp, 96
 	vfrintrp.s	$vr0, $vr0
 	vst	$vr0, $sp, 112

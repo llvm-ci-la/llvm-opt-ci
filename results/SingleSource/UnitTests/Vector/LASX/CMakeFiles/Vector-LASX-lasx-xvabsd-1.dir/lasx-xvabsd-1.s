@@ -1437,8 +1437,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_47)
 	xvld	$xr1, $a0, %pc_lo12(.LCPI2_47)
 	xvst	$xr0, $sp, 96
-	lu12i.w	$a0, 4
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3776
 	xvabsd.w	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96

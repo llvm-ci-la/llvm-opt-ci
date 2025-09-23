@@ -407,8 +407,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 256000
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -1456
 	xvst	$xr0, $sp, 64
 	xvst	$xr0, $sp, 96
 	addi.d	$a0, $sp, 64

@@ -2463,13 +2463,13 @@ _ZN4CArc10OpenStreamEP7CCodecsiP9IInStreamP19ISequentialInStreamP20IArchiveOpenC
 	xvreplgr2vr.w	$xr2, $s5
 	pcalau12i	$a4, %pc_hi20(.LCPI6_0)
 	xvld	$xr3, $a4, %pc_lo12(.LCPI6_0)
-	xvreplgr2vr.w	$xr5, $s6
-	xvreplgr2vr.w	$xr4, $a3
+	xvreplgr2vr.w	$xr4, $s6
+	xvldi	$xr5, -3200
 	addi.d	$a4, $a1, 32
 	move	$a5, $a2
-	xvori.b	$xr6, $xr4, 0
-	xvori.b	$xr0, $xr4, 0
-	xvori.b	$xr1, $xr4, 0
+	xvori.b	$xr6, $xr5, 0
+	xvori.b	$xr0, $xr5, 0
+	xvori.b	$xr1, $xr5, 0
 	.p2align	4, , 16
 .LBB6_207:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -2480,16 +2480,16 @@ _ZN4CArc10OpenStreamEP7CCodecsiP9IInStreamP19ISequentialInStreamP20IArchiveOpenC
 	xvseq.w	$xr11, $xr8, $xr2
 	xvbitsel.v	$xr0, $xr0, $xr3, $xr10
 	xvbitsel.v	$xr1, $xr1, $xr9, $xr11
-	xvseq.w	$xr7, $xr7, $xr5
-	xvseq.w	$xr8, $xr8, $xr5
-	xvbitsel.v	$xr4, $xr4, $xr3, $xr7
+	xvseq.w	$xr7, $xr7, $xr4
+	xvseq.w	$xr8, $xr8, $xr4
+	xvbitsel.v	$xr5, $xr5, $xr3, $xr7
 	xvbitsel.v	$xr6, $xr6, $xr9, $xr8
 	xvaddi.wu	$xr3, $xr3, 16
 	addi.d	$a5, $a5, -16
 	addi.d	$a4, $a4, 64
 	bnez	$a5, .LBB6_207
 # %bb.208:                              # %middle.block
-	xvmax.w	$xr2, $xr4, $xr6
+	xvmax.w	$xr2, $xr5, $xr6
 	xvpermi.q	$xr3, $xr2, 1
 	vmax.w	$vr2, $vr2, $vr3
 	vbsrl.v	$vr3, $vr2, 8

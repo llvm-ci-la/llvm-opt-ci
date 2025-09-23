@@ -721,13 +721,12 @@ main:                                   # @main
 	lu32i.d	$s0, 16256
 	vreplgr2vr.d	$vr0, $s0
 	vst	$vr0, $sp, 64
-	lu12i.w	$a0, 260096
-	vreplgr2vr.w	$vr0, $a0
 	lu12i.w	$a0, 16
 	ori	$a0, $a0, 1
 	lu32i.d	$a0, 65536
-	vreplgr2vr.d	$vr1, $a0
-	vmulwod.d.w	$vr0, $vr0, $vr1
+	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr1, -1424
+	vmulwod.d.w	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 80
 	addi.d	$a0, $sp, 64
 	addi.d	$a1, $sp, 80

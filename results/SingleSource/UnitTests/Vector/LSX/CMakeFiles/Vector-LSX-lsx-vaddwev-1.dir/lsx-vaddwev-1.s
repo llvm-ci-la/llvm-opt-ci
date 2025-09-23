@@ -502,8 +502,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vst	$vr1, $sp, 64
-	ori	$a0, $zero, 2048
-	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr0, -2808
 	vaddwev.h.b	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 80
 	addi.d	$a0, $sp, 64
@@ -567,10 +566,10 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
+	vldi	$vr0, -1552
+	vst	$vr0, $sp, 64
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -1
-	vreplgr2vr.d	$vr0, $a0
-	vst	$vr0, $sp, 64
 	lu52i.d	$a0, $a0, 3
 	vreplgr2vr.d	$vr0, $a0
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
@@ -652,9 +651,7 @@ main:                                   # @main
 	vrepli.b	$vr0, -1
 	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
 	vst	$vr0, $sp, 64
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1777
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vaddwev.d.w	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 80

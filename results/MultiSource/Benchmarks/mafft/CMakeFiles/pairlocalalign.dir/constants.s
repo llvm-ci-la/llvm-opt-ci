@@ -2753,22 +2753,21 @@ constants:                              # @constants
 .LBB2_64:                               # %.preheader1156
 	ld.d	$s2, $s0, 0
 	xvld	$xr0, $s2, 0
-	lu52i.d	$a0, $zero, 1025
-	ld.d	$a1, $s0, 8
-	xvreplgr2vr.d	$xr1, $a0
+	ld.d	$a0, $s0, 8
+	xvldi	$xr1, -1008
 	xvfmul.d	$xr0, $xr0, $xr1
 	xvst	$xr0, $s2, 0
-	xvld	$xr0, $a1, 0
-	ld.d	$a0, $s0, 16
-	xvfmul.d	$xr0, $xr0, $xr1
-	xvst	$xr0, $a1, 0
 	xvld	$xr0, $a0, 0
-	ld.d	$a1, $s0, 24
+	ld.d	$a1, $s0, 16
 	xvfmul.d	$xr0, $xr0, $xr1
 	xvst	$xr0, $a0, 0
 	xvld	$xr0, $a1, 0
+	ld.d	$a0, $s0, 24
 	xvfmul.d	$xr0, $xr0, $xr1
 	xvst	$xr0, $a1, 0
+	xvld	$xr0, $a0, 0
+	xvfmul.d	$xr0, $xr0, $xr1
+	xvst	$xr0, $a0, 0
 	fld.d	$fa0, $s2, 0
 	movgr2fr.d	$fs0, $zero
 	fcmp.ceq.d	$fcc0, $fa0, $fs0
@@ -4018,10 +4017,8 @@ constants:                              # @constants
 # %bb.123:                              # %.preheader1183.preheader
 	move	$a0, $zero
 	xvrepli.b	$xr0, 0
-	lu52i.d	$a1, $zero, -1026
-	xvreplgr2vr.d	$xr1, $a1
-	lu52i.d	$a1, $zero, 1022
-	xvreplgr2vr.d	$xr2, $a1
+	xvldi	$xr1, -800
+	xvldi	$xr2, -928
 	vrepli.b	$vr3, 0
 	ori	$a1, $zero, 160
 	.p2align	4, , 16
@@ -4266,8 +4263,7 @@ constants:                              # @constants
 	jirl	$ra, $ra, 0
 	b	.LBB2_528
 .LBB2_129:
-	lu52i.d	$a0, $zero, 1021
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -944
 	xvst	$xr0, $fp, 0
 	vldi	$vr0, -944
 	vldi	$vr1, -944
@@ -4836,10 +4832,8 @@ constants:                              # @constants
 # %bb.153:                              # %.preheader1164.preheader
 	move	$a0, $zero
 	xvrepli.b	$xr0, 0
-	lu52i.d	$a1, $zero, -1026
-	xvreplgr2vr.d	$xr1, $a1
-	lu52i.d	$a1, $zero, 1022
-	xvreplgr2vr.d	$xr2, $a1
+	xvldi	$xr1, -800
+	xvldi	$xr2, -928
 	vrepli.b	$vr3, 0
 	ori	$a1, $zero, 160
 	.p2align	4, , 16

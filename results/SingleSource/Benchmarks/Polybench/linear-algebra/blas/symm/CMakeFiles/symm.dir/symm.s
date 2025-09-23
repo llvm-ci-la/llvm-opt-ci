@@ -454,10 +454,7 @@ main:                                   # @main
 	lu32i.d	$a4, 209715
 	lu52i.d	$a4, $a4, 1023
 	xvreplgr2vr.d	$xr3, $a4
-	ori	$a4, $zero, 0
-	lu32i.d	$a4, -524288
-	lu52i.d	$a4, $a4, 1023
-	xvreplgr2vr.d	$xr4, $a4
+	xvldi	$xr4, -904
 	xvrepli.b	$xr5, 0
 	ori	$a4, $zero, 60
 	ori	$a5, $zero, 80

@@ -772,7 +772,6 @@ main:                                   # @main
 	st.d	$ra, $sp, 248                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 240                   # 8-byte Folded Spill
 	st.d	$s0, $sp, 232                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 224                   # 8-byte Folded Spill
 	addi.d	$fp, $sp, 256
 	bstrins.d	$sp, $zero, 4, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
@@ -864,8 +863,8 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvrepli.d	$xr0, 18
 	xvst	$xr0, $sp, 160
-	lu12i.w	$s1, 7
-	ori	$a0, $s1, 4078
+	lu12i.w	$a0, 7
+	ori	$a0, $a0, 4078
 	xvreplgr2vr.d	$xr0, $a0
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvhsubw.h.b	$xr0, $xr1, $xr0
@@ -877,9 +876,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.d	$xr1, $a0
+	xvldi	$xr1, -1789
 	xvst	$xr1, $sp, 32                   # 32-byte Folded Spill
 	xvst	$xr1, $sp, 160
 	xvld	$xr0, $sp, 128                  # 32-byte Folded Reload
@@ -907,11 +904,9 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 0
-	ori	$a1, $zero, 0
-	lu32i.d	$a1, 65535
-	xvreplgr2vr.d	$xr0, $a1
+	xvldi	$xr0, -1744
 	xvst	$xr0, $sp, 160
+	ori	$a0, $zero, 0
 	lu32i.d	$a0, 1
 	xvreplgr2vr.d	$xr0, $a0
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
@@ -1143,8 +1138,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_31)
 	xvld	$xr1, $a0, %pc_lo12(.LCPI2_31)
 	xvst	$xr0, $sp, 160
-	ori	$a0, $s1, 3072
-	xvreplgr2vr.h	$xr0, $a0
+	xvldi	$xr0, -2692
 	xvhsubw.d.w	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160
@@ -1216,8 +1210,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvrepli.d	$xr0, -512
 	xvst	$xr0, $sp, 160
-	ori	$a0, $zero, 512
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3838
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvhsubw.d.w	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 192
@@ -1339,7 +1332,6 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
 	addi.d	$sp, $fp, -256
-	ld.d	$s1, $sp, 224                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 232                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 240                   # 8-byte Folded Reload
 	ld.d	$ra, $sp, 248                   # 8-byte Folded Reload

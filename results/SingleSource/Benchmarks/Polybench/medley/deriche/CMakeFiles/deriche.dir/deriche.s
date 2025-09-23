@@ -220,9 +220,7 @@ main:                                   # @main
 	ori	$a3, $s6, 3648
 	ori	$a2, $zero, 991
 	xvreplgr2vr.d	$xr2, $a2
-	lu12i.w	$a2, 15
-	ori	$a2, $a2, 4095
-	xvreplgr2vr.w	$xr6, $a2
+	xvldi	$xr6, -2305
 	lu12i.w	$a2, 292863
 	ori	$a2, $a2, 3840
 	xvreplgr2vr.w	$xr7, $a2

@@ -56,8 +56,7 @@ main:                                   # @main
 	xvld	$xr2, $a0, 32
 	xvld	$xr3, $a0, 64
 	xvld	$xr4, $a0, 96
-	lu52i.d	$a1, $zero, -1025
-	xvreplgr2vr.d	$xr1, $a1
+	xvldi	$xr1, -784
 	xvfcmp.ceq.d	$xr5, $xr0, $xr1
 	xvpickve2gr.d	$a1, $xr5, 0
 	vinsgr2vr.b	$vr0, $a1, 0

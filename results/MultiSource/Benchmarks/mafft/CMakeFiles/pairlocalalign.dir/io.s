@@ -12551,8 +12551,7 @@ loadaamtx:                              # @loadaamtx
 	jirl	$ra, $ra, 0
 .LBB76_39:                              # %.loopexit174
 	ld.d	$a0, $s0, 160
-	lu52i.d	$a1, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a1
+	xvldi	$xr0, -784
 	xvst	$xr0, $a0, 0
 	xvst	$xr0, $a0, 32
 	xvst	$xr0, $a0, 64

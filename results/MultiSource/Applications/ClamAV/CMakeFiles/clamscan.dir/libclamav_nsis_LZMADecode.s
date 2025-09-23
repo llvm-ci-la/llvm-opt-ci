@@ -611,8 +611,7 @@ lzmaDecode:                             # @lzmaDecode
                                         #     Parent Loop BB1_3 Depth=2
                                         #       Parent Loop BB1_4 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	ori	$a4, $zero, 1024
-	xvreplgr2vr.h	$xr0, $a4
+	xvldi	$xr0, -2812
 	xvstx	$xr0, $a3, $a1
 	addi.d	$a1, $a1, -32
 	add.d	$a4, $a2, $a1

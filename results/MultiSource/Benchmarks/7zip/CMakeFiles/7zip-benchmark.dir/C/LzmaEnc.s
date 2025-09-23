@@ -1809,12 +1809,12 @@ LzmaEnc_Init:                           # @LzmaEnc_Init
 	st.d	$t2, $a7, 24
 	st.d	$zero, $a7, 56
 	st.w	$zero, $a7, 64
-	ori	$a6, $zero, 1024
-	xvreplgr2vr.h	$xr0, $a6
-	ori	$a7, $zero, 3196
-	xvstx	$xr0, $a1, $a7
+	xvldi	$xr0, -2812
+	ori	$a6, $zero, 3196
+	xvstx	$xr0, $a1, $a6
 	xvst	$xr0, $a2, 94
 	ori	$a7, $zero, 3580
+	ori	$a6, $zero, 1024
 	stx.h	$a6, $a1, $a7
 	st.h	$a6, $a2, 22
 	st.h	$a6, $a2, 46

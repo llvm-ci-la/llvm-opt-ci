@@ -974,20 +974,19 @@ FmoGetLastCodedMBOfSliceGroup:          # @FmoGetLastCodedMBOfSliceGroup
 	vreplgr2vr.w	$vr0, $a0
 	pcalau12i	$a4, %pc_hi20(.LCPI8_0)
 	vld	$vr1, $a4, %pc_lo12(.LCPI8_0)
-	lu12i.w	$a4, -524288
-	vreplgr2vr.w	$vr2, $a4
-	addi.d	$a5, $a3, 4
+	addi.d	$a4, $a3, 4
+	vldi	$vr2, -3200
 	vrepli.b	$vr3, 0
-	move	$a6, $a1
-	vori.b	$vr4, $vr2, 0
+	move	$a5, $a1
+	vldi	$vr4, -3200
 	.p2align	4, , 16
 .LBB8_5:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	ld.w	$a7, $a5, -4
-	ld.w	$t0, $a5, 0
-	vinsgr2vr.w	$vr5, $a7, 0
+	ld.w	$a6, $a4, -4
+	ld.w	$a7, $a4, 0
+	vinsgr2vr.w	$vr5, $a6, 0
 	vaddi.wu	$vr6, $vr1, 4
-	vinsgr2vr.w	$vr7, $t0, 0
+	vinsgr2vr.w	$vr7, $a7, 0
 	vilvl.b	$vr5, $vr3, $vr5
 	vilvl.h	$vr5, $vr3, $vr5
 	vilvl.b	$vr7, $vr3, $vr7
@@ -997,22 +996,23 @@ FmoGetLastCodedMBOfSliceGroup:          # @FmoGetLastCodedMBOfSliceGroup
 	vbitsel.v	$vr2, $vr2, $vr1, $vr5
 	vbitsel.v	$vr4, $vr4, $vr6, $vr7
 	vaddi.wu	$vr1, $vr1, 8
-	addi.d	$a6, $a6, -8
-	addi.d	$a5, $a5, 8
-	bnez	$a6, .LBB8_5
+	addi.d	$a5, $a5, -8
+	addi.d	$a4, $a4, 8
+	bnez	$a5, .LBB8_5
 # %bb.6:                                # %middle.block
 	vmax.w	$vr0, $vr2, $vr4
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.w	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4
 	vmax.w	$vr0, $vr1, $vr0
-	vpickve2gr.w	$a5, $vr0, 0
-	xor	$a4, $a5, $a4
-	sltui	$a4, $a4, 1
-	masknez	$a5, $a5, $a4
+	vpickve2gr.w	$a4, $vr0, 0
+	lu12i.w	$a5, -524288
+	xor	$a5, $a4, $a5
+	sltui	$a5, $a5, 1
+	masknez	$a4, $a4, $a5
 	addi.d	$a6, $zero, -1
-	maskeqz	$a4, $a6, $a4
-	or	$a4, $a4, $a5
+	maskeqz	$a5, $a6, $a5
+	or	$a4, $a5, $a4
 	beq	$a1, $a2, .LBB8_9
 .LBB8_7:                                # %scalar.ph.preheader
 	add.d	$a3, $a3, $a1

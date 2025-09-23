@@ -18,9 +18,9 @@ Oalloc:                                 # @Oalloc
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(strcpy)
 	jirl	$ra, $ra, 0
-	lu52i.d	$a0, $zero, 1023
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -912
 	vst	$vr0, $s0, 104
+	lu52i.d	$a0, $zero, 1023
 	st.d	$a0, $s0, 120
 	xvrepli.b	$xr1, 0
 	xvst	$xr1, $s0, 128

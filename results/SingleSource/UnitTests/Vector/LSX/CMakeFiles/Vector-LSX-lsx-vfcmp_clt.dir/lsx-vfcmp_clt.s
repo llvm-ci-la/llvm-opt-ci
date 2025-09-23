@@ -596,10 +596,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
 	vst	$vr0, $sp, 96
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
-	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	vldi	$vr0, -1777
 	vfcmp.clt.s	$vr0, $vr0, $vr0
 	vst	$vr0, $sp, 112
 	addi.d	$a0, $sp, 96
@@ -627,7 +624,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_16)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_16)
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
+	vst	$vr2, $sp, 32                   # 16-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI2_17)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_17)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_18)
@@ -646,7 +643,7 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_19)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_20)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_20)
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
+	vld	$vr2, $sp, 32                   # 16-byte Folded Reload
 	vst	$vr2, $sp, 96
 	vfcmp.clt.s	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 112
@@ -704,7 +701,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_27)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_27)
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
+	vst	$vr2, $sp, 32                   # 16-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI2_28)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_28)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_29)
@@ -822,7 +819,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_40)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_40)
-	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	vldi	$vr1, -1777
 	vst	$vr1, $sp, 96
 	vfcmp.cult.s	$vr0, $vr0, $vr0
 	vst	$vr0, $sp, 112
@@ -850,7 +847,7 @@ main:                                   # @main
 	vst	$vr0, $sp, 96
 	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
 	vfcmp.cult.s	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
 	vst	$vr0, $sp, 112
 	addi.d	$a0, $sp, 96
 	addi.d	$a1, $sp, 112
@@ -891,7 +888,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
 	vst	$vr0, $sp, 112
 	addi.d	$a0, $sp, 96
 	addi.d	$a1, $sp, 112
@@ -930,7 +927,7 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_48)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_49)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_49)
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
+	vld	$vr2, $sp, 32                   # 16-byte Folded Reload
 	vst	$vr2, $sp, 96
 	vfcmp.cult.d	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 112

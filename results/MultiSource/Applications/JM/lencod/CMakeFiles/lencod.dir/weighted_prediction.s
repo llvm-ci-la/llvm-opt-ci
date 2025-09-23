@@ -2117,7 +2117,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	vrepli.b	$vr3, 0
 	vrepli.h	$vr4, 1
 	vrepli.w	$vr5, 32
-	vreplgr2vr.w	$vr6, $t6
+	vldi	$vr6, -2557
 	vrepli.w	$vr7, -129
 	vrepli.w	$vr8, -193
 	vrepli.w	$vr9, 64

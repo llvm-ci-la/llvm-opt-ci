@@ -508,8 +508,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	xvreplgr2vr.w	$xr0, $a0
 	addi.w	$a0, $zero, -32
-	ori	$t1, $zero, 512
-	xvreplgr2vr.w	$xr7, $t1
+	xvldi	$xr7, -3838
 	xvrepli.w	$xr1, 32
 	ori	$t1, $zero, 192
 	.p2align	4, , 16
@@ -679,8 +678,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	ori	$t0, $zero, 1024
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3836
 	ori	$t0, $zero, 192
 	.p2align	4, , 16
 .LBB7_8:                                # %vector.body224
@@ -849,8 +847,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	ori	$t0, $zero, 2048
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3832
 	ori	$t0, $zero, 192
 	.p2align	4, , 16
 .LBB7_13:                               # %vector.body236
@@ -1019,8 +1016,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 1
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3824
 	ori	$t0, $zero, 192
 	.p2align	4, , 16
 .LBB7_18:                               # %vector.body248
@@ -1189,8 +1185,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 2
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3808
 	ori	$t0, $zero, 192
 	.p2align	4, , 16
 .LBB7_23:                               # %vector.body260
@@ -1359,8 +1354,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 4
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3776
 	ori	$t0, $zero, 192
 .LBB7_28:                               # %vector.body272
                                         # =>This Inner Loop Header: Depth=1
@@ -1528,8 +1522,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 8
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3712
 	ori	$t0, $zero, 192
 .LBB7_33:                               # %vector.body284
                                         # =>This Inner Loop Header: Depth=1
@@ -1697,8 +1690,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 16
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3583
 	ori	$t0, $zero, 192
 .LBB7_38:                               # %vector.body296
                                         # =>This Inner Loop Header: Depth=1
@@ -1866,8 +1858,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 32
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3582
 	ori	$t0, $zero, 192
 .LBB7_43:                               # %vector.body308
                                         # =>This Inner Loop Header: Depth=1
@@ -2035,8 +2026,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 64
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3580
 	ori	$t0, $zero, 192
 .LBB7_48:                               # %vector.body320
                                         # =>This Inner Loop Header: Depth=1
@@ -2204,8 +2194,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 128
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3576
 	ori	$t0, $zero, 192
 .LBB7_53:                               # %vector.body332
                                         # =>This Inner Loop Header: Depth=1
@@ -2371,8 +2360,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 256
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3568
 	ori	$t0, $zero, 192
 .LBB7_57:                               # %vector.body344
                                         # =>This Inner Loop Header: Depth=1
@@ -2538,8 +2526,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 512
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3552
 	ori	$t0, $zero, 192
 .LBB7_61:                               # %vector.body356
                                         # =>This Inner Loop Header: Depth=1
@@ -2705,8 +2692,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 1024
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3520
 	ori	$t0, $zero, 192
 .LBB7_65:                               # %vector.body368
                                         # =>This Inner Loop Header: Depth=1
@@ -2872,8 +2858,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 2048
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3456
 	ori	$t0, $zero, 192
 .LBB7_69:                               # %vector.body380
                                         # =>This Inner Loop Header: Depth=1
@@ -3039,8 +3024,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 4096
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3327
 	ori	$t0, $zero, 192
 .LBB7_73:                               # %vector.body392
                                         # =>This Inner Loop Header: Depth=1
@@ -3206,8 +3190,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 8192
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3326
 	ori	$t0, $zero, 192
 .LBB7_77:                               # %vector.body404
                                         # =>This Inner Loop Header: Depth=1
@@ -3373,8 +3356,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 16384
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3324
 	ori	$t0, $zero, 192
 .LBB7_81:                               # %vector.body416
                                         # =>This Inner Loop Header: Depth=1
@@ -3540,8 +3522,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 32768
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3320
 	ori	$t0, $zero, 192
 .LBB7_85:                               # %vector.body428
                                         # =>This Inner Loop Header: Depth=1
@@ -3707,8 +3688,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 65536
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3312
 	ori	$t0, $zero, 192
 .LBB7_89:                               # %vector.body440
                                         # =>This Inner Loop Header: Depth=1
@@ -3874,8 +3854,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 131072
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3296
 	ori	$t0, $zero, 192
 .LBB7_93:                               # %vector.body452
                                         # =>This Inner Loop Header: Depth=1
@@ -4041,8 +4020,7 @@ _Z17GetCompressRatingjyyy:              # @_Z17GetCompressRatingjyyy
 	xvld	$xr5, $a6, %pc_lo12(.LCPI7_2)
 	xvld	$xr6, $a7, %pc_lo12(.LCPI7_3)
 	addi.w	$a0, $zero, -32
-	lu12i.w	$t0, 262144
-	xvreplgr2vr.w	$xr7, $t0
+	xvldi	$xr7, -3264
 	ori	$t0, $zero, 192
 .LBB7_97:                               # %vector.body464
                                         # =>This Inner Loop Header: Depth=1
@@ -4828,17 +4806,15 @@ _ZN21CBenchRandomGenerator8GenerateEv:  # @_ZN21CBenchRandomGenerator8GenerateEv
 # %bb.1:                                # %.lr.ph
 	move	$a7, $zero
 	move	$a1, $zero
-	ori	$a3, $zero, 1
-	lu12i.w	$a2, 15
-	ori	$a2, $a2, 4095
-	vreplgr2vr.w	$vr0, $a2
+	ori	$a5, $zero, 1
+	vldi	$vr0, -2305
 	lu12i.w	$a2, 9
 	ori	$a2, $a2, 105
 	lu32i.d	$a2, 18000
 	vreplgr2vr.d	$vr1, $a2
 	lu12i.w	$a2, 32
-	ori	$a4, $zero, 1024
-	addi.d	$a5, $zero, -2
+	ori	$a3, $zero, 1024
+	addi.d	$a4, $zero, -2
 	ori	$a6, $zero, 24
 	b	.LBB10_4
 	.p2align	4, , 16
@@ -4868,7 +4844,7 @@ _ZN21CBenchRandomGenerator8GenerateEv:  # @_ZN21CBenchRandomGenerator8GenerateEv
 	vstelm.w	$vr2, $t0, 4, 1
 	add.w	$t3, $t2, $t3
 	bstrpick.d	$t2, $t3, 31, 2
-	bltu	$a1, $a4, .LBB10_2
+	bltu	$a1, $a3, .LBB10_2
 # %bb.5:                                #   in Loop: Header=BB10_4 Depth=1
 	and	$t1, $t1, $a2
 	beqz	$t1, .LBB10_2
@@ -4876,7 +4852,7 @@ _ZN21CBenchRandomGenerator8GenerateEv:  # @_ZN21CBenchRandomGenerator8GenerateEv
 	bstrpick.d	$a7, $t3, 31, 4
 	andi	$t1, $t2, 3
 	addi.d	$t2, $t1, 1
-	sll.w	$t1, $a5, $t1
+	sll.w	$t1, $a4, $t1
 	andn	$t3, $a7, $t1
 	srl.w	$t1, $a7, $t2
 	andi	$t2, $t1, 7
@@ -4891,15 +4867,15 @@ _ZN21CBenchRandomGenerator8GenerateEv:  # @_ZN21CBenchRandomGenerator8GenerateEv
 	b	.LBB10_9
 	.p2align	4, , 16
 .LBB10_8:                               #   in Loop: Header=BB10_9 Depth=2
-	addi.d	$a3, $zero, -64
-	sll.w	$a3, $a3, $t4
+	addi.d	$a5, $zero, -64
+	sll.w	$a5, $a5, $t4
 	vand.v	$vr4, $vr2, $vr0
 	vsrli.w	$vr3, $vr2, 16
 	vmadd.w	$vr3, $vr4, $vr1
-	andn	$a3, $t3, $a3
+	andn	$a5, $t3, $a5
 	vori.b	$vr2, $vr3, 0
 	vpickve2gr.w	$t3, $vr3, 1
-	bltu	$a3, $a1, .LBB10_11
+	bltu	$a5, $a1, .LBB10_11
 .LBB10_9:                               #   Parent Loop BB10_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	andi	$t4, $t3, 31
@@ -4915,17 +4891,17 @@ _ZN21CBenchRandomGenerator8GenerateEv:  # @_ZN21CBenchRandomGenerator8GenerateEv
 	vori.b	$vr3, $vr2, 0
 	vinsgr2vr.w	$vr3, $t3, 1
 	vpickve2gr.w	$t3, $vr3, 1
-	bgeu	$a3, $a1, .LBB10_9
+	bgeu	$a5, $a1, .LBB10_9
 .LBB10_11:                              #   in Loop: Header=BB10_4 Depth=1
-	sll.w	$t1, $a5, $t1
+	sll.w	$t1, $a4, $t1
 	andn	$t1, $t2, $t1
 	add.d	$a7, $t1, $a7
 	vstelm.w	$vr3, $t0, 0, 0
 	vstelm.w	$vr2, $t0, 4, 1
-	addi.w	$a3, $a3, 1
+	addi.w	$a5, $a5, 1
 .LBB10_12:                              #   in Loop: Header=BB10_4 Depth=1
 	add.w	$t0, $a7, $a1
-	sub.w	$t1, $zero, $a3
+	sub.w	$t1, $zero, $a5
 	.p2align	4, , 16
 .LBB10_13:                              #   Parent Loop BB10_4 Depth=1
                                         # =>  This Inner Loop Header: Depth=2

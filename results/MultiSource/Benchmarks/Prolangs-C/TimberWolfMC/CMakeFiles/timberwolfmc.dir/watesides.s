@@ -19,7 +19,7 @@ watesides:                              # @watesides
 	addi.d	$a4, $a4, 44
 	addi.d	$a5, $a5, -1
 	lu52i.d	$a6, $zero, -1025
-	vreplgr2vr.d	$vr0, $a6
+	vldi	$vr0, -784
 	ori	$a7, $zero, 1
 	b	.LBB0_4
 	.p2align	4, , 16

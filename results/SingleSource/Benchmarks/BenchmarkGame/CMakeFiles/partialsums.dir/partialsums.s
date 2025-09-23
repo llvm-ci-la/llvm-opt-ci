@@ -126,40 +126,37 @@ main:                                   # @main
 .LBB2_4:                                # %.preheader.preheader
 	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_1)
-	vrepli.b	$vr10, 0
-	lu52i.d	$a0, $zero, 1023
-	vreplgr2vr.d	$vr1, $a0
+	vrepli.b	$vr11, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
-	vld	$vr2, $a0, %pc_lo12(.LCPI2_2)
+	vld	$vr1, $a0, %pc_lo12(.LCPI2_2)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_3)
-	fld.d	$fa3, $a0, %pc_lo12(.LCPI2_3)
-	lu52i.d	$a0, $zero, -1025
-	vreplgr2vr.d	$vr4, $a0
-	lu52i.d	$a0, $zero, 1024
-	vreplgr2vr.d	$vr5, $a0
-	vori.b	$vr11, $vr10, 0
-	vori.b	$vr12, $vr10, 0
-	vori.b	$vr9, $vr10, 0
-	vori.b	$vr8, $vr10, 0
+	fld.d	$fa2, $a0, %pc_lo12(.LCPI2_3)
+	vldi	$vr3, -912
+	vldi	$vr4, -784
+	vldi	$vr5, -1024
+	vori.b	$vr10, $vr11, 0
+	vori.b	$vr12, $vr11, 0
+	vori.b	$vr9, $vr11, 0
+	vori.b	$vr8, $vr11, 0
 	.p2align	4, , 16
 .LBB2_5:                                # %.preheader
                                         # =>This Inner Loop Header: Depth=1
-	vfadd.d	$vr6, $vr0, $vr1
+	vfadd.d	$vr6, $vr0, $vr3
 	vfmul.d	$vr6, $vr0, $vr6
 	vfrecip.d	$vr6, $vr6
 	vfadd.d	$vr12, $vr12, $vr6
 	vfrecip.d	$vr6, $vr0
-	vfadd.d	$vr10, $vr6, $vr10
+	vfadd.d	$vr11, $vr6, $vr11
 	vfmul.d	$vr6, $vr0, $vr0
 	vfrecip.d	$vr6, $vr6
-	vfadd.d	$vr11, $vr6, $vr11
-	vfdiv.d	$vr6, $vr2, $vr0
+	vfadd.d	$vr10, $vr6, $vr10
+	vfdiv.d	$vr6, $vr1, $vr0
 	vfadd.d	$vr9, $vr6, $vr9
 	vfmadd.d	$vr6, $vr0, $vr5, $vr4
 	vfadd.d	$vr0, $vr0, $vr5
 	vreplvei.d	$vr7, $vr0, 0
-	fcmp.cle.d	$fcc0, $fa7, $fa3
-	vfdiv.d	$vr6, $vr2, $vr6
+	fcmp.cle.d	$fcc0, $fa7, $fa2
+	vfdiv.d	$vr6, $vr1, $vr6
 	vfadd.d	$vr8, $vr8, $vr6
 	bcnez	$fcc0, .LBB2_5
 # %bb.6:
@@ -171,8 +168,8 @@ main:                                   # @main
 	move	$a0, $fp
 	vst	$vr8, $sp, 80                   # 16-byte Folded Spill
 	vst	$vr9, $sp, 64                   # 16-byte Folded Spill
-	vst	$vr10, $sp, 32                  # 16-byte Folded Spill
-	vst	$vr11, $sp, 48                  # 16-byte Folded Spill
+	vst	$vr10, $sp, 48                  # 16-byte Folded Spill
+	vst	$vr11, $sp, 32                  # 16-byte Folded Spill
 	vst	$vr12, $sp, 16                  # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0

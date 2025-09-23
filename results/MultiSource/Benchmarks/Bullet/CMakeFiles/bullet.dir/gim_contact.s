@@ -160,16 +160,14 @@ _ZN17gim_contact_array14merge_contactsERKS_b: # @_ZN17gim_contact_array14merge_c
 	addi.d	$a4, $a0, 32
 	addi.d	$a5, $a2, 192
 	ori	$a6, $zero, 7
-	lu12i.w	$a7, 260096
-	xvreplgr2vr.w	$xr0, $a7
 	lu12i.w	$a7, 280480
-	xvreplgr2vr.w	$xr1, $a7
+	xvreplgr2vr.w	$xr0, $a7
+	xvldi	$xr1, -1424
 	lu12i.w	$a7, 281194
 	xvreplgr2vr.w	$xr2, $a7
-	lu12i.w	$a7, 263168
-	xvreplgr2vr.w	$xr3, $a7
 	lu12i.w	$a7, 282709
-	xvreplgr2vr.w	$xr4, $a7
+	xvreplgr2vr.w	$xr3, $a7
+	xvldi	$xr4, -1528
 	move	$a7, $a1
 	.p2align	4, , 16
 .LBB0_18:                               # %vector.body
@@ -196,7 +194,7 @@ _ZN17gim_contact_array14merge_contactsERKS_b: # @_ZN17gim_contact_array14merge_c
 	xvinsve0.w	$xr5, $xr10, 5
 	xvinsve0.w	$xr5, $xr11, 6
 	xvinsve0.w	$xr5, $xr12, 7
-	xvfmadd.s	$xr5, $xr5, $xr1, $xr0
+	xvfmadd.s	$xr5, $xr5, $xr0, $xr1
 	xvftintrz.w.s	$xr5, $xr5
 	fld.s	$fa6, $a5, -188
 	fld.s	$fa7, $a5, -140
@@ -230,7 +228,7 @@ _ZN17gim_contact_array14merge_contactsERKS_b: # @_ZN17gim_contact_array14merge_c
 	xvinsve0.w	$xr7, $xr12, 5
 	xvinsve0.w	$xr7, $xr13, 6
 	xvinsve0.w	$xr7, $xr14, 7
-	xvfmadd.s	$xr7, $xr7, $xr4, $xr3
+	xvfmadd.s	$xr7, $xr7, $xr3, $xr4
 	xvftintrz.w.s	$xr7, $xr7
 	xvslli.w	$xr6, $xr6, 4
 	xvadd.w	$xr5, $xr6, $xr5

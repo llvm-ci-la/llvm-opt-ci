@@ -493,12 +493,11 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr0, $sp, 128                  # 32-byte Folded Reload
 	xvst	$xr0, $sp, 160
-	lu12i.w	$a0, 256000
-	xvreplgr2vr.w	$xr0, $a0
 	lu12i.w	$a0, 8224
 	ori	$a0, $a0, 258
-	xvreplgr2vr.w	$xr1, $a0
-	xvfcmp.saf.s	$xr0, $xr1, $xr0
+	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr1, -1456
+	xvfcmp.saf.s	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160
 	addi.d	$a1, $sp, 192

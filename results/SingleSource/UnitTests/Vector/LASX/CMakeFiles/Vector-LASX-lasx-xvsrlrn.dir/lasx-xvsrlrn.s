@@ -489,8 +489,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvst	$xr1, $sp, 160
-	lu12i.w	$a0, 8
-	xvreplgr2vr.h	$xr0, $a0
+	xvldi	$xr0, -2688
 	xvsrlrn.b.h	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160
@@ -516,9 +515,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_5)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_5)
 	xvst	$xr0, $sp, 160
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1789
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvsrlrn.b.h	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 192
@@ -625,9 +622,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvst	$xr1, $sp, 160
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1777
 	xvsrlrn.h.w	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160

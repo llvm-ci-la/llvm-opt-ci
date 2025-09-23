@@ -67,9 +67,7 @@ search_for_move:                        # @search_for_move
 	slli.d	$a1, $a1, 4
 	xvrepli.b	$xr0, 0
 	xvrepli.b	$xr1, -1
-	lu12i.w	$a3, 15
-	ori	$a3, $a3, 4095
-	xvreplgr2vr.w	$xr2, $a3
+	xvldi	$xr2, -2305
 	pcalau12i	$a3, %got_pc_hi20(countbits16)
 	ld.d	$a3, $a3, %got_pc_lo12(countbits16)
 	move	$a4, $a1

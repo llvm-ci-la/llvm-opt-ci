@@ -553,7 +553,7 @@ hypre_StructMatrixInitializeData:       # @hypre_StructMatrixInitializeData
 	addi.w	$s3, $zero, -1
 	ori	$s4, $zero, 8
 	lu52i.d	$s5, $zero, 1023
-	xvreplgr2vr.d	$xr0, $s5
+	xvldi	$xr0, -912
 	xvst	$xr0, $sp, 16                   # 32-byte Folded Spill
 	b	.LBB5_3
 	.p2align	4, , 16

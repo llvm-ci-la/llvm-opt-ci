@@ -463,9 +463,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvst	$xr1, $sp, 160
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -2305
 	xvfcmp.sle.s	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160
@@ -669,8 +667,7 @@ main:                                   # @main
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_16)
 	xvld	$xr1, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr1, $sp, 160
-	lu12i.w	$a0, 4080
-	xvreplgr2vr.d	$xr1, $a0
+	xvldi	$xr1, -1788
 	xvfcmp.sle.d	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160

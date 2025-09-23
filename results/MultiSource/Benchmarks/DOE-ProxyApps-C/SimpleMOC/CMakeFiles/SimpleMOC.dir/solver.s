@@ -533,14 +533,10 @@ attenuate_fluxes:                       # @attenuate_fluxes
 	slli.d	$a1, $a1, 3
 	xvreplve0.w	$xr0, $xr1
 	xvreplve0.w	$xr3, $xr2
-	lu12i.w	$a2, -261120
-	xvreplgr2vr.w	$xr4, $a2
-	lu12i.w	$a2, 265216
-	xvreplgr2vr.w	$xr6, $a2
-	lu12i.w	$a2, -259072
-	xvreplgr2vr.w	$xr7, $a2
-	lu12i.w	$a2, 263168
-	xvreplgr2vr.w	$xr8, $a2
+	xvldi	$xr4, -1400
+	xvldi	$xr6, -1512
+	xvldi	$xr7, -1384
+	xvldi	$xr8, -1528
 	move	$a2, $t6
 	move	$s2, $t4
 	move	$s3, $t7
@@ -897,7 +893,6 @@ attenuate_fluxes:                       # @attenuate_fluxes
 	bltu	$a5, $a2, .LBB0_95
 # %bb.119:                              # %vector.main.loop.iter.check907
 	ori	$a1, $zero, 16
-	lu12i.w	$a2, 260096
 	bgeu	$a7, $a1, .LBB0_195
 # %bb.120:
 	move	$a1, $zero
@@ -978,8 +973,7 @@ attenuate_fluxes:                       # @attenuate_fluxes
 	xvreplve0.w	$xr9, $xr7
 	xvreplve0.w	$xr10, $xr8
 	xvreplve0.w	$xr11, $xr6
-	lu12i.w	$t1, -262144
-	xvreplgr2vr.w	$xr12, $t1
+	xvldi	$xr12, -3136
 	move	$t1, $t8
 	move	$s1, $s3
 	move	$s6, $s4
@@ -1066,8 +1060,7 @@ attenuate_fluxes:                       # @attenuate_fluxes
 	xvreplve0.w	$xr9, $xr7
 	xvreplve0.w	$xr10, $xr8
 	xvreplve0.w	$xr11, $xr6
-	lu12i.w	$a5, -262144
-	xvreplgr2vr.w	$xr12, $a5
+	xvldi	$xr12, -3136
 	move	$t1, $t8
 	move	$s1, $s3
 	move	$s6, $s4
@@ -1154,8 +1147,7 @@ attenuate_fluxes:                       # @attenuate_fluxes
 	xvreplve0.w	$xr9, $xr7
 	xvreplve0.w	$xr10, $xr8
 	xvreplve0.w	$xr11, $xr6
-	lu12i.w	$a5, -262144
-	xvreplgr2vr.w	$xr12, $a5
+	xvldi	$xr12, -3136
 	move	$t1, $t8
 	move	$s1, $s3
 	move	$s6, $s4
@@ -1360,56 +1352,56 @@ attenuate_fluxes:                       # @attenuate_fluxes
 .LBB0_195:                              # %vector.ph908
 	bstrpick.d	$a1, $t8, 30, 4
 	slli.d	$a1, $a1, 4
-	addi.d	$a5, $s2, 32
-	addi.d	$a6, $t0, 32
-	addi.d	$t1, $a0, 32
-	xvreplgr2vr.w	$xr0, $a2
-	move	$t2, $a1
+	addi.d	$a2, $s2, 32
+	addi.d	$a5, $t0, 32
+	addi.d	$a6, $a0, 32
+	xvldi	$xr0, -1424
+	move	$t1, $a1
 	.p2align	4, , 16
 .LBB0_196:                              # %vector.body911
                                         # =>This Inner Loop Header: Depth=1
-	xvld	$xr1, $a6, -32
-	xvld	$xr2, $a6, 0
-	xvld	$xr3, $t1, -32
-	xvld	$xr4, $t1, 0
+	xvld	$xr1, $a5, -32
+	xvld	$xr2, $a5, 0
+	xvld	$xr3, $a6, -32
+	xvld	$xr4, $a6, 0
 	xvfsub.s	$xr1, $xr0, $xr1
 	xvfsub.s	$xr2, $xr0, $xr2
 	xvfmul.s	$xr1, $xr3, $xr1
 	xvfmul.s	$xr2, $xr4, $xr2
-	xvst	$xr1, $a5, -32
-	xvst	$xr2, $a5, 0
-	addi.d	$t2, $t2, -16
+	xvst	$xr1, $a2, -32
+	xvst	$xr2, $a2, 0
+	addi.d	$t1, $t1, -16
+	addi.d	$a2, $a2, 64
 	addi.d	$a5, $a5, 64
 	addi.d	$a6, $a6, 64
-	addi.d	$t1, $t1, 64
-	bnez	$t2, .LBB0_196
+	bnez	$t1, .LBB0_196
 # %bb.197:                              # %middle.block918
 	beq	$a1, $t8, .LBB0_97
 # %bb.198:                              # %vec.epilog.iter.check923
-	andi	$a5, $t8, 12
-	beqz	$a5, .LBB0_95
+	andi	$a2, $t8, 12
+	beqz	$a2, .LBB0_95
 .LBB0_199:                              # %vec.epilog.ph922
-	move	$t2, $a1
+	move	$t1, $a1
 	bstrpick.d	$a1, $t8, 30, 2
 	slli.d	$a1, $a1, 2
-	sub.d	$a5, $t2, $a1
-	alsl.d	$a6, $t2, $s2, 2
-	alsl.d	$t1, $t2, $t0, 2
-	alsl.d	$t2, $t2, $a0, 2
-	vreplgr2vr.w	$vr0, $a2
+	sub.d	$a2, $t1, $a1
+	alsl.d	$a5, $t1, $s2, 2
+	alsl.d	$a6, $t1, $t0, 2
+	alsl.d	$t1, $t1, $a0, 2
+	vldi	$vr0, -1424
 	.p2align	4, , 16
 .LBB0_200:                              # %vec.epilog.vector.body928
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr1, $t1, 0
-	vld	$vr2, $t2, 0
+	vld	$vr1, $a6, 0
+	vld	$vr2, $t1, 0
 	vfsub.s	$vr1, $vr0, $vr1
 	vfmul.s	$vr1, $vr2, $vr1
-	vst	$vr1, $a6, 0
-	addi.d	$a5, $a5, 4
+	vst	$vr1, $a5, 0
+	addi.d	$a2, $a2, 4
+	addi.d	$a5, $a5, 16
 	addi.d	$a6, $a6, 16
 	addi.d	$t1, $t1, 16
-	addi.d	$t2, $t2, 16
-	bnez	$a5, .LBB0_200
+	bnez	$a2, .LBB0_200
 # %bb.201:                              # %vec.epilog.middle.block933
 	bne	$a1, $t8, .LBB0_95
 	b	.LBB0_97
@@ -1421,8 +1413,7 @@ attenuate_fluxes:                       # @attenuate_fluxes
 	addi.d	$s2, $t0, 32
 	addi.d	$s3, $t5, 32
 	addi.d	$s4, $t7, 32
-	lu12i.w	$a5, -262144
-	xvreplgr2vr.w	$xr0, $a5
+	xvldi	$xr0, -3136
 	move	$s5, $a2
 	.p2align	4, , 16
 .LBB0_203:                              # %vector.body618
@@ -1460,22 +1451,21 @@ attenuate_fluxes:                       # @attenuate_fluxes
 	andi	$a5, $t8, 12
 	beqz	$a5, .LBB0_37
 .LBB0_206:                              # %vec.epilog.ph
-	move	$a5, $a2
+	move	$s4, $a2
 	bstrpick.d	$a2, $t8, 30, 2
 	slli.d	$a2, $a2, 2
-	sub.d	$t1, $a5, $a2
-	alsl.d	$s1, $a5, $t2, 2
-	alsl.d	$s2, $a5, $t5, 2
-	alsl.d	$s3, $a5, $t7, 2
-	alsl.d	$s4, $a5, $t0, 2
-	alsl.d	$a5, $a5, $t4, 2
-	lu12i.w	$s5, -262144
-	vreplgr2vr.w	$vr0, $s5
+	sub.d	$t1, $s4, $a2
+	alsl.d	$s1, $s4, $t2, 2
+	alsl.d	$s2, $s4, $t5, 2
+	alsl.d	$s3, $s4, $t7, 2
+	alsl.d	$a5, $s4, $t0, 2
+	alsl.d	$s4, $s4, $t4, 2
+	vldi	$vr0, -3136
 	.p2align	4, , 16
 .LBB0_207:                              # %vec.epilog.vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a5, 0
-	vld	$vr4, $s4, 0
+	vld	$vr3, $s4, 0
+	vld	$vr4, $a5, 0
 	vld	$vr6, $s3, 0
 	vld	$vr7, $s2, 0
 	vfadd.s	$vr8, $vr3, $vr0
@@ -1488,8 +1478,8 @@ attenuate_fluxes:                       # @attenuate_fluxes
 	addi.d	$s1, $s1, 16
 	addi.d	$s2, $s2, 16
 	addi.d	$s3, $s3, 16
-	addi.d	$s4, $s4, 16
 	addi.d	$a5, $a5, 16
+	addi.d	$s4, $s4, 16
 	bnez	$t1, .LBB0_207
 # %bb.208:                              # %vec.epilog.middle.block
 	bne	$a2, $t8, .LBB0_37

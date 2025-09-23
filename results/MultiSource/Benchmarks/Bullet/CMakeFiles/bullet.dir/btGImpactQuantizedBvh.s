@@ -112,11 +112,10 @@ _ZN18btQuantizedBvhTree20_calc_splitting_axisER18GIM_BVH_DATA_ARRAYii: # @_ZN18b
 	alsl.d	$a0, $a2, $a0, 2
 	add.d	$a6, $a0, $a6
 	addi.d	$a6, $a6, 20
-	vrepli.b	$vr2, 0
-	movgr2fr.w	$fa3, $zero
-	vldi	$vr1, -1184
-	lu12i.w	$a7, 258048
-	vreplgr2vr.w	$vr0, $a7
+	vrepli.b	$vr1, 0
+	movgr2fr.w	$fa2, $zero
+	vldi	$vr0, -1184
+	vldi	$vr3, -3265
 	.p2align	4, , 16
 .LBB1_2:                                # =>This Inner Loop Header: Depth=1
 	fld.s	$fa4, $a6, -4
@@ -124,30 +123,31 @@ _ZN18btQuantizedBvhTree20_calc_splitting_axisER18GIM_BVH_DATA_ARRAYii: # @_ZN18b
 	ld.d	$a7, $a6, 0
 	ld.d	$t0, $a6, -16
 	fadd.s	$fa4, $fa4, $fa5
-	fmul.s	$fa4, $fa4, $fa1
+	fmul.s	$fa4, $fa4, $fa0
 	vinsgr2vr.d	$vr5, $a7, 0
 	vinsgr2vr.d	$vr6, $t0, 0
 	vfadd.s	$vr5, $vr5, $vr6
-	vfmul.s	$vr5, $vr5, $vr0
-	fadd.s	$fa3, $fa3, $fa4
-	vfadd.s	$vr2, $vr2, $vr5
+	vfmul.s	$vr5, $vr5, $vr3
+	fadd.s	$fa2, $fa2, $fa4
+	vfadd.s	$vr1, $vr1, $vr5
 	addi.d	$a5, $a5, -1
 	addi.d	$a6, $a6, 36
 	bnez	$a5, .LBB1_2
 # %bb.3:                                # %.lr.ph134
-	movgr2fr.w	$fa1, $a4
-	ffint.s.w	$fa1, $fa1
-	frecip.s	$fa5, $fa1
+	movgr2fr.w	$fa0, $a4
+	ffint.s.w	$fa0, $fa0
+	frecip.s	$fa4, $fa0
 	ld.d	$a1, $a1, 16
-	fmul.s	$fa4, $fa5, $fa3
-	vextrins.w	$vr5, $vr5, 16
-	vfmul.s	$vr5, $vr5, $vr2
+	fmul.s	$fa3, $fa4, $fa2
+	vextrins.w	$vr4, $vr4, 16
+	vfmul.s	$vr4, $vr4, $vr1
 	add.d	$a0, $a0, $a1
 	addi.d	$a0, $a0, 20
 	sub.d	$a1, $a3, $a2
-	vrepli.b	$vr2, 0
-	movgr2fr.w	$fa3, $zero
-	vldi	$vr6, -1184
+	vrepli.b	$vr1, 0
+	movgr2fr.w	$fa2, $zero
+	vldi	$vr5, -1184
+	vldi	$vr6, -3265
 	.p2align	4, , 16
 .LBB1_4:                                # =>This Inner Loop Header: Depth=1
 	fld.s	$fa7, $a0, -4
@@ -156,36 +156,36 @@ _ZN18btQuantizedBvhTree20_calc_splitting_axisER18GIM_BVH_DATA_ARRAYii: # @_ZN18b
 	fadd.s	$fa7, $fa7, $ft0
 	vinsgr2vr.d	$vr8, $a2, 0
 	ld.d	$a2, $a0, -16
-	fmul.s	$fa7, $fa7, $fa6
-	fsub.s	$fa7, $fa7, $fa4
+	fmul.s	$fa7, $fa7, $fa5
+	fsub.s	$fa7, $fa7, $fa3
 	fmul.s	$fa7, $fa7, $fa7
 	vinsgr2vr.d	$vr9, $a2, 0
 	vfadd.s	$vr8, $vr8, $vr9
-	vfmul.s	$vr8, $vr8, $vr0
-	vfsub.s	$vr8, $vr8, $vr5
+	vfmul.s	$vr8, $vr8, $vr6
+	vfsub.s	$vr8, $vr8, $vr4
 	vfmul.s	$vr8, $vr8, $vr8
-	fadd.s	$fa3, $fa3, $fa7
-	vfadd.s	$vr2, $vr2, $vr8
+	fadd.s	$fa2, $fa2, $fa7
+	vfadd.s	$vr1, $vr1, $vr8
 	addi.d	$a1, $a1, -1
 	addi.d	$a0, $a0, 36
 	bnez	$a1, .LBB1_4
 	b	.LBB1_6
 .LBB1_5:                                # %._crit_edge
 	movgr2fr.w	$fa0, $a4
-	ffint.s.w	$fa1, $fa0
-	vrepli.b	$vr2, 0
-	movgr2fr.w	$fa3, $zero
+	ffint.s.w	$fa0, $fa0
+	vrepli.b	$vr1, 0
+	movgr2fr.w	$fa2, $zero
 .LBB1_6:                                # %._crit_edge135
-	vldi	$vr0, -1040
-	fadd.s	$fa0, $fa1, $fa0
+	vldi	$vr3, -1040
+	fadd.s	$fa0, $fa0, $fa3
 	frecip.s	$fa0, $fa0
-	fmul.s	$fa1, $fa0, $fa3
-	vreplvei.w	$vr3, $vr2, 0
+	fmul.s	$fa2, $fa0, $fa2
+	vreplvei.w	$vr3, $vr1, 0
 	fmul.s	$fa3, $fa0, $fa3
-	vreplvei.w	$vr2, $vr2, 1
-	fmul.s	$fa0, $fa0, $fa2
-	fcmp.clt.s	$fcc0, $fa1, $fa3
-	fsel	$fa1, $fa1, $fa3, $fcc0
+	vreplvei.w	$vr1, $vr1, 1
+	fmul.s	$fa0, $fa0, $fa1
+	fcmp.clt.s	$fcc0, $fa2, $fa3
+	fsel	$fa1, $fa2, $fa3, $fcc0
 	fcmp.clt.s	$fcc1, $fa1, $fa0
 	movcf2gr	$a0, $fcc0
 	movcf2gr	$a1, $fcc1
@@ -217,8 +217,7 @@ _ZN18btQuantizedBvhTree30_sort_and_calc_splitting_indexER18GIM_BVH_DATA_ARRAYiii
 	vrepli.b	$vr0, 0
 	movgr2fr.w	$fa1, $zero
 	vldi	$vr2, -1184
-	lu12i.w	$t1, 258048
-	vreplgr2vr.w	$vr3, $t1
+	vldi	$vr3, -3265
 	.p2align	4, , 16
 .LBB2_2:                                # =>This Inner Loop Header: Depth=1
 	fld.s	$fa4, $a6, -4

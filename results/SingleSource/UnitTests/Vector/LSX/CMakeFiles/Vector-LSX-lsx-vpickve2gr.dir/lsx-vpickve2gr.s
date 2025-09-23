@@ -411,7 +411,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 1024
 	st.w	$a0, $sp, 64
-	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr0, -2812
 	vpickve2gr.hu	$a0, $vr0, 5
 	st.w	$a0, $sp, 68
 	addi.d	$a0, $sp, 64
@@ -586,9 +586,9 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	lu12i.w	$a0, 260096
-	lu52i.d	$a1, $a0, 1016
-	st.d	$a1, $sp, 48
-	vreplgr2vr.w	$vr0, $a0
+	lu52i.d	$a0, $a0, 1016
+	st.d	$a0, $sp, 48
+	vldi	$vr0, -1424
 	vpickve2gr.du	$a0, $vr0, 0
 	st.d	$a0, $sp, 56
 	addi.d	$a0, $sp, 48

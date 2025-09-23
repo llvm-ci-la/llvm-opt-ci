@@ -183,8 +183,7 @@ main:                                   # @main
 	move	$a0, $zero
 	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
 	addi.d	$a1, $a1, 256
-	lu12i.w	$a2, 260096
-	xvreplgr2vr.w	$xr0, $a2
+	xvldi	$xr0, -1424
 	ori	$a2, $zero, 64
 	.p2align	4, , 16
 .LBB0_5:                                # %.preheader23.us.us.i

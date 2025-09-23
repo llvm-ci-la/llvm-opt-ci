@@ -299,17 +299,15 @@ check_lsx_fp_out:                       # @check_lsx_fp_out
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -128
-	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
-	lu12i.w	$s2, -524288
 	vst	$vr0, $sp, 48
-	move	$a0, $s2
+	lu12i.w	$a0, -524288
 	lu32i.d	$a0, 0
 	vreplgr2vr.d	$vr0, $a0
 	vreplve.b	$vr0, $vr0, $zero
@@ -388,7 +386,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vrepli.b	$vr0, -128
 	vst	$vr0, $sp, 48
-	vreplgr2vr.w	$vr0, $s2
+	vldi	$vr0, -3200
 	vreplve.b	$vr0, $vr0, $s0
 	vst	$vr0, $sp, 64
 	addi.d	$a0, $sp, 48
@@ -512,10 +510,9 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, -4096
-	pcalau12i	$a1, %pc_hi20(.LCPI2_4)
-	vld	$vr0, $a1, %pc_lo12(.LCPI2_4)
-	vreplgr2vr.w	$vr1, $a0
+	pcalau12i	$a0, %pc_hi20(.LCPI2_4)
+	vld	$vr0, $a0, %pc_lo12(.LCPI2_4)
+	vldi	$vr1, -3073
 	vst	$vr1, $sp, 48
 	ori	$a0, $zero, 1024
 	vreplve.w	$vr0, $vr0, $a0
@@ -591,11 +588,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vrepli.h	$vr0, -256
 	vst	$vr0, $sp, 48
-	lu12i.w	$a0, -4081
-	ori	$a0, $a0, 3840
-	lu32i.d	$a0, -256
-	lu52i.d	$a0, $a0, 15
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1686
 	vreplve.w	$vr0, $vr0, $zero
 	vst	$vr0, $sp, 64
 	addi.d	$a0, $sp, 48
@@ -763,12 +756,11 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 128
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .Lfunc_end2:
 	.size	main, .Lfunc_end2-main

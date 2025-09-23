@@ -494,8 +494,7 @@ uaspect:                                # @uaspect
 	vreplgr2vr.w	$vr3, $s3
 	vreplgr2vr.w	$vr4, $s4
 	addi.d	$a3, $s8, 40
-	lu52i.d	$a4, $zero, 1022
-	xvreplgr2vr.d	$xr5, $a4
+	xvldi	$xr5, -928
 	move	$a4, $a2
 	.p2align	4, , 16
 .LBB0_23:                               # %vector.body

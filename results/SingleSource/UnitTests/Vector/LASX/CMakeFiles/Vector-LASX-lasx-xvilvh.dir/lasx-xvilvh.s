@@ -902,8 +902,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_12)
 	xvld	$xr1, $a0, %pc_lo12(.LCPI2_12)
 	xvst	$xr0, $sp, 160
-	lu52i.d	$a0, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -784
 	xvilvh.h	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160
@@ -947,9 +946,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_18)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_18)
 	xvst	$xr0, $sp, 160
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1777
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvilvh.h	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 192
@@ -1055,11 +1052,9 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1789
 	xvst	$xr0, $sp, 160
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -2305
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvilvh.w	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 192
@@ -1201,8 +1196,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_42)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_42)
 	xvst	$xr0, $sp, 160
-	lu12i.w	$a0, -524288
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3200
 	xvld	$xr1, $sp, 32                   # 32-byte Folded Reload
 	xvilvh.d	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 192

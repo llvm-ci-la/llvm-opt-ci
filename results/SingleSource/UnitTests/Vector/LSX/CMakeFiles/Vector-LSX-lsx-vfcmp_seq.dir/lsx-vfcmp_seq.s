@@ -653,9 +653,7 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1552
 	vst	$vr0, $sp, 96
 	vrepli.d	$vr0, 64
 	vld	$vr1, $sp, 80                   # 16-byte Folded Reload

@@ -299,8 +299,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_0)
-	ori	$a0, $zero, 1024
-	vreplgr2vr.h	$vr1, $a0
+	vldi	$vr1, -2812
 	vst	$vr1, $sp, 64
 	vfmax.d	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 80

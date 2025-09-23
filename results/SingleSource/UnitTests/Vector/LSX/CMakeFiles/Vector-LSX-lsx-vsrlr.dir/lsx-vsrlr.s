@@ -1084,8 +1084,7 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 1024
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -3520
 	vst	$vr0, $sp, 80
 	vrepli.h	$vr0, 10
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload

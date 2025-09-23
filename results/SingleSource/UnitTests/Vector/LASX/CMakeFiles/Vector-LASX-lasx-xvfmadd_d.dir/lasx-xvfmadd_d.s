@@ -505,8 +505,7 @@ main:                                   # @main
 	ori	$a0, $a0, 3932
 	xvreplgr2vr.d	$xr0, $a0
 	xvst	$xr0, $sp, 96
-	ori	$a0, $zero, 4095
-	xvreplgr2vr.w	$xr1, $a0
+	xvldi	$xr1, -2545
 	xvfmsub.d	$xr0, $xr1, $xr1, $xr0
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96
@@ -570,9 +569,7 @@ main:                                   # @main
 	xvst	$xr2, $sp, 96
 	lu52i.d	$a0, $zero, 2047
 	xvreplgr2vr.d	$xr0, $a0
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr1, $a0
+	xvldi	$xr1, -1777
 	xvfmsub.d	$xr0, $xr1, $xr2, $xr0
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96

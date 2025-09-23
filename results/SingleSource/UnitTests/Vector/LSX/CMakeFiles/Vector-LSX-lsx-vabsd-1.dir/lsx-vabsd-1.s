@@ -481,10 +481,9 @@ check_lsx_fp_out:                       # @check_lsx_fp_out
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -128
-	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
 	vst	$vr0, $sp, 64
@@ -700,11 +699,8 @@ main:                                   # @main
 	ori	$a0, $a0, 1
 	lu32i.d	$a0, 1
 	vreplgr2vr.d	$vr0, $a0
-	addi.w	$s0, $zero, -1
 	vst	$vr0, $sp, 64
-	move	$a0, $s0
-	lu32i.d	$a0, 65535
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1729
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vabsd.h	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 80
@@ -747,8 +743,9 @@ main:                                   # @main
 	vst	$vr0, $sp, 64
 	pcalau12i	$a0, %pc_hi20(.LCPI2_22)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_22)
-	lu32i.d	$s0, -65536
-	lu52i.d	$a0, $s0, 3
+	addi.w	$a0, $zero, -1
+	lu32i.d	$a0, -65536
+	lu52i.d	$a0, $a0, 3
 	vreplgr2vr.d	$vr1, $a0
 	vabsd.h	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 80
@@ -884,10 +881,9 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 128
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .Lfunc_end2:
 	.size	main, .Lfunc_end2-main

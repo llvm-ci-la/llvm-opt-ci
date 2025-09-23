@@ -312,14 +312,13 @@ Vside:                                  # @Vside
 	move	$a2, $a5
 	bstrins.d	$a2, $a7, 1, 0
 	xvreplve0.d	$xr1, $xr0
-	vreplgr2vr.w	$vr2, $fp
 	pcalau12i	$t0, %pc_hi20(.LCPI0_1)
-	vld	$vr3, $t0, %pc_lo12(.LCPI0_1)
+	vld	$vr2, $t0, %pc_lo12(.LCPI0_1)
 	pcalau12i	$t0, %pc_hi20(.LCPI0_2)
-	xvld	$xr4, $t0, %pc_lo12(.LCPI0_2)
+	xvld	$xr3, $t0, %pc_lo12(.LCPI0_2)
+	vreplgr2vr.w	$vr4, $fp
 	addi.d	$t0, $a3, 48
-	lu52i.d	$t1, $zero, 1022
-	xvreplgr2vr.d	$xr5, $t1
+	xvldi	$xr5, -928
 	move	$t1, $a6
 	.p2align	4, , 16
 .LBB0_24:                               # %vector.body200
@@ -328,19 +327,19 @@ Vside:                                  # @Vside
 	st.w	$s0, $t0, 4
 	st.w	$s0, $t0, 24
 	st.w	$s0, $t0, 44
-	xvpickve2gr.d	$t2, $xr4, 0
+	xvpickve2gr.d	$t2, $xr3, 0
 	vinsgr2vr.w	$vr6, $t2, 0
-	xvpickve2gr.d	$t2, $xr4, 1
+	xvpickve2gr.d	$t2, $xr3, 1
 	vinsgr2vr.w	$vr6, $t2, 1
-	xvpickve2gr.d	$t2, $xr4, 2
+	xvpickve2gr.d	$t2, $xr3, 2
 	vinsgr2vr.w	$vr6, $t2, 2
-	xvpickve2gr.d	$t2, $xr4, 3
+	xvpickve2gr.d	$t2, $xr3, 3
 	vinsgr2vr.w	$vr6, $t2, 3
 	vaddi.wu	$vr6, $vr6, 1
 	vext2xv.du.wu	$xr6, $xr6
 	xvffint.d.lu	$xr6, $xr6
 	xvfmul.d	$xr6, $xr1, $xr6
-	vext2xv.du.wu	$xr7, $xr3
+	vext2xv.du.wu	$xr7, $xr2
 	xvffint.d.lu	$xr7, $xr7
 	xvfmul.d	$xr7, $xr1, $xr7
 	xvftintrz.l.d	$xr8, $xr7
@@ -359,7 +358,7 @@ Vside:                                  # @Vside
 	xvpickve2gr.d	$t2, $xr9, 3
 	vinsgr2vr.w	$vr10, $t2, 3
 	vsub.w	$vr8, $vr8, $vr10
-	vadd.w	$vr9, $vr8, $vr2
+	vadd.w	$vr9, $vr8, $vr4
 	vstelm.w	$vr9, $t0, -12, 0
 	vstelm.w	$vr9, $t0, 8, 1
 	vstelm.w	$vr9, $t0, 28, 2
@@ -389,8 +388,8 @@ Vside:                                  # @Vside
 	st.w	$a7, $t0, -4
 	st.w	$a7, $t0, 16
 	st.w	$a7, $t0, 36
-	xvaddi.du	$xr4, $xr4, 4
-	vaddi.wu	$vr3, $vr3, 4
+	xvaddi.du	$xr3, $xr3, 4
+	vaddi.wu	$vr2, $vr2, 4
 	addi.d	$t1, $t1, -4
 	addi.d	$t0, $t0, 80
 	bnez	$t1, .LBB0_24
@@ -460,14 +459,13 @@ Vside:                                  # @Vside
 	move	$a2, $a5
 	bstrins.d	$a2, $a7, 1, 0
 	xvreplve0.d	$xr1, $xr0
-	vreplgr2vr.w	$vr2, $fp
 	pcalau12i	$t0, %pc_hi20(.LCPI0_1)
-	vld	$vr3, $t0, %pc_lo12(.LCPI0_1)
+	vld	$vr2, $t0, %pc_lo12(.LCPI0_1)
 	pcalau12i	$t0, %pc_hi20(.LCPI0_2)
-	xvld	$xr4, $t0, %pc_lo12(.LCPI0_2)
+	xvld	$xr3, $t0, %pc_lo12(.LCPI0_2)
+	vreplgr2vr.w	$vr4, $fp
 	addi.d	$t0, $a3, 48
-	lu52i.d	$t1, $zero, 1022
-	xvreplgr2vr.d	$xr5, $t1
+	xvldi	$xr5, -928
 	move	$t1, $a6
 	.p2align	4, , 16
 .LBB0_31:                               # %vector.body182
@@ -476,19 +474,19 @@ Vside:                                  # @Vside
 	st.w	$s0, $t0, 4
 	st.w	$s0, $t0, 24
 	st.w	$s0, $t0, 44
-	xvpickve2gr.d	$t2, $xr4, 0
+	xvpickve2gr.d	$t2, $xr3, 0
 	vinsgr2vr.w	$vr6, $t2, 0
-	xvpickve2gr.d	$t2, $xr4, 1
+	xvpickve2gr.d	$t2, $xr3, 1
 	vinsgr2vr.w	$vr6, $t2, 1
-	xvpickve2gr.d	$t2, $xr4, 2
+	xvpickve2gr.d	$t2, $xr3, 2
 	vinsgr2vr.w	$vr6, $t2, 2
-	xvpickve2gr.d	$t2, $xr4, 3
+	xvpickve2gr.d	$t2, $xr3, 3
 	vinsgr2vr.w	$vr6, $t2, 3
 	vaddi.wu	$vr6, $vr6, 1
 	vext2xv.du.wu	$xr6, $xr6
 	xvffint.d.lu	$xr6, $xr6
 	xvfmul.d	$xr6, $xr1, $xr6
-	vext2xv.du.wu	$xr7, $xr3
+	vext2xv.du.wu	$xr7, $xr2
 	xvffint.d.lu	$xr7, $xr7
 	xvfmul.d	$xr7, $xr1, $xr7
 	xvftintrz.l.d	$xr8, $xr7
@@ -507,7 +505,7 @@ Vside:                                  # @Vside
 	xvpickve2gr.d	$t2, $xr9, 3
 	vinsgr2vr.w	$vr10, $t2, 3
 	vsub.w	$vr8, $vr8, $vr10
-	vsub.w	$vr9, $vr2, $vr8
+	vsub.w	$vr9, $vr4, $vr8
 	vstelm.w	$vr9, $t0, -12, 0
 	vstelm.w	$vr9, $t0, 8, 1
 	vstelm.w	$vr9, $t0, 28, 2
@@ -537,8 +535,8 @@ Vside:                                  # @Vside
 	st.w	$a7, $t0, -4
 	st.w	$a7, $t0, 16
 	st.w	$a7, $t0, 36
-	xvaddi.du	$xr4, $xr4, 4
-	vaddi.wu	$vr3, $vr3, 4
+	xvaddi.du	$xr3, $xr3, 4
+	vaddi.wu	$vr2, $vr2, 4
 	addi.d	$t1, $t1, -4
 	addi.d	$t0, $t0, 80
 	bnez	$t1, .LBB0_31
@@ -934,14 +932,13 @@ Hside:                                  # @Hside
 	move	$a1, $a4
 	bstrins.d	$a1, $a6, 1, 0
 	xvreplve0.d	$xr1, $xr0
-	vreplgr2vr.w	$vr2, $s0
 	pcalau12i	$a6, %pc_hi20(.LCPI1_1)
-	vld	$vr3, $a6, %pc_lo12(.LCPI1_1)
+	vld	$vr2, $a6, %pc_lo12(.LCPI1_1)
 	pcalau12i	$a6, %pc_hi20(.LCPI1_2)
-	xvld	$xr4, $a6, %pc_lo12(.LCPI1_2)
+	xvld	$xr3, $a6, %pc_lo12(.LCPI1_2)
+	vreplgr2vr.w	$vr4, $s0
 	addi.d	$a6, $a2, 48
-	lu52i.d	$a7, $zero, 1022
-	xvreplgr2vr.d	$xr5, $a7
+	xvldi	$xr5, -928
 	move	$a7, $a5
 	.p2align	4, , 16
 .LBB1_24:                               # %vector.body202
@@ -950,19 +947,19 @@ Hside:                                  # @Hside
 	st.w	$fp, $a6, 8
 	st.w	$fp, $a6, 28
 	st.w	$fp, $a6, 48
-	xvpickve2gr.d	$t0, $xr4, 0
+	xvpickve2gr.d	$t0, $xr3, 0
 	vinsgr2vr.w	$vr6, $t0, 0
-	xvpickve2gr.d	$t0, $xr4, 1
+	xvpickve2gr.d	$t0, $xr3, 1
 	vinsgr2vr.w	$vr6, $t0, 1
-	xvpickve2gr.d	$t0, $xr4, 2
+	xvpickve2gr.d	$t0, $xr3, 2
 	vinsgr2vr.w	$vr6, $t0, 2
-	xvpickve2gr.d	$t0, $xr4, 3
+	xvpickve2gr.d	$t0, $xr3, 3
 	vinsgr2vr.w	$vr6, $t0, 3
 	vaddi.wu	$vr6, $vr6, 1
 	vext2xv.du.wu	$xr6, $xr6
 	xvffint.d.lu	$xr6, $xr6
 	xvfmul.d	$xr6, $xr1, $xr6
-	vext2xv.du.wu	$xr7, $xr3
+	vext2xv.du.wu	$xr7, $xr2
 	xvffint.d.lu	$xr7, $xr7
 	xvfmul.d	$xr7, $xr1, $xr7
 	xvftintrz.l.d	$xr8, $xr7
@@ -981,7 +978,7 @@ Hside:                                  # @Hside
 	xvpickve2gr.d	$t0, $xr9, 3
 	vinsgr2vr.w	$vr10, $t0, 3
 	vsub.w	$vr8, $vr8, $vr10
-	vadd.w	$vr9, $vr8, $vr2
+	vadd.w	$vr9, $vr8, $vr4
 	vstelm.w	$vr9, $a6, -16, 0
 	vstelm.w	$vr9, $a6, 4, 1
 	vstelm.w	$vr9, $a6, 24, 2
@@ -1011,8 +1008,8 @@ Hside:                                  # @Hside
 	st.w	$zero, $a6, -4
 	st.w	$zero, $a6, 16
 	st.w	$zero, $a6, 36
-	xvaddi.du	$xr4, $xr4, 4
-	vaddi.wu	$vr3, $vr3, 4
+	xvaddi.du	$xr3, $xr3, 4
+	vaddi.wu	$vr2, $vr2, 4
 	addi.d	$a7, $a7, -4
 	addi.d	$a6, $a6, 80
 	bnez	$a7, .LBB1_24
@@ -1081,14 +1078,13 @@ Hside:                                  # @Hside
 	move	$a1, $a4
 	bstrins.d	$a1, $a6, 1, 0
 	xvreplve0.d	$xr1, $xr0
-	vreplgr2vr.w	$vr2, $s0
 	pcalau12i	$a6, %pc_hi20(.LCPI1_1)
-	vld	$vr3, $a6, %pc_lo12(.LCPI1_1)
+	vld	$vr2, $a6, %pc_lo12(.LCPI1_1)
 	pcalau12i	$a6, %pc_hi20(.LCPI1_2)
-	xvld	$xr4, $a6, %pc_lo12(.LCPI1_2)
+	xvld	$xr3, $a6, %pc_lo12(.LCPI1_2)
+	vreplgr2vr.w	$vr4, $s0
 	addi.d	$a6, $a2, 48
-	lu52i.d	$a7, $zero, 1022
-	xvreplgr2vr.d	$xr5, $a7
+	xvldi	$xr5, -928
 	move	$a7, $a5
 	.p2align	4, , 16
 .LBB1_31:                               # %vector.body184
@@ -1097,19 +1093,19 @@ Hside:                                  # @Hside
 	st.w	$fp, $a6, 8
 	st.w	$fp, $a6, 28
 	st.w	$fp, $a6, 48
-	xvpickve2gr.d	$t0, $xr4, 0
+	xvpickve2gr.d	$t0, $xr3, 0
 	vinsgr2vr.w	$vr6, $t0, 0
-	xvpickve2gr.d	$t0, $xr4, 1
+	xvpickve2gr.d	$t0, $xr3, 1
 	vinsgr2vr.w	$vr6, $t0, 1
-	xvpickve2gr.d	$t0, $xr4, 2
+	xvpickve2gr.d	$t0, $xr3, 2
 	vinsgr2vr.w	$vr6, $t0, 2
-	xvpickve2gr.d	$t0, $xr4, 3
+	xvpickve2gr.d	$t0, $xr3, 3
 	vinsgr2vr.w	$vr6, $t0, 3
 	vaddi.wu	$vr6, $vr6, 1
 	vext2xv.du.wu	$xr6, $xr6
 	xvffint.d.lu	$xr6, $xr6
 	xvfmul.d	$xr6, $xr1, $xr6
-	vext2xv.du.wu	$xr7, $xr3
+	vext2xv.du.wu	$xr7, $xr2
 	xvffint.d.lu	$xr7, $xr7
 	xvfmul.d	$xr7, $xr1, $xr7
 	xvftintrz.l.d	$xr8, $xr7
@@ -1128,7 +1124,7 @@ Hside:                                  # @Hside
 	xvpickve2gr.d	$t0, $xr9, 3
 	vinsgr2vr.w	$vr10, $t0, 3
 	vsub.w	$vr8, $vr8, $vr10
-	vsub.w	$vr9, $vr2, $vr8
+	vsub.w	$vr9, $vr4, $vr8
 	vstelm.w	$vr9, $a6, -16, 0
 	vstelm.w	$vr9, $a6, 4, 1
 	vstelm.w	$vr9, $a6, 24, 2
@@ -1158,8 +1154,8 @@ Hside:                                  # @Hside
 	st.w	$zero, $a6, -4
 	st.w	$zero, $a6, 16
 	st.w	$zero, $a6, 36
-	xvaddi.du	$xr4, $xr4, 4
-	vaddi.wu	$vr3, $vr3, 4
+	xvaddi.du	$xr3, $xr3, 4
+	vaddi.wu	$vr2, $vr2, 4
 	addi.d	$a7, $a7, -4
 	addi.d	$a6, $a6, 80
 	bnez	$a7, .LBB1_31

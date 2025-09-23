@@ -518,7 +518,6 @@ main:                                   # @main
 	st.d	$ra, $sp, 344                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 336                   # 8-byte Folded Spill
 	st.d	$s0, $sp, 328                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 320                   # 8-byte Folded Spill
 	addi.d	$fp, $sp, 352
 	bstrins.d	$sp, $zero, 4, 0
 	xvrepli.b	$xr0, -1
@@ -538,14 +537,11 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	addi.w	$s1, $zero, -1
-	move	$a0, $s1
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	xvld	$xr0, $a1, %pc_lo12(.LCPI2_0)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_1)
-	xvld	$xr1, $a1, %pc_lo12(.LCPI2_1)
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr2, $a0
+	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
+	xvld	$xr0, $a0, %pc_lo12(.LCPI2_0)
+	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
+	xvld	$xr1, $a0, %pc_lo12(.LCPI2_1)
+	xvldi	$xr2, -1777
 	xvst	$xr2, $sp, 256
 	xvfcmp.seq.s	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 288
@@ -957,13 +953,11 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 0
-	pcalau12i	$a1, %pc_hi20(.LCPI2_25)
-	xvld	$xr0, $a1, %pc_lo12(.LCPI2_25)
-	pcalau12i	$a1, %pc_hi20(.LCPI2_26)
-	xvld	$xr1, $a1, %pc_lo12(.LCPI2_26)
-	lu32i.d	$a0, -1
-	xvreplgr2vr.d	$xr2, $a0
+	pcalau12i	$a0, %pc_hi20(.LCPI2_25)
+	xvld	$xr0, $a0, %pc_lo12(.LCPI2_25)
+	pcalau12i	$a0, %pc_hi20(.LCPI2_26)
+	xvld	$xr1, $a0, %pc_lo12(.LCPI2_26)
+	xvldi	$xr2, -1552
 	xvst	$xr2, $sp, 160                  # 32-byte Folded Spill
 	xvst	$xr2, $sp, 256
 	xvfcmp.sueq.s	$xr0, $xr1, $xr0
@@ -977,7 +971,8 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr0, $sp, 192                  # 32-byte Folded Reload
 	xvst	$xr0, $sp, 256
-	lu52i.d	$a0, $s1, 2046
+	addi.w	$a0, $zero, -1
+	lu52i.d	$a0, $a0, 2046
 	xvreplgr2vr.d	$xr0, $a0
 	lu12i.w	$a0, -144
 	ori	$a0, $a0, 342
@@ -1181,7 +1176,6 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
 	addi.d	$sp, $fp, -352
-	ld.d	$s1, $sp, 320                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 328                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 336                   # 8-byte Folded Reload
 	ld.d	$ra, $sp, 344                   # 8-byte Folded Reload

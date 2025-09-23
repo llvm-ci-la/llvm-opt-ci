@@ -373,10 +373,8 @@ _ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii: # @_ZN7PolyGas15calcSta
 	bstrins.d	$t2, $zero, 1, 0
 	add.d	$a7, $t2, $ra
 	xvreplve0.d	$xr0, $xr10
-	lu52i.d	$t3, $zero, 1023
-	xvreplgr2vr.d	$xr1, $t3
-	lu52i.d	$t3, $zero, 1022
-	xvreplgr2vr.d	$xr2, $t3
+	xvldi	$xr1, -912
+	xvldi	$xr2, -928
 	move	$t3, $t2
 	move	$t4, $a0
 	.p2align	4, , 16

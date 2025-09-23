@@ -990,9 +990,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_40)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_40)
 	vst	$vr0, $sp, 64
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1552
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vhsubw.q.d	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 80

@@ -649,33 +649,33 @@ check_lsx_fp_out:                       # @check_lsx_fp_out
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -160
-	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -144
+	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_0)
 	vrepli.b	$vr1, 0
-	vst	$vr1, $sp, 80                   # 16-byte Folded Spill
-	vst	$vr1, $sp, 96
+	vst	$vr1, $sp, 64                   # 16-byte Folded Spill
+	vst	$vr1, $sp, 80
 	vpackod.b	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
+	vst	$vr0, $sp, 96
 	pcalau12i	$a0, %pc_hi20(.L.str.5)
 	addi.d	$fp, $a0, %pc_lo12(.L.str.5)
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 23
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
 	vpackod.b	$vr0, $vr0, $vr0
-	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 29
 	move	$a3, $fp
@@ -685,23 +685,23 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_1)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_2)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_2)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.b	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 35
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
 	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 41
 	move	$a3, $fp
@@ -711,12 +711,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_3)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_4)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_4)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.b	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 47
 	move	$a3, $fp
@@ -728,11 +728,11 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_6)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_7)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_7)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.b	$vr0, $vr2, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 53
 	move	$a3, $fp
@@ -742,15 +742,15 @@ main:                                   # @main
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, 256
 	vreplgr2vr.d	$vr0, $a0
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	ori	$a0, $zero, 252
 	lu32i.d	$a0, 256
 	vreplgr2vr.d	$vr0, $a0
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vpackod.b	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 59
 	move	$a3, $fp
@@ -760,14 +760,14 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_8)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_9)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_9)
-	vst	$vr2, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI2_10)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_10)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.b	$vr0, $vr1, $vr2
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 65
 	move	$a3, $fp
@@ -777,12 +777,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_11)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_12)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_12)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.b	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 71
 	move	$a3, $fp
@@ -791,15 +791,15 @@ main:                                   # @main
 	lu12i.w	$a0, 3280
 	ori	$a0, $a0, 99
 	vreplgr2vr.w	$vr0, $a0
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	lu12i.w	$a0, -207306
 	ori	$a0, $a0, 867
 	vreplgr2vr.w	$vr0, $a0
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vpackod.b	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 77
 	move	$a3, $fp
@@ -809,12 +809,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_13)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_14)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_14)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.b	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 83
 	move	$a3, $fp
@@ -824,12 +824,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_15)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_16)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_16)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vrepli.d	$vr0, 64
 	vpackod.h	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 89
 	move	$a3, $fp
@@ -837,12 +837,12 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_17)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_17)
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr1, $sp, 96
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
+	vst	$vr1, $sp, 80
 	vpackod.h	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 95
 	move	$a3, $fp
@@ -850,53 +850,50 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_18)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_18)
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr1, $sp, 96
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
+	vst	$vr1, $sp, 80
 	vpackod.h	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 101
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	pcalau12i	$a1, %pc_hi20(.LCPI2_19)
-	vld	$vr0, $a1, %pc_lo12(.LCPI2_19)
-	vreplgr2vr.w	$vr1, $a0
-	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
-	vst	$vr1, $sp, 96
+	pcalau12i	$a0, %pc_hi20(.LCPI2_19)
+	vld	$vr0, $a0, %pc_lo12(.LCPI2_19)
+	vldi	$vr1, -2305
+	vst	$vr1, $sp, 80
 	vrepli.b	$vr1, -1
-	vst	$vr1, $sp, 48                   # 16-byte Folded Spill
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
 	vpackod.h	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 107
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
 	vpackod.h	$vr0, $vr0, $vr0
-	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 113
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
 	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 119
 	move	$a3, $fp
@@ -908,11 +905,11 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_21)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_22)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_22)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.h	$vr0, $vr2, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 125
 	move	$a3, $fp
@@ -921,13 +918,13 @@ main:                                   # @main
 	lu12i.w	$a0, 4
 	ori	$a0, $a0, 3968
 	vreplgr2vr.h	$vr0, $a0
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	lu12i.w	$a0, 325632
 	vreplgr2vr.w	$vr0, $a0
 	vpackod.h	$vr0, $vr0, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 131
 	move	$a3, $fp
@@ -939,11 +936,11 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_24)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_25)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_25)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.h	$vr0, $vr2, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 137
 	move	$a3, $fp
@@ -953,12 +950,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_26)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_27)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_27)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.h	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 143
 	move	$a3, $fp
@@ -968,12 +965,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_28)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_29)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_29)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.h	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 149
 	move	$a3, $fp
@@ -982,13 +979,13 @@ main:                                   # @main
 	lu12i.w	$a0, 495
 	ori	$a0, $a0, 4014
 	vreplgr2vr.w	$vr0, $a0
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vrepli.h	$vr0, -82
 	vrepli.h	$vr1, 30
 	vpackod.h	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 155
 	move	$a3, $fp
@@ -998,11 +995,11 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_30)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_31)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_31)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.h	$vr0, $vr1, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 161
 	move	$a3, $fp
@@ -1014,11 +1011,11 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_33)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_34)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_34)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.h	$vr0, $vr2, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 167
 	move	$a3, $fp
@@ -1028,12 +1025,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_35)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_36)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_36)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.w	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 173
 	move	$a3, $fp
@@ -1043,37 +1040,37 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_37)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_38)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_38)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.w	$vr0, $vr1, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 179
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	vrepli.d	$vr0, 1
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	addi.w	$a0, $zero, -2
 	lu32i.d	$a0, 1
 	vreplgr2vr.d	$vr0, $a0
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vpackod.w	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 185
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
 	vpackod.w	$vr0, $vr0, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 191
 	move	$a3, $fp
@@ -1083,12 +1080,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_39)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_40)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_40)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.w	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 197
 	move	$a3, $fp
@@ -1098,12 +1095,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_41)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_42)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_42)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpackod.w	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 203
 	move	$a3, $fp
@@ -1115,26 +1112,24 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_44)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_45)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_45)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.w	$vr0, $vr2, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 209
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	vreplgr2vr.d	$vr0, $a0
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vldi	$vr0, -1552
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vpackod.w	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 215
 	move	$a3, $fp
@@ -1143,16 +1138,16 @@ main:                                   # @main
 	lu12i.w	$a0, 16448
 	ori	$a1, $a0, 1284
 	vreplgr2vr.d	$vr0, $a1
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	ori	$a0, $a0, 1028
 	lu32i.d	$a0, 263428
 	lu52i.d	$a0, $a0, 64
 	vreplgr2vr.d	$vr0, $a0
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vpackod.w	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 221
 	move	$a3, $fp
@@ -1164,11 +1159,11 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_47)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_48)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_48)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.w	$vr0, $vr2, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 227
 	move	$a3, $fp
@@ -1180,11 +1175,11 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_50)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_51)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_51)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.w	$vr0, $vr2, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 233
 	move	$a3, $fp
@@ -1194,12 +1189,12 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_52)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_53)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_53)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vrepli.h	$vr0, 1
 	vpackod.w	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 239
 	move	$a3, $fp
@@ -1208,12 +1203,12 @@ main:                                   # @main
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, 32768
 	vreplgr2vr.d	$vr0, $a0
-	vst	$vr0, $sp, 96
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vpackod.w	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 245
 	move	$a3, $fp
@@ -1222,25 +1217,25 @@ main:                                   # @main
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -65538
 	vreplgr2vr.d	$vr0, $a0
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vrepli.h	$vr0, -2
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vpackod.w	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 251
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
 	vpackod.d	$vr0, $vr0, $vr0
-	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 257
 	move	$a3, $fp
@@ -1248,16 +1243,16 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_54)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_54)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	pcalau12i	$a0, %pc_hi20(.LCPI2_55)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_55)
 	lu12i.w	$a0, -130044
 	ori	$a0, $a0, 65
 	vreplgr2vr.w	$vr1, $a0
 	vpackod.d	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 263
 	move	$a3, $fp
@@ -1265,39 +1260,39 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_56)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_56)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	lu32i.d	$s0, 16
 	lu52i.d	$a0, $s0, 1039
 	vreplgr2vr.d	$vr0, $a0
 	vrepli.h	$vr1, -4
 	vpackod.d	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 269
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
 	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 275
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
+	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
 	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vpackod.d	$vr0, $vr1, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 281
 	move	$a3, $fp
@@ -1306,33 +1301,33 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_57)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_57)
 	vrepli.w	$vr1, 32
-	vst	$vr1, $sp, 96
+	vst	$vr1, $sp, 80
 	vpackod.d	$vr0, $vr0, $vr0
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 287
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
 	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 293
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 96
 	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 80
+	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 299
 	move	$a3, $fp
@@ -1344,11 +1339,11 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_59)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_60)
 	vld	$vr2, $a0, %pc_lo12(.LCPI2_60)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 80
 	vpackod.d	$vr0, $vr2, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 305
 	move	$a3, $fp
@@ -1358,22 +1353,22 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_61)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_62)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_62)
-	vst	$vr0, $sp, 96
-	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 80
+	vldi	$vr0, -2305
 	vpackod.d	$vr0, $vr0, $vr1
-	vst	$vr0, $sp, 112
-	addi.d	$a0, $sp, 96
-	addi.d	$a1, $sp, 112
+	vst	$vr0, $sp, 96
+	addi.d	$a0, $sp, 80
+	addi.d	$a1, $sp, 96
 	ori	$a2, $zero, 16
 	ori	$a4, $zero, 311
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 160
+	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 144
 	ret
 .Lfunc_end2:
 	.size	main, .Lfunc_end2-main

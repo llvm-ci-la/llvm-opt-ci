@@ -170,8 +170,8 @@ main:                                   # @main
 	bnez	$a0, .LBB7_44
 # %bb.6:                                # %polybench_alloc_data.exit14
 	move	$a0, $zero
-	ld.d	$t0, $sp, 136                   # 8-byte Folded Reload
-	sub.d	$a2, $fp, $t0
+	ld.d	$a7, $sp, 136                   # 8-byte Folded Reload
+	sub.d	$a2, $fp, $a7
 	ori	$a3, $zero, 120
 	ori	$a4, $zero, 31
 	vldi	$vr0, -988
@@ -182,16 +182,12 @@ main:                                   # @main
 	ori	$s3, $a1, 512
 	pcalau12i	$a6, %pc_hi20(.LCPI7_0)
 	xvld	$xr2, $a6, %pc_lo12(.LCPI7_0)
+	xvldi	$xr3, -988
 	ori	$a6, $zero, 0
-	ori	$a7, $zero, 0
-	lu32i.d	$a7, 262144
-	lu52i.d	$a7, $a7, 1026
-	xvreplgr2vr.d	$xr3, $a7
 	lu32i.d	$a6, -131072
 	lu52i.d	$a6, $a6, 1029
 	xvreplgr2vr.d	$xr4, $a6
 	ori	$a6, $zero, 120
-	move	$a7, $t0
 	move	$t0, $fp
 	b	.LBB7_8
 	.p2align	4, , 16
@@ -308,10 +304,8 @@ main:                                   # @main
 	vldi	$vr1, -960
 	ori	$t8, $zero, 952
 	ori	$s2, $zero, 119
-	lu52i.d	$a0, $zero, -1024
-	xvreplgr2vr.d	$xr2, $a0
-	lu52i.d	$a0, $zero, 1020
-	xvreplgr2vr.d	$xr3, $a0
+	xvldi	$xr2, -896
+	xvldi	$xr3, -960
 	ori	$s5, $zero, 928
 	.p2align	4, , 16
 .LBB7_16:                               # %.preheader117.i

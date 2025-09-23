@@ -1502,8 +1502,7 @@ on_proc_comm_diff:                      # @on_proc_comm_diff
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	slli.d	$a0, $a4, 3
 	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
-	lu52i.d	$a0, $zero, 1021
-	xvreplgr2vr.d	$xr1, $a0
+	xvldi	$xr1, -944
 	st.d	$s2, $sp, 144                   # 8-byte Folded Spill
 	b	.LBB2_18
 	.p2align	4, , 16
@@ -2212,8 +2211,7 @@ on_proc_comm_diff:                      # @on_proc_comm_diff
 	vldi	$vr0, -944
 	slli.d	$a0, $a2, 3
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
-	lu52i.d	$a0, $zero, 1021
-	xvreplgr2vr.d	$xr1, $a0
+	xvldi	$xr1, -944
 	st.d	$a4, $sp, 120                   # 8-byte Folded Spill
 	b	.LBB2_85
 	.p2align	4, , 16

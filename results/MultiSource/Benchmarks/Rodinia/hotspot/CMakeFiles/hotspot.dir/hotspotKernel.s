@@ -99,9 +99,8 @@ hotspotKernel:                          # @hotspotKernel
 	ori	$s6, $zero, 4088
 	ori	$s7, $zero, 511
 	ori	$s8, $zero, 4080
-	lu52i.d	$a2, $zero, -1024
-	xvreplgr2vr.d	$xr11, $a2
 	lu12i.w	$ra, -1
+	xvldi	$xr11, -896
 	lu12i.w	$s5, -3
 	lu12i.w	$t7, -2
 	lu12i.w	$t8, 4

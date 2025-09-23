@@ -323,9 +323,7 @@ main:                                   # @main
 	lu52i.d	$a0, $a0, -820
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 48
-	lu12i.w	$a0, -16
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1780
 	vnori.b	$vr0, $vr0, 51
 	vst	$vr0, $sp, 64
 	pcalau12i	$a0, %pc_hi20(.L.str.5)

@@ -417,10 +417,9 @@ check_lsx_fp_out:                       # @check_lsx_fp_out
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -112
-	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -96
+	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_0)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
@@ -685,11 +684,9 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 3
-	pcalau12i	$a1, %pc_hi20(.LCPI2_18)
-	vld	$vr0, $a1, %pc_lo12(.LCPI2_18)
-	ori	$a0, $a0, 4095
-	vreplgr2vr.w	$vr1, $a0
+	pcalau12i	$a0, %pc_hi20(.LCPI2_18)
+	vld	$vr0, $a0, %pc_lo12(.LCPI2_18)
+	vldi	$vr1, -2497
 	vst	$vr1, $sp, 48
 	vsat.wu	$vr0, $vr0, 13
 	vst	$vr0, $sp, 64
@@ -747,8 +744,8 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	addi.w	$s0, $zero, -1
-	lu52i.d	$a0, $s0, 2047
+	addi.w	$a0, $zero, -1
+	lu52i.d	$a0, $a0, 2047
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 48
 	vrepli.b	$vr0, -1
@@ -865,8 +862,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_26)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_26)
-	lu32i.d	$s0, 65535
-	vreplgr2vr.d	$vr1, $s0
+	vldi	$vr1, -1729
 	vst	$vr1, $sp, 48
 	vsat.du	$vr0, $vr0, 47
 	vst	$vr0, $sp, 64
@@ -878,10 +874,9 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 112
+	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 88                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 96
 	ret
 .Lfunc_end2:
 	.size	main, .Lfunc_end2-main

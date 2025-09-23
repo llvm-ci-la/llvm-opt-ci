@@ -101,8 +101,7 @@ _ZL20BM_PRESSURE_CALC_RAWRN9benchmark5StateE: # @_ZL20BM_PRESSURE_CALC_RAWRN9ben
 	andi	$a6, $a6, 1
 	movgr2fr.d	$fa5, $zero
 	xvrepli.b	$xr6, 0
-	lu52i.d	$a7, $zero, 1023
-	xvreplgr2vr.d	$xr7, $a7
+	xvldi	$xr7, -912
 	b	.LBB0_5
 	.p2align	4, , 16
 .LBB0_4:                                # %._crit_edge.us.us
@@ -525,14 +524,9 @@ _ZL18BM_ENERGY_CALC_RAWRN9benchmark5StateE: # @_ZL18BM_ENERGY_CALC_RAWRN9benchma
 	vldi	$vr16, -864
 	vldi	$vr17, -996
 	vldi	$vr18, -872
-	lu52i.d	$a0, $zero, 1022
-	xvreplgr2vr.d	$xr19, $a0
-	lu52i.d	$a0, $zero, -1023
-	xvreplgr2vr.d	$xr20, $a0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -524288
-	lu52i.d	$a0, $a0, 1024
-	xvreplgr2vr.d	$xr21, $a0
+	xvldi	$xr19, -928
+	xvldi	$xr20, -880
+	xvldi	$xr21, -1016
 	vldi	$vr22, -912
 	st.d	$s1, $sp, 504                   # 8-byte Folded Spill
 	b	.LBB1_4
@@ -571,7 +565,6 @@ _ZL18BM_ENERGY_CALC_RAWRN9benchmark5StateE: # @_ZL18BM_ENERGY_CALC_RAWRN9benchma
 	ld.d	$a4, $sp, 384                   # 8-byte Folded Reload
 	ld.d	$a5, $sp, 392                   # 8-byte Folded Reload
 	ld.d	$a6, $sp, 424                   # 8-byte Folded Reload
-	lu52i.d	$fp, $zero, -1026
 	.p2align	4, , 16
 .LBB1_8:                                # %vector.body325
                                         #   Parent Loop BB1_4 Depth=1
@@ -586,7 +579,7 @@ _ZL18BM_ENERGY_CALC_RAWRN9benchmark5StateE: # @_ZL18BM_ENERGY_CALC_RAWRN9benchma
 	xvld	$xr7, $a3, 0
 	xvfadd.d	$xr2, $xr2, $xr4
 	xvfadd.d	$xr3, $xr3, $xr5
-	xvreplgr2vr.d	$xr4, $fp
+	xvldi	$xr4, -800
 	xvfmul.d	$xr5, $xr6, $xr4
 	xvfmul.d	$xr4, $xr7, $xr4
 	xvld	$xr6, $a2, -32
@@ -918,17 +911,17 @@ _ZL18BM_ENERGY_CALC_RAWRN9benchmark5StateE: # @_ZL18BM_ENERGY_CALC_RAWRN9benchma
                                         #   in Loop: Header=BB1_4 Depth=1
 	move	$s7, $a3
 	move	$s3, $t7
-	move	$s6, $ra
-	move	$s0, $t1
-	ld.d	$s1, $sp, 512                   # 8-byte Folded Reload
-	move	$fp, $t0
+	move	$s0, $ra
+	move	$s6, $t1
+	ld.d	$s2, $sp, 512                   # 8-byte Folded Reload
+	move	$s1, $t0
 	ld.d	$a2, $sp, 496                   # 8-byte Folded Reload
 	ld.d	$a4, $sp, 472                   # 8-byte Folded Reload
 	move	$a6, $a7
-	ld.d	$s8, $sp, 488                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 480                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 488                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 480                   # 8-byte Folded Reload
 	move	$s5, $t5
-	move	$s4, $t8
+	move	$fp, $t8
 	ld.d	$a0, $sp, 456                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 448                   # 8-byte Folded Reload
 	b	.LBB1_37
@@ -936,13 +929,13 @@ _ZL18BM_ENERGY_CALC_RAWRN9benchmark5StateE: # @_ZL18BM_ENERGY_CALC_RAWRN9benchma
 .LBB1_35:                               # %.lr.ph235._crit_edge
                                         #   in Loop: Header=BB1_37 Depth=2
 	fld.d	$fs4, $s5, 0
-	fld.d	$fs5, $s4, 0
+	fld.d	$fs5, $fp, 0
 	fmov.d	$fa0, $fs2
 .LBB1_36:                               #   in Loop: Header=BB1_37 Depth=2
-	fld.d	$fa1, $s6, 0
-	fld.d	$fa2, $s0, 0
-	fld.d	$fa3, $s1, 0
-	fld.d	$fa4, $fp, 0
+	fld.d	$fa1, $s0, 0
+	fld.d	$fa2, $s6, 0
+	fld.d	$fa3, $s2, 0
+	fld.d	$fa4, $s1, 0
 	fadd.d	$fa1, $fa1, $fa2
 	fadd.d	$fa2, $fa3, $fa4
 	fmul.d	$fa2, $fa2, $ft8
@@ -958,17 +951,17 @@ _ZL18BM_ENERGY_CALC_RAWRN9benchmark5StateE: # @_ZL18BM_ENERGY_CALC_RAWRN9benchma
 	fcmp.clt.d	$fcc0, $fa0, $ft1
 	fsel	$fa0, $fa0, $ft1, $fcc0
 	fst.d	$fa0, $s5, 0
-	addi.d	$s4, $s4, 8
+	addi.d	$fp, $fp, 8
 	addi.d	$s5, $s5, 8
-	addi.d	$s2, $s2, 8
 	addi.d	$s8, $s8, 8
+	addi.d	$s4, $s4, 8
 	addi.d	$a6, $a6, 8
 	addi.d	$a4, $a4, 8
 	addi.d	$a2, $a2, 8
-	addi.d	$fp, $fp, 8
 	addi.d	$s1, $s1, 8
-	addi.d	$s0, $s0, 8
+	addi.d	$s2, $s2, 8
 	addi.d	$s6, $s6, 8
+	addi.d	$s0, $s0, 8
 	addi.d	$s7, $s7, -1
 	addi.d	$s3, $s3, 8
 	beqz	$s7, .LBB1_43
@@ -983,7 +976,7 @@ _ZL18BM_ENERGY_CALC_RAWRN9benchmark5StateE: # @_ZL18BM_ENERGY_CALC_RAWRN9benchma
 	fld.d	$fa1, $a4, 0
 	fld.d	$fa2, $a6, 0
 	fld.d	$fs4, $s5, 0
-	fld.d	$fs5, $s4, 0
+	fld.d	$fs5, $fp, 0
 	fmul.d	$fa1, $fa1, $fa1
 	fmul.d	$fa1, $fa1, $fa2
 	fld.d	$fa2, $a1, %pc_lo12(.LCPI1_1)
@@ -1050,8 +1043,8 @@ _ZL18BM_ENERGY_CALC_RAWRN9benchmark5StateE: # @_ZL18BM_ENERGY_CALC_RAWRN9benchma
 .LBB1_41:                               #   in Loop: Header=BB1_37 Depth=2
 	fld.d	$fa0, $a0, %pc_lo12(.LCPI1_0)
 .LBB1_42:                               #   in Loop: Header=BB1_37 Depth=2
-	fld.d	$fa1, $s8, 0
-	fld.d	$fa2, $s2, 0
+	fld.d	$fa1, $s4, 0
+	fld.d	$fa2, $s8, 0
 	fmadd.d	$fa0, $fa0, $fa1, $fa2
 	b	.LBB1_36
 	.p2align	4, , 16
@@ -1852,105 +1845,103 @@ _ZL21BM_DEL_DOT_VEC_2D_RAWRN9benchmark5StateE: # @_ZL21BM_DEL_DOT_VEC_2D_RAWRN9b
 	alsl.d	$a4, $s6, $s2, 3
 	addi.d	$a5, $s3, 8
 	alsl.d	$a6, $s6, $a5, 3
-	alsl.d	$a7, $s6, $s3, 3
-	alsl.d	$t0, $s6, $s4, 3
-	ld.d	$t1, $sp, 80
-	pcalau12i	$t2, %pc_hi20(.LCPI3_0)
-	vld	$vr0, $t2, %pc_lo12(.LCPI3_0)
-	pcalau12i	$t2, %pc_hi20(.LCPI3_1)
-	fld.d	$fa1, $t2, %pc_lo12(.LCPI3_1)
+	ld.d	$a7, $sp, 80
+	pcalau12i	$t0, %pc_hi20(.LCPI3_0)
+	vld	$vr0, $t0, %pc_lo12(.LCPI3_0)
+	pcalau12i	$t0, %pc_hi20(.LCPI3_1)
+	fld.d	$fa1, $t0, %pc_lo12(.LCPI3_1)
+	alsl.d	$t0, $s6, $s3, 3
+	alsl.d	$t1, $s6, $s4, 3
 	vldi	$vr2, -928
-	lu52i.d	$t2, $zero, 1022
-	vreplgr2vr.d	$vr3, $t2
 	.p2align	4, , 16
 .LBB3_5:                                # %.preheader.us
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB3_6 Depth 2
 	move	$t2, $a0
-	move	$t3, $t1
+	move	$t3, $a7
 	.p2align	4, , 16
 .LBB3_6:                                #   Parent Loop BB3_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.w	$t4, $t3, 0
 	slli.d	$t4, $t4, 3
-	vldx	$vr7, $a3, $t4
-	fldx.d	$fa4, $a2, $t4
-	fldx.d	$fa5, $a3, $t4
-	fldx.d	$fa6, $s1, $t4
-	fldx.d	$ft0, $a1, $t4
-	vldx	$vr9, $s1, $t4
-	fadd.d	$fa4, $fa4, $fa5
-	fsub.d	$fa4, $fa4, $fa6
-	fsub.d	$fa4, $fa4, $ft0
-	fmul.d	$fa5, $fa4, $fa2
-	vldx	$vr8, $a4, $t4
-	fldx.d	$fa4, $a4, $t4
-	vldx	$vr10, $t0, $t4
-	vldx	$vr11, $s2, $t4
-	fldx.d	$fa6, $s2, $t4
-	vpackod.d	$vr12, $vr9, $vr8
-	vpackev.d	$vr13, $vr10, $vr8
+	vldx	$vr6, $a3, $t4
+	fldx.d	$fa3, $a2, $t4
+	fldx.d	$fa4, $a3, $t4
+	fldx.d	$fa5, $s1, $t4
+	fldx.d	$fa7, $a1, $t4
+	vldx	$vr8, $s1, $t4
+	fadd.d	$fa3, $fa3, $fa4
+	fsub.d	$fa3, $fa3, $fa5
+	fsub.d	$fa3, $fa3, $fa7
+	fmul.d	$fa4, $fa3, $fa2
+	vldx	$vr7, $a4, $t4
+	fldx.d	$fa3, $a4, $t4
+	vldx	$vr9, $t1, $t4
+	vldx	$vr10, $s2, $t4
+	fldx.d	$fa5, $s2, $t4
+	vpackod.d	$vr11, $vr8, $vr7
+	vpackev.d	$vr12, $vr9, $vr7
+	vshuf4i.d	$vr7, $vr6, 12
+	vldx	$vr13, $s4, $t4
+	vfadd.d	$vr7, $vr11, $vr7
+	vpackev.d	$vr6, $vr6, $vr10
+	vfsub.d	$vr6, $vr7, $vr6
+	vpackev.d	$vr7, $vr13, $vr10
+	vshuf4i.d	$vr10, $vr8, 9
+	vfsub.d	$vr6, $vr6, $vr10
+	vfmul.d	$vr6, $vr6, $vr2
+	vldx	$vr8, $t0, $t4
+	fldx.d	$ft6, $a6, $t4
+	fldx.d	$ft7, $t0, $t4
+	fldx.d	$ft8, $s3, $t4
+	fldx.d	$ft9, $a5, $t4
+	vldx	$vr18, $s3, $t4
+	fadd.d	$ft6, $ft6, $ft7
+	fsub.d	$ft6, $ft6, $ft8
+	fsub.d	$ft6, $ft6, $ft9
+	fmul.d	$ft6, $ft6, $fa2
+	fldx.d	$ft7, $t1, $t4
+	fldx.d	$ft8, $s4, $t4
+	vshuf4i.d	$vr10, $vr13, 12
+	vshuf4i.d	$vr11, $vr9, 12
+	vfadd.d	$vr11, $vr10, $vr11
+	vfsub.d	$vr12, $vr11, $vr12
+	vfsub.d	$vr12, $vr12, $vr7
+	vpackod.d	$vr13, $vr9, $vr18
+	vori.b	$vr17, $vr8, 0
+	vshuf4i.d	$vr17, $vr9, 9
+	vfadd.d	$vr9, $vr13, $vr17
 	vshuf4i.d	$vr8, $vr7, 12
-	vldx	$vr14, $s4, $t4
-	vfadd.d	$vr8, $vr12, $vr8
-	vpackev.d	$vr7, $vr7, $vr11
-	vfsub.d	$vr7, $vr8, $vr7
-	vpackev.d	$vr8, $vr14, $vr11
-	vshuf4i.d	$vr11, $vr9, 9
-	vfsub.d	$vr7, $vr7, $vr11
-	vfmul.d	$vr7, $vr7, $vr3
-	vldx	$vr9, $a7, $t4
-	fldx.d	$ft7, $a6, $t4
-	fldx.d	$ft8, $a7, $t4
-	fldx.d	$ft9, $s3, $t4
-	fldx.d	$ft10, $a5, $t4
-	vldx	$vr19, $s3, $t4
-	fadd.d	$ft7, $ft7, $ft8
-	fsub.d	$ft7, $ft7, $ft9
-	fsub.d	$ft7, $ft7, $ft10
-	fmul.d	$ft7, $ft7, $fa2
-	fldx.d	$ft8, $t0, $t4
-	fldx.d	$ft9, $s4, $t4
-	vshuf4i.d	$vr11, $vr14, 12
-	vshuf4i.d	$vr12, $vr10, 12
-	vfadd.d	$vr12, $vr11, $vr12
-	vfsub.d	$vr13, $vr12, $vr13
-	vfsub.d	$vr13, $vr13, $vr8
-	vpackod.d	$vr14, $vr10, $vr19
-	vori.b	$vr18, $vr9, 0
-	vshuf4i.d	$vr18, $vr10, 9
-	vfadd.d	$vr10, $vr14, $vr18
-	vshuf4i.d	$vr9, $vr8, 12
-	vfsub.d	$vr8, $vr10, $vr9
-	vshuf4i.d	$vr19, $vr11, 12
-	vfsub.d	$vr8, $vr8, $vr19
-	vfmul.d	$vr8, $vr8, $vr3
-	vfmul.d	$vr9, $vr13, $vr0
-	vreplvei.d	$vr10, $vr9, 0
-	fmul.d	$ft2, $fa5, $ft2
-	vreplvei.d	$vr11, $vr7, 0
-	vreplvei.d	$vr13, $vr7, 1
-	fmadd.d	$ft2, $ft5, $ft3, $ft2
-	fadd.d	$ft2, $ft2, $fa1
-	frecip.d	$ft2, $ft2
-	fneg.d	$fa5, $fa5
-	vextrins.d	$vr15, $vr5, 16
-	vfmul.d	$vr5, $vr9, $vr15
-	vfmadd.d	$vr5, $vr8, $vr7, $vr5
-	vreplvei.d	$vr7, $vr10, 0
-	vfmul.d	$vr5, $vr7, $vr5
-	vreplvei.d	$vr7, $vr12, 1
-	fadd.d	$fa7, $fa7, $ft8
-	fadd.d	$fa7, $fa7, $ft9
-	vreplvei.d	$vr8, $vr12, 0
-	fadd.d	$fa4, $ft0, $fa4
-	fadd.d	$fa4, $fa4, $fa6
-	fdiv.d	$fa4, $fa7, $fa4
-	vreplvei.d	$vr6, $vr5, 0
-	vreplvei.d	$vr5, $vr5, 1
-	fadd.d	$fa5, $fa6, $fa5
-	fadd.d	$fa4, $fa4, $fa5
-	fstx.d	$fa4, $s0, $t4
+	vfsub.d	$vr7, $vr9, $vr8
+	vshuf4i.d	$vr18, $vr10, 12
+	vfsub.d	$vr7, $vr7, $vr18
+	vfmul.d	$vr7, $vr7, $vr2
+	vfmul.d	$vr8, $vr12, $vr0
+	vreplvei.d	$vr9, $vr8, 0
+	fmul.d	$ft1, $fa4, $ft1
+	vreplvei.d	$vr10, $vr6, 0
+	vreplvei.d	$vr12, $vr6, 1
+	fmadd.d	$ft1, $ft4, $ft2, $ft1
+	fadd.d	$ft1, $ft1, $fa1
+	frecip.d	$ft1, $ft1
+	fneg.d	$fa4, $fa4
+	vextrins.d	$vr14, $vr4, 16
+	vfmul.d	$vr4, $vr8, $vr14
+	vfmadd.d	$vr4, $vr7, $vr6, $vr4
+	vreplvei.d	$vr6, $vr9, 0
+	vfmul.d	$vr4, $vr6, $vr4
+	vreplvei.d	$vr6, $vr11, 1
+	fadd.d	$fa6, $fa6, $ft7
+	fadd.d	$fa6, $fa6, $ft8
+	vreplvei.d	$vr7, $vr11, 0
+	fadd.d	$fa3, $fa7, $fa3
+	fadd.d	$fa3, $fa3, $fa5
+	fdiv.d	$fa3, $fa6, $fa3
+	vreplvei.d	$vr5, $vr4, 0
+	vreplvei.d	$vr4, $vr4, 1
+	fadd.d	$fa4, $fa5, $fa4
+	fadd.d	$fa3, $fa3, $fa4
+	fstx.d	$fa3, $s0, $t4
 	addi.d	$t2, $t2, -1
 	addi.d	$t3, $t3, 4
 	bnez	$t2, .LBB3_6
@@ -2928,11 +2919,8 @@ _ZL10BM_FIR_RAWRN9benchmark5StateE:     # @_ZL10BM_FIR_RAWRN9benchmark5StateE
 	andi	$a3, $a3, 1
 	vldi	$vr0, -1016
 	movgr2fr.d	$fa1, $zero
-	ori	$a4, $zero, 0
-	lu32i.d	$a4, -524288
-	lu52i.d	$a4, $a4, 1024
-	xvreplgr2vr.d	$xr2, $a4
-	xvrepli.b	$xr3, 0
+	xvrepli.b	$xr2, 0
+	xvldi	$xr3, -1016
 	b	.LBB5_5
 	.p2align	4, , 16
 .LBB5_4:                                # %._crit_edge.us
@@ -2960,7 +2948,7 @@ _ZL10BM_FIR_RAWRN9benchmark5StateE:     # @_ZL10BM_FIR_RAWRN9benchmark5StateE
 	xvld	$xr4, $a6, -64
 	xvld	$xr5, $a6, -56
 	xvld	$xr6, $a6, -48
-	xvfmadd.d	$xr4, $xr4, $xr2, $xr3
+	xvfmadd.d	$xr4, $xr4, $xr3, $xr2
 	xvld	$xr7, $a6, -40
 	xvfsub.d	$xr4, $xr4, $xr5
 	xvfsub.d	$xr4, $xr4, $xr6
@@ -2970,7 +2958,7 @@ _ZL10BM_FIR_RAWRN9benchmark5StateE:     # @_ZL10BM_FIR_RAWRN9benchmark5StateE
 	xvld	$xr7, $a6, -16
 	xvfsub.d	$xr4, $xr4, $xr5
 	xvld	$xr5, $a6, -8
-	xvfmadd.d	$xr4, $xr6, $xr2, $xr4
+	xvfmadd.d	$xr4, $xr6, $xr3, $xr4
 	xvfsub.d	$xr4, $xr4, $xr7
 	xvld	$xr6, $a6, 0
 	xvfsub.d	$xr4, $xr4, $xr5
@@ -2979,7 +2967,7 @@ _ZL10BM_FIR_RAWRN9benchmark5StateE:     # @_ZL10BM_FIR_RAWRN9benchmark5StateE
 	xvfsub.d	$xr4, $xr4, $xr6
 	xvld	$xr6, $a6, 24
 	xvfsub.d	$xr4, $xr4, $xr5
-	xvfmadd.d	$xr4, $xr7, $xr2, $xr4
+	xvfmadd.d	$xr4, $xr7, $xr3, $xr4
 	xvld	$xr5, $a6, 32
 	xvfsub.d	$xr4, $xr4, $xr6
 	xvld	$xr6, $a6, 40
@@ -2989,7 +2977,7 @@ _ZL10BM_FIR_RAWRN9benchmark5StateE:     # @_ZL10BM_FIR_RAWRN9benchmark5StateE
 	xvfsub.d	$xr4, $xr4, $xr6
 	xvfsub.d	$xr4, $xr4, $xr7
 	addi.d	$a6, $a6, 32
-	xvfmadd.d	$xr4, $xr5, $xr2, $xr4
+	xvfmadd.d	$xr4, $xr5, $xr3, $xr4
 	xvst	$xr4, $a4, 0
 	addi.d	$a5, $a5, -4
 	addi.d	$a4, $a4, 32

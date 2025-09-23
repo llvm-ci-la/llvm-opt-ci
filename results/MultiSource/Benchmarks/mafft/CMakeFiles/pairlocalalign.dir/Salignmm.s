@@ -1232,17 +1232,16 @@ A__align:                               # @A__align
 	ori	$a5, $zero, 1
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
-	xvreplgr2vr.w	$xr0, $a0
 	pcalau12i	$a5, %pc_hi20(.LCPI3_1)
-	xvld	$xr1, $a5, %pc_lo12(.LCPI3_1)
+	xvld	$xr0, $a5, %pc_lo12(.LCPI3_1)
+	xvreplgr2vr.w	$xr1, $a0
 	addi.d	$a5, $s5, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr2, $a6
+	xvldi	$xr2, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB3_52:                               # %vector.body605
                                         # =>This Inner Loop Header: Depth=1
-	xvmul.w	$xr3, $xr0, $xr1
+	xvmul.w	$xr3, $xr1, $xr0
 	xvpermi.q	$xr4, $xr3, 1
 	vext2xv.d.w	$xr4, $xr4
 	xvffint.d.l	$xr4, $xr4
@@ -1300,7 +1299,7 @@ A__align:                               # @A__align
 	fcvt.s.d	$fa3, $fa3
 	xvinsve0.w	$xr6, $xr3, 7
 	xvst	$xr6, $a5, 0
-	xvaddi.wu	$xr1, $xr1, 8
+	xvaddi.wu	$xr0, $xr0, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB3_52
@@ -1417,18 +1416,17 @@ A__align:                               # @A__align
 	ori	$a5, $zero, 1
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
-	xvreplgr2vr.w	$xr0, $a0
 	pcalau12i	$a5, %pc_hi20(.LCPI3_1)
-	xvld	$xr1, $a5, %pc_lo12(.LCPI3_1)
+	xvld	$xr0, $a5, %pc_lo12(.LCPI3_1)
+	xvreplgr2vr.w	$xr1, $a0
 	ld.d	$a5, $sp, 344                   # 8-byte Folded Reload
 	addi.d	$a5, $a5, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr2, $a6
+	xvldi	$xr2, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB3_68:                               # %vector.body620
                                         # =>This Inner Loop Header: Depth=1
-	xvmul.w	$xr3, $xr0, $xr1
+	xvmul.w	$xr3, $xr1, $xr0
 	xvpermi.q	$xr4, $xr3, 1
 	vext2xv.d.w	$xr4, $xr4
 	xvffint.d.l	$xr4, $xr4
@@ -1486,7 +1484,7 @@ A__align:                               # @A__align
 	fcvt.s.d	$fa3, $fa3
 	xvinsve0.w	$xr6, $xr3, 7
 	xvst	$xr6, $a5, 0
-	xvaddi.wu	$xr1, $xr1, 8
+	xvaddi.wu	$xr0, $xr0, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB3_68
@@ -1900,20 +1898,19 @@ A__align:                               # @A__align
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
 	xvreplgr2vr.w	$xr0, $a0
-	xvreplgr2vr.d	$xr1, $t3
 	pcalau12i	$a5, %pc_hi20(.LCPI3_2)
-	xvld	$xr2, $a5, %pc_lo12(.LCPI3_2)
+	xvld	$xr1, $a5, %pc_lo12(.LCPI3_2)
 	pcalau12i	$a5, %pc_hi20(.LCPI3_3)
-	xvld	$xr3, $a5, %pc_lo12(.LCPI3_3)
+	xvld	$xr2, $a5, %pc_lo12(.LCPI3_3)
+	xvreplgr2vr.d	$xr3, $t3
 	addi.d	$a5, $s5, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr4, $a6
+	xvldi	$xr4, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB3_112:                              # %vector.body844
                                         # =>This Inner Loop Header: Depth=1
-	xvsub.d	$xr5, $xr1, $xr2
-	xvsub.d	$xr6, $xr1, $xr3
+	xvsub.d	$xr5, $xr3, $xr1
+	xvsub.d	$xr6, $xr3, $xr2
 	xvpickve2gr.d	$a7, $xr6, 0
 	xvinsgr2vr.w	$xr7, $a7, 0
 	xvpickve2gr.d	$a7, $xr6, 1
@@ -1988,8 +1985,8 @@ A__align:                               # @A__align
 	fcvt.s.d	$fa5, $fa5
 	xvinsve0.w	$xr8, $xr5, 7
 	xvst	$xr8, $a5, 0
-	xvaddi.du	$xr3, $xr3, 8
 	xvaddi.du	$xr2, $xr2, 8
+	xvaddi.du	$xr1, $xr1, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB3_112
@@ -2044,17 +2041,16 @@ A__align:                               # @A__align
 	move	$a0, $a3
 	bstrins.d	$a0, $a5, 1, 0
 	xvreplve0.d	$xr2, $xr0
-	xvreplve0.d	$xr3, $xr1
 	pcalau12i	$a5, %pc_hi20(.LCPI3_4)
-	vld	$vr4, $a5, %pc_lo12(.LCPI3_4)
+	vld	$vr3, $a5, %pc_lo12(.LCPI3_4)
+	xvreplve0.d	$xr4, $xr1
 	addi.d	$a5, $a1, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr5, $a6
+	xvldi	$xr5, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB3_119:                              # %vector.body863
                                         # =>This Inner Loop Header: Depth=1
-	vext2xv.du.wu	$xr6, $xr4
+	vext2xv.du.wu	$xr6, $xr3
 	vld	$vr7, $a5, 0
 	xvffint.d.lu	$xr6, $xr6
 	xvfmul.d	$xr6, $xr6, $xr5
@@ -2070,7 +2066,7 @@ A__align:                               # @A__align
 	vreplvei.w	$vr7, $vr7, 3
 	fcvt.d.s	$fa7, $fa7
 	xvinsve0.d	$xr9, $xr7, 3
-	xvfmadd.d	$xr6, $xr3, $xr6, $xr9
+	xvfmadd.d	$xr6, $xr4, $xr6, $xr9
 	xvpickve.d	$xr7, $xr6, 1
 	fcvt.s.d	$fa7, $fa7
 	xvpickve.d	$xr8, $xr6, 0
@@ -2083,7 +2079,7 @@ A__align:                               # @A__align
 	fcvt.s.d	$fa6, $fa6
 	vextrins.w	$vr8, $vr6, 48
 	vst	$vr8, $a5, 0
-	vaddi.wu	$vr4, $vr4, 4
+	vaddi.wu	$vr3, $vr3, 4
 	addi.d	$a6, $a6, -4
 	addi.d	$a5, $a5, 16
 	bnez	$a6, .LBB3_119
@@ -2314,10 +2310,8 @@ A__align:                               # @A__align
 	bstrpick.d	$a3, $s2, 30, 3
 	slli.d	$a3, $a3, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a4
-	lu52i.d	$a4, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a4
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
 	move	$a4, $a0
 	move	$a5, $a2
 	move	$a6, $a3
@@ -2443,10 +2437,8 @@ A__align:                               # @A__align
 	bstrpick.d	$a3, $s0, 30, 3
 	slli.d	$a3, $a3, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a4
-	lu52i.d	$a4, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a4
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
 	move	$a4, $a0
 	move	$a5, $a2
 	move	$a6, $a3
@@ -5078,17 +5070,16 @@ A__align_gapmap:                        # @A__align_gapmap
 	ori	$a5, $zero, 1
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
-	xvreplgr2vr.w	$xr0, $a0
 	pcalau12i	$a5, %pc_hi20(.LCPI6_1)
-	xvld	$xr1, $a5, %pc_lo12(.LCPI6_1)
+	xvld	$xr0, $a5, %pc_lo12(.LCPI6_1)
+	xvreplgr2vr.w	$xr1, $a0
 	addi.d	$a5, $s5, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr2, $a6
+	xvldi	$xr2, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB6_49:                               # %vector.body544
                                         # =>This Inner Loop Header: Depth=1
-	xvmul.w	$xr3, $xr0, $xr1
+	xvmul.w	$xr3, $xr1, $xr0
 	xvpermi.q	$xr4, $xr3, 1
 	vext2xv.d.w	$xr4, $xr4
 	xvffint.d.l	$xr4, $xr4
@@ -5146,7 +5137,7 @@ A__align_gapmap:                        # @A__align_gapmap
 	fcvt.s.d	$fa3, $fa3
 	xvinsve0.w	$xr6, $xr3, 7
 	xvst	$xr6, $a5, 0
-	xvaddi.wu	$xr1, $xr1, 8
+	xvaddi.wu	$xr0, $xr0, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB6_49
@@ -5262,18 +5253,17 @@ A__align_gapmap:                        # @A__align_gapmap
 	ori	$a5, $zero, 1
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
-	xvreplgr2vr.w	$xr0, $a0
 	pcalau12i	$a5, %pc_hi20(.LCPI6_1)
-	xvld	$xr1, $a5, %pc_lo12(.LCPI6_1)
+	xvld	$xr0, $a5, %pc_lo12(.LCPI6_1)
+	xvreplgr2vr.w	$xr1, $a0
 	ld.d	$a5, $sp, 280                   # 8-byte Folded Reload
 	addi.d	$a5, $a5, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr2, $a6
+	xvldi	$xr2, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB6_65:                               # %vector.body558
                                         # =>This Inner Loop Header: Depth=1
-	xvmul.w	$xr3, $xr0, $xr1
+	xvmul.w	$xr3, $xr1, $xr0
 	xvpermi.q	$xr4, $xr3, 1
 	vext2xv.d.w	$xr4, $xr4
 	xvffint.d.l	$xr4, $xr4
@@ -5331,7 +5321,7 @@ A__align_gapmap:                        # @A__align_gapmap
 	fcvt.s.d	$fa3, $fa3
 	xvinsve0.w	$xr6, $xr3, 7
 	xvst	$xr6, $a5, 0
-	xvaddi.wu	$xr1, $xr1, 8
+	xvaddi.wu	$xr0, $xr0, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB6_65
@@ -5642,21 +5632,20 @@ A__align_gapmap:                        # @A__align_gapmap
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
 	xvreplgr2vr.w	$xr0, $a0
-	ld.d	$a5, $sp, 216                   # 8-byte Folded Reload
-	xvreplgr2vr.d	$xr1, $a5
 	pcalau12i	$a5, %pc_hi20(.LCPI6_2)
-	xvld	$xr2, $a5, %pc_lo12(.LCPI6_2)
+	xvld	$xr1, $a5, %pc_lo12(.LCPI6_2)
 	pcalau12i	$a5, %pc_hi20(.LCPI6_3)
-	xvld	$xr3, $a5, %pc_lo12(.LCPI6_3)
+	xvld	$xr2, $a5, %pc_lo12(.LCPI6_3)
+	ld.d	$a5, $sp, 216                   # 8-byte Folded Reload
+	xvreplgr2vr.d	$xr3, $a5
 	addi.d	$a5, $s5, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr4, $a6
+	xvldi	$xr4, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB6_97:                               # %vector.body718
                                         # =>This Inner Loop Header: Depth=1
-	xvsub.d	$xr5, $xr1, $xr2
-	xvsub.d	$xr6, $xr1, $xr3
+	xvsub.d	$xr5, $xr3, $xr1
+	xvsub.d	$xr6, $xr3, $xr2
 	xvpickve2gr.d	$a7, $xr6, 0
 	xvinsgr2vr.w	$xr7, $a7, 0
 	xvpickve2gr.d	$a7, $xr6, 1
@@ -5731,8 +5720,8 @@ A__align_gapmap:                        # @A__align_gapmap
 	fcvt.s.d	$fa5, $fa5
 	xvinsve0.w	$xr8, $xr5, 7
 	xvst	$xr8, $a5, 0
-	xvaddi.du	$xr3, $xr3, 8
 	xvaddi.du	$xr2, $xr2, 8
+	xvaddi.du	$xr1, $xr1, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB6_97
@@ -5786,17 +5775,16 @@ A__align_gapmap:                        # @A__align_gapmap
 	move	$a0, $a3
 	bstrins.d	$a0, $a5, 1, 0
 	xvreplve0.d	$xr2, $xr0
-	xvreplve0.d	$xr3, $xr1
 	pcalau12i	$a5, %pc_hi20(.LCPI6_4)
-	vld	$vr4, $a5, %pc_lo12(.LCPI6_4)
+	vld	$vr3, $a5, %pc_lo12(.LCPI6_4)
+	xvreplve0.d	$xr4, $xr1
 	addi.d	$a5, $a1, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr5, $a6
+	xvldi	$xr5, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB6_104:                              # %vector.body737
                                         # =>This Inner Loop Header: Depth=1
-	vext2xv.du.wu	$xr6, $xr4
+	vext2xv.du.wu	$xr6, $xr3
 	vld	$vr7, $a5, 0
 	xvffint.d.lu	$xr6, $xr6
 	xvfmul.d	$xr6, $xr6, $xr5
@@ -5812,7 +5800,7 @@ A__align_gapmap:                        # @A__align_gapmap
 	vreplvei.w	$vr7, $vr7, 3
 	fcvt.d.s	$fa7, $fa7
 	xvinsve0.d	$xr9, $xr7, 3
-	xvfmadd.d	$xr6, $xr3, $xr6, $xr9
+	xvfmadd.d	$xr6, $xr4, $xr6, $xr9
 	xvpickve.d	$xr7, $xr6, 1
 	fcvt.s.d	$fa7, $fa7
 	xvpickve.d	$xr8, $xr6, 0
@@ -5825,7 +5813,7 @@ A__align_gapmap:                        # @A__align_gapmap
 	fcvt.s.d	$fa6, $fa6
 	vextrins.w	$vr8, $vr6, 48
 	vst	$vr8, $a5, 0
-	vaddi.wu	$vr4, $vr4, 4
+	vaddi.wu	$vr3, $vr3, 4
 	addi.d	$a6, $a6, -4
 	addi.d	$a5, $a5, 16
 	bnez	$a6, .LBB6_104
@@ -6054,10 +6042,8 @@ A__align_gapmap:                        # @A__align_gapmap
 .LBB6_138:                              # %vector.ph
 	bstrpick.d	$a3, $s1, 30, 3
 	slli.d	$a3, $a3, 3
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
-	lu52i.d	$a4, $zero, 1022
-	xvreplgr2vr.d	$xr1, $a4
+	xvldi	$xr0, -912
+	xvldi	$xr1, -928
 	move	$a4, $a0
 	move	$a5, $a2
 	move	$a6, $a3
@@ -6179,10 +6165,8 @@ A__align_gapmap:                        # @A__align_gapmap
 	ld.d	$a3, $sp, 216                   # 8-byte Folded Reload
 	bstrpick.d	$a3, $a3, 30, 3
 	slli.d	$a3, $a3, 3
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
-	lu52i.d	$a4, $zero, 1022
-	xvreplgr2vr.d	$xr1, $a4
+	xvldi	$xr0, -912
+	xvldi	$xr1, -928
 	move	$a4, $a0
 	move	$a5, $a2
 	move	$a6, $a3

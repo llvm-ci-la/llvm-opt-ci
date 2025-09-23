@@ -706,8 +706,7 @@ main:                                   # @main
 	lu12i.w	$a0, 2048
 	xvreplgr2vr.d	$xr0, $a0
 	xvst	$xr0, $sp, 96
-	lu12i.w	$a0, 4080
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1788
 	xvsrlri.b	$xr0, $xr0, 1
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96
@@ -932,8 +931,7 @@ main:                                   # @main
 	lu12i.w	$a0, 4096
 	xvreplgr2vr.d	$xr0, $a0
 	xvst	$xr0, $sp, 96
-	lu12i.w	$a0, -4096
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1544
 	xvsrlri.d	$xr0, $xr0, 40
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96

@@ -861,8 +861,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_9)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_9)
 	xvst	$xr0, $sp, 192
-	ori	$a0, $zero, 512
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3838
 	vext2xv.d.b	$xr0, $xr0
 	xvst	$xr0, $sp, 224
 	addi.d	$a0, $sp, 192

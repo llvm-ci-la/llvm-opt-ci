@@ -430,22 +430,19 @@ main:                                   # @main
 	addi.w	$t4, $zero, -8
 	ori	$a1, $a4, 1416
 	st.d	$a1, $sp, 56                    # 8-byte Folded Spill
-	vldi	$vr1, -904
+	vldi	$vr2, -904
 	ori	$t6, $zero, 1000
 	lu12i.w	$a1, -4
 	ori	$a2, $a1, 384
 	ori	$a3, $a3, 192
-	ori	$a1, $zero, 0
-	lu32i.d	$a1, -524288
-	lu52i.d	$a1, $a1, 1023
-	xvreplgr2vr.d	$xr2, $a1
+	xvldi	$xr0, -904
 	lu12i.w	$a1, 7
 	ori	$a4, $a1, 3328
 	lu12i.w	$a1, 209715
 	ori	$a1, $a1, 819
 	lu32i.d	$a1, 209715
 	lu52i.d	$a1, $a1, 1023
-	xvreplgr2vr.d	$xr0, $a1
+	xvreplgr2vr.d	$xr1, $a1
 	pcalau12i	$a5, %pc_hi20(.LCPI7_3)
 	b	.LBB7_24
 	.p2align	4, , 16
@@ -483,8 +480,8 @@ main:                                   # @main
                                         # =>  This Inner Loop Header: Depth=2
 	xvld	$xr3, $t1, -32
 	xvld	$xr4, $t1, 0
-	xvfmul.d	$xr3, $xr3, $xr0
-	xvfmul.d	$xr4, $xr4, $xr0
+	xvfmul.d	$xr3, $xr3, $xr1
+	xvfmul.d	$xr4, $xr4, $xr1
 	xvst	$xr3, $t1, -32
 	xvst	$xr4, $t1, 0
 	addi.d	$a6, $a6, -8
@@ -592,12 +589,12 @@ main:                                   # @main
 	fldx.d	$fa7, $t2, $a3
 	fld.d	$ft0, $t2, 0
 	fldx.d	$ft1, $t2, $a0
-	xvfmul.d	$xr5, $xr5, $xr2
+	xvfmul.d	$xr5, $xr5, $xr0
 	xvinsve0.d	$xr6, $xr7, 1
 	xvinsve0.d	$xr6, $xr8, 2
 	xvinsve0.d	$xr6, $xr9, 3
 	xvld	$xr7, $fp, 0
-	xvfmul.d	$xr6, $xr6, $xr2
+	xvfmul.d	$xr6, $xr6, $xr0
 	xvfmul.d	$xr6, $xr6, $xr4
 	xvfmadd.d	$xr5, $xr5, $xr3, $xr6
 	xvfadd.d	$xr5, $xr7, $xr5
@@ -626,10 +623,10 @@ main:                                   # @main
 	fld.d	$fa4, $fp, 0
 	fld.d	$fa5, $a1, 0
 	fld.d	$fa6, $t7, 0
-	fmul.d	$fa3, $fa3, $fa1
+	fmul.d	$fa3, $fa3, $fa2
 	fldx.d	$fa7, $t8, $t1
 	fmul.d	$fa3, $fa3, $fa5
-	fmul.d	$fa4, $fa4, $fa1
+	fmul.d	$fa4, $fa4, $fa2
 	fmadd.d	$fa3, $fa4, $fa6, $fa3
 	fadd.d	$fa3, $fa7, $fa3
 	fstx.d	$fa3, $t8, $t1
@@ -652,12 +649,8 @@ main:                                   # @main
 	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
 	ori	$t2, $zero, 1
 	addi.w	$t3, $zero, -8
-	vldi	$vr1, -904
+	vldi	$vr2, -904
 	ori	$t5, $zero, 1000
-	ori	$a1, $zero, 0
-	lu32i.d	$a1, -524288
-	lu52i.d	$a1, $a1, 1023
-	xvreplgr2vr.d	$xr2, $a1
 	b	.LBB7_42
 	.p2align	4, , 16
 .LBB7_41:                               #   in Loop: Header=BB7_42 Depth=1
@@ -694,8 +687,8 @@ main:                                   # @main
                                         # =>  This Inner Loop Header: Depth=2
 	xvld	$xr3, $t1, -32
 	xvld	$xr4, $t1, 0
-	xvfmul.d	$xr3, $xr3, $xr0
-	xvfmul.d	$xr4, $xr4, $xr0
+	xvfmul.d	$xr3, $xr3, $xr1
+	xvfmul.d	$xr4, $xr4, $xr1
 	xvst	$xr3, $t1, -32
 	xvst	$xr4, $t1, 0
 	addi.d	$a6, $a6, -8
@@ -799,7 +792,7 @@ main:                                   # @main
 	xvinsve0.d	$xr5, $xr6, 1
 	xvinsve0.d	$xr5, $xr7, 2
 	xvinsve0.d	$xr5, $xr8, 3
-	xvfmul.d	$xr5, $xr5, $xr2
+	xvfmul.d	$xr5, $xr5, $xr0
 	fldx.d	$fa6, $s2, $a2
 	fldx.d	$fa7, $s2, $a3
 	fld.d	$ft0, $s2, 0
@@ -809,7 +802,7 @@ main:                                   # @main
 	xvinsve0.d	$xr6, $xr8, 2
 	xvinsve0.d	$xr6, $xr9, 3
 	xvld	$xr7, $t7, 0
-	xvfmul.d	$xr6, $xr6, $xr2
+	xvfmul.d	$xr6, $xr6, $xr0
 	xvfmul.d	$xr6, $xr6, $xr4
 	xvfadd.d	$xr5, $xr5, $xr6
 	xvfadd.d	$xr5, $xr7, $xr5
@@ -836,12 +829,12 @@ main:                                   # @main
                                         # =>    This Inner Loop Header: Depth=3
 	fld.d	$fa3, $s2, 0
 	fld.d	$fa4, $t6, 0
-	fmul.d	$fa3, $fa3, $fa1
+	fmul.d	$fa3, $fa3, $fa2
 	fld.d	$fa5, $t7, 0
 	fld.d	$fa6, $a1, 0
 	fmul.d	$fa3, $fa3, $fa4
 	fldx.d	$fa4, $fp, $t1
-	fmul.d	$fa5, $fa5, $fa1
+	fmul.d	$fa5, $fa5, $fa2
 	fmul.d	$fa5, $fa5, $fa6
 	fadd.d	$fa3, $fa3, $fa5
 	fadd.d	$fa3, $fa4, $fa3
