@@ -241,10 +241,10 @@ _ZNK13btSphereShape21calculateLocalInertiaEfR9btVector3: # @_ZNK13btSphereShape2
 	move	$a0, $fp
 	jirl	$ra, $a1, 0
 	fmul.s	$fa0, $fs0, $fa0
-	fst.s	$fa0, $s0, 0
-	fst.s	$fa0, $s0, 4
-	fst.s	$fa0, $s0, 8
-	st.w	$zero, $s0, 12
+	vrepli.b	$vr1, 0
+	vextrins.w	$vr1, $vr0, 0
+	vshuf4i.w	$vr0, $vr1, 64
+	vst	$vr0, $s0, 0
 	fld.d	$fs0, $sp, 0                    # 8-byte Folded Reload
 	ld.d	$s0, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$fp, $sp, 16                    # 8-byte Folded Reload

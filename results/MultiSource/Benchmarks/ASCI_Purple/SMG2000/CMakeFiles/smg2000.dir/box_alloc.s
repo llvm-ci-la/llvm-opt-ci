@@ -47,7 +47,13 @@ hypre_BoxFinalizeMemory:                # @hypre_BoxFinalizeMemory
 .Lfunc_end1:
 	.size	hypre_BoxFinalizeMemory, .Lfunc_end1-hypre_BoxFinalizeMemory
                                         # -- End function
-	.globl	hypre_BoxAlloc                  # -- Begin function hypre_BoxAlloc
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function hypre_BoxAlloc
+.LCPI2_0:
+	.dword	0                               # 0x0
+	.dword	-1                              # 0xffffffffffffffff
+	.text
+	.globl	hypre_BoxAlloc
 	.p2align	5
 	.type	hypre_BoxAlloc,@function
 hypre_BoxAlloc:                         # @hypre_BoxAlloc
@@ -66,42 +72,56 @@ hypre_BoxAlloc:                         # @hypre_BoxAlloc
 	alsl.w	$a0, $a0, $a1, 3
 	pcaddu18i	$ra, %call36(hypre_MAlloc)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a3, %pc_hi20(s_finalize)
-	ld.d	$a2, $a3, %pc_lo12(s_finalize)
+	pcalau12i	$a2, %pc_hi20(s_finalize)
+	ld.d	$a3, $a2, %pc_lo12(s_finalize)
 	move	$a1, $a0
-	st.d	$a2, $a0, 0
+	st.d	$a3, $a0, 0
 	ld.w	$a5, $s0, %pc_lo12(s_at_a_time)
 	ld.d	$a0, $fp, %pc_lo12(s_free)
-	ori	$a2, $zero, 2
-	st.d	$a1, $a3, %pc_lo12(s_finalize)
-	blt	$a5, $a2, .LBB2_10
+	ori	$a3, $zero, 2
+	st.d	$a1, $a2, %pc_lo12(s_finalize)
+	blt	$a5, $a3, .LBB2_10
 # %bb.2:                                # %.lr.ph.preheader.i
-	bne	$a5, $a2, .LBB2_4
+	ori	$a2, $zero, 5
+	bgeu	$a5, $a2, .LBB2_4
 # %bb.3:
 	move	$a2, $a5
 	b	.LBB2_7
 .LBB2_4:                                # %vector.ph
 	addi.d	$a3, $a5, -1
 	move	$a4, $a3
-	bstrins.d	$a4, $zero, 0, 0
+	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
+	vld	$vr0, $a2, %pc_lo12(.LCPI2_0)
+	bstrins.d	$a4, $zero, 1, 0
 	sub.d	$a2, $a5, $a4
-	slli.d	$a6, $a5, 4
-	alsl.d	$a5, $a5, $a6, 3
-	add.d	$a5, $a5, $a1
-	addi.d	$a6, $a5, -48
+	vreplgr2vr.d	$vr1, $a5
+	vadd.d	$vr0, $vr1, $vr0
+	vinsgr2vr.d	$vr6, $a0, 1
+	vreplgr2vr.d	$vr1, $a1
+	vrepli.d	$vr2, -24
+	vrepli.d	$vr3, 24
+	vrepli.d	$vr4, -72
+	vrepli.d	$vr5, -4
 	move	$a5, $a4
 	.p2align	4, , 16
 .LBB2_5:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	addi.d	$a7, $a6, 24
-	st.d	$a0, $a6, 24
-	st.d	$a7, $a6, 0
-	addi.d	$a5, $a5, -2
-	move	$a0, $a6
-	addi.d	$a6, $a6, -48
+	vori.b	$vr7, $vr1, 0
+	vmadd.d	$vr7, $vr0, $vr3
+	vadd.d	$vr8, $vr7, $vr2
+	vpickve2gr.d	$a0, $vr8, 0
+	vstelm.d	$vr6, $a0, 0, 1
+	vadd.d	$vr6, $vr7, $vr4
+	vpickve2gr.d	$a0, $vr8, 1
+	vstelm.d	$vr8, $a0, 0, 0
+	vpickve2gr.d	$a0, $vr6, 0
+	vstelm.d	$vr8, $a0, 0, 1
+	vpickve2gr.d	$a0, $vr6, 1
+	vstelm.d	$vr6, $a0, 0, 0
+	addi.d	$a5, $a5, -4
+	vadd.d	$vr0, $vr0, $vr5
 	bnez	$a5, .LBB2_5
 # %bb.6:                                # %middle.block
-	addi.d	$a0, $a6, 48
 	beq	$a3, $a4, .LBB2_10
 .LBB2_7:                                # %.lr.ph.i.preheader
 	addi.d	$a3, $a2, 1

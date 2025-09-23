@@ -237,12 +237,10 @@ _ZN8NArchive4NTar8CHandler9ReadItem2EP19ISequentialInStreamRbRNS0_7CItemExE: # @
 	bnez	$a0, .LBB5_2
 # %bb.1:
 	ld.wu	$a1, $s0, 120
-	ld.d	$a2, $fp, 224
-	ld.d	$a3, $fp, 232
-	add.d	$a2, $a2, $a1
-	st.d	$a2, $fp, 224
-	add.d	$a1, $a3, $a1
-	st.d	$a1, $fp, 232
+	vld	$vr0, $fp, 224
+	vreplgr2vr.d	$vr1, $a1
+	vadd.d	$vr0, $vr0, $vr1
+	vst	$vr0, $fp, 224
 .LBB5_2:
 	ld.d	$s0, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$fp, $sp, 16                    # 8-byte Folded Reload
@@ -449,15 +447,13 @@ _ZN8NArchive4NTar8CHandler5Open2EP9IInStreamP20IArchiveOpenCallback: # @_ZN8NArc
 	.p2align	4, , 16
 .LBB6_12:                               #   in Loop: Header=BB6_6 Depth=1
 	ld.wu	$a0, $sp, 264
-	ld.d	$a1, $s1, 224
-	ld.d	$a2, $s1, 232
-	add.d	$a1, $a1, $a0
-	ld.bu	$a3, $sp, 104
-	st.d	$a1, $s1, 224
-	add.d	$a0, $a2, $a0
-	st.d	$a0, $s1, 232
+	vld	$vr0, $s2, 0
+	ld.bu	$a1, $sp, 104
+	vreplgr2vr.d	$vr1, $a0
+	vadd.d	$vr0, $vr0, $vr1
+	vst	$vr0, $s2, 0
 	ori	$s6, $zero, 2
-	beqz	$a3, .LBB6_50
+	beqz	$a1, .LBB6_50
 # %bb.13:                               #   in Loop: Header=BB6_6 Depth=1
 .Ltmp25:                                # EH_LABEL
 	ori	$a0, $zero, 128
@@ -2036,14 +2032,12 @@ _ZN8NArchive4NTar8CHandler6SkipToEj:    # @_ZN8NArchive4NTar8CHandler6SkipToEj
 	bnez	$a0, .LBB17_3
 # %bb.12:                               #   in Loop: Header=BB17_7 Depth=1
 	ld.wu	$a0, $fp, 216
-	ld.d	$a1, $fp, 224
-	ld.d	$a2, $fp, 232
-	ld.bu	$a3, $sp, 15
-	add.d	$a1, $a1, $a0
-	st.d	$a1, $fp, 224
-	add.d	$a0, $a2, $a0
-	st.d	$a0, $fp, 232
-	bnez	$a3, .LBB17_5
+	vld	$vr0, $fp, 224
+	ld.bu	$a1, $sp, 15
+	vreplgr2vr.d	$vr1, $a0
+	vadd.d	$vr0, $vr0, $vr1
+	vst	$vr0, $fp, 224
+	bnez	$a1, .LBB17_5
 # %bb.13:
 	ori	$a0, $zero, 1
 	st.b	$a0, $fp, 240

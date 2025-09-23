@@ -585,14 +585,14 @@ TW_oldinput:                            # @TW_oldinput
 .LBB1_41:                               #   in Loop: Header=BB1_3 Depth=1
 	move	$s6, $s4
 	vld	$vr0, $s4, 56
-	vpickve2gr.w	$a1, $vr0, 2
-	vpickve2gr.w	$a2, $vr0, 3
-	sub.d	$s4, $a2, $a1
+	vreplvei.w	$vr1, $vr0, 3
+	vsub.w	$vr1, $vr1, $vr0
+	vpickve2gr.w	$s4, $vr1, 2
 	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$s8, $a1, 0
-	vpickve2gr.w	$a1, $vr0, 0
-	vpickve2gr.w	$a2, $vr0, 1
-	sub.d	$s0, $a2, $a1
+	vreplvei.w	$vr1, $vr0, 1
+	vsub.w	$vr1, $vr1, $vr0
+	vpickve2gr.w	$s0, $vr1, 0
 	addi.d	$s3, $s8, 56
 	addi.d	$s2, $s8, 60
 	addi.d	$s1, $s8, 64

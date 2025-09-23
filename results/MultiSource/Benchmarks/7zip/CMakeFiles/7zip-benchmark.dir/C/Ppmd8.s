@@ -2843,52 +2843,52 @@ AllocUnitsRare:                         # @AllocUnitsRare
 	.type	GetUsedMemory,@function
 GetUsedMemory:                          # @GetUsedMemory
 # %bb.0:
-	vld	$vr0, $a0, 512
-	vld	$vr1, $a0, 544
-	vld	$vr2, $a0, 528
-	vld	$vr3, $a0, 560
-	vld	$vr4, $a0, 448
-	vld	$vr5, $a0, 496
-	vld	$vr6, $a0, 464
-	vld	$vr7, $a0, 144
-	vld	$vr8, $a0, 480
-	vld	$vr9, $a0, 128
-	vrepli.b	$vr10, 0
-	vilvl.b	$vr11, $vr10, $vr7
-	vilvl.h	$vr12, $vr10, $vr11
-	vilvh.b	$vr7, $vr10, $vr7
-	vilvl.h	$vr13, $vr10, $vr7
-	vilvh.h	$vr11, $vr10, $vr11
-	vilvh.h	$vr7, $vr10, $vr7
-	vilvl.b	$vr14, $vr10, $vr9
-	vilvl.h	$vr15, $vr10, $vr14
-	vilvh.b	$vr9, $vr10, $vr9
-	vilvh.h	$vr16, $vr10, $vr9
-	vilvh.h	$vr14, $vr10, $vr14
-	vilvl.h	$vr9, $vr10, $vr9
-	vmul.w	$vr8, $vr8, $vr9
-	vmul.w	$vr6, $vr6, $vr14
+	vld	$vr0, $a0, 128
+	vld	$vr1, $a0, 144
+	vld	$vr2, $a0, 512
+	vld	$vr3, $a0, 576
+	vld	$vr4, $a0, 544
+	vld	$vr5, $a0, 528
+	vld	$vr6, $a0, 560
+	vld	$vr7, $a0, 496
 	ld.w	$a1, $a0, 160
-	vmul.w	$vr5, $vr5, $vr16
-	vmul.w	$vr4, $vr4, $vr15
-	vld	$vr9, $a0, 576
-	vinsgr2vr.w	$vr14, $a1, 0
+	vld	$vr8, $a0, 464
+	vld	$vr9, $a0, 480
+	vld	$vr10, $a0, 448
+	vinsgr2vr.w	$vr11, $a1, 0
+	vrepli.b	$vr12, 0
+	vilvl.b	$vr13, $vr12, $vr1
+	vilvl.h	$vr14, $vr12, $vr13
+	vilvl.b	$vr11, $vr12, $vr11
+	vilvl.h	$vr11, $vr12, $vr11
+	vilvh.b	$vr1, $vr12, $vr1
+	vilvl.h	$vr15, $vr12, $vr1
+	vilvh.h	$vr13, $vr12, $vr13
+	vilvh.h	$vr1, $vr12, $vr1
+	vilvh.b	$vr16, $vr12, $vr0
+	vilvh.h	$vr17, $vr12, $vr16
+	vilvl.b	$vr0, $vr12, $vr0
+	vilvh.h	$vr18, $vr12, $vr0
+	vilvl.h	$vr16, $vr12, $vr16
+	vilvl.h	$vr0, $vr12, $vr0
+	vmul.w	$vr0, $vr10, $vr0
+	vmul.w	$vr9, $vr9, $vr16
 	ld.w	$a1, $a0, 592
 	ld.bu	$a2, $a0, 164
 	ld.w	$a3, $a0, 596
 	ld.bu	$a4, $a0, 165
-	vilvl.b	$vr14, $vr10, $vr14
-	vilvl.h	$vr10, $vr10, $vr14
+	vmul.w	$vr8, $vr8, $vr18
+	vmul.w	$vr7, $vr7, $vr17
 	mul.d	$a1, $a1, $a2
 	mul.d	$a2, $a3, $a4
-	vmadd.w	$vr4, $vr9, $vr10
-	vmadd.w	$vr5, $vr3, $vr7
-	vmadd.w	$vr6, $vr2, $vr11
-	vadd.w	$vr2, $vr6, $vr5
-	vmadd.w	$vr8, $vr1, $vr13
-	vmadd.w	$vr4, $vr0, $vr12
-	vadd.w	$vr0, $vr4, $vr8
-	vadd.w	$vr0, $vr0, $vr2
+	vmadd.w	$vr7, $vr6, $vr1
+	vmadd.w	$vr8, $vr5, $vr13
+	vadd.w	$vr1, $vr8, $vr7
+	vmadd.w	$vr9, $vr4, $vr15
+	vmadd.w	$vr0, $vr3, $vr11
+	vmadd.w	$vr0, $vr2, $vr14
+	vadd.w	$vr0, $vr0, $vr9
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a3, $vr0, 0

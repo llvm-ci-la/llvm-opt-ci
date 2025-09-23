@@ -113,33 +113,33 @@ L3psycho_anal:                          # @L3psycho_anal
 	st.d	$a1, $sp, 192                   # 8-byte Folded Spill
 	move	$s3, $a0
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.cw_lower_index)
-	st.d	$a0, $sp, 312                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 320                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
 	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.cw_upper_index)
-	st.d	$a0, $sp, 320                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 328                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.cw)
 	addi.d	$a0, $a0, %pc_lo12(L3psycho_anal.cw)
 	st.d	$a0, $sp, 424                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.w2_s)
 	addi.d	$a0, $a0, %pc_lo12(L3psycho_anal.w2_s)
-	st.d	$a0, $sp, 304                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 312                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.w1_s)
 	addi.d	$a0, $a0, %pc_lo12(L3psycho_anal.w1_s)
-	st.d	$a0, $sp, 296                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 304                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.bo_s)
 	addi.d	$s4, $a0, %pc_lo12(L3psycho_anal.bo_s)
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.bu_s)
 	addi.d	$s6, $a0, %pc_lo12(L3psycho_anal.bu_s)
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.w2_l)
 	addi.d	$a0, $a0, %pc_lo12(L3psycho_anal.w2_l)
-	st.d	$a0, $sp, 288                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 296                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.w1_l)
 	addi.d	$a0, $a0, %pc_lo12(L3psycho_anal.w1_l)
-	st.d	$a0, $sp, 280                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 288                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.bo_l)
 	addi.d	$a0, $a0, %pc_lo12(L3psycho_anal.bo_l)
-	st.d	$a0, $sp, 344                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 280                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.bu_l)
 	addi.d	$a0, $a0, %pc_lo12(L3psycho_anal.bu_l)
 	st.d	$a0, $sp, 272                   # 8-byte Folded Spill
@@ -150,9 +150,9 @@ L3psycho_anal:                          # @L3psycho_anal
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.npart_l)
 	st.d	$a0, $sp, 512                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.npart_s)
-	st.d	$a0, $sp, 336                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 344                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.s3ind_s)
-	addi.d	$s2, $a0, %pc_lo12(L3psycho_anal.s3ind_s)
+	addi.d	$s5, $a0, %pc_lo12(L3psycho_anal.s3ind_s)
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.s3ind)
 	addi.d	$a0, $a0, %pc_lo12(L3psycho_anal.s3ind)
 	st.d	$a0, $sp, 560                   # 8-byte Folded Spill
@@ -162,7 +162,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	ld.d	$a0, $s3, 168
 	bnez	$a0, .LBB0_69
 # %bb.2:
-	move	$s5, $s1
+	st.d	$s1, $sp, 528                   # 8-byte Folded Spill
 	pcalau12i	$a1, %pc_hi20(L3psycho_anal.blocktype_old)
 	ori	$a4, $zero, 3
 	ld.w	$s7, $s3, 16
@@ -171,14 +171,15 @@ L3psycho_anal:                          # @L3psycho_anal
 	ori	$a3, $a0, 3327
 	st.d	$a4, $a1, %pc_lo12(L3psycho_anal.blocktype_old)
 	st.d	$s8, $sp, 544                   # 8-byte Folded Spill
-	st.d	$a2, $sp, 528                   # 8-byte Folded Spill
+	st.d	$a2, $sp, 496                   # 8-byte Folded Spill
 	blt	$a3, $s7, .LBB0_6
 # %bb.3:
 	lu12i.w	$a0, 3
 	ori	$a0, $a0, 3712
 	ld.d	$s0, $sp, 424                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 288                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 280                   # 8-byte Folded Reload
 	beq	$s7, $a0, .LBB0_9
 # %bb.4:
 	lu12i.w	$a0, 5
@@ -191,8 +192,9 @@ L3psycho_anal:                          # @L3psycho_anal
 .LBB0_6:
 	ori	$a0, $a0, 3328
 	ld.d	$s0, $sp, 424                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 288                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 280                   # 8-byte Folded Reload
 	beq	$s7, $a0, .LBB0_9
 # %bb.7:
 	lu12i.w	$a0, 10
@@ -249,7 +251,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	fld.d	$fa1, $a0, %pc_lo12(.LCPI0_2)
 	fmul.d	$fa0, $fa0, $fa2
 	ori	$a0, $zero, 1
-	ld.d	$a1, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 320                   # 8-byte Folded Reload
 	st.b	$a0, $a1, %pc_lo12(L3psycho_anal.cw_lower_index)
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	bstrpick.d	$a0, $s7, 31, 0
@@ -268,7 +270,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	ori	$a2, $zero, 509
 	masknez	$a1, $a2, $a1
 	or	$a0, $a0, $a1
-	ld.d	$a1, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 328                   # 8-byte Folded Reload
 	st.w	$a0, $a1, %pc_lo12(L3psycho_anal.cw_upper_index)
 	lu12i.w	$a0, 257228
 	ori	$a0, $a0, 3277
@@ -470,15 +472,14 @@ L3psycho_anal:                          # @L3psycho_anal
 	movgr2fr.w	$fa0, $a0
 	ffint.d.w	$fa0, $fa0
 	st.d	$s1, $sp, 64
-	ld.d	$a0, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 304                   # 8-byte Folded Reload
 	st.d	$a0, $sp, 56
 	st.d	$s4, $sp, 48
 	st.d	$s6, $sp, 40
-	st.d	$s3, $sp, 32
-	ld.d	$a0, $sp, 280                   # 8-byte Folded Reload
+	st.d	$s2, $sp, 32
+	ld.d	$a0, $sp, 288                   # 8-byte Folded Reload
 	st.d	$a0, $sp, 24
-	ld.d	$a0, $sp, 344                   # 8-byte Folded Reload
-	st.d	$a0, $sp, 16
+	st.d	$s3, $sp, 16
 	ld.d	$a0, $sp, 272                   # 8-byte Folded Reload
 	st.d	$a0, $sp, 8
 	addi.d	$a0, $sp, 576
@@ -535,7 +536,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	addi.d	$a2, $s7, -16
 	addi.d	$a3, $zero, -2
 	addi.w	$a4, $zero, -1
-	ld.d	$t3, $sp, 512                   # 8-byte Folded Reload
+	ld.d	$t2, $sp, 512                   # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB0_12:                               # =>This Inner Loop Header: Depth=1
 	ld.w	$a0, $fp, 0
@@ -545,40 +546,39 @@ L3psycho_anal:                          # @L3psycho_anal
 	addi.d	$fp, $fp, 4
 	bgez	$a0, .LBB0_12
 # %bb.13:
-	ld.d	$t2, $sp, 344                   # 8-byte Folded Reload
-	ld.w	$t0, $t2, 80
+	ld.w	$t0, $s3, 80
 	addi.w	$a5, $a3, 1
 	ld.w	$a7, $s4, 44
 	ld.d	$a0, $sp, 256                   # 8-byte Folded Reload
 	st.w	$a5, $a0, %pc_lo12(L3psycho_anal.npart_s_orig)
 	addi.w	$a1, $t0, 1
-	st.w	$a1, $t3, %pc_lo12(L3psycho_anal.npart_l)
+	st.w	$a1, $t2, %pc_lo12(L3psycho_anal.npart_l)
 	addi.w	$a0, $a7, 1
-	ld.d	$t4, $sp, 336                   # 8-byte Folded Reload
-	st.w	$a0, $t4, %pc_lo12(L3psycho_anal.npart_s)
+	ld.d	$t3, $sp, 344                   # 8-byte Folded Reload
+	st.w	$a0, $t3, %pc_lo12(L3psycho_anal.npart_s)
 	blt	$t1, $t0, .LBB0_16
 # %bb.14:
-	ld.d	$s3, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 344                   # 8-byte Folded Reload
 	bge	$a7, $a5, .LBB0_17
 .LBB0_15:
-	move	$s1, $s5
+	ld.d	$s1, $sp, 528                   # 8-byte Folded Reload
 	bgtz	$a1, .LBB0_18
 	b	.LBB0_28
 .LBB0_16:
-	st.w	$a6, $t3, %pc_lo12(L3psycho_anal.npart_l)
-	st.w	$t1, $t2, 80
+	st.w	$a6, $t2, %pc_lo12(L3psycho_anal.npart_l)
+	st.w	$t1, $s3, 80
 	lu52i.d	$a1, $zero, 1023
-	st.d	$a1, $s3, 160
+	st.d	$a1, $s2, 160
 	move	$a1, $a6
-	ld.d	$s3, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 344                   # 8-byte Folded Reload
 	blt	$a7, $a5, .LBB0_15
 .LBB0_17:
-	st.w	$a5, $s3, %pc_lo12(L3psycho_anal.npart_s)
+	st.w	$a5, $s2, %pc_lo12(L3psycho_anal.npart_s)
 	st.w	$a3, $s4, 44
 	lu52i.d	$a0, $zero, 1023
 	st.d	$a0, $s1, 88
 	move	$a0, $a5
-	move	$s1, $s5
+	ld.d	$s1, $sp, 528                   # 8-byte Folded Reload
 	blez	$a1, .LBB0_28
 .LBB0_18:                               # %.preheader969.lr.ph
 	bstrpick.d	$a7, $a6, 31, 0
@@ -686,9 +686,9 @@ L3psycho_anal:                          # @L3psycho_anal
 	move	$t1, $a5
 .LBB0_36:                               # %._crit_edge991
                                         #   in Loop: Header=BB0_31 Depth=1
-	alsl.d	$t2, $a7, $s2, 3
+	alsl.d	$t2, $a7, $s5, 3
 	slli.d	$t3, $a7, 3
-	stx.w	$t1, $s2, $t3
+	stx.w	$t1, $s5, $t3
 	move	$t1, $a2
 	move	$t5, $a3
 	move	$t3, $a4
@@ -812,7 +812,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	fmul.d	$fa0, $fa0, $fs0
 	pcaddu18i	$ra, %call36(exp)
 	jirl	$ra, $ra, 0
-	ld.w	$a0, $s3, %pc_lo12(L3psycho_anal.npart_s)
+	ld.w	$a0, $s2, %pc_lo12(L3psycho_anal.npart_s)
 	fst.d	$fa0, $s0, 0
 	addi.d	$fp, $fp, 1
 	addi.d	$s0, $s0, 8
@@ -836,9 +836,9 @@ L3psycho_anal:                          # @L3psycho_anal
                                         #     Child Loop BB0_60 Depth 2
                                         #     Child Loop BB0_63 Depth 2
                                         #     Child Loop BB0_66 Depth 2
-	alsl.d	$a5, $a1, $s2, 3
+	alsl.d	$a5, $a1, $s5, 3
 	slli.d	$a7, $a1, 3
-	ldx.w	$a4, $s2, $a7
+	ldx.w	$a4, $s5, $a7
 	ld.w	$a5, $a5, 4
 	blt	$a5, $a4, .LBB0_57
 # %bb.59:                               # %.lr.ph1016
@@ -910,7 +910,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	pcaddu18i	$ra, %call36(init_fft)
 	jirl	$ra, $ra, 0
 	ld.d	$s3, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$a2, $sp, 528                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 496                   # 8-byte Folded Reload
 .LBB0_69:
 	ld.w	$a1, $s3, 36
 	ld.w	$a0, $s3, 204
@@ -921,8 +921,8 @@ L3psycho_anal:                          # @L3psycho_anal
 	maskeqz	$a3, $a3, $a4
 	or	$a3, $a3, $a0
 	pcalau12i	$a0, %pc_hi20(L3psycho_anal.thm)
-	addi.d	$s5, $a0, %pc_lo12(L3psycho_anal.thm)
-	st.d	$a3, $sp, 328                   # 8-byte Folded Spill
+	addi.d	$s2, $a0, %pc_lo12(L3psycho_anal.thm)
+	st.d	$a3, $sp, 336                   # 8-byte Folded Spill
 	blez	$a3, .LBB0_202
 # %bb.70:                               # %.lr.ph1133
 	ld.d	$a0, $sp, 1256
@@ -976,7 +976,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	lu12i.w	$a0, 258896
 	ori	$a0, $a0, 1267
 	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 392                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 392                   # 8-byte Folded Spill
 	st.d	$s1, $sp, 368                   # 8-byte Folded Spill
 	st.d	$t6, $sp, 248                   # 8-byte Folded Spill
 	st.d	$t8, $sp, 240                   # 8-byte Folded Spill
@@ -999,8 +999,8 @@ L3psycho_anal:                          # @L3psycho_anal
 	ld.d	$a0, $sp, 432                   # 8-byte Folded Reload
 	add.d	$a0, $a0, $a3
 	st.d	$a0, $sp, 432                   # 8-byte Folded Spill
-	ld.d	$s5, $sp, 392                   # 8-byte Folded Reload
-	ld.d	$a0, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 392                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 336                   # 8-byte Folded Reload
 	ld.d	$a3, $sp, 384                   # 8-byte Folded Reload
 	beq	$a1, $a0, .LBB0_196
 .LBB0_72:                               # =>This Loop Header: Depth=1
@@ -1057,7 +1057,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	ld.d	$fp, $sp, 192                   # 8-byte Folded Reload
 	move	$s0, $a2
 	move	$a2, $fp
-	move	$s5, $a4
+	move	$s2, $a4
 	pcaddu18i	$ra, %call36(fft_long)
 	jirl	$ra, $ra, 0
 	move	$a0, $s3
@@ -1065,10 +1065,10 @@ L3psycho_anal:                          # @L3psycho_anal
 	move	$a2, $fp
 	pcaddu18i	$ra, %call36(fft_short)
 	jirl	$ra, $ra, 0
-	fldx.d	$fa0, $s0, $s5
+	fldx.d	$fa0, $s0, $s2
 	ld.d	$s0, $sp, 376                   # 8-byte Folded Reload
 	ld.d	$a0, $sp, 176                   # 8-byte Folded Reload
-	fstx.d	$fa0, $a0, $s5
+	fstx.d	$fa0, $a0, $s2
 	ld.d	$a0, $sp, 408                   # 8-byte Folded Reload
 	ori	$a1, $zero, 976
 	mul.d	$a0, $a0, $a1
@@ -1107,7 +1107,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	ori	$a2, $zero, 488
 	pcaddu18i	$ra, %call36(memcpy)
 	jirl	$ra, $ra, 0
-	add.d	$a1, $s5, $s1
+	add.d	$a1, $s2, $s1
 	ori	$a2, $zero, 488
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(memcpy)
@@ -1120,14 +1120,14 @@ L3psycho_anal:                          # @L3psycho_anal
 	ori	$a6, $zero, 4080
 	ld.d	$t0, $sp, 368                   # 8-byte Folded Reload
 	bne	$t1, $a0, .LBB0_83
-# %bb.75:                               # %vector.body1574.preheader
+# %bb.75:                               # %vector.body1583.preheader
                                         #   in Loop: Header=BB0_72 Depth=1
 	lu12i.w	$a5, 1
 	move	$a0, $a5
 	ld.d	$a2, $sp, 120                   # 8-byte Folded Reload
 	ori	$a7, $zero, 3056
 	.p2align	4, , 16
-.LBB0_76:                               # %vector.body1574
+.LBB0_76:                               # %vector.body1583
                                         #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$a1, $t0, $a0
@@ -1142,11 +1142,11 @@ L3psycho_anal:                          # @L3psycho_anal
 	addi.d	$a0, $a0, -16
 	vstx	$vr1, $a1, $a6
 	bnez	$a0, .LBB0_76
-# %bb.77:                               # %vector.body1561.preheader
+# %bb.77:                               # %vector.body1570.preheader
                                         #   in Loop: Header=BB0_72 Depth=1
 	move	$a1, $zero
 	.p2align	4, , 16
-.LBB0_78:                               # %vector.body1561
+.LBB0_78:                               # %vector.body1570
                                         #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$a2, $a4, $a1
@@ -1162,11 +1162,11 @@ L3psycho_anal:                          # @L3psycho_anal
 	addi.w	$a0, $zero, -1024
 	vstx	$vr1, $a2, $a3
 	bne	$a1, $a0, .LBB0_78
-# %bb.79:                               # %vector.body1548.preheader
+# %bb.79:                               # %vector.body1557.preheader
                                         #   in Loop: Header=BB0_72 Depth=1
 	move	$a1, $zero
 	.p2align	4, , 16
-.LBB0_80:                               # %vector.body1548
+.LBB0_80:                               # %vector.body1557
                                         #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$a2, $a4, $a1
@@ -1181,11 +1181,11 @@ L3psycho_anal:                          # @L3psycho_anal
 	addi.d	$a1, $a1, -16
 	vstx	$vr1, $a2, $a3
 	bne	$a1, $a0, .LBB0_80
-# %bb.81:                               # %vector.body1535.preheader
+# %bb.81:                               # %vector.body1544.preheader
                                         #   in Loop: Header=BB0_72 Depth=1
 	move	$a1, $zero
 	.p2align	4, , 16
-.LBB0_82:                               # %vector.body1535
+.LBB0_82:                               # %vector.body1544
                                         #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$a2, $a4, $a1
@@ -1208,15 +1208,15 @@ L3psycho_anal:                          # @L3psycho_anal
 	slli.d	$a0, $a0, 12
 	add.d	$s8, $t0, $a0
 	add.d	$a4, $a4, $t4
-	addi.d	$a0, $a4, 4
-	addi.d	$a1, $a4, 1008
-	addi.d	$a2, $a4, 1028
-	addi.d	$a3, $a4, 2032
+	addi.d	$a0, $a4, 1008
+	addi.d	$a1, $a4, 20
+	addi.d	$a2, $a4, 2032
+	addi.d	$a3, $a4, 1028
 	ld.d	$a5, $sp, 480                   # 8-byte Folded Reload
 	fld.s	$fs0, $a5, 0
 	addi.d	$a5, $a4, 2047
-	addi.d	$a4, $a5, 5
-	addi.d	$a5, $a5, 1009
+	addi.d	$a4, $a5, 1009
+	addi.d	$a5, $a5, 5
 	fmul.s	$fa0, $fs0, $fs0
 	pcalau12i	$a6, %pc_hi20(L3psycho_anal.energy)
 	addi.d	$t3, $a6, %pc_lo12(L3psycho_anal.energy)
@@ -1254,42 +1254,58 @@ L3psycho_anal:                          # @L3psycho_anal
 	ori	$t2, $zero, 512
 	ori	$ra, $zero, 3
 	.p2align	4, , 16
-.LBB0_86:                               # %vector.body1525
+.LBB0_86:                               # %vector.body1531
                                         #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr0, $a5, 0
-	vldx	$vr1, $a4, $a6
+	add.d	$a7, $a5, $a6
+	vld	$vr0, $a4, 0
+	vldx	$vr1, $a5, $a6
+	vld	$vr2, $a4, -16
+	vld	$vr3, $a7, 16
 	vfmul.s	$vr0, $vr0, $vr0
 	vshuf4i.w	$vr0, $vr0, 27
+	vfmul.s	$vr2, $vr2, $vr2
+	vshuf4i.w	$vr2, $vr2, 27
 	vfmadd.s	$vr0, $vr1, $vr1, $vr0
+	vfmadd.s	$vr1, $vr3, $vr3, $vr2
 	vfmul.s	$vr0, $vr0, $vr7
+	vfmul.s	$vr1, $vr1, $vr7
 	add.d	$a7, $fp, $a6
 	vst	$vr0, $a7, 1036
-	addi.d	$a6, $a6, 16
-	addi.d	$a5, $a5, -16
+	vst	$vr1, $a7, 1052
+	addi.d	$a6, $a6, 32
+	addi.d	$a4, $a4, -32
 	bne	$a6, $t2, .LBB0_86
-# %bb.87:                               # %middle.block1532
+# %bb.87:                               # %middle.block1541
                                         #   in Loop: Header=BB0_72 Depth=1
 	fld.s	$fa0, $t5, 1024
 	move	$a4, $zero
 	fmul.s	$fa0, $fa0, $fa0
 	fst.s	$fa0, $fp, 516
 	.p2align	4, , 16
-.LBB0_88:                               # %vector.body1515
+.LBB0_88:                               # %vector.body1518
                                         #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr0, $a3, 0
-	vldx	$vr1, $a2, $a4
+	add.d	$a5, $a3, $a4
+	vld	$vr0, $a2, 0
+	vldx	$vr1, $a3, $a4
+	vld	$vr2, $a2, -16
+	vld	$vr3, $a5, 16
 	vfmul.s	$vr0, $vr0, $vr0
 	vshuf4i.w	$vr0, $vr0, 27
+	vfmul.s	$vr2, $vr2, $vr2
+	vshuf4i.w	$vr2, $vr2, 27
 	vfmadd.s	$vr0, $vr1, $vr1, $vr0
+	vfmadd.s	$vr1, $vr3, $vr3, $vr2
 	vfmul.s	$vr0, $vr0, $vr7
+	vfmul.s	$vr1, $vr1, $vr7
 	add.d	$a5, $fp, $a4
 	vst	$vr0, $a5, 520
-	addi.d	$a4, $a4, 16
-	addi.d	$a3, $a3, -16
+	vst	$vr1, $a5, 536
+	addi.d	$a4, $a4, 32
+	addi.d	$a2, $a2, -32
 	bne	$a4, $t2, .LBB0_88
-# %bb.89:                               # %middle.block1522
+# %bb.89:                               # %middle.block1528
                                         #   in Loop: Header=BB0_72 Depth=1
 	fld.s	$fa0, $t5, 0
 	move	$a2, $zero
@@ -1299,20 +1315,28 @@ L3psycho_anal:                          # @L3psycho_anal
 .LBB0_90:                               # %vector.body1506
                                         #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr0, $a1, 0
-	vldx	$vr1, $a0, $a2
+	add.d	$a3, $a1, $a2
+	vld	$vr0, $a0, 0
+	vld	$vr1, $a3, -16
+	vld	$vr2, $a0, -16
+	vldx	$vr3, $a1, $a2
 	vfmul.s	$vr0, $vr0, $vr0
 	vshuf4i.w	$vr0, $vr0, 27
+	vfmul.s	$vr2, $vr2, $vr2
+	vshuf4i.w	$vr2, $vr2, 27
 	vfmadd.s	$vr0, $vr1, $vr1, $vr0
+	vfmadd.s	$vr1, $vr3, $vr3, $vr2
 	vfmul.s	$vr0, $vr0, $vr7
+	vfmul.s	$vr1, $vr1, $vr7
 	add.d	$a3, $fp, $a2
 	vst	$vr0, $a3, 4
-	addi.d	$a2, $a2, 16
-	addi.d	$a1, $a1, -16
+	vst	$vr1, $a3, 20
+	addi.d	$a2, $a2, 32
+	addi.d	$a0, $a0, -32
 	bne	$a2, $t2, .LBB0_90
 # %bb.91:                               # %.preheader957
                                         #   in Loop: Header=BB0_72 Depth=1
-	ld.d	$a3, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 320                   # 8-byte Folded Reload
 	ld.bu	$a0, $a3, %pc_lo12(L3psycho_anal.cw_lower_index)
 	ld.d	$a5, $sp, 400                   # 8-byte Folded Reload
 	beqz	$a0, .LBB0_109
@@ -1350,25 +1374,25 @@ L3psycho_anal:                          # @L3psycho_anal
 	fst.s	$fa0, $s0, 0
 	bcnez	$fcc0, .LBB0_195
 .LBB0_94:                               #   in Loop: Header=BB0_72 Depth=1
-	fmul.s	$fa3, $fs2, $fs6
-	fneg.s	$fa1, $fs6
-	fmul.s	$fa1, $fs6, $fa1
-	fmadd.s	$fa1, $fs2, $fs2, $fa1
-	fmul.s	$fa2, $fa1, $fa6
-	fmul.s	$fa1, $fs3, $fs3
+	fmul.s	$fa1, $fs2, $fs6
+	fneg.s	$fa2, $fs6
+	fmul.s	$fa2, $fs6, $fa2
+	fmadd.s	$fa2, $fs2, $fs2, $fa2
+	fmul.s	$fa3, $fa2, $fa6
+	fmul.s	$fa2, $fs3, $fs3
 	fcmp.ceq.s	$fcc0, $fs1, $fa4
 	bcnez	$fcc0, .LBB0_96
 .LBB0_95:                               #   in Loop: Header=BB0_72 Depth=1
-	fadd.s	$fa4, $fa2, $fa3
+	fadd.s	$fa4, $fa3, $fa1
 	fadd.s	$fa5, $fs5, $fs4
 	fmul.s	$fa4, $fa5, $fa4
 	fmul.s	$fa4, $fa4, $fa6
 	fneg.s	$fa5, $fs5
-	fmadd.s	$fa5, $fa5, $fa3, $fa4
-	fneg.s	$fa3, $fs4
-	fmadd.s	$fa3, $fa3, $fa2, $fa4
-	fmul.s	$fa1, $fs1, $fa1
-	fmov.s	$fa2, $fa5
+	fmadd.s	$fa5, $fa5, $fa1, $fa4
+	fneg.s	$fa1, $fs4
+	fmadd.s	$fa1, $fa1, $fa3, $fa4
+	fmul.s	$fa2, $fs1, $fa2
+	fmov.s	$fa3, $fa5
 .LBB0_96:                               #   in Loop: Header=BB0_72 Depth=1
 	vldi	$vr4, -1280
 	fmsub.s	$fa4, $fs3, $fa4, $fs1
@@ -1380,14 +1404,14 @@ L3psycho_anal:                          # @L3psycho_anal
 # %bb.97:                               #   in Loop: Header=BB0_72 Depth=1
 	fadd.s	$fa5, $fs0, $fs0
 	fneg.s	$fa4, $fa4
-	fdiv.s	$fa1, $fa4, $fa1
-	fmul.s	$fa3, $fa1, $fa3
-	fmadd.s	$fa3, $fa5, $fa6, $fa3
-	fsub.s	$fa4, $fs0, $fs0
+	fdiv.s	$fa2, $fa4, $fa2
 	fmul.s	$fa1, $fa2, $fa1
-	fmadd.s	$fa1, $fa4, $fa6, $fa1
-	fmul.s	$fa1, $fa1, $fa1
-	fmadd.s	$fa1, $fa3, $fa3, $fa1
+	fmadd.s	$fa1, $fa5, $fa6, $fa1
+	fsub.s	$fa4, $fs0, $fs0
+	fmul.s	$fa2, $fa3, $fa2
+	fmadd.s	$fa2, $fa4, $fa6, $fa2
+	fmul.s	$fa2, $fa2, $fa2
+	fmadd.s	$fa1, $fa1, $fa1, $fa2
 	fcvt.d.s	$fa1, $fa1
 	fsqrt.d	$fa1, $fa1
 	fcvt.d.s	$fa0, $fa0
@@ -1411,10 +1435,10 @@ L3psycho_anal:                          # @L3psycho_anal
 	fst.s	$fa0, $a1, 4
 	addi.d	$s1, $s1, 1
 	ori	$a1, $zero, 6
-	maskeqz	$s5, $a1, $a0
+	maskeqz	$s2, $a1, $a0
 	addi.d	$s3, $s3, -4
 	addi.d	$s0, $s0, 4
-	bgeu	$s1, $s5, .LBB0_110
+	bgeu	$s1, $s2, .LBB0_110
 .LBB0_101:                              # %.peel.next
                                         #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
@@ -1427,11 +1451,11 @@ L3psycho_anal:                          # @L3psycho_anal
 	fldx.s	$fs2, $a0, $a6
 	fldx.s	$fs1, $a1, $a6
 	ld.d	$a4, $sp, 432                   # 8-byte Folded Reload
-	add.d	$s5, $a4, $s0
+	add.d	$s2, $a4, $s0
 	fldx.s	$fs3, $a4, $s0
 	fstx.s	$fs2, $a5, $s0
 	fstx.s	$fs1, $a2, $s0
-	fldx.s	$fs5, $s5, $a6
+	fldx.s	$fs5, $s2, $a6
 	add.d	$a2, $s8, $s0
 	fld.s	$fs0, $a2, 4
 	add.d	$a2, $t3, $s0
@@ -1447,7 +1471,7 @@ L3psycho_anal:                          # @L3psycho_anal
 # %bb.102:                              # %.peel.next.split
                                         #   in Loop: Header=BB0_101 Depth=2
 	fcmp.ceq.s	$fcc0, $fs5, $ft0
-	fstx.s	$fa0, $s5, $a0
+	fstx.s	$fa0, $s2, $a0
 	bcnez	$fcc0, .LBB0_108
 .LBB0_103:                              #   in Loop: Header=BB0_101 Depth=2
 	fmul.s	$fa1, $fs2, $fs1
@@ -1494,7 +1518,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	fdiv.d	$fa0, $fa1, $fa0
 	fcvt.s.d	$fa0, $fa0
 	b	.LBB0_100
-.LBB0_107:                              # %call.sqrt1991
+.LBB0_107:                              # %call.sqrt2009
                                         #   in Loop: Header=BB0_101 Depth=2
 	fmov.s	$fa0, $fa1
 	st.d	$t3, $sp, 496                   # 8-byte Folded Spill
@@ -1511,9 +1535,9 @@ L3psycho_anal:                          # @L3psycho_anal
 	ld.d	$t1, $sp, 408                   # 8-byte Folded Reload
 	ld.d	$a5, $sp, 400                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 512                   # 8-byte Folded Reload
-	ld.d	$a3, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 320                   # 8-byte Folded Reload
 	fcmp.ceq.s	$fcc0, $fs5, $ft0
-	fstx.s	$fa0, $s5, $a0
+	fstx.s	$fa0, $s2, $a0
 	bceqz	$fcc0, .LBB0_103
 	.p2align	4, , 16
 .LBB0_108:                              #   in Loop: Header=BB0_101 Depth=2
@@ -1525,52 +1549,50 @@ L3psycho_anal:                          # @L3psycho_anal
 	b	.LBB0_105
 	.p2align	4, , 16
 .LBB0_109:                              #   in Loop: Header=BB0_72 Depth=1
-	move	$s5, $zero
+	move	$s2, $zero
 .LBB0_110:                              # %.preheader956
                                         #   in Loop: Header=BB0_72 Depth=1
-	ld.d	$a3, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 328                   # 8-byte Folded Reload
 	ld.w	$a2, $a3, %pc_lo12(L3psycho_anal.cw_upper_index)
-	bge	$s5, $a2, .LBB0_125
+	bge	$s2, $a2, .LBB0_125
 # %bb.111:                              # %.lr.ph1039
                                         #   in Loop: Header=BB0_72 Depth=1
 	ld.d	$a0, $sp, 424                   # 8-byte Folded Reload
-	alsl.d	$a0, $s5, $a0, 2
-	addi.d	$s8, $a0, 8
-	addi.d	$a0, $s5, 2
+	alsl.d	$s8, $s2, $a0, 2
+	addi.d	$a0, $s2, 2
 	andi	$a0, $a0, 12
 	sub.d	$a1, $t4, $a0
 	ld.d	$a2, $sp, 384                   # 8-byte Folded Reload
-	addi.d	$a2, $a2, 2047
-	addi.d	$a2, $a2, 1
-	add.d	$s0, $a2, $a1
+	add.d	$a1, $a2, $a1
+	addi.d	$a1, $a1, 2047
+	addi.d	$s0, $a1, 1
+	add.d	$a1, $t4, $a0
+	add.d	$a1, $a2, $a1
+	addi.d	$s1, $a1, 1024
 	pcalau12i	$a1, %pc_hi20(L3psycho_anal.energy_s)
 	addi.d	$a1, $a1, %pc_lo12(L3psycho_anal.energy_s)
-	add.d	$a1, $a1, $a0
-	addi.d	$s1, $a1, 516
-	add.d	$a0, $t4, $a0
-	add.d	$s3, $a2, $a0
+	add.d	$a0, $a1, $a0
+	addi.d	$s3, $a0, 516
 	b	.LBB0_113
 	.p2align	4, , 16
 .LBB0_112:                              #   in Loop: Header=BB0_113 Depth=2
-	fst.s	$fa0, $s8, -8
-	fst.s	$fa0, $s8, 4
-	fst.s	$fa0, $s8, 0
-	fst.s	$fa0, $s8, -4
-	addi.d	$s5, $s5, 4
+	vreplvei.w	$vr0, $vr0, 0
+	vst	$vr0, $s8, 0
+	addi.d	$s2, $s2, 4
 	ld.w	$a2, $a3, %pc_lo12(L3psycho_anal.cw_upper_index)
 	addi.d	$s8, $s8, 16
 	addi.d	$s0, $s0, -4
 	addi.d	$s1, $s1, 4
 	addi.d	$s3, $s3, 4
-	bge	$s5, $a2, .LBB0_125
+	bge	$s2, $a2, .LBB0_125
 .LBB0_113:                              #   Parent Loop BB0_72 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	fld.s	$fa5, $s1, -516
+	fld.s	$fa5, $s3, -516
 	movgr2fr.w	$fs4, $zero
 	fcmp.ceq.s	$fcc0, $fa5, $fs4
 	bcnez	$fcc0, .LBB0_116
 # %bb.114:                              #   in Loop: Header=BB0_113 Depth=2
-	fld.s	$fa0, $s3, -2048
+	fld.s	$fa0, $s1, -1024
 	fld.s	$fa1, $s0, -1024
 	fmul.s	$ft0, $fa0, $fa1
 	fneg.s	$fa2, $fa1
@@ -1580,7 +1602,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	fcmp.cor.s	$fcc0, $fs0, $fs0
 	fmul.s	$fs3, $fa0, $fa6
 	bcnez	$fcc0, .LBB0_117
-# %bb.115:                              # %call.sqrt1992
+# %bb.115:                              # %call.sqrt2010
                                         #   in Loop: Header=BB0_113 Depth=2
 	fmov.s	$fa0, $fa5
 	st.d	$t3, $sp, 496                   # 8-byte Folded Spill
@@ -1595,7 +1617,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	vldi	$vr6, -1184
 	ld.d	$t1, $sp, 408                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 512                   # 8-byte Folded Reload
-	ld.d	$a3, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 328                   # 8-byte Folded Reload
 	fmov.s	$fs0, $fa0
 	b	.LBB0_117
 	.p2align	4, , 16
@@ -1605,16 +1627,16 @@ L3psycho_anal:                          # @L3psycho_anal
 	fmov.s	$fs3, $fs4
 	vldi	$vr5, -1168
 .LBB0_117:                              #   in Loop: Header=BB0_113 Depth=2
-	fld.s	$fs1, $s1, 516
+	fld.s	$fs1, $s3, 516
 	fcmp.ceq.s	$fcc0, $fs1, $fs4
 	bcnez	$fcc0, .LBB0_120
 # %bb.118:                              #   in Loop: Header=BB0_113 Depth=2
-	fld.s	$fs4, $s3, 0
+	fld.s	$fs4, $s1, 1024
 	fld.s	$fs2, $s0, 1024
 	fsqrt.s	$fa0, $fs1
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB0_124
-.LBB0_119:                              # %.split1993
+.LBB0_119:                              # %.split2011
                                         #   in Loop: Header=BB0_113 Depth=2
 	fadd.s	$fa1, $ft0, $fs3
 	fadd.s	$fa2, $fs4, $fs2
@@ -1628,11 +1650,11 @@ L3psycho_anal:                          # @L3psycho_anal
 	fmov.s	$fs1, $fa0
 	fmov.s	$fs3, $fa2
 .LBB0_120:                              #   in Loop: Header=BB0_113 Depth=2
-	fld.s	$fa1, $s1, 0
+	fld.s	$fa1, $s3, 0
 	fsqrt.s	$fa0, $fa1
 	fcmp.cor.s	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB0_123
-.LBB0_121:                              # %.split1995
+.LBB0_121:                              # %.split2013
                                         #   in Loop: Header=BB0_113 Depth=2
 	vldi	$vr1, -1280
 	fmsub.s	$fa1, $fs0, $fa1, $fs1
@@ -1642,7 +1664,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	fcmp.ceq.s	$fcc0, $fa0, $fa2
 	bcnez	$fcc0, .LBB0_112
 # %bb.122:                              #   in Loop: Header=BB0_113 Depth=2
-	fld.s	$fa2, $s3, -1024
+	fld.s	$fa2, $s1, 0
 	fld.s	$fa3, $s0, 0
 	fadd.s	$fa4, $fa2, $fa3
 	fneg.s	$fa1, $fa1
@@ -1660,7 +1682,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	fdiv.d	$fa0, $fa1, $fa0
 	fcvt.s.d	$fa0, $fa0
 	b	.LBB0_112
-.LBB0_123:                              # %call.sqrt1996
+.LBB0_123:                              # %call.sqrt2014
                                         #   in Loop: Header=BB0_113 Depth=2
 	fmov.s	$fa0, $fa1
 	st.d	$t3, $sp, 496                   # 8-byte Folded Spill
@@ -1675,9 +1697,9 @@ L3psycho_anal:                          # @L3psycho_anal
 	vldi	$vr6, -1184
 	ld.d	$t1, $sp, 408                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 512                   # 8-byte Folded Reload
-	ld.d	$a3, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 328                   # 8-byte Folded Reload
 	b	.LBB0_121
-.LBB0_124:                              # %call.sqrt1994
+.LBB0_124:                              # %call.sqrt2012
                                         #   in Loop: Header=BB0_113 Depth=2
 	fmov.s	$fa0, $fs1
 	st.d	$t3, $sp, 496                   # 8-byte Folded Spill
@@ -1692,7 +1714,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	vldi	$vr6, -1184
 	ld.d	$t1, $sp, 408                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 512                   # 8-byte Folded Reload
-	ld.d	$a3, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 328                   # 8-byte Folded Reload
 	b	.LBB0_119
 	.p2align	4, , 16
 .LBB0_125:                              # %.preheader955
@@ -1826,7 +1848,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	ld.d	$a1, $sp, 528                   # 8-byte Folded Reload
 	stx.d	$zero, $a2, $a1
 	pcalau12i	$a1, %pc_hi20(L3psycho_anal.thr)
-	addi.d	$s5, $a1, %pc_lo12(L3psycho_anal.thr)
+	addi.d	$s2, $a1, %pc_lo12(L3psycho_anal.thr)
 	blez	$a0, .LBB0_156
 # %bb.142:                              # %.lr.ph1081
                                         #   in Loop: Header=BB0_72 Depth=1
@@ -1955,7 +1977,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	fcmp.clt.d	$fcc0, $fa1, $fa3
 	fldx.d	$fa0, $s8, $s1
 	fsel	$fa1, $fa1, $fa3, $fcc0
-	fstx.d	$fa1, $s5, $s1
+	fstx.d	$fa1, $s2, $s1
 	fstx.d	$fa2, $a2, $s1
 	fcmp.cule.d	$fcc0, $fa0, $fa1
 	fstx.d	$fa4, $a1, $s1
@@ -1981,13 +2003,13 @@ L3psycho_anal:                          # @L3psycho_anal
 	movgr2fr.d	$fs0, $zero
 .LBB0_157:                              # %._crit_edge1082
                                         #   in Loop: Header=BB0_72 Depth=1
-	ld.d	$t4, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$t5, $sp, 296                   # 8-byte Folded Reload
-	ld.d	$t0, $sp, 288                   # 8-byte Folded Reload
-	ld.d	$t1, $sp, 280                   # 8-byte Folded Reload
-	ld.d	$t2, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$t4, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$t5, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$t0, $sp, 296                   # 8-byte Folded Reload
+	ld.d	$t1, $sp, 288                   # 8-byte Folded Reload
+	ld.d	$t2, $sp, 280                   # 8-byte Folded Reload
 	ld.d	$t3, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$t6, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$t6, $sp, 344                   # 8-byte Folded Reload
 	ld.d	$t7, $sp, 376                   # 8-byte Folded Reload
 	ld.d	$t8, $sp, 240                   # 8-byte Folded Reload
 	ld.d	$s1, $sp, 368                   # 8-byte Folded Reload
@@ -2095,9 +2117,9 @@ L3psycho_anal:                          # @L3psycho_anal
 	fldx.d	$fa0, $s8, $a2
 	slli.d	$a5, $a7, 3
 	fldx.d	$fa3, $s8, $a5
-	fldx.d	$fa4, $s5, $a2
+	fldx.d	$fa4, $s2, $a2
 	fmul.d	$fa0, $fa2, $fa0
-	fldx.d	$fa5, $s5, $a5
+	fldx.d	$fa5, $s2, $a5
 	fmadd.d	$fa0, $fa1, $fa3, $fa0
 	fmul.d	$fa2, $fa2, $fa4
 	addi.w	$a2, $a7, 1
@@ -2107,7 +2129,7 @@ L3psycho_anal:                          # @L3psycho_anal
                                         #   in Loop: Header=BB0_170 Depth=2
 	alsl.d	$a2, $a7, $s8, 3
 	addi.d	$a2, $a2, 8
-	alsl.d	$a5, $a7, $s5, 3
+	alsl.d	$a5, $a7, $s2, 3
 	addi.d	$a5, $a5, 8
 	nor	$a7, $a7, $zero
 	add.d	$a6, $a7, $a6
@@ -2220,7 +2242,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	fldx.d	$fa1, $t0, $a7
 	fcmp.clt.d	$fcc0, $fa0, $fa1
 	fsel	$fa0, $fa0, $fa1, $fcc0
-	fstx.d	$fa0, $s5, $a7
+	fstx.d	$fa0, $s2, $a7
 	addi.d	$a5, $a5, 1
 	addi.d	$a6, $a6, 512
 	beq	$a5, $a1, .LBB0_189
@@ -2229,9 +2251,9 @@ L3psycho_anal:                          # @L3psycho_anal
                                         #     Parent Loop BB0_175 Depth=2
                                         # =>    This Loop Header: Depth=3
                                         #         Child Loop BB0_188 Depth 4
-	alsl.d	$t0, $a5, $s2, 3
+	alsl.d	$t0, $a5, $s5, 3
 	slli.d	$a7, $a5, 3
-	ldx.w	$t2, $s2, $a7
+	ldx.w	$t2, $s5, $a7
 	ld.w	$t3, $t0, 4
 	blt	$t3, $t2, .LBB0_184
 # %bb.187:                              # %.lr.ph1113
@@ -2284,9 +2306,9 @@ L3psycho_anal:                          # @L3psycho_anal
 	fldx.d	$fa0, $s8, $t0
 	slli.d	$t1, $t3, 3
 	fldx.d	$fa3, $s8, $t1
-	fldx.d	$fa4, $s5, $t0
+	fldx.d	$fa4, $s2, $t0
 	fmul.d	$fa0, $fa2, $fa0
-	fldx.d	$fa5, $s5, $t1
+	fldx.d	$fa5, $s2, $t1
 	fmadd.d	$fa0, $fa1, $fa3, $fa0
 	fmul.d	$fa2, $fa2, $fa4
 	addi.w	$t0, $t3, 1
@@ -2296,7 +2318,7 @@ L3psycho_anal:                          # @L3psycho_anal
                                         #   in Loop: Header=BB0_191 Depth=3
 	alsl.d	$t0, $t3, $s8, 3
 	addi.d	$t0, $t0, 8
-	alsl.d	$t1, $t3, $s5, 3
+	alsl.d	$t1, $t3, $s2, 3
 	addi.d	$t1, $t1, 8
 	nor	$t3, $t3, $zero
 	add.d	$t2, $t3, $t2
@@ -2318,32 +2340,32 @@ L3psycho_anal:                          # @L3psycho_anal
 .LBB0_194:                              # %call.sqrt
                                         #   in Loop: Header=BB0_72 Depth=1
 	fmov.s	$fa0, $fa1
-	move	$s3, $t3
-	move	$s5, $t4
+	move	$s2, $t3
+	move	$s3, $t4
 	pcaddu18i	$ra, %call36(sqrtf)
 	jirl	$ra, $ra, 0
-	move	$t4, $s5
-	move	$t3, $s3
+	move	$t4, $s3
+	move	$t3, $s2
 	ori	$ra, $zero, 3
 	vldi	$vr6, -1184
 	ld.d	$t1, $sp, 408                   # 8-byte Folded Reload
 	ld.d	$a5, $sp, 400                   # 8-byte Folded Reload
 	ld.d	$t0, $sp, 512                   # 8-byte Folded Reload
-	ld.d	$a3, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 320                   # 8-byte Folded Reload
 	fld.s	$fa4, $sp, 132                  # 4-byte Folded Reload
 	fcmp.ceq.s	$fcc0, $fs3, $fa4
 	fst.s	$fa0, $s0, 0
 	bceqz	$fcc0, .LBB0_94
 .LBB0_195:                              #   in Loop: Header=BB0_72 Depth=1
+	vldi	$vr2, -1168
+	fmov.s	$fa3, $fa4
 	vldi	$vr1, -1168
-	fmov.s	$fa2, $fa4
-	vldi	$vr3, -1168
 	fcmp.ceq.s	$fcc0, $fs1, $fa4
 	bceqz	$fcc0, .LBB0_95
 	b	.LBB0_96
 .LBB0_196:                              # %._crit_edge1134
 	ori	$a1, $zero, 4
-	ld.d	$a2, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 336                   # 8-byte Folded Reload
 	addi.d	$a0, $a2, -4
 	ld.d	$s3, $sp, 208                   # 8-byte Folded Reload
 	bne	$a2, $a1, .LBB0_215
@@ -2361,8 +2383,8 @@ L3psycho_anal:                          # @L3psycho_anal
 	beq	$a3, $a1, .LBB0_204
 .LBB0_199:                              # %.preheader947
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$a4, $s5, $a3
-	fldx.d	$fa1, $s5, $a3
+	add.d	$a4, $s2, $a3
+	fldx.d	$fa1, $s2, $a3
 	fld.d	$fa2, $a4, 488
 	fmul.d	$fa3, $fa1, $fa0
 	fcmp.cult.d	$fcc0, $fa3, $fa2
@@ -2416,7 +2438,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	beq	$a2, $a3, .LBB0_215
 .LBB0_206:                              # %.preheader945
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$a4, $s5, $a2
+	add.d	$a4, $s2, $a2
 	fld.d	$fa1, $a4, 176
 	fld.d	$fa2, $a4, 664
 	fmul.d	$fa3, $fa1, $fa0
@@ -2532,7 +2554,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	beq	$s0, $s1, .LBB0_220
 .LBB0_218:                              # %.preheader944
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$a0, $s5, $s0
+	add.d	$a0, $s2, $s0
 	fld.d	$fa1, $a0, 40
 	fld.d	$fa2, $a0, 528
 	fcmp.clt.d	$fcc0, $fa1, $fa2
@@ -2592,7 +2614,7 @@ L3psycho_anal:                          # @L3psycho_anal
 	beqz	$s0, .LBB0_249
 .LBB0_223:                              # %.preheader
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$s1, $s5, $s0
+	add.d	$s1, $s2, $s0
 	fld.d	$fa1, $s1, 272
 	fld.d	$fa2, $s1, 760
 	fcmp.clt.d	$fcc0, $fa1, $fa2
@@ -2772,9 +2794,9 @@ L3psycho_anal:                          # @L3psycho_anal
 	fmul.d	$fa1, $fa1, $fa0
 	vldi	$vr2, -928
 	fmin.d	$fs0, $fa1, $fa2
-	vreplvei.d	$vr1, $vr3, 0
-	vreplvei.d	$vr3, $vr3, 1
-	fdiv.d	$fa1, $fa3, $fa1
+	vreplvei.d	$vr1, $vr3, 1
+	vfdiv.d	$vr1, $vr1, $vr3
+	vreplvei.d	$vr1, $vr1, 0
 	fmul.d	$fa0, $fa1, $fa0
 	fmin.d	$fs1, $fa0, $fa2
 	ld.w	$s2, $s3, 204

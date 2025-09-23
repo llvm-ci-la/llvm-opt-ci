@@ -117,6 +117,18 @@ polybench_alloc_data:                   # @polybench_alloc_data
 .LCPI7_1:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
+.LCPI7_3:
+	.dword	48                              # 0x30
+	.dword	56                              # 0x38
+.LCPI7_4:
+	.dword	32                              # 0x20
+	.dword	40                              # 0x28
+.LCPI7_5:
+	.dword	16                              # 0x10
+	.dword	24                              # 0x18
+.LCPI7_6:
+	.dword	0                               # 0x0
+	.dword	8                               # 0x8
 	.text
 	.globl	main
 	.p2align	5
@@ -336,49 +348,50 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
 	ori	$a1, $s2, 3328
+	pcalau12i	$a2, %pc_hi20(.LCPI7_3)
+	vld	$vr0, $a2, %pc_lo12(.LCPI7_3)
+	pcalau12i	$a2, %pc_hi20(.LCPI7_4)
+	vld	$vr1, $a2, %pc_lo12(.LCPI7_4)
+	pcalau12i	$a2, %pc_hi20(.LCPI7_5)
+	vld	$vr2, $a2, %pc_lo12(.LCPI7_5)
+	pcalau12i	$a2, %pc_hi20(.LCPI7_6)
+	vld	$vr3, $a2, %pc_lo12(.LCPI7_6)
 	stx.b	$zero, $a0, $a1
-	addi.d	$a1, $a0, 7
-	lu12i.w	$a2, -4
-	ori	$a2, $a2, 384
-	ori	$a3, $zero, 3
+	lu12i.w	$a1, -4
+	ori	$a1, $a1, 384
+	move	$a2, $a0
 	.p2align	4, , 16
 .LBB7_21:                               # =>This Inner Loop Header: Depth=1
-	add.d	$a4, $s0, $a2
-	ldptr.d	$a4, $a4, 16000
-	srli.d	$a5, $a4, 8
-	srli.d	$a6, $a4, 16
-	srli.d	$a7, $a4, 24
-	srli.d	$t0, $a4, 32
-	srli.d	$t1, $a4, 40
-	srli.d	$t2, $a4, 48
-	srli.d	$t3, $a4, 56
-	bstrins.d	$a4, $a3, 63, 4
-	st.b	$a4, $a1, -7
-	st.b	$a4, $a1, -6
-	bstrins.d	$a5, $a3, 63, 4
-	st.b	$a5, $a1, -5
-	st.b	$a5, $a1, -4
-	bstrins.d	$a6, $a3, 63, 4
-	st.b	$a6, $a1, -3
-	st.b	$a6, $a1, -2
-	bstrins.d	$a7, $a3, 63, 4
-	st.b	$a7, $a1, -1
-	st.b	$a7, $a1, 0
-	bstrins.d	$t0, $a3, 63, 4
-	st.b	$t0, $a1, 1
-	st.b	$t0, $a1, 2
-	bstrins.d	$t1, $a3, 63, 4
-	st.b	$t1, $a1, 3
-	st.b	$t1, $a1, 4
-	bstrins.d	$t2, $a3, 63, 4
-	st.b	$t2, $a1, 5
-	st.b	$t2, $a1, 6
-	bstrins.d	$t3, $a3, 63, 4
-	st.b	$t3, $a1, 7
-	st.b	$t3, $a1, 8
-	addi.d	$a2, $a2, 8
-	addi.d	$a1, $a1, 16
-	bnez	$a2, .LBB7_21
+	add.d	$a3, $s0, $a1
+	ldptr.d	$a3, $a3, 16000
+	vreplgr2vr.d	$vr4, $a3
+	vsrl.d	$vr5, $vr4, $vr0
+	vsrl.d	$vr6, $vr4, $vr1
+	vsrl.d	$vr7, $vr4, $vr2
+	vsrl.d	$vr4, $vr4, $vr3
+	vpickve2gr.d	$a3, $vr4, 0
+	vinsgr2vr.b	$vr8, $a3, 0
+	vpickve2gr.d	$a3, $vr4, 1
+	vinsgr2vr.b	$vr8, $a3, 1
+	vpickve2gr.d	$a3, $vr7, 0
+	vinsgr2vr.b	$vr8, $a3, 2
+	vpickve2gr.d	$a3, $vr7, 1
+	vinsgr2vr.b	$vr8, $a3, 3
+	vpickve2gr.d	$a3, $vr6, 0
+	vinsgr2vr.b	$vr8, $a3, 4
+	vpickve2gr.d	$a3, $vr6, 1
+	vinsgr2vr.b	$vr8, $a3, 5
+	vpickve2gr.d	$a3, $vr5, 0
+	vinsgr2vr.b	$vr8, $a3, 6
+	vpickve2gr.d	$a3, $vr5, 1
+	vinsgr2vr.b	$vr8, $a3, 7
+	vandi.b	$vr4, $vr8, 15
+	vori.b	$vr4, $vr4, 48
+	vilvl.b	$vr4, $vr4, $vr4
+	vst	$vr4, $a2, 0
+	addi.d	$a1, $a1, 8
+	addi.d	$a2, $a2, 16
+	bnez	$a1, .LBB7_21
 # %bb.22:                               # %print_array.exit
 	pcalau12i	$a1, %got_pc_hi20(stderr)
 	ld.d	$a1, $a1, %got_pc_lo12(stderr)

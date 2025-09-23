@@ -147,15 +147,15 @@ main:                                   # @main
 	.cfi_offset 62, -144
 	.cfi_offset 63, -152
 	addi.d	$sp, $sp, -2048
-	addi.d	$sp, $sp, -1536
-	.cfi_def_cfa_offset 5616
+	addi.d	$sp, $sp, -1520
+	.cfi_def_cfa_offset 5600
 	ori	$a2, $zero, 15
-	st.d	$a2, $sp, 464
+	st.d	$a2, $sp, 448
 	ori	$a0, $zero, 1
 	ori	$a1, $zero, 8
 	lu12i.w	$a3, 442488
 	ori	$a3, $a3, 2405
-	addi.d	$a4, $sp, 464
+	addi.d	$a4, $sp, 448
 	ori	$a5, $zero, 624
 	.p2align	4, , 16
 .LBB0_1:                                # =>This Inner Loop Header: Depth=1
@@ -171,14 +171,14 @@ main:                                   # @main
 # %bb.2:                                # %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
 	ori	$a0, $zero, 624
 	lu12i.w	$a1, 1
-	ori	$a1, $a1, 1360
+	ori	$a1, $a1, 1344
 	add.d	$a1, $sp, $a1
 	stptr.d	$a0, $a1, 0
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$a0, $a0, %pc_lo12(_ZL3rng)
 	lu12i.w	$a1, 1
 	ori	$a2, $a1, 904
-	addi.d	$a1, $sp, 464
+	addi.d	$a1, $sp, 448
 	pcaddu18i	$ra, %call36(memcpy)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %got_pc_hi20(_ZSt4cout)
@@ -217,15 +217,15 @@ main:                                   # @main
 	move	$s2, $a0
 	lu12i.w	$a0, -524288
 	lu52i.d	$s7, $a0, 2047
-	st.d	$s7, $sp, 464
+	st.d	$s7, $sp, 448
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s4, $a0, %pc_lo12(_ZL3rng)
 	move	$s5, $zero
 	.p2align	4, , 16
 .LBB0_6:                                # =>This Inner Loop Header: Depth=1
 .Ltmp9:                                 # EH_LABEL
-	addi.d	$a0, $sp, 464
-	addi.d	$a2, $sp, 464
+	addi.d	$a0, $sp, 448
+	addi.d	$a2, $sp, 448
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -236,15 +236,15 @@ main:                                   # @main
 	addi.d	$s5, $s5, 4
 	bne	$s5, $s3, .LBB0_6
 # %bb.8:
-	st.d	$s7, $sp, 464
+	st.d	$s7, $sp, 448
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s4, $a0, %pc_lo12(_ZL3rng)
 	move	$s5, $zero
 	.p2align	4, , 16
 .LBB0_9:                                # =>This Inner Loop Header: Depth=1
 .Ltmp12:                                # EH_LABEL
-	addi.d	$a0, $sp, 464
-	addi.d	$a2, $sp, 464
+	addi.d	$a0, $sp, 448
+	addi.d	$a2, $sp, 448
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -440,15 +440,15 @@ main:                                   # @main
 .Ltmp22:                                # EH_LABEL
 # %bb.26:
 	move	$s1, $a0
-	st.d	$s7, $sp, 464
+	st.d	$s7, $sp, 448
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s2, $a0, %pc_lo12(_ZL3rng)
 	move	$s5, $zero
 	.p2align	4, , 16
 .LBB0_27:                               # =>This Inner Loop Header: Depth=1
 .Ltmp24:                                # EH_LABEL
-	addi.d	$a0, $sp, 464
-	addi.d	$a2, $sp, 464
+	addi.d	$a0, $sp, 448
+	addi.d	$a2, $sp, 448
 	move	$a1, $s2
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -586,7 +586,7 @@ main:                                   # @main
 	add.d	$a0, $a4, $a0
 	bne	$a1, $a3, .LBB0_40
 # %bb.41:                               # %scalar.ph340.2
-	vst	$vr13, $sp, 448                 # 16-byte Folded Spill
+	vst	$vr13, $sp, 432                 # 16-byte Folded Spill
 	move	$a1, $zero
 	addi.d	$a2, $a0, 1785
 	ld.w	$a0, $s1, 488
@@ -651,7 +651,7 @@ main:                                   # @main
 .Ltmp37:                                # EH_LABEL
 # %bb.47:
 	move	$s2, $a0
-	st.d	$s7, $sp, 464
+	st.d	$s7, $sp, 448
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s3, $a0, %pc_lo12(_ZL3rng)
 	move	$s5, $zero
@@ -659,8 +659,8 @@ main:                                   # @main
 	.p2align	4, , 16
 .LBB0_48:                               # =>This Inner Loop Header: Depth=1
 .Ltmp39:                                # EH_LABEL
-	addi.d	$a0, $sp, 464
-	addi.d	$a2, $sp, 464
+	addi.d	$a0, $sp, 448
+	addi.d	$a2, $sp, 448
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -671,7 +671,7 @@ main:                                   # @main
 	addi.d	$s5, $s5, 4
 	bne	$s5, $s8, .LBB0_48
 # %bb.50:
-	st.d	$s7, $sp, 464
+	st.d	$s7, $sp, 448
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s3, $a0, %pc_lo12(_ZL3rng)
 	move	$s5, $zero
@@ -679,8 +679,8 @@ main:                                   # @main
 	.p2align	4, , 16
 .LBB0_51:                               # =>This Inner Loop Header: Depth=1
 .Ltmp42:                                # EH_LABEL
-	addi.d	$a0, $sp, 464
-	addi.d	$a2, $sp, 464
+	addi.d	$a0, $sp, 448
+	addi.d	$a2, $sp, 448
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -916,11 +916,11 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$fp, $a0
 .Ltmp48:                                # EH_LABEL
-	st.d	$s0, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 192                   # 8-byte Folded Spill
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_Znam)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 216                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 200                   # 8-byte Folded Spill
 .Ltmp49:                                # EH_LABEL
 # %bb.69:                               # %.preheader1.i174.preheader
 	move	$a3, $zero
@@ -929,42 +929,40 @@ main:                                   # @main
 	lu12i.w	$a0, -3
 	move	$s0, $a0
 	ori	$s5, $a0, 228
-	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
-	vld	$vr3, $a1, %pc_lo12(.LCPI0_3)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_4)
-	vld	$vr4, $a1, %pc_lo12(.LCPI0_4)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_3)
 	lu12i.w	$a2, 2
-	ori	$a7, $a2, 3892
-	ori	$t0, $a2, 3876
-	pcalau12i	$a1, %pc_hi20(.LCPI0_5)
-	vld	$vr5, $a1, %pc_lo12(.LCPI0_5)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_6)
-	vld	$vr6, $a1, %pc_lo12(.LCPI0_6)
-	ori	$t1, $a2, 3924
-	ori	$t2, $a2, 3908
-	pcalau12i	$a1, %pc_hi20(.LCPI0_7)
-	vld	$vr7, $a1, %pc_lo12(.LCPI0_7)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_8)
-	vld	$vr8, $a1, %pc_lo12(.LCPI0_8)
-	ori	$t3, $a2, 3956
-	ori	$t4, $a2, 3940
-	pcalau12i	$a1, %pc_hi20(.LCPI0_9)
-	vld	$vr9, $a1, %pc_lo12(.LCPI0_9)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_10)
-	vld	$vr10, $a1, %pc_lo12(.LCPI0_10)
-	ori	$t5, $a2, 3988
-	ori	$t6, $a2, 3972
-	pcalau12i	$a1, %pc_hi20(.LCPI0_11)
-	vld	$vr11, $a1, %pc_lo12(.LCPI0_11)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_12)
-	vld	$vr16, $a1, %pc_lo12(.LCPI0_12)
-	ori	$t7, $a2, 4020
-	ori	$t8, $a2, 4004
-	pcalau12i	$a1, %pc_hi20(.LCPI0_13)
-	vld	$vr17, $a1, %pc_lo12(.LCPI0_13)
-	pcalau12i	$a1, %pc_hi20(.LCPI0_14)
-	vld	$vr18, $a1, %pc_lo12(.LCPI0_14)
-	ori	$s2, $a2, 4052
+	ori	$a7, $a2, 3876
+	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_4)
+	ori	$t0, $a2, 3892
+	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
+	vld	$vr4, $a0, %pc_lo12(.LCPI0_5)
+	ori	$t1, $a2, 3908
+	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
+	vld	$vr5, $a0, %pc_lo12(.LCPI0_6)
+	ori	$t2, $a2, 3924
+	pcalau12i	$a0, %pc_hi20(.LCPI0_7)
+	vld	$vr6, $a0, %pc_lo12(.LCPI0_7)
+	ori	$t3, $a2, 3940
+	pcalau12i	$a0, %pc_hi20(.LCPI0_8)
+	vld	$vr7, $a0, %pc_lo12(.LCPI0_8)
+	ori	$t4, $a2, 3956
+	pcalau12i	$a0, %pc_hi20(.LCPI0_9)
+	vld	$vr8, $a0, %pc_lo12(.LCPI0_9)
+	ori	$t5, $a2, 3972
+	pcalau12i	$a0, %pc_hi20(.LCPI0_10)
+	vld	$vr9, $a0, %pc_lo12(.LCPI0_10)
+	ori	$t6, $a2, 3988
+	pcalau12i	$a0, %pc_hi20(.LCPI0_11)
+	vld	$vr10, $a0, %pc_lo12(.LCPI0_11)
+	ori	$t7, $a2, 4004
+	pcalau12i	$a0, %pc_hi20(.LCPI0_12)
+	vld	$vr16, $a0, %pc_lo12(.LCPI0_12)
+	ori	$t8, $a2, 4020
+	pcalau12i	$a0, %pc_hi20(.LCPI0_13)
+	vld	$vr17, $a0, %pc_lo12(.LCPI0_13)
+	ori	$s2, $a2, 4036
 	lu12i.w	$s3, 3
 	ori	$s7, $zero, 123
 	move	$s8, $fp
@@ -980,54 +978,56 @@ main:                                   # @main
                                         #   Parent Loop BB0_70 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$a0, $s8, $a6
-	stptr.w	$zero, $a0, 12060
-	stptr.w	$a1, $a0, 12064
 	vreplgr2vr.w	$vr0, $a1
+	vmul.w	$vr1, $vr0, $vr2
+	vstx	$vr1, $a0, $a7
 	vmul.w	$vr1, $vr0, $vr3
-	vmul.w	$vr2, $vr0, $vr4
-	vstx	$vr2, $a0, $a7
 	vstx	$vr1, $a0, $t0
+	vmul.w	$vr1, $vr0, $vr4
+	vstx	$vr1, $a0, $t1
 	vmul.w	$vr1, $vr0, $vr5
-	vmul.w	$vr2, $vr0, $vr6
-	vstx	$vr2, $a0, $t1
 	vstx	$vr1, $a0, $t2
+	vmul.w	$vr1, $vr0, $vr6
+	vstx	$vr1, $a0, $t3
 	vmul.w	$vr1, $vr0, $vr7
-	vmul.w	$vr2, $vr0, $vr8
-	vstx	$vr2, $a0, $t3
 	vstx	$vr1, $a0, $t4
+	vmul.w	$vr1, $vr0, $vr8
+	vstx	$vr1, $a0, $t5
 	vmul.w	$vr1, $vr0, $vr9
-	vmul.w	$vr2, $vr0, $vr10
-	vstx	$vr2, $a0, $t5
 	vstx	$vr1, $a0, $t6
-	vmul.w	$vr1, $vr0, $vr11
-	vmul.w	$vr2, $vr0, $vr16
-	vstx	$vr2, $a0, $t7
+	vmul.w	$vr1, $vr0, $vr10
+	vstx	$vr1, $a0, $t7
+	vmul.w	$vr1, $vr0, $vr16
 	vstx	$vr1, $a0, $t8
 	vmul.w	$vr1, $vr0, $vr17
-	vmul.w	$vr2, $vr0, $vr18
-	vstx	$vr2, $a0, $s2
+	pcalau12i	$s1, %pc_hi20(.LCPI0_14)
+	vld	$vr11, $s1, %pc_lo12(.LCPI0_14)
+	vstx	$vr1, $a0, $s2
 	pcalau12i	$s1, %pc_hi20(.LCPI0_15)
 	vld	$vr12, $s1, %pc_lo12(.LCPI0_15)
-	pcalau12i	$s1, %pc_hi20(.LCPI0_16)
-	vld	$vr13, $s1, %pc_lo12(.LCPI0_16)
-	ori	$s1, $a2, 4036
+	vmul.w	$vr1, $vr0, $vr11
+	ori	$s1, $a2, 4052
 	vstx	$vr1, $a0, $s1
 	vmul.w	$vr1, $vr0, $vr12
-	vmul.w	$vr2, $vr0, $vr13
-	ori	$s1, $a2, 4084
-	vstx	$vr2, $a0, $s1
-	pcalau12i	$s1, %pc_hi20(.LCPI0_17)
-	vld	$vr14, $s1, %pc_lo12(.LCPI0_17)
-	pcalau12i	$s1, %pc_hi20(.LCPI0_18)
-	vld	$vr15, $s1, %pc_lo12(.LCPI0_18)
+	pcalau12i	$s1, %pc_hi20(.LCPI0_16)
+	vld	$vr13, $s1, %pc_lo12(.LCPI0_16)
 	ori	$s1, $a2, 4068
 	vstx	$vr1, $a0, $s1
+	pcalau12i	$s1, %pc_hi20(.LCPI0_17)
+	vld	$vr14, $s1, %pc_lo12(.LCPI0_17)
+	vmul.w	$vr1, $vr0, $vr13
+	ori	$s1, $a2, 4084
+	vstx	$vr1, $a0, $s1
 	vmul.w	$vr1, $vr0, $vr14
+	pcalau12i	$s1, %pc_hi20(.LCPI0_18)
+	vld	$vr15, $s1, %pc_lo12(.LCPI0_18)
+	ori	$s1, $s3, 4
+	vstx	$vr1, $a0, $s1
+	stptr.w	$zero, $a0, 12060
+	stptr.w	$a1, $a0, 12064
 	vmul.w	$vr0, $vr0, $vr15
 	ori	$s1, $s3, 20
 	vstx	$vr0, $a0, $s1
-	ori	$s1, $s3, 4
-	vstx	$vr1, $a0, $s1
 	stptr.w	$ra, $a0, 12324
 	addi.d	$a6, $a6, 268
 	add.d	$ra, $ra, $a4
@@ -1041,90 +1041,88 @@ main:                                   # @main
 	add.d	$s8, $s8, $ra
 	bne	$a5, $s7, .LBB0_70
 # %bb.73:                               # %vector.body369.preheader
-	vst	$vr18, $sp, 16                  # 16-byte Folded Spill
-	vst	$vr17, $sp, 32                  # 16-byte Folded Spill
-	vst	$vr16, $sp, 48                  # 16-byte Folded Spill
-	vst	$vr11, $sp, 64                  # 16-byte Folded Spill
-	vst	$vr10, $sp, 80                  # 16-byte Folded Spill
-	vst	$vr9, $sp, 96                   # 16-byte Folded Spill
-	vst	$vr8, $sp, 112                  # 16-byte Folded Spill
-	vst	$vr7, $sp, 128                  # 16-byte Folded Spill
-	vst	$vr6, $sp, 144                  # 16-byte Folded Spill
-	vst	$vr5, $sp, 160                  # 16-byte Folded Spill
-	vst	$vr4, $sp, 176                  # 16-byte Folded Spill
-	vst	$vr3, $sp, 192                  # 16-byte Folded Spill
+	vst	$vr17, $sp, 16                  # 16-byte Folded Spill
+	vst	$vr16, $sp, 32                  # 16-byte Folded Spill
+	vst	$vr10, $sp, 48                  # 16-byte Folded Spill
+	vst	$vr9, $sp, 64                   # 16-byte Folded Spill
+	vst	$vr8, $sp, 80                   # 16-byte Folded Spill
+	vst	$vr7, $sp, 96                   # 16-byte Folded Spill
+	vst	$vr6, $sp, 112                  # 16-byte Folded Spill
+	vst	$vr5, $sp, 128                  # 16-byte Folded Spill
+	vst	$vr4, $sp, 144                  # 16-byte Folded Spill
+	vst	$vr3, $sp, 160                  # 16-byte Folded Spill
+	vst	$vr2, $sp, 176                  # 16-byte Folded Spill
 	move	$a3, $zero
 	vld	$vr16, $s4, %pc_lo12(.LCPI0_0)
 	vld	$vr17, $s6, %pc_lo12(.LCPI0_1)
 	vreplgr2vr.d	$vr0, $ra
-	vst	$vr0, $sp, 368                  # 16-byte Folded Spill
-	ld.d	$a1, $sp, 216                   # 8-byte Folded Reload
-	vreplgr2vr.d	$vr0, $a1
-	vst	$vr0, $sp, 352                  # 16-byte Folded Spill
-	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 336                  # 16-byte Folded Spill
+	ld.d	$a1, $sp, 200                   # 8-byte Folded Reload
+	vreplgr2vr.d	$vr0, $a1
+	vst	$vr0, $sp, 320                  # 16-byte Folded Spill
+	vrepli.b	$vr0, 0
+	vst	$vr0, $sp, 304                  # 16-byte Folded Spill
 	vrepli.d	$vr21, 268
 	vrepli.w	$vr0, 3
-	vst	$vr0, $sp, 432                  # 16-byte Folded Spill
-	vrepli.w	$vr0, 5
 	vst	$vr0, $sp, 416                  # 16-byte Folded Spill
-	vrepli.w	$vr0, 6
+	vrepli.w	$vr0, 5
 	vst	$vr0, $sp, 400                  # 16-byte Folded Spill
-	vrepli.w	$vr0, 7
+	vrepli.w	$vr0, 6
 	vst	$vr0, $sp, 384                  # 16-byte Folded Spill
+	vrepli.w	$vr0, 7
+	vst	$vr0, $sp, 368                  # 16-byte Folded Spill
 	vrepli.d	$vr26, 32
 	vrepli.w	$vr0, 9
-	vst	$vr0, $sp, 320                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 352                  # 16-byte Folded Spill
 	vrepli.d	$vr28, 36
 	vrepli.w	$vr0, 10
-	vst	$vr0, $sp, 304                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 288                  # 16-byte Folded Spill
 	vrepli.d	$vr30, 40
 	vrepli.w	$vr0, 11
-	vst	$vr0, $sp, 288                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 272                  # 16-byte Folded Spill
 	vrepli.d	$vr18, 44
 	vrepli.w	$vr0, 12
-	vst	$vr0, $sp, 272                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 256                  # 16-byte Folded Spill
 	vrepli.d	$vr20, 48
 	vrepli.w	$vr0, 13
-	vst	$vr0, $sp, 256                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 240                  # 16-byte Folded Spill
 	vrepli.d	$vr1, 52
 	vrepli.w	$vr0, 14
-	vst	$vr0, $sp, 240                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 224                  # 16-byte Folded Spill
 	vrepli.d	$vr3, 56
 	vrepli.w	$vr0, 15
-	vst	$vr0, $sp, 224                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 208                  # 16-byte Folded Spill
 	vrepli.d	$vr5, 60
 	vrepli.d	$vr6, 64
 	ori	$a4, $zero, 45
 	ori	$a5, $zero, 120
-	lu12i.w	$s1, 1
+	lu12i.w	$s7, 1
 	.p2align	4, , 16
 .LBB0_74:                               # %vector.body369
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_75 Depth 2
-	vld	$vr22, $sp, 352                 # 16-byte Folded Reload
-	vori.b	$vr11, $vr22, 0
-	vld	$vr7, $sp, 368                  # 16-byte Folded Reload
-	vmadd.d	$vr11, $vr16, $vr7
-	vmadd.d	$vr22, $vr17, $vr7
-	vld	$vr10, $sp, 336                 # 16-byte Folded Reload
+	vld	$vr23, $sp, 320                 # 16-byte Folded Reload
+	vori.b	$vr22, $vr23, 0
+	vld	$vr7, $sp, 336                  # 16-byte Folded Reload
+	vmadd.d	$vr22, $vr16, $vr7
+	vmadd.d	$vr23, $vr17, $vr7
+	vld	$vr10, $sp, 304                 # 16-byte Folded Reload
 	vori.b	$vr9, $vr10, 0
-	vld	$vr2, $sp, 320                  # 16-byte Folded Reload
-	vld	$vr4, $sp, 304                  # 16-byte Folded Reload
-	vld	$vr27, $sp, 288                 # 16-byte Folded Reload
-	vld	$vr29, $sp, 272                 # 16-byte Folded Reload
-	vld	$vr31, $sp, 256                 # 16-byte Folded Reload
-	vld	$vr19, $sp, 240                 # 16-byte Folded Reload
-	vld	$vr0, $sp, 224                  # 16-byte Folded Reload
+	vld	$vr29, $sp, 288                 # 16-byte Folded Reload
+	vld	$vr31, $sp, 272                 # 16-byte Folded Reload
+	vld	$vr19, $sp, 256                 # 16-byte Folded Reload
+	vld	$vr0, $sp, 240                  # 16-byte Folded Reload
+	vld	$vr2, $sp, 224                  # 16-byte Folded Reload
+	vld	$vr4, $sp, 208                  # 16-byte Folded Reload
 	.p2align	4, , 16
 .LBB0_75:                               # %.preheader.i183372
                                         #   Parent Loop BB0_74 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vmul.d	$vr24, $vr9, $vr17
-	vmul.d	$vr25, $vr10, $vr16
-	vori.b	$vr7, $vr11, 0
+	vmul.d	$vr25, $vr9, $vr17
+	vmul.d	$vr27, $vr10, $vr16
+	vori.b	$vr7, $vr22, 0
 	vmadd.d	$vr7, $vr10, $vr21
-	vori.b	$vr8, $vr22, 0
+	vori.b	$vr8, $vr23, 0
 	vmadd.d	$vr8, $vr9, $vr21
 	vpickve2gr.d	$a0, $vr8, 0
 	st.w	$zero, $a0, 0
@@ -1134,834 +1132,835 @@ main:                                   # @main
 	st.w	$zero, $a0, 0
 	vpickve2gr.d	$a0, $vr7, 1
 	st.w	$zero, $a0, 0
-	vaddi.du	$vr23, $vr8, 4
-	vpickve2gr.d	$a0, $vr23, 0
-	vpickve2gr.d	$a6, $vr23, 1
-	vpickev.w	$vr23, $vr25, $vr24
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 2
-	vaddi.du	$vr24, $vr7, 4
+	vaddi.du	$vr24, $vr8, 4
 	vpickve2gr.d	$a0, $vr24, 0
+	vpickve2gr.d	$a6, $vr24, 1
+	vpickev.w	$vr24, $vr27, $vr25
 	vstelm.w	$vr25, $a0, 0, 0
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 2
-	vslli.w	$vr24, $vr23, 1
-	vaddi.du	$vr25, $vr8, 8
+	vstelm.w	$vr25, $a6, 0, 2
+	vaddi.du	$vr25, $vr7, 4
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vaddi.du	$vr25, $vr7, 8
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 0
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vld	$vr24, $sp, 432                 # 16-byte Folded Reload
-	vmul.w	$vr24, $vr23, $vr24
-	vaddi.du	$vr25, $vr8, 12
+	vstelm.w	$vr27, $a0, 0, 2
+	vslli.w	$vr25, $vr24, 1
+	vaddi.du	$vr27, $vr8, 8
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vaddi.du	$vr27, $vr7, 8
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vld	$vr25, $sp, 416                 # 16-byte Folded Reload
+	vmul.w	$vr25, $vr24, $vr25
+	vaddi.du	$vr27, $vr8, 12
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vaddi.du	$vr27, $vr7, 12
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vslli.w	$vr25, $vr24, 2
+	vaddi.du	$vr27, $vr8, 16
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vaddi.du	$vr27, $vr7, 16
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vld	$vr25, $sp, 400                 # 16-byte Folded Reload
+	vmul.w	$vr25, $vr24, $vr25
+	vaddi.du	$vr27, $vr8, 20
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vaddi.du	$vr27, $vr7, 20
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vld	$vr25, $sp, 384                 # 16-byte Folded Reload
+	vmul.w	$vr25, $vr24, $vr25
+	vaddi.du	$vr27, $vr8, 24
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vaddi.du	$vr27, $vr7, 24
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vld	$vr25, $sp, 368                 # 16-byte Folded Reload
+	vmul.w	$vr25, $vr24, $vr25
+	vaddi.du	$vr27, $vr8, 28
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vaddi.du	$vr27, $vr7, 28
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vslli.w	$vr25, $vr24, 3
+	vadd.d	$vr27, $vr8, $vr26
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr26
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vld	$vr25, $sp, 352                 # 16-byte Folded Reload
+	vmul.w	$vr25, $vr24, $vr25
+	vadd.d	$vr27, $vr8, $vr28
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr28
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vmul.w	$vr25, $vr24, $vr29
+	vadd.d	$vr27, $vr8, $vr30
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr30
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vmul.w	$vr25, $vr24, $vr31
+	vadd.d	$vr27, $vr8, $vr18
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr18
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vmul.w	$vr25, $vr24, $vr19
+	vadd.d	$vr27, $vr8, $vr20
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr20
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vmul.w	$vr25, $vr24, $vr0
+	vadd.d	$vr27, $vr8, $vr1
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr1
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vmul.w	$vr25, $vr24, $vr2
+	vadd.d	$vr27, $vr8, $vr3
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr3
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vmul.w	$vr25, $vr24, $vr4
+	vadd.d	$vr27, $vr8, $vr5
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr5
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vslli.w	$vr25, $vr24, 4
+	vadd.d	$vr27, $vr8, $vr6
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr27, $vr7, $vr6
+	vstelm.w	$vr25, $a0, 0, 0
+	vstelm.w	$vr25, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr27, 0
+	vstelm.w	$vr25, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr27, 1
+	vstelm.w	$vr25, $a0, 0, 3
+	vrepli.d	$vr25, 68
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 17
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vaddi.du	$vr25, $vr7, 12
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vslli.w	$vr24, $vr23, 2
-	vaddi.du	$vr25, $vr8, 16
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 72
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 18
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vaddi.du	$vr25, $vr7, 16
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vld	$vr24, $sp, 416                 # 16-byte Folded Reload
-	vmul.w	$vr24, $vr23, $vr24
-	vaddi.du	$vr25, $vr8, 20
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 76
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 19
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vaddi.du	$vr25, $vr7, 20
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vld	$vr24, $sp, 400                 # 16-byte Folded Reload
-	vmul.w	$vr24, $vr23, $vr24
-	vaddi.du	$vr25, $vr8, 24
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 80
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 20
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vaddi.du	$vr25, $vr7, 24
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vld	$vr24, $sp, 384                 # 16-byte Folded Reload
-	vmul.w	$vr24, $vr23, $vr24
-	vaddi.du	$vr25, $vr8, 28
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 84
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 21
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vaddi.du	$vr25, $vr7, 28
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vslli.w	$vr24, $vr23, 3
-	vadd.d	$vr25, $vr8, $vr26
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 88
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 22
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr26
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vmul.w	$vr24, $vr23, $vr2
-	vadd.d	$vr25, $vr8, $vr28
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 92
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 23
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr28
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vmul.w	$vr24, $vr23, $vr4
-	vadd.d	$vr25, $vr8, $vr30
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 96
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 24
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr30
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vmul.w	$vr24, $vr23, $vr27
-	vadd.d	$vr25, $vr8, $vr18
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 100
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 25
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr18
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vmul.w	$vr24, $vr23, $vr29
-	vadd.d	$vr25, $vr8, $vr20
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 104
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 26
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr20
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vmul.w	$vr24, $vr23, $vr31
-	vadd.d	$vr25, $vr8, $vr1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 108
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 27
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr1
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vmul.w	$vr24, $vr23, $vr19
-	vadd.d	$vr25, $vr8, $vr3
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 112
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 28
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr3
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vmul.w	$vr24, $vr23, $vr0
-	vadd.d	$vr25, $vr8, $vr5
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 116
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 29
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr5
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vslli.w	$vr24, $vr23, 4
-	vadd.d	$vr25, $vr8, $vr6
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 120
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 30
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr25, $vr7, $vr6
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr25, 0
-	vstelm.w	$vr24, $a0, 0, 2
+	vstelm.w	$vr27, $a0, 0, 2
 	vpickve2gr.d	$a0, $vr25, 1
-	vstelm.w	$vr24, $a0, 0, 3
-	vrepli.d	$vr24, 68
-	vadd.d	$vr25, $vr8, $vr24
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 124
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 31
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
 	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 17
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 128
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vslli.w	$vr27, $vr24, 5
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 132
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 33
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 136
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 34
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 140
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 35
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 144
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 36
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 148
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 37
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 152
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 38
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 156
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 39
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 160
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 40
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 164
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 41
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 168
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 42
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 172
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 43
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 176
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 44
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 180
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 45
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 184
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 46
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 188
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 47
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 192
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vld	$vr27, $sp, 432                 # 16-byte Folded Reload
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 196
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 49
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 200
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 50
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 204
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 51
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 208
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 52
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 212
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 53
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 216
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 54
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 220
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 55
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 224
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 56
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 228
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 57
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 232
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 58
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 236
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 59
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 240
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 60
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 244
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 61
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 248
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 62
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 252
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vrepli.w	$vr27, 63
+	vmul.w	$vr27, $vr24, $vr27
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 256
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vslli.w	$vr27, $vr24, 6
+	vadd.d	$vr25, $vr7, $vr25
+	vstelm.w	$vr27, $a0, 0, 0
+	vstelm.w	$vr27, $a6, 0, 1
+	vpickve2gr.d	$a0, $vr25, 0
+	vstelm.w	$vr27, $a0, 0, 2
+	vpickve2gr.d	$a0, $vr25, 1
+	vstelm.w	$vr27, $a0, 0, 3
+	vrepli.d	$vr25, 260
+	vadd.d	$vr27, $vr8, $vr25
+	vpickve2gr.d	$a0, $vr27, 0
+	vpickve2gr.d	$a6, $vr27, 1
+	vadd.d	$vr25, $vr7, $vr25
+	vpickve2gr.d	$a7, $vr25, 0
+	vpickve2gr.d	$t0, $vr25, 1
+	vrepli.w	$vr25, 65
+	vmul.w	$vr25, $vr24, $vr25
 	vstelm.w	$vr25, $a0, 0, 0
 	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 72
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 18
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 76
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 19
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 80
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 20
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 84
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 21
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 88
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 22
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 92
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 23
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 96
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 24
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 100
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 25
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 104
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 26
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 108
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 27
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 112
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 28
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 116
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 29
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 120
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 30
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 124
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 31
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 128
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vslli.w	$vr25, $vr23, 5
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 132
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 33
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 136
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 34
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 140
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 35
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 144
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 36
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 148
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 37
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 152
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 38
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 156
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 39
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 160
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 40
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 164
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 41
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 168
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 42
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 172
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 43
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 176
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 44
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 180
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 45
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 184
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 46
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 188
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 47
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 192
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vld	$vr25, $sp, 448                 # 16-byte Folded Reload
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 196
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 49
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 200
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 50
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 204
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 51
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 208
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 52
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 212
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 53
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 216
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 54
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 220
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 55
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 224
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 56
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 228
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 57
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 232
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 58
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 236
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 59
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 240
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 60
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 244
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 61
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 248
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 62
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 252
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vrepli.w	$vr25, 63
-	vmul.w	$vr25, $vr23, $vr25
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 256
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vslli.w	$vr25, $vr23, 6
-	vadd.d	$vr24, $vr7, $vr24
-	vstelm.w	$vr25, $a0, 0, 0
-	vstelm.w	$vr25, $a6, 0, 1
-	vpickve2gr.d	$a0, $vr24, 0
-	vstelm.w	$vr25, $a0, 0, 2
-	vpickve2gr.d	$a0, $vr24, 1
-	vstelm.w	$vr25, $a0, 0, 3
-	vrepli.d	$vr24, 260
-	vadd.d	$vr25, $vr8, $vr24
-	vpickve2gr.d	$a0, $vr25, 0
-	vpickve2gr.d	$a6, $vr25, 1
-	vadd.d	$vr24, $vr7, $vr24
-	vpickve2gr.d	$a7, $vr24, 0
-	vpickve2gr.d	$t0, $vr24, 1
-	vrepli.w	$vr24, 65
-	vmul.w	$vr24, $vr23, $vr24
-	vstelm.w	$vr24, $a0, 0, 0
-	vstelm.w	$vr24, $a6, 0, 1
-	vstelm.w	$vr24, $a7, 0, 2
-	vstelm.w	$vr24, $t0, 0, 3
-	vrepli.w	$vr24, 66
-	vmul.w	$vr23, $vr23, $vr24
-	vrepli.d	$vr24, 264
-	vadd.d	$vr7, $vr7, $vr24
-	vadd.d	$vr8, $vr8, $vr24
+	vstelm.w	$vr25, $a7, 0, 2
+	vstelm.w	$vr25, $t0, 0, 3
+	vrepli.w	$vr25, 66
+	vmul.w	$vr24, $vr24, $vr25
+	vrepli.d	$vr25, 264
+	vadd.d	$vr7, $vr7, $vr25
+	vadd.d	$vr8, $vr8, $vr25
 	vpickve2gr.d	$a0, $vr8, 0
 	vpickve2gr.d	$a6, $vr8, 1
 	vpickve2gr.d	$a7, $vr7, 0
 	vpickve2gr.d	$t0, $vr7, 1
-	vstelm.w	$vr23, $a0, 0, 0
-	vstelm.w	$vr23, $a6, 0, 1
-	vstelm.w	$vr23, $a7, 0, 2
-	vstelm.w	$vr23, $t0, 0, 3
+	vstelm.w	$vr24, $a0, 0, 0
+	vstelm.w	$vr24, $a6, 0, 1
+	vstelm.w	$vr24, $a7, 0, 2
+	vstelm.w	$vr24, $t0, 0, 3
 	vaddi.du	$vr9, $vr9, 1
 	vpickve2gr.d	$a0, $vr9, 0
 	vaddi.du	$vr10, $vr10, 1
@@ -1979,185 +1978,184 @@ main:                                   # @main
 	ori	$a0, $a0, 1448
 	add.d	$s5, $a1, $a0
 	ori	$s6, $s0, 228
-	ori	$a3, $a2, 3756
-	ori	$a4, $a2, 3740
-	ori	$a5, $a2, 3788
-	ori	$a6, $a2, 3772
-	ori	$a7, $a2, 3820
-	ori	$t0, $a2, 3804
-	ori	$t1, $a2, 3852
-	ori	$t2, $a2, 3836
-	ori	$t3, $a2, 3884
-	ori	$t4, $a2, 3916
-	ori	$t5, $a2, 3900
-	ori	$t6, $a2, 3948
-	ori	$t7, $a2, 3932
-	ori	$t8, $a2, 3980
-	ori	$s7, $s1, 3824
-	vld	$vr3, $sp, 192                  # 16-byte Folded Reload
-	vld	$vr4, $sp, 176                  # 16-byte Folded Reload
-	vld	$vr5, $sp, 160                  # 16-byte Folded Reload
-	vld	$vr6, $sp, 144                  # 16-byte Folded Reload
-	vld	$vr7, $sp, 128                  # 16-byte Folded Reload
-	vld	$vr8, $sp, 112                  # 16-byte Folded Reload
-	vld	$vr9, $sp, 96                   # 16-byte Folded Reload
-	vld	$vr10, $sp, 80                  # 16-byte Folded Reload
-	vld	$vr11, $sp, 64                  # 16-byte Folded Reload
-	vld	$vr16, $sp, 48                  # 16-byte Folded Reload
-	vld	$vr17, $sp, 32                  # 16-byte Folded Reload
-	vld	$vr18, $sp, 16                  # 16-byte Folded Reload
+	ori	$a3, $a2, 3740
+	ori	$a4, $a2, 3756
+	ori	$a5, $a2, 3772
+	ori	$a6, $a2, 3788
+	ori	$a7, $a2, 3804
+	ori	$t0, $a2, 3820
+	ori	$t1, $a2, 3836
+	ori	$a0, $s7, 3824
+	vld	$vr2, $sp, 176                  # 16-byte Folded Reload
+	vld	$vr3, $sp, 160                  # 16-byte Folded Reload
+	vld	$vr4, $sp, 144                  # 16-byte Folded Reload
+	vld	$vr5, $sp, 128                  # 16-byte Folded Reload
+	vld	$vr6, $sp, 112                  # 16-byte Folded Reload
+	vld	$vr7, $sp, 96                   # 16-byte Folded Reload
+	vld	$vr8, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr9, $sp, 64                   # 16-byte Folded Reload
+	vld	$vr10, $sp, 48                  # 16-byte Folded Reload
+	vld	$vr16, $sp, 32                  # 16-byte Folded Reload
+	vld	$vr17, $sp, 16                  # 16-byte Folded Reload
 	.p2align	4, , 16
 .LBB0_78:                               # %.preheader.i183
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$a0, $s5, $s6
-	stptr.w	$zero, $a0, 11924
-	stptr.w	$s3, $a0, 11928
+	add.d	$s1, $s5, $s6
+	stptr.w	$zero, $s1, 11924
+	stptr.w	$s3, $s1, 11928
 	vreplgr2vr.w	$vr0, $s3
+	vmul.w	$vr1, $vr0, $vr2
+	vstx	$vr1, $s1, $a3
 	vmul.w	$vr1, $vr0, $vr3
-	vmul.w	$vr2, $vr0, $vr4
-	vstx	$vr2, $a0, $a3
-	vstx	$vr1, $a0, $a4
+	vstx	$vr1, $s1, $a4
+	vmul.w	$vr1, $vr0, $vr4
+	vstx	$vr1, $s1, $a5
 	vmul.w	$vr1, $vr0, $vr5
-	vmul.w	$vr2, $vr0, $vr6
-	vstx	$vr2, $a0, $a5
-	vstx	$vr1, $a0, $a6
+	vstx	$vr1, $s1, $a6
+	vmul.w	$vr1, $vr0, $vr6
+	vstx	$vr1, $s1, $a7
 	vmul.w	$vr1, $vr0, $vr7
-	vmul.w	$vr2, $vr0, $vr8
-	vstx	$vr2, $a0, $a7
-	vstx	$vr1, $a0, $t0
+	vstx	$vr1, $s1, $t0
+	vmul.w	$vr1, $vr0, $vr8
+	vstx	$vr1, $s1, $t1
 	vmul.w	$vr1, $vr0, $vr9
-	vmul.w	$vr2, $vr0, $vr10
-	vstx	$vr2, $a0, $t1
-	vstx	$vr1, $a0, $t2
-	vmul.w	$vr1, $vr0, $vr11
-	vmul.w	$vr2, $vr0, $vr16
-	vstx	$vr2, $a0, $t3
-	vstx	$vr1, $a0, $ra
+	ori	$t2, $a2, 3852
+	vstx	$vr1, $s1, $t2
+	vmul.w	$vr1, $vr0, $vr10
+	vstx	$vr1, $s1, $ra
+	vmul.w	$vr1, $vr0, $vr16
+	ori	$t3, $a2, 3884
+	vstx	$vr1, $s1, $t3
 	vmul.w	$vr1, $vr0, $vr17
-	vmul.w	$vr2, $vr0, $vr18
-	vstx	$vr2, $a0, $t4
-	vstx	$vr1, $a0, $t5
+	ori	$t4, $a2, 3900
+	vstx	$vr1, $s1, $t4
+	vmul.w	$vr1, $vr0, $vr11
+	ori	$t5, $a2, 3916
+	vstx	$vr1, $s1, $t5
 	vmul.w	$vr1, $vr0, $vr12
-	vmul.w	$vr2, $vr0, $vr13
-	vstx	$vr2, $a0, $t6
-	vstx	$vr1, $a0, $t7
+	ori	$t6, $a2, 3932
+	vstx	$vr1, $s1, $t6
+	vmul.w	$vr1, $vr0, $vr13
+	ori	$t7, $a2, 3948
+	vstx	$vr1, $s1, $t7
 	vmul.w	$vr1, $vr0, $vr14
+	ori	$t8, $a2, 3964
+	vstx	$vr1, $s1, $t8
 	vmul.w	$vr0, $vr0, $vr15
-	vstx	$vr0, $a0, $t8
-	ori	$s2, $a2, 3964
-	vstx	$vr1, $a0, $s2
-	stptr.w	$s4, $a0, 12188
-	add.d	$s4, $s4, $s7
+	ori	$s2, $a2, 3980
+	vstx	$vr0, $s1, $s2
+	stptr.w	$s4, $s1, 12188
+	add.d	$s4, $s4, $a0
 	addi.d	$s6, $s6, 268
 	addi.d	$s3, $s3, 120
 	bnez	$s6, .LBB0_78
 # %bb.79:                               # %.preheader1.i180.1
+	move	$a0, $zero
 	move	$a2, $zero
-	move	$s3, $zero
-	lu12i.w	$a0, 356
-	ori	$a0, $a0, 1220
-	add.d	$s4, $a1, $a0
-	ori	$s5, $s0, 228
-	ori	$s6, $s1, 3890
+	lu12i.w	$s1, 356
+	ori	$s1, $s1, 1220
+	add.d	$s3, $a1, $s1
+	ori	$s4, $s0, 228
+	ori	$s5, $s7, 3890
 	.p2align	4, , 16
 .LBB0_80:                               # %.preheader.i183.1
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$a0, $s4, $s5
-	stptr.w	$zero, $a0, 11924
-	stptr.w	$a2, $a0, 11928
-	vreplgr2vr.w	$vr0, $a2
+	add.d	$s1, $s3, $s4
+	stptr.w	$zero, $s1, 11924
+	stptr.w	$a0, $s1, 11928
+	vreplgr2vr.w	$vr0, $a0
+	vmul.w	$vr1, $vr0, $vr2
+	vstx	$vr1, $s1, $a3
 	vmul.w	$vr1, $vr0, $vr3
-	vmul.w	$vr2, $vr0, $vr4
-	vstx	$vr2, $a0, $a3
-	vstx	$vr1, $a0, $a4
+	vstx	$vr1, $s1, $a4
+	vmul.w	$vr1, $vr0, $vr4
+	vstx	$vr1, $s1, $a5
 	vmul.w	$vr1, $vr0, $vr5
-	vmul.w	$vr2, $vr0, $vr6
-	vstx	$vr2, $a0, $a5
-	vstx	$vr1, $a0, $a6
+	vstx	$vr1, $s1, $a6
+	vmul.w	$vr1, $vr0, $vr6
+	vstx	$vr1, $s1, $a7
 	vmul.w	$vr1, $vr0, $vr7
-	vmul.w	$vr2, $vr0, $vr8
-	vstx	$vr2, $a0, $a7
-	vstx	$vr1, $a0, $t0
+	vstx	$vr1, $s1, $t0
+	vmul.w	$vr1, $vr0, $vr8
+	vstx	$vr1, $s1, $t1
 	vmul.w	$vr1, $vr0, $vr9
-	vmul.w	$vr2, $vr0, $vr10
-	vstx	$vr2, $a0, $t1
-	vstx	$vr1, $a0, $t2
-	vmul.w	$vr1, $vr0, $vr11
-	vmul.w	$vr2, $vr0, $vr16
-	vstx	$vr2, $a0, $t3
-	vstx	$vr1, $a0, $ra
+	vstx	$vr1, $s1, $t2
+	vmul.w	$vr1, $vr0, $vr10
+	vstx	$vr1, $s1, $ra
+	vmul.w	$vr1, $vr0, $vr16
+	vstx	$vr1, $s1, $t3
 	vmul.w	$vr1, $vr0, $vr17
-	vmul.w	$vr2, $vr0, $vr18
-	vstx	$vr2, $a0, $t4
-	vstx	$vr1, $a0, $t5
+	vstx	$vr1, $s1, $t4
+	vmul.w	$vr1, $vr0, $vr11
+	vstx	$vr1, $s1, $t5
 	vmul.w	$vr1, $vr0, $vr12
-	vmul.w	$vr2, $vr0, $vr13
-	vstx	$vr2, $a0, $t6
-	vstx	$vr1, $a0, $t7
+	vstx	$vr1, $s1, $t6
+	vmul.w	$vr1, $vr0, $vr13
+	vstx	$vr1, $s1, $t7
 	vmul.w	$vr1, $vr0, $vr14
+	vstx	$vr1, $s1, $t8
 	vmul.w	$vr0, $vr0, $vr15
-	vstx	$vr0, $a0, $t8
-	vstx	$vr1, $a0, $s2
-	stptr.w	$s3, $a0, 12188
-	add.d	$s3, $s3, $s6
-	addi.d	$s5, $s5, 268
-	addi.d	$a2, $a2, 121
-	bnez	$s5, .LBB0_80
+	vstx	$vr0, $s1, $s2
+	stptr.w	$a2, $s1, 12188
+	add.d	$a2, $a2, $s5
+	addi.d	$s4, $s4, 268
+	addi.d	$a0, $a0, 121
+	bnez	$s4, .LBB0_80
 # %bb.81:                               # %.preheader1.i180.2
+	move	$a0, $zero
 	move	$a2, $zero
-	move	$s3, $zero
-	lu12i.w	$a0, 359
-	ori	$a0, $a0, 992
-	add.d	$s4, $a1, $a0
-	ori	$a0, $s0, 228
-	ori	$s5, $s1, 3956
+	lu12i.w	$s1, 359
+	ori	$s1, $s1, 992
+	add.d	$s3, $a1, $s1
+	ori	$s4, $s0, 228
+	ori	$s5, $s7, 3956
 	.p2align	4, , 16
 .LBB0_82:                               # %.preheader.i183.2
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$s1, $s4, $a0
+	add.d	$s1, $s3, $s4
 	stptr.w	$zero, $s1, 11924
-	stptr.w	$a2, $s1, 11928
-	vreplgr2vr.w	$vr0, $a2
+	stptr.w	$a0, $s1, 11928
+	vreplgr2vr.w	$vr0, $a0
+	vmul.w	$vr1, $vr0, $vr2
+	vstx	$vr1, $s1, $a3
 	vmul.w	$vr1, $vr0, $vr3
-	vmul.w	$vr2, $vr0, $vr4
-	vstx	$vr2, $s1, $a3
 	vstx	$vr1, $s1, $a4
+	vmul.w	$vr1, $vr0, $vr4
+	vstx	$vr1, $s1, $a5
 	vmul.w	$vr1, $vr0, $vr5
-	vmul.w	$vr2, $vr0, $vr6
-	vstx	$vr2, $s1, $a5
 	vstx	$vr1, $s1, $a6
+	vmul.w	$vr1, $vr0, $vr6
+	vstx	$vr1, $s1, $a7
 	vmul.w	$vr1, $vr0, $vr7
-	vmul.w	$vr2, $vr0, $vr8
-	vstx	$vr2, $s1, $a7
 	vstx	$vr1, $s1, $t0
+	vmul.w	$vr1, $vr0, $vr8
+	vstx	$vr1, $s1, $t1
 	vmul.w	$vr1, $vr0, $vr9
-	vmul.w	$vr2, $vr0, $vr10
-	vstx	$vr2, $s1, $t1
 	vstx	$vr1, $s1, $t2
-	vmul.w	$vr1, $vr0, $vr11
-	vmul.w	$vr2, $vr0, $vr16
-	vstx	$vr2, $s1, $t3
+	vmul.w	$vr1, $vr0, $vr10
 	vstx	$vr1, $s1, $ra
+	vmul.w	$vr1, $vr0, $vr16
+	vstx	$vr1, $s1, $t3
 	vmul.w	$vr1, $vr0, $vr17
-	vmul.w	$vr2, $vr0, $vr18
-	vstx	$vr2, $s1, $t4
+	vstx	$vr1, $s1, $t4
+	vmul.w	$vr1, $vr0, $vr11
 	vstx	$vr1, $s1, $t5
 	vmul.w	$vr1, $vr0, $vr12
-	vmul.w	$vr2, $vr0, $vr13
-	vstx	$vr2, $s1, $t6
+	vstx	$vr1, $s1, $t6
+	vmul.w	$vr1, $vr0, $vr13
 	vstx	$vr1, $s1, $t7
 	vmul.w	$vr1, $vr0, $vr14
+	vstx	$vr1, $s1, $t8
 	vmul.w	$vr0, $vr0, $vr15
-	vstx	$vr0, $s1, $t8
-	vstx	$vr1, $s1, $s2
-	stptr.w	$s3, $s1, 12188
-	add.d	$s3, $s3, $s5
-	addi.d	$a0, $a0, 268
-	addi.d	$a2, $a2, 122
-	bnez	$a0, .LBB0_82
+	vstx	$vr0, $s1, $s2
+	stptr.w	$a2, $s1, 12188
+	add.d	$a2, $a2, $s5
+	addi.d	$s4, $s4, 268
+	addi.d	$a0, $a0, 122
+	bnez	$s4, .LBB0_82
 # %bb.83:                               # %"_ZZ4mainENK3$_7clEmmmPi.exit"
 	move	$a0, $fp
-	ld.d	$a2, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 192                   # 8-byte Folded Reload
 	move	$s0, $a1
 	pcaddu18i	$ra, %call36(bcmp)
 	jirl	$ra, $ra, 0
@@ -2171,7 +2169,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
 	addi.d	$sp, $sp, 2032
-	addi.d	$sp, $sp, 1552
+	addi.d	$sp, $sp, 1536
 	fld.d	$fs7, $sp, 1880                 # 8-byte Folded Reload
 	fld.d	$fs6, $sp, 1888                 # 8-byte Folded Reload
 	fld.d	$fs5, $sp, 1896                 # 8-byte Folded Reload
@@ -2239,7 +2237,7 @@ main:                                   # @main
 .LBB0_90:                               # %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit239
 .Ltmp53:                                # EH_LABEL
 	move	$s3, $a0
-	ld.d	$a0, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
 	b	.LBB0_112
 .LBB0_91:                               # %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit227.loopexit.split-lp.loopexit.split-lp
 .Ltmp47:                                # EH_LABEL

@@ -466,10 +466,10 @@ _ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3: # @_ZNK14btCapsuleShap
 	addi.d	$a0, $a0, 40
 	slli.d	$a3, $a3, 2
 	fldx.s	$fa1, $a0, $a3
-	fst.s	$fa1, $sp, 0
-	fst.s	$fa1, $sp, 4
-	fst.s	$fa1, $sp, 8
-	st.w	$zero, $sp, 12
+	vrepli.b	$vr2, 0
+	vextrins.w	$vr2, $vr1, 0
+	vshuf4i.w	$vr1, $vr2, 64
+	vst	$vr1, $sp, 0
 	slli.d	$a2, $a2, 2
 	fldx.s	$fa1, $a0, $a2
 	addi.d	$a0, $sp, 0

@@ -5,55 +5,51 @@
 	.type	test,@function
 test:                                   # @test
 # %bb.0:
+	addi.d	$sp, $sp, -16
+	st.d	$fp, $sp, 8                     # 8-byte Folded Spill
 	ld.h	$a3, $a1, 0
 	ld.h	$a4, $a1, 16
-	mul.d	$a3, $a3, $a2
-	add.d	$a0, $a3, $a0
-	ld.h	$a3, $a1, 32
-	mul.d	$a4, $a4, $a2
-	add.d	$a0, $a4, $a0
-	ld.h	$a4, $a1, 48
-	mul.d	$a3, $a3, $a2
-	add.d	$a0, $a3, $a0
-	ld.h	$a3, $a1, 64
-	mul.d	$a4, $a4, $a2
-	add.d	$a0, $a4, $a0
-	ld.h	$a4, $a1, 80
-	mul.d	$a3, $a3, $a2
-	add.d	$a0, $a3, $a0
-	ld.h	$a3, $a1, 96
-	mul.d	$a4, $a4, $a2
-	add.d	$a0, $a4, $a0
-	ld.h	$a4, $a1, 112
-	mul.d	$a3, $a3, $a2
-	add.d	$a0, $a3, $a0
-	ld.h	$a3, $a1, 128
-	mul.d	$a4, $a4, $a2
-	add.d	$a0, $a4, $a0
-	ld.h	$a4, $a1, 144
-	mul.d	$a3, $a3, $a2
-	add.d	$a0, $a3, $a0
-	ld.h	$a3, $a1, 160
-	mul.d	$a4, $a4, $a2
-	add.d	$a0, $a4, $a0
-	ld.h	$a4, $a1, 176
-	mul.d	$a3, $a3, $a2
-	add.d	$a0, $a3, $a0
-	ld.h	$a3, $a1, 192
-	mul.d	$a4, $a4, $a2
-	add.d	$a0, $a4, $a0
-	ld.h	$a4, $a1, 208
-	mul.d	$a3, $a3, $a2
-	add.d	$a0, $a3, $a0
-	ld.h	$a3, $a1, 224
-	mul.d	$a4, $a4, $a2
+	ld.h	$a5, $a1, 32
+	ld.h	$a6, $a1, 48
+	ld.h	$a7, $a1, 64
+	ld.h	$t0, $a1, 80
+	ld.h	$t1, $a1, 96
+	ld.h	$t2, $a1, 112
+	ld.h	$t3, $a1, 128
+	ld.h	$t4, $a1, 144
+	ld.h	$t5, $a1, 160
+	ld.h	$t6, $a1, 176
+	ld.h	$t7, $a1, 192
+	ld.h	$t8, $a1, 208
+	ld.h	$fp, $a1, 224
 	ld.h	$a1, $a1, 240
-	add.d	$a0, $a4, $a0
-	mul.d	$a3, $a3, $a2
-	add.d	$a0, $a3, $a0
-	mul.d	$a1, $a1, $a2
+	vinsgr2vr.h	$vr0, $t3, 0
+	vinsgr2vr.h	$vr0, $t4, 1
+	vinsgr2vr.h	$vr0, $t5, 2
+	vinsgr2vr.h	$vr0, $t6, 3
+	vinsgr2vr.h	$vr0, $t7, 4
+	vinsgr2vr.h	$vr0, $t8, 5
+	vinsgr2vr.h	$vr0, $fp, 6
+	vinsgr2vr.h	$vr0, $a1, 7
+	vinsgr2vr.h	$vr1, $a3, 0
+	vinsgr2vr.h	$vr1, $a4, 1
+	vinsgr2vr.h	$vr1, $a5, 2
+	vinsgr2vr.h	$vr1, $a6, 3
+	vinsgr2vr.h	$vr1, $a7, 4
+	vinsgr2vr.h	$vr1, $t0, 5
+	vinsgr2vr.h	$vr1, $t1, 6
+	vinsgr2vr.h	$vr1, $t2, 7
+	vreplgr2vr.h	$vr2, $a2
+	vmul.h	$vr1, $vr1, $vr2
+	vmadd.h	$vr1, $vr0, $vr2
+	vhaddw.w.h	$vr0, $vr1, $vr1
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a1, $vr0, 0
 	add.d	$a0, $a1, $a0
 	bstrpick.d	$a0, $a0, 15, 0
+	ld.d	$fp, $sp, 8                     # 8-byte Folded Reload
+	addi.d	$sp, $sp, 16
 	ret
 .Lfunc_end0:
 	.size	test, .Lfunc_end0-test

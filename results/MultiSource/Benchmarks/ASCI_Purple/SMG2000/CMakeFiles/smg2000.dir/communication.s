@@ -1676,14 +1676,13 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 	ld.w	$a3, $a0, 8
 	ori	$a2, $zero, 2
 	st.d	$a3, $sp, 48                    # 8-byte Folded Spill
-	blt	$a3, $a2, .LBB12_30
+	blt	$a3, $a2, .LBB12_31
 # %bb.1:                                # %.preheader127.preheader
 	move	$fp, $a1
-	ld.d	$a1, $a0, 0
+	ld.d	$a0, $a0, 0
+	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
 	addi.w	$a0, $a0, -1
-	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
-	addi.d	$s4, $a1, 8
 	ori	$s5, $zero, 1
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	b	.LBB12_3
@@ -1694,26 +1693,25 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 .LBB12_3:                               # %.preheader127
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB12_6 Depth 2
-	move	$s7, $zero
+	move	$s4, $zero
 	move	$s6, $a0
-	move	$s3, $s4
+	ld.d	$s3, $sp, 40                    # 8-byte Folded Reload
 	b	.LBB12_6
 	.p2align	4, , 16
 .LBB12_4:                               # %.critedge118
                                         #   in Loop: Header=BB12_6 Depth=2
-	ld.d	$a0, $s3, 0
-	ld.d	$a1, $s3, -8
-	st.d	$a0, $s3, -8
-	st.d	$a1, $s3, 0
+	vld	$vr0, $s3, 0
+	vshuf4i.d	$vr0, $vr0, 1
+	vst	$vr0, $s3, 0
 .LBB12_5:                               # %.critedge
                                         #   in Loop: Header=BB12_6 Depth=2
-	addi.d	$s7, $s7, 1
+	addi.d	$s4, $s4, 1
 	addi.d	$s3, $s3, 8
-	beq	$s6, $s7, .LBB12_2
+	beq	$s6, $s4, .LBB12_2
 .LBB12_6:                               #   Parent Loop BB12_3 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	ld.d	$s1, $s3, -8
-	ld.d	$s0, $s3, 0
+	ld.d	$s1, $s3, 0
+	ld.d	$s0, $s3, 8
 	move	$a0, $s1
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodZ)
@@ -1771,7 +1769,7 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 	b	.LBB12_5
 .LBB12_11:                              # %.lr.ph.preheader
 	move	$s8, $zero
-	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	addi.d	$a0, $a0, 8
 	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	b	.LBB12_13
@@ -1779,32 +1777,32 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 .LBB12_12:                              # %.loopexit
                                         #   in Loop: Header=BB12_13 Depth=1
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
-	bge	$s8, $a0, .LBB12_30
+	bge	$s8, $a0, .LBB12_31
 .LBB12_13:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB12_14 Depth 2
-                                        #     Child Loop BB12_22 Depth 2
-                                        #       Child Loop BB12_25 Depth 3
+                                        #     Child Loop BB12_23 Depth 2
+                                        #       Child Loop BB12_26 Depth 3
 	move	$s3, $s8
-	slli.d	$a0, $s8, 3
-	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
-	ldx.d	$s0, $a1, $a0
+	slli.d	$a1, $s8, 3
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
+	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
+	ldx.d	$s0, $a0, $a1
 	addi.w	$a0, $s8, 1
 	ld.d	$a2, $sp, 48                    # 8-byte Folded Reload
 	slt	$a1, $a0, $a2
 	masknez	$a0, $a0, $a1
 	maskeqz	$a1, $a2, $a1
-	or	$s4, $a1, $a0
-	addi.w	$s7, $s4, -1
+	or	$s5, $a1, $a0
+	addi.w	$s7, $s5, -1
 	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	alsl.d	$s6, $s8, $a0, 3
-	addi.d	$s5, $s8, 1
-	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
+	addi.d	$s4, $s8, 1
 	.p2align	4, , 16
 .LBB12_14:                              #   Parent Loop BB12_13 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
-	bge	$s5, $a0, .LBB12_20
+	bge	$s4, $a0, .LBB12_20
 # %bb.15:                               #   in Loop: Header=BB12_14 Depth=2
 	ld.d	$s1, $s6, 0
 	move	$a0, $s0
@@ -1840,57 +1838,58 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 	jirl	$ra, $ra, 0
 	addi.w	$s8, $s8, 1
 	addi.d	$s6, $s6, 8
-	addi.d	$s5, $s5, 1
+	addi.d	$s4, $s4, 1
 	beq	$s2, $a0, .LBB12_14
 # %bb.18:                               # %.split.loop.exit144
                                         #   in Loop: Header=BB12_13 Depth=1
 	addi.w	$s7, $s8, -1
-	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
-	blt	$s3, $s7, .LBB12_22
-	b	.LBB12_12
+	bge	$s3, $s7, .LBB12_12
+	b	.LBB12_21
 	.p2align	4, , 16
 .LBB12_19:                              # %.split.loop.exit141
                                         #   in Loop: Header=BB12_13 Depth=1
 	addi.w	$a0, $s8, 1
 	move	$s7, $s8
 	move	$s8, $a0
-	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
-	blt	$s3, $s7, .LBB12_22
-	b	.LBB12_12
+	bge	$s3, $s7, .LBB12_12
+	b	.LBB12_21
 	.p2align	4, , 16
 .LBB12_20:                              #   in Loop: Header=BB12_13 Depth=1
-	move	$s8, $s4
-	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
-	blt	$s3, $s7, .LBB12_22
-	b	.LBB12_12
+	move	$s8, $s5
+	bge	$s3, $s7, .LBB12_12
+.LBB12_21:                              # %.preheader.preheader
+                                        #   in Loop: Header=BB12_13 Depth=1
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
+	add.d	$s4, $a0, $a1
+	b	.LBB12_23
 	.p2align	4, , 16
-.LBB12_21:                              #   in Loop: Header=BB12_22 Depth=2
+.LBB12_22:                              #   in Loop: Header=BB12_23 Depth=2
 	addi.d	$s7, $s7, -1
 	bge	$s3, $s7, .LBB12_12
-.LBB12_22:                              # %.preheader
+.LBB12_23:                              # %.preheader
                                         #   Parent Loop BB12_13 Depth=1
                                         # =>  This Loop Header: Depth=2
-                                        #       Child Loop BB12_25 Depth 3
-	move	$s5, $s6
-	move	$s4, $s3
-	b	.LBB12_25
+                                        #       Child Loop BB12_26 Depth 3
+	move	$s6, $s4
+	move	$s5, $s3
+	b	.LBB12_26
 	.p2align	4, , 16
-.LBB12_23:                              # %.critedge123
-                                        #   in Loop: Header=BB12_25 Depth=3
-	ld.d	$a0, $s5, 0
-	ld.d	$a1, $s5, -8
-	st.d	$a0, $s5, -8
-	st.d	$a1, $s5, 0
-.LBB12_24:                              # %.critedge121
-                                        #   in Loop: Header=BB12_25 Depth=3
-	addi.d	$s4, $s4, 1
-	addi.d	$s5, $s5, 8
-	bge	$s4, $s7, .LBB12_21
-.LBB12_25:                              #   Parent Loop BB12_13 Depth=1
-                                        #     Parent Loop BB12_22 Depth=2
+.LBB12_24:                              # %.critedge123
+                                        #   in Loop: Header=BB12_26 Depth=3
+	vld	$vr0, $s6, 0
+	vshuf4i.d	$vr0, $vr0, 1
+	vst	$vr0, $s6, 0
+.LBB12_25:                              # %.critedge121
+                                        #   in Loop: Header=BB12_26 Depth=3
+	addi.d	$s5, $s5, 1
+	addi.d	$s6, $s6, 8
+	bge	$s5, $s7, .LBB12_22
+.LBB12_26:                              #   Parent Loop BB12_13 Depth=1
+                                        #     Parent Loop BB12_23 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	ld.d	$a0, $s5, -8
-	ld.d	$a1, $s5, 0
+	ld.d	$a0, $s6, 0
+	ld.d	$a1, $s6, 8
 	addi.d	$s1, $a0, 12
 	addi.d	$s0, $a1, 12
 	move	$a0, $s1
@@ -1902,8 +1901,8 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodZ)
 	jirl	$ra, $ra, 0
-	blt	$a0, $s2, .LBB12_23
-# %bb.26:                               #   in Loop: Header=BB12_25 Depth=3
+	blt	$a0, $s2, .LBB12_24
+# %bb.27:                               #   in Loop: Header=BB12_26 Depth=3
 	move	$a0, $s1
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodZ)
@@ -1913,8 +1912,8 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodZ)
 	jirl	$ra, $ra, 0
-	bne	$s2, $a0, .LBB12_24
-# %bb.27:                               #   in Loop: Header=BB12_25 Depth=3
+	bne	$s2, $a0, .LBB12_25
+# %bb.28:                               #   in Loop: Header=BB12_26 Depth=3
 	move	$a0, $s1
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodY)
@@ -1924,8 +1923,8 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodY)
 	jirl	$ra, $ra, 0
-	blt	$a0, $s2, .LBB12_23
-# %bb.28:                               #   in Loop: Header=BB12_25 Depth=3
+	blt	$a0, $s2, .LBB12_24
+# %bb.29:                               #   in Loop: Header=BB12_26 Depth=3
 	move	$a0, $s1
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodY)
@@ -1935,8 +1934,8 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodY)
 	jirl	$ra, $ra, 0
-	bne	$s2, $a0, .LBB12_24
-# %bb.29:                               #   in Loop: Header=BB12_25 Depth=3
+	bne	$s2, $a0, .LBB12_25
+# %bb.30:                               #   in Loop: Header=BB12_26 Depth=3
 	move	$a0, $s1
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodX)
@@ -1946,9 +1945,9 @@ hypre_CommTypeSort:                     # @hypre_CommTypeSort
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(hypre_IModPeriodX)
 	jirl	$ra, $ra, 0
-	blt	$a0, $s1, .LBB12_23
-	b	.LBB12_24
-.LBB12_30:                              # %._crit_edge
+	blt	$a0, $s1, .LBB12_24
+	b	.LBB12_25
+.LBB12_31:                              # %._crit_edge
 	move	$a0, $zero
 	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
 	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload

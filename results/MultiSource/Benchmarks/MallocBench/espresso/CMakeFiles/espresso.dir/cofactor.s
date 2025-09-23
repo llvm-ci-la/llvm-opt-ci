@@ -1489,10 +1489,12 @@ cube3list:                              # @cube3list
 	.type	cubeunlist,@function
 cubeunlist:                             # @cubeunlist
 # %bb.0:
-	addi.d	$sp, $sp, -32
-	st.d	$ra, $sp, 24                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 8                     # 8-byte Folded Spill
+	addi.d	$sp, $sp, -48
+	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
 	move	$fp, $a0
 	ld.d	$a0, $a0, 8
 	ld.d	$s0, $fp, 0
@@ -1504,60 +1506,124 @@ cubeunlist:                             # @cubeunlist
 	ld.w	$a1, $a1, 0
 	pcaddu18i	$ra, %call36(sf_new)
 	jirl	$ra, $ra, 0
-	ld.d	$a5, $fp, 16
-	beqz	$a5, .LBB7_5
+	ld.d	$t2, $fp, 16
+	beqz	$t2, .LBB7_12
 # %bb.1:                                # %.lr.ph
 	ld.d	$a1, $a0, 24
 	move	$a2, $zero
-	ori	$a3, $zero, 2
-	ori	$a4, $zero, 1
+	move	$a3, $zero
+	addi.d	$a4, $a1, -12
+	addi.d	$a5, $s0, -12
+	ori	$a6, $zero, 2
+	ori	$a7, $zero, 8
+	ori	$t0, $zero, 1
+	ori	$t1, $zero, 32
+	b	.LBB7_3
 	.p2align	4, , 16
-.LBB7_2:                                # =>This Loop Header: Depth=1
-                                        #     Child Loop BB7_3 Depth 2
-	ld.w	$a7, $a0, 0
-	addi.d	$a6, $a3, -2
-	mul.d	$a6, $a6, $a7
-	slli.d	$a6, $a6, 2
-	ldx.wu	$t0, $a1, $a6
-	ld.wu	$t1, $a5, 0
-	srli.d	$t0, $t0, 10
-	andi	$t2, $t1, 1023
-	bstrins.d	$t1, $t0, 63, 10
-	stx.w	$t1, $a1, $a6
-	addi.d	$a6, $t2, 1
-	mul.d	$a7, $a2, $a7
-	alsl.d	$a7, $t2, $a7, 2
-	add.d	$a7, $a1, $a7
-	alsl.d	$t0, $t2, $s0, 2
-	alsl.d	$a5, $t2, $a5, 2
-	.p2align	4, , 16
-.LBB7_3:                                #   Parent Loop BB7_2 Depth=1
-                                        # =>  This Inner Loop Header: Depth=2
-	ld.w	$t1, $a5, 0
-	ld.w	$t2, $t0, 0
-	or	$t1, $t2, $t1
-	st.w	$t1, $a7, 0
-	addi.d	$a6, $a6, -1
-	addi.d	$a7, $a7, -4
-	addi.d	$t0, $t0, -4
-	addi.d	$a5, $a5, -4
-	bltu	$a4, $a6, .LBB7_3
-# %bb.4:                                #   in Loop: Header=BB7_2 Depth=1
+.LBB7_2:                                # %.loopexit
+                                        #   in Loop: Header=BB7_3 Depth=1
+	addi.d	$a6, $a6, 1
+	slli.d	$t2, $a6, 3
+	ldx.d	$t2, $fp, $t2
 	addi.d	$a3, $a3, 1
-	slli.d	$a5, $a3, 3
-	ldx.d	$a5, $fp, $a5
 	addi.d	$a2, $a2, 4
-	bnez	$a5, .LBB7_2
-.LBB7_5:                                # %._crit_edge
+	beqz	$t2, .LBB7_12
+.LBB7_3:                                # =>This Loop Header: Depth=1
+                                        #     Child Loop BB7_10 Depth 2
+                                        #     Child Loop BB7_6 Depth 2
+	ld.w	$t5, $a0, 0
+	addi.d	$t3, $a6, -2
+	mul.d	$t3, $t3, $t5
+	slli.d	$t3, $t3, 2
+	ldx.wu	$t4, $a1, $t3
+	ld.wu	$t6, $t2, 0
+	srli.d	$t4, $t4, 10
+	andi	$s1, $t6, 1023
+	bstrins.d	$t6, $t4, 63, 10
+	stx.w	$t6, $a1, $t3
+	sltu	$t3, $zero, $s1
+	sub.d	$t3, $s1, $t3
+	addi.d	$t4, $t3, 1
+	mul.d	$t3, $a2, $t5
+	bgeu	$t4, $a7, .LBB7_7
+.LBB7_4:                                #   in Loop: Header=BB7_3 Depth=1
+	move	$t5, $s1
+.LBB7_5:                                # %scalar.ph.preheader
+                                        #   in Loop: Header=BB7_3 Depth=1
+	addi.d	$t4, $t5, 1
+	alsl.d	$t3, $t5, $t3, 2
+	add.d	$t3, $a1, $t3
+	alsl.d	$t6, $t5, $s0, 2
+	alsl.d	$t2, $t5, $t2, 2
+	.p2align	4, , 16
+.LBB7_6:                                # %scalar.ph
+                                        #   Parent Loop BB7_3 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	ld.w	$t5, $t2, 0
+	ld.w	$t7, $t6, 0
+	or	$t5, $t7, $t5
+	st.w	$t5, $t3, 0
+	addi.d	$t4, $t4, -1
+	addi.d	$t3, $t3, -4
+	addi.d	$t6, $t6, -4
+	addi.d	$t2, $t2, -4
+	bltu	$t0, $t4, .LBB7_6
+	b	.LBB7_2
+	.p2align	4, , 16
+.LBB7_7:                                # %vector.memcheck
+                                        #   in Loop: Header=BB7_3 Depth=1
+	mul.d	$t5, $a3, $t5
+	alsl.d	$t5, $t5, $a1, 2
+	sub.d	$t6, $t2, $t5
+	bltu	$t6, $t1, .LBB7_4
+# %bb.8:                                # %vector.memcheck
+                                        #   in Loop: Header=BB7_3 Depth=1
+	sub.d	$t5, $s0, $t5
+	bltu	$t5, $t1, .LBB7_4
+# %bb.9:                                # %vector.ph
+                                        #   in Loop: Header=BB7_3 Depth=1
+	move	$t6, $t4
+	bstrins.d	$t6, $zero, 2, 0
+	sub.d	$t5, $s1, $t6
+	alsl.d	$t7, $s1, $t2, 2
+	addi.d	$t7, $t7, -12
+	alsl.d	$t8, $s1, $t3, 2
+	add.d	$t8, $a4, $t8
+	alsl.d	$s1, $s1, $a5, 2
+	move	$s2, $t6
+	.p2align	4, , 16
+.LBB7_10:                               # %vector.body
+                                        #   Parent Loop BB7_3 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	vld	$vr0, $t7, 0
+	vld	$vr1, $t7, -16
+	vld	$vr2, $s1, 0
+	vld	$vr3, $s1, -16
+	vor.v	$vr0, $vr2, $vr0
+	vor.v	$vr1, $vr3, $vr1
+	vst	$vr0, $t8, 0
+	vst	$vr1, $t8, -16
+	addi.d	$s2, $s2, -8
+	addi.d	$t7, $t7, -32
+	addi.d	$t8, $t8, -32
+	addi.d	$s1, $s1, -32
+	bnez	$s2, .LBB7_10
+# %bb.11:                               # %middle.block
+                                        #   in Loop: Header=BB7_3 Depth=1
+	beq	$t4, $t6, .LBB7_2
+	b	.LBB7_5
+.LBB7_12:                               # %._crit_edge
 	ld.d	$a1, $fp, 8
 	sub.d	$a1, $a1, $fp
 	srli.d	$a1, $a1, 3
 	addi.d	$a1, $a1, -3
 	st.w	$a1, $a0, 12
-	ld.d	$s0, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$fp, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 32
+	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 48
 	ret
 .Lfunc_end7:
 	.size	cubeunlist, .Lfunc_end7-cubeunlist

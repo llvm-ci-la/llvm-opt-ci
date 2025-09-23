@@ -2639,62 +2639,62 @@ init_layer3:                            # @init_layer3
                                         # =>This Inner Loop Header: Depth=1
 	pcalau12i	$a5, %pc_hi20(.LCPI0_95)
 	vld	$vr0, $a5, %pc_lo12(.LCPI0_95)
+	vreplgr2vr.w	$vr1, $a2
 	pcalau12i	$a5, %pc_hi20(.LCPI0_96)
-	vld	$vr1, $a5, %pc_lo12(.LCPI0_96)
-	vreplgr2vr.w	$vr2, $a2
-	vadd.w	$vr3, $vr2, $vr0
-	vadd.w	$vr2, $vr2, $vr1
-	vst	$vr2, $a0, -144
+	vld	$vr2, $a5, %pc_lo12(.LCPI0_96)
+	vadd.w	$vr1, $vr1, $vr0
+	vst	$vr1, $a0, -160
+	vreplgr2vr.w	$vr1, $a3
+	vadd.w	$vr3, $vr1, $vr2
 	pcalau12i	$a5, %pc_hi20(.LCPI0_97)
-	vld	$vr2, $a5, %pc_lo12(.LCPI0_97)
+	vld	$vr4, $a5, %pc_lo12(.LCPI0_97)
 	pcalau12i	$a5, %pc_hi20(.LCPI0_98)
-	vld	$vr4, $a5, %pc_lo12(.LCPI0_98)
-	vst	$vr3, $a0, -160
-	vreplgr2vr.w	$vr3, $a3
-	vadd.w	$vr5, $vr3, $vr2
-	vadd.w	$vr3, $vr3, $vr4
-	vst	$vr3, $a0, -112
-	vst	$vr5, $a0, -128
+	vld	$vr5, $a5, %pc_lo12(.LCPI0_98)
+	vst	$vr3, $a0, -144
+	vadd.w	$vr3, $vr1, $vr4
+	vst	$vr3, $a0, -128
+	vadd.w	$vr1, $vr1, $vr5
+	vst	$vr1, $a0, -112
 	addi.d	$a5, $a3, 8
-	vreplgr2vr.w	$vr3, $a5
-	vadd.w	$vr5, $vr3, $vr0
-	vadd.w	$vr6, $vr3, $vr1
-	vst	$vr6, $a0, -80
-	vst	$vr5, $a0, -96
-	vadd.w	$vr5, $vr3, $vr2
-	vadd.w	$vr3, $vr3, $vr4
-	vst	$vr3, $a0, -48
-	vst	$vr5, $a0, -64
+	vreplgr2vr.w	$vr1, $a5
+	vadd.w	$vr3, $vr1, $vr0
+	vst	$vr3, $a0, -96
+	vadd.w	$vr3, $vr1, $vr2
+	vst	$vr3, $a0, -80
+	vadd.w	$vr3, $vr1, $vr4
+	vst	$vr3, $a0, -64
+	vadd.w	$vr1, $vr1, $vr5
+	vst	$vr1, $a0, -48
 	addi.d	$a5, $a3, 16
-	vreplgr2vr.w	$vr3, $a5
-	vadd.w	$vr5, $vr3, $vr0
-	vadd.w	$vr6, $vr3, $vr1
-	vst	$vr6, $a0, -16
-	vst	$vr5, $a0, -32
-	vadd.w	$vr5, $vr3, $vr2
-	vadd.w	$vr3, $vr3, $vr4
-	vst	$vr3, $a0, 16
-	vst	$vr5, $a0, 0
+	vreplgr2vr.w	$vr1, $a5
+	vadd.w	$vr3, $vr1, $vr0
+	vst	$vr3, $a0, -32
+	vadd.w	$vr3, $vr1, $vr2
+	vst	$vr3, $a0, -16
+	vadd.w	$vr3, $vr1, $vr4
+	vst	$vr3, $a0, 0
+	vadd.w	$vr1, $vr1, $vr5
+	vst	$vr1, $a0, 16
 	addi.d	$a5, $a3, 24
-	vreplgr2vr.w	$vr3, $a5
-	vadd.w	$vr5, $vr3, $vr0
-	vadd.w	$vr6, $vr3, $vr1
-	vst	$vr6, $a0, 48
-	vst	$vr5, $a0, 32
-	vadd.w	$vr5, $vr3, $vr2
-	vadd.w	$vr3, $vr3, $vr4
-	vst	$vr3, $a0, 80
-	vst	$vr5, $a0, 64
+	vreplgr2vr.w	$vr1, $a5
+	vadd.w	$vr3, $vr1, $vr0
+	vst	$vr3, $a0, 32
+	vadd.w	$vr3, $vr1, $vr2
+	vst	$vr3, $a0, 48
+	vadd.w	$vr3, $vr1, $vr4
+	vst	$vr3, $a0, 64
+	vadd.w	$vr1, $vr1, $vr5
+	vst	$vr1, $a0, 80
 	addi.d	$a5, $a3, 32
-	vreplgr2vr.w	$vr3, $a5
-	vadd.w	$vr0, $vr3, $vr0
-	vadd.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a0, 112
+	vreplgr2vr.w	$vr1, $a5
+	vadd.w	$vr0, $vr1, $vr0
 	vst	$vr0, $a0, 96
-	vadd.w	$vr0, $vr3, $vr2
-	vadd.w	$vr1, $vr3, $vr4
-	vst	$vr1, $a0, 144
+	vadd.w	$vr0, $vr1, $vr2
+	vst	$vr0, $a0, 112
+	vadd.w	$vr0, $vr1, $vr4
 	vst	$vr0, $a0, 128
+	vadd.w	$vr0, $vr1, $vr5
+	vst	$vr0, $a0, 144
 	addi.d	$a3, $a3, 1
 	addi.d	$a2, $a2, 1
 	addi.d	$a0, $a0, 320
@@ -5374,7 +5374,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	sub.d	$a0, $a0, $a7
 	st.w	$a0, $sp, 168
 .LBB4_5:
-	st.d	$a1, $sp, 128                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 136                   # 8-byte Folded Spill
 	st.d	$a6, $sp, 24                    # 8-byte Folded Spill
 	srai.d	$a0, $a6, 1
 	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
@@ -5392,8 +5392,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	addi.d	$a5, $a5, %pc_lo12(ht)
 	st.d	$a5, $sp, 40                    # 8-byte Folded Spill
 	pcalau12i	$a5, %pc_hi20(ispow)
-	addi.d	$a5, $a5, %pc_lo12(ispow)
-	st.d	$a5, $sp, 136                   # 8-byte Folded Spill
+	addi.d	$s7, $a5, %pc_lo12(ispow)
 	st.d	$a2, $sp, 64                    # 8-byte Folded Spill
 	st.d	$a3, $sp, 32                    # 8-byte Folded Spill
 	bne	$a1, $a4, .LBB4_29
@@ -5405,7 +5404,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	pcalau12i	$a1, %pc_hi20(mapend)
 	addi.d	$a4, $a1, %pc_lo12(mapend)
 	move	$a1, $zero
-	move	$s4, $zero
+	move	$s8, $zero
 	move	$t4, $zero
 	move	$ra, $zero
 	move	$t8, $zero
@@ -5416,14 +5415,12 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	masknez	$a3, $a3, $a6
 	maskeqz	$a4, $a4, $a6
 	or	$a3, $a4, $a3
-	slli.d	$a6, $a6, 3
-	addi.w	$a4, $zero, -1
-	lu32i.d	$a4, 0
-	st.w	$a4, $sp, 156
-	st.w	$a5, $sp, 152
-	st.w	$a5, $sp, 148
-	st.w	$a5, $sp, 144
-	ldx.d	$a0, $a0, $a6
+	slli.d	$a4, $a6, 3
+	vrepli.b	$vr0, -1
+	vinsgr2vr.w	$vr0, $a5, 0
+	vshuf4i.w	$vr0, $vr0, 64
+	vst	$vr0, $sp, 144
+	ldx.d	$a0, $a0, $a4
 	st.d	$a0, $sp, 96                    # 8-byte Folded Spill
 	ld.d	$a0, $a3, 0
 	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
@@ -5433,9 +5430,9 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
 	movgr2fr.d	$fs0, $zero
 	addi.d	$a0, $sp, 164
-	ori	$s8, $zero, 15
+	ori	$a6, $zero, 15
 	ori	$a3, $zero, 1
-	ld.d	$s5, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$t3, $sp, 88                    # 8-byte Folded Reload
 	b	.LBB4_8
 	.p2align	4, , 16
 .LBB4_7:                                # %._crit_edge628
@@ -5460,29 +5457,29 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	alsl.d	$a0, $a0, $a1, 4
 	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
-	ld.d	$a6, $a0, 8
-	st.d	$a6, $sp, 112                   # 8-byte Folded Spill
+	ld.d	$a7, $a0, 8
+	st.d	$a7, $sp, 112                   # 8-byte Folded Spill
 	b	.LBB4_12
 	.p2align	4, , 16
 .LBB4_10:                               #   in Loop: Header=BB4_12 Depth=2
-	st.d	$zero, $s5, 0
+	st.d	$zero, $s4, 0
 .LBB4_11:                               #   in Loop: Header=BB4_12 Depth=2
-	alsl.d	$s5, $t8, $s5, 3
+	alsl.d	$t3, $t8, $s4, 3
 	addi.w	$s3, $s3, -1
-	addi.w	$s4, $s4, -1
+	addi.w	$s8, $s8, -1
 	beqz	$s3, .LBB4_7
 .LBB4_12:                               #   Parent Loop BB4_8 Depth=1
                                         # =>  This Loop Header: Depth=2
                                         #       Child Loop BB4_16 Depth 3
-	bnez	$s4, .LBB4_14
+	bnez	$s8, .LBB4_14
 # %bb.13:                               # %.sink.split
                                         #   in Loop: Header=BB4_12 Depth=2
 	ld.d	$a3, $sp, 96                    # 8-byte Folded Reload
 	ld.w	$a0, $a3, 4
 	ld.w	$ra, $a3, 8
-	ld.w	$s4, $a3, 0
+	ld.w	$s8, $a3, 0
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
-	alsl.d	$s5, $a0, $a1, 3
+	alsl.d	$t3, $a0, $a1, 3
 	addi.d	$a0, $ra, -3
 	sltui	$a0, $a0, 1
 	ld.d	$a1, $sp, 80                    # 8-byte Folded Reload
@@ -5491,7 +5488,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	maskeqz	$a2, $a2, $a0
 	or	$a1, $a2, $a1
-	ld.d	$a5, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a5, $sp, 136                   # 8-byte Folded Reload
 	ld.w	$a2, $a5, 0
 	ld.w	$t4, $a3, 12
 	ld.d	$a1, $a1, 0
@@ -5507,19 +5504,19 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	addi.d	$a2, $a5, 4
 	or	$t8, $a0, $a1
 	st.d	$a3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$a2, $sp, 128                   # 8-byte Folded Spill
+	st.d	$a2, $sp, 136                   # 8-byte Folded Spill
 .LBB4_14:                               #   in Loop: Header=BB4_12 Depth=2
 	pcalau12i	$a0, %got_pc_hi20(wordpointer)
 	ld.d	$s1, $a0, %got_pc_lo12(wordpointer)
 	ld.d	$a0, $s1, 0
 	pcalau12i	$a1, %got_pc_hi20(bitindex)
 	ld.d	$s0, $a1, %got_pc_lo12(bitindex)
-	ld.h	$s7, $a6, 0
+	ld.h	$s4, $a7, 0
 	ld.w	$a1, $s0, 0
-	bgez	$s7, .LBB4_17
+	bgez	$s4, .LBB4_17
 # %bb.15:                               # %.lr.ph611.preheader
                                         #   in Loop: Header=BB4_12 Depth=2
-	move	$a2, $a6
+	move	$a2, $a7
 	.p2align	4, , 16
 .LBB4_16:                               # %.lr.ph611
                                         #   Parent Loop BB4_8 Depth=1
@@ -5529,7 +5526,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	sll.w	$a3, $a3, $a1
 	slli.d	$a3, $a3, 56
 	srai.d	$a3, $a3, 63
-	ext.w.h	$a4, $s7
+	ext.w.h	$a4, $s4
 	sub.d	$a4, $zero, $a4
 	and	$a3, $a3, $a4
 	alsl.d	$a2, $a3, $a2, 1
@@ -5537,23 +5534,25 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	srai.d	$a3, $a1, 3
 	add.d	$a0, $a0, $a3
 	st.d	$a0, $s1, 0
-	ld.h	$s7, $a2, 2
+	ld.h	$s4, $a2, 2
 	andi	$a1, $a1, 7
 	st.w	$a1, $s0, 0
 	addi.d	$a2, $a2, 2
 	addi.w	$fp, $fp, -1
-	bltz	$s7, .LBB4_16
+	bltz	$s4, .LBB4_16
 .LBB4_17:                               # %._crit_edge612
                                         #   in Loop: Header=BB4_12 Depth=2
-	bstrpick.d	$a2, $s7, 31, 4
-	bne	$a2, $s8, .LBB4_21
+	bstrpick.d	$a2, $s4, 31, 4
+	bne	$a2, $a6, .LBB4_21
 # %bb.18:                               #   in Loop: Header=BB4_12 Depth=2
-	move	$s8, $t8
+	st.d	$s8, $sp, 128                   # 8-byte Folded Spill
+	move	$s8, $t3
+	move	$s6, $t8
 	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
 	ld.w	$a0, $a0, 0
-	move	$s6, $ra
+	move	$s2, $ra
 	slli.d	$a1, $ra, 2
-	move	$s2, $t4
+	move	$s5, $t4
 	addi.d	$a2, $sp, 144
 	stx.w	$t4, $a1, $a2
 	nor	$a1, $a0, $zero
@@ -5570,8 +5569,8 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.d	$a1, $s1, 0
 	andi	$a1, $a4, 7
 	slli.d	$a0, $a0, 3
-	ld.d	$a4, $sp, 136                   # 8-byte Folded Reload
-	fldx.d	$fa0, $a4, $a0
+	move	$a4, $s7
+	fldx.d	$fa0, $s7, $a0
 	sll.w	$a0, $a3, $a2
 	andi	$a0, $a0, 128
 	st.w	$a1, $s0, 0
@@ -5580,24 +5579,27 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	fneg.d	$fa0, $fa0
 .LBB4_20:                               #   in Loop: Header=BB4_12 Depth=2
 	fmul.d	$fa0, $fs0, $fa0
-	fst.d	$fa0, $s5, 0
-	move	$t8, $s8
-	move	$ra, $s6
-	move	$t4, $s2
-	ori	$s8, $zero, 15
-	ld.d	$a6, $sp, 112                   # 8-byte Folded Reload
-	andi	$a0, $s7, 15
-	alsl.d	$s5, $t8, $s5, 3
+	move	$t3, $s8
+	fst.d	$fa0, $s8, 0
+	move	$t8, $s6
+	move	$ra, $s2
+	move	$s7, $a4
+	move	$t4, $s5
+	ld.d	$s8, $sp, 128                   # 8-byte Folded Reload
+	ori	$a6, $zero, 15
+	ld.d	$a7, $sp, 112                   # 8-byte Folded Reload
+	andi	$a0, $s4, 15
+	alsl.d	$s4, $t8, $t3, 3
 	bnez	$a0, .LBB4_24
 	b	.LBB4_10
 	.p2align	4, , 16
 .LBB4_21:                               #   in Loop: Header=BB4_12 Depth=2
 	ori	$a3, $zero, 16
-	bgeu	$s7, $a3, .LBB4_23
+	bgeu	$s4, $a3, .LBB4_23
 # %bb.22:                               #   in Loop: Header=BB4_12 Depth=2
-	st.d	$zero, $s5, 0
-	andi	$a0, $s7, 15
-	alsl.d	$s5, $t8, $s5, 3
+	st.d	$zero, $t3, 0
+	andi	$a0, $s4, 15
+	alsl.d	$s4, $t8, $t3, 3
 	bnez	$a0, .LBB4_24
 	b	.LBB4_10
 	.p2align	4, , 16
@@ -5614,8 +5616,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.w	$a0, $s0, 0
 	addi.w	$a0, $a2, 0
 	slli.d	$a0, $a0, 3
-	ld.d	$a2, $sp, 136                   # 8-byte Folded Reload
-	fldx.d	$fa0, $a2, $a0
+	fldx.d	$fa0, $s7, $a0
 	sll.w	$a0, $a3, $a1
 	andi	$a0, $a0, 128
 	sltui	$a0, $a0, 1
@@ -5623,15 +5624,15 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	movgr2cf	$fcc0, $a0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fmul.d	$fa0, $fs0, $fa0
-	fst.d	$fa0, $s5, 0
+	fst.d	$fa0, $t3, 0
 	addi.w	$fp, $fp, -1
-	andi	$a0, $s7, 15
-	alsl.d	$s5, $t8, $s5, 3
+	andi	$a0, $s4, 15
+	alsl.d	$s4, $t8, $t3, 3
 	beqz	$a0, .LBB4_10
 .LBB4_24:                               #   in Loop: Header=BB4_12 Depth=2
-	bne	$a0, $s8, .LBB4_28
+	bne	$a0, $a6, .LBB4_28
 # %bb.25:                               #   in Loop: Header=BB4_12 Depth=2
-	move	$s7, $t8
+	move	$s5, $t8
 	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
 	ld.w	$a0, $a0, 0
 	move	$s6, $ra
@@ -5653,8 +5654,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.d	$a1, $s1, 0
 	andi	$a1, $a4, 7
 	slli.d	$a0, $a0, 3
-	ld.d	$a4, $sp, 136                   # 8-byte Folded Reload
-	fldx.d	$fa0, $a4, $a0
+	fldx.d	$fa0, $s7, $a0
 	sll.w	$a0, $a3, $a2
 	andi	$a0, $a0, 128
 	st.w	$a1, $s0, 0
@@ -5663,11 +5663,12 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	fneg.d	$fa0, $fa0
 .LBB4_27:                               #   in Loop: Header=BB4_12 Depth=2
 	fmul.d	$fa0, $fs0, $fa0
-	fst.d	$fa0, $s5, 0
-	move	$t8, $s7
+	fst.d	$fa0, $s4, 0
+	move	$t8, $s5
 	move	$ra, $s6
 	move	$t4, $s2
-	ld.d	$a6, $sp, 112                   # 8-byte Folded Reload
+	ori	$a6, $zero, 15
+	ld.d	$a7, $sp, 112                   # 8-byte Folded Reload
 	b	.LBB4_11
 	.p2align	4, , 16
 .LBB4_28:                               #   in Loop: Header=BB4_12 Depth=2
@@ -5684,8 +5685,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	andi	$a1, $a4, 7
 	st.w	$a1, $s0, 0
 	slli.d	$a0, $a0, 3
-	ld.d	$a1, $sp, 136                   # 8-byte Folded Reload
-	fldx.d	$fa0, $a1, $a0
+	fldx.d	$fa0, $s7, $a0
 	sll.w	$a0, $a3, $a2
 	andi	$a0, $a0, 128
 	sltui	$a0, $a0, 1
@@ -5693,7 +5693,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	movgr2cf	$fcc0, $a0
 	fsel	$fa0, $fa1, $fa0, $fcc0
 	fmul.d	$fa0, $fs0, $fa0
-	fst.d	$fa0, $s5, 0
+	fst.d	$fa0, $s4, 0
 	addi.w	$fp, $fp, -1
 	b	.LBB4_11
 .LBB4_29:
@@ -5706,13 +5706,13 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	addi.d	$a3, $a3, %pc_lo12(pretab2)
 	move	$a4, $zero
 	move	$s5, $zero
-	move	$t6, $zero
+	move	$t7, $zero
 	maskeqz	$a1, $a3, $a1
 	or	$a1, $a1, $a2
 	st.d	$a1, $sp, 120                   # 8-byte Folded Spill
 	ld.d	$a0, $a0, 16
 	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
-	addi.w	$s6, $zero, -1
+	addi.w	$t8, $zero, -1
 	movgr2fr.d	$fs0, $zero
 	ori	$a6, $zero, 15
 	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
@@ -5737,8 +5737,9 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	ldx.wu	$a0, $a1, $a0
 	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
-	alsl.d	$s0, $a0, $a1, 4
-	ld.d	$s2, $s0, 8
+	alsl.d	$a0, $a0, $a1, 4
+	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
+	ld.d	$s2, $a0, 8
 	b	.LBB4_35
 	.p2align	4, , 16
 .LBB4_33:                               #   in Loop: Header=BB4_35 Depth=2
@@ -5753,7 +5754,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
                                         #       Child Loop BB4_39 Depth 3
 	bnez	$s5, .LBB4_37
 # %bb.36:                               #   in Loop: Header=BB4_35 Depth=2
-	ld.d	$a3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 136                   # 8-byte Folded Reload
 	ld.w	$a0, $a3, 0
 	ld.d	$a4, $sp, 120                   # 8-byte Folded Reload
 	ld.w	$a1, $a4, 0
@@ -5767,21 +5768,21 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	sll.w	$a0, $a0, $a1
 	slli.d	$a0, $a0, 3
 	fldx.d	$fs0, $a2, $a0
-	ld.w	$t6, $a5, 4
+	ld.w	$t7, $a5, 4
 	addi.d	$a0, $a4, 4
 	addi.d	$a1, $a5, 8
 	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
 	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$a3, $sp, 128                   # 8-byte Folded Spill
+	st.d	$a3, $sp, 136                   # 8-byte Folded Spill
 .LBB4_37:                               #   in Loop: Header=BB4_35 Depth=2
 	pcalau12i	$a0, %got_pc_hi20(wordpointer)
 	ld.d	$s1, $a0, %got_pc_lo12(wordpointer)
 	ld.d	$a0, $s1, 0
 	pcalau12i	$a1, %got_pc_hi20(bitindex)
 	ld.d	$s8, $a1, %got_pc_lo12(bitindex)
-	ld.h	$s7, $s2, 0
+	ld.h	$s6, $s2, 0
 	ld.w	$a1, $s8, 0
-	bgez	$s7, .LBB4_40
+	bgez	$s6, .LBB4_40
 # %bb.38:                               # %.lr.ph.preheader
                                         #   in Loop: Header=BB4_35 Depth=2
 	move	$a2, $s2
@@ -5794,7 +5795,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	sll.w	$a3, $a3, $a1
 	slli.d	$a3, $a3, 56
 	srai.d	$a3, $a3, 63
-	ext.w.h	$a4, $s7
+	ext.w.h	$a4, $s6
 	sub.d	$a4, $zero, $a4
 	and	$a3, $a3, $a4
 	alsl.d	$a2, $a3, $a2, 1
@@ -5802,19 +5803,20 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	srai.d	$a3, $a1, 3
 	add.d	$a0, $a0, $a3
 	st.d	$a0, $s1, 0
-	ld.h	$s7, $a2, 2
+	ld.h	$s6, $a2, 2
 	andi	$a1, $a1, 7
 	st.w	$a1, $s8, 0
 	addi.d	$a2, $a2, 2
 	addi.w	$fp, $fp, -1
-	bltz	$s7, .LBB4_39
+	bltz	$s6, .LBB4_39
 .LBB4_40:                               # %._crit_edge
                                         #   in Loop: Header=BB4_35 Depth=2
-	bstrpick.d	$a2, $s7, 31, 4
+	bstrpick.d	$a2, $s6, 31, 4
 	bne	$a2, $a6, .LBB4_44
 # %bb.41:                               #   in Loop: Header=BB4_35 Depth=2
-	move	$s6, $t6
-	ld.w	$a0, $s0, 0
+	move	$s0, $t7
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	ld.w	$a0, $a0, 0
 	nor	$a1, $a0, $zero
 	add.w	$fp, $fp, $a1
 	pcaddu18i	$ra, %call36(getbits)
@@ -5829,8 +5831,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.d	$a1, $s1, 0
 	andi	$a1, $a4, 7
 	slli.d	$a0, $a0, 3
-	ld.d	$a4, $sp, 136                   # 8-byte Folded Reload
-	fldx.d	$fa0, $a4, $a0
+	fldx.d	$fa0, $s7, $a0
 	sll.w	$a0, $a3, $a2
 	andi	$a0, $a0, 128
 	st.w	$a1, $s8, 0
@@ -5840,18 +5841,19 @@ III_dequantize_sample:                  # @III_dequantize_sample
 .LBB4_43:                               #   in Loop: Header=BB4_35 Depth=2
 	fmul.d	$fa0, $fs0, $fa0
 	fst.d	$fa0, $s4, 0
-	move	$t6, $s6
+	move	$t7, $s0
+	move	$t8, $s0
 	ori	$a6, $zero, 15
-	andi	$a0, $s7, 15
+	andi	$a0, $s6, 15
 	bnez	$a0, .LBB4_47
 	b	.LBB4_33
 	.p2align	4, , 16
 .LBB4_44:                               #   in Loop: Header=BB4_35 Depth=2
 	ori	$a3, $zero, 16
-	bgeu	$s7, $a3, .LBB4_46
+	bgeu	$s6, $a3, .LBB4_46
 # %bb.45:                               #   in Loop: Header=BB4_35 Depth=2
 	st.d	$zero, $s4, 0
-	andi	$a0, $s7, 15
+	andi	$a0, $s6, 15
 	bnez	$a0, .LBB4_47
 	b	.LBB4_33
 	.p2align	4, , 16
@@ -5865,8 +5867,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.w	$a0, $s8, 0
 	addi.w	$a0, $a2, 0
 	slli.d	$a0, $a0, 3
-	ld.d	$a2, $sp, 136                   # 8-byte Folded Reload
-	fldx.d	$fa0, $a2, $a0
+	fldx.d	$fa0, $s7, $a0
 	sll.w	$a0, $a3, $a1
 	andi	$a0, $a0, 128
 	sltui	$a0, $a0, 1
@@ -5876,14 +5877,15 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	fmul.d	$fa0, $fs0, $fa0
 	fst.d	$fa0, $s4, 0
 	addi.w	$fp, $fp, -1
-	move	$s6, $t6
-	andi	$a0, $s7, 15
+	move	$t8, $t7
+	andi	$a0, $s6, 15
 	beqz	$a0, .LBB4_33
 .LBB4_47:                               #   in Loop: Header=BB4_35 Depth=2
 	bne	$a0, $a6, .LBB4_51
 # %bb.48:                               #   in Loop: Header=BB4_35 Depth=2
-	move	$s6, $t6
-	ld.w	$a0, $s0, 0
+	move	$s0, $t7
+	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
+	ld.w	$a0, $a0, 0
 	nor	$a1, $a0, $zero
 	add.w	$fp, $fp, $a1
 	pcaddu18i	$ra, %call36(getbits)
@@ -5898,8 +5900,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.d	$a1, $s1, 0
 	andi	$a1, $a4, 7
 	slli.d	$a0, $a0, 3
-	ld.d	$a4, $sp, 136                   # 8-byte Folded Reload
-	fldx.d	$fa0, $a4, $a0
+	fldx.d	$fa0, $s7, $a0
 	sll.w	$a0, $a3, $a2
 	andi	$a0, $a0, 128
 	st.w	$a1, $s8, 0
@@ -5909,7 +5910,8 @@ III_dequantize_sample:                  # @III_dequantize_sample
 .LBB4_50:                               #   in Loop: Header=BB4_35 Depth=2
 	fmul.d	$fa0, $fs0, $fa0
 	fst.d	$fa0, $s4, 8
-	move	$t6, $s6
+	move	$t7, $s0
+	move	$t8, $s0
 	ori	$a6, $zero, 15
 	b	.LBB4_34
 	.p2align	4, , 16
@@ -5924,8 +5926,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	andi	$a1, $a4, 7
 	st.w	$a1, $s8, 0
 	slli.d	$a0, $a0, 3
-	ld.d	$a1, $sp, 136                   # 8-byte Folded Reload
-	fldx.d	$fa0, $a1, $a0
+	fldx.d	$fa0, $s7, $a0
 	sll.w	$a0, $a3, $a2
 	andi	$a0, $a0, 128
 	sltui	$a0, $a0, 1
@@ -5935,7 +5936,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	fmul.d	$fa0, $fs0, $fa0
 	fst.d	$fa0, $s4, 8
 	addi.w	$fp, $fp, -1
-	move	$s6, $t6
+	move	$t8, $t7
 	b	.LBB4_34
 .LBB4_52:                               # %.preheader523
 	ori	$a0, $zero, 2
@@ -5963,19 +5964,20 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	addi.d	$a6, $sp, 144
 	ld.d	$t7, $sp, 32                    # 8-byte Folded Reload
 	ld.d	$s0, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 136                   # 8-byte Folded Reload
 	b	.LBB4_57
 	.p2align	4, , 16
 .LBB4_55:                               #   in Loop: Header=BB4_57 Depth=1
 	fmov.d	$fa1, $fa0
-	fst.d	$fa1, $s5, 0
+	fst.d	$fa1, $t3, 0
 	addi.w	$s0, $s0, -1
-	alsl.d	$s5, $t8, $s5, 3
+	alsl.d	$t3, $t8, $t3, 3
 	beqz	$s0, .LBB4_106
 .LBB4_56:                               #   in Loop: Header=BB4_57 Depth=1
 	blez	$fp, .LBB4_106
 .LBB4_57:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB4_59 Depth 2
+	move	$s4, $t3
 	ld.d	$a7, $a2, 0
 	ld.w	$t0, $a3, 0
 	move	$t1, $a1
@@ -6010,45 +6012,45 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	.p2align	4, , 16
 .LBB4_61:                               # %.loopexit
                                         #   in Loop: Header=BB4_57 Depth=1
-	beqz	$s4, .LBB4_68
+	beqz	$s8, .LBB4_68
 .LBB4_62:                               #   in Loop: Header=BB4_57 Depth=1
 	andi	$t2, $t1, 8
-	addi.w	$s4, $s4, -1
+	addi.w	$s8, $s8, -1
 	bnez	$t2, .LBB4_69
 .LBB4_63:                               #   in Loop: Header=BB4_57 Depth=1
 	fmov.d	$fa1, $fa0
-	fst.d	$fa1, $s5, 0
+	fst.d	$fa1, $s4, 0
 	andi	$t2, $t1, 4
-	alsl.d	$s5, $t8, $s5, 3
+	alsl.d	$t3, $t8, $s4, 3
 	bnez	$t2, .LBB4_71
 .LBB4_64:                               #   in Loop: Header=BB4_57 Depth=1
 	fmov.d	$fa1, $fa0
-	fst.d	$fa1, $s5, 0
-	beqz	$s4, .LBB4_73
+	fst.d	$fa1, $t3, 0
+	beqz	$s8, .LBB4_73
 .LBB4_65:                               #   in Loop: Header=BB4_57 Depth=1
-	alsl.d	$s5, $t8, $s5, 3
+	alsl.d	$t3, $t8, $t3, 3
 	andi	$t2, $t1, 2
-	addi.w	$s4, $s4, -1
+	addi.w	$s8, $s8, -1
 	bnez	$t2, .LBB4_74
 .LBB4_66:                               #   in Loop: Header=BB4_57 Depth=1
 	fmov.d	$fa1, $fa0
-	fst.d	$fa1, $s5, 0
+	fst.d	$fa1, $t3, 0
 	andi	$t1, $t1, 1
-	alsl.d	$s5, $t8, $s5, 3
+	alsl.d	$t3, $t8, $t3, 3
 	bnez	$t1, .LBB4_76
 	b	.LBB4_55
 .LBB4_67:                               #   in Loop: Header=BB4_57 Depth=1
 	move	$fp, $zero
 	move	$t1, $zero
-	bnez	$s4, .LBB4_62
+	bnez	$s8, .LBB4_62
 	.p2align	4, , 16
 .LBB4_68:                               # %.sink.split799
                                         #   in Loop: Header=BB4_57 Depth=1
 	ld.w	$t2, $t5, 4
 	ld.w	$ra, $t5, 8
-	ld.w	$s4, $t5, 0
+	ld.w	$s8, $t5, 0
 	ld.d	$t3, $sp, 88                    # 8-byte Folded Reload
-	alsl.d	$s5, $t2, $t3, 3
+	alsl.d	$s4, $t2, $t3, 3
 	addi.d	$t2, $ra, -3
 	sltui	$t2, $t2, 1
 	ld.d	$t3, $sp, 80                    # 8-byte Folded Reload
@@ -6071,7 +6073,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	or	$t8, $t2, $t3
 	move	$t4, $s3
 	andi	$t2, $t1, 8
-	addi.w	$s4, $s4, -1
+	addi.w	$s8, $s8, -1
 	beqz	$t2, .LBB4_63
 .LBB4_69:                               #   in Loop: Header=BB4_57 Depth=1
 	slli.d	$t2, $ra, 2
@@ -6095,9 +6097,9 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	movgr2cf	$fcc0, $t0
 	fsel	$fa1, $fa1, $fs0, $fcc0
 	move	$t0, $t2
-	fst.d	$fa1, $s5, 0
+	fst.d	$fa1, $s4, 0
 	andi	$t2, $t1, 4
-	alsl.d	$s5, $t8, $s5, 3
+	alsl.d	$t3, $t8, $s4, 3
 	beqz	$t2, .LBB4_64
 .LBB4_71:                               #   in Loop: Header=BB4_57 Depth=1
 	slli.d	$t2, $ra, 2
@@ -6106,6 +6108,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 # %bb.72:                               #   in Loop: Header=BB4_57 Depth=1
 	addi.w	$fp, $fp, -1
 	ld.b	$t2, $a7, 0
+	move	$s4, $t3
 	addi.w	$t3, $t0, 1
 	move	$s3, $t4
 	srai.d	$t4, $t3, 3
@@ -6114,6 +6117,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.d	$a7, $a2, 0
 	sll.w	$t0, $t2, $t0
 	andi	$t2, $t3, 7
+	move	$t3, $s4
 	st.w	$t2, $a3, 0
 	andi	$t0, $t0, 128
 	sltui	$t0, $t0, 1
@@ -6121,15 +6125,15 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	movgr2cf	$fcc0, $t0
 	fsel	$fa1, $fa1, $fs0, $fcc0
 	move	$t0, $t2
-	fst.d	$fa1, $s5, 0
-	bnez	$s4, .LBB4_65
+	fst.d	$fa1, $t3, 0
+	bnez	$s8, .LBB4_65
 .LBB4_73:                               # %.sink.split807
                                         #   in Loop: Header=BB4_57 Depth=1
 	ld.w	$t2, $t5, 4
 	ld.w	$ra, $t5, 8
-	ld.w	$s4, $t5, 0
+	ld.w	$s8, $t5, 0
 	ld.d	$t3, $sp, 88                    # 8-byte Folded Reload
-	alsl.d	$s5, $t2, $t3, 3
+	alsl.d	$s4, $t2, $t3, 3
 	addi.d	$t2, $ra, -3
 	sltui	$t2, $t2, 1
 	ld.d	$t3, $sp, 80                    # 8-byte Folded Reload
@@ -6150,9 +6154,10 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	maskeqz	$t2, $a5, $t2
 	addi.d	$s1, $s1, 4
 	or	$t8, $t2, $t3
+	move	$t3, $s4
 	move	$t4, $s3
 	andi	$t2, $t1, 2
-	addi.w	$s4, $s4, -1
+	addi.w	$s8, $s8, -1
 	beqz	$t2, .LBB4_66
 .LBB4_74:                               #   in Loop: Header=BB4_57 Depth=1
 	slli.d	$t2, $ra, 2
@@ -6161,6 +6166,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 # %bb.75:                               #   in Loop: Header=BB4_57 Depth=1
 	addi.w	$fp, $fp, -1
 	ld.b	$t2, $a7, 0
+	move	$s4, $t3
 	addi.w	$t3, $t0, 1
 	move	$s3, $t4
 	srai.d	$t4, $t3, 3
@@ -6169,6 +6175,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	st.d	$a7, $a2, 0
 	sll.w	$t0, $t2, $t0
 	andi	$t2, $t3, 7
+	move	$t3, $s4
 	st.w	$t2, $a3, 0
 	andi	$t0, $t0, 128
 	sltui	$t0, $t0, 1
@@ -6176,9 +6183,9 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	movgr2cf	$fcc0, $t0
 	fsel	$fa1, $fa1, $fs0, $fcc0
 	move	$t0, $t2
-	fst.d	$fa1, $s5, 0
+	fst.d	$fa1, $t3, 0
 	andi	$t1, $t1, 1
-	alsl.d	$s5, $t8, $s5, 3
+	alsl.d	$t3, $t8, $t3, 3
 	beqz	$t1, .LBB4_55
 .LBB4_76:                               #   in Loop: Header=BB4_57 Depth=1
 	slli.d	$t1, $ra, 2
@@ -6188,8 +6195,10 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	addi.w	$fp, $fp, -1
 	ld.b	$t1, $a7, 0
 	addi.w	$t2, $t0, 1
+	move	$s3, $t3
 	srai.d	$t3, $t2, 3
 	add.d	$a7, $a7, $t3
+	move	$t3, $s3
 	st.d	$a7, $a2, 0
 	andi	$a7, $t2, 7
 	st.w	$a7, $a3, 0
@@ -6199,9 +6208,9 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	fneg.d	$fa1, $fs0
 	movgr2cf	$fcc0, $a7
 	fsel	$fa1, $fa1, $fs0, $fcc0
-	fst.d	$fa1, $s5, 0
+	fst.d	$fa1, $t3, 0
 	addi.w	$s0, $s0, -1
-	alsl.d	$s5, $t8, $s5, 3
+	alsl.d	$t3, $t8, $t3, 3
 	bnez	$s0, .LBB4_56
 	b	.LBB4_106
 .LBB4_78:                               # %.preheader524
@@ -6225,8 +6234,8 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	ld.d	$a3, $a3, %got_pc_lo12(bitindex)
 	movgr2fr.d	$fa0, $zero
 	ld.d	$t4, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$t5, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$t7, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$t5, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$t6, $sp, 120                   # 8-byte Folded Reload
 	ld.d	$t3, $sp, 112                   # 8-byte Folded Reload
 	b	.LBB4_83
 	.p2align	4, , 16
@@ -6306,8 +6315,8 @@ III_dequantize_sample:                  # @III_dequantize_sample
 .LBB4_94:                               #   in Loop: Header=BB4_83 Depth=1
 	ld.w	$s5, $t3, 0
 	ld.w	$a7, $t5, 0
-	ld.w	$t0, $t7, 0
-	ld.w	$t6, $t3, 4
+	ld.w	$t0, $t6, 0
+	ld.w	$t7, $t3, 4
 	addi.d	$t3, $t3, 8
 	ld.d	$t2, $s0, 112
 	add.d	$a7, $t0, $a7
@@ -6316,7 +6325,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	slli.d	$a7, $a7, 3
 	fldx.d	$fs0, $t2, $a7
 	addi.d	$t5, $t5, 4
-	addi.d	$t7, $t7, 4
+	addi.d	$t6, $t6, 4
 	andi	$a7, $a6, 8
 	beqz	$a7, .LBB4_89
 .LBB4_95:                               #   in Loop: Header=BB4_83 Depth=1
@@ -6337,7 +6346,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	movgr2cf	$fcc0, $a5
 	fsel	$fa1, $fa1, $fs0, $fcc0
 	move	$a5, $a7
-	move	$s6, $t6
+	move	$t8, $t7
 	andi	$a7, $a6, 4
 	fst.d	$fa1, $s4, 0
 	beqz	$a7, .LBB4_90
@@ -6359,15 +6368,15 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	movgr2cf	$fcc0, $a5
 	fsel	$fa1, $fa1, $fs0, $fcc0
 	move	$a5, $a7
-	move	$s6, $t6
+	move	$t8, $t7
 	addi.w	$a7, $s5, -1
 	fst.d	$fa1, $s4, 8
 	bnez	$a7, .LBB4_91
 .LBB4_99:                               #   in Loop: Header=BB4_83 Depth=1
 	ld.w	$a7, $t3, 0
 	ld.w	$t0, $t5, 0
-	ld.w	$t1, $t7, 0
-	ld.w	$t6, $t3, 4
+	ld.w	$t1, $t6, 0
+	ld.w	$t7, $t3, 4
 	addi.d	$t2, $t3, 8
 	ld.d	$t3, $s0, 112
 	add.d	$t0, $t1, $t0
@@ -6376,7 +6385,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	slli.d	$t0, $t0, 3
 	fldx.d	$fs0, $t3, $t0
 	addi.d	$t5, $t5, 4
-	addi.d	$t7, $t7, 4
+	addi.d	$t6, $t6, 4
 	move	$t3, $t2
 	andi	$t0, $a6, 2
 	beqz	$t0, .LBB4_92
@@ -6398,7 +6407,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	movgr2cf	$fcc0, $a5
 	fsel	$fa1, $fa1, $fs0, $fcc0
 	move	$a5, $t0
-	move	$s6, $t6
+	move	$t8, $t7
 	andi	$a6, $a6, 1
 	fst.d	$fa1, $s4, 16
 	beqz	$a6, .LBB4_81
@@ -6419,7 +6428,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	fneg.d	$fa1, $fs0
 	movgr2cf	$fcc0, $a4
 	fsel	$fa1, $fa1, $fs0, $fcc0
-	move	$s6, $t6
+	move	$t8, $t7
 	fst.d	$fa1, $s4, 24
 	addi.w	$t4, $t4, -1
 	addi.d	$s4, $s4, 32
@@ -6442,22 +6451,22 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	b	.LBB4_109
 	.p2align	4, , 16
 .LBB4_108:                              #   in Loop: Header=BB4_109 Depth=1
-	addi.w	$s4, $s4, -1
-	st.d	$zero, $s5, 0
-	alsl.d	$a2, $t8, $s5, 3
+	addi.w	$s8, $s8, -1
+	st.d	$zero, $t3, 0
+	alsl.d	$a2, $t8, $t3, 3
 	slli.d	$a3, $t8, 3
-	stx.d	$zero, $s5, $a3
-	alsl.d	$s5, $t8, $a2, 3
+	stx.d	$zero, $t3, $a3
+	alsl.d	$t3, $t8, $a2, 3
 	bgeu	$t5, $s2, .LBB4_113
 .LBB4_109:                              # %.lr.ph691
                                         # =>This Inner Loop Header: Depth=1
-	bnez	$s4, .LBB4_108
+	bnez	$s8, .LBB4_108
 # %bb.110:                              #   in Loop: Header=BB4_109 Depth=1
 	ld.w	$a2, $t5, 4
 	ld.w	$a3, $t5, 8
-	ld.w	$s4, $t5, 0
+	ld.w	$s8, $t5, 0
 	ld.d	$a4, $sp, 88                    # 8-byte Folded Reload
-	alsl.d	$s5, $a2, $a4, 3
+	alsl.d	$t3, $a2, $a4, 3
 	addi.d	$a2, $a3, -3
 	sltui	$a2, $a2, 1
 	masknez	$a3, $a0, $a2
@@ -6471,6 +6480,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 	b	.LBB4_124
 .LBB4_112:
 	move	$fp, $zero
+	move	$t3, $s4
 	bltu	$t5, $s2, .LBB4_107
 .LBB4_113:                              # %._crit_edge692
 	vld	$vr0, $sp, 144
@@ -6544,7 +6554,7 @@ III_dequantize_sample:                  # @III_dequantize_sample
 .LBB4_122:
 	addi.d	$s4, $s4, 24
 .LBB4_123:                              # %._crit_edge596
-	move	$s6, $t6
+	move	$t8, $t7
 .LBB4_124:                              # %._crit_edge596
 	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
 	sub.d	$a0, $a0, $s4
@@ -6557,10 +6567,12 @@ III_dequantize_sample:                  # @III_dequantize_sample
 # %bb.125:                              # %.lr.ph604.preheader
 	move	$a0, $s4
 	move	$a1, $zero
+	move	$s2, $t8
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
+	move	$t8, $s2
 .LBB4_126:                              # %._crit_edge605
-	addi.d	$a0, $s6, 1
+	addi.d	$a0, $t8, 1
 	st.w	$a0, $s0, 60
 	ori	$a1, $zero, 92
 	mul.d	$a1, $s1, $a1

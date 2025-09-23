@@ -739,28 +739,24 @@ transtore:                              # @transtore
 	.type	htstat,@function
 htstat:                                 # @htstat
 # %bb.0:                                # %.preheader27.preheader
-	addi.d	$sp, $sp, -224
-	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 184                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
-	addi.d	$a0, $sp, 40
+	addi.d	$sp, $sp, -240
+	st.d	$ra, $sp, 232                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 216                   # 8-byte Folded Spill
+	addi.d	$a0, $sp, 88
 	ori	$a2, $zero, 128
-	addi.d	$fp, $sp, 40
+	addi.d	$fp, $sp, 88
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	vrepli.b	$vr0, 0
-	vst	$vr0, $sp, 8
-	vst	$vr0, $sp, 24
+	vst	$vr0, $sp, 56
+	vst	$vr0, $sp, 72
 	pcalau12i	$a0, %pc_hi20(he)
 	ld.d	$a0, $a0, %pc_lo12(he)
 	lu12i.w	$a1, 256
 	ori	$a1, $a1, 1435
-	addi.d	$a2, $sp, 8
+	addi.d	$a2, $sp, 56
 	b	.LBB8_2
 	.p2align	4, , 16
 .LBB8_1:                                #   in Loop: Header=BB8_2 Depth=1
@@ -784,25 +780,20 @@ htstat:                                 # @htstat
 	st.w	$a4, $a3, 16
 	b	.LBB8_1
 .LBB8_4:                                # %.preheader.preheader
-	ld.w	$a0, $sp, 8
-	ld.w	$a1, $sp, 12
-	ld.w	$s3, $sp, 16
-	ld.w	$s0, $sp, 20
-	add.d	$a0, $a1, $a0
-	add.d	$a0, $s3, $a0
-	add.d	$a0, $s0, $a0
-	ld.w	$s2, $sp, 24
-	ld.w	$s1, $sp, 28
-	ld.w	$fp, $sp, 32
-	ld.w	$a1, $sp, 36
-	add.d	$a0, $s2, $a0
-	add.d	$a0, $s1, $a0
-	add.d	$a0, $fp, $a0
-	add.w	$s4, $a1, $a0
-	blez	$s4, .LBB8_9
+	vld	$vr1, $sp, 72
+	vld	$vr2, $sp, 56
+	vadd.w	$vr0, $vr2, $vr1
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a0, $vr0, 0
+	addi.w	$fp, $a0, 0
+	blez	$fp, .LBB8_9
 # %bb.5:
+	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(posed)
 	ld.d	$a0, $a0, %pc_lo12(posed)
+	ld.w	$s0, $sp, 64
+	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	beqz	$a0, .LBB8_7
 # %bb.6:
 	pcalau12i	$a1, %pc_hi20(hits)
@@ -821,22 +812,28 @@ htstat:                                 # @htstat
 	addi.d	$a0, $a0, %pc_lo12(.L.str.1)
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	movgr2fr.w	$fa0, $s3
+	movgr2fr.w	$fa0, $s0
 	ffint.d.w	$fa0, $fa0
-	bstrpick.d	$a0, $s4, 31, 0
+	bstrpick.d	$a0, $fp, 31, 0
 	movgr2fr.d	$fa1, $a0
 	ffint.d.l	$fa1, $fa1
 	fdiv.d	$fa0, $fa0, $fa1
-	movgr2fr.w	$fa2, $s0
+	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
+	vpickve2gr.w	$a0, $vr2, 3
+	movgr2fr.w	$fa2, $a0
 	ffint.d.w	$fa2, $fa2
 	fdiv.d	$fa2, $fa2, $fa1
-	movgr2fr.w	$fa3, $s2
+	vld	$vr5, $sp, 32                   # 16-byte Folded Reload
+	vpickve2gr.w	$a0, $vr5, 0
+	movgr2fr.w	$fa3, $a0
 	ffint.d.w	$fa3, $fa3
 	fdiv.d	$fa3, $fa3, $fa1
-	movgr2fr.w	$fa4, $s1
+	vpickve2gr.w	$a0, $vr5, 1
+	movgr2fr.w	$fa4, $a0
 	ffint.d.w	$fa4, $fa4
 	fdiv.d	$fa4, $fa4, $fa1
-	movgr2fr.w	$fa5, $fp
+	vpickve2gr.w	$a0, $vr5, 2
+	movgr2fr.w	$fa5, $a0
 	ffint.d.w	$fa5, $fa5
 	fdiv.d	$fa1, $fa5, $fa1
 	movfr2gr.d	$a1, $fa0
@@ -849,69 +846,9 @@ htstat:                                 # @htstat
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 .LBB8_9:
-	ld.w	$a1, $sp, 40
+	ld.w	$a1, $sp, 88
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$fp, $a0, %pc_lo12(.L.str.3)
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 44
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 48
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 52
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 56
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 60
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 64
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 68
-	ori	$a2, $zero, 10
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 72
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 76
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 80
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 84
-	ori	$a2, $zero, 9
-	move	$a0, $fp
-	pcaddu18i	$ra, %call36(printf)
-	jirl	$ra, $ra, 0
-	ld.w	$a1, $sp, 88
 	ori	$a2, $zero, 9
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
@@ -927,7 +864,7 @@ htstat:                                 # @htstat
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $sp, 100
-	ori	$a2, $zero, 10
+	ori	$a2, $zero, 9
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
@@ -947,7 +884,7 @@ htstat:                                 # @htstat
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $sp, 116
-	ori	$a2, $zero, 9
+	ori	$a2, $zero, 10
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
@@ -967,7 +904,7 @@ htstat:                                 # @htstat
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $sp, 132
-	ori	$a2, $zero, 10
+	ori	$a2, $zero, 9
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
@@ -987,7 +924,7 @@ htstat:                                 # @htstat
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $sp, 148
-	ori	$a2, $zero, 9
+	ori	$a2, $zero, 10
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
@@ -1007,16 +944,72 @@ htstat:                                 # @htstat
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $sp, 164
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 168
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 172
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 176
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 180
 	ori	$a2, $zero, 10
 	move	$a0, $fp
-	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 224
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 184
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 188
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 192
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 196
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 200
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 204
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 208
+	ori	$a2, $zero, 9
+	move	$a0, $fp
+	pcaddu18i	$ra, %call36(printf)
+	jirl	$ra, $ra, 0
+	ld.w	$a1, $sp, 212
+	ori	$a2, $zero, 10
+	move	$a0, $fp
+	ld.d	$s0, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 232                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 240
 	pcaddu18i	$t8, %call36(printf)
 	jr	$t8
 .Lfunc_end8:

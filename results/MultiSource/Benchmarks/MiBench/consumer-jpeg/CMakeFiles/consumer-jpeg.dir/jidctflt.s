@@ -151,96 +151,111 @@ jpeg_idct_float:                        # @jpeg_idct_float
 	addi.d	$a0, $a0, 128
 	bstrpick.d	$a2, $a4, 31, 0
 	addi.d	$a4, $sp, 16
+	ori	$a5, $zero, 1023
+	vreplgr2vr.d	$vr4, $a5
 	ori	$a5, $zero, 64
 	.p2align	4, , 16
 .LBB0_6:                                # =>This Inner Loop Header: Depth=1
-	fld.s	$fa5, $a4, 0
-	fld.s	$fa6, $a4, 16
-	fld.s	$fa7, $a4, 8
-	fld.s	$ft0, $a4, 24
-	ldx.d	$a6, $a3, $a1
-	fadd.s	$fa4, $fa5, $fa6
-	fsub.s	$ft1, $fa5, $fa6
-	fadd.s	$fa5, $fa7, $ft0
-	fsub.s	$fa6, $fa7, $ft0
-	fmsub.s	$fa7, $fa6, $fa0, $fa5
-	fld.s	$fa6, $a4, 20
-	fld.s	$ft0, $a4, 12
-	fld.s	$ft2, $a4, 4
-	fld.s	$ft3, $a4, 28
-	fadd.s	$ft4, $fa4, $fa5
-	fadd.s	$ft5, $fa6, $ft0
-	fsub.s	$ft0, $fa6, $ft0
-	fadd.s	$ft6, $ft2, $ft3
-	fsub.s	$fa6, $ft2, $ft3
-	fadd.s	$ft2, $ft5, $ft6
-	fadd.s	$ft3, $ft4, $ft2
-	ftintrz.l.s	$ft3, $ft3
-	movfr2gr.d	$a7, $ft3
-	fadd.s	$ft3, $ft0, $fa6
-	fmul.s	$ft3, $ft3, $fa1
-	fmadd.s	$ft0, $ft0, $fa3, $ft3
+	fld.s	$fa6, $a4, 0
+	fld.s	$fa7, $a4, 16
+	fld.s	$ft0, $a4, 8
+	fld.s	$ft1, $a4, 24
+	ldx.d	$a7, $a3, $a1
+	fadd.s	$fa5, $fa6, $fa7
+	fsub.s	$fa7, $fa6, $fa7
+	fadd.s	$fa6, $ft0, $ft1
+	fsub.s	$ft0, $ft0, $ft1
+	fld.s	$ft1, $a4, 20
+	fld.s	$ft2, $a4, 12
+	fld.s	$ft3, $a4, 4
+	fld.s	$ft4, $a4, 28
+	fadd.s	$ft5, $fa5, $fa6
+	fadd.s	$ft6, $ft1, $ft2
+	fsub.s	$ft1, $ft1, $ft2
+	fadd.s	$ft2, $ft3, $ft4
+	fadd.s	$ft7, $ft6, $ft2
+	fadd.s	$ft8, $ft5, $ft7
+	ftintrz.l.s	$ft8, $ft8
+	movfr2gr.d	$t0, $ft8
+	add.d	$a6, $a7, $a2
+	addi.d	$t0, $t0, 4
+	bstrpick.d	$t0, $t0, 12, 3
+	ldx.b	$t0, $a0, $t0
+	fmsub.s	$ft0, $ft0, $fa0, $fa6
+	fsub.s	$ft3, $ft3, $ft4
+	fadd.s	$ft4, $fa7, $ft0
+	stx.b	$t0, $a7, $a2
+	fsub.s	$ft5, $ft5, $ft7
+	ftintrz.l.s	$ft5, $ft5
+	movfr2gr.d	$a7, $ft5
+	fadd.s	$ft5, $ft1, $ft3
 	addi.d	$a7, $a7, 4
 	bstrpick.d	$a7, $a7, 12, 3
 	ldx.b	$a7, $a0, $a7
-	fsub.s	$ft0, $ft0, $ft2
-	fsub.s	$ft2, $ft4, $ft2
-	fadd.s	$ft4, $ft1, $fa7
-	stx.b	$a7, $a6, $a2
-	ftintrz.l.s	$ft2, $ft2
-	movfr2gr.d	$a7, $ft2
-	addi.d	$a7, $a7, 4
-	bstrpick.d	$a7, $a7, 12, 3
-	ldx.b	$a7, $a0, $a7
-	fadd.s	$ft2, $ft4, $ft0
-	ftintrz.l.s	$ft2, $ft2
-	movfr2gr.d	$t0, $ft2
-	add.d	$a6, $a6, $a2
+	fmul.s	$ft5, $ft5, $fa1
+	fmadd.s	$ft1, $ft1, $fa3, $ft5
+	fsub.s	$ft1, $ft1, $ft7
 	st.b	$a7, $a6, 7
-	addi.d	$a7, $t0, 4
+	fadd.s	$ft7, $ft4, $ft1
+	ftintrz.l.s	$ft7, $ft7
+	movfr2gr.d	$a7, $ft7
+	addi.d	$a7, $a7, 4
 	bstrpick.d	$a7, $a7, 12, 3
 	ldx.b	$a7, $a0, $a7
-	fsub.s	$fa7, $ft1, $fa7
 	st.b	$a7, $a6, 1
-	fsub.s	$ft1, $ft4, $ft0
-	ftintrz.l.s	$ft1, $ft1
-	movfr2gr.d	$a7, $ft1
+	fsub.s	$ft4, $ft4, $ft1
+	ftintrz.l.s	$ft4, $ft4
+	movfr2gr.d	$a7, $ft4
 	addi.d	$a7, $a7, 4
 	bstrpick.d	$a7, $a7, 12, 3
 	ldx.b	$a7, $a0, $a7
-	fsub.s	$ft1, $ft6, $ft5
-	fmul.s	$ft1, $ft1, $fa0
-	fsub.s	$ft0, $ft1, $ft0
+	fsub.s	$ft2, $ft2, $ft6
+	fmul.s	$ft2, $ft2, $fa0
+	fmsub.s	$ft3, $ft3, $fa2, $ft5
 	st.b	$a7, $a6, 6
-	fadd.s	$ft1, $fa7, $ft0
-	ftintrz.l.s	$ft1, $ft1
-	movfr2gr.d	$a7, $ft1
-	addi.d	$a7, $a7, 4
-	bstrpick.d	$a7, $a7, 12, 3
-	ldx.b	$a7, $a0, $a7
-	st.b	$a7, $a6, 2
 	fsub.s	$fa7, $fa7, $ft0
-	ftintrz.l.s	$fa7, $fa7
-	movfr2gr.d	$a7, $fa7
-	addi.d	$a7, $a7, 4
-	bstrpick.d	$a7, $a7, 12, 3
-	ldx.b	$a7, $a0, $a7
-	fsub.s	$fa4, $fa4, $fa5
-	fmsub.s	$fa5, $fa6, $fa2, $ft3
-	fadd.s	$fa5, $fa5, $ft0
-	st.b	$a7, $a6, 5
-	fadd.s	$fa6, $fa4, $fa5
+	fsub.s	$ft0, $ft2, $ft1
+	fadd.s	$ft1, $ft3, $ft0
+	vextrins.w	$vr8, $vr7, 16
+	vextrins.w	$vr8, $vr9, 32
+	fsub.s	$fa5, $fa5, $fa6
+	vori.b	$vr6, $vr8, 0
+	vextrins.w	$vr6, $vr5, 48
+	vshuf4i.w	$vr5, $vr6, 177
+	vfadd.s	$vr7, $vr8, $vr5
+	vfsub.s	$vr5, $vr6, $vr5
+	vreplvei.w	$vr6, $vr7, 0
 	ftintrz.l.s	$fa6, $fa6
 	movfr2gr.d	$a7, $fa6
-	addi.d	$a7, $a7, 4
-	bstrpick.d	$a7, $a7, 12, 3
+	vinsgr2vr.d	$vr6, $a7, 0
+	vreplvei.w	$vr8, $vr5, 1
+	ftintrz.l.s	$ft0, $ft0
+	movfr2gr.d	$a7, $ft0
+	vinsgr2vr.d	$vr6, $a7, 1
+	vreplvei.w	$vr7, $vr7, 2
+	ftintrz.l.s	$fa7, $fa7
+	movfr2gr.d	$a7, $fa7
+	vinsgr2vr.d	$vr7, $a7, 0
+	vreplvei.w	$vr5, $vr5, 3
+	vaddi.du	$vr6, $vr6, 4
+	vsrli.d	$vr6, $vr6, 3
+	vand.v	$vr6, $vr6, $vr4
+	vpickve2gr.d	$a7, $vr6, 0
+	ldx.b	$a7, $a0, $a7
+	ftintrz.l.s	$fa5, $fa5
+	movfr2gr.d	$t0, $fa5
+	vinsgr2vr.d	$vr7, $t0, 1
+	st.b	$a7, $a6, 2
+	vpickve2gr.d	$a7, $vr6, 1
+	ldx.b	$a7, $a0, $a7
+	vaddi.du	$vr5, $vr7, 4
+	vsrli.d	$vr5, $vr5, 3
+	vand.v	$vr5, $vr5, $vr4
+	st.b	$a7, $a6, 5
+	vpickve2gr.d	$a7, $vr5, 0
 	ldx.b	$a7, $a0, $a7
 	st.b	$a7, $a6, 4
-	fsub.s	$fa4, $fa4, $fa5
-	ftintrz.l.s	$fa4, $fa4
-	movfr2gr.d	$a7, $fa4
-	addi.d	$a7, $a7, 4
-	bstrpick.d	$a7, $a7, 12, 3
+	vpickve2gr.d	$a7, $vr5, 1
 	ldx.b	$a7, $a0, $a7
 	st.b	$a7, $a6, 3
 	addi.d	$a1, $a1, 8

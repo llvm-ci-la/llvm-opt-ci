@@ -18,7 +18,20 @@ _Z29RtlSecondsSince1970ToFileTimejP9_FILETIME: # @_Z29RtlSecondsSince1970ToFileT
 .Lfunc_end0:
 	.size	_Z29RtlSecondsSince1970ToFileTimejP9_FILETIME, .Lfunc_end0-_Z29RtlSecondsSince1970ToFileTimejP9_FILETIME
                                         # -- End function
-	.globl	DosDateTimeToFileTime           # -- Begin function DosDateTimeToFileTime
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function DosDateTimeToFileTime
+.LCPI1_0:
+	.word	0                               # 0x0
+	.word	5                               # 0x5
+	.word	6                               # 0x6
+	.word	3                               # 0x3
+.LCPI1_1:
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+	.word	4294967295                      # 0xffffffff
+	.word	80                              # 0x50
+	.text
+	.globl	DosDateTimeToFileTime
 	.p2align	5
 	.type	DosDateTimeToFileTime,@function
 DosDateTimeToFileTime:                  # @DosDateTimeToFileTime
@@ -27,21 +40,32 @@ DosDateTimeToFileTime:                  # @DosDateTimeToFileTime
 	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
 	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
 	move	$fp, $a2
-	slli.d	$a2, $a1, 1
-	andi	$a2, $a2, 62
-	st.w	$a2, $sp, 8
-	bstrpick.d	$a2, $a1, 10, 5
-	st.w	$a2, $sp, 12
-	srli.d	$a1, $a1, 11
-	st.w	$a1, $sp, 16
-	andi	$a1, $a0, 31
-	st.w	$a1, $sp, 20
-	bstrpick.d	$a1, $a0, 8, 5
-	addi.d	$a1, $a1, -1
-	st.w	$a1, $sp, 24
-	srli.d	$a0, $a0, 9
-	addi.d	$a0, $a0, 80
-	st.w	$a0, $sp, 28
+	vrepli.b	$vr0, 0
+	vinsgr2vr.h	$vr0, $a1, 0
+	vinsgr2vr.h	$vr0, $a0, 2
+	vshuf4i.w	$vr0, $vr0, 84
+	vrepli.d	$vr1, 5
+	vsrl.w	$vr1, $vr0, $vr1
+	ori	$a0, $zero, 11
+	lu32i.d	$a0, 9
+	vreplgr2vr.d	$vr2, $a0
+	vsrl.w	$vr0, $vr0, $vr2
+	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
+	vld	$vr2, $a0, %pc_lo12(.LCPI1_0)
+	ori	$a0, $zero, 15
+	lu32i.d	$a0, 31
+	vreplgr2vr.d	$vr3, $a0
+	vand.v	$vr1, $vr1, $vr3
+	vshuf.w	$vr2, $vr1, $vr0
+	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
+	vld	$vr0, $a0, %pc_lo12(.LCPI1_1)
+	slli.d	$a0, $a1, 1
+	andi	$a0, $a0, 62
+	st.w	$a0, $sp, 8
+	bstrpick.d	$a0, $a1, 10, 5
+	st.w	$a0, $sp, 12
+	vadd.w	$vr0, $vr2, $vr0
+	vst	$vr0, $sp, 16
 	addi.w	$a0, $zero, -1
 	lu32i.d	$a0, 0
 	st.w	$a0, $sp, 40

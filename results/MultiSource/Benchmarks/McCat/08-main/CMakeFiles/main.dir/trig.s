@@ -288,45 +288,39 @@ MultMatrixMatrix:                       # @MultMatrixMatrix
 MultMatrixHPoint:                       # @MultMatrixHPoint
 # %bb.0:
 	fld.d	$fa0, $a2, 0
-	fld.d	$fa1, $a1, 0
-	fld.d	$fa2, $a2, 8
-	fld.d	$fa3, $a1, 8
-	fld.d	$fa4, $a2, 16
-	fld.d	$fa5, $a1, 16
-	fld.d	$fa6, $a2, 24
-	fld.d	$fa7, $a1, 24
-	fmul.d	$fa3, $fa2, $fa3
-	fmadd.d	$fa1, $fa0, $fa1, $fa3
-	fmadd.d	$fa1, $fa4, $fa5, $fa1
-	fmadd.d	$fa1, $fa6, $fa7, $fa1
-	fld.d	$fa3, $a1, 40
-	fst.d	$fa1, $a0, 0
-	fld.d	$fa1, $a1, 32
-	fld.d	$fa5, $a1, 48
-	fmul.d	$fa3, $fa2, $fa3
-	fld.d	$fa7, $a1, 56
-	fmadd.d	$fa1, $fa0, $fa1, $fa3
-	fmadd.d	$fa1, $fa4, $fa5, $fa1
-	fld.d	$fa3, $a1, 72
-	fmadd.d	$fa1, $fa6, $fa7, $fa1
-	fst.d	$fa1, $a0, 8
-	fld.d	$fa1, $a1, 64
-	fmul.d	$fa3, $fa2, $fa3
-	fld.d	$fa5, $a1, 80
-	fld.d	$fa7, $a1, 104
-	fmadd.d	$fa1, $fa0, $fa1, $fa3
-	fld.d	$fa3, $a1, 96
-	fmadd.d	$fa1, $fa4, $fa5, $fa1
-	fmul.d	$fa2, $fa2, $fa7
-	fld.d	$fa5, $a1, 88
-	fmadd.d	$fa0, $fa0, $fa3, $fa2
-	fld.d	$fa2, $a1, 112
-	fld.d	$fa3, $a1, 120
-	fmadd.d	$fa1, $fa6, $fa5, $fa1
-	fst.d	$fa1, $a0, 16
-	fmadd.d	$fa0, $fa4, $fa2, $fa0
-	fmadd.d	$fa0, $fa6, $fa3, $fa0
-	fst.d	$fa0, $a0, 24
+	fld.d	$fa1, $a2, 8
+	fld.d	$fa2, $a2, 16
+	fld.d	$fa3, $a2, 24
+	vld	$vr4, $a1, 80
+	vld	$vr5, $a1, 112
+	vld	$vr6, $a1, 16
+	vld	$vr7, $a1, 64
+	vld	$vr8, $a1, 0
+	vld	$vr9, $a1, 32
+	vld	$vr10, $a1, 96
+	vld	$vr11, $a1, 48
+	vreplvei.d	$vr1, $vr1, 0
+	vpackod.d	$vr12, $vr9, $vr8
+	vpackod.d	$vr13, $vr10, $vr7
+	vfmul.d	$vr13, $vr1, $vr13
+	vfmul.d	$vr1, $vr1, $vr12
+	vreplvei.d	$vr0, $vr0, 0
+	vpackev.d	$vr7, $vr10, $vr7
+	vpackev.d	$vr8, $vr9, $vr8
+	vfmadd.d	$vr1, $vr0, $vr8, $vr1
+	vfmadd.d	$vr0, $vr0, $vr7, $vr13
+	vreplvei.d	$vr2, $vr2, 0
+	vpackev.d	$vr7, $vr11, $vr6
+	vpackev.d	$vr8, $vr5, $vr4
+	vfmadd.d	$vr0, $vr2, $vr8, $vr0
+	vfmadd.d	$vr1, $vr2, $vr7, $vr1
+	vreplvei.d	$vr2, $vr3, 0
+	vpackod.d	$vr3, $vr5, $vr4
+	vpackod.d	$vr4, $vr11, $vr6
+	vfmadd.d	$vr1, $vr2, $vr4, $vr1
+	vfmadd.d	$vr0, $vr2, $vr3, $vr0
+	vst	$vr0, $a0, 16
+	vst	$vr1, $a0, 0
 	ret
 .Lfunc_end1:
 	.size	MultMatrixHPoint, .Lfunc_end1-MultMatrixHPoint

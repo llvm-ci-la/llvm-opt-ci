@@ -5,12 +5,12 @@
 	.type	start_macroblock,@function
 start_macroblock:                       # @start_macroblock
 # %bb.0:
-	addi.d	$sp, $sp, -48
-	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
+	addi.d	$sp, $sp, -80
+	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 40                    # 8-byte Folded Spill
 	move	$fp, $a0
 	ldptr.d	$s1, $a0, 5600
 	ld.wu	$s2, $a0, 4
@@ -44,22 +44,27 @@ start_macroblock:                       # @start_macroblock
 	st.w	$a0, $fp, 72
 	ld.w	$a1, $a1, 4
 .LBB0_3:
-	slli.d	$a2, $a1, 2
-	st.w	$a2, $fp, 76
+	st.w	$a1, $fp, 68
 	lu12i.w	$a2, 1
 	ori	$a3, $a2, 1840
 	ldx.w	$a3, $fp, $a3
-	slli.d	$a4, $a1, 4
-	st.w	$a4, $fp, 80
-	st.w	$a1, $fp, 68
-	mul.d	$a3, $a3, $a1
-	st.w	$a3, $fp, 88
-	slli.d	$a3, $a0, 2
-	st.w	$a3, $fp, 92
+	slli.d	$a4, $a0, 2
+	st.w	$a4, $fp, 92
+	vinsgr2vr.w	$vr0, $a1, 0
+	vinsgr2vr.w	$vr0, $a0, 2
+	vinsgr2vr.w	$vr0, $a3, 3
+	st.w	$a1, $sp, 28
+	ori	$a3, $zero, 16
+	st.w	$a3, $sp, 24
+	ori	$a3, $zero, 4
+	lu32i.d	$a3, 16
+	st.d	$a3, $sp, 16
+	vld	$vr1, $sp, 16
+	vshuf4i.w	$vr0, $vr0, 224
 	ori	$a2, $a2, 1836
 	ldx.w	$a3, $fp, $a2
-	slli.d	$a2, $a0, 4
-	st.w	$a2, $fp, 84
+	vmul.w	$vr0, $vr0, $vr1
+	vst	$vr0, $fp, 76
 	ld.w	$a2, $fp, 12
 	mul.d	$a3, $a3, $a0
 	st.w	$a3, $fp, 96
@@ -122,12 +127,12 @@ start_macroblock:                       # @start_macroblock
 	st.w	$a1, $s0, 340
 	ld.d	$a0, $a0, 140
 	st.d	$a0, $s0, 344
-	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 48
+	ld.d	$s2, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 80
 	ret
 .Lfunc_end0:
 	.size	start_macroblock, .Lfunc_end0-start_macroblock
@@ -13143,42 +13148,18 @@ decode_ipcm_mb:                         # @decode_ipcm_mb
 	slli.d	$t3, $t3, 8
 	add.d	$t3, $a5, $t3
 	andi	$t4, $a7, 3
-	slli.d	$t5, $t4, 4
-	ld.d	$t6, $t0, 0
-	ldx.h	$t5, $t3, $t5
-	alsl.d	$t3, $t4, $t3, 4
-	stx.h	$t5, $t6, $t1
-	ld.h	$t4, $t3, 4
-	ld.h	$t5, $t3, 8
-	ld.h	$t7, $t3, 12
-	alsl.d	$t6, $a6, $t6, 1
-	st.h	$t4, $t6, 2
-	st.h	$t5, $t6, 4
-	st.h	$t7, $t6, 6
-	ld.h	$t4, $t3, 64
-	ld.h	$t5, $t3, 68
-	ld.h	$t7, $t3, 72
-	ld.h	$t8, $t3, 76
-	st.h	$t4, $t6, 8
-	st.h	$t5, $t6, 10
-	st.h	$t7, $t6, 12
-	st.h	$t8, $t6, 14
-	ld.h	$t4, $t3, 128
-	ld.h	$t5, $t3, 132
-	ld.h	$t7, $t3, 136
-	ld.h	$t8, $t3, 140
-	st.h	$t4, $t6, 16
-	st.h	$t5, $t6, 18
-	st.h	$t7, $t6, 20
-	st.h	$t8, $t6, 22
-	ld.h	$t4, $t3, 192
-	ld.h	$t5, $t3, 196
-	ld.h	$t7, $t3, 200
-	ld.h	$t3, $t3, 204
-	st.h	$t4, $t6, 24
-	st.h	$t5, $t6, 26
-	st.h	$t7, $t6, 28
-	st.h	$t3, $t6, 30
+	alsl.d	$t5, $t4, $t3, 4
+	slli.d	$t4, $t4, 4
+	vldx	$vr0, $t3, $t4
+	vld	$vr1, $t5, 64
+	ld.d	$t3, $t0, 0
+	vld	$vr2, $t5, 128
+	vld	$vr3, $t5, 192
+	vpickev.h	$vr0, $vr1, $vr0
+	vstx	$vr0, $t3, $t1
+	alsl.d	$t3, $a6, $t3, 1
+	vpickev.h	$vr0, $vr3, $vr2
+	vst	$vr0, $t3, 16
 	addi.d	$a7, $a7, 1
 	addi.d	$t0, $t0, 8
 	bne	$a7, $t2, .LBB24_1

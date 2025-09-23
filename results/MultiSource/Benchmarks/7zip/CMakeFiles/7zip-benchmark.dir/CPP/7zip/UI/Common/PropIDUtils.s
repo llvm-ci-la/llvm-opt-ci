@@ -115,6 +115,11 @@ _Z18ConvertUInt32ToHexjPw:              # @_Z18ConvertUInt32ToHexjPw
 	.word	8                               # 0x8
 	.word	4                               # 0x4
 	.word	0                               # 0x0
+.LCPI1_9:
+	.word	2                               # 0x2
+	.word	5                               # 0x5
+	.word	6                               # 0x6
+	.word	7                               # 0x7
 	.text
 	.globl	_Z23ConvertPropertyToStringRK14tagPROPVARIANTjb
 	.p2align	5
@@ -287,36 +292,38 @@ _Z23ConvertPropertyToStringRK14tagPROPVARIANTjb: # @_Z23ConvertPropertyToStringR
 	ori	$a3, $zero, 19
 	bne	$a2, $a3, .LBB1_21
 # %bb.18:
-	ld.w	$a1, $a1, 8
-	pcalau12i	$a2, %pc_hi20(.LCPI1_8)
-	vld	$vr0, $a2, %pc_lo12(.LCPI1_8)
-	vreplgr2vr.w	$vr1, $a1
-	vsrl.w	$vr0, $vr1, $vr0
-	vrepli.w	$vr2, 15
-	vand.v	$vr0, $vr0, $vr2
-	vslti.wu	$vr2, $vr0, 10
-	vrepli.w	$vr3, 48
-	vor.v	$vr4, $vr0, $vr3
-	vrepli.w	$vr5, 55
-	vadd.w	$vr0, $vr0, $vr5
-	pcalau12i	$a2, %pc_hi20(.LCPI1_4)
-	vld	$vr6, $a2, %pc_lo12(.LCPI1_4)
-	pcalau12i	$a2, %pc_hi20(.LCPI1_5)
-	vld	$vr7, $a2, %pc_lo12(.LCPI1_5)
-	vbitsel.v	$vr0, $vr0, $vr4, $vr2
-	vst	$vr0, $sp, 80
-	vsrl.w	$vr0, $vr1, $vr6
-	vsrl.w	$vr1, $vr0, $vr7
-	pcalau12i	$a2, %pc_hi20(.LCPI1_6)
-	vld	$vr2, $a2, %pc_lo12(.LCPI1_6)
-	pcalau12i	$a2, %pc_hi20(.LCPI1_7)
-	vld	$vr4, $a2, %pc_lo12(.LCPI1_7)
-	vand.v	$vr0, $vr0, $vr7
-	vshuf.w	$vr2, $vr0, $vr1
-	vinsgr2vr.w	$vr0, $a1, 0
-	vslt.wu	$vr0, $vr0, $vr4
-	vor.v	$vr1, $vr2, $vr3
-	vadd.w	$vr2, $vr2, $vr5
+	vld	$vr0, $a1, 0
+	pcalau12i	$a1, %pc_hi20(.LCPI1_8)
+	vld	$vr1, $a1, %pc_lo12(.LCPI1_8)
+	vreplvei.w	$vr2, $vr0, 2
+	vsrl.w	$vr1, $vr2, $vr1
+	vrepli.w	$vr3, 15
+	vand.v	$vr1, $vr1, $vr3
+	vslti.wu	$vr3, $vr1, 10
+	vrepli.w	$vr4, 48
+	vor.v	$vr5, $vr1, $vr4
+	vrepli.w	$vr6, 55
+	vadd.w	$vr1, $vr1, $vr6
+	pcalau12i	$a1, %pc_hi20(.LCPI1_4)
+	vld	$vr7, $a1, %pc_lo12(.LCPI1_4)
+	pcalau12i	$a1, %pc_hi20(.LCPI1_5)
+	vld	$vr8, $a1, %pc_lo12(.LCPI1_5)
+	vbitsel.v	$vr1, $vr1, $vr5, $vr3
+	vst	$vr1, $sp, 80
+	vsrl.w	$vr1, $vr2, $vr7
+	vsrl.w	$vr2, $vr1, $vr8
+	pcalau12i	$a1, %pc_hi20(.LCPI1_6)
+	vld	$vr3, $a1, %pc_lo12(.LCPI1_6)
+	pcalau12i	$a1, %pc_hi20(.LCPI1_9)
+	vld	$vr5, $a1, %pc_lo12(.LCPI1_9)
+	pcalau12i	$a1, %pc_hi20(.LCPI1_7)
+	vld	$vr7, $a1, %pc_lo12(.LCPI1_7)
+	vand.v	$vr1, $vr1, $vr8
+	vshuf.w	$vr3, $vr1, $vr2
+	vshuf.w	$vr5, $vr1, $vr0
+	vslt.wu	$vr0, $vr5, $vr7
+	vor.v	$vr1, $vr3, $vr4
+	vadd.w	$vr2, $vr3, $vr6
 	vbitsel.v	$vr0, $vr2, $vr1, $vr0
 	vst	$vr0, $sp, 64
 	st.w	$zero, $sp, 96

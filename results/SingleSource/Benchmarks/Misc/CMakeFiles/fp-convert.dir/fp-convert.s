@@ -24,15 +24,9 @@ loop:                                   # @loop
 .Lfunc_end0:
 	.size	loop, .Lfunc_end0-loop
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function main
-.LCPI1_0:
-	.word	0x3dcccccd                      # float 0.100000001
-.LCPI1_1:
-	.word	0x3e4ccccd                      # float 0.200000003
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
-.LCPI1_2:
+	.p2align	4, 0x0                          # -- Begin function main
+.LCPI1_0:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -49,19 +43,20 @@ main:                                   # @main
 	ori	$a0, $a0, 2080
 	sub.d	$sp, $sp, $a0
 	move	$a0, $zero
-	movgr2fr.d	$fa0, $zero
-	movgr2fr.w	$fa1, $zero
-	vldi	$vr2, -1168
+	lu12i.w	$a1, 260096
+	vreplgr2vr.d	$vr0, $a1
+	movgr2fr.d	$fa1, $zero
 	lu12i.w	$a1, -209716
 	ori	$a1, $a1, 3277
 	lu12i.w	$a2, 104857
 	ori	$a2, $a2, 2458
+	lu12i.w	$a3, 255180
+	ori	$a3, $a3, 3277
+	lu32i.d	$a3, -209715
+	lu52i.d	$a3, $a3, 988
+	vreplgr2vr.d	$vr2, $a3
 	pcalau12i	$a3, %pc_hi20(.LCPI1_0)
-	fld.s	$fa3, $a3, %pc_lo12(.LCPI1_0)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_1)
-	fld.s	$fa4, $a3, %pc_lo12(.LCPI1_1)
-	pcalau12i	$a3, %pc_hi20(.LCPI1_2)
-	vld	$vr5, $a3, %pc_lo12(.LCPI1_2)
+	vld	$vr3, $a3, %pc_lo12(.LCPI1_0)
 	lu12i.w	$a3, -2
 	lu12i.w	$a4, 2
 	ori	$a4, $a4, 8
@@ -70,9 +65,8 @@ main:                                   # @main
 	addi.d	$a6, $sp, 8
 	lu12i.w	$a7, 122
 	ori	$a7, $a7, 288
-	vldi	$vr7, -1168
-	fmov.s	$ft0, $fa1
-	fmov.d	$fa6, $fa0
+	fmov.d	$fa4, $fa1
+	vori.b	$vr5, $vr0, 0
 	.p2align	4, , 16
 .LBB1_1:                                # %vector.ph
                                         # =>This Loop Header: Depth=1
@@ -81,53 +75,54 @@ main:                                   # @main
 	mul.d	$t0, $a0, $a1
 	rotri.w	$t0, $t0, 1
 	sltu	$t0, $t0, $a2
-	fadd.s	$ft0, $ft0, $fa3
-	fadd.s	$fa7, $fa7, $fa4
-	movgr2cf	$fcc0, $t0
-	fsel	$ft0, $fa1, $ft0, $fcc0
-	fsel	$fa7, $fa2, $fa7, $fcc0
-	vreplvei.w	$vr9, $vr8, 0
-	vreplvei.w	$vr10, $vr7, 0
+	vfadd.s	$vr5, $vr5, $vr2
+	vinsgr2vr.w	$vr6, $t0, 0
+	vinsgr2vr.w	$vr6, $t0, 1
+	vslli.w	$vr6, $vr6, 31
+	vsrai.w	$vr6, $vr6, 31
+	vbitsel.v	$vr5, $vr0, $vr5, $vr6
+	vreplvei.w	$vr6, $vr5, 1
+	vreplvei.w	$vr7, $vr5, 0
 	move	$t0, $a3
-	vori.b	$vr11, $vr5, 0
+	vori.b	$vr8, $vr3, 0
 	.p2align	4, , 16
 .LBB1_2:                                # %vector.body
                                         #   Parent Loop BB1_1 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vffint.s.wu	$vr12, $vr11
-	vfadd.s	$vr13, $vr9, $vr12
+	vffint.s.wu	$vr9, $vr8
+	vfadd.s	$vr10, $vr6, $vr9
 	add.d	$t1, $a4, $t0
-	vstx	$vr13, $t1, $a5
-	vfadd.s	$vr12, $vr10, $vr12
+	vstx	$vr10, $t1, $a5
+	vfadd.s	$vr9, $vr7, $vr9
 	add.d	$t1, $a6, $t0
-	vstx	$vr12, $t1, $a5
+	vstx	$vr9, $t1, $a5
 	addi.d	$t0, $t0, 16
-	vaddi.wu	$vr11, $vr11, 4
+	vaddi.wu	$vr8, $vr8, 4
 	bnez	$t0, .LBB1_2
 # %bb.3:                                # %.lr.ph.i.preheader
                                         #   in Loop: Header=BB1_1 Depth=1
 	move	$t0, $a3
-	fmov.d	$ft1, $fa0
+	fmov.d	$fa6, $fa1
 	.p2align	4, , 16
 .LBB1_4:                                # %.lr.ph.i
                                         #   Parent Loop BB1_1 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$t1, $a4, $t0
-	fldx.s	$ft2, $t1, $a5
+	fldx.s	$fa7, $t1, $a5
 	add.d	$t1, $a6, $t0
-	fldx.s	$ft3, $t1, $a5
-	fcvt.d.s	$ft2, $ft2
-	fcvt.d.s	$ft3, $ft3
+	fldx.s	$ft0, $t1, $a5
+	fcvt.d.s	$fa7, $fa7
+	fcvt.d.s	$ft0, $ft0
 	addi.d	$t0, $t0, 4
-	fmadd.d	$ft1, $ft2, $ft3, $ft1
+	fmadd.d	$fa6, $fa7, $ft0, $fa6
 	bnez	$t0, .LBB1_4
 # %bb.5:                                # %loop.exit
                                         #   in Loop: Header=BB1_1 Depth=1
 	addi.w	$a0, $a0, 1
-	fadd.d	$fa6, $fa6, $ft1
+	fadd.d	$fa4, $fa4, $fa6
 	bne	$a0, $a7, .LBB1_1
 # %bb.6:
-	movfr2gr.d	$a1, $fa6
+	movfr2gr.d	$a1, $fa4
 	pcalau12i	$a0, %pc_hi20(.L.str)
 	addi.d	$a0, $a0, %pc_lo12(.L.str)
 	pcaddu18i	$ra, %call36(printf)

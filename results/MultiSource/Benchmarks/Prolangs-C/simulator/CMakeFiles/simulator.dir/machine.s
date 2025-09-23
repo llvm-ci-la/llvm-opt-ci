@@ -941,29 +941,132 @@ PRINT_CONSTANT:                         # @PRINT_CONSTANT
 .Lfunc_end12:
 	.size	PRINT_CONSTANT, .Lfunc_end12-PRINT_CONSTANT
                                         # -- End function
-	.globl	PRINT_INSTRUCTION               # -- Begin function PRINT_INSTRUCTION
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function PRINT_INSTRUCTION
+.LCPI13_0:
+	.word	25                              # 0x19
+	.word	24                              # 0x18
+	.word	30                              # 0x1e
+	.word	31                              # 0x1f
+.LCPI13_1:
+	.word	7                               # 0x7
+	.word	8                               # 0x8
+	.word	2                               # 0x2
+	.word	1                               # 0x1
+.LCPI13_2:
+	.word	0                               # 0x0
+	.word	4294967295                      # 0xffffffff
+	.word	4294967295                      # 0xffffffff
+	.word	0                               # 0x0
+.LCPI13_3:
+	.word	24                              # 0x18
+	.word	30                              # 0x1e
+	.word	29                              # 0x1d
+	.word	28                              # 0x1c
+.LCPI13_4:
+	.word	8                               # 0x8
+	.word	2                               # 0x2
+	.word	3                               # 0x3
+	.word	4                               # 0x4
+.LCPI13_5:
+	.word	4294967295                      # 0xffffffff
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+.LCPI13_6:
+	.word	27                              # 0x1b
+	.word	26                              # 0x1a
+	.word	25                              # 0x19
+	.word	31                              # 0x1f
+.LCPI13_7:
+	.word	5                               # 0x5
+	.word	6                               # 0x6
+	.word	7                               # 0x7
+	.word	1                               # 0x1
+.LCPI13_8:
+	.word	30                              # 0x1e
+	.word	29                              # 0x1d
+	.word	28                              # 0x1c
+	.word	26                              # 0x1a
+.LCPI13_9:
+	.word	2                               # 0x2
+	.word	3                               # 0x3
+	.word	4                               # 0x4
+	.word	6                               # 0x6
+.LCPI13_10:
+	.word	6                               # 0x6
+	.word	4294967295                      # 0xffffffff
+	.word	1                               # 0x1
+	.word	2                               # 0x2
+.LCPI13_11:
+	.word	0                               # 0x0
+	.word	7                               # 0x7
+	.word	2                               # 0x2
+	.word	3                               # 0x3
+.LCPI13_12:
+	.word	0                               # 0x0
+	.word	1                               # 0x1
+	.word	2                               # 0x2
+	.word	7                               # 0x7
+.LCPI13_13:
+	.word	0                               # 0x0
+	.word	1                               # 0x1
+	.word	4294967295                      # 0xffffffff
+	.word	4                               # 0x4
+.LCPI13_14:
+	.word	0                               # 0x0
+	.word	5                               # 0x5
+	.word	6                               # 0x6
+	.word	7                               # 0x7
+.LCPI13_15:
+	.word	4                               # 0x4
+	.word	1                               # 0x1
+	.word	2                               # 0x2
+	.word	7                               # 0x7
+.LCPI13_16:
+	.word	24                              # 0x18
+	.word	25                              # 0x19
+	.word	26                              # 0x1a
+	.word	27                              # 0x1b
+.LCPI13_17:
+	.word	8                               # 0x8
+	.word	7                               # 0x7
+	.word	6                               # 0x6
+	.word	5                               # 0x5
+.LCPI13_18:
+	.word	28                              # 0x1c
+	.word	29                              # 0x1d
+	.word	30                              # 0x1e
+	.word	31                              # 0x1f
+.LCPI13_19:
+	.word	4                               # 0x4
+	.word	3                               # 0x3
+	.word	2                               # 0x2
+	.word	1                               # 0x1
+	.text
+	.globl	PRINT_INSTRUCTION
 	.p2align	5
 	.type	PRINT_INSTRUCTION,@function
 PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 # %bb.0:
-	addi.d	$sp, $sp, -288
-	st.d	$ra, $sp, 280                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 272                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 264                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 256                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 248                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 240                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 232                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 224                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 216                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 208                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 200                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -240
+	st.d	$ra, $sp, 232                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 216                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 152                   # 8-byte Folded Spill
 	move	$s1, $a0
 	pcalau12i	$s8, %pc_hi20(MEMORY)
 	ld.d	$a0, $s8, %pc_lo12(MEMORY)
-	pcalau12i	$s3, %pc_hi20(PRINT_INSTR)
+	pcalau12i	$s4, %pc_hi20(PRINT_INSTR)
 	ori	$a3, $zero, 1
-	st.w	$a3, $s3, %pc_lo12(PRINT_INSTR)
+	st.w	$a3, $s4, %pc_lo12(PRINT_INSTR)
 	ldx.b	$a0, $a0, $s1
 	move	$fp, $a2
 	move	$s2, $a1
@@ -972,10 +1075,10 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	move	$s0, $a0
 	bstrpick.d	$a0, $a0, 62, 61
 	add.w	$a0, $s0, $a0
-	srai.d	$s4, $a0, 2
+	srai.d	$s6, $a0, 2
 	bstrpick.d	$a0, $s1, 31, 20
 	pcalau12i	$a1, %pc_hi20(INSTR)
-	addi.d	$s6, $a1, %pc_lo12(INSTR)
+	addi.d	$s7, $a1, %pc_lo12(INSTR)
 	beqz	$a0, .LBB13_3
 # %bb.1:
 	st.w	$zero, $fp, 0
@@ -986,258 +1089,192 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	pcaddu18i	$ra, %call36(puts)
 	jirl	$ra, $ra, 0
                                         # implicit-def: $r28
-                                        # implicit-def: $r30
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r31
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
 	b	.LBB13_9
 .LBB13_3:
-	alsl.d	$a0, $s4, $s6, 4
+	alsl.d	$a0, $s6, $s7, 4
 	ld.w	$a0, $a0, 8
 	ori	$a1, $zero, 2
 	blt	$a1, $a0, .LBB13_5
 # %bb.4:
 	st.w	$a0, $fp, 0
                                         # implicit-def: $r28
-                                        # implicit-def: $r30
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r31
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
 	bnez	$s2, .LBB13_9
 	b	.LBB13_32
 .LBB13_5:                               # %.lr.ph.i
+	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
 	ld.d	$a0, $s8, %pc_lo12(MEMORY)
 	ldx.b	$a0, $a0, $s1
 	pcaddu18i	$ra, %call36(INT)
 	jirl	$ra, $ra, 0
-	bstrpick.d	$a1, $a0, 31, 31
-	add.w	$a1, $a0, $a1
-	addi.w	$s7, $zero, -2
-	lu32i.d	$s7, 0
-	and	$a2, $a1, $s7
-	sub.w	$a2, $a0, $a2
-	st.d	$a2, $sp, 184                   # 8-byte Folded Spill
-	ld.d	$a2, $s8, %pc_lo12(MEMORY)
-	bstrpick.d	$a3, $a0, 62, 61
-	add.w	$a3, $a0, $a3
-	srai.d	$a1, $a1, 1
-	add.d	$a0, $a2, $s1
+	move	$s4, $a0
+	bstrpick.d	$a0, $a0, 31, 31
+	ld.d	$a1, $s8, %pc_lo12(MEMORY)
+	add.d	$a2, $s4, $a0
+	addi.w	$a0, $a2, 0
+	srli.d	$a0, $a0, 1
+	st.d	$a0, $sp, 128                   # 8-byte Folded Spill
+	add.d	$a0, $a1, $s1
 	ld.b	$a0, $a0, 1
-	srai.d	$a2, $a3, 2
-	slli.d	$a2, $a2, 1
-	sub.w	$a1, $a1, $a2
-	st.d	$a1, $sp, 176                   # 8-byte Folded Spill
-	pcaddu18i	$ra, %call36(INT)
-	jirl	$ra, $ra, 0
-	bstrpick.d	$a1, $a0, 31, 31
-	add.w	$a1, $a0, $a1
-	srai.d	$a2, $a1, 1
-	and	$a1, $a1, $s7
-	srli.d	$a3, $a0, 31
-	bstrpick.d	$a4, $a3, 31, 30
-	add.w	$a4, $a0, $a4
-	srai.d	$a4, $a4, 2
-	slli.d	$a5, $a4, 1
-	sub.d	$a2, $a2, $a5
-	st.d	$a2, $sp, 160                   # 8-byte Folded Spill
-	bstrpick.d	$a2, $a3, 31, 29
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 3
-	slli.d	$a5, $a2, 1
-	sub.d	$a4, $a4, $a5
-	st.d	$a4, $sp, 152                   # 8-byte Folded Spill
-	bstrpick.d	$a4, $a3, 31, 28
-	add.w	$a4, $a0, $a4
-	srai.d	$a4, $a4, 4
-	slli.d	$a5, $a4, 1
-	sub.d	$a2, $a2, $a5
-	st.d	$a2, $sp, 144                   # 8-byte Folded Spill
-	bstrpick.d	$a2, $a3, 31, 27
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 5
-	slli.d	$a5, $a2, 1
-	sub.d	$s5, $a4, $a5
-	bstrpick.d	$a4, $a3, 31, 26
-	add.w	$a4, $a0, $a4
-	srai.d	$a4, $a4, 6
-	slli.d	$a5, $a4, 1
-	sub.d	$a2, $a2, $a5
-	st.d	$a2, $sp, 72                    # 8-byte Folded Spill
-	bstrpick.d	$a2, $a3, 31, 25
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 7
-	slli.d	$a5, $a2, 1
-	sub.d	$a4, $a4, $a5
-	st.d	$a4, $sp, 64                    # 8-byte Folded Spill
-	ld.d	$a4, $s8, %pc_lo12(MEMORY)
-	sub.w	$a1, $a0, $a1
-	st.d	$a1, $sp, 128                   # 8-byte Folded Spill
-	bstrpick.d	$a1, $a3, 31, 24
-	add.w	$a1, $a0, $a1
-	add.d	$a0, $a4, $s1
-	ld.b	$a0, $a0, 2
-	srai.d	$a1, $a1, 8
+	bstrpick.d	$a1, $a2, 31, 1
 	slli.d	$a1, $a1, 1
-	sub.d	$a1, $a2, $a1
-	st.d	$a1, $sp, 168                   # 8-byte Folded Spill
+	sub.w	$a1, $s4, $a1
+	st.d	$a1, $sp, 88                    # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(INT)
 	jirl	$ra, $ra, 0
-	bstrpick.d	$a1, $a0, 31, 31
-	add.w	$a1, $a0, $a1
-	srai.d	$a2, $a1, 1
-	and	$a1, $a1, $s7
-	sub.w	$s7, $a0, $a1
-	srli.d	$a1, $a0, 31
-	bstrpick.d	$a3, $a1, 31, 30
-	add.w	$a3, $a0, $a3
-	srai.d	$a3, $a3, 2
-	slli.d	$a4, $a3, 1
-	sub.d	$a2, $a2, $a4
-	st.d	$a2, $sp, 136                   # 8-byte Folded Spill
-	bstrpick.d	$a2, $a1, 31, 29
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 3
-	slli.d	$a4, $a2, 1
-	sub.d	$a3, $a3, $a4
-	st.d	$a3, $sp, 120                   # 8-byte Folded Spill
-	bstrpick.d	$a3, $a1, 31, 28
-	add.w	$a3, $a0, $a3
-	srai.d	$a3, $a3, 4
-	slli.d	$a4, $a3, 1
-	sub.d	$a2, $a2, $a4
-	st.d	$a2, $sp, 112                   # 8-byte Folded Spill
-	bstrpick.d	$a2, $a1, 31, 27
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 5
-	slli.d	$a4, $a2, 1
-	sub.d	$a3, $a3, $a4
-	st.d	$a3, $sp, 104                   # 8-byte Folded Spill
-	bstrpick.d	$a3, $a1, 31, 26
-	add.w	$a3, $a0, $a3
-	srai.d	$a3, $a3, 6
-	slli.d	$a4, $a3, 1
-	sub.d	$a2, $a2, $a4
-	st.d	$a2, $sp, 96                    # 8-byte Folded Spill
-	bstrpick.d	$a2, $a1, 31, 25
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 7
-	slli.d	$a4, $a2, 1
-	sub.d	$a3, $a3, $a4
-	st.d	$a3, $sp, 88                    # 8-byte Folded Spill
-	bstrpick.d	$a1, $a1, 31, 24
-	add.w	$a0, $a0, $a1
-	srai.d	$a0, $a0, 8
-	slli.d	$a0, $a0, 1
+	ld.d	$a1, $s8, %pc_lo12(MEMORY)
+	move	$s3, $a0
+	srli.d	$s5, $a0, 31
+	bstrpick.d	$a2, $s5, 31, 27
+	add.d	$a0, $a1, $s1
+	ld.b	$a0, $a0, 2
+	add.w	$a1, $s3, $a2
+	srai.d	$a1, $a1, 5
+	st.d	$a1, $sp, 96                    # 8-byte Folded Spill
+	slli.d	$a1, $a1, 1
+	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
+	pcaddu18i	$ra, %call36(INT)
+	jirl	$ra, $ra, 0
+	vinsgr2vr.w	$vr0, $s3, 3
+	vinsgr2vr.w	$vr2, $a0, 0
+	vinsgr2vr.w	$vr1, $s3, 0
+	vinsgr2vr.w	$vr1, $s3, 1
+	vinsgr2vr.w	$vr1, $s4, 2
+	pcalau12i	$a1, %pc_hi20(.LCPI13_0)
+	vld	$vr3, $a1, %pc_lo12(.LCPI13_0)
+	vinsgr2vr.w	$vr1, $a0, 3
+	vreplgr2vr.w	$vr4, $s3
+	vsrai.w	$vr5, $vr1, 31
+	vsrl.w	$vr3, $vr5, $vr3
+	pcalau12i	$a1, %pc_hi20(.LCPI13_1)
+	vld	$vr5, $a1, %pc_lo12(.LCPI13_1)
+	pcalau12i	$a1, %pc_hi20(.LCPI13_2)
+	vld	$vr6, $a1, %pc_lo12(.LCPI13_2)
+	vadd.w	$vr1, $vr1, $vr3
+	vsra.w	$vr1, $vr1, $vr5
+	vneg.w	$vr3, $vr1
+	vbitsel.v	$vr1, $vr1, $vr3, $vr6
+	pcalau12i	$a1, %pc_hi20(.LCPI13_8)
+	vld	$vr3, $a1, %pc_lo12(.LCPI13_8)
+	pcalau12i	$a1, %pc_hi20(.LCPI13_9)
+	vld	$vr5, $a1, %pc_lo12(.LCPI13_9)
+	vsrai.w	$vr6, $vr4, 31
+	vsrl.w	$vr3, $vr6, $vr3
+	vadd.w	$vr3, $vr4, $vr3
+	vsra.w	$vr3, $vr3, $vr5
+	pcalau12i	$a1, %pc_hi20(.LCPI13_13)
+	vld	$vr4, $a1, %pc_lo12(.LCPI13_13)
+	vbsll.v	$vr5, $vr1, 4
+	vbsrl.v	$vr6, $vr3, 12
+	vor.v	$vr5, $vr5, $vr6
+	vshuf.w	$vr4, $vr2, $vr5
+	vinsgr2vr.w	$vr2, $a0, 1
+	vinsgr2vr.w	$vr2, $a0, 2
+	pcalau12i	$a1, %pc_hi20(.LCPI13_3)
+	vld	$vr5, $a1, %pc_lo12(.LCPI13_3)
+	vinsgr2vr.w	$vr2, $s3, 3
+	vreplgr2vr.w	$vr6, $a0
+	vsrai.w	$vr7, $vr6, 31
+	vsrl.w	$vr5, $vr7, $vr5
+	pcalau12i	$a0, %pc_hi20(.LCPI13_4)
+	vld	$vr7, $a0, %pc_lo12(.LCPI13_4)
+	pcalau12i	$a0, %pc_hi20(.LCPI13_5)
+	vld	$vr12, $a0, %pc_lo12(.LCPI13_5)
+	vadd.w	$vr5, $vr6, $vr5
+	vsra.w	$vr5, $vr5, $vr7
+	vneg.w	$vr6, $vr5
+	vbitsel.v	$vr5, $vr5, $vr6, $vr12
+	pcalau12i	$a0, %pc_hi20(.LCPI13_6)
+	vld	$vr6, $a0, %pc_lo12(.LCPI13_6)
+	pcalau12i	$a0, %pc_hi20(.LCPI13_7)
+	vld	$vr7, $a0, %pc_lo12(.LCPI13_7)
+	vsrai.w	$vr8, $vr2, 31
+	vsrl.w	$vr6, $vr8, $vr6
+	vadd.w	$vr2, $vr2, $vr6
+	vsra.w	$vr2, $vr2, $vr7
+	bstrpick.d	$a0, $s5, 31, 28
+	ld.d	$s5, $sp, 88                    # 8-byte Folded Reload
+	add.w	$a0, $s3, $a0
+	srai.d	$a0, $a0, 4
+	vslli.w	$vr6, $vr1, 1
+	vslli.w	$vr7, $vr2, 1
+	vslli.w	$vr8, $vr5, 1
+	pcalau12i	$a1, %pc_hi20(.LCPI13_10)
+	vld	$vr9, $a1, %pc_lo12(.LCPI13_10)
+	pcalau12i	$a1, %pc_hi20(.LCPI13_11)
+	vld	$vr10, $a1, %pc_lo12(.LCPI13_11)
+	vslli.w	$vr11, $vr3, 1
+	ld.d	$a1, $sp, 64                    # 8-byte Folded Reload
+	sub.d	$a0, $a0, $a1
+	vshuf.w	$vr9, $vr2, $vr5
+	vshuf.w	$vr10, $vr1, $vr9
+	pcalau12i	$a1, %pc_hi20(.LCPI13_12)
+	vld	$vr1, $a1, %pc_lo12(.LCPI13_12)
+	vbsrl.v	$vr5, $vr5, 12
+	vbsll.v	$vr9, $vr2, 4
+	vor.v	$vr5, $vr9, $vr5
+	vshuf.w	$vr1, $vr0, $vr5
+	vbsrl.v	$vr0, $vr2, 12
+	vbsll.v	$vr2, $vr3, 4
+	vor.v	$vr2, $vr2, $vr0
+	ld.d	$a1, $sp, 96                    # 8-byte Folded Reload
+	vinsgr2vr.w	$vr2, $a1, 3
+	vsub.w	$vr3, $vr4, $vr6
+	ld.d	$a1, $sp, 128                   # 8-byte Folded Reload
+	vinsgr2vr.w	$vr4, $a1, 2
+	vadd.w	$vr0, $vr4, $vr6
+	vadd.w	$vr4, $vr10, $vr8
+	vsub.w	$vr5, $vr10, $vr8
+	pcalau12i	$a1, %pc_hi20(.LCPI13_14)
+	vld	$vr6, $a1, %pc_lo12(.LCPI13_14)
+	vsub.w	$vr1, $vr1, $vr7
+	vst	$vr1, $sp, 48                   # 16-byte Folded Spill
+	pcalau12i	$a1, %pc_hi20(.LCPI13_15)
+	vld	$vr1, $a1, %pc_lo12(.LCPI13_15)
+	vsub.w	$vr2, $vr2, $vr11
+	vst	$vr2, $sp, 96                   # 16-byte Folded Spill
+	vori.b	$vr2, $vr6, 0
+	vshuf.w	$vr2, $vr5, $vr4
+	vst	$vr2, $sp, 64                   # 16-byte Folded Spill
 	ori	$a1, $zero, 1
-	sub.d	$a0, $a2, $a0
-	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
-	bne	$s5, $a1, .LBB13_7
+	vshuf.w	$vr1, $vr3, $vr0
+	vst	$vr1, $sp, 128                  # 16-byte Folded Spill
+	bne	$a0, $a1, .LBB13_7
 # %bb.6:
-	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$a1, $sp, 176                   # 8-byte Folded Reload
-	or	$a0, $a1, $a0
+	vpickve2gr.w	$a0, $vr0, 2
+	or	$a0, $a0, $s5
 	bnez	$a0, .LBB13_8
 .LBB13_7:
 	ori	$a0, $zero, 3
 	st.w	$a0, $fp, 0
-                                        # implicit-def: $r28
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r4
-                                        # kill: killed $r4
-                                        # implicit-def: $r31
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+                                        # implicit-def: $vr0
+                                        # kill: killed $vr0
+	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
 	bnez	$s2, .LBB13_9
 	b	.LBB13_32
 .LBB13_8:                               # %.lr.ph.i79
@@ -1246,57 +1283,46 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	st.w	$a1, $fp, 0
 	add.d	$a0, $a0, $s1
 	ld.b	$a0, $a0, 3
+	vst	$vr6, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr12, $sp, 16                  # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(INT)
 	jirl	$ra, $ra, 0
-	bstrpick.d	$a1, $a0, 31, 31
-	add.d	$a1, $a0, $a1
-	addi.w	$a2, $a1, 0
-	srai.d	$a2, $a2, 1
-	bstrpick.d	$a1, $a1, 31, 1
-	slli.d	$a1, $a1, 1
-	sub.d	$s8, $a0, $a1
-	srli.d	$a1, $a0, 31
-	bstrpick.d	$a3, $a1, 31, 30
-	add.w	$a3, $a0, $a3
-	srai.d	$a3, $a3, 2
-	slli.d	$a4, $a3, 1
-	sub.d	$a2, $a2, $a4
-	st.d	$a2, $sp, 56                    # 8-byte Folded Spill
-	bstrpick.d	$a2, $a1, 31, 29
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 3
-	slli.d	$a4, $a2, 1
-	sub.d	$a3, $a3, $a4
-	st.d	$a3, $sp, 40                    # 8-byte Folded Spill
-	bstrpick.d	$a3, $a1, 31, 28
-	add.w	$a3, $a0, $a3
-	srai.d	$a3, $a3, 4
-	slli.d	$a4, $a3, 1
-	sub.d	$a2, $a2, $a4
-	st.d	$a2, $sp, 32                    # 8-byte Folded Spill
-	bstrpick.d	$a2, $a1, 31, 27
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 5
-	slli.d	$a4, $a2, 1
-	sub.d	$a3, $a3, $a4
-	st.d	$a3, $sp, 24                    # 8-byte Folded Spill
-	bstrpick.d	$a3, $a1, 31, 26
-	add.w	$a3, $a0, $a3
-	srai.d	$a3, $a3, 6
-	slli.d	$a4, $a3, 1
-	sub.d	$a2, $a2, $a4
-	st.d	$a2, $sp, 16                    # 8-byte Folded Spill
-	bstrpick.d	$a2, $a1, 31, 25
-	add.w	$a2, $a0, $a2
-	srai.d	$a2, $a2, 7
-	slli.d	$a4, $a2, 1
-	sub.d	$a3, $a3, $a4
-	st.d	$a3, $sp, 48                    # 8-byte Folded Spill
-	bstrpick.d	$a1, $a1, 31, 24
-	add.w	$a0, $a0, $a1
-	srai.d	$a0, $a0, 8
-	slli.d	$a0, $a0, 1
-	sub.d	$s5, $a2, $a0
+	vreplgr2vr.w	$vr0, $a0
+	pcalau12i	$a1, %pc_hi20(.LCPI13_16)
+	vld	$vr1, $a1, %pc_lo12(.LCPI13_16)
+	pcalau12i	$a1, %pc_hi20(.LCPI13_17)
+	vld	$vr2, $a1, %pc_lo12(.LCPI13_17)
+	vsrai.w	$vr3, $vr0, 31
+	vsrl.w	$vr1, $vr3, $vr1
+	vadd.w	$vr1, $vr0, $vr1
+	vsra.w	$vr1, $vr1, $vr2
+	vneg.w	$vr2, $vr1
+	vld	$vr4, $sp, 16                   # 16-byte Folded Reload
+	vbitsel.v	$vr1, $vr1, $vr2, $vr4
+	pcalau12i	$a1, %pc_hi20(.LCPI13_18)
+	vld	$vr2, $a1, %pc_lo12(.LCPI13_18)
+	pcalau12i	$a1, %pc_hi20(.LCPI13_19)
+	vld	$vr4, $a1, %pc_lo12(.LCPI13_19)
+	vinsgr2vr.w	$vr5, $a0, 0
+	vsrl.w	$vr2, $vr3, $vr2
+	vadd.w	$vr0, $vr0, $vr2
+	vsra.w	$vr0, $vr0, $vr4
+	vslli.w	$vr2, $vr1, 1
+	vslli.w	$vr3, $vr0, 1
+	vbsrl.v	$vr1, $vr1, 4
+	vbsll.v	$vr4, $vr0, 12
+	vor.v	$vr1, $vr4, $vr1
+	vbsrl.v	$vr0, $vr0, 4
+	vbsll.v	$vr4, $vr5, 12
+	vor.v	$vr0, $vr4, $vr0
+	vadd.w	$vr4, $vr1, $vr2
+	vsub.w	$vr1, $vr1, $vr2
+	vsub.w	$vr0, $vr0, $vr3
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
+	vshuf.w	$vr0, $vr1, $vr4
+	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
 	beqz	$s2, .LBB13_32
 .LBB13_9:
 	pcalau12i	$a0, %pc_hi20(.L.str.68)
@@ -1316,8 +1342,8 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	or	$a0, $a0, $a1
 	pcaddu18i	$ra, %call36(putchar)
 	jirl	$ra, $ra, 0
-	slli.d	$a0, $s4, 4
-	ldx.d	$a1, $s6, $a0
+	slli.d	$a0, $s6, 4
+	ldx.d	$a1, $s7, $a0
 	pcalau12i	$a0, %pc_hi20(.L.str.72)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.72)
 	pcaddu18i	$ra, %call36(printf)
@@ -1328,22 +1354,22 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 # %bb.10:
 	pcalau12i	$a0, %pc_hi20(REGISTER)
 	addi.d	$s2, $a0, %pc_lo12(REGISTER)
-	ld.w	$s6, $s2, 32
+	ld.w	$s3, $s2, 32
 	st.w	$s1, $s2, 32
 	ld.w	$a0, $fp, 0
 	ori	$a1, $zero, 2
 	bne	$a0, $a1, .LBB13_14
 # %bb.11:
-	addi.d	$a0, $sp, 196
-	addi.d	$a1, $sp, 192
+	addi.d	$a0, $sp, 148
+	addi.d	$a1, $sp, 144
 	pcaddu18i	$ra, %call36(FORMAT2)
 	jirl	$ra, $ra, 0
-	addi.d	$a0, $s4, -45
+	addi.d	$a0, $s6, -45
 	ori	$a1, $zero, 1
-	st.w	$s6, $s2, 32
+	st.w	$s3, $s2, 32
 	bltu	$a1, $a0, .LBB13_18
 # %bb.12:
-	ld.w	$a0, $sp, 196
+	ld.w	$a0, $sp, 148
 	ori	$a1, $zero, 9
 	slt	$a1, $a1, $a0
 	alsl.d	$a0, $a0, $a0, 1
@@ -1360,12 +1386,12 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	jirl	$ra, $ra, 0
 	b	.LBB13_31
 .LBB13_14:
-	ld.d	$a0, $sp, 176                   # 8-byte Folded Reload
-	addi.w	$a0, $a0, 0
+	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
+	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
+	vpickve2gr.w	$a0, $vr0, 2
 	addi.d	$a1, $a0, -1
 	sltui	$a1, $a1, 1
-	ld.d	$a2, $sp, 184                   # 8-byte Folded Reload
-	addi.w	$a2, $a2, 0
+	addi.w	$a2, $s5, 0
 	sltui	$a3, $a2, 1
 	sltui	$a0, $a0, 1
 	addi.d	$a2, $a2, -1
@@ -1388,44 +1414,47 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	pcaddu18i	$ra, %call36(putchar)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $fp, 0
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	vld	$vr0, $sp, 96                   # 16-byte Folded Reload
+	vpickve2gr.w	$a0, $vr0, 2
 	slli.d	$a0, $a0, 2
-	ld.d	$a2, $sp, 152                   # 8-byte Folded Reload
+	vpickve2gr.w	$a2, $vr0, 1
 	alsl.d	$a0, $a2, $a0, 1
-	ld.d	$a2, $sp, 160                   # 8-byte Folded Reload
+	vpickve2gr.w	$a2, $vr0, 0
 	add.w	$a0, $a2, $a0
 	slli.d	$a0, $a0, 2
-	ld.d	$a2, $sp, 128                   # 8-byte Folded Reload
+	vld	$vr2, $sp, 48                   # 16-byte Folded Reload
+	vpickve2gr.w	$a2, $vr2, 3
 	alsl.d	$a0, $a2, $a0, 1
-	ld.d	$a2, $sp, 80                    # 8-byte Folded Reload
+	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
+	vpickve2gr.w	$a2, $vr1, 0
 	add.d	$a0, $a2, $a0
 	slli.d	$a0, $a0, 2
-	ld.d	$a2, $sp, 88                    # 8-byte Folded Reload
+	vpickve2gr.w	$a2, $vr2, 2
 	alsl.d	$a0, $a2, $a0, 1
-	ld.d	$a2, $sp, 96                    # 8-byte Folded Reload
+	vpickve2gr.w	$a2, $vr2, 1
 	add.w	$a0, $a2, $a0
 	slli.d	$a0, $a0, 2
-	ld.d	$a2, $sp, 104                   # 8-byte Folded Reload
+	vpickve2gr.w	$a2, $vr2, 0
 	alsl.d	$a0, $a2, $a0, 1
-	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
+	vpickve2gr.w	$a2, $vr1, 3
 	add.d	$a0, $a2, $a0
 	slli.d	$a0, $a0, 2
-	ld.d	$a2, $sp, 120                   # 8-byte Folded Reload
+	vpickve2gr.w	$a2, $vr1, 2
 	alsl.d	$a0, $a2, $a0, 1
-	ori	$a2, $zero, 3
-	ld.d	$a3, $sp, 136                   # 8-byte Folded Reload
-	add.w	$a0, $a3, $a0
-	bne	$a1, $a2, .LBB13_21
+	vpickve2gr.w	$a2, $vr1, 1
+	ori	$a3, $zero, 3
+	add.w	$a0, $a2, $a0
+	bne	$a1, $a3, .LBB13_21
 # %bb.15:                               # %.lr.ph.i85
-	alsl.d	$a0, $a0, $s7, 1
+	vld	$vr1, $sp, 128                  # 16-byte Folded Reload
+	vpickve2gr.w	$a1, $vr1, 3
+	alsl.d	$a0, $a0, $a1, 1
 	ld.w	$a1, $s2, 12
-	ld.d	$a2, $sp, 64                    # 8-byte Folded Reload
-	addi.w	$a2, $a2, 0
+	vpickve2gr.w	$a2, $vr1, 0
 	addi.d	$a2, $a2, -1
 	sltui	$a2, $a2, 1
 	maskeqz	$a1, $a1, $a2
-	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
-	addi.w	$a2, $a2, 0
+	vpickve2gr.w	$a2, $vr0, 3
 	ori	$a3, $zero, 1
 	add.w	$a1, $a1, $a0
 	bne	$a2, $a3, .LBB13_22
@@ -1446,7 +1475,7 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	ori	$a0, $zero, 176
 	bne	$s0, $a0, .LBB13_24
 # %bb.19:
-	ld.w	$a1, $sp, 196
+	ld.w	$a1, $sp, 148
 	ori	$a0, $zero, 5
 	blt	$a1, $a0, .LBB13_33
 # %bb.20:
@@ -1457,24 +1486,30 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	b	.LBB13_31
 .LBB13_21:                              # %.lr.ph.i89
 	slli.d	$a0, $a0, 2
-	alsl.d	$a0, $s7, $a0, 1
-	add.w	$a0, $s5, $a0
-	slli.d	$a0, $a0, 2
-	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
+	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
+	vpickve2gr.w	$a1, $vr0, 3
 	alsl.d	$a0, $a1, $a0, 1
-	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
-	add.d	$a0, $a1, $a0
-	slli.d	$a0, $a0, 2
-	ld.d	$a1, $sp, 24                    # 8-byte Folded Reload
-	alsl.d	$a0, $a1, $a0, 1
-	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
+	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
+	vpickve2gr.w	$a1, $vr0, 0
 	add.w	$a0, $a1, $a0
 	slli.d	$a0, $a0, 2
-	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
+	vpickve2gr.w	$a1, $vr0, 1
 	alsl.d	$a0, $a1, $a0, 1
-	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	vpickve2gr.w	$a1, $vr0, 2
 	add.d	$a0, $a1, $a0
-	alsl.w	$a1, $a0, $s8, 1
+	slli.d	$a0, $a0, 2
+	vpickve2gr.w	$a1, $vr0, 3
+	alsl.d	$a0, $a1, $a0, 1
+	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vpickve2gr.w	$a1, $vr0, 0
+	add.w	$a0, $a1, $a0
+	slli.d	$a0, $a0, 2
+	vpickve2gr.w	$a1, $vr0, 1
+	alsl.d	$a0, $a1, $a0, 1
+	vpickve2gr.w	$a1, $vr0, 2
+	add.d	$a0, $a1, $a0
+	vpickve2gr.w	$a1, $vr0, 3
+	alsl.w	$a1, $a0, $a1, 1
 .LBB13_22:                              # %BITS_TO_BYTE.exit94
 	lu12i.w	$a0, 255
 	ori	$a0, $a0, 4095
@@ -1485,14 +1520,14 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	move	$a2, $a0
 	pcaddu18i	$ra, %call36(PRINT_ADDRESS)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
-	addi.w	$a0, $a0, 0
+	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
+	vpickve2gr.w	$a0, $vr0, 1
 	ori	$a1, $zero, 1
 	beq	$a0, $a1, .LBB13_29
 	b	.LBB13_30
 .LBB13_24:
-	ld.w	$a0, $sp, 196
-	addi.d	$a1, $s4, -41
+	ld.w	$a0, $sp, 148
+	addi.d	$a1, $s6, -41
 	ori	$a2, $zero, 1
 	bltu	$a2, $a1, .LBB13_34
 # %bb.25:
@@ -1514,8 +1549,8 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	addi.d	$a0, $a0, %pc_lo12(.L.str.83)
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
-	addi.w	$a0, $a0, 0
+	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
+	vpickve2gr.w	$a0, $vr0, 1
 	ori	$a1, $zero, 1
 	bne	$a0, $a1, .LBB13_30
 .LBB13_29:
@@ -1524,25 +1559,25 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 .LBB13_30:
-	st.w	$s6, $s2, 32
+	st.w	$s3, $s2, 32
 	ori	$a0, $zero, 10
 	pcaddu18i	$ra, %call36(putchar)
 	jirl	$ra, $ra, 0
 .LBB13_31:
-	st.w	$zero, $s3, %pc_lo12(PRINT_INSTR)
+	st.w	$zero, $s4, %pc_lo12(PRINT_INSTR)
 .LBB13_32:
-	ld.d	$s8, $sp, 200                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 216                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 224                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 232                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 240                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 248                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 256                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 264                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 280                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 288
+	ld.d	$s8, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 232                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 240
 	ret
 .LBB13_33:
 	pcalau12i	$a0, %pc_hi20(.L.str.76)
@@ -1571,7 +1606,7 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 .LBB13_37:
-	ld.w	$a1, $sp, 192
+	ld.w	$a1, $sp, 144
 	pcalau12i	$a0, %pc_hi20(.L.str.79)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.79)
 	pcalau12i	$a2, %pc_hi20(.L.str.80)
@@ -1587,7 +1622,7 @@ PRINT_INSTRUCTION:                      # @PRINT_INSTRUCTION
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 .LBB13_39:
-	ld.w	$a0, $sp, 192
+	ld.w	$a0, $sp, 144
 	ori	$a1, $zero, 9
 	slt	$a1, $a1, $a0
 	alsl.d	$a0, $a0, $a0, 1

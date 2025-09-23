@@ -687,23 +687,23 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
 	st.d	$s8, $sp, 40                    # 8-byte Folded Spill
 	ldptr.d	$a6, $a0, 6448
-	ldptr.w	$s7, $a0, 6396
+	ldptr.w	$s3, $a0, 6396
 	slli.d	$a1, $a1, 3
 	ldx.d	$a1, $a6, $a1
 	ldptr.w	$t0, $a0, 6392
-	addi.w	$s3, $s7, 40
+	addi.w	$s2, $s3, 40
 	slli.d	$a0, $a2, 3
 	ldx.d	$a2, $a1, $a0
 	addi.w	$a0, $t0, 40
-	addi.w	$a1, $s7, 39
+	addi.w	$a1, $s3, 39
 	addi.w	$a7, $zero, -39
-	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 32                    # 8-byte Folded Spill
 	beqz	$a5, .LBB2_4
 # %bb.1:                                # %.preheader238
 	pcalau12i	$a3, %pc_hi20(imgY_sub_tmp)
-	blt	$t0, $a7, .LBB2_29
+	blt	$t0, $a7, .LBB2_30
 # %bb.2:                                # %.preheader238.split.us
-	st.d	$s3, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
 	ld.d	$t8, $a3, %pc_lo12(imgY_sub_tmp)
 	pcalau12i	$a4, %got_pc_hi20(img)
 	ld.d	$t1, $a4, %got_pc_lo12(img)
@@ -724,104 +724,118 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ori	$a6, $zero, 4
 	bstrpick.d	$t3, $a4, 30, 2
 	vreplgr2vr.w	$vr0, $a5
-	bge	$a0, $a6, .LBB2_45
+	bge	$a0, $a6, .LBB2_46
 # %bb.3:
 	move	$fp, $zero
-	b	.LBB2_48
+	b	.LBB2_49
 .LBB2_4:                                # %.preheader231
 	slli.d	$a3, $a3, 3
 	ldx.d	$a3, $a6, $a3
 	slli.d	$a4, $a4, 3
 	ldx.d	$a3, $a3, $a4
-	blt	$t0, $a7, .LBB2_30
+	blt	$t0, $a7, .LBB2_31
 # %bb.5:                                # %.preheader231.split.us
 	pcalau12i	$a4, %got_pc_hi20(img)
 	ld.d	$t1, $a4, %got_pc_lo12(img)
 	ld.d	$a4, $t1, 0
-	ld.d	$t3, $a3, 0
 	lu12i.w	$a5, 3
 	ori	$t2, $a5, 3232
 	ldx.w	$a5, $a4, $t2
 	ori	$a4, $zero, 1
 	slt	$a6, $a4, $a0
 	masknez	$a4, $a4, $a6
-	ld.d	$t7, $a2, 0
-	ld.d	$t4, $a3, 8
-	ld.d	$t5, $a3, 16
-	ld.d	$t6, $a3, 24
+	ld.d	$t3, $a2, 0
+	vld	$vr0, $a3, 16
+	vld	$vr1, $a3, 0
 	maskeqz	$a6, $a0, $a6
 	ori	$a7, $zero, 8
 	or	$a4, $a6, $a4
-	bge	$a0, $a7, .LBB2_79
-# %bb.6:
-	move	$s5, $s3
-	move	$t8, $zero
-.LBB2_7:                                # %scalar.ph435.preheader
-	alsl.d	$a7, $t8, $t3, 1
-	alsl.d	$fp, $t8, $t4, 1
-	alsl.d	$s0, $t8, $t5, 1
-	alsl.d	$s1, $t8, $t6, 1
-	alsl.d	$t7, $t8, $t7, 1
-	sub.d	$t8, $a4, $t8
+	blt	$a0, $a7, .LBB2_7
+# %bb.6:                                # %vector.memcheck
+	vreplgr2vr.d	$vr2, $t3
+	vsub.d	$vr3, $vr2, $vr0
+	vsub.d	$vr2, $vr2, $vr1
+	vslti.du	$vr2, $vr2, 16
+	vslti.du	$vr3, $vr3, 16
+	vpickev.w	$vr2, $vr3, $vr2
+	vmskltz.w	$vr2, $vr2
+	vpickve2gr.hu	$a6, $vr2, 0
+	beqz	$a6, .LBB2_125
+.LBB2_7:
+	move	$t4, $zero
+.LBB2_8:                                # %scalar.ph435.preheader
+	vpickve2gr.d	$a6, $vr1, 0
+	vpickve2gr.d	$t5, $vr1, 1
+	vpickve2gr.d	$t6, $vr0, 0
+	vpickve2gr.d	$t7, $vr0, 1
+	alsl.d	$a7, $t4, $a6, 1
+	alsl.d	$t5, $t4, $t5, 1
+	alsl.d	$t6, $t4, $t6, 1
+	alsl.d	$t7, $t4, $t7, 1
+	alsl.d	$t3, $t4, $t3, 1
+	sub.d	$t4, $a4, $t4
 	.p2align	4, , 16
-.LBB2_8:                                # %scalar.ph435
+.LBB2_9:                                # %scalar.ph435
                                         # =>This Inner Loop Header: Depth=1
 	ld.hu	$a6, $a7, 0
-	ld.hu	$s2, $fp, 0
-	ld.hu	$s3, $s0, 0
-	add.d	$s2, $s2, $a6
-	slli.d	$s4, $s2, 4
-	alsl.d	$s2, $s2, $s4, 2
-	add.d	$s3, $s3, $a6
-	ld.hu	$s4, $s1, 0
-	alsl.d	$s3, $s3, $s3, 2
-	sub.d	$s2, $s2, $s3
-	add.d	$a6, $s2, $a6
-	add.d	$a6, $a6, $s4
+	ld.hu	$t8, $t5, 0
+	ld.hu	$fp, $t6, 0
+	add.d	$t8, $t8, $a6
+	slli.d	$s0, $t8, 4
+	alsl.d	$t8, $t8, $s0, 2
+	add.d	$fp, $fp, $a6
+	ld.hu	$s0, $t7, 0
+	alsl.d	$fp, $fp, $fp, 2
+	sub.d	$t8, $t8, $fp
+	add.d	$a6, $t8, $a6
+	add.d	$a6, $a6, $s0
 	addi.w	$a6, $a6, 16
-	srai.d	$s2, $a6, 5
+	srai.d	$t8, $a6, 5
 	srai.d	$a6, $a6, 63
-	andn	$a6, $s2, $a6
-	slt	$s2, $a6, $a5
-	maskeqz	$a6, $a6, $s2
-	masknez	$s2, $a5, $s2
-	or	$a6, $a6, $s2
-	st.h	$a6, $t7, 0
+	andn	$a6, $t8, $a6
+	slt	$t8, $a6, $a5
+	maskeqz	$a6, $a6, $t8
+	masknez	$t8, $a5, $t8
+	or	$a6, $a6, $t8
+	st.h	$a6, $t3, 0
 	addi.d	$a7, $a7, 2
-	addi.d	$fp, $fp, 2
-	addi.d	$s0, $s0, 2
-	addi.d	$s1, $s1, 2
-	addi.d	$t8, $t8, -1
+	addi.d	$t5, $t5, 2
+	addi.d	$t6, $t6, 2
 	addi.d	$t7, $t7, 2
-	bnez	$t8, .LBB2_8
-.LBB2_9:                                # %..loopexit230_crit_edge.us
-	ld.d	$t7, $a2, 8
-	ld.d	$t8, $a3, 32
+	addi.d	$t4, $t4, -1
+	addi.d	$t3, $t3, 2
+	bnez	$t4, .LBB2_9
+.LBB2_10:                               # %..loopexit230_crit_edge.us
+	ld.d	$t3, $a2, 8
+	ld.d	$t4, $a3, 32
 	ori	$a6, $zero, 8
-	bge	$a0, $a6, .LBB2_86
-# %bb.10:
-	move	$fp, $zero
-	move	$s3, $s5
-.LBB2_11:                               # %scalar.ph462.preheader
-	sub.d	$a7, $a4, $fp
-	alsl.d	$t7, $fp, $t7, 1
-	alsl.d	$t8, $fp, $t8, 1
-	alsl.d	$t6, $fp, $t6, 1
-	alsl.d	$t3, $fp, $t3, 1
-	alsl.d	$t5, $fp, $t5, 1
-	alsl.d	$t4, $fp, $t4, 1
+	bge	$a0, $a6, .LBB2_79
+# %bb.11:
+	move	$t5, $zero
+.LBB2_12:                               # %scalar.ph462.preheader
+	vpickve2gr.d	$a6, $vr1, 1
+	vpickve2gr.d	$t8, $vr0, 0
+	vpickve2gr.d	$t7, $vr1, 0
+	vpickve2gr.d	$t6, $vr0, 1
+	sub.d	$a7, $a4, $t5
+	alsl.d	$t3, $t5, $t3, 1
+	alsl.d	$t4, $t5, $t4, 1
+	alsl.d	$t6, $t5, $t6, 1
+	alsl.d	$t7, $t5, $t7, 1
+	alsl.d	$t8, $t5, $t8, 1
+	alsl.d	$t5, $t5, $a6, 1
 	.p2align	4, , 16
-.LBB2_12:                               # %scalar.ph462
+.LBB2_13:                               # %scalar.ph462
                                         # =>This Inner Loop Header: Depth=1
-	ld.hu	$a6, $t4, 0
-	ld.hu	$fp, $t5, 0
-	ld.hu	$s0, $t3, 0
+	ld.hu	$a6, $t5, 0
+	ld.hu	$fp, $t8, 0
+	ld.hu	$s0, $t7, 0
 	ld.hu	$s1, $t6, 0
 	add.d	$a6, $fp, $a6
 	slli.d	$fp, $a6, 4
 	alsl.d	$a6, $a6, $fp, 2
 	add.d	$fp, $s1, $s0
-	ld.hu	$s1, $t8, 0
+	ld.hu	$s1, $t4, 0
 	alsl.d	$fp, $fp, $fp, 2
 	sub.d	$a6, $a6, $fp
 	add.d	$a6, $a6, $s0
@@ -834,28 +848,28 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	maskeqz	$a6, $a6, $fp
 	masknez	$fp, $a5, $fp
 	or	$a6, $a6, $fp
-	st.h	$a6, $t7, 0
+	st.h	$a6, $t3, 0
 	addi.d	$a7, $a7, -1
+	addi.d	$t3, $t3, 2
+	addi.d	$t4, $t4, 2
+	addi.d	$t6, $t6, 2
 	addi.d	$t7, $t7, 2
 	addi.d	$t8, $t8, 2
-	addi.d	$t6, $t6, 2
-	addi.d	$t3, $t3, 2
 	addi.d	$t5, $t5, 2
-	addi.d	$t4, $t4, 2
-	bnez	$a7, .LBB2_12
-.LBB2_13:                               # %.preheader229
+	bnez	$a7, .LBB2_13
+.LBB2_14:                               # %.preheader229
 	addi.w	$a5, $zero, -34
-	addi.w	$s8, $s7, 37
-	blt	$s7, $a5, .LBB2_31
-# %bb.14:                               # %.lr.ph255.split.us
-	st.d	$s3, $sp, 24                    # 8-byte Folded Spill
+	addi.w	$t6, $s3, 37
+	blt	$s3, $a5, .LBB2_32
+# %bb.15:                               # %.lr.ph255.split.us
+	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
 	ld.d	$a5, $t1, 0
 	ldx.w	$t1, $a5, $t2
 	ori	$a5, $zero, 3
-	slt	$a6, $a5, $s8
+	slt	$a6, $a5, $t6
 	masknez	$a5, $a5, $a6
-	st.d	$s8, $sp, 16                    # 8-byte Folded Spill
-	maskeqz	$a6, $s8, $a6
+	st.d	$t6, $sp, 16                    # 8-byte Folded Spill
+	maskeqz	$a6, $t6, $a6
 	or	$t2, $a6, $a5
 	ld.d	$t8, $a3, 16
 	bstrpick.d	$a5, $a4, 30, 3
@@ -867,16 +881,16 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	vrepli.b	$vr1, 0
 	vrepli.w	$vr2, 20
 	vrepli.w	$vr3, -5
-	b	.LBB2_16
+	b	.LBB2_17
 	.p2align	4, , 16
-.LBB2_15:                               # %..loopexit228_crit_edge.us
-                                        #   in Loop: Header=BB2_16 Depth=1
+.LBB2_16:                               # %..loopexit228_crit_edge.us
+                                        #   in Loop: Header=BB2_17 Depth=1
 	move	$t8, $t7
-	beq	$t6, $t2, .LBB2_94
-.LBB2_16:                               # %.lr.ph253.us
+	beq	$t6, $t2, .LBB2_84
+.LBB2_17:                               # %.lr.ph253.us
                                         # =>This Loop Header: Depth=1
-                                        #     Child Loop BB2_27 Depth 2
-                                        #     Child Loop BB2_19 Depth 2
+                                        #     Child Loop BB2_28 Depth 2
+                                        #     Child Loop BB2_20 Depth 2
 	slli.d	$a6, $t6, 3
 	ldx.d	$a7, $a2, $a6
 	alsl.d	$a6, $t6, $a3, 3
@@ -887,11 +901,11 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ld.d	$s1, $a6, 16
 	ld.d	$s2, $a6, -16
 	ld.d	$s3, $a6, 24
-	bge	$a0, $t4, .LBB2_20
-# %bb.17:                               #   in Loop: Header=BB2_16 Depth=1
+	bge	$a0, $t4, .LBB2_21
+# %bb.18:                               #   in Loop: Header=BB2_17 Depth=1
 	move	$a6, $zero
-.LBB2_18:                               # %scalar.ph492.preheader
-                                        #   in Loop: Header=BB2_16 Depth=1
+.LBB2_19:                               # %scalar.ph492.preheader
+                                        #   in Loop: Header=BB2_17 Depth=1
 	alsl.d	$t3, $a6, $t8, 1
 	alsl.d	$t8, $a6, $t7, 1
 	alsl.d	$fp, $a6, $s0, 1
@@ -901,8 +915,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$a7, $a6, $a7, 1
 	sub.d	$s3, $a4, $a6
 	.p2align	4, , 16
-.LBB2_19:                               # %scalar.ph492
-                                        #   Parent Loop BB2_16 Depth=1
+.LBB2_20:                               # %scalar.ph492
+                                        #   Parent Loop BB2_17 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.hu	$a6, $t3, 0
 	ld.hu	$s4, $t8, 0
@@ -935,36 +949,36 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s2, $s2, 2
 	addi.d	$s3, $s3, -1
 	addi.d	$a7, $a7, 2
-	bnez	$s3, .LBB2_19
-	b	.LBB2_15
+	bnez	$s3, .LBB2_20
+	b	.LBB2_16
 	.p2align	4, , 16
-.LBB2_20:                               # %vector.memcheck480
-                                        #   in Loop: Header=BB2_16 Depth=1
+.LBB2_21:                               # %vector.memcheck480
+                                        #   in Loop: Header=BB2_17 Depth=1
 	sub.d	$t3, $a7, $t8
 	move	$a6, $zero
-	bltu	$t3, $t5, .LBB2_18
-# %bb.21:                               # %vector.memcheck480
-                                        #   in Loop: Header=BB2_16 Depth=1
-	sub.d	$t3, $a7, $t7
-	bltu	$t3, $t5, .LBB2_18
+	bltu	$t3, $t5, .LBB2_19
 # %bb.22:                               # %vector.memcheck480
-                                        #   in Loop: Header=BB2_16 Depth=1
-	sub.d	$t3, $a7, $s0
-	bltu	$t3, $t5, .LBB2_18
+                                        #   in Loop: Header=BB2_17 Depth=1
+	sub.d	$t3, $a7, $t7
+	bltu	$t3, $t5, .LBB2_19
 # %bb.23:                               # %vector.memcheck480
-                                        #   in Loop: Header=BB2_16 Depth=1
-	sub.d	$t3, $a7, $s1
-	bltu	$t3, $t5, .LBB2_18
+                                        #   in Loop: Header=BB2_17 Depth=1
+	sub.d	$t3, $a7, $s0
+	bltu	$t3, $t5, .LBB2_19
 # %bb.24:                               # %vector.memcheck480
-                                        #   in Loop: Header=BB2_16 Depth=1
-	sub.d	$t3, $a7, $s2
-	bltu	$t3, $t5, .LBB2_18
+                                        #   in Loop: Header=BB2_17 Depth=1
+	sub.d	$t3, $a7, $s1
+	bltu	$t3, $t5, .LBB2_19
 # %bb.25:                               # %vector.memcheck480
-                                        #   in Loop: Header=BB2_16 Depth=1
+                                        #   in Loop: Header=BB2_17 Depth=1
+	sub.d	$t3, $a7, $s2
+	bltu	$t3, $t5, .LBB2_19
+# %bb.26:                               # %vector.memcheck480
+                                        #   in Loop: Header=BB2_17 Depth=1
 	sub.d	$t3, $a7, $s3
-	bltu	$t3, $t5, .LBB2_18
-# %bb.26:                               # %vector.body499.preheader
-                                        #   in Loop: Header=BB2_16 Depth=1
+	bltu	$t3, $t5, .LBB2_19
+# %bb.27:                               # %vector.body499.preheader
+                                        #   in Loop: Header=BB2_17 Depth=1
 	move	$s4, $t8
 	move	$s5, $t7
 	move	$s6, $s0
@@ -974,8 +988,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$fp, $a7
 	move	$t3, $a5
 	.p2align	4, , 16
-.LBB2_27:                               # %vector.body499
-                                        #   Parent Loop BB2_16 Depth=1
+.LBB2_28:                               # %vector.body499
+                                        #   Parent Loop BB2_17 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr4, $s4, 0
 	vld	$vr5, $s5, 0
@@ -1025,24 +1039,23 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s6, $s6, 16
 	addi.d	$s5, $s5, 16
 	addi.d	$s4, $s4, 16
-	bnez	$t3, .LBB2_27
-# %bb.28:                               # %middle.block508
-                                        #   in Loop: Header=BB2_16 Depth=1
+	bnez	$t3, .LBB2_28
+# %bb.29:                               # %middle.block508
+                                        #   in Loop: Header=BB2_17 Depth=1
 	move	$a6, $a5
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	beq	$a5, $a4, .LBB2_15
-	b	.LBB2_18
-.LBB2_29:                               # %.preheader236.thread
-	addi.w	$a5, $s7, 37
+	beq	$a5, $a4, .LBB2_16
+	b	.LBB2_19
+.LBB2_30:                               # %.preheader236.thread
+	addi.w	$a5, $s3, 37
 	addi.w	$a4, $zero, -40
 	blt	$a4, $t0, .LBB2_69
-	b	.LBB2_116
-.LBB2_30:                               # %.preheader229.thread
-	addi.w	$s8, $s7, 37
-.LBB2_31:                               # %.lr.ph261
+	b	.LBB2_106
+.LBB2_31:                               # %.preheader229.thread
+	addi.w	$t6, $s3, 37
+.LBB2_32:                               # %.lr.ph261
 	addi.w	$a4, $zero, -40
-	bge	$a4, $t0, .LBB2_116
-.LBB2_32:                               # %.lr.ph259
+	bge	$a4, $t0, .LBB2_106
+.LBB2_33:                               # %.lr.ph259
 	pcalau12i	$a4, %got_pc_hi20(img)
 	ld.d	$a4, $a4, %got_pc_lo12(img)
 	ld.d	$t0, $a4, 0
@@ -1050,11 +1063,11 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	slt	$a5, $a4, $a0
 	masknez	$a4, $a4, $a5
 	maskeqz	$a5, $a0, $a5
-	slli.d	$a6, $s8, 3
+	slli.d	$a6, $t6, 3
 	ldx.d	$t4, $a2, $a6
-	addi.d	$t2, $s8, 1
-	slt	$a7, $a1, $s3
-	masknez	$t1, $s3, $a7
+	addi.d	$t2, $t6, 1
+	slt	$a7, $a1, $s2
+	masknez	$t1, $s2, $a7
 	maskeqz	$a7, $a1, $a7
 	or	$a7, $a7, $t1
 	slt	$t1, $a1, $a1
@@ -1066,7 +1079,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	masknez	$t3, $t3, $t5
 	maskeqz	$t5, $a1, $t5
 	or	$t3, $t5, $t3
-	alsl.d	$fp, $s8, $a3, 3
+	move	$ra, $t6
+	alsl.d	$fp, $t6, $a3, 3
 	ldx.d	$t5, $a3, $a6
 	slli.d	$a6, $t3, 3
 	ldx.d	$t6, $a3, $a6
@@ -1082,10 +1096,11 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	or	$a4, $a5, $a4
 	ori	$a5, $zero, 8
 	bstrpick.d	$a4, $a4, 31, 0
-	bge	$a0, $a5, .LBB2_95
-# %bb.33:
+	move	$s8, $s2
+	bge	$a0, $a5, .LBB2_85
+# %bb.34:
 	move	$s1, $zero
-.LBB2_34:                               # %scalar.ph523.preheader
+.LBB2_35:                               # %scalar.ph523.preheader
 	alsl.d	$a5, $s1, $t4, 1
 	alsl.d	$a7, $s1, $s0, 1
 	alsl.d	$t4, $s1, $fp, 1
@@ -1095,7 +1110,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$t5, $s1, $t5, 1
 	sub.d	$fp, $a4, $s1
 	.p2align	4, , 16
-.LBB2_35:                               # %scalar.ph523
+.LBB2_36:                               # %scalar.ph523
                                         # =>This Inner Loop Header: Depth=1
 	ld.hu	$a6, $t5, 0
 	ld.hu	$s0, $t6, 0
@@ -1128,19 +1143,19 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$t6, $t6, 2
 	addi.d	$fp, $fp, -1
 	addi.d	$t5, $t5, 2
-	bnez	$fp, .LBB2_35
-.LBB2_36:                               # %.loopexit
-	bge	$t2, $s3, .LBB2_116
-# %bb.37:                               # %.lr.ph259.1
+	bnez	$fp, .LBB2_36
+.LBB2_37:                               # %.loopexit
+	bge	$t2, $s8, .LBB2_106
+# %bb.38:                               # %.lr.ph259.1
 	slli.d	$a5, $t2, 3
 	ldx.d	$t4, $a2, $a5
-	addi.d	$a7, $s8, 2
-	addi.w	$a6, $s7, 41
+	addi.d	$a7, $ra, 2
+	addi.w	$a6, $s3, 41
 	slt	$t3, $a1, $a6
 	masknez	$a6, $a6, $t3
 	maskeqz	$t3, $a1, $t3
 	or	$a6, $t3, $a6
-	addi.w	$t3, $s8, 3
+	addi.w	$t3, $ra, 3
 	slt	$t5, $a1, $t3
 	masknez	$t3, $t3, $t5
 	maskeqz	$t5, $a1, $t5
@@ -1162,10 +1177,10 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ldx.d	$s0, $a3, $t2
 	ldx.w	$t3, $t0, $t1
 	ori	$a6, $zero, 8
-	bge	$a0, $a6, .LBB2_117
-# %bb.38:
+	bge	$a0, $a6, .LBB2_107
+# %bb.39:
 	move	$s1, $zero
-.LBB2_39:                               # %scalar.ph554.preheader
+.LBB2_40:                               # %scalar.ph554.preheader
 	sub.d	$s2, $a4, $s1
 	alsl.d	$t4, $s1, $t4, 1
 	alsl.d	$s0, $s1, $s0, 1
@@ -1175,7 +1190,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$t6, $s1, $t6, 1
 	alsl.d	$t5, $s1, $t5, 1
 	.p2align	4, , 16
-.LBB2_40:                               # %scalar.ph554
+.LBB2_41:                               # %scalar.ph554
                                         # =>This Inner Loop Header: Depth=1
 	ld.hu	$a6, $t5, 0
 	ld.hu	$s1, $t6, 0
@@ -1208,11 +1223,12 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$t7, $t7, 2
 	addi.d	$t6, $t6, 2
 	addi.d	$t5, $t5, 2
-	bnez	$s2, .LBB2_40
-.LBB2_41:                               # %.lr.ph259.2
+	bnez	$s2, .LBB2_41
+.LBB2_42:                               # %.lr.ph259.2
 	slli.d	$a6, $a7, 3
 	ldx.d	$a2, $a2, $a6
-	addi.w	$t3, $s7, 42
+	ld.d	$t3, $sp, 32                    # 8-byte Folded Reload
+	addi.w	$t3, $t3, 42
 	slt	$t4, $a1, $t3
 	masknez	$t3, $t3, $t4
 	maskeqz	$a1, $a1, $t4
@@ -1227,10 +1243,10 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ldx.d	$a3, $a3, $a1
 	ldx.w	$a1, $t0, $t1
 	ori	$t0, $zero, 8
-	bge	$a0, $t0, .LBB2_126
-# %bb.42:
+	bge	$a0, $t0, .LBB2_116
+# %bb.43:
 	move	$a0, $zero
-.LBB2_43:                               # %scalar.ph585.preheader
+.LBB2_44:                               # %scalar.ph585.preheader
 	sub.d	$a4, $a4, $a0
 	alsl.d	$a2, $a0, $a2, 1
 	alsl.d	$a3, $a0, $a3, 1
@@ -1240,7 +1256,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$a5, $a0, $a5, 1
 	alsl.d	$a0, $a0, $a6, 1
 	.p2align	4, , 16
-.LBB2_44:                               # %scalar.ph585
+.LBB2_45:                               # %scalar.ph585
                                         # =>This Inner Loop Header: Depth=1
 	ld.hu	$a6, $a0, 0
 	ld.hu	$t2, $a5, 0
@@ -1273,9 +1289,9 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$a7, $a7, 2
 	addi.d	$a5, $a5, 2
 	addi.d	$a0, $a0, 2
-	bnez	$a4, .LBB2_44
-	b	.LBB2_116
-.LBB2_45:                               # %vector.ph
+	bnez	$a4, .LBB2_45
+	b	.LBB2_106
+.LBB2_46:                               # %vector.ph
 	slli.d	$fp, $t3, 2
 	vrepli.w	$vr1, 20
 	vrepli.w	$vr2, -5
@@ -1288,7 +1304,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$s3, $a7
 	move	$s4, $fp
 	.p2align	4, , 16
-.LBB2_46:                               # %vector.body
+.LBB2_47:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $a6, 0
 	vld	$vr5, $s0, 0
@@ -1312,10 +1328,10 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s1, $s1, 16
 	addi.d	$s0, $s0, 16
 	addi.d	$a6, $a6, 16
-	bnez	$s4, .LBB2_46
-# %bb.47:                               # %middle.block
-	beq	$fp, $a4, .LBB2_50
-.LBB2_48:                               # %scalar.ph.preheader
+	bnez	$s4, .LBB2_47
+# %bb.48:                               # %middle.block
+	beq	$fp, $a4, .LBB2_51
+.LBB2_49:                               # %scalar.ph.preheader
 	alsl.d	$s0, $fp, $t4, 2
 	alsl.d	$s1, $fp, $t5, 2
 	alsl.d	$s2, $fp, $t6, 2
@@ -1323,7 +1339,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$a7, $fp, $a7, 1
 	sub.d	$fp, $a4, $fp
 	.p2align	4, , 16
-.LBB2_49:                               # %scalar.ph
+.LBB2_50:                               # %scalar.ph
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $s0, 0
 	ld.w	$s4, $s1, 0
@@ -1352,16 +1368,16 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s3, $s3, 4
 	addi.d	$fp, $fp, -1
 	addi.d	$a7, $a7, 2
-	bnez	$fp, .LBB2_49
-.LBB2_50:                               # %..loopexit237_crit_edge.us
+	bnez	$fp, .LBB2_50
+.LBB2_51:                               # %..loopexit237_crit_edge.us
 	ld.d	$a7, $a2, 8
 	ld.d	$t8, $t8, 32
 	ori	$a6, $zero, 4
-	bge	$a0, $a6, .LBB2_52
-# %bb.51:
+	bge	$a0, $a6, .LBB2_53
+# %bb.52:
 	move	$fp, $zero
-	b	.LBB2_55
-.LBB2_52:                               # %vector.ph338
+	b	.LBB2_56
+.LBB2_53:                               # %vector.ph338
 	slli.d	$fp, $t3, 2
 	vrepli.w	$vr1, 20
 	vrepli.w	$vr2, -5
@@ -1375,7 +1391,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$s4, $a7
 	move	$s5, $fp
 	.p2align	4, , 16
-.LBB2_53:                               # %vector.body343
+.LBB2_54:                               # %vector.body343
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $s0, 0
 	vld	$vr5, $s1, 0
@@ -1401,10 +1417,10 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s2, $s2, 16
 	addi.d	$s1, $s1, 16
 	addi.d	$s0, $s0, 16
-	bnez	$s5, .LBB2_53
-# %bb.54:                               # %middle.block351
-	beq	$fp, $a4, .LBB2_57
-.LBB2_55:                               # %scalar.ph336.preheader
+	bnez	$s5, .LBB2_54
+# %bb.55:                               # %middle.block351
+	beq	$fp, $a4, .LBB2_58
+.LBB2_56:                               # %scalar.ph336.preheader
 	sub.d	$s0, $a4, $fp
 	alsl.d	$a7, $fp, $a7, 1
 	alsl.d	$t8, $fp, $t8, 2
@@ -1413,7 +1429,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$t6, $fp, $t6, 2
 	alsl.d	$t5, $fp, $t5, 2
 	.p2align	4, , 16
-.LBB2_56:                               # %scalar.ph336
+.LBB2_57:                               # %scalar.ph336
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $t5, 0
 	ld.w	$fp, $t6, 0
@@ -1444,12 +1460,13 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$t4, $t4, 4
 	addi.d	$t6, $t6, 4
 	addi.d	$t5, $t5, 4
-	bnez	$s0, .LBB2_56
-.LBB2_57:                               # %.preheader236
+	bnez	$s0, .LBB2_57
+.LBB2_58:                               # %.preheader236
 	addi.w	$a6, $zero, -35
-	addi.w	$a5, $s7, 37
-	bge	$a6, $s7, .LBB2_68
-# %bb.58:                               # %.lr.ph244
+	ld.d	$a7, $sp, 32                    # 8-byte Folded Reload
+	addi.w	$a5, $a7, 37
+	bge	$a6, $a7, .LBB2_68
+# %bb.59:                               # %.lr.ph244
 	ld.d	$a6, $t1, 0
 	ld.d	$t1, $a3, %pc_lo12(imgY_sub_tmp)
 	ldx.w	$t2, $a6, $t2
@@ -1467,16 +1484,16 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	vrepli.w	$vr2, -5
 	ori	$a7, $zero, 512
 	vreplgr2vr.w	$vr3, $a7
-	b	.LBB2_60
+	b	.LBB2_61
 	.p2align	4, , 16
-.LBB2_59:                               # %..loopexit235_crit_edge.us
-                                        #   in Loop: Header=BB2_60 Depth=1
+.LBB2_60:                               # %..loopexit235_crit_edge.us
+                                        #   in Loop: Header=BB2_61 Depth=1
 	move	$t8, $t7
-	beq	$t6, $t4, .LBB2_67
-.LBB2_60:                               # %.lr.ph.us245
+	beq	$t6, $t4, .LBB2_68
+.LBB2_61:                               # %.lr.ph.us245
                                         # =>This Loop Header: Depth=1
-                                        #     Child Loop BB2_63 Depth 2
-                                        #     Child Loop BB2_66 Depth 2
+                                        #     Child Loop BB2_64 Depth 2
+                                        #     Child Loop BB2_67 Depth 2
 	slli.d	$a7, $t6, 3
 	ldx.d	$fp, $a2, $a7
 	alsl.d	$t3, $t6, $t1, 3
@@ -1487,13 +1504,13 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ld.d	$s0, $t3, 16
 	ld.d	$s1, $t3, -16
 	ld.d	$s2, $t3, 24
-	bge	$a0, $t5, .LBB2_62
-# %bb.61:                               #   in Loop: Header=BB2_60 Depth=1
+	bge	$a0, $t5, .LBB2_63
+# %bb.62:                               #   in Loop: Header=BB2_61 Depth=1
 	move	$t3, $zero
-	b	.LBB2_65
+	b	.LBB2_66
 	.p2align	4, , 16
-.LBB2_62:                               # %vector.body361.preheader
-                                        #   in Loop: Header=BB2_60 Depth=1
+.LBB2_63:                               # %vector.body361.preheader
+                                        #   in Loop: Header=BB2_61 Depth=1
 	move	$s3, $t8
 	move	$s4, $t7
 	move	$s5, $a7
@@ -1503,8 +1520,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$ra, $fp
 	move	$t3, $a6
 	.p2align	4, , 16
-.LBB2_63:                               # %vector.body361
-                                        #   Parent Loop BB2_60 Depth=1
+.LBB2_64:                               # %vector.body361
+                                        #   Parent Loop BB2_61 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr4, $s3, 0
 	vld	$vr5, $s4, 0
@@ -1532,13 +1549,13 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s5, $s5, 16
 	addi.d	$s4, $s4, 16
 	addi.d	$s3, $s3, 16
-	bnez	$t3, .LBB2_63
-# %bb.64:                               # %middle.block370
-                                        #   in Loop: Header=BB2_60 Depth=1
+	bnez	$t3, .LBB2_64
+# %bb.65:                               # %middle.block370
+                                        #   in Loop: Header=BB2_61 Depth=1
 	move	$t3, $a6
-	beq	$a6, $a4, .LBB2_59
-.LBB2_65:                               # %scalar.ph354.preheader
-                                        #   in Loop: Header=BB2_60 Depth=1
+	beq	$a6, $a4, .LBB2_60
+.LBB2_66:                               # %scalar.ph354.preheader
+                                        #   in Loop: Header=BB2_61 Depth=1
 	alsl.d	$t8, $t3, $t8, 2
 	alsl.d	$s3, $t3, $t7, 2
 	alsl.d	$a7, $t3, $a7, 2
@@ -1548,8 +1565,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$fp, $t3, $fp, 1
 	sub.d	$s4, $a4, $t3
 	.p2align	4, , 16
-.LBB2_66:                               # %scalar.ph354
-                                        #   Parent Loop BB2_60 Depth=1
+.LBB2_67:                               # %scalar.ph354
+                                        #   Parent Loop BB2_61 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.w	$t3, $t8, 0
 	ld.w	$s5, $s3, 0
@@ -1582,14 +1599,12 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s2, $s2, 4
 	addi.d	$s4, $s4, -1
 	addi.d	$fp, $fp, 2
-	bnez	$s4, .LBB2_66
-	b	.LBB2_59
-.LBB2_67:
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-.LBB2_68:                               # %.lr.ph248
-	ld.d	$s3, $sp, 24                    # 8-byte Folded Reload
+	bnez	$s4, .LBB2_67
+	b	.LBB2_60
+.LBB2_68:
+	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
 	addi.w	$a4, $zero, -40
-	bge	$a4, $t0, .LBB2_116
+	bge	$a4, $t0, .LBB2_106
 .LBB2_69:                               # %.lr.ph
 	ld.d	$a4, $a3, %pc_lo12(imgY_sub_tmp)
 	pcalau12i	$a3, %got_pc_hi20(img)
@@ -1602,9 +1617,9 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	slli.d	$a7, $a5, 3
 	ldx.d	$t4, $a2, $a7
 	addi.d	$t2, $a5, 1
-	slt	$t1, $a1, $s3
-	move	$s8, $s3
-	masknez	$t3, $s3, $t1
+	slt	$t1, $a1, $s2
+	move	$s8, $s2
+	masknez	$t3, $s2, $t1
 	maskeqz	$t1, $a1, $t1
 	or	$t1, $t1, $t3
 	slt	$t3, $a1, $a1
@@ -1683,7 +1698,6 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s1, $s1, 16
 	bnez	$a6, .LBB2_72
 # %bb.73:                               # %middle.block389
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
 	beq	$a7, $a3, .LBB2_76
 .LBB2_74:                               # %scalar.ph373.preheader
 	alsl.d	$t4, $a7, $t4, 1
@@ -1730,12 +1744,13 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$t5, $t5, 4
 	bnez	$a7, .LBB2_75
 .LBB2_76:                               # %.loopexit232
-	bge	$t2, $s8, .LBB2_116
+	ld.d	$t3, $sp, 32                    # 8-byte Folded Reload
+	bge	$t2, $s8, .LBB2_106
 # %bb.77:                               # %.lr.ph.1
 	slli.d	$a6, $t2, 3
 	ldx.d	$t4, $a2, $a6
 	addi.d	$a7, $a5, 2
-	addi.w	$t3, $s7, 41
+	addi.w	$t3, $t3, 41
 	slt	$t5, $a1, $t3
 	masknez	$t3, $t3, $t5
 	maskeqz	$t5, $a1, $t5
@@ -1762,203 +1777,120 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ldx.d	$s0, $a4, $t2
 	ldx.w	$t3, $t0, $t1
 	ori	$a6, $zero, 4
-	bge	$a0, $a6, .LBB2_104
+	bge	$a0, $a6, .LBB2_94
 # %bb.78:
 	move	$s1, $zero
-	b	.LBB2_107
-.LBB2_79:                               # %vector.memcheck
-	sub.d	$a7, $t7, $t3
-	ori	$a6, $zero, 16
-	move	$t8, $zero
-	move	$s5, $s3
-	bltu	$a7, $a6, .LBB2_7
-# %bb.80:                               # %vector.memcheck
-	sub.d	$a7, $t7, $t4
-	bltu	$a7, $a6, .LBB2_7
-# %bb.81:                               # %vector.memcheck
-	sub.d	$a7, $t7, $t5
-	ori	$a6, $zero, 16
-	bltu	$a7, $a6, .LBB2_7
-# %bb.82:                               # %vector.memcheck
-	sub.d	$a7, $t7, $t6
-	bltu	$a7, $a6, .LBB2_7
-# %bb.83:                               # %vector.ph437
-	bstrpick.d	$a6, $a4, 30, 3
-	slli.d	$t8, $a6, 3
-	vreplgr2vr.w	$vr0, $a5
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 20
-	vrepli.w	$vr3, -5
-	move	$a7, $t3
-	move	$fp, $t4
-	move	$s0, $t5
-	move	$s1, $t6
-	move	$s2, $t7
-	move	$s3, $t8
-	.p2align	4, , 16
-.LBB2_84:                               # %vector.body442
-                                        # =>This Inner Loop Header: Depth=1
-	vld	$vr4, $a7, 0
-	vld	$vr5, $fp, 0
-	vilvh.h	$vr6, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vilvh.h	$vr7, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vadd.w	$vr5, $vr5, $vr4
-	vld	$vr8, $s0, 0
-	vadd.w	$vr7, $vr7, $vr6
-	vmul.w	$vr7, $vr7, $vr2
-	vmul.w	$vr5, $vr5, $vr2
-	vilvl.h	$vr9, $vr1, $vr8
-	vld	$vr10, $s1, 0
-	vilvh.h	$vr8, $vr1, $vr8
-	vadd.w	$vr8, $vr8, $vr6
-	vadd.w	$vr9, $vr9, $vr4
-	vilvh.h	$vr11, $vr1, $vr10
-	vilvl.h	$vr10, $vr1, $vr10
-	vmadd.w	$vr5, $vr9, $vr3
-	vmadd.w	$vr7, $vr8, $vr3
-	vadd.w	$vr6, $vr7, $vr6
-	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr4, $vr4, $vr10
-	vadd.w	$vr5, $vr6, $vr11
-	vaddi.wu	$vr5, $vr5, 16
-	vaddi.wu	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 5
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
-	vmaxi.w	$vr4, $vr4, 0
-	vmin.w	$vr4, $vr4, $vr0
-	vmin.w	$vr5, $vr5, $vr0
-	vpickev.h	$vr4, $vr5, $vr4
-	vst	$vr4, $s2, 0
-	addi.d	$s3, $s3, -8
-	addi.d	$s2, $s2, 16
-	addi.d	$s1, $s1, 16
-	addi.d	$s0, $s0, 16
-	addi.d	$fp, $fp, 16
-	addi.d	$a7, $a7, 16
-	bnez	$s3, .LBB2_84
-# %bb.85:                               # %middle.block449
-	bne	$t8, $a4, .LBB2_7
-	b	.LBB2_9
-.LBB2_86:                               # %vector.memcheck452
-	sub.d	$a7, $t7, $t4
-	ori	$a6, $zero, 16
-	move	$fp, $zero
-	move	$s3, $s5
-	bltu	$a7, $a6, .LBB2_11
-# %bb.87:                               # %vector.memcheck452
-	sub.d	$a7, $t7, $t5
-	bltu	$a7, $a6, .LBB2_11
-# %bb.88:                               # %vector.memcheck452
-	sub.d	$a7, $t7, $t3
-	ori	$a6, $zero, 16
-	bltu	$a7, $a6, .LBB2_11
-# %bb.89:                               # %vector.memcheck452
-	sub.d	$a7, $t7, $t6
-	bltu	$a7, $a6, .LBB2_11
-# %bb.90:                               # %vector.memcheck452
-	sub.d	$a6, $t7, $t8
+	b	.LBB2_97
+.LBB2_79:                               # %vector.memcheck452
+	vreplgr2vr.d	$vr2, $t3
+	vsub.d	$vr3, $vr2, $vr0
+	vsub.d	$vr2, $vr2, $vr1
+	vslti.du	$vr2, $vr2, 16
+	vslti.du	$vr3, $vr3, 16
+	vpickev.w	$vr2, $vr3, $vr2
+	vmskltz.w	$vr2, $vr2
+	vpickve2gr.hu	$a6, $vr2, 0
+	move	$t5, $zero
+	bnez	$a6, .LBB2_12
+# %bb.80:                               # %vector.memcheck452
+	sub.d	$a6, $t3, $t4
 	ori	$a7, $zero, 16
-	bltu	$a6, $a7, .LBB2_11
-# %bb.91:                               # %vector.ph464
-	move	$s6, $s3
+	bltu	$a6, $a7, .LBB2_12
+# %bb.81:                               # %vector.ph464
 	bstrpick.d	$a6, $a4, 30, 3
-	slli.d	$fp, $a6, 3
-	vreplgr2vr.w	$vr0, $a5
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 20
-	vrepli.w	$vr3, -5
+	slli.d	$t5, $a6, 3
+	vreplgr2vr.w	$vr2, $a5
+	vpickve2gr.d	$t6, $vr1, 0
+	vpickve2gr.d	$t7, $vr1, 1
+	vpickve2gr.d	$t8, $vr0, 0
+	vpickve2gr.d	$fp, $vr0, 1
+	vrepli.b	$vr3, 0
+	vrepli.w	$vr4, 20
+	vrepli.w	$vr5, -5
 	move	$a7, $t4
-	move	$s0, $t5
-	move	$s1, $t3
-	move	$s2, $t6
-	move	$s3, $t8
-	move	$s4, $t7
-	move	$s5, $fp
+	move	$s0, $t3
+	move	$s1, $t5
 	.p2align	4, , 16
-.LBB2_92:                               # %vector.body469
+.LBB2_82:                               # %vector.body469
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr4, $a7, 0
-	vld	$vr5, $s0, 0
-	vilvh.h	$vr6, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vilvh.h	$vr7, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr5, $vr7, $vr6
-	vld	$vr6, $s1, 0
-	vmul.w	$vr5, $vr5, $vr2
-	vld	$vr7, $s2, 0
-	vmul.w	$vr4, $vr4, $vr2
-	vilvl.h	$vr8, $vr1, $vr6
-	vilvh.h	$vr6, $vr1, $vr6
-	vilvl.h	$vr9, $vr1, $vr7
-	vld	$vr10, $s3, 0
-	vilvh.h	$vr7, $vr1, $vr7
-	vadd.w	$vr7, $vr7, $vr6
+	vld	$vr6, $t7, 0
+	vld	$vr7, $t8, 0
+	vilvh.h	$vr8, $vr3, $vr6
+	vilvl.h	$vr6, $vr3, $vr6
+	vilvh.h	$vr9, $vr3, $vr7
+	vilvl.h	$vr7, $vr3, $vr7
+	vadd.w	$vr6, $vr7, $vr6
+	vadd.w	$vr7, $vr9, $vr8
+	vld	$vr8, $t6, 0
+	vmul.w	$vr7, $vr7, $vr4
+	vld	$vr9, $fp, 0
+	vmul.w	$vr6, $vr6, $vr4
+	vilvl.h	$vr10, $vr3, $vr8
+	vilvh.h	$vr8, $vr3, $vr8
+	vilvl.h	$vr11, $vr3, $vr9
+	vld	$vr12, $a7, 0
+	vilvh.h	$vr9, $vr3, $vr9
 	vadd.w	$vr9, $vr9, $vr8
-	vilvh.h	$vr11, $vr1, $vr10
-	vilvl.h	$vr10, $vr1, $vr10
-	vmadd.w	$vr4, $vr9, $vr3
-	vmadd.w	$vr5, $vr7, $vr3
-	vadd.w	$vr5, $vr5, $vr6
-	vadd.w	$vr4, $vr4, $vr8
-	vadd.w	$vr4, $vr4, $vr10
-	vadd.w	$vr5, $vr5, $vr11
-	vaddi.wu	$vr5, $vr5, 16
-	vaddi.wu	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 5
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
-	vmaxi.w	$vr4, $vr4, 0
-	vmin.w	$vr4, $vr4, $vr0
-	vmin.w	$vr5, $vr5, $vr0
-	vpickev.h	$vr4, $vr5, $vr4
-	vst	$vr4, $s4, 0
-	addi.d	$s5, $s5, -8
-	addi.d	$s4, $s4, 16
-	addi.d	$s3, $s3, 16
-	addi.d	$s2, $s2, 16
-	addi.d	$s1, $s1, 16
+	vadd.w	$vr11, $vr11, $vr10
+	vilvh.h	$vr13, $vr3, $vr12
+	vilvl.h	$vr12, $vr3, $vr12
+	vmadd.w	$vr6, $vr11, $vr5
+	vmadd.w	$vr7, $vr9, $vr5
+	vadd.w	$vr7, $vr7, $vr8
+	vadd.w	$vr6, $vr6, $vr10
+	vadd.w	$vr6, $vr6, $vr12
+	vadd.w	$vr7, $vr7, $vr13
+	vaddi.wu	$vr7, $vr7, 16
+	vaddi.wu	$vr6, $vr6, 16
+	vsrai.w	$vr6, $vr6, 5
+	vsrai.w	$vr7, $vr7, 5
+	vmaxi.w	$vr7, $vr7, 0
+	vmaxi.w	$vr6, $vr6, 0
+	vmin.w	$vr6, $vr6, $vr2
+	vmin.w	$vr7, $vr7, $vr2
+	vpickev.h	$vr6, $vr7, $vr6
+	vst	$vr6, $s0, 0
+	addi.d	$s1, $s1, -8
 	addi.d	$s0, $s0, 16
 	addi.d	$a7, $a7, 16
-	bnez	$s5, .LBB2_92
-# %bb.93:                               # %middle.block477
-	move	$s3, $s6
-	bne	$fp, $a4, .LBB2_11
-	b	.LBB2_13
-.LBB2_94:
-	ld.d	$s3, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s8, $sp, 16                    # 8-byte Folded Reload
+	addi.d	$fp, $fp, 16
+	addi.d	$t6, $t6, 16
+	addi.d	$t8, $t8, 16
+	addi.d	$t7, $t7, 16
+	bnez	$s1, .LBB2_82
+# %bb.83:                               # %middle.block477
+	bne	$t5, $a4, .LBB2_12
+	b	.LBB2_14
+.LBB2_84:
+	ld.d	$s3, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$t6, $sp, 16                    # 8-byte Folded Reload
 	addi.w	$a4, $zero, -40
-	blt	$a4, $t0, .LBB2_32
-	b	.LBB2_116
-.LBB2_95:                               # %vector.memcheck511
+	bge	$a4, $t0, .LBB2_106
+	b	.LBB2_33
+.LBB2_85:                               # %vector.memcheck511
 	sub.d	$a6, $t4, $t5
 	ori	$a5, $zero, 16
 	move	$s1, $zero
-	bltu	$a6, $a5, .LBB2_34
-# %bb.96:                               # %vector.memcheck511
+	bltu	$a6, $a5, .LBB2_35
+# %bb.86:                               # %vector.memcheck511
 	sub.d	$a6, $t4, $t6
-	bltu	$a6, $a5, .LBB2_34
-# %bb.97:                               # %vector.memcheck511
+	bltu	$a6, $a5, .LBB2_35
+# %bb.87:                               # %vector.memcheck511
 	sub.d	$a6, $t4, $t7
 	ori	$a5, $zero, 16
-	bltu	$a6, $a5, .LBB2_34
-# %bb.98:                               # %vector.memcheck511
+	bltu	$a6, $a5, .LBB2_35
+# %bb.88:                               # %vector.memcheck511
 	sub.d	$a6, $t4, $t8
-	bltu	$a6, $a5, .LBB2_34
-# %bb.99:                               # %vector.memcheck511
+	bltu	$a6, $a5, .LBB2_35
+# %bb.89:                               # %vector.memcheck511
 	sub.d	$a6, $t4, $fp
 	ori	$a5, $zero, 16
-	bltu	$a6, $a5, .LBB2_34
-# %bb.100:                              # %vector.memcheck511
+	bltu	$a6, $a5, .LBB2_35
+# %bb.90:                               # %vector.memcheck511
 	sub.d	$a6, $t4, $s0
-	bltu	$a6, $a5, .LBB2_34
-# %bb.101:                              # %vector.ph525
-	move	$a6, $s3
+	bltu	$a6, $a5, .LBB2_35
+# %bb.91:                               # %vector.ph525
 	bstrpick.d	$a5, $a4, 30, 3
 	slli.d	$s1, $a5, 3
 	vreplgr2vr.w	$vr0, $t3
@@ -1974,7 +1906,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$a7, $t4
 	move	$a5, $s1
 	.p2align	4, , 16
-.LBB2_102:                              # %vector.body530
+.LBB2_92:                               # %vector.body530
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $s2, 0
 	vld	$vr5, $s3, 0
@@ -2024,13 +1956,12 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s4, $s4, 16
 	addi.d	$s3, $s3, 16
 	addi.d	$s2, $s2, 16
-	bnez	$a5, .LBB2_102
-# %bb.103:                              # %middle.block539
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	move	$s3, $a6
-	bne	$s1, $a4, .LBB2_34
-	b	.LBB2_36
-.LBB2_104:                              # %vector.ph394
+	bnez	$a5, .LBB2_92
+# %bb.93:                               # %middle.block539
+	ld.d	$s3, $sp, 32                    # 8-byte Folded Reload
+	bne	$s1, $a4, .LBB2_35
+	b	.LBB2_37
+.LBB2_94:                               # %vector.ph394
 	bstrpick.d	$a6, $a3, 30, 2
 	slli.d	$s1, $a6, 2
 	vreplgr2vr.w	$vr0, $t3
@@ -2047,7 +1978,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$s8, $t4
 	move	$a6, $s1
 	.p2align	4, , 16
-.LBB2_105:                              # %vector.body399
+.LBB2_95:                               # %vector.body399
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $s2, 0
 	vld	$vr5, $s3, 0
@@ -2075,11 +2006,10 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s4, $s4, 16
 	addi.d	$s3, $s3, 16
 	addi.d	$s2, $s2, 16
-	bnez	$a6, .LBB2_105
-# %bb.106:                              # %middle.block408
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	beq	$s1, $a3, .LBB2_109
-.LBB2_107:                              # %scalar.ph392.preheader
+	bnez	$a6, .LBB2_95
+# %bb.96:                               # %middle.block408
+	beq	$s1, $a3, .LBB2_99
+.LBB2_97:                               # %scalar.ph392.preheader
 	sub.d	$s2, $a3, $s1
 	alsl.d	$t4, $s1, $t4, 1
 	alsl.d	$s0, $s1, $s0, 2
@@ -2089,7 +2019,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$t6, $s1, $t6, 2
 	alsl.d	$t5, $s1, $t5, 2
 	.p2align	4, , 16
-.LBB2_108:                              # %scalar.ph392
+.LBB2_98:                               # %scalar.ph392
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $t5, 0
 	ld.w	$s1, $t6, 0
@@ -2122,11 +2052,12 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$t7, $t7, 4
 	addi.d	$t6, $t6, 4
 	addi.d	$t5, $t5, 4
-	bnez	$s2, .LBB2_108
-.LBB2_109:                              # %.lr.ph.2
+	bnez	$s2, .LBB2_98
+.LBB2_99:                               # %.lr.ph.2
 	slli.d	$a6, $a7, 3
 	ldx.d	$a2, $a2, $a6
-	addi.w	$t3, $s7, 42
+	ld.d	$t3, $sp, 32                    # 8-byte Folded Reload
+	addi.w	$t3, $t3, 42
 	slt	$t4, $a1, $t3
 	masknez	$t3, $t3, $t4
 	maskeqz	$a1, $a1, $t4
@@ -2141,11 +2072,11 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ldx.d	$a4, $a4, $a1
 	ldx.w	$a1, $t0, $t1
 	ori	$t0, $zero, 4
-	bge	$a0, $t0, .LBB2_111
-# %bb.110:
+	bge	$a0, $t0, .LBB2_101
+# %bb.100:
 	move	$a0, $zero
-	b	.LBB2_114
-.LBB2_111:                              # %vector.ph413
+	b	.LBB2_104
+.LBB2_101:                              # %vector.ph413
 	bstrpick.d	$a0, $a3, 30, 2
 	slli.d	$a0, $a0, 2
 	vreplgr2vr.w	$vr0, $a1
@@ -2162,7 +2093,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$t8, $a2
 	move	$fp, $a0
 	.p2align	4, , 16
-.LBB2_112:                              # %vector.body418
+.LBB2_102:                              # %vector.body418
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $t0, 0
 	vld	$vr5, $t1, 0
@@ -2190,10 +2121,10 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$t4, $t4, 16
 	addi.d	$t1, $t1, 16
 	addi.d	$t0, $t0, 16
-	bnez	$fp, .LBB2_112
-# %bb.113:                              # %middle.block427
-	beq	$a0, $a3, .LBB2_116
-.LBB2_114:                              # %scalar.ph411.preheader
+	bnez	$fp, .LBB2_102
+# %bb.103:                              # %middle.block427
+	beq	$a0, $a3, .LBB2_106
+.LBB2_104:                              # %scalar.ph411.preheader
 	sub.d	$a3, $a3, $a0
 	alsl.d	$a2, $a0, $a2, 1
 	alsl.d	$a4, $a0, $a4, 2
@@ -2203,7 +2134,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	alsl.d	$a5, $a0, $a5, 2
 	alsl.d	$a0, $a0, $a6, 2
 	.p2align	4, , 16
-.LBB2_115:                              # %scalar.ph411
+.LBB2_105:                              # %scalar.ph411
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a0, 0
 	ld.w	$t2, $a5, 0
@@ -2236,8 +2167,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$a7, $a7, 4
 	addi.d	$a5, $a5, 4
 	addi.d	$a0, $a0, 4
-	bnez	$a3, .LBB2_115
-.LBB2_116:                              # %.loopexit227
+	bnez	$a3, .LBB2_105
+.LBB2_106:                              # %.loopexit227
 	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
 	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
@@ -2251,29 +2182,29 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
 	addi.d	$sp, $sp, 128
 	ret
-.LBB2_117:                              # %vector.memcheck542
+.LBB2_107:                              # %vector.memcheck542
 	sub.d	$s2, $t4, $t5
 	ori	$a6, $zero, 16
 	move	$s1, $zero
-	bltu	$s2, $a6, .LBB2_39
-# %bb.118:                              # %vector.memcheck542
+	bltu	$s2, $a6, .LBB2_40
+# %bb.108:                              # %vector.memcheck542
 	sub.d	$s2, $t4, $t6
-	bltu	$s2, $a6, .LBB2_39
-# %bb.119:                              # %vector.memcheck542
+	bltu	$s2, $a6, .LBB2_40
+# %bb.109:                              # %vector.memcheck542
 	sub.d	$s2, $t4, $t7
 	ori	$a6, $zero, 16
-	bltu	$s2, $a6, .LBB2_39
-# %bb.120:                              # %vector.memcheck542
+	bltu	$s2, $a6, .LBB2_40
+# %bb.110:                              # %vector.memcheck542
 	sub.d	$s2, $t4, $t8
-	bltu	$s2, $a6, .LBB2_39
-# %bb.121:                              # %vector.memcheck542
+	bltu	$s2, $a6, .LBB2_40
+# %bb.111:                              # %vector.memcheck542
 	sub.d	$s2, $t4, $fp
 	ori	$a6, $zero, 16
-	bltu	$s2, $a6, .LBB2_39
-# %bb.122:                              # %vector.memcheck542
+	bltu	$s2, $a6, .LBB2_40
+# %bb.112:                              # %vector.memcheck542
 	sub.d	$s2, $t4, $s0
-	bltu	$s2, $a6, .LBB2_39
-# %bb.123:                              # %vector.ph556
+	bltu	$s2, $a6, .LBB2_40
+# %bb.113:                              # %vector.ph556
 	bstrpick.d	$a6, $a4, 30, 3
 	slli.d	$s1, $a6, 3
 	vreplgr2vr.w	$vr0, $t3
@@ -2289,7 +2220,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$s8, $t4
 	move	$ra, $s1
 	.p2align	4, , 16
-.LBB2_124:                              # %vector.body561
+.LBB2_114:                              # %vector.body561
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $s2, 0
 	vld	$vr5, $s3, 0
@@ -2339,34 +2270,33 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$s4, $s4, 16
 	addi.d	$s3, $s3, 16
 	addi.d	$s2, $s2, 16
-	bnez	$ra, .LBB2_124
-# %bb.125:                              # %middle.block570
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	bne	$s1, $a4, .LBB2_39
-	b	.LBB2_41
-.LBB2_126:                              # %vector.memcheck573
+	bnez	$ra, .LBB2_114
+# %bb.115:                              # %middle.block570
+	bne	$s1, $a4, .LBB2_40
+	b	.LBB2_42
+.LBB2_116:                              # %vector.memcheck573
 	sub.d	$t1, $a2, $a6
 	ori	$t0, $zero, 16
 	move	$a0, $zero
-	bltu	$t1, $t0, .LBB2_43
-# %bb.127:                              # %vector.memcheck573
+	bltu	$t1, $t0, .LBB2_44
+# %bb.117:                              # %vector.memcheck573
 	sub.d	$t1, $a2, $a5
-	bltu	$t1, $t0, .LBB2_43
-# %bb.128:                              # %vector.memcheck573
+	bltu	$t1, $t0, .LBB2_44
+# %bb.118:                              # %vector.memcheck573
 	sub.d	$t1, $a2, $a7
 	ori	$t0, $zero, 16
-	bltu	$t1, $t0, .LBB2_43
-# %bb.129:                              # %vector.memcheck573
+	bltu	$t1, $t0, .LBB2_44
+# %bb.119:                              # %vector.memcheck573
 	sub.d	$t1, $a2, $t2
-	bltu	$t1, $t0, .LBB2_43
-# %bb.130:                              # %vector.memcheck573
+	bltu	$t1, $t0, .LBB2_44
+# %bb.120:                              # %vector.memcheck573
 	sub.d	$t1, $a2, $t3
 	ori	$t0, $zero, 16
-	bltu	$t1, $t0, .LBB2_43
-# %bb.131:                              # %vector.memcheck573
+	bltu	$t1, $t0, .LBB2_44
+# %bb.121:                              # %vector.memcheck573
 	sub.d	$t1, $a2, $a3
-	bltu	$t1, $t0, .LBB2_43
-# %bb.132:                              # %vector.ph587
+	bltu	$t1, $t0, .LBB2_44
+# %bb.122:                              # %vector.ph587
 	bstrpick.d	$a0, $a4, 30, 3
 	slli.d	$a0, $a0, 3
 	vreplgr2vr.w	$vr0, $a1
@@ -2382,7 +2312,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$t8, $a2
 	move	$fp, $a0
 	.p2align	4, , 16
-.LBB2_133:                              # %vector.body592
+.LBB2_123:                              # %vector.body592
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $t0, 0
 	vld	$vr5, $t1, 0
@@ -2432,10 +2362,70 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	addi.d	$t4, $t4, 16
 	addi.d	$t1, $t1, 16
 	addi.d	$t0, $t0, 16
-	bnez	$fp, .LBB2_133
-# %bb.134:                              # %middle.block601
-	bne	$a0, $a4, .LBB2_43
-	b	.LBB2_116
+	bnez	$fp, .LBB2_123
+# %bb.124:                              # %middle.block601
+	bne	$a0, $a4, .LBB2_44
+	b	.LBB2_106
+.LBB2_125:                              # %vector.ph437
+	vpickve2gr.d	$t5, $vr1, 1
+	vpickve2gr.d	$a7, $vr0, 0
+	vpickve2gr.d	$t6, $vr1, 0
+	vpickve2gr.d	$t7, $vr0, 1
+	bstrpick.d	$a6, $a4, 30, 3
+	slli.d	$t4, $a6, 3
+	vreplgr2vr.w	$vr2, $a5
+	vrepli.b	$vr3, 0
+	vrepli.w	$vr4, 20
+	vrepli.w	$vr5, -5
+	move	$t8, $t3
+	move	$fp, $t4
+	.p2align	4, , 16
+.LBB2_126:                              # %vector.body442
+                                        # =>This Inner Loop Header: Depth=1
+	vld	$vr6, $t6, 0
+	vld	$vr7, $t5, 0
+	vilvh.h	$vr8, $vr3, $vr6
+	vilvl.h	$vr6, $vr3, $vr6
+	vilvh.h	$vr9, $vr3, $vr7
+	vilvl.h	$vr7, $vr3, $vr7
+	vadd.w	$vr7, $vr7, $vr6
+	vld	$vr10, $a7, 0
+	vadd.w	$vr9, $vr9, $vr8
+	vmul.w	$vr9, $vr9, $vr4
+	vmul.w	$vr7, $vr7, $vr4
+	vilvl.h	$vr11, $vr3, $vr10
+	vld	$vr12, $t7, 0
+	vilvh.h	$vr10, $vr3, $vr10
+	vadd.w	$vr10, $vr10, $vr8
+	vadd.w	$vr11, $vr11, $vr6
+	vilvh.h	$vr13, $vr3, $vr12
+	vilvl.h	$vr12, $vr3, $vr12
+	vmadd.w	$vr7, $vr11, $vr5
+	vmadd.w	$vr9, $vr10, $vr5
+	vadd.w	$vr8, $vr9, $vr8
+	vadd.w	$vr6, $vr7, $vr6
+	vadd.w	$vr6, $vr6, $vr12
+	vadd.w	$vr7, $vr8, $vr13
+	vaddi.wu	$vr7, $vr7, 16
+	vaddi.wu	$vr6, $vr6, 16
+	vsrai.w	$vr6, $vr6, 5
+	vsrai.w	$vr7, $vr7, 5
+	vmaxi.w	$vr7, $vr7, 0
+	vmaxi.w	$vr6, $vr6, 0
+	vmin.w	$vr6, $vr6, $vr2
+	vmin.w	$vr7, $vr7, $vr2
+	vpickev.h	$vr6, $vr7, $vr6
+	vst	$vr6, $t8, 0
+	addi.d	$fp, $fp, -8
+	addi.d	$t8, $t8, 16
+	addi.d	$t7, $t7, 16
+	addi.d	$a7, $a7, 16
+	addi.d	$t5, $t5, 16
+	addi.d	$t6, $t6, 16
+	bnez	$fp, .LBB2_126
+# %bb.127:                              # %middle.block449
+	beq	$t4, $a4, .LBB2_10
+	b	.LBB2_8
 .Lfunc_end2:
 	.size	getVerSubImageSixTap, .Lfunc_end2-getVerSubImageSixTap
                                         # -- End function

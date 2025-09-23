@@ -418,6 +418,18 @@ kernel_doitgen_StrictFP:                # @kernel_doitgen_StrictFP
 .LCPI9_0:
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
+.LCPI9_3:
+	.dword	48                              # 0x30
+	.dword	56                              # 0x38
+.LCPI9_4:
+	.dword	32                              # 0x20
+	.dword	40                              # 0x28
+.LCPI9_5:
+	.dword	16                              # 0x10
+	.dword	24                              # 0x18
+.LCPI9_6:
+	.dword	0                               # 0x0
+	.dword	8                               # 0x8
 	.section	.rodata.cst8,"aM",@progbits,8
 	.p2align	3, 0x0
 .LCPI9_1:
@@ -430,60 +442,60 @@ kernel_doitgen_StrictFP:                # @kernel_doitgen_StrictFP
 	.type	main,@function
 main:                                   # @main
 # %bb.0:
-	addi.d	$sp, $sp, -160
-	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 72                    # 8-byte Folded Spill
-	st.d	$zero, $sp, 64
+	addi.d	$sp, $sp, -224
+	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 136                   # 8-byte Folded Spill
+	st.d	$zero, $sp, 128
 	lu12i.w	$a0, 6562
 	ori	$s0, $a0, 2048
 	lu12i.w	$a1, 1
-	addi.d	$a0, $sp, 64
+	addi.d	$a0, $sp, 128
 	move	$a2, $s0
 	pcaddu18i	$ra, %call36(posix_memalign)
 	jirl	$ra, $ra, 0
-	ld.d	$fp, $sp, 64
+	ld.d	$fp, $sp, 128
 	beqz	$fp, .LBB9_61
 # %bb.1:
 	bnez	$a0, .LBB9_61
 # %bb.2:                                # %polybench_alloc_data.exit
-	st.d	$zero, $sp, 64
+	st.d	$zero, $sp, 128
 	lu12i.w	$a1, 1
-	addi.d	$a0, $sp, 64
+	addi.d	$a0, $sp, 128
 	move	$a2, $s0
 	pcaddu18i	$ra, %call36(posix_memalign)
 	jirl	$ra, $ra, 0
-	ld.d	$s0, $sp, 64
+	ld.d	$s0, $sp, 128
 	beqz	$s0, .LBB9_61
 # %bb.3:                                # %polybench_alloc_data.exit
 	bnez	$a0, .LBB9_61
 # %bb.4:                                # %polybench_alloc_data.exit32
-	st.d	$zero, $sp, 64
+	st.d	$zero, $sp, 128
 	lu12i.w	$a1, 1
-	addi.d	$a0, $sp, 64
+	addi.d	$a0, $sp, 128
 	ori	$a2, $zero, 1280
 	pcaddu18i	$ra, %call36(posix_memalign)
 	jirl	$ra, $ra, 0
-	ld.d	$s1, $sp, 64
+	ld.d	$s1, $sp, 128
 	beqz	$s1, .LBB9_61
 # %bb.5:                                # %polybench_alloc_data.exit32
 	bnez	$a0, .LBB9_61
 # %bb.6:                                # %polybench_alloc_data.exit34
-	st.d	$zero, $sp, 64
+	st.d	$zero, $sp, 128
 	lu12i.w	$a1, 1
 	lu12i.w	$a2, 50
-	addi.d	$a0, $sp, 64
+	addi.d	$a0, $sp, 128
 	pcaddu18i	$ra, %call36(posix_memalign)
 	jirl	$ra, $ra, 0
-	ld.d	$s2, $sp, 64
+	ld.d	$s2, $sp, 128
 	beqz	$s2, .LBB9_61
 # %bb.7:                                # %polybench_alloc_data.exit34
 	bnez	$a0, .LBB9_61
@@ -1238,89 +1250,98 @@ main:                                   # @main
 	ori	$a0, $zero, 2561
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	ori	$a1, $zero, 2560
-	stx.b	$zero, $a0, $a1
-	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
-	addi.d	$s5, $a0, 7
-	ori	$s6, $zero, 3
-	ori	$s7, $zero, 1280
-	ori	$s8, $zero, 140
+	move	$s3, $a0
+	ori	$s5, $zero, 2560
+	stx.b	$zero, $a0, $s5
+	pcalau12i	$a0, %pc_hi20(.LCPI9_3)
+	vld	$vr5, $a0, %pc_lo12(.LCPI9_3)
+	pcalau12i	$a0, %pc_hi20(.LCPI9_4)
+	vld	$vr6, $a0, %pc_lo12(.LCPI9_4)
+	pcalau12i	$a0, %pc_hi20(.LCPI9_5)
+	vld	$vr7, $a0, %pc_lo12(.LCPI9_5)
+	pcalau12i	$a0, %pc_hi20(.LCPI9_6)
+	vld	$vr8, $a0, %pc_lo12(.LCPI9_6)
+	lu12i.w	$a0, -1
+	ori	$s6, $a0, 1536
+	ori	$s7, $zero, 140
 	pcalau12i	$a0, %got_pc_hi20(stderr)
 	ld.d	$a0, $a0, %got_pc_lo12(stderr)
 	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
-	move	$s3, $zero
 	move	$a0, $zero
+	move	$s8, $s0
+	vst	$vr5, $sp, 96                   # 16-byte Folded Spill
+	vst	$vr6, $sp, 80                   # 16-byte Folded Spill
+	vst	$vr7, $sp, 64                   # 16-byte Folded Spill
+	vst	$vr8, $sp, 48                   # 16-byte Folded Spill
 .LBB9_53:                               # %.preheader21.i
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB9_54 Depth 2
                                         #       Child Loop BB9_55 Depth 3
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
 	move	$a0, $zero
-	move	$a1, $s3
+	move	$a1, $s8
 	.p2align	4, , 16
 .LBB9_54:                               # %.preheader.i68
                                         #   Parent Loop BB9_53 Depth=1
                                         # =>  This Loop Header: Depth=2
                                         #       Child Loop BB9_55 Depth 3
-	move	$a2, $zero
-	add.d	$a3, $s0, $a1
-	move	$a4, $s5
+	move	$a2, $a1
+	move	$a3, $s6
 	.p2align	4, , 16
 .LBB9_55:                               #   Parent Loop BB9_53 Depth=1
                                         #     Parent Loop BB9_54 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	ldx.d	$a5, $a3, $a2
-	srli.d	$a6, $a5, 8
-	srli.d	$a7, $a5, 16
-	srli.d	$t0, $a5, 24
-	srli.d	$t1, $a5, 32
-	srli.d	$t2, $a5, 40
-	srli.d	$t3, $a5, 48
-	srli.d	$t4, $a5, 56
-	bstrins.d	$a5, $s6, 63, 4
-	st.b	$a5, $a4, -7
-	st.b	$a5, $a4, -6
-	bstrins.d	$a6, $s6, 63, 4
-	st.b	$a6, $a4, -5
-	st.b	$a6, $a4, -4
-	bstrins.d	$a7, $s6, 63, 4
-	st.b	$a7, $a4, -3
-	st.b	$a7, $a4, -2
-	bstrins.d	$t0, $s6, 63, 4
-	st.b	$t0, $a4, -1
-	st.b	$t0, $a4, 0
-	bstrins.d	$t1, $s6, 63, 4
-	st.b	$t1, $a4, 1
-	st.b	$t1, $a4, 2
-	bstrins.d	$t2, $s6, 63, 4
-	st.b	$t2, $a4, 3
-	st.b	$t2, $a4, 4
-	bstrins.d	$t3, $s6, 63, 4
-	st.b	$t3, $a4, 5
-	st.b	$t3, $a4, 6
-	bstrins.d	$t4, $s6, 63, 4
-	st.b	$t4, $a4, 7
-	st.b	$t4, $a4, 8
+	ld.d	$a4, $a2, 0
+	add.d	$a5, $s3, $a3
+	vreplgr2vr.d	$vr0, $a4
+	vsrl.d	$vr1, $vr0, $vr5
+	vsrl.d	$vr2, $vr0, $vr6
+	vsrl.d	$vr3, $vr0, $vr7
+	vsrl.d	$vr0, $vr0, $vr8
+	vpickve2gr.d	$a4, $vr0, 0
+	vinsgr2vr.b	$vr4, $a4, 0
+	vpickve2gr.d	$a4, $vr0, 1
+	vinsgr2vr.b	$vr4, $a4, 1
+	vpickve2gr.d	$a4, $vr3, 0
+	vinsgr2vr.b	$vr4, $a4, 2
+	vpickve2gr.d	$a4, $vr3, 1
+	vinsgr2vr.b	$vr4, $a4, 3
+	vpickve2gr.d	$a4, $vr2, 0
+	vinsgr2vr.b	$vr4, $a4, 4
+	vpickve2gr.d	$a4, $vr2, 1
+	vinsgr2vr.b	$vr4, $a4, 5
+	vpickve2gr.d	$a4, $vr1, 0
+	vinsgr2vr.b	$vr4, $a4, 6
+	vpickve2gr.d	$a4, $vr1, 1
+	vinsgr2vr.b	$vr4, $a4, 7
+	vandi.b	$vr0, $vr4, 15
+	vori.b	$vr0, $vr0, 48
+	vilvl.b	$vr0, $vr0, $vr0
+	vstx	$vr0, $a5, $s5
+	addi.d	$a3, $a3, 16
 	addi.d	$a2, $a2, 8
-	addi.d	$a4, $a4, 16
-	bne	$a2, $s7, .LBB9_55
+	bnez	$a3, .LBB9_55
 # %bb.56:                               #   in Loop: Header=BB9_54 Depth=2
 	addi.d	$a0, $a0, 1
 	addi.d	$a1, $a1, 1280
-	bne	$a0, $s8, .LBB9_54
+	bne	$a0, $s7, .LBB9_54
 # %bb.57:                               #   in Loop: Header=BB9_53 Depth=1
 	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	ld.d	$a1, $a0, 0
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	move	$a0, $s3
 	pcaddu18i	$ra, %call36(fputs)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	vld	$vr8, $sp, 48                   # 16-byte Folded Reload
+	vld	$vr7, $sp, 64                   # 16-byte Folded Reload
+	vld	$vr6, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr5, $sp, 96                   # 16-byte Folded Reload
+	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
 	addi.d	$a0, $a0, 1
-	add.d	$s3, $s3, $s4
+	add.d	$s8, $s8, $s4
 	ori	$a1, $zero, 150
 	bne	$a0, $a1, .LBB9_53
 # %bb.58:                               # %print_array.exit
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	move	$a0, $s3
 	pcaddu18i	$ra, %call36(free)
 	jirl	$ra, $ra, 0
 	move	$a0, $fp
@@ -1357,18 +1378,18 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 1
 .LBB9_60:
-	ld.d	$s8, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 160
+	ld.d	$s8, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 224
 	ret
 .LBB9_61:
 	pcalau12i	$a0, %got_pc_hi20(stderr)

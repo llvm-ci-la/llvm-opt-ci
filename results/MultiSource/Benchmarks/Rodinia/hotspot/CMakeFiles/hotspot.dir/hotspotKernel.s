@@ -88,11 +88,11 @@ hotspotKernel:                          # @hotspotKernel
 	ori	$s2, $t2, 4088
 	add.d	$a1, $a0, $s2
 	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
+	lu12i.w	$s4, 2
+	add.d	$a1, $a5, $s4
+	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
 	st.d	$a7, $sp, 112                   # 8-byte Folded Spill
 	add.d	$a1, $a7, $s2
-	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
-	lu12i.w	$s5, 2
-	add.d	$a1, $a5, $s5
 	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	ori	$s7, $t2, 4080
 	add.d	$a1, $a5, $s7
@@ -105,7 +105,7 @@ hotspotKernel:                          # @hotspotKernel
 	ori	$a6, $zero, 4080
 	ori	$t4, $zero, 4088
 	ori	$s3, $zero, 4072
-	ori	$s4, $zero, 511
+	ori	$s5, $zero, 511
 	lu12i.w	$s6, -2
 	ori	$s8, $s6, 16
 	ori	$t3, $zero, 32
@@ -140,7 +140,7 @@ hotspotKernel:                          # @hotspotKernel
 	add.d	$s0, $s0, $t2
 	add.d	$t7, $t7, $t2
 	add.d	$t6, $t6, $t2
-	beq	$t0, $s4, .LBB0_9
+	beq	$t0, $s5, .LBB0_9
 .LBB0_4:                                # %.preheader221
                                         #   Parent Loop BB0_2 Depth=1
                                         # =>  This Loop Header: Depth=2
@@ -468,20 +468,20 @@ hotspotKernel:                          # @hotspotKernel
 .LBB0_18:                               # %vector.body267
                                         #   Parent Loop BB0_2 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	fld.d	$ft4, $t6, 0
-	fldx.d	$ft5, $t6, $t2
+	fld.d	$ft4, $s1, 0
+	fldx.d	$ft5, $s1, $t2
 	ori	$a1, $s6, 4088
-	fldx.d	$ft6, $s1, $a1
-	fld.d	$ft7, $s1, -8
-	fldx.d	$ft8, $s1, $t4
-	fldx.d	$ft9, $s1, $s2
+	fldx.d	$ft6, $t6, $a1
+	fld.d	$ft7, $t6, -8
+	fldx.d	$ft8, $t6, $t4
+	fldx.d	$ft9, $t6, $s2
 	vextrins.d	$vr12, $vr13, 16
 	vextrins.d	$vr14, $vr15, 16
 	vextrins.d	$vr15, $vr16, 16
 	vextrins.d	$vr16, $vr17, 16
 	vfadd.d	$vr13, $vr16, $vr14
-	fld.d	$ft6, $s1, -16
-	fldx.d	$ft8, $s1, $a6
+	fld.d	$ft6, $t6, -16
+	fldx.d	$ft8, $t6, $a6
 	vfmadd.d	$vr13, $vr15, $vr10, $vr13
 	vfdiv.d	$vr13, $vr13, $vr4
 	vfadd.d	$vr12, $vr12, $vr13
@@ -493,42 +493,42 @@ hotspotKernel:                          # @hotspotKernel
 	vfdiv.d	$vr13, $vr13, $vr8
 	vfadd.d	$vr12, $vr13, $vr12
 	vfmul.d	$vr12, $vr9, $vr12
+	fldx.d	$ft5, $s1, $t7
+	fld.d	$ft6, $s1, 8
 	vfadd.d	$vr12, $vr15, $vr12
-	fldx.d	$ft5, $t6, $t7
-	fld.d	$ft6, $t6, 8
-	add.d	$a1, $t0, $t2
-	vstelm.d	$vr12, $t0, 0, 0
-	vstelm.d	$vr12, $a1, 0, 1
-	vextrins.d	$vr13, $vr14, 16
-	fldx.d	$ft4, $s1, $s6
-	fldx.d	$ft6, $s1, $ra
-	fld.d	$ft7, $s1, 0
-	fldx.d	$ft8, $s1, $t2
 	add.d	$a1, $t0, $t7
-	vextrins.d	$vr12, $vr14, 16
+	add.d	$a7, $t0, $t2
+	vextrins.d	$vr13, $vr14, 16
+	fldx.d	$ft6, $t6, $s6
+	fldx.d	$ft7, $t6, $ra
+	fld.d	$ft8, $t6, 0
+	fldx.d	$ft9, $t6, $t2
+	vstelm.d	$vr12, $a7, 0, 1
 	vextrins.d	$vr14, $vr15, 16
 	vextrins.d	$vr15, $vr16, 16
-	vfadd.d	$vr12, $vr15, $vr12
-	fldx.d	$ft7, $s1, $t7
-	fld.d	$ft8, $s1, 8
-	vfmadd.d	$vr12, $vr14, $vr10, $vr12
-	vfdiv.d	$vr12, $vr12, $vr4
-	vfadd.d	$vr12, $vr13, $vr12
-	vextrins.d	$vr15, $vr16, 16
-	vfsub.d	$vr13, $vr15, $vr14
-	vfdiv.d	$vr13, $vr13, $vr6
-	vfadd.d	$vr12, $vr12, $vr13
-	vfsub.d	$vr13, $vr7, $vr14
-	vfdiv.d	$vr13, $vr13, $vr8
-	vfadd.d	$vr12, $vr13, $vr12
-	vfmul.d	$vr12, $vr9, $vr12
-	vfadd.d	$vr12, $vr14, $vr12
-	vstelm.d	$vr12, $a1, 0, 0
-	vstelm.d	$vr12, $t0, 8, 1
+	vextrins.d	$vr16, $vr17, 16
+	vfadd.d	$vr14, $vr16, $vr14
+	fldx.d	$ft8, $t6, $t7
+	fld.d	$ft9, $t6, 8
+	vfmadd.d	$vr14, $vr15, $vr10, $vr14
+	vfdiv.d	$vr14, $vr14, $vr4
+	vfadd.d	$vr13, $vr13, $vr14
+	vextrins.d	$vr16, $vr17, 16
+	vfsub.d	$vr14, $vr16, $vr15
+	vfdiv.d	$vr14, $vr14, $vr6
+	vfadd.d	$vr13, $vr13, $vr14
+	vfsub.d	$vr14, $vr7, $vr15
+	vfdiv.d	$vr14, $vr14, $vr8
+	vfadd.d	$vr13, $vr14, $vr13
+	vfmul.d	$vr13, $vr9, $vr13
+	vfadd.d	$vr13, $vr15, $vr13
+	vstelm.d	$vr13, $a1, 0, 0
+	vshuf4i.d	$vr12, $vr13, 12
+	vst	$vr12, $t0, 0
 	addi.d	$s0, $s0, -2
-	add.d	$t0, $t0, $s5
-	add.d	$t6, $t6, $s5
-	add.d	$s1, $s1, $s5
+	add.d	$t0, $t0, $s4
+	add.d	$t6, $t6, $s4
+	add.d	$s1, $s1, $s4
 	bnez	$s0, .LBB0_18
 .LBB0_19:                               # %.preheader.preheader
                                         #   in Loop: Header=BB0_2 Depth=1

@@ -243,35 +243,30 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	st.d	$s1, $sp, 72
 	move	$a0, $zero
 	move	$a1, $zero
-	vrepli.b	$vr0, 0
 	blez	$s0, .LBB4_12
 # %bb.8:                                # %.lr.ph177.preheader
-	move	$a2, $s0
-	move	$a3, $s5
+	addi.d	$a2, $s5, 8
+	vrepli.b	$vr0, 0
+	move	$a3, $s0
 	b	.LBB4_10
 	.p2align	4, , 16
 .LBB4_9:                                # %.loopexit
                                         #   in Loop: Header=BB4_10 Depth=1
-	addi.d	$a3, $a3, 12
-	addi.d	$a2, $a2, -1
+	addi.d	$a2, $a2, 12
+	addi.d	$a3, $a3, -1
 	addi.d	$s1, $s1, 4
-	beqz	$a2, .LBB4_12
+	beqz	$a3, .LBB4_13
 .LBB4_10:                               # %.lr.ph177
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a4, $s1, 0
 	bltz	$a4, .LBB4_9
 # %bb.11:                               # %.preheader171
                                         #   in Loop: Header=BB4_10 Depth=1
-	ld.d	$a4, $a3, 0
-	ld.w	$a5, $a3, 0
-	ld.w	$a6, $a3, 4
+	ld.d	$a4, $a2, -8
 	vinsgr2vr.d	$vr1, $a4, 0
-	sub.d	$a4, $zero, $a5
-	sub.d	$a5, $zero, $a6
-	vinsgr2vr.w	$vr2, $a4, 0
-	ld.w	$a4, $a3, 8
+	ld.w	$a4, $a2, 0
+	vneg.w	$vr2, $vr1
 	vilvl.w	$vr1, $vr1, $vr2
-	vinsgr2vr.w	$vr1, $a5, 2
 	vmax.w	$vr0, $vr0, $vr1
 	sub.w	$a5, $zero, $a4
 	slt	$a6, $a5, $a0
@@ -283,7 +278,9 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	maskeqz	$a1, $a1, $a5
 	or	$a1, $a1, $a4
 	b	.LBB4_9
-.LBB4_12:                               # %.preheader170
+.LBB4_12:
+	vrepli.b	$vr0, 0
+.LBB4_13:                               # %.preheader170
 	vld	$vr1, $fp, 88
 	vadd.w	$vr0, $vr1, $vr0
 	ld.w	$a2, $fp, 104
@@ -294,27 +291,27 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	st.w	$a0, $fp, 104
 	add.d	$a0, $a3, $a1
 	st.w	$a0, $fp, 108
-	beqz	$s1, .LBB4_14
-# %bb.13:
+	beqz	$s1, .LBB4_15
+# %bb.14:
 	ld.d	$a0, $fp, 64
-	bnez	$a0, .LBB4_33
-	b	.LBB4_18
-.LBB4_14:
+	bnez	$a0, .LBB4_34
+	b	.LBB4_19
+.LBB4_15:
 	ld.d	$s2, $s3, 8
 	ld.w	$a0, $s2, 8
 	pcaddu18i	$ra, %call36(hypre_BoxArrayCreate)
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $s2, 8
 	move	$s1, $a0
-	blez	$a1, .LBB4_17
-# %bb.15:                               # %.lr.ph181
+	blez	$a1, .LBB4_18
+# %bb.16:                               # %.lr.ph181
 	ld.d	$a1, $s2, 0
 	ld.d	$a2, $s1, 0
 	move	$a0, $zero
 	addi.d	$a1, $a1, 12
 	addi.d	$a2, $a2, 12
 	.p2align	4, , 16
-.LBB4_16:                               # =>This Inner Loop Header: Depth=1
+.LBB4_17:                               # =>This Inner Loop Header: Depth=1
 	ld.w	$a3, $a1, -12
 	st.w	$a3, $a2, -12
 	ld.w	$a4, $a1, -8
@@ -349,12 +346,12 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	addi.d	$a0, $a0, 1
 	addi.d	$a1, $a1, 24
 	addi.d	$a2, $a2, 24
-	blt	$a0, $a3, .LBB4_16
-.LBB4_17:                               # %._crit_edge
+	blt	$a0, $a3, .LBB4_17
+.LBB4_18:                               # %._crit_edge
 	st.d	$s1, $fp, 40
 	ld.d	$a0, $fp, 64
-	bnez	$a0, .LBB4_33
-.LBB4_18:
+	bnez	$a0, .LBB4_34
+.LBB4_19:
 	st.d	$s0, $sp, 48                    # 8-byte Folded Spill
 	st.d	$s3, $sp, 8                     # 8-byte Folded Spill
 	st.d	$fp, $sp, 16                    # 8-byte Folded Spill
@@ -364,26 +361,26 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	jirl	$ra, $ra, 0
 	ld.w	$a1, $s1, 8
 	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
-	blez	$a1, .LBB4_31
-# %bb.19:                               # %.lr.ph192
+	blez	$a1, .LBB4_32
+# %bb.20:                               # %.lr.ph192
 	move	$s7, $zero
 	move	$s6, $zero
 	addi.d	$a0, $s5, 8
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	addi.w	$s8, $zero, -1
 	st.d	$s1, $sp, 32                    # 8-byte Folded Spill
-	b	.LBB4_22
+	b	.LBB4_23
 	.p2align	4, , 16
-.LBB4_20:                               #   in Loop: Header=BB4_22 Depth=1
+.LBB4_21:                               #   in Loop: Header=BB4_23 Depth=1
 	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
-.LBB4_21:                               # %._crit_edge188
-                                        #   in Loop: Header=BB4_22 Depth=1
+.LBB4_22:                               # %._crit_edge188
+                                        #   in Loop: Header=BB4_23 Depth=1
 	ld.w	$a0, $s1, 8
 	addi.d	$s7, $s7, 1
-	bge	$s7, $a0, .LBB4_32
-.LBB4_22:                               # =>This Loop Header: Depth=1
-                                        #     Child Loop BB4_25 Depth 2
-                                        #     Child Loop BB4_29 Depth 2
+	bge	$s7, $a0, .LBB4_33
+.LBB4_23:                               # =>This Loop Header: Depth=1
+                                        #     Child Loop BB4_26 Depth 2
+                                        #     Child Loop BB4_30 Depth 2
 	ld.d	$a0, $s1, 0
 	slli.d	$a1, $s7, 4
 	alsl.d	$a1, $s7, $a1, 3
@@ -403,9 +400,9 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	slli.d	$a1, $s7, 3
 	ld.d	$a2, $sp, 40                    # 8-byte Folded Reload
 	stx.d	$a0, $a2, $a1
-	blez	$s5, .LBB4_20
-# %bb.23:                               # %.lr.ph185
-                                        #   in Loop: Header=BB4_22 Depth=1
+	blez	$s5, .LBB4_21
+# %bb.24:                               # %.lr.ph185
+                                        #   in Loop: Header=BB4_23 Depth=1
 	sub.w	$a1, $s1, $fp
 	slt	$a2, $s8, $a1
 	maskeqz	$a1, $a1, $a2
@@ -431,41 +428,41 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	ld.d	$a3, $sp, 56                    # 8-byte Folded Reload
 	move	$a4, $a0
 	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
-	b	.LBB4_25
+	b	.LBB4_26
 	.p2align	4, , 16
-.LBB4_24:                               #   in Loop: Header=BB4_25 Depth=2
+.LBB4_25:                               #   in Loop: Header=BB4_26 Depth=2
 	addi.d	$a4, $a4, 4
 	addi.d	$a3, $a3, -1
 	addi.d	$a1, $a1, 4
-	beqz	$a3, .LBB4_27
-.LBB4_25:                               #   Parent Loop BB4_22 Depth=1
+	beqz	$a3, .LBB4_28
+.LBB4_26:                               #   Parent Loop BB4_23 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.w	$a5, $a1, 0
-	bgez	$a5, .LBB4_24
-# %bb.26:                               #   in Loop: Header=BB4_25 Depth=2
+	bgez	$a5, .LBB4_25
+# %bb.27:                               #   in Loop: Header=BB4_26 Depth=2
 	st.w	$s6, $a4, 0
 	add.d	$s6, $s6, $a2
-	b	.LBB4_24
+	b	.LBB4_25
 	.p2align	4, , 16
-.LBB4_27:                               # %.lr.ph187
-                                        #   in Loop: Header=BB4_22 Depth=1
+.LBB4_28:                               # %.lr.ph187
+                                        #   in Loop: Header=BB4_23 Depth=1
 	ld.d	$a1, $sp, 72
 	ld.d	$a2, $sp, 56                    # 8-byte Folded Reload
 	ld.d	$a3, $sp, 24                    # 8-byte Folded Reload
 	move	$a4, $a0
-	b	.LBB4_29
+	b	.LBB4_30
 	.p2align	4, , 16
-.LBB4_28:                               #   in Loop: Header=BB4_29 Depth=2
+.LBB4_29:                               #   in Loop: Header=BB4_30 Depth=2
 	addi.d	$a4, $a4, 4
 	addi.d	$a3, $a3, 12
 	addi.d	$a2, $a2, -1
 	addi.d	$a1, $a1, 4
-	beqz	$a2, .LBB4_21
-.LBB4_29:                               #   Parent Loop BB4_22 Depth=1
+	beqz	$a2, .LBB4_22
+.LBB4_30:                               #   Parent Loop BB4_23 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.w	$a5, $a1, 0
-	bltz	$a5, .LBB4_28
-# %bb.30:                               #   in Loop: Header=BB4_29 Depth=2
+	bltz	$a5, .LBB4_29
+# %bb.31:                               #   in Loop: Header=BB4_30 Depth=2
 	slli.d	$a5, $a5, 2
 	ld.w	$a6, $s3, 16
 	ld.w	$a7, $s3, 4
@@ -493,17 +490,17 @@ hypre_StructMatrixInitializeShell:      # @hypre_StructMatrixInitializeShell
 	add.d	$a5, $t1, $a5
 	add.d	$a5, $a5, $a6
 	st.w	$a5, $a4, 0
-	b	.LBB4_28
-.LBB4_31:
+	b	.LBB4_29
+.LBB4_32:
 	move	$s6, $zero
-.LBB4_32:                               # %._crit_edge193
+.LBB4_33:                               # %._crit_edge193
 	ld.d	$fp, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	st.d	$a0, $fp, 64
 	st.w	$s6, $fp, 60
 	ld.d	$s3, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$s0, $sp, 48                    # 8-byte Folded Reload
-.LBB4_33:
+.LBB4_34:
 	ld.w	$a0, $s3, 52
 	mul.d	$a0, $a0, $s0
 	st.w	$a0, $fp, 112

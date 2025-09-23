@@ -1,6 +1,17 @@
 	.file	"2020-01-06-coverage-009.c"
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function i
+.LCPI0_0:
+	.half	0                               # 0x0
+	.half	2                               # 0x2
+	.half	2                               # 0x2
+	.half	6                               # 0x6
+	.half	6                               # 0x6
+	.half	10                              # 0xa
+	.half	10                              # 0xa
+	.half	14                              # 0xe
 	.text
-	.globl	i                               # -- Begin function i
+	.globl	i
 	.p2align	5
 	.type	i,@function
 i:                                      # @i
@@ -13,6 +24,8 @@ i:                                      # @i
 	ld.bu	$a3, $a1, %pc_lo12(d)
 	pcalau12i	$a4, %pc_hi20(f)
 	ld.d	$a4, $a4, %pc_lo12(f)
+	pcalau12i	$a5, %pc_hi20(.LCPI0_0)
+	vld	$vr0, $a5, %pc_lo12(.LCPI0_0)
 	pcalau12i	$a5, %pc_hi20(b)
 	pcalau12i	$a6, %pc_hi20(a)
 	pcalau12i	$a7, %pc_hi20(h)
@@ -22,14 +35,36 @@ i:                                      # @i
 	ld.w	$t0, $a5, %pc_lo12(b)
 	ld.w	$t1, $a6, %pc_lo12(a)
 	st.w	$zero, $a4, 0
-	ld.w	$t2, $a5, %pc_lo12(b)
-	ld.w	$t3, $a6, %pc_lo12(a)
-	xor	$t1, $t1, $t0
-	sltu	$t0, $t1, $t0
-	xor	$a3, $a3, $t0
-	xor	$t0, $t3, $t2
-	sltu	$t0, $t0, $t2
+	ld.w	$t2, $a6, %pc_lo12(a)
+	ld.w	$t3, $a5, %pc_lo12(b)
+	vinsgr2vr.w	$vr1, $t1, 0
+	vinsgr2vr.w	$vr1, $t2, 1
+	vinsgr2vr.w	$vr1, $t2, 3
+	vinsgr2vr.w	$vr2, $t2, 1
+	vinsgr2vr.w	$vr2, $t2, 3
+	vinsgr2vr.w	$vr3, $t0, 0
+	vinsgr2vr.w	$vr3, $t3, 1
+	vinsgr2vr.w	$vr3, $t3, 3
+	vinsgr2vr.w	$vr4, $t3, 1
+	vinsgr2vr.w	$vr4, $t3, 3
+	vxor.v	$vr2, $vr2, $vr4
+	vxor.v	$vr1, $vr1, $vr3
+	vslt.wu	$vr1, $vr1, $vr3
+	vslt.wu	$vr2, $vr2, $vr4
+	vori.b	$vr3, $vr0, 0
+	vshuf.h	$vr3, $vr2, $vr1
+	xor	$t0, $t2, $t3
+	sltu	$t0, $t0, $t3
 	st.w	$t0, $a7, %pc_lo12(h)
+	vmskltz.h	$vr1, $vr3
+	vpickve2gr.hu	$t1, $vr1, 0
+	vldi	$vr1, 0
+	vinsgr2vr.d	$vr1, $t1, 0
+	vpcnt.d	$vr1, $vr1
+	vpickve2gr.d	$t1, $vr1, 0
+	andi	$t1, $t1, 1
+	xor	$t0, $t1, $t0
+	xor	$a3, $t0, $a3
 	addi.d	$a2, $a2, -1
 	slli.d	$t0, $a2, 48
 	st.w	$zero, $a4, 0

@@ -20,10 +20,10 @@ make_vec:                               # @make_vec
 sum_vec:                                # @sum_vec
 # %bb.0:
 	vinsgr2vr.d	$vr0, $a0, 0
-	vinsgr2vr.d	$vr0, $a1, 1
-	vreplvei.d	$vr1, $vr0, 0
-	vreplvei.d	$vr0, $vr0, 1
-	fadd.d	$fa0, $fa1, $fa0
+	vinsgr2vr.d	$vr1, $a1, 0
+	vfadd.d	$vr0, $vr1, $vr0
+	vreplvei.d	$vr0, $vr0, 0
+                                        # kill: def $f0_64 killed $f0_64 killed $vr0
 	ret
 .Lfunc_end1:
 	.size	sum_vec, .Lfunc_end1-sum_vec
@@ -183,10 +183,9 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	vld	$vr1, $sp, 16                   # 16-byte Folded Reload
-	vreplvei.d	$vr0, $vr1, 0
-	vreplvei.d	$vr1, $vr1, 1
-	fadd.d	$fa0, $fa0, $fa1
-	movfr2gr.d	$a1, $fa0
+	vreplvei.d	$vr0, $vr1, 1
+	vfadd.d	$vr0, $vr1, $vr0
+	vpickve2gr.d	$a1, $vr0, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.3)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.3)
 	move	$a0, $fp
@@ -205,40 +204,36 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
-	vreplvei.d	$vr0, $vr1, 0
-	vreplvei.d	$vr1, $vr1, 1
-	fadd.d	$fa0, $fa0, $fa1
-	movfr2gr.d	$a1, $fa0
+	vreplvei.d	$vr0, $vr1, 1
+	vfadd.d	$vr0, $vr1, $vr0
+	vpickve2gr.d	$a1, $vr0, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.6)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.6)
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
-	vreplvei.d	$vr0, $vr1, 0
-	vreplvei.d	$vr1, $vr1, 1
-	fadd.d	$fa0, $fa0, $fa1
-	movfr2gr.d	$a1, $fa0
+	vreplvei.d	$vr0, $vr1, 1
+	vfadd.d	$vr0, $vr1, $vr0
+	vpickve2gr.d	$a1, $vr0, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.7)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.7)
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
-	vreplvei.d	$vr0, $vr1, 0
-	vreplvei.d	$vr1, $vr1, 1
-	fadd.d	$fa0, $fa0, $fa1
-	movfr2gr.d	$a1, $fa0
+	vreplvei.d	$vr0, $vr1, 1
+	vfadd.d	$vr0, $vr1, $vr0
+	vpickve2gr.d	$a1, $vr0, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.8)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.8)
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
-	vreplvei.d	$vr0, $vr1, 0
-	vreplvei.d	$vr1, $vr1, 1
-	fadd.d	$fa0, $fa0, $fa1
-	movfr2gr.d	$a1, $fa0
+	vreplvei.d	$vr0, $vr1, 1
+	vfadd.d	$vr0, $vr1, $vr0
+	vpickve2gr.d	$a1, $vr0, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.9)
 	addi.d	$a2, $a0, %pc_lo12(.L.str.9)
 	move	$a0, $fp

@@ -37,9 +37,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr1, $a1
 	vseq.w	$vr1, $vr0, $vr1
 	vshuf4i.w	$vr2, $vr1, 16
+	vreplvei.d	$vr2, $vr2, 1
+	vand.v	$vr1, $vr1, $vr2
 	vpickve2gr.d	$a1, $vr1, 0
-	vpickve2gr.d	$a2, $vr2, 1
-	and	$a1, $a1, $a2
 	andi	$a1, $a1, 1
 	vstelm.d	$vr0, $a0, 0, 0
 	beqz	$a1, .LBB1_12
@@ -50,9 +50,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr2, $a1
 	vseq.w	$vr2, $vr1, $vr2
 	vshuf4i.w	$vr4, $vr2, 16
+	vreplvei.d	$vr4, $vr4, 1
+	vand.v	$vr2, $vr2, $vr4
 	vpickve2gr.d	$a1, $vr2, 0
-	vpickve2gr.d	$a2, $vr4, 1
-	and	$a1, $a1, $a2
 	andi	$a1, $a1, 1
 	vstelm.d	$vr1, $a0, 0, 0
 	beqz	$a1, .LBB1_12
@@ -70,9 +70,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr4, $a1
 	vseq.w	$vr4, $vr2, $vr4
 	vshuf4i.w	$vr5, $vr4, 16
+	vreplvei.d	$vr5, $vr5, 1
+	vand.v	$vr4, $vr4, $vr5
 	vpickve2gr.d	$a1, $vr4, 0
-	vpickve2gr.d	$a2, $vr5, 1
-	and	$a1, $a1, $a2
 	andi	$a1, $a1, 1
 	vstelm.d	$vr2, $a0, 0, 0
 	beqz	$a1, .LBB1_12
@@ -83,9 +83,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr5, $a1
 	vseq.w	$vr5, $vr4, $vr5
 	vshuf4i.w	$vr7, $vr5, 16
+	vreplvei.d	$vr7, $vr7, 1
+	vand.v	$vr5, $vr5, $vr7
 	vpickve2gr.d	$a1, $vr5, 0
-	vpickve2gr.d	$a2, $vr7, 1
-	and	$a1, $a1, $a2
 	andi	$a1, $a1, 1
 	vstelm.d	$vr4, $a0, 0, 0
 	beqz	$a1, .LBB1_12
@@ -96,9 +96,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr7, $a1
 	vseq.w	$vr7, $vr5, $vr7
 	vshuf4i.w	$vr8, $vr7, 16
+	vreplvei.d	$vr8, $vr8, 1
+	vand.v	$vr7, $vr7, $vr8
 	vpickve2gr.d	$a1, $vr7, 0
-	vpickve2gr.d	$a2, $vr8, 1
-	and	$a1, $a1, $a2
 	andi	$a1, $a1, 1
 	vstelm.d	$vr5, $a0, 0, 0
 	beqz	$a1, .LBB1_12
@@ -109,9 +109,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr7, $a1
 	vseq.w	$vr7, $vr6, $vr7
 	vshuf4i.w	$vr8, $vr7, 16
+	vreplvei.d	$vr8, $vr8, 1
+	vand.v	$vr7, $vr7, $vr8
 	vpickve2gr.d	$a1, $vr7, 0
-	vpickve2gr.d	$a2, $vr8, 1
-	and	$a1, $a1, $a2
 	andi	$a1, $a1, 1
 	vstelm.d	$vr6, $a0, 0, 0
 	beqz	$a1, .LBB1_12
@@ -122,9 +122,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr8, $a1
 	vseq.w	$vr8, $vr7, $vr8
 	vshuf4i.w	$vr9, $vr8, 16
+	vreplvei.d	$vr9, $vr9, 1
+	vand.v	$vr8, $vr8, $vr9
 	vpickve2gr.d	$a1, $vr8, 0
-	vpickve2gr.d	$a2, $vr9, 1
-	and	$a1, $a1, $a2
 	andi	$a1, $a1, 1
 	vstelm.d	$vr7, $a0, 0, 0
 	beqz	$a1, .LBB1_12
@@ -136,9 +136,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr9, $a1
 	vseq.w	$vr9, $vr3, $vr9
 	vshuf4i.w	$vr10, $vr9, 16
+	vreplvei.d	$vr10, $vr10, 1
+	vand.v	$vr9, $vr9, $vr10
 	vpickve2gr.d	$a1, $vr9, 0
-	vpickve2gr.d	$a2, $vr10, 1
-	and	$a1, $a1, $a2
 	andi	$a1, $a1, 1
 	vstelm.d	$vr8, $a0, 0, 0
 	beqz	$a1, .LBB1_12
@@ -157,9 +157,9 @@ main:                                   # @main
 	vreplgr2vr.d	$vr9, $a2
 	vseq.w	$vr9, $vr3, $vr9
 	vshuf4i.w	$vr10, $vr9, 16
+	vreplvei.d	$vr10, $vr10, 1
+	vand.v	$vr9, $vr9, $vr10
 	vpickve2gr.d	$a2, $vr9, 0
-	vpickve2gr.d	$a3, $vr10, 1
-	and	$a2, $a2, $a3
 	andi	$a2, $a2, 1
 	vstelm.d	$vr3, $a0, 0, 0
 	beqz	$a2, .LBB1_12
@@ -170,16 +170,16 @@ main:                                   # @main
 	vmul.w	$vr3, $vr3, $vr4
 	vmul.w	$vr3, $vr3, $vr5
 	vmul.w	$vr3, $vr3, $vr6
-	vstelm.d	$vr3, $a1, 0, 0
 	lu12i.w	$a2, 355583
 	lu32i.d	$a2, -430784
 	lu52i.d	$a2, $a2, -1507
 	vreplgr2vr.d	$vr9, $a2
 	vseq.w	$vr9, $vr3, $vr9
+	vshuf4i.w	$vr10, $vr9, 16
+	vreplvei.d	$vr10, $vr10, 1
+	vand.v	$vr9, $vr9, $vr10
+	vstelm.d	$vr3, $a1, 0, 0
 	vpickve2gr.d	$a2, $vr9, 0
-	vshuf4i.w	$vr9, $vr9, 16
-	vpickve2gr.d	$a3, $vr9, 1
-	and	$a2, $a2, $a3
 	andi	$a2, $a2, 1
 	vstelm.d	$vr3, $a0, 0, 0
 	beqz	$a2, .LBB1_12
@@ -210,15 +210,18 @@ main:                                   # @main
 	div.w	$a3, $a3, $a4
 	vpickve2gr.w	$a4, $vr7, 1
 	div.w	$a2, $a2, $a4
-	vpickve2gr.w	$a4, $vr8, 1
-	div.w	$a2, $a2, $a4
 	vpickve2gr.w	$a4, $vr8, 0
 	div.w	$a3, $a3, $a4
+	vpickve2gr.w	$a4, $vr8, 1
 	vinsgr2vr.w	$vr0, $a3, 0
-	vinsgr2vr.w	$vr0, $a2, 1
-	vstelm.d	$vr0, $a1, 0, 0
-	or	$a1, $a2, $a3
-	vstelm.d	$vr0, $a0, 0, 0
+	div.w	$a2, $a2, $a4
+	vori.b	$vr1, $vr0, 0
+	vinsgr2vr.w	$vr1, $a2, 1
+	vstelm.d	$vr1, $a1, 0, 0
+	vreplvei.w	$vr2, $vr1, 1
+	vor.v	$vr0, $vr2, $vr0
+	vpickve2gr.w	$a1, $vr0, 0
+	vstelm.d	$vr1, $a0, 0, 0
 	bnez	$a1, .LBB1_12
 # %bb.11:                               # %verify.exit69
 	move	$a0, $zero

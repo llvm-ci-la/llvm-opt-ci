@@ -689,18 +689,18 @@ prescan_quantize:                       # @prescan_quantize
 	.type	finish_pass1,@function
 finish_pass1:                           # @finish_pass1
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -160
+	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 72                    # 8-byte Folded Spill
 	move	$s0, $a0
 	ld.d	$a2, $a0, 608
 	ld.d	$a0, $a0, 8
@@ -731,12 +731,16 @@ finish_pass1:                           # @finish_pass1
 	ori	$s2, $zero, 2
 	blt	$s3, $s2, .LBB5_18
 # %bb.1:                                # %.lr.ph.i.i
-	ori	$s6, $zero, 1
 	ori	$s5, $zero, 1
+	ori	$a0, $zero, 16
+	lu32i.d	$a0, 12
+	vreplgr2vr.d	$vr0, $a0
+	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
+	ori	$s6, $zero, 1
 	b	.LBB5_4
 	.p2align	4, , 16
 .LBB5_2:                                #   in Loop: Header=BB5_4 Depth=1
-	add.d	$a0, $a4, $a0
+	add.d	$a0, $a2, $a0
 	bstrpick.d	$a2, $a0, 31, 31
 	add.w	$a0, $a0, $a2
 	srai.d	$a0, $a0, 1
@@ -753,18 +757,18 @@ finish_pass1:                           # @finish_pass1
 	move	$a1, $s1
 	pcaddu18i	$ra, %call36(update_box)
 	jirl	$ra, $ra, 0
-	addi.d	$s5, $s5, 1
-	beq	$s5, $s3, .LBB5_17
+	addi.d	$s6, $s6, 1
+	beq	$s6, $s3, .LBB5_17
 .LBB5_4:                                # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_13 Depth 2
                                         #     Child Loop BB5_6 Depth 2
 	move	$a1, $zero
 	move	$a2, $zero
-	slli.d	$a0, $s5, 1
+	slli.d	$a0, $s6, 1
 	bgeu	$s3, $a0, .LBB5_11
 # %bb.5:                                # %.lr.ph.i67.i.i.preheader
                                         #   in Loop: Header=BB5_4 Depth=1
-	move	$a0, $s5
+	move	$a0, $s6
 	move	$a3, $fp
 	.p2align	4, , 16
 .LBB5_6:                                # %.lr.ph.i67.i.i
@@ -786,39 +790,39 @@ finish_pass1:                           # @finish_pass1
 	beqz	$a1, .LBB5_16
 # %bb.8:                                #   in Loop: Header=BB5_4 Depth=1
 	ld.w	$a0, $a1, 20
-	slli.d	$a2, $s5, 5
-	alsl.d	$a2, $s5, $a2, 3
+	slli.d	$a2, $s6, 5
+	alsl.d	$a2, $s6, $a2, 3
 	add.d	$s1, $fp, $a2
 	st.w	$a0, $s1, 20
 	vld	$vr0, $a1, 0
 	vstx	$vr0, $fp, $a2
-	ld.w	$a4, $a1, 16
-	vpickve2gr.w	$a2, $vr0, 0
-	vpickve2gr.w	$a3, $vr0, 1
-	sub.d	$a5, $a3, $a2
-	slli.w	$a7, $a5, 4
-	vpickve2gr.w	$a5, $vr0, 2
-	vpickve2gr.w	$a6, $vr0, 3
-	sub.d	$t0, $a6, $a5
-	slli.d	$t1, $t0, 3
-	alsl.w	$t0, $t0, $t1, 2
-	sub.d	$t1, $a0, $a4
-	slli.w	$t1, $t1, 3
-	slt	$t2, $t0, $a7
-	xori	$t3, $t2, 1
-	masknez	$t0, $t0, $t2
-	maskeqz	$a7, $a7, $t2
-	or	$a7, $a7, $t0
-	slt	$a7, $a7, $t1
-	masknez	$t0, $t3, $a7
-	maskeqz	$a7, $s2, $a7
-	or	$a7, $a7, $t0
-	st.w	$a4, $s1, 16
-	beq	$a7, $s2, .LBB5_2
+	ld.w	$a2, $a1, 16
+	vshuf4i.w	$vr1, $vr0, 13
+	vshuf4i.w	$vr2, $vr0, 8
+	vsub.w	$vr1, $vr1, $vr2
+	vld	$vr2, $sp, 48                   # 16-byte Folded Reload
+	vmul.w	$vr1, $vr1, $vr2
+	sub.d	$a3, $a0, $a2
+	slli.w	$a3, $a3, 3
+	vpickve2gr.w	$a4, $vr1, 0
+	vpickve2gr.w	$a5, $vr1, 1
+	slt	$a6, $a5, $a4
+	xori	$a7, $a6, 1
+	masknez	$a5, $a5, $a6
+	maskeqz	$a4, $a4, $a6
+	or	$a4, $a4, $a5
+	slt	$a3, $a4, $a3
+	masknez	$a4, $a7, $a3
+	maskeqz	$a3, $s2, $a3
+	or	$a3, $a3, $a4
+	st.w	$a2, $s1, 16
+	beq	$a3, $s2, .LBB5_2
 # %bb.9:                                #   in Loop: Header=BB5_4 Depth=1
-	bne	$a7, $s6, .LBB5_15
+	bne	$a3, $s5, .LBB5_15
 # %bb.10:                               #   in Loop: Header=BB5_4 Depth=1
-	add.d	$a0, $a5, $a6
+	vreplvei.w	$vr1, $vr0, 3
+	vadd.w	$vr0, $vr0, $vr1
+	vpickve2gr.w	$a0, $vr0, 2
 	bstrpick.d	$a2, $a0, 31, 31
 	add.w	$a0, $a0, $a2
 	srai.d	$a0, $a0, 1
@@ -829,7 +833,7 @@ finish_pass1:                           # @finish_pass1
 	.p2align	4, , 16
 .LBB5_11:                               # %.lr.ph.i.i.i.preheader
                                         #   in Loop: Header=BB5_4 Depth=1
-	move	$a0, $s5
+	move	$a0, $s6
 	move	$a3, $fp
 	b	.LBB5_13
 	.p2align	4, , 16
@@ -854,7 +858,9 @@ finish_pass1:                           # @finish_pass1
 	b	.LBB5_12
 	.p2align	4, , 16
 .LBB5_15:                               #   in Loop: Header=BB5_4 Depth=1
-	add.d	$a0, $a2, $a3
+	vreplvei.w	$vr1, $vr0, 1
+	vadd.w	$vr0, $vr0, $vr1
+	vpickve2gr.w	$a0, $vr0, 0
 	bstrpick.d	$a2, $a0, 31, 31
 	add.w	$a0, $a0, $a2
 	srai.d	$a0, $a0, 1
@@ -863,7 +869,7 @@ finish_pass1:                           # @finish_pass1
 	st.w	$a0, $s1, 0
 	b	.LBB5_3
 .LBB5_16:                               # %find_biggest_color_pop.exit._crit_edge.loopexit.split.loop.exit.i.i
-	move	$s3, $s5
+	move	$s3, $s6
 .LBB5_17:                               # %median_cut.exit.i
 	addi.w	$a0, $s3, 0
 	move	$a1, $s3
@@ -1135,18 +1141,18 @@ finish_pass1:                           # @finish_pass1
 	jirl	$ra, $a2, 0
 	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	st.w	$fp, $a0, 56
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 160
 	ret
 .Lfunc_end5:
 	.size	finish_pass1, .Lfunc_end5-finish_pass1

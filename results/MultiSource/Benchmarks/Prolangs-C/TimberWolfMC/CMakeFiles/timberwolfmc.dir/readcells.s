@@ -2003,37 +2003,38 @@ readcells:                              # @readcells
 .LBB0_133:                              # %.lr.ph1038
                                         #   in Loop: Header=BB0_130 Depth=2
 	ld.d	$a0, $s6, 152
-	ld.d	$a0, $a0, 96
 	ld.d	$a2, $sp, 160                   # 8-byte Folded Reload
 	ld.d	$a2, $a2, %pc_lo12(kArray)
-	ld.d	$a3, $s6, 136
-	alsl.d	$a0, $s8, $a0, 4
-	slli.d	$a4, $s8, 4
-	addi.d	$a0, $a0, 28
-	addi.d	$a2, $a2, 36
-	alsl.d	$a4, $s8, $a4, 2
-	add.d	$a3, $a3, $a4
+	ld.d	$a3, $a0, 96
+	ld.d	$a4, $s6, 136
+	addi.d	$a0, $a2, 36
+	alsl.d	$a2, $s8, $a3, 4
+	slli.d	$a3, $s8, 4
+	addi.d	$a2, $a2, 28
+	alsl.d	$a3, $s8, $a3, 2
+	add.d	$a3, $a4, $a3
 	addi.d	$a3, $a3, 36
 	.p2align	4, , 16
 .LBB0_134:                              #   Parent Loop BB0_4 Depth=1
                                         #     Parent Loop BB0_130 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	ld.w	$a4, $a2, -8
-	ld.w	$a5, $a2, -4
-	ld.w	$a6, $a2, 0
+	ld.w	$a4, $a0, -8
+	ld.w	$a5, $a0, -4
+	ld.w	$a6, $a0, 0
 	st.w	$a4, $a3, 0
 	sub.d	$a4, $a5, $s1
-	st.w	$a4, $a0, -12
+	st.w	$a4, $a2, -12
 	sub.d	$a5, $a6, $fp
-	st.w	$a5, $a0, -8
-	st.w	$a4, $a0, -4
-	st.w	$a5, $a0, 0
-	st.d	$zero, $a3, -16
-	ld.d	$a4, $a2, -16
+	st.w	$a5, $a2, -8
+	st.w	$a4, $a2, -4
+	st.w	$a5, $a2, 0
+	ld.d	$a4, $a0, -16
 	addi.d	$s8, $s8, 1
-	st.d	$a4, $a3, -8
-	addi.d	$a0, $a0, 16
-	addi.d	$a2, $a2, 20
+	vinsgr2vr.d	$vr0, $a4, 0
+	vbsll.v	$vr0, $vr0, 8
+	vst	$vr0, $a3, -16
+	addi.d	$a0, $a0, 20
+	addi.d	$a2, $a2, 16
 	addi.d	$a3, $a3, 20
 	blt	$s8, $a1, .LBB0_134
 	b	.LBB0_129

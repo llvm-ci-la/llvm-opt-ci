@@ -1504,11 +1504,12 @@ _ZN8StateMapC2Ei:                       # @_ZN8StateMapC2Ei
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
+	vrepli.b	$vr0, 0
 	move	$s0, $a0
-	st.w	$a1, $a0, 0
-	st.w	$zero, $a0, 4
-	st.w	$a1, $a0, 12
-	st.w	$a1, $a0, 8
+	vori.b	$vr1, $vr0, 0
+	vinsgr2vr.w	$vr1, $a1, 0
+	vshuf4i.w	$vr1, $vr1, 4
+	vst	$vr1, $a0, 0
 	blez	$a1, .LBB20_6
 # %bb.1:
 	move	$fp, $a1
@@ -1538,7 +1539,6 @@ _ZN8StateMapC2Ei:                       # @_ZN8StateMapC2Ei
 	move	$a2, $zero
 	b	.LBB20_10
 .LBB20_6:                               # %_ZN5ArrayIjLi0EEC2Ei.exit
-	vrepli.b	$vr0, 0
 	vst	$vr0, $s0, 16
 	b	.LBB20_12
 .LBB20_7:                               # %vector.ph
@@ -1682,21 +1682,19 @@ _ZN3APMC2Ei:                            # @_ZN3APMC2Ei
 	st.d	$ra, $sp, 24                    # 8-byte Folded Spill
 	st.d	$fp, $sp, 16                    # 8-byte Folded Spill
 	st.d	$s0, $sp, 8                     # 8-byte Folded Spill
-	st.d	$s1, $sp, 0                     # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
-	.cfi_offset 24, -32
 	move	$fp, $a0
-	slli.d	$s1, $a1, 4
-	alsl.d	$a0, $a1, $s1, 3
-	st.w	$a0, $fp, 0
-	st.w	$zero, $fp, 4
-	st.w	$a0, $fp, 12
-	st.w	$a0, $fp, 8
+	slli.d	$a0, $a1, 4
+	vrepli.b	$vr0, 0
+	alsl.w	$s0, $a1, $a0, 3
+	vori.b	$vr1, $vr0, 0
+	vinsgr2vr.w	$vr1, $s0, 0
+	vshuf4i.w	$vr1, $vr1, 4
+	vst	$vr1, $fp, 0
 	blez	$a1, .LBB23_8
 # %bb.1:
-	move	$s0, $a1
 	alsl.d	$a0, $a1, $a1, 1
 	slli.w	$a0, $a0, 5
 	pcalau12i	$a1, %pc_hi20(programChecker)
@@ -1715,40 +1713,39 @@ _ZN3APMC2Ei:                            # @_ZN3APMC2Ei
 	st.d	$a0, $fp, 16
 	beqz	$a0, .LBB23_10
 # %bb.4:                                # %.lr.ph.i
-	alsl.w	$a1, $s0, $s1, 3
 	st.d	$a0, $fp, 24
-	addi.d	$a2, $a0, 16
-	lu12i.w	$a3, -524288
-	vreplgr2vr.w	$vr0, $a3
-	move	$a3, $a1
+	addi.d	$a1, $a0, 16
+	lu12i.w	$a2, -524288
+	vreplgr2vr.w	$vr0, $a2
+	move	$a2, $s0
 	.p2align	4, , 16
 .LBB23_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vst	$vr0, $a2, -16
-	vst	$vr0, $a2, 0
-	addi.d	$a3, $a3, -8
-	addi.d	$a2, $a2, 32
-	bnez	$a3, .LBB23_5
+	vst	$vr0, $a1, -16
+	vst	$vr0, $a1, 0
+	addi.d	$a2, $a2, -8
+	addi.d	$a1, $a1, 32
+	bnez	$a2, .LBB23_5
 # %bb.6:                                # %vector.body15.preheader
-	pcalau12i	$a2, %pc_hi20(.LCPI23_0)
-	vld	$vr0, $a2, %pc_lo12(.LCPI23_0)
-	lu12i.w	$a2, -349526
-	ori	$a2, $a2, 2731
-	vreplgr2vr.w	$vr1, $a2
+	pcalau12i	$a1, %pc_hi20(.LCPI23_0)
+	vld	$vr0, $a1, %pc_lo12(.LCPI23_0)
+	lu12i.w	$a1, -349526
+	ori	$a1, $a1, 2731
+	vreplgr2vr.w	$vr1, $a1
 	vrepli.w	$vr2, 24
-	lu12i.w	$a2, 128
-	vreplgr2vr.w	$vr3, $a2
-	lu12i.w	$a2, 21845
-	ori	$a2, $a2, 1366
-	vreplgr2vr.w	$vr4, $a2
-	addi.d	$a2, $zero, -2048
-	vreplgr2vr.w	$vr5, $a2
+	lu12i.w	$a1, 128
+	vreplgr2vr.w	$vr3, $a1
+	lu12i.w	$a1, 21845
+	ori	$a1, $a1, 1366
+	vreplgr2vr.w	$vr4, $a1
+	addi.d	$a1, $zero, -2048
+	vreplgr2vr.w	$vr5, $a1
 	vrepli.w	$vr6, 127
-	pcalau12i	$a2, %pc_hi20(_ZZ6squashiE1t)
-	addi.d	$a2, $a2, %pc_lo12(_ZZ6squashiE1t)
+	pcalau12i	$a1, %pc_hi20(_ZZ6squashiE1t)
+	addi.d	$a1, $a1, %pc_lo12(_ZZ6squashiE1t)
 	vrepli.w	$vr7, 128
-	lu12i.w	$a3, -256
-	vreplgr2vr.w	$vr8, $a3
+	lu12i.w	$a2, -256
+	vreplgr2vr.w	$vr8, $a2
 	vrepli.w	$vr9, 6
 	.p2align	4, , 16
 .LBB23_7:                               # %vector.body15
@@ -1769,32 +1766,32 @@ _ZN3APMC2Ei:                            # @_ZN3APMC2Ei
 	vshuf4i.w	$vr11, $vr11, 16
 	vslli.d	$vr11, $vr11, 32
 	vsrai.d	$vr11, $vr11, 32
-	vpickve2gr.d	$a3, $vr11, 0
-	alsl.d	$a3, $a3, $a2, 2
-	vpickve2gr.d	$a4, $vr11, 1
-	alsl.d	$a4, $a4, $a2, 2
-	vpickve2gr.d	$a5, $vr12, 0
-	alsl.d	$a5, $a5, $a2, 2
-	vpickve2gr.d	$a6, $vr12, 1
-	alsl.d	$a6, $a6, $a2, 2
+	vpickve2gr.d	$a2, $vr11, 0
+	alsl.d	$a2, $a2, $a1, 2
+	vpickve2gr.d	$a3, $vr11, 1
+	alsl.d	$a3, $a3, $a1, 2
+	vpickve2gr.d	$a4, $vr12, 0
+	alsl.d	$a4, $a4, $a1, 2
+	vpickve2gr.d	$a5, $vr12, 1
+	alsl.d	$a5, $a5, $a1, 2
+	ld.w	$a6, $a2, 64
 	ld.w	$a7, $a3, 64
 	ld.w	$t0, $a4, 64
 	ld.w	$t1, $a5, 64
-	ld.w	$t2, $a6, 64
-	vinsgr2vr.w	$vr11, $a7, 0
-	vinsgr2vr.w	$vr11, $t0, 1
-	vinsgr2vr.w	$vr11, $t1, 2
-	vinsgr2vr.w	$vr11, $t2, 3
+	vinsgr2vr.w	$vr11, $a6, 0
+	vinsgr2vr.w	$vr11, $a7, 1
+	vinsgr2vr.w	$vr11, $t0, 2
+	vinsgr2vr.w	$vr11, $t1, 3
 	vsub.w	$vr12, $vr7, $vr10
 	vmul.w	$vr11, $vr11, $vr12
+	ld.w	$a2, $a2, 68
 	ld.w	$a3, $a3, 68
 	ld.w	$a4, $a4, 68
 	ld.w	$a5, $a5, 68
-	ld.w	$a6, $a6, 68
-	vinsgr2vr.w	$vr12, $a3, 0
-	vinsgr2vr.w	$vr12, $a4, 1
-	vinsgr2vr.w	$vr12, $a5, 2
-	vinsgr2vr.w	$vr12, $a6, 3
+	vinsgr2vr.w	$vr12, $a2, 0
+	vinsgr2vr.w	$vr12, $a3, 1
+	vinsgr2vr.w	$vr12, $a4, 2
+	vinsgr2vr.w	$vr12, $a5, 3
 	vmadd.w	$vr11, $vr12, $vr10
 	vslli.w	$vr10, $vr11, 13
 	vadd.w	$vr10, $vr10, $vr3
@@ -1802,15 +1799,13 @@ _ZN3APMC2Ei:                            # @_ZN3APMC2Ei
 	vor.v	$vr10, $vr10, $vr9
 	vst	$vr10, $a0, 0
 	vaddi.wu	$vr0, $vr0, 4
-	addi.d	$a1, $a1, -4
+	addi.d	$s0, $s0, -4
 	addi.d	$a0, $a0, 16
-	bnez	$a1, .LBB23_7
+	bnez	$s0, .LBB23_7
 	b	.LBB23_9
 .LBB23_8:                               # %_ZN8StateMapC2Ei.exit
-	vrepli.b	$vr0, 0
 	vst	$vr0, $fp, 16
 .LBB23_9:                               # %._crit_edge
-	ld.d	$s1, $sp, 0                     # 8-byte Folded Reload
 	ld.d	$s0, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$fp, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
@@ -20431,8 +20426,15 @@ _Z1Xii:                                 # @_Z1Xii
 	.size	_Z1Xii, .Lfunc_end62-_Z1Xii
 	.cfi_endproc
                                         # -- End function
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function _Z6execxtii
+.LCPI63_0:
+	.word	3                               # 0x3
+	.word	4                               # 0x4
+	.word	8                               # 0x8
+	.word	12                              # 0xc
 	.text
-	.globl	_Z6execxtii                     # -- Begin function _Z6execxtii
+	.globl	_Z6execxtii
 	.p2align	5
 	.type	_Z6execxtii,@function
 _Z6execxtii:                            # @_Z6execxtii
@@ -20447,10 +20449,10 @@ _Z6execxtii:                            # @_Z6execxtii
 	ld.d	$a6, $a4, 16
 	addi.w	$a7, $a7, -1
 	and	$a3, $a7, $a3
-	ldx.bu	$a4, $a6, $a3
-	addi.w	$a3, $a5, -3
-	and	$a3, $a7, $a3
 	ldx.bu	$a3, $a6, $a3
+	addi.w	$a4, $a5, -3
+	and	$a4, $a7, $a4
+	ldx.bu	$a4, $a6, $a4
 	sub.w	$a2, $a0, $a2
 	andn	$a2, $a7, $a2
 	ldx.bu	$a2, $a6, $a2
@@ -20465,27 +20467,27 @@ _Z6execxtii:                            # @_Z6execxtii
 .LBB63_2:
 	move	$a0, $zero
 .LBB63_3:
-	addi.d	$a5, $a4, -102
-	sltui	$a5, $a5, 1
-	slli.d	$a5, $a5, 1
-	addi.d	$a6, $a4, -15
-	sltui	$a6, $a6, 1
-	or	$a5, $a5, $a6
-	addi.d	$a4, $a4, -103
-	sltui	$a4, $a4, 1
-	ori	$a6, $zero, 3
-	maskeqz	$a4, $a6, $a4
-	add.d	$a4, $a5, $a4
-	addi.d	$a5, $a3, -15
-	sltui	$a5, $a5, 1
-	alsl.d	$a4, $a5, $a4, 2
 	addi.d	$a5, $a3, -102
 	sltui	$a5, $a5, 1
-	alsl.d	$a4, $a5, $a4, 3
-	addi.d	$a3, $a3, -103
-	sltui	$a3, $a3, 1
-	ori	$a5, $zero, 12
-	maskeqz	$a3, $a5, $a3
+	slli.d	$a5, $a5, 1
+	addi.d	$a6, $a3, -15
+	sltui	$a6, $a6, 1
+	vinsgr2vr.b	$vr0, $a3, 0
+	vinsgr2vr.b	$vr0, $a4, 1
+	vshuf4i.b	$vr0, $vr0, 84
+	lu12i.w	$a3, 423520
+	ori	$a3, $a3, 3943
+	vreplgr2vr.w	$vr1, $a3
+	vseq.b	$vr0, $vr0, $vr1
+	pcalau12i	$a3, %pc_hi20(.LCPI63_0)
+	vld	$vr1, $a3, %pc_lo12(.LCPI63_0)
+	or	$a3, $a5, $a6
+	vilvl.b	$vr0, $vr0, $vr0
+	vilvl.h	$vr0, $vr0, $vr0
+	vand.v	$vr0, $vr0, $vr1
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a4, $vr0, 0
 	add.w	$a3, $a4, $a3
 	slli.w	$a2, $a2, 4
 	slli.w	$a1, $a1, 20
@@ -20496,7 +20498,15 @@ _Z6execxtii:                            # @_Z6execxtii
 .Lfunc_end63:
 	.size	_Z6execxtii, .Lfunc_end63-_Z6execxtii
                                         # -- End function
-	.globl	_Z8exeModelR5Mixer              # -- Begin function _Z8exeModelR5Mixer
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function _Z8exeModelR5Mixer
+.LCPI64_0:
+	.word	3                               # 0x3
+	.word	4                               # 0x4
+	.word	8                               # 0x8
+	.word	12                              # 0xc
+	.text
+	.globl	_Z8exeModelR5Mixer
 	.p2align	5
 	.type	_Z8exeModelR5Mixer,@function
 _Z8exeModelR5Mixer:                     # @_Z8exeModelR5Mixer
@@ -20505,24 +20515,20 @@ _Z8exeModelR5Mixer:                     # @_Z8exeModelR5Mixer
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception12
 # %bb.0:
-	addi.d	$sp, $sp, -80
-	.cfi_def_cfa_offset 80
-	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 16                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -48
+	.cfi_def_cfa_offset 48
+	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
+	st.d	$s3, $sp, 0                     # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
 	.cfi_offset 25, -40
 	.cfi_offset 26, -48
-	.cfi_offset 27, -56
-	.cfi_offset 28, -64
 	pcalau12i	$a1, %pc_hi20(_ZGVZ8exeModelR5MixerE2cm)
 	ld.b	$a1, $a1, %pc_lo12(_ZGVZ8exeModelR5MixerE2cm)
 	move	$fp, $a0
@@ -20545,119 +20551,116 @@ _Z8exeModelR5Mixer:                     # @_Z8exeModelR5Mixer
 	addi.w	$a6, $a6, -1
 	addi.w	$t0, $a7, -3
 	and	$t0, $a6, $t0
-	ldx.bu	$t0, $a0, $t0
+	ldx.b	$t0, $a0, $t0
 	addi.w	$t1, $a7, -2
 	and	$t1, $a6, $t1
 	ldx.bu	$t1, $a0, $t1
 	addi.w	$a7, $a7, -1
 	and	$a6, $a6, $a7
-	ldx.bu	$t2, $a0, $a6
-	addi.d	$a6, $t1, -102
-	sltui	$a6, $a6, 1
-	slli.d	$a6, $a6, 1
-	addi.d	$a7, $t1, -15
+	ldx.bu	$a6, $a0, $a6
+	addi.d	$a7, $t1, -102
 	sltui	$a7, $a7, 1
-	or	$a7, $a6, $a7
-	addi.d	$a6, $t1, -103
-	sltui	$t1, $a6, 1
-	ori	$a6, $zero, 3
-	maskeqz	$t1, $a6, $t1
+	slli.d	$a7, $a7, 1
+	addi.d	$t2, $t1, -15
+	sltui	$t2, $t2, 1
+	or	$a7, $a7, $t2
+	vinsgr2vr.b	$vr0, $t1, 0
+	vinsgr2vr.b	$vr0, $t0, 1
+	vshuf4i.b	$vr2, $vr0, 84
+	lu12i.w	$t0, 423520
+	ori	$t0, $t0, 3943
+	vreplgr2vr.w	$vr0, $t0
+	pcalau12i	$t0, %pc_hi20(.LCPI64_0)
+	vld	$vr1, $t0, %pc_lo12(.LCPI64_0)
+	vseq.b	$vr2, $vr2, $vr0
+	vilvl.b	$vr2, $vr2, $vr2
+	vilvl.h	$vr2, $vr2, $vr2
+	vand.v	$vr2, $vr2, $vr1
+	vhaddw.d.w	$vr2, $vr2, $vr2
+	vhaddw.q.d	$vr2, $vr2, $vr2
+	vpickve2gr.d	$t0, $vr2, 0
+	ld.w	$t1, $a3, 136
+	add.d	$a7, $t0, $a7
+	slli.d	$a6, $a6, 4
+	or	$a7, $a7, $a6
+	addi.d	$a6, $t1, 1
+	st.w	$a6, $a3, 136
+	lu12i.w	$a6, 241126
+	ori	$a6, $a6, 2227
+	mul.d	$a7, $a7, $a6
 	add.d	$a7, $a7, $t1
-	addi.d	$t1, $t0, -15
-	sltui	$t1, $t1, 1
-	alsl.d	$a7, $t1, $a7, 2
-	addi.d	$t1, $t0, -102
-	sltui	$t1, $t1, 1
-	alsl.d	$t1, $t1, $a7, 3
-	addi.d	$a7, $t0, -103
-	sltui	$t0, $a7, 1
-	ori	$a7, $zero, 12
-	maskeqz	$t0, $a7, $t0
-	ld.w	$t3, $a3, 136
-	add.d	$t0, $t1, $t0
-	slli.d	$t1, $t2, 4
-	or	$t1, $t0, $t1
-	addi.d	$t0, $t3, 1
-	st.w	$t0, $a3, 136
-	lu12i.w	$t0, 241126
-	ori	$t0, $t0, 2227
-	mul.d	$t1, $t1, $t0
-	add.d	$t1, $t1, $t3
-	rotri.w	$t2, $t1, 16
-	lu12i.w	$t1, 30140
-	ori	$t1, $t1, 3351
-	mul.d	$t2, $t2, $t1
-	add.d	$t2, $t2, $t3
-	slli.d	$t3, $t3, 2
-	stx.w	$t2, $a5, $t3
-	ori	$t2, $zero, 1
-	addi.d	$t3, $zero, -4
-	ori	$t4, $zero, 4
-	lu12i.w	$t5, 199
-	addi.w	$t6, $zero, -15
+	rotri.w	$t0, $a7, 16
+	lu12i.w	$a7, 30140
+	ori	$a7, $a7, 3351
+	mul.d	$t0, $t0, $a7
+	add.d	$t0, $t0, $t1
+	slli.d	$t1, $t1, 2
+	stx.w	$t0, $a5, $t1
+	ori	$t0, $zero, 1
+	addi.d	$t1, $zero, -4
+	ori	$t2, $zero, 4
+	lu12i.w	$t3, 199
+	addi.w	$t4, $zero, -15
 	.p2align	4, , 16
 .LBB64_3:                               # %_Z6execxtii.exit
                                         # =>This Inner Loop Header: Depth=1
-	ld.w	$t7, $a2, %pc_lo12(pos)
-	ld.w	$t8, $a1, 0
-	addi.w	$s0, $t7, -1
-	addi.w	$t8, $t8, -1
-	and	$s0, $t8, $s0
-	ldx.bu	$s0, $a0, $s0
-	sltu	$s1, $t4, $t2
-	add.w	$t7, $t3, $t7
-	addi.w	$s2, $t7, 3
-	addi.w	$s3, $t7, 1
-	and	$s3, $t8, $s3
-	ldx.bu	$s3, $a0, $s3
-	and	$s4, $t8, $t7
-	ldx.bu	$s4, $a0, $s4
-	and	$s2, $t8, $s2
-	ldx.b	$s2, $a0, $s2
-	addi.w	$t7, $t7, 2
-	and	$t7, $t8, $t7
+	ld.w	$t5, $a2, %pc_lo12(pos)
+	ld.w	$t6, $a1, 0
+	addi.w	$t7, $t5, -1
+	addi.w	$t6, $t6, -1
+	and	$t7, $t6, $t7
 	ldx.bu	$t7, $a0, $t7
-	slli.d	$t8, $s2, 12
-	and	$t8, $t8, $t5
-	addi.d	$s2, $s3, -102
-	sltui	$s2, $s2, 1
-	slli.d	$s2, $s2, 1
-	addi.d	$s5, $s3, -15
-	sltui	$s5, $s5, 1
-	or	$s2, $s2, $s5
-	addi.d	$s3, $s3, -103
+	sltu	$t8, $t2, $t0
+	add.w	$t5, $t1, $t5
+	addi.w	$s0, $t5, 3
+	addi.w	$s1, $t5, 1
+	and	$s1, $t6, $s1
+	ldx.bu	$s1, $a0, $s1
+	and	$s2, $t6, $t5
+	ldx.b	$s2, $a0, $s2
+	and	$s0, $t6, $s0
+	ldx.b	$s0, $a0, $s0
+	addi.w	$t5, $t5, 2
+	and	$t5, $t6, $t5
+	ldx.bu	$t5, $a0, $t5
+	slli.d	$t6, $s0, 12
+	and	$t6, $t6, $t3
+	addi.d	$s0, $s1, -102
+	sltui	$s0, $s0, 1
+	slli.d	$s0, $s0, 1
+	addi.d	$s3, $s1, -15
 	sltui	$s3, $s3, 1
-	maskeqz	$s3, $a6, $s3
-	add.d	$s2, $s2, $s3
-	addi.d	$s3, $s4, -15
-	sltui	$s3, $s3, 1
-	alsl.d	$s2, $s3, $s2, 2
-	addi.d	$s3, $s4, -102
-	sltui	$s3, $s3, 1
-	alsl.d	$s2, $s3, $s2, 3
-	addi.d	$s3, $s4, -103
-	sltui	$s3, $s3, 1
-	maskeqz	$s3, $a7, $s3
-	add.d	$s2, $s2, $s3
-	slli.d	$t7, $t7, 4
-	slli.d	$s0, $s0, 20
-	maskeqz	$s0, $s0, $s1
-	ld.w	$s1, $a3, 136
-	or	$t7, $t7, $s0
-	or	$t7, $s2, $t7
-	or	$t7, $t7, $t8
-	addi.d	$t8, $s1, 1
-	st.w	$t8, $a3, 136
-	mul.d	$t7, $t7, $t0
-	add.d	$t7, $t7, $s1
-	rotri.w	$t7, $t7, 16
-	mul.d	$t7, $t7, $t1
-	add.d	$t7, $t7, $s1
-	slli.d	$t8, $s1, 2
-	stx.w	$t7, $a5, $t8
-	addi.w	$t3, $t3, -1
-	addi.w	$t2, $t2, 1
-	bne	$t3, $t6, .LBB64_3
+	or	$s0, $s0, $s3
+	vinsgr2vr.b	$vr2, $s1, 0
+	vinsgr2vr.b	$vr2, $s2, 1
+	vshuf4i.b	$vr2, $vr2, 84
+	vseq.b	$vr2, $vr2, $vr0
+	vilvl.b	$vr2, $vr2, $vr2
+	vilvl.h	$vr2, $vr2, $vr2
+	vand.v	$vr2, $vr2, $vr1
+	vhaddw.d.w	$vr2, $vr2, $vr2
+	vhaddw.q.d	$vr2, $vr2, $vr2
+	vpickve2gr.d	$s1, $vr2, 0
+	add.d	$s0, $s1, $s0
+	slli.d	$t5, $t5, 4
+	slli.d	$t7, $t7, 20
+	maskeqz	$t7, $t7, $t8
+	ld.w	$t8, $a3, 136
+	or	$t5, $t5, $t7
+	or	$t5, $s0, $t5
+	or	$t5, $t5, $t6
+	addi.d	$t6, $t8, 1
+	st.w	$t6, $a3, 136
+	mul.d	$t5, $t5, $a6
+	add.d	$t5, $t5, $t8
+	rotri.w	$t5, $t5, 16
+	mul.d	$t5, $t5, $a7
+	add.d	$t5, $t5, $t8
+	slli.d	$t6, $t8, 2
+	stx.w	$t5, $a5, $t6
+	addi.w	$t1, $t1, -1
+	addi.w	$t0, $t0, 1
+	bne	$t1, $t4, .LBB64_3
 # %bb.4:                                # %.loopexit.loopexit
 	ld.w	$a3, $a4, %pc_lo12(bpos)
 .LBB64_5:                               # %.loopexit
@@ -20674,15 +20677,13 @@ _Z8exeModelR5Mixer:                     # @_Z8exeModelR5Mixer
 	pcalau12i	$a0, %pc_hi20(_ZZ8exeModelR5MixerE2cm)
 	addi.d	$a0, $a0, %pc_lo12(_ZZ8exeModelR5MixerE2cm)
 	move	$a1, $fp
-	ld.d	$s5, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 80
+	ld.d	$s3, $sp, 0                     # 8-byte Folded Reload
+	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 48
 	pcaddu18i	$t8, %call36(_ZN10ContextMap4mix1ER5Mixeriiii)
 	jr	$t8
 .LBB64_6:

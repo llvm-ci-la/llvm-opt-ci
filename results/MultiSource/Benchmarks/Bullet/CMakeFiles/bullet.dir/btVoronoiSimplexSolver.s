@@ -843,11 +843,133 @@ _ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSu
 .Lfunc_end5:
 	.size	_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult, .Lfunc_end5-_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult
                                         # -- End function
-	.section	.rodata.cst4,"aM",@progbits,4
-	.p2align	2, 0x0                          # -- Begin function _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult
 .LCPI6_0:
-	.word	0x322bcc76                      # float 9.99999905E-9
+	.word	4                               # 0x4
+	.word	4                               # 0x4
+	.word	0                               # 0x0
+	.word	1                               # 0x1
 .LCPI6_1:
+	.word	0                               # 0x0
+	.word	4                               # 0x4
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+.LCPI6_2:
+	.word	1                               # 0x1
+	.word	5                               # 0x5
+	.word	0                               # 0x0
+	.word	4                               # 0x4
+.LCPI6_3:
+	.word	1                               # 0x1
+	.word	1                               # 0x1
+	.word	4                               # 0x4
+	.word	0                               # 0x0
+.LCPI6_4:
+	.word	0                               # 0x0
+	.word	4294967295                      # 0xffffffff
+	.word	5                               # 0x5
+	.word	4294967295                      # 0xffffffff
+.LCPI6_5:
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+	.word	2                               # 0x2
+	.word	5                               # 0x5
+.LCPI6_6:
+	.word	1                               # 0x1
+	.word	5                               # 0x5
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+.LCPI6_7:
+	.word	3                               # 0x3
+	.word	3                               # 0x3
+	.word	5                               # 0x5
+	.word	4294967295                      # 0xffffffff
+.LCPI6_8:
+	.word	1                               # 0x1
+	.word	2                               # 0x2
+	.word	5                               # 0x5
+	.word	5                               # 0x5
+.LCPI6_9:
+	.word	3                               # 0x3
+	.word	3                               # 0x3
+	.word	7                               # 0x7
+	.word	0                               # 0x0
+.LCPI6_10:
+	.word	0                               # 0x0
+	.word	1                               # 0x1
+	.word	1                               # 0x1
+	.word	4                               # 0x4
+.LCPI6_11:
+	.word	1                               # 0x1
+	.word	4                               # 0x4
+	.word	1                               # 0x1
+	.word	5                               # 0x5
+.LCPI6_12:
+	.word	1                               # 0x1
+	.word	5                               # 0x5
+	.word	5                               # 0x5
+	.word	5                               # 0x5
+.LCPI6_13:
+	.word	1                               # 0x1
+	.word	3                               # 0x3
+	.word	5                               # 0x5
+	.word	5                               # 0x5
+.LCPI6_14:
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+	.word	5                               # 0x5
+	.word	1                               # 0x1
+.LCPI6_15:
+	.word	3                               # 0x3
+	.word	3                               # 0x3
+	.word	5                               # 0x5
+	.word	0                               # 0x0
+.LCPI6_16:
+	.word	0                               # 0x0
+	.word	1                               # 0x1
+	.word	7                               # 0x7
+	.word	2                               # 0x2
+.LCPI6_17:
+	.word	1                               # 0x1
+	.word	1                               # 0x1
+	.word	5                               # 0x5
+	.word	1                               # 0x1
+.LCPI6_18:
+	.word	0                               # 0x0
+	.word	1                               # 0x1
+	.word	4                               # 0x4
+	.word	3                               # 0x3
+.LCPI6_19:
+	.word	0                               # 0x0
+	.word	0                               # 0x0
+	.word	4                               # 0x4
+	.word	0                               # 0x0
+.LCPI6_20:
+	.word	1                               # 0x1
+	.word	4                               # 0x4
+	.word	4                               # 0x4
+	.word	5                               # 0x5
+.LCPI6_21:
+	.byte	0                               # 0x0
+	.byte	4                               # 0x4
+	.byte	8                               # 0x8
+	.byte	12                              # 0xc
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.section	.rodata.cst4,"aM",@progbits,4
+	.p2align	2, 0x0
+.LCPI6_22:
 	.word	0x7f7fffff                      # float 3.40282347E+38
 	.text
 	.globl	_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult
@@ -855,219 +977,244 @@ _ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSu
 	.type	_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult,@function
 _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult: # @_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult
 # %bb.0:
-	addi.d	$sp, $sp, -208
-	st.d	$ra, $sp, 200                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 192                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 184                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 120                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 112                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 104                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 96                   # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 88                   # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 80                   # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 72                   # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 64                   # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 56                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -240
+	st.d	$ra, $sp, 232                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 216                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 160                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 152                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 144                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 136                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 128                  # 8-byte Folded Spill
 	move	$fp, $a6
 	move	$s0, $a1
 	vld	$vr0, $a1, 0
-	ld.b	$a7, $a6, 16
+	ld.b	$s5, $a6, 16
+	vst	$vr0, $a6, 0
+	ori	$a0, $s5, 15
+	st.b	$a0, $a6, 16
+	ld.d	$a0, $a3, 0
+	ld.d	$a1, $a2, 0
+	vinsgr2vr.d	$vr1, $a0, 0
+	fld.s	$ft1, $a3, 8
+	vinsgr2vr.d	$vr2, $a1, 0
+	ld.d	$a0, $a4, 0
+	fld.s	$fa5, $a2, 8
+	fld.s	$ft4, $a4, 8
+	fld.s	$fs1, $s0, 0
+	vinsgr2vr.d	$vr0, $a0, 0
+	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
+	vld	$vr4, $a0, %pc_lo12(.LCPI6_0)
+	ld.d	$a0, $a5, 0
+	fld.s	$fs2, $s0, 4
+	fld.s	$fs3, $s0, 8
+	fld.s	$fa7, $a5, 8
+	vinsgr2vr.d	$vr10, $a0, 0
+	vpackev.w	$vr11, $vr0, $vr1
+	vshuf.w	$vr4, $vr10, $vr11
+	pcalau12i	$a0, %pc_hi20(.LCPI6_1)
+	vld	$vr14, $a0, %pc_lo12(.LCPI6_1)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_2)
+	vld	$vr3, $a0, %pc_lo12(.LCPI6_2)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_3)
+	vld	$vr17, $a0, %pc_lo12(.LCPI6_3)
+	vshuf.w	$vr14, $vr1, $vr2
+	vfsub.s	$vr6, $vr4, $vr14
+	vshuf.w	$vr3, $vr1, $vr10
+	vshuf.w	$vr17, $vr1, $vr2
+	vfsub.s	$vr4, $vr3, $vr17
+	pcalau12i	$a0, %pc_hi20(.LCPI6_4)
+	vld	$vr8, $a0, %pc_lo12(.LCPI6_4)
+	vilvl.w	$vr13, $vr1, $vr10
+	vextrins.w	$vr13, $vr7, 0
+	vextrins.w	$vr13, $vr9, 16
+	vshuf.w	$vr8, $vr1, $vr5
+	pcalau12i	$a0, %pc_hi20(.LCPI6_5)
+	vld	$vr18, $a0, %pc_lo12(.LCPI6_5)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_6)
+	vld	$vr15, $a0, %pc_lo12(.LCPI6_6)
+	vilvl.w	$vr16, $vr2, $vr8
+	vshuf.w	$vr18, $vr2, $vr8
+	vfsub.s	$vr8, $vr13, $vr18
+	vshuf.w	$vr15, $vr0, $vr3
+	pcalau12i	$a0, %pc_hi20(.LCPI6_7)
+	vld	$vr19, $a0, %pc_lo12(.LCPI6_7)
+	vbsrl.v	$vr18, $vr3, 8
+	vbsll.v	$vr20, $vr13, 8
+	vor.v	$vr20, $vr20, $vr18
+	vshuf.w	$vr19, $vr13, $vr17
+	vextrins.w	$vr19, $vr5, 48
+	vori.b	$vr21, $vr5, 0
+	vextrins.w	$vr21, $vr9, 16
+	vori.b	$vr18, $vr9, 0
+	vextrins.w	$vr18, $vr12, 16
+	vfsub.s	$vr12, $vr20, $vr19
+	vori.b	$vr17, $vr18, 0
+	vextrins.w	$vr17, $vr7, 32
+	vshuf4i.w	$vr9, $vr21, 16
+	vshuf4i.w	$vr20, $vr17, 134
+	pcalau12i	$a0, %pc_hi20(.LCPI6_8)
+	vld	$vr22, $a0, %pc_lo12(.LCPI6_8)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_9)
+	vld	$vr23, $a0, %pc_lo12(.LCPI6_9)
+	vshuf4i.w	$vr24, $vr21, 1
+	vfsub.s	$vr20, $vr20, $vr24
+	vori.b	$vr24, $vr22, 0
+	vshuf.w	$vr24, $vr11, $vr17
+	vshuf.w	$vr23, $vr3, $vr19
+	vfsub.s	$vr17, $vr24, $vr23
+	pcalau12i	$a0, %pc_hi20(.LCPI6_10)
+	vld	$vr19, $a0, %pc_lo12(.LCPI6_10)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_11)
+	vld	$vr23, $a0, %pc_lo12(.LCPI6_11)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_12)
+	vld	$vr24, $a0, %pc_lo12(.LCPI6_12)
+	vshuf.w	$vr19, $vr10, $vr11
+	vfsub.s	$vr10, $vr19, $vr14
+	vshuf.w	$vr23, $vr3, $vr0
+	vshuf.w	$vr24, $vr2, $vr1
+	vfsub.s	$vr11, $vr23, $vr24
+	pcalau12i	$a0, %pc_hi20(.LCPI6_13)
+	vld	$vr14, $a0, %pc_lo12(.LCPI6_13)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_14)
+	vld	$vr23, $a0, %pc_lo12(.LCPI6_14)
+	vori.b	$vr24, $vr18, 0
+	vextrins.w	$vr24, $vr7, 48
+	vshuf4i.w	$vr24, $vr24, 212
+	vshuf4i.w	$vr21, $vr21, 4
+	vfsub.s	$vr21, $vr24, $vr21
+	pcalau12i	$a0, %pc_hi20(.LCPI6_15)
+	vld	$vr24, $a0, %pc_lo12(.LCPI6_15)
+	vshuf.w	$vr14, $vr15, $vr19
+	vshuf.w	$vr23, $vr1, $vr2
+	vfsub.s	$vr14, $vr14, $vr23
+	vshuf.w	$vr24, $vr13, $vr16
+	pcalau12i	$a0, %pc_hi20(.LCPI6_16)
+	vld	$vr13, $a0, %pc_lo12(.LCPI6_16)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_17)
+	vld	$vr16, $a0, %pc_lo12(.LCPI6_17)
+	vshuf.w	$vr22, $vr18, $vr15
+	vfsub.s	$vr22, $vr22, $vr24
+	vshuf.w	$vr13, $vr23, $vr15
+	vshuf.w	$vr16, $vr1, $vr2
+	vfsub.s	$vr13, $vr13, $vr16
+	vbitrevi.w	$vr11, $vr11, 31
+	vextrins.w	$vr18, $vr5, 32
+	vextrins.w	$vr18, $vr7, 48
+	vfsub.s	$vr5, $vr18, $vr9
+	vfmul.s	$vr7, $vr20, $vr11
+	vshuf4i.w	$vr7, $vr7, 141
+	pcalau12i	$a0, %pc_hi20(.LCPI6_18)
+	vld	$vr11, $a0, %pc_lo12(.LCPI6_18)
+	pcalau12i	$a0, %pc_hi20(.LCPI6_19)
+	vld	$vr15, $a0, %pc_lo12(.LCPI6_19)
+	vfmadd.s	$vr7, $vr22, $vr8, $vr7
+	vbitrevi.w	$vr8, $vr21, 31
+	vshuf.w	$vr11, $vr23, $vr19
+	vshuf.w	$vr15, $vr1, $vr2
+	vfsub.s	$vr1, $vr11, $vr15
+	vfmul.s	$vr2, $vr6, $vr8
+	pcalau12i	$a0, %pc_hi20(.LCPI6_20)
+	vld	$vr6, $a0, %pc_lo12(.LCPI6_20)
+	vshuf4i.w	$vr2, $vr2, 147
+	vfmadd.s	$vr2, $vr17, $vr12, $vr2
+	vbitrevi.w	$vr8, $vr10, 31
+	vshuf.w	$vr6, $vr3, $vr0
+	vfsub.s	$vr0, $vr6, $vr16
+	vshuf4i.w	$vr3, $vr8, 147
+	vfmul.s	$vr0, $vr0, $vr3
+	vfmadd.s	$vr0, $vr14, $vr4, $vr0
+	vreplvei.w	$vr3, $vr25, 0
+	vfsub.s	$vr3, $vr3, $vr15
+	vreplvei.w	$vr4, $vr26, 0
+	vfsub.s	$vr4, $vr4, $vr16
+	vreplvei.w	$vr6, $vr27, 0
+	vfsub.s	$vr6, $vr6, $vr9
+	vfmul.s	$vr4, $vr4, $vr2
+	vfmadd.s	$vr3, $vr3, $vr7, $vr4
+	vfmadd.s	$vr3, $vr6, $vr0, $vr3
+	vfmul.s	$vr2, $vr2, $vr13
+	vfmadd.s	$vr1, $vr1, $vr7, $vr2
+	vfmadd.s	$vr0, $vr5, $vr0, $vr1
+	vfmul.s	$vr1, $vr0, $vr0
+	pcalau12i	$a0, %pc_hi20(.LCPI6_21)
+	vld	$vr2, $a0, %pc_lo12(.LCPI6_21)
+	lu12i.w	$a0, 205500
+	ori	$a0, $a0, 3190
+	vreplgr2vr.w	$vr4, $a0
+	vfcmp.clt.s	$vr1, $vr1, $vr4
+	vshuf.b	$vr5, $vr0, $vr1, $vr2
+	vfmul.s	$vr0, $vr3, $vr0
+	vrepli.b	$vr1, 0
+	vfcmp.clt.s	$vr0, $vr0, $vr1
+	vshuf.b	$vr0, $vr0, $vr0, $vr2
+	vandi.b	$vr0, $vr0, 1
+	vbitseli.b	$vr5, $vr0, 255
+	vbsrl.v	$vr0, $vr5, 2
+	vor.v	$vr0, $vr0, $vr5
+	vbsrl.v	$vr1, $vr0, 1
+	vor.v	$vr0, $vr1, $vr0
+	vpickve2gr.b	$a0, $vr0, 0
+	ext.w.b	$a0, $a0
+	st.b	$zero, $sp, 104
+	bltz	$a0, .LBB6_6
+# %bb.1:
+	beqz	$a0, .LBB6_7
+# %bb.2:
 	move	$s1, $a3
 	move	$s4, $a2
-	vst	$vr0, $a6, 0
-	ori	$a0, $a7, 15
-	st.b	$a0, $a6, 16
-	fld.s	$fa0, $a3, 0
-	fld.s	$fa2, $a2, 0
-	fld.s	$fa4, $a3, 4
-	fld.s	$fa5, $a2, 4
 	move	$s3, $a5
 	move	$s2, $a4
-	fsub.s	$ft1, $fa0, $fa2
-	fsub.s	$ft4, $fa4, $fa5
-	fld.s	$fa1, $a3, 8
-	fld.s	$fa3, $a2, 8
-	fld.s	$fa6, $a4, 0
-	fld.s	$fa7, $a4, 4
-	fld.s	$ft0, $a4, 8
-	fsub.s	$ft2, $fa1, $fa3
-	fsub.s	$ft5, $fa6, $fa2
-	fsub.s	$ft6, $fa7, $fa5
-	fsub.s	$ft3, $ft0, $fa3
-	fneg.s	$ft7, $ft6
-	fmul.s	$ft7, $ft2, $ft7
-	fmadd.s	$ft13, $ft4, $ft3, $ft7
-	fneg.s	$ft7, $ft3
-	fld.s	$fs0, $a1, 0
-	fld.s	$fs1, $a1, 4
-	fmul.s	$ft7, $ft1, $ft7
-	fmadd.s	$ft14, $ft2, $ft5, $ft7
-	fsub.s	$ft10, $fs0, $fa2
-	fsub.s	$ft11, $fs1, $fa5
-	fmul.s	$ft12, $ft11, $ft14
-	fld.s	$ft7, $a5, 0
-	fld.s	$ft8, $a5, 4
-	fld.s	$ft9, $a5, 8
-	fmadd.s	$ft12, $ft10, $ft13, $ft12
-	fsub.s	$ft15, $ft7, $fa2
-	fsub.s	$fs2, $ft8, $fa5
-	fsub.s	$fs3, $ft9, $fa3
-	fmul.s	$ft14, $ft14, $fs2
-	fmadd.s	$ft13, $ft15, $ft13, $ft14
-	fneg.s	$ft14, $fs2
-	fmul.s	$ft14, $ft3, $ft14
-	fmadd.s	$ft14, $ft6, $fs3, $ft14
-	fneg.s	$fs4, $fs3
-	fmul.s	$fs4, $ft5, $fs4
-	fmadd.s	$fs4, $ft3, $ft15, $fs4
-	fneg.s	$fs5, $ft15
-	fmul.s	$fs5, $ft6, $fs5
-	fmadd.s	$fs5, $ft5, $fs2, $fs5
-	fmul.s	$fs6, $ft11, $fs4
-	fmadd.s	$fs6, $ft10, $ft14, $fs6
-	fmul.s	$fs4, $ft4, $fs4
-	fmadd.s	$ft14, $ft1, $ft14, $fs4
-	fneg.s	$fs4, $ft4
-	fmul.s	$fs4, $fs3, $fs4
-	fmadd.s	$fs4, $fs2, $ft2, $fs4
-	fneg.s	$fs7, $ft1
-	fmul.s	$fs2, $fs2, $fs7
-	fneg.s	$fs7, $ft5
-	fmul.s	$fs7, $ft4, $fs7
-	fmadd.s	$ft4, $ft15, $ft4, $fs2
-	fneg.s	$fs2, $ft2
-	fmul.s	$ft15, $ft15, $fs2
-	fmadd.s	$fs7, $ft1, $ft6, $fs7
-	fmadd.s	$ft1, $fs3, $ft1, $ft15
-	fmul.s	$ft11, $ft11, $ft1
-	fmadd.s	$ft10, $ft10, $fs4, $ft11
-	fld.s	$fs2, $a1, 8
-	fmul.s	$ft1, $ft6, $ft1
-	fmadd.s	$ft1, $ft5, $fs4, $ft1
-	fmadd.s	$ft5, $fs3, $fs7, $ft13
-	fsub.s	$ft6, $fs2, $fa3
-	fmadd.s	$ft11, $ft6, $fs7, $ft12
-	fmadd.s	$ft2, $ft2, $fs5, $ft14
-	fmadd.s	$ft12, $ft6, $fs5, $fs6
-	fmadd.s	$ft6, $ft6, $ft4, $ft10
-	fmadd.s	$ft1, $ft3, $ft4, $ft1
-	fsub.s	$ft3, $ft7, $fa0
-	fsub.s	$ft4, $ft8, $fa4
-	fsub.s	$ft7, $ft9, $fa1
-	fsub.s	$fa6, $fa6, $fa0
-	fsub.s	$fa7, $fa7, $fa4
-	fsub.s	$ft0, $ft0, $fa1
-	fneg.s	$ft8, $fa7
-	fmul.s	$ft8, $ft7, $ft8
-	fmadd.s	$ft8, $ft4, $ft0, $ft8
-	fneg.s	$ft0, $ft0
-	fmul.s	$ft0, $ft3, $ft0
-	fmadd.s	$ft0, $ft7, $fa6, $ft0
-	fneg.s	$fa6, $fa6
-	fmul.s	$fa6, $ft4, $fa6
-	fmadd.s	$fa6, $ft3, $fa7, $fa6
-	fsub.s	$fa7, $fs0, $fa0
-	fsub.s	$ft3, $fs1, $fa4
-	fmul.s	$ft3, $ft3, $ft0
-	fmadd.s	$fa7, $fa7, $ft8, $ft3
-	fsub.s	$fa0, $fa2, $fa0
-	fsub.s	$fa2, $fa5, $fa4
-	fmul.s	$fa2, $fa2, $ft0
-	fmadd.s	$fa0, $fa0, $ft8, $fa2
-	pcalau12i	$a0, %pc_hi20(.LCPI6_0)
-	fsub.s	$fa2, $fs2, $fa1
-	fmadd.s	$fa2, $fa2, $fa6, $fa7
-	fld.s	$fa4, $a0, %pc_lo12(.LCPI6_0)
-	fsub.s	$fa1, $fa3, $fa1
-	fmadd.s	$fa0, $fa1, $fa6, $fa0
-	fmul.s	$fa1, $ft5, $ft5
-	fcmp.clt.s	$fcc1, $fa1, $fa4
-	fmul.s	$fa1, $ft2, $ft2
-	fcmp.clt.s	$fcc2, $fa1, $fa4
-	fmul.s	$fa1, $ft1, $ft1
-	fcmp.clt.s	$fcc3, $fa1, $fa4
-	fmul.s	$fa1, $fa0, $fa0
-	fcmp.clt.s	$fcc0, $fa1, $fa4
-	fmul.s	$fa1, $ft11, $ft5
-	movgr2fr.w	$fa3, $zero
-	fcmp.clt.s	$fcc5, $fa1, $fa3
-	fmul.s	$fa1, $ft12, $ft2
-	fcmp.clt.s	$fcc6, $fa1, $fa3
-	fmul.s	$fa1, $ft6, $ft1
-	fcmp.clt.s	$fcc7, $fa1, $fa3
-	fmul.s	$fa0, $fa2, $fa0
-	fcmp.clt.s	$fcc4, $fa0, $fa3
-	movcf2gr	$a0, $fcc5
-	movcf2gr	$a1, $fcc1
-	movcf2gr	$a2, $fcc6
-	movcf2gr	$a3, $fcc2
-	movcf2gr	$a4, $fcc7
-	movcf2gr	$a5, $fcc3
-	masknez	$a0, $a0, $a1
-	addi.w	$a6, $zero, -1
-	maskeqz	$a1, $a6, $a1
-	or	$a0, $a1, $a0
-	masknez	$a1, $a2, $a3
-	maskeqz	$a2, $a6, $a3
-	or	$s8, $a2, $a1
-	masknez	$a1, $a4, $a5
-	maskeqz	$a2, $a6, $a5
-	or	$s7, $a2, $a1
-	movcf2gr	$a1, $fcc4
-	movcf2gr	$a2, $fcc0
-	masknez	$a1, $a1, $a2
-	maskeqz	$a2, $a6, $a2
-	or	$s6, $a2, $a1
-	or	$a1, $s7, $a0
-	or	$a1, $a1, $s6
-	or	$a1, $a1, $s8
-	st.b	$zero, $sp, 32
-	bltz	$a1, .LBB6_6
-# %bb.1:
-	beqz	$a1, .LBB6_7
-# %bb.2:
-	pcalau12i	$s5, %pc_hi20(.LCPI6_1)
+	vpickve2gr.b	$s6, $vr5, 0
+	vpickve2gr.b	$a0, $vr5, 3
+	andi	$a0, $a0, 255
+	pcalau12i	$s7, %pc_hi20(.LCPI6_22)
+	vst	$vr5, $sp, 64                   # 16-byte Folded Spill
 	beqz	$a0, .LBB6_8
 # %bb.3:
-	st.d	$a7, $sp, 8                     # 8-byte Folded Spill
-	addi.d	$a5, $sp, 16
+	addi.d	$a5, $sp, 88
 	move	$a1, $s0
 	move	$a2, $s4
 	move	$a3, $s1
 	move	$a4, $s2
+	vst	$vr25, $sp, 16                  # 16-byte Folded Spill
+	vst	$vr26, $sp, 32                  # 16-byte Folded Spill
+	vst	$vr27, $sp, 48                  # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult)
 	jirl	$ra, $ra, 0
-	fld.s	$fa1, $sp, 16
-	fld.s	$fa2, $sp, 20
-	fld.s	$fa3, $sp, 24
-	fsub.s	$fa0, $fa1, $fs0
-	fsub.s	$fa4, $fa2, $fs1
-	fsub.s	$fa5, $fa3, $fs2
-	fld.s	$fs0, $s5, %pc_lo12(.LCPI6_1)
+	fld.s	$fa1, $sp, 88
+	fld.s	$fa2, $sp, 92
+	fld.s	$fa3, $sp, 96
+	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	fsub.s	$fa0, $fa1, $fa0
+	vld	$vr4, $sp, 32                   # 16-byte Folded Reload
+	fsub.s	$fa4, $fa2, $fa4
+	vld	$vr5, $sp, 48                   # 16-byte Folded Reload
+	fsub.s	$fa5, $fa3, $fa5
+	fld.s	$fs0, $s7, %pc_lo12(.LCPI6_22)
 	fmul.s	$fa4, $fa4, $fa4
 	fmadd.s	$fa0, $fa0, $fa0, $fa4
 	fmadd.s	$fa0, $fa5, $fa5, $fa0
+	vld	$vr5, $sp, 64                   # 16-byte Folded Reload
 	fcmp.cule.s	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB6_5
 # %bb.4:
-	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
-	bstrins.d	$a1, $zero, 3, 0
-	fld.s	$fa4, $sp, 28
-	ld.bu	$a0, $sp, 32
+	bstrins.d	$s5, $zero, 3, 0
+	fld.s	$fa4, $sp, 100
+	ld.bu	$a0, $sp, 104
 	fst.s	$fa1, $fp, 0
 	fst.s	$fa2, $fp, 4
 	fst.s	$fa3, $fp, 8
 	andi	$a0, $a0, 7
-	or	$a0, $a0, $a1
-	ld.d	$a1, $sp, 36
-	fld.s	$fa1, $sp, 44
+	or	$a0, $a0, $s5
+	ld.d	$a1, $sp, 108
+	fld.s	$fa1, $sp, 116
 	fst.s	$fa4, $fp, 12
 	st.b	$a0, $fp, 16
 	st.d	$a1, $fp, 20
@@ -1075,7 +1222,9 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	st.w	$zero, $fp, 32
 	fmov.s	$fs0, $fa0
 .LBB6_5:
-	bnez	$s8, .LBB6_9
+	andi	$a0, $s6, 255
+	vpickve2gr.b	$s5, $vr5, 1
+	bnez	$a0, .LBB6_9
 	b	.LBB6_11
 .LBB6_6:
 	move	$a0, $zero
@@ -1086,19 +1235,21 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	move	$a0, $zero
 	b	.LBB6_18
 .LBB6_8:
-	fld.s	$fs0, $s5, %pc_lo12(.LCPI6_1)
-	beqz	$s8, .LBB6_11
+	fld.s	$fs0, $s7, %pc_lo12(.LCPI6_22)
+	andi	$a0, $s6, 255
+	vpickve2gr.b	$s5, $vr5, 1
+	beqz	$a0, .LBB6_11
 .LBB6_9:
-	addi.d	$a5, $sp, 16
+	addi.d	$a5, $sp, 88
 	move	$a1, $s0
 	move	$a2, $s4
 	move	$a3, $s2
 	move	$a4, $s3
 	pcaddu18i	$ra, %call36(_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult)
 	jirl	$ra, $ra, 0
-	fld.s	$fa2, $sp, 16
-	fld.s	$fa3, $sp, 20
-	fld.s	$fa1, $sp, 24
+	fld.s	$fa2, $sp, 88
+	fld.s	$fa3, $sp, 92
+	fld.s	$fa1, $sp, 96
 	fld.s	$fa0, $s0, 0
 	fld.s	$fa4, $s0, 4
 	fld.s	$fa5, $s0, 8
@@ -1108,40 +1259,43 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	fmul.s	$fa4, $fa4, $fa4
 	fmadd.s	$fa0, $fa0, $fa0, $fa4
 	fmadd.s	$fa0, $fa5, $fa5, $fa0
+	vld	$vr5, $sp, 64                   # 16-byte Folded Reload
 	fcmp.cule.s	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB6_11
 # %bb.10:
-	fld.s	$fa4, $sp, 28
+	fld.s	$fa4, $sp, 100
 	fst.s	$fa2, $fp, 0
 	fst.s	$fa3, $fp, 4
-	ld.bu	$a0, $sp, 32
+	ld.bu	$a0, $sp, 104
 	fst.s	$fa1, $fp, 8
 	ld.bu	$a1, $fp, 16
 	fst.s	$fa4, $fp, 12
 	andi	$a2, $a0, 6
 	bstrins.d	$a0, $a2, 63, 1
 	srli.d	$a1, $a1, 4
-	fld.s	$fa1, $sp, 36
+	fld.s	$fa1, $sp, 108
 	bstrins.d	$a0, $a1, 7, 4
-	ld.d	$a1, $sp, 40
+	ld.d	$a1, $sp, 112
 	st.b	$a0, $fp, 16
 	fst.s	$fa1, $fp, 20
 	st.w	$zero, $fp, 24
 	st.d	$a1, $fp, 28
 	fmov.s	$fs0, $fa0
 .LBB6_11:
-	beqz	$s7, .LBB6_14
+	andi	$a0, $s5, 255
+	vpickve2gr.b	$s5, $vr5, 2
+	beqz	$a0, .LBB6_14
 # %bb.12:
-	addi.d	$a5, $sp, 16
+	addi.d	$a5, $sp, 88
 	move	$a1, $s0
 	move	$a2, $s4
 	move	$a3, $s3
 	move	$a4, $s1
 	pcaddu18i	$ra, %call36(_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult)
 	jirl	$ra, $ra, 0
-	fld.s	$fa2, $sp, 16
-	fld.s	$fa3, $sp, 20
-	fld.s	$fa1, $sp, 24
+	fld.s	$fa2, $sp, 88
+	fld.s	$fa3, $sp, 92
+	fld.s	$fa1, $sp, 96
 	fld.s	$fa0, $s0, 0
 	fld.s	$fa4, $s0, 4
 	fld.s	$fa5, $s0, 8
@@ -1154,10 +1308,10 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	fcmp.cule.s	$fcc0, $fs0, $fa0
 	bcnez	$fcc0, .LBB6_14
 # %bb.13:
-	fld.s	$fa4, $sp, 28
+	fld.s	$fa4, $sp, 100
 	fst.s	$fa2, $fp, 0
 	fst.s	$fa3, $fp, 4
-	ld.bu	$a0, $sp, 32
+	ld.bu	$a0, $sp, 104
 	fst.s	$fa1, $fp, 8
 	fst.s	$fa4, $fp, 12
 	ld.bu	$a1, $fp, 16
@@ -1167,29 +1321,30 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	bstrins.d	$a0, $a2, 3, 3
 	srli.d	$a1, $a1, 4
 	bstrins.d	$a0, $a1, 7, 4
-	fld.s	$fa1, $sp, 36
-	fld.s	$fa2, $sp, 44
+	fld.s	$fa1, $sp, 108
+	fld.s	$fa2, $sp, 116
 	st.b	$a0, $fp, 16
-	fld.s	$fa3, $sp, 40
+	fld.s	$fa3, $sp, 112
 	fst.s	$fa1, $fp, 20
 	fst.s	$fa2, $fp, 24
 	st.w	$zero, $fp, 28
 	fst.s	$fa3, $fp, 32
 	fmov.s	$fs0, $fa0
 .LBB6_14:
+	andi	$a1, $s5, 255
 	ori	$a0, $zero, 1
-	beqz	$s6, .LBB6_18
+	beqz	$a1, .LBB6_18
 # %bb.15:
-	addi.d	$a5, $sp, 16
+	addi.d	$a5, $sp, 88
 	move	$a1, $s0
 	move	$a2, $s1
 	move	$a3, $s3
 	move	$a4, $s2
 	pcaddu18i	$ra, %call36(_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult)
 	jirl	$ra, $ra, 0
-	fld.s	$fa1, $sp, 16
-	fld.s	$fa2, $sp, 20
-	fld.s	$fa0, $sp, 24
+	fld.s	$fa1, $sp, 88
+	fld.s	$fa2, $sp, 92
+	fld.s	$fa0, $sp, 96
 	fld.s	$fa3, $s0, 0
 	fld.s	$fa4, $s0, 4
 	fld.s	$fa5, $s0, 8
@@ -1202,10 +1357,10 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	fcmp.cule.s	$fcc0, $fs0, $fa3
 	bcnez	$fcc0, .LBB6_17
 # %bb.16:
-	fld.s	$fa3, $sp, 28
+	fld.s	$fa3, $sp, 100
 	fst.s	$fa1, $fp, 0
 	fst.s	$fa2, $fp, 4
-	ld.bu	$a0, $sp, 32
+	ld.bu	$a0, $sp, 104
 	fst.s	$fa0, $fp, 8
 	fst.s	$fa3, $fp, 12
 	ld.bu	$a1, $fp, 16
@@ -1216,9 +1371,9 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 	srli.d	$a0, $a1, 4
 	bstrins.d	$a2, $a0, 7, 4
 	st.b	$a2, $fp, 16
-	fld.s	$fa0, $sp, 36
-	fld.s	$fa1, $sp, 44
-	fld.s	$fa2, $sp, 40
+	fld.s	$fa0, $sp, 108
+	fld.s	$fa1, $sp, 116
+	fld.s	$fa2, $sp, 112
 	st.w	$zero, $fp, 20
 	fst.s	$fa0, $fp, 24
 	fst.s	$fa1, $fp, 28
@@ -1226,26 +1381,21 @@ _ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R
 .LBB6_17:
 	ori	$a0, $zero, 1
 .LBB6_18:
-	fld.d	$fs7, $sp, 56                   # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 64                   # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 72                   # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 80                   # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 88                   # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 96                   # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 104                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 112                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 200                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 208
+	fld.d	$fs3, $sp, 128                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 136                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 144                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 152                  # 8-byte Folded Reload
+	ld.d	$s7, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 232                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 240
 	ret
 .Lfunc_end6:
 	.size	_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult, .Lfunc_end6-_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult

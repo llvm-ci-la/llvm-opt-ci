@@ -1037,7 +1037,13 @@ _ZN14btQuantizedBvh30assignInternalNodeFromLeafNodeEii: # @_ZN14btQuantizedBvh30
 .Lfunc_end9:
 	.size	_ZN14btQuantizedBvh30assignInternalNodeFromLeafNodeEii, .Lfunc_end9-_ZN14btQuantizedBvh30assignInternalNodeFromLeafNodeEii
                                         # -- End function
-	.globl	_ZN14btQuantizedBvh17calcSplittingAxisEii # -- Begin function _ZN14btQuantizedBvh17calcSplittingAxisEii
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function _ZN14btQuantizedBvh17calcSplittingAxisEii
+.LCPI10_0:
+	.dword	0                               # 0x0
+	.dword	32                              # 0x20
+	.text
+	.globl	_ZN14btQuantizedBvh17calcSplittingAxisEii
 	.p2align	5
 	.type	_ZN14btQuantizedBvh17calcSplittingAxisEii,@function
 _ZN14btQuantizedBvh17calcSplittingAxisEii: # @_ZN14btQuantizedBvh17calcSplittingAxisEii
@@ -1048,46 +1054,48 @@ _ZN14btQuantizedBvh17calcSplittingAxisEii: # @_ZN14btQuantizedBvh17calcSplitting
 # %bb.1:                                # %.lr.ph
 	ld.bu	$a6, $a0, 64
 	ld.d	$a7, $a0, 88
+	ld.d	$a3, $a0, 40
 	ld.d	$t0, $a0, 152
-	fld.s	$fa0, $a0, 40
-	fld.s	$fa1, $a0, 44
 	fld.s	$fa2, $a0, 48
-	fld.s	$fa3, $a0, 8
-	fld.s	$fa4, $a0, 12
-	fld.s	$fa6, $a0, 16
+	ld.d	$t1, $a0, 8
+	vinsgr2vr.d	$vr3, $a3, 0
+	fld.s	$fa4, $a0, 44
+	fld.s	$fa5, $a0, 40
+	vinsgr2vr.d	$vr6, $t1, 0
+	vreplvei.w	$vr7, $vr6, 0
+	vreplvei.w	$vr10, $vr6, 1
+	fld.s	$ft3, $a0, 16
 	slli.d	$a3, $a1, 6
 	add.d	$a7, $a3, $a7
 	addi.d	$a7, $a7, 16
 	alsl.d	$t0, $a1, $t0, 4
 	addi.d	$t0, $t0, 6
-	movgr2fr.w	$fa5, $zero
-	vldi	$vr7, -1184
-	fmov.s	$ft0, $fa5
-	fmov.s	$ft1, $fa5
+	vrepli.b	$vr9, 0
+	movgr2fr.w	$ft0, $zero
+	pcalau12i	$t1, %pc_hi20(.LCPI10_0)
+	vld	$vr0, $t1, %pc_lo12(.LCPI10_0)
+	lu12i.w	$t1, 258048
+	vreplgr2vr.w	$vr1, $t1
+	vldi	$vr12, -1184
 	b	.LBB10_4
 	.p2align	4, , 16
 .LBB10_2:                               #   in Loop: Header=BB10_4 Depth=1
 	ld.d	$t2, $a7, 0
-	fld.s	$ft2, $a7, 8
+	fld.s	$ft6, $a7, 8
 	ld.d	$t1, $a7, -16
-	fld.s	$ft5, $a7, -8
-	movgr2fr.w	$ft3, $t2
-	srli.d	$t2, $t2, 32
-	movgr2fr.w	$ft4, $t2
+	fld.s	$ft7, $a7, -8
+	vinsgr2vr.d	$vr13, $t2, 0
 .LBB10_3:                               # %_ZNK14btQuantizedBvh10getAabbMinEi.exit
                                         #   in Loop: Header=BB10_4 Depth=1
-	movgr2fr.w	$ft6, $t1
-	srli.d	$t1, $t1, 32
-	movgr2fr.w	$ft7, $t1
-	fadd.s	$ft3, $ft3, $ft6
-	fadd.s	$ft4, $ft4, $ft7
-	fadd.s	$ft2, $ft2, $ft5
-	fmul.s	$ft3, $ft3, $fa7
-	fmul.s	$ft4, $ft4, $fa7
-	fmul.s	$ft2, $ft2, $fa7
-	fadd.s	$ft1, $ft1, $ft3
-	fadd.s	$ft0, $ft0, $ft4
-	fadd.s	$fa5, $fa5, $ft2
+	fadd.s	$ft6, $ft6, $ft7
+	vreplgr2vr.d	$vr15, $t1
+	vsrl.d	$vr15, $vr15, $vr0
+	vshuf4i.w	$vr15, $vr15, 8
+	vfadd.s	$vr13, $vr13, $vr15
+	vfmul.s	$vr13, $vr13, $vr1
+	fmul.s	$ft6, $ft6, $ft4
+	vfadd.s	$vr9, $vr9, $vr13
+	fadd.s	$ft0, $ft0, $ft6
 	addi.d	$a5, $a5, -1
 	addi.d	$a7, $a7, 64
 	addi.d	$t0, $t0, 16
@@ -1096,54 +1104,55 @@ _ZN14btQuantizedBvh17calcSplittingAxisEii: # @_ZN14btQuantizedBvh17calcSplitting
 	beqz	$a6, .LBB10_2
 # %bb.5:                                #   in Loop: Header=BB10_4 Depth=1
 	ld.hu	$t1, $t0, 0
-	movgr2fr.w	$ft2, $t1
-	ld.hu	$t1, $t0, 2
-	ffint.s.w	$ft2, $ft2
-	fdiv.s	$ft2, $ft2, $fa0
-	ld.hu	$t2, $t0, 4
-	movgr2fr.w	$ft3, $t1
-	ffint.s.w	$ft3, $ft3
-	fdiv.s	$ft4, $ft3, $fa1
-	movgr2fr.w	$ft3, $t2
-	ffint.s.w	$ft3, $ft3
-	fdiv.s	$ft5, $ft3, $fa2
-	ld.hu	$t1, $t0, -6
-	fadd.s	$ft3, $ft2, $fa3
-	fadd.s	$ft4, $ft4, $fa4
-	fadd.s	$ft2, $ft5, $fa6
+	ld.hu	$t2, $t0, 2
 	movgr2fr.w	$ft5, $t1
-	ld.hu	$t1, $t0, -4
 	ffint.s.w	$ft5, $ft5
-	fdiv.s	$ft5, $ft5, $fa0
-	ld.hu	$t2, $t0, -2
+	movgr2fr.w	$ft6, $t2
+	ld.hu	$t1, $t0, 4
+	ffint.s.w	$ft6, $ft6
+	vextrins.w	$vr13, $vr14, 16
+	vfdiv.s	$vr13, $vr13, $vr3
 	movgr2fr.w	$ft6, $t1
 	ffint.s.w	$ft6, $ft6
-	fdiv.s	$ft6, $ft6, $fa1
-	movgr2fr.w	$ft7, $t2
+	ld.hu	$t1, $t0, -6
+	fdiv.s	$ft6, $ft6, $fa2
+	vfadd.s	$vr13, $vr13, $vr6
+	fadd.s	$ft6, $ft6, $ft3
+	movgr2fr.w	$ft7, $t1
+	ld.hu	$t1, $t0, -4
 	ffint.s.w	$ft7, $ft7
-	fdiv.s	$ft7, $ft7, $fa2
-	fadd.s	$ft8, $ft5, $fa3
-	fadd.s	$ft6, $ft6, $fa4
-	fadd.s	$ft5, $ft7, $fa6
-	movfr2gr.s	$t1, $ft8
-	movfr2gr.s	$t2, $ft6
+	fdiv.s	$ft7, $ft7, $fa5
+	ld.hu	$t2, $t0, -2
+	movgr2fr.w	$ft8, $t1
+	ffint.s.w	$ft8, $ft8
+	fdiv.s	$ft8, $ft8, $fa4
+	movgr2fr.w	$ft9, $t2
+	ffint.s.w	$ft9, $ft9
+	fdiv.s	$ft9, $ft9, $fa2
+	fadd.s	$ft10, $ft7, $fa7
+	fadd.s	$ft8, $ft8, $ft2
+	fadd.s	$ft7, $ft9, $ft3
+	movfr2gr.s	$t1, $ft10
+	movfr2gr.s	$t2, $ft8
 	bstrins.d	$t1, $t2, 63, 32
 	b	.LBB10_3
 .LBB10_6:                               # %._crit_edge.thread
 	movgr2fr.w	$fa0, $a4
-	movgr2fr.w	$fa5, $zero
-	ffint.s.w	$fa0, $fa0
-	fmov.s	$fa7, $fa5
-	fmov.s	$fa1, $fa5
+	ffint.s.w	$fa2, $fa0
+	vrepli.b	$vr5, 0
+	movgr2fr.w	$fa6, $zero
 .LBB10_7:                               # %._crit_edge203
-	vldi	$vr2, -1040
-	fadd.s	$fa0, $fa0, $fa2
+	vldi	$vr0, -1040
+	fadd.s	$fa0, $fa2, $fa0
 	frecip.s	$fa0, $fa0
-	fmul.s	$fa2, $fa0, $fa5
-	fmul.s	$fa3, $fa0, $fa7
-	fmul.s	$fa0, $fa0, $fa1
-	fcmp.clt.s	$fcc0, $fa2, $fa3
-	fsel	$fa1, $fa2, $fa3, $fcc0
+	vori.b	$vr1, $vr0, 0
+	vextrins.w	$vr1, $vr0, 16
+	vfmul.s	$vr1, $vr1, $vr5
+	fmul.s	$fa0, $fa0, $fa6
+	vreplvei.w	$vr2, $vr1, 0
+	vreplvei.w	$vr1, $vr1, 1
+	fcmp.clt.s	$fcc0, $fa2, $fa1
+	fsel	$fa1, $fa2, $fa1, $fcc0
 	fcmp.clt.s	$fcc1, $fa1, $fa0
 	movcf2gr	$a0, $fcc0
 	movcf2gr	$a1, $fcc1
@@ -1153,60 +1162,58 @@ _ZN14btQuantizedBvh17calcSplittingAxisEii: # @_ZN14btQuantizedBvh17calcSplitting
 	or	$a0, $a1, $a0
 	ret
 .LBB10_8:                               # %._crit_edge
-	movgr2fr.w	$fa0, $a4
-	ffint.s.w	$fa0, $fa0
-	frecip.s	$fa1, $fa0
-	fmul.s	$fa2, $fa1, $ft1
-	fmul.s	$fa3, $fa1, $ft0
-	fmul.s	$fa4, $fa1, $fa5
+	movgr2fr.w	$fa2, $a4
+	ffint.s.w	$fa2, $fa2
+	frecip.s	$fa4, $fa2
+	vori.b	$vr3, $vr4, 0
+	vextrins.w	$vr3, $vr4, 16
+	vfmul.s	$vr3, $vr3, $vr9
+	fmul.s	$fa4, $fa4, $ft0
+	ld.d	$a5, $a0, 40
 	ld.bu	$a4, $a0, 64
-	ld.d	$a5, $a0, 88
-	ld.d	$a6, $a0, 152
-	fld.s	$fa6, $a0, 40
-	fld.s	$ft0, $a0, 44
-	fld.s	$ft1, $a0, 48
-	fld.s	$ft2, $a0, 8
-	fld.s	$ft3, $a0, 12
-	fld.s	$ft4, $a0, 16
+	ld.d	$a6, $a0, 88
+	ld.d	$a7, $a0, 152
+	vinsgr2vr.d	$vr7, $a5, 0
+	ld.d	$a5, $a0, 8
+	fld.s	$ft0, $a0, 48
+	vreplvei.w	$vr9, $vr7, 0
+	vreplvei.w	$vr10, $vr7, 1
+	vinsgr2vr.d	$vr11, $a5, 0
+	vreplvei.w	$vr12, $vr11, 0
+	vreplvei.w	$vr13, $vr11, 1
+	fld.s	$ft6, $a0, 16
 	sub.d	$a0, $a2, $a1
-	add.d	$a2, $a3, $a5
+	add.d	$a2, $a3, $a6
 	addi.d	$a2, $a2, 16
-	alsl.d	$a1, $a1, $a6, 4
+	alsl.d	$a1, $a1, $a7, 4
 	addi.d	$a1, $a1, 6
-	movgr2fr.w	$fa1, $zero
-	vldi	$vr13, -1184
-	fmov.s	$fa7, $fa1
-	fmov.s	$fa5, $fa1
+	vrepli.b	$vr5, 0
+	movgr2fr.w	$fa6, $zero
+	vldi	$vr15, -1184
 	b	.LBB10_11
 	.p2align	4, , 16
 .LBB10_9:                               #   in Loop: Header=BB10_11 Depth=1
-	ld.d	$a5, $a2, 0
-	fld.s	$ft6, $a2, 8
+	fld.s	$ft8, $a2, 8
+	vldrepl.d	$vr17, $a2, 0
 	ld.d	$a3, $a2, -16
-	fld.s	$ft9, $a2, -8
-	movgr2fr.w	$ft7, $a5
-	srli.d	$a5, $a5, 32
-	movgr2fr.w	$ft8, $a5
+	fld.s	$ft10, $a2, -8
+	vsrl.d	$vr17, $vr17, $vr0
+	vshuf4i.w	$vr17, $vr17, 8
 .LBB10_10:                              # %_ZNK14btQuantizedBvh10getAabbMinEi.exit90
                                         #   in Loop: Header=BB10_11 Depth=1
-	movgr2fr.w	$ft10, $a3
-	srli.d	$a3, $a3, 32
-	movgr2fr.w	$ft11, $a3
-	fadd.s	$ft7, $ft7, $ft10
-	fadd.s	$ft8, $ft8, $ft11
-	fadd.s	$ft6, $ft6, $ft9
-	fmul.s	$ft7, $ft7, $ft5
-	fmul.s	$ft8, $ft8, $ft5
-	fmul.s	$ft6, $ft6, $ft5
-	fsub.s	$ft7, $ft7, $fa2
-	fsub.s	$ft8, $ft8, $fa3
-	fsub.s	$ft6, $ft6, $fa4
-	fmul.s	$ft7, $ft7, $ft7
+	fadd.s	$ft8, $ft8, $ft10
+	fmul.s	$ft8, $ft8, $ft7
+	fsub.s	$ft8, $ft8, $fa4
+	vreplgr2vr.d	$vr18, $a3
+	vsrl.d	$vr18, $vr18, $vr0
+	vshuf4i.w	$vr18, $vr18, 8
+	vfadd.s	$vr17, $vr17, $vr18
+	vfmul.s	$vr17, $vr17, $vr1
+	vfsub.s	$vr17, $vr17, $vr3
+	vfmul.s	$vr17, $vr17, $vr17
 	fmul.s	$ft8, $ft8, $ft8
-	fmul.s	$ft6, $ft6, $ft6
-	fadd.s	$fa5, $fa5, $ft7
-	fadd.s	$fa7, $fa7, $ft8
-	fadd.s	$fa1, $fa1, $ft6
+	vfadd.s	$vr5, $vr5, $vr17
+	fadd.s	$fa6, $fa6, $ft8
 	addi.d	$a0, $a0, -1
 	addi.d	$a2, $a2, 64
 	addi.d	$a1, $a1, 16
@@ -1214,38 +1221,41 @@ _ZN14btQuantizedBvh17calcSplittingAxisEii: # @_ZN14btQuantizedBvh17calcSplitting
 .LBB10_11:                              # =>This Inner Loop Header: Depth=1
 	beqz	$a4, .LBB10_9
 # %bb.12:                               #   in Loop: Header=BB10_11 Depth=1
-	ld.hu	$a3, $a1, 0
-	movgr2fr.w	$ft6, $a3
-	ld.hu	$a3, $a1, 2
-	ffint.s.w	$ft6, $ft6
-	fdiv.s	$ft6, $ft6, $fa6
-	ld.hu	$a5, $a1, 4
-	movgr2fr.w	$ft7, $a3
-	ffint.s.w	$ft7, $ft7
-	fdiv.s	$ft8, $ft7, $ft0
-	movgr2fr.w	$ft7, $a5
-	ffint.s.w	$ft7, $ft7
-	fdiv.s	$ft9, $ft7, $ft1
-	ld.hu	$a3, $a1, -6
-	fadd.s	$ft7, $ft6, $ft2
-	fadd.s	$ft8, $ft8, $ft3
-	fadd.s	$ft6, $ft9, $ft4
+	ld.w	$a3, $a1, 0
+	vinsgr2vr.w	$vr16, $a3, 0
+	vpickve2gr.h	$a3, $vr16, 1
+	bstrpick.d	$a3, $a3, 15, 0
 	movgr2fr.w	$ft9, $a3
-	ld.hu	$a3, $a1, -4
 	ffint.s.w	$ft9, $ft9
-	fdiv.s	$ft9, $ft9, $fa6
-	ld.hu	$a5, $a1, -2
+	vpickve2gr.h	$a3, $vr16, 0
+	bstrpick.d	$a3, $a3, 15, 0
+	movgr2fr.w	$ft8, $a3
+	ld.hu	$a3, $a1, 4
+	ffint.s.w	$ft8, $ft8
+	vextrins.w	$vr16, $vr17, 16
+	vfdiv.s	$vr16, $vr16, $vr7
+	movgr2fr.w	$ft9, $a3
+	ffint.s.w	$ft9, $ft9
+	ld.hu	$a3, $a1, -6
+	fdiv.s	$ft10, $ft9, $ft0
+	vfadd.s	$vr17, $vr16, $vr11
+	fadd.s	$ft8, $ft10, $ft6
 	movgr2fr.w	$ft10, $a3
+	ld.hu	$a3, $a1, -4
 	ffint.s.w	$ft10, $ft10
-	fdiv.s	$ft10, $ft10, $ft0
-	movgr2fr.w	$ft11, $a5
+	fdiv.s	$ft10, $ft10, $ft1
+	ld.hu	$a5, $a1, -2
+	movgr2fr.w	$ft11, $a3
 	ffint.s.w	$ft11, $ft11
-	fdiv.s	$ft11, $ft11, $ft1
-	fadd.s	$ft12, $ft9, $ft2
-	fadd.s	$ft10, $ft10, $ft3
-	fadd.s	$ft9, $ft11, $ft4
-	movfr2gr.s	$a3, $ft12
-	movfr2gr.s	$a5, $ft10
+	fdiv.s	$ft11, $ft11, $ft2
+	movgr2fr.w	$ft12, $a5
+	ffint.s.w	$ft12, $ft12
+	fdiv.s	$ft12, $ft12, $ft0
+	fadd.s	$ft13, $ft10, $ft4
+	fadd.s	$ft11, $ft11, $ft5
+	fadd.s	$ft10, $ft12, $ft6
+	movfr2gr.s	$a3, $ft13
+	movfr2gr.s	$a5, $ft11
 	bstrins.d	$a3, $a5, 63, 32
 	b	.LBB10_10
 .Lfunc_end10:
@@ -4137,37 +4147,34 @@ _ZN14btQuantizedBvh9serializeEPvjb:     # @_ZN14btQuantizedBvh9serializeEPvjb
 .LBB26_34:                              # %.preheader218
 	blez	$a0, .LBB26_37
 # %bb.35:                               # %.lr.ph236
-	ld.d	$a2, $s0, 224
+	ld.d	$a1, $s0, 224
 	move	$a0, $zero
-	add.d	$a1, $s3, $fp
-	addi.d	$a1, $a1, 264
-	addi.d	$a2, $a2, 8
+	addi.d	$a1, $a1, 6
 	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB26_36:                              # =>This Inner Loop Header: Depth=1
-	ld.h	$a3, $a2, -8
-	st.h	$a3, $a1, -16
-	ld.h	$a3, $a2, -6
-	st.h	$a3, $a1, -14
-	ld.h	$a3, $a2, -4
-	st.h	$a3, $a1, -12
-	ld.h	$a3, $a2, -2
-	st.h	$a3, $a1, -10
-	ld.h	$a3, $a2, 0
-	st.h	$a3, $a1, -8
-	ld.h	$a3, $a2, 2
-	ld.w	$a4, $a2, 8
-	st.h	$a3, $a1, -6
-	ld.w	$a3, $a2, 4
-	vori.b	$vr1, $vr0, 0
-	vinsgr2vr.w	$vr1, $a4, 0
-	vst	$vr1, $a1, 0
-	ld.w	$a4, $s0, 240
-	st.w	$a3, $a1, -4
+	ld.h	$a2, $a1, -6
+	st.h	$a2, $s2, 0
+	ld.h	$a2, $a1, -4
+	st.h	$a2, $s2, 2
+	ld.h	$a2, $a1, -2
+	st.h	$a2, $s2, 4
+	ld.h	$a2, $a1, 0
+	st.h	$a2, $s2, 6
+	ld.h	$a2, $a1, 2
+	ld.d	$a3, $a1, 6
+	st.h	$a2, $s2, 8
+	ld.h	$a2, $a1, 4
+	vinsgr2vr.d	$vr1, $a3, 0
+	vshuf4i.d	$vr1, $vr0, 12
+	vst	$vr1, $s2, 12
+	st.w	$zero, $s2, 28
+	ld.w	$a3, $s0, 240
+	st.h	$a2, $s2, 10
 	addi.d	$a0, $a0, 1
+	addi.d	$s2, $s2, 32
 	addi.d	$a1, $a1, 32
-	addi.d	$a2, $a2, 32
-	blt	$a0, $a4, .LBB26_36
+	blt	$a0, $a3, .LBB26_36
 .LBB26_37:                              # %_ZN20btAlignedObjectArrayI16btBvhSubtreeInfoE20initializeFromBufferEPvii.exit217
 	st.b	$zero, $fp, 232
 	st.d	$zero, $fp, 224
@@ -4194,127 +4201,36 @@ _ZN14btQuantizedBvh18deSerializeInPlaceEPvjb: # @_ZN14btQuantizedBvh18deSerializ
 # %bb.0:
 	beqz	$a0, .LBB27_3
 # %bb.1:
-	addi.d	$sp, $sp, -64
-	.cfi_def_cfa_offset 64
-	st.d	$ra, $sp, 56                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 8                     # 8-byte Folded Spill
+	addi.d	$sp, $sp, -48
+	.cfi_def_cfa_offset 48
+	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
 	.cfi_offset 25, -40
-	.cfi_offset 26, -48
-	.cfi_offset 27, -56
 	beqz	$a2, .LBB27_4
 # %bb.2:
+	vld	$vr0, $a0, 8
 	ld.w	$a3, $a0, 60
+	vshuf4i.b	$vr0, $vr0, 27
+	vst	$vr0, $a0, 8
+	vld	$vr0, $a0, 24
 	revb.2w	$a3, $a3
 	st.w	$a3, $a0, 60
-	ld.b	$a3, $a0, 11
-	ld.b	$a4, $a0, 10
-	ld.b	$a5, $a0, 9
-	ld.b	$a6, $a0, 8
-	ld.b	$a7, $a0, 15
-	ld.b	$t0, $a0, 14
-	ld.b	$t1, $a0, 13
-	ld.b	$t2, $a0, 12
-	ld.b	$t3, $a0, 19
-	ld.b	$t4, $a0, 18
-	ld.b	$t5, $a0, 17
-	ld.b	$t6, $a0, 16
-	ld.b	$t7, $a0, 23
-	ld.b	$t8, $a0, 22
-	ld.b	$fp, $a0, 21
-	ld.b	$s0, $a0, 20
-	st.b	$a3, $a0, 8
-	st.b	$a4, $a0, 9
-	st.b	$a5, $a0, 10
-	st.b	$a6, $a0, 11
-	st.b	$a7, $a0, 12
-	st.b	$t0, $a0, 13
-	st.b	$t1, $a0, 14
-	st.b	$t2, $a0, 15
-	st.b	$t3, $a0, 16
-	st.b	$t4, $a0, 17
-	st.b	$t5, $a0, 18
-	st.b	$t6, $a0, 19
-	st.b	$t7, $a0, 20
-	st.b	$t8, $a0, 21
-	st.b	$fp, $a0, 22
-	st.b	$s0, $a0, 23
-	ld.b	$a3, $a0, 27
-	ld.b	$a4, $a0, 26
-	ld.b	$a5, $a0, 25
-	ld.b	$a6, $a0, 24
-	ld.b	$a7, $a0, 31
-	ld.b	$t0, $a0, 30
-	ld.b	$t1, $a0, 29
-	ld.b	$t2, $a0, 28
-	ld.b	$t3, $a0, 35
-	ld.b	$t4, $a0, 34
-	ld.b	$t5, $a0, 33
-	ld.b	$t6, $a0, 32
-	ld.b	$t7, $a0, 39
-	ld.b	$t8, $a0, 38
-	ld.b	$fp, $a0, 37
-	ld.b	$s0, $a0, 36
-	st.b	$a3, $a0, 24
-	st.b	$a4, $a0, 25
-	st.b	$a5, $a0, 26
-	st.b	$a6, $a0, 27
-	st.b	$a7, $a0, 28
-	st.b	$t0, $a0, 29
-	st.b	$t1, $a0, 30
-	st.b	$t2, $a0, 31
-	st.b	$t3, $a0, 32
-	st.b	$t4, $a0, 33
-	st.b	$t5, $a0, 34
-	st.b	$t6, $a0, 35
-	st.b	$t7, $a0, 36
-	st.b	$t8, $a0, 37
-	st.b	$fp, $a0, 38
-	st.b	$s0, $a0, 39
-	ld.b	$a3, $a0, 43
-	ld.b	$a4, $a0, 42
-	ld.b	$a5, $a0, 41
-	ld.b	$a6, $a0, 40
-	ld.b	$a7, $a0, 47
-	ld.b	$t0, $a0, 46
-	ld.b	$t1, $a0, 45
-	ld.b	$t2, $a0, 44
-	ld.b	$t3, $a0, 51
-	ld.b	$t4, $a0, 50
-	ld.b	$t5, $a0, 49
-	ld.b	$t6, $a0, 48
-	ld.b	$t7, $a0, 55
-	ld.b	$t8, $a0, 54
-	ld.b	$fp, $a0, 53
-	ld.b	$s0, $a0, 52
-	st.b	$a3, $a0, 40
-	st.b	$a4, $a0, 41
-	st.b	$a5, $a0, 42
-	st.b	$a6, $a0, 43
-	st.b	$a7, $a0, 44
-	st.b	$t0, $a0, 45
-	st.b	$t1, $a0, 46
-	st.b	$t2, $a0, 47
-	st.b	$t3, $a0, 48
-	st.b	$t4, $a0, 49
-	st.b	$t5, $a0, 50
-	st.b	$t6, $a0, 51
-	st.b	$t7, $a0, 52
-	st.b	$t8, $a0, 53
 	ld.w	$a3, $a0, 200
-	st.b	$fp, $a0, 54
-	ld.w	$a4, $a0, 240
-	st.b	$s0, $a0, 55
+	vshuf4i.b	$vr0, $vr0, 27
+	vst	$vr0, $a0, 24
+	vld	$vr0, $a0, 40
 	revb.2w	$a3, $a3
+	ld.w	$a4, $a0, 240
 	st.w	$a3, $a0, 200
+	vshuf4i.b	$vr0, $vr0, 27
+	vst	$vr0, $a0, 40
 	revb.2w	$fp, $a4
 	st.w	$fp, $a0, 240
 	b	.LBB27_5
@@ -4417,73 +4333,14 @@ _ZN14btQuantizedBvh18deSerializeInPlaceEPvjb: # @_ZN14btQuantizedBvh18deSerializ
 	.p2align	4, , 16
 .LBB27_14:                              # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	add.d	$a6, $a5, $a1
-	ld.b	$a7, $a6, 3
-	ld.b	$t0, $a6, 2
-	ld.b	$t1, $a6, 1
-	ldx.b	$t2, $a5, $a1
-	ld.b	$t3, $a6, 7
-	ld.b	$t4, $a6, 6
-	ld.b	$t5, $a6, 5
-	ld.b	$t6, $a6, 4
-	ld.b	$t7, $a6, 11
-	ld.b	$t8, $a6, 10
-	ld.b	$fp, $a6, 9
-	ld.b	$s0, $a6, 8
-	ld.b	$s1, $a6, 15
-	ld.b	$s2, $a6, 14
-	ld.b	$s3, $a6, 13
-	ld.b	$s4, $a6, 12
-	stx.b	$a7, $a5, $a1
-	st.b	$t0, $a6, 1
-	st.b	$t1, $a6, 2
-	st.b	$t2, $a6, 3
-	st.b	$t3, $a6, 4
-	st.b	$t4, $a6, 5
-	st.b	$t5, $a6, 6
-	st.b	$t6, $a6, 7
-	st.b	$t7, $a6, 8
-	st.b	$t8, $a6, 9
-	st.b	$fp, $a6, 10
-	st.b	$s0, $a6, 11
-	st.b	$s1, $a6, 12
-	st.b	$s2, $a6, 13
-	st.b	$s3, $a6, 14
-	st.b	$s4, $a6, 15
+	vldx	$vr0, $a5, $a1
+	vshuf4i.b	$vr0, $vr0, 27
+	vstx	$vr0, $a5, $a1
 	ld.d	$a5, $a0, 120
 	add.d	$a5, $a5, $a1
-	ld.b	$a6, $a5, 19
-	ld.b	$a7, $a5, 18
-	ld.b	$t0, $a5, 17
-	ld.b	$t1, $a5, 16
-	ld.b	$t2, $a5, 23
-	ld.b	$t3, $a5, 22
-	ld.b	$t4, $a5, 21
-	ld.b	$t5, $a5, 20
-	ld.b	$t6, $a5, 27
-	ld.b	$t7, $a5, 26
-	ld.b	$t8, $a5, 25
-	ld.b	$fp, $a5, 24
-	ld.b	$s0, $a5, 31
-	ld.b	$s1, $a5, 30
-	ld.b	$s2, $a5, 29
-	ld.b	$s3, $a5, 28
-	st.b	$a6, $a5, 16
-	st.b	$a7, $a5, 17
-	st.b	$t0, $a5, 18
-	st.b	$t1, $a5, 19
-	st.b	$t2, $a5, 20
-	st.b	$t3, $a5, 21
-	st.b	$t4, $a5, 22
-	st.b	$t5, $a5, 23
-	st.b	$t6, $a5, 24
-	st.b	$t7, $a5, 25
-	st.b	$t8, $a5, 26
-	st.b	$fp, $a5, 27
-	st.b	$s0, $a5, 28
-	st.b	$s1, $a5, 29
-	st.b	$s2, $a5, 30
-	st.b	$s3, $a5, 31
+	vld	$vr0, $a5, 16
+	vshuf4i.b	$vr0, $vr0, 27
+	vst	$vr0, $a5, 16
 	ld.d	$a5, $a0, 120
 	add.d	$a6, $a5, $a1
 	ld.w	$a7, $a6, 32
@@ -4560,14 +4417,12 @@ _ZN14btQuantizedBvh18deSerializeInPlaceEPvjb: # @_ZN14btQuantizedBvh18deSerializ
 	addi.d	$a2, $a2, 32
 	bnez	$a1, .LBB27_22
 .LBB27_23:
-	ld.d	$s4, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$s3, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 64
+	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 48
 	ret
 .Lfunc_end27:
 	.size	_ZN14btQuantizedBvh18deSerializeInPlaceEPvjb, .Lfunc_end27-_ZN14btQuantizedBvh18deSerializeInPlaceEPvjb

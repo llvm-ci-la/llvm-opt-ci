@@ -303,12 +303,8 @@ hsfc3d:                                 # @hsfc3d
 	.word	.LBB1_13-.LJTI1_0
 	.word	.LBB1_11-.LJTI1_0
                                         # -- End function
-	.section	.rodata.cst8,"aM",@progbits,8
-	.p2align	3, 0x0                          # -- Begin function fhsfc2d
-.LCPI2_0:
-	.dword	0x41efffffffe00000              # double 4294967295
 	.text
-	.globl	fhsfc2d
+	.globl	fhsfc2d                         # -- Begin function fhsfc2d
 	.p2align	5
 	.type	fhsfc2d,@function
 fhsfc2d:                                # @fhsfc2d
@@ -318,8 +314,6 @@ fhsfc2d:                                # @fhsfc2d
 	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
 	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
 	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
-	st.d	$s3, $sp, 0                     # 8-byte Folded Spill
 	pcalau12i	$a3, %pc_hi20(hsfc2d.init)
 	ld.bu	$a4, $a3, %pc_lo12(hsfc2d.init)
 	move	$fp, $a2
@@ -333,24 +327,28 @@ fhsfc2d:                                # @fhsfc2d
 	ori	$a2, $zero, 1
 	st.b	$a2, $a3, %pc_lo12(hsfc2d.init)
 .LBB2_2:
-	beqz	$a1, .LBB2_10
+	beqz	$a1, .LBB2_9
 # %bb.3:                                # %.lr.ph62.i
-	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	fld.d	$fa0, $a0, 0
-	fld.d	$fa1, $a2, %pc_lo12(.LCPI2_0)
-	fld.d	$fa2, $a0, 8
-	fmul.d	$fa0, $fa0, $fa1
-	fmul.d	$fa1, $fa2, $fa1
-	sltui	$a0, $a1, 2
-	ori	$a2, $zero, 2
-	ftintrz.l.d	$fa0, $fa0
+	vld	$vr0, $a0, 0
+	lu12i.w	$a0, -512
+	lu52i.d	$a0, $a0, 1054
+	vreplgr2vr.d	$vr1, $a0
+	vfmul.d	$vr0, $vr0, $vr1
+	vreplvei.d	$vr1, $vr0, 0
+	vreplvei.d	$vr0, $vr0, 1
 	ftintrz.l.d	$fa1, $fa1
-	masknez	$a2, $a2, $a0
-	maskeqz	$a0, $a1, $a0
-	movfr2gr.d	$s1, $fa0
-	movfr2gr.d	$s2, $fa1
-	or	$s3, $a0, $a2
-	addi.d	$a0, $s3, -1
+	movfr2gr.d	$a0, $fa1
+	ftintrz.l.d	$fa0, $fa0
+	sltui	$a2, $a1, 2
+	ori	$a3, $zero, 2
+	vinsgr2vr.w	$vr1, $a0, 0
+	movfr2gr.d	$a0, $fa0
+	masknez	$a3, $a3, $a2
+	maskeqz	$a1, $a1, $a2
+	vinsgr2vr.w	$vr1, $a0, 1
+	vst	$vr1, $sp, 0                    # 16-byte Folded Spill
+	or	$s1, $a1, $a3
+	addi.d	$a0, $s1, -1
 	bstrpick.d	$a0, $a0, 31, 0
 	slli.d	$a0, $a0, 2
 	addi.d	$a2, $a0, 4
@@ -358,62 +356,60 @@ fhsfc2d:                                # @fhsfc2d
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
+	vld	$vr5, $sp, 0                    # 16-byte Folded Reload
 	move	$a0, $zero
-	move	$a2, $zero
 	move	$a1, $zero
-	slli.d	$a3, $s3, 4
-	sub.w	$a3, $zero, $a3
-	ori	$a4, $zero, 1
-	ori	$a5, $zero, 2
-	ori	$a6, $zero, 32
-	ori	$a7, $zero, 3
-	ori	$t0, $zero, 1
+	slli.d	$a2, $s1, 4
+	sub.w	$a2, $zero, $a2
+	vrepli.h	$vr0, 256
+	ori	$a3, $zero, 1
+	ori	$a4, $zero, 2
+	vrepli.b	$vr1, 0
+	vrepli.w	$vr2, 1
+	ori	$a5, $zero, 32
+	ori	$a6, $zero, 3
 	b	.LBB2_7
 	.p2align	4, , 16
 .LBB2_4:                                #   in Loop: Header=BB2_7 Depth=1
 	xori	$a1, $a1, 3
 .LBB2_5:                                #   in Loop: Header=BB2_7 Depth=1
-	move	$t1, $t0
+	vshuf4i.b	$vr0, $vr0, 1
 .LBB2_6:                                #   in Loop: Header=BB2_7 Depth=1
-	addi.w	$a4, $a4, 1
+	addi.w	$a3, $a3, 1
 	addi.w	$a0, $a0, -1
-	addi.d	$a5, $a5, 2
-	move	$t0, $a2
-	move	$a2, $t1
-	beq	$a3, $a0, .LBB2_10
+	addi.d	$a4, $a4, 2
+	beq	$a2, $a0, .LBB2_9
 .LBB2_7:                                # =>This Inner Loop Header: Depth=1
-	addi.d	$t1, $a0, 31
-	srl.w	$t2, $s1, $t1
-	andi	$t2, $t2, 1
-	sll.w	$t2, $t2, $a2
-	srl.w	$t1, $s2, $t1
-	andi	$t1, $t1, 1
-	sll.w	$t1, $t1, $t0
-	or	$t1, $t1, $t2
-	xor	$t1, $t1, $a1
-	ldx.bu	$t1, $s0, $t1
-	bstrpick.d	$t2, $a4, 31, 4
-	andi	$t3, $a5, 30
-	sltui	$t4, $t3, 1
-	sub.d	$t2, $t2, $t4
-	bstrpick.d	$t2, $t2, 31, 0
-	slli.d	$t2, $t2, 2
-	ldx.w	$t5, $fp, $t2
-	sub.d	$t3, $a6, $t3
-	masknez	$t3, $t3, $t4
-	sll.w	$t3, $t1, $t3
-	or	$t3, $t3, $t5
-	stx.w	$t3, $fp, $t2
-	beqz	$t1, .LBB2_5
+	addi.d	$a7, $a0, 31
+	vilvl.b	$vr3, $vr1, $vr0
+	vilvl.h	$vr3, $vr1, $vr3
+	vinsgr2vr.w	$vr4, $a7, 0
+	vinsgr2vr.w	$vr4, $a7, 1
+	vsrl.w	$vr4, $vr5, $vr4
+	vand.v	$vr4, $vr4, $vr2
+	vsll.w	$vr3, $vr4, $vr3
+	vreplvei.w	$vr4, $vr3, 1
+	vor.v	$vr3, $vr4, $vr3
+	vpickve2gr.w	$a7, $vr3, 0
+	xor	$a7, $a7, $a1
+	ldx.bu	$a7, $s0, $a7
+	bstrpick.d	$t0, $a3, 31, 4
+	andi	$t1, $a4, 30
+	sltui	$t2, $t1, 1
+	sub.d	$t0, $t0, $t2
+	bstrpick.d	$t0, $t0, 31, 0
+	slli.d	$t0, $t0, 2
+	ldx.w	$t3, $fp, $t0
+	sub.d	$t1, $a5, $t1
+	masknez	$t1, $t1, $t2
+	sll.w	$t1, $a7, $t1
+	or	$t1, $t1, $t3
+	stx.w	$t1, $fp, $t0
+	beqz	$a7, .LBB2_5
 # %bb.8:                                #   in Loop: Header=BB2_7 Depth=1
-	beq	$t1, $a7, .LBB2_4
-# %bb.9:                                #   in Loop: Header=BB2_7 Depth=1
-	move	$t1, $a2
-	move	$a2, $t0
+	beq	$a7, $a6, .LBB2_4
 	b	.LBB2_6
-.LBB2_10:                               # %hsfc2d.exit
-	ld.d	$s3, $sp, 0                     # 8-byte Folded Reload
-	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
+.LBB2_9:                                # %hsfc2d.exit
 	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
 	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
