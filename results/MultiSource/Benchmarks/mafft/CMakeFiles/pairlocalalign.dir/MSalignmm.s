@@ -1807,7 +1807,7 @@ MSalignmm_rec:                          # @MSalignmm_rec
 	vrepli.b	$vr0, 0
 	vrepli.b	$vr1, 45
 	vrepli.b	$vr2, 111
-	ori	$a4, $zero, 16
+	ori	$a4, $zero, 32
 	.p2align	4, , 16
 .LBB1_97:                               # %.lr.ph146.i.i
                                         # =>This Loop Header: Depth=1
@@ -1849,8 +1849,8 @@ MSalignmm_rec:                          # @MSalignmm_rec
 # %bb.106:                              # %vector.ph363
                                         #   in Loop: Header=BB1_97 Depth=1
 	bstrpick.d	$t4, $t1, 31, 0
-	bstrpick.d	$t2, $t4, 31, 4
-	slli.d	$t5, $t2, 4
+	bstrpick.d	$t2, $t4, 31, 5
+	slli.d	$t5, $t2, 5
 	sub.d	$t1, $t1, $t5
 	sub.d	$t2, $s7, $t5
 	sub.d	$t3, $s8, $t5
@@ -1862,10 +1862,12 @@ MSalignmm_rec:                          # @MSalignmm_rec
                                         #   Parent Loop BB1_97 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vst	$vr2, $t6, 0
+	vst	$vr2, $t6, -16
 	vst	$vr1, $t7, 0
-	addi.d	$t8, $t8, -16
-	addi.d	$t6, $t6, -16
-	addi.d	$t7, $t7, -16
+	vst	$vr1, $t7, -16
+	addi.d	$t8, $t8, -32
+	addi.d	$t6, $t6, -32
+	addi.d	$t7, $t7, -32
 	bnez	$t8, .LBB1_107
 # %bb.108:                              # %middle.block374
                                         #   in Loop: Header=BB1_97 Depth=1

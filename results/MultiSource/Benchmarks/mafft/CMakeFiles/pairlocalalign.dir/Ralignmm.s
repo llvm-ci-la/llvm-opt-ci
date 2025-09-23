@@ -2850,7 +2850,7 @@ R__align:                               # @R__align
 	vrepli.b	$vr0, 0
 	vrepli.b	$vr1, 45
 	vrepli.b	$vr2, 111
-	ori	$a4, $zero, 16
+	ori	$a4, $zero, 32
 	.p2align	4, , 16
 .LBB2_176:                              # %.lr.ph200.i
                                         # =>This Loop Header: Depth=1
@@ -2893,8 +2893,8 @@ R__align:                               # @R__align
 # %bb.185:                              # %vector.ph1034
                                         #   in Loop: Header=BB2_176 Depth=1
 	bstrpick.d	$t6, $t3, 31, 0
-	bstrpick.d	$t4, $t6, 31, 4
-	slli.d	$t7, $t4, 4
+	bstrpick.d	$t4, $t6, 31, 5
+	slli.d	$t7, $t4, 5
 	sub.d	$t3, $t3, $t7
 	sub.d	$t4, $s7, $t7
 	sub.d	$t5, $s8, $t7
@@ -2906,10 +2906,12 @@ R__align:                               # @R__align
                                         #   Parent Loop BB2_176 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vst	$vr2, $t8, 0
+	vst	$vr2, $t8, -16
 	vst	$vr1, $fp, 0
-	addi.d	$s0, $s0, -16
-	addi.d	$t8, $t8, -16
-	addi.d	$fp, $fp, -16
+	vst	$vr1, $fp, -16
+	addi.d	$s0, $s0, -32
+	addi.d	$t8, $t8, -32
+	addi.d	$fp, $fp, -32
 	bnez	$s0, .LBB2_186
 # %bb.187:                              # %middle.block1045
                                         #   in Loop: Header=BB2_176 Depth=1
@@ -3122,7 +3124,7 @@ R__align:                               # @R__align
 	vrepli.b	$vr0, 0
 	vrepli.b	$vr1, 45
 	vrepli.b	$vr2, 111
-	ori	$a6, $zero, 16
+	ori	$a6, $zero, 32
 	move	$a7, $s5
 	move	$a0, $s2
 	.p2align	4, , 16
@@ -3167,8 +3169,8 @@ R__align:                               # @R__align
 # %bb.228:                              # %vector.ph956
                                         #   in Loop: Header=BB2_219 Depth=1
 	bstrpick.d	$s1, $t8, 31, 0
-	bstrpick.d	$fp, $s1, 31, 4
-	slli.d	$s2, $fp, 4
+	bstrpick.d	$fp, $s1, 31, 5
+	slli.d	$s2, $fp, 5
 	sub.d	$t8, $t8, $s2
 	sub.d	$fp, $s7, $s2
 	sub.d	$s0, $s8, $s2
@@ -3180,10 +3182,12 @@ R__align:                               # @R__align
                                         #   Parent Loop BB2_219 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vst	$vr2, $s8, 0
+	vst	$vr2, $s8, -16
 	vst	$vr1, $s7, 0
-	addi.d	$ra, $ra, -16
-	addi.d	$s8, $s8, -16
-	addi.d	$s7, $s7, -16
+	vst	$vr1, $s7, -16
+	addi.d	$ra, $ra, -32
+	addi.d	$s8, $s8, -32
+	addi.d	$s7, $s7, -32
 	bnez	$ra, .LBB2_229
 # %bb.230:                              # %middle.block967
                                         #   in Loop: Header=BB2_219 Depth=1

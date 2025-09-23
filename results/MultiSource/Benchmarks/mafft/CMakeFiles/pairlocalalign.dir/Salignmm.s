@@ -2328,7 +2328,7 @@ A__align:                               # @A__align
 	beqz	$t8, .LBB3_179
 # %bb.170:                              # %.lr.ph187.i.preheader
                                         #   in Loop: Header=BB3_163 Depth=1
-	ori	$a6, $zero, 16
+	ori	$a6, $zero, 32
 	bltu	$t8, $a6, .LBB3_175
 # %bb.171:                              # %.lr.ph187.i.preheader
                                         #   in Loop: Header=BB3_163 Depth=1
@@ -2337,8 +2337,8 @@ A__align:                               # @A__align
 # %bb.172:                              # %vector.ph843
                                         #   in Loop: Header=BB3_163 Depth=1
 	bstrpick.d	$ra, $t8, 31, 0
-	bstrpick.d	$a5, $ra, 31, 4
-	slli.d	$a6, $a5, 4
+	bstrpick.d	$a5, $ra, 31, 5
+	slli.d	$a6, $a5, 5
 	sub.d	$t8, $t8, $a6
 	sub.d	$s0, $s3, $a6
 	sub.d	$s5, $s7, $a6
@@ -2350,10 +2350,12 @@ A__align:                               # @A__align
                                         #   Parent Loop BB3_163 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vst	$vr2, $s7, 0
+	vst	$vr2, $s7, -16
 	vst	$vr1, $s3, 0
-	addi.d	$a5, $a5, -16
-	addi.d	$s7, $s7, -16
-	addi.d	$s3, $s3, -16
+	vst	$vr1, $s3, -16
+	addi.d	$a5, $a5, -32
+	addi.d	$s7, $s7, -32
+	addi.d	$s3, $s3, -32
 	bnez	$a5, .LBB3_173
 # %bb.174:                              # %middle.block854
                                         #   in Loop: Header=BB3_163 Depth=1
@@ -3264,7 +3266,7 @@ Atracking:                              # @Atracking
 	vrepli.b	$vr0, 0
 	vrepli.b	$vr1, 45
 	vrepli.b	$vr2, 111
-	ori	$a4, $zero, 16
+	ori	$a4, $zero, 32
 	.p2align	4, , 16
 .LBB5_29:                               # %.lr.ph200
                                         # =>This Loop Header: Depth=1
@@ -3307,8 +3309,8 @@ Atracking:                              # @Atracking
 # %bb.38:                               # %vector.ph44
                                         #   in Loop: Header=BB5_29 Depth=1
 	bstrpick.d	$t6, $t3, 31, 0
-	bstrpick.d	$t4, $t6, 31, 4
-	slli.d	$t7, $t4, 4
+	bstrpick.d	$t4, $t6, 31, 5
+	slli.d	$t7, $t4, 5
 	sub.d	$t3, $t3, $t7
 	sub.d	$t4, $s1, $t7
 	sub.d	$t5, $s2, $t7
@@ -3320,10 +3322,12 @@ Atracking:                              # @Atracking
                                         #   Parent Loop BB5_29 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vst	$vr2, $t8, 0
+	vst	$vr2, $t8, -16
 	vst	$vr1, $s1, 0
-	addi.d	$s2, $s2, -16
-	addi.d	$t8, $t8, -16
-	addi.d	$s1, $s1, -16
+	vst	$vr1, $s1, -16
+	addi.d	$s2, $s2, -32
+	addi.d	$t8, $t8, -32
+	addi.d	$s1, $s1, -32
 	bnez	$s2, .LBB5_39
 # %bb.40:                               # %middle.block55
                                         #   in Loop: Header=BB5_29 Depth=1
@@ -5222,7 +5226,7 @@ A__align_gapmap:                        # @A__align_gapmap
 	vrepli.b	$vr0, 0
 	vrepli.b	$vr1, 45
 	vrepli.b	$vr2, 111
-	ori	$a6, $zero, 16
+	ori	$a6, $zero, 32
 	move	$a0, $t1
 	move	$a7, $t1
 	.p2align	4, , 16
@@ -5267,8 +5271,8 @@ A__align_gapmap:                        # @A__align_gapmap
 # %bb.160:                              # %vector.ph761
                                         #   in Loop: Header=BB6_151 Depth=1
 	bstrpick.d	$s5, $t7, 31, 0
-	bstrpick.d	$a5, $s5, 31, 4
-	slli.d	$a5, $a5, 4
+	bstrpick.d	$a5, $s5, 31, 5
+	slli.d	$a5, $a5, 5
 	sub.d	$t7, $t7, $a5
 	sub.d	$t8, $s3, $a5
 	sub.d	$fp, $s7, $a5
@@ -5280,10 +5284,12 @@ A__align_gapmap:                        # @A__align_gapmap
                                         #   Parent Loop BB6_151 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vst	$vr2, $s7, 0
+	vst	$vr2, $s7, -16
 	vst	$vr1, $s3, 0
-	addi.d	$ra, $ra, -16
-	addi.d	$s7, $s7, -16
-	addi.d	$s3, $s3, -16
+	vst	$vr1, $s3, -16
+	addi.d	$ra, $ra, -32
+	addi.d	$s7, $s7, -32
+	addi.d	$s3, $s3, -32
 	bnez	$ra, .LBB6_161
 # %bb.162:                              # %middle.block772
                                         #   in Loop: Header=BB6_151 Depth=1
@@ -5296,19 +5302,19 @@ A__align_gapmap:                        # @A__align_gapmap
 	move	$fp, $s7
 .LBB6_164:                              # %.lr.ph189.i.preheader779
                                         #   in Loop: Header=BB6_151 Depth=1
-	move	$s3, $t8
-	move	$a5, $fp
+	move	$a5, $t8
+	move	$s3, $fp
 	.p2align	4, , 16
 .LBB6_165:                              # %.lr.ph189.i
                                         #   Parent Loop BB6_151 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	addi.d	$fp, $a5, -1
-	st.b	$a4, $a5, -1
-	addi.d	$t8, $s3, -1
+	addi.d	$fp, $s3, -1
+	st.b	$a4, $s3, -1
+	addi.d	$t8, $a5, -1
 	addi.w	$t7, $t7, -1
-	st.b	$a3, $s3, -1
-	move	$s3, $t8
-	move	$a5, $fp
+	st.b	$a3, $a5, -1
+	move	$a5, $t8
+	move	$s3, $fp
 	bnez	$t7, .LBB6_165
 .LBB6_166:                              # %._crit_edge190.loopexit.i
                                         #   in Loop: Header=BB6_151 Depth=1

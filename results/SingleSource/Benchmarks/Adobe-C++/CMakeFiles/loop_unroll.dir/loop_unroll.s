@@ -9040,13 +9040,13 @@ _Z27test_for_loop_unroll_factorILi6EiEvPKT0_iPKc: # @_Z27test_for_loop_unroll_fa
 	bnez	$a2, .LBB35_8
 # %bb.9:                                # %middle.block56
                                         #   in Loop: Header=BB35_3 Depth=1
+	vreplvei.w	$vr1, $vr0, 1
+	vadd.w	$vr0, $vr1, $vr0
 	vpickve2gr.w	$a0, $vr0, 0
-	vpickve2gr.w	$a2, $vr0, 1
-	add.d	$a0, $a2, $a0
 	ld.d	$a2, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$a3, $sp, 56                    # 8-byte Folded Reload
 	beq	$a3, $s3, .LBB35_12
-.LBB35_10:                              # %.lr.ph.preheader62
+.LBB35_10:                              # %.lr.ph.preheader63
                                         #   in Loop: Header=BB35_3 Depth=1
 	ld.d	$a3, $sp, 64                    # 8-byte Folded Reload
 	alsl.d	$a3, $a2, $a3, 2
@@ -9117,7 +9117,7 @@ _Z27test_for_loop_unroll_factorILi6EiEvPKT0_iPKc: # @_Z27test_for_loop_unroll_fa
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a0, $vr0, 0
 	beq	$a4, $a5, .LBB35_20
-.LBB35_18:                              # %.lr.ph27.preheader61
+.LBB35_18:                              # %.lr.ph27.preheader62
                                         #   in Loop: Header=BB35_3 Depth=1
 	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	alsl.d	$a2, $a3, $a2, 2
@@ -19036,13 +19036,13 @@ _Z29test_while_loop_unroll_factorILi6EiEvPKT0_iPKc: # @_Z29test_while_loop_unrol
 	bnez	$a2, .LBB70_8
 # %bb.9:                                # %middle.block56
                                         #   in Loop: Header=BB70_3 Depth=1
+	vreplvei.w	$vr1, $vr0, 1
+	vadd.w	$vr0, $vr1, $vr0
 	vpickve2gr.w	$a0, $vr0, 0
-	vpickve2gr.w	$a2, $vr0, 1
-	add.d	$a0, $a2, $a0
 	ld.d	$a2, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$a3, $sp, 56                    # 8-byte Folded Reload
 	beq	$a3, $s3, .LBB70_12
-.LBB70_10:                              # %.lr.ph.preheader62
+.LBB70_10:                              # %.lr.ph.preheader63
                                         #   in Loop: Header=BB70_3 Depth=1
 	ld.d	$a3, $sp, 64                    # 8-byte Folded Reload
 	alsl.d	$a3, $a2, $a3, 2
@@ -19113,7 +19113,7 @@ _Z29test_while_loop_unroll_factorILi6EiEvPKT0_iPKc: # @_Z29test_while_loop_unrol
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a0, $vr0, 0
 	beq	$a4, $a5, .LBB70_20
-.LBB70_18:                              # %.lr.ph27.preheader61
+.LBB70_18:                              # %.lr.ph27.preheader62
                                         #   in Loop: Header=BB70_3 Depth=1
 	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	alsl.d	$a2, $a3, $a2, 2
@@ -29005,13 +29005,13 @@ _Z26test_do_loop_unroll_factorILi6EiEvPKT0_iPKc: # @_Z26test_do_loop_unroll_fact
 	bnez	$a2, .LBB105_8
 # %bb.9:                                # %middle.block56
                                         #   in Loop: Header=BB105_3 Depth=1
+	vreplvei.w	$vr1, $vr0, 1
+	vadd.w	$vr0, $vr1, $vr0
 	vpickve2gr.w	$a0, $vr0, 0
-	vpickve2gr.w	$a2, $vr0, 1
-	add.d	$a0, $a2, $a0
 	ld.d	$a2, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$a3, $sp, 56                    # 8-byte Folded Reload
 	beq	$a3, $s3, .LBB105_12
-.LBB105_10:                             # %.preheader27.preheader62
+.LBB105_10:                             # %.preheader27.preheader63
                                         #   in Loop: Header=BB105_3 Depth=1
 	ld.d	$a3, $sp, 64                    # 8-byte Folded Reload
 	alsl.d	$a3, $a2, $a3, 2
@@ -29082,7 +29082,7 @@ _Z26test_do_loop_unroll_factorILi6EiEvPKT0_iPKc: # @_Z26test_do_loop_unroll_fact
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a0, $vr0, 0
 	beq	$a4, $a5, .LBB105_20
-.LBB105_18:                             # %.preheader.preheader61
+.LBB105_18:                             # %.preheader.preheader62
                                         #   in Loop: Header=BB105_3 Depth=1
 	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	alsl.d	$a2, $a3, $a2, 2
@@ -38969,13 +38969,13 @@ _Z28test_goto_loop_unroll_factorILi6EiEvPKT0_iPKc: # @_Z28test_goto_loop_unroll_
 	bnez	$a2, .LBB140_8
 # %bb.9:                                # %middle.block56
                                         #   in Loop: Header=BB140_3 Depth=1
+	vreplvei.w	$vr1, $vr0, 1
+	vadd.w	$vr0, $vr1, $vr0
 	vpickve2gr.w	$a0, $vr0, 0
-	vpickve2gr.w	$a2, $vr0, 1
-	add.d	$a0, $a2, $a0
 	ld.d	$a2, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$a3, $sp, 56                    # 8-byte Folded Reload
 	beq	$a3, $s3, .LBB140_12
-.LBB140_10:                             # %.preheader27.preheader62
+.LBB140_10:                             # %.preheader27.preheader63
                                         #   in Loop: Header=BB140_3 Depth=1
 	ld.d	$a3, $sp, 64                    # 8-byte Folded Reload
 	alsl.d	$a3, $a2, $a3, 2
@@ -39046,7 +39046,7 @@ _Z28test_goto_loop_unroll_factorILi6EiEvPKT0_iPKc: # @_Z28test_goto_loop_unroll_
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a0, $vr0, 0
 	beq	$a4, $a5, .LBB140_20
-.LBB140_18:                             # %.preheader.preheader61
+.LBB140_18:                             # %.preheader.preheader62
                                         #   in Loop: Header=BB140_3 Depth=1
 	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
 	alsl.d	$a2, $a3, $a2, 2

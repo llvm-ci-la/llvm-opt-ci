@@ -947,45 +947,48 @@ make_orthogonal:                        # @make_orthogonal
 	.type	find_gradient_f,@function
 find_gradient_f:                        # @find_gradient_f
 # %bb.0:
-	addi.d	$sp, $sp, -32
-	st.d	$ra, $sp, 24                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 16                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 8                    # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 0                    # 8-byte Folded Spill
 	pcalau12i	$a1, %pc_hi20(P)
 	fld.d	$fa2, $a1, %pc_lo12(P)
-	vldi	$vr3, -912
 	pcalau12i	$a1, %pc_hi20(Q)
-	fld.d	$fa4, $a1, %pc_lo12(Q)
-	fadd.d	$fa2, $fa2, $fa3
-	frecip.d	$fa2, $fa2
-	fsub.d	$fs0, $fa2, $fa0
-	fadd.d	$fa0, $fa4, $fa3
-	frecip.d	$fa0, $fa0
-	fsub.d	$fs1, $fa0, $fa1
-	movgr2fr.d	$fa0, $zero
-	fmadd.d	$fa0, $fs0, $fs0, $fa0
-	fmadd.d	$fa1, $fs1, $fs1, $fa0
+	fld.d	$fa3, $a1, %pc_lo12(Q)
+                                        # kill: def $f1_64 killed $f1_64 def $vr1
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vextrins.d	$vr2, $vr3, 16
+	lu52i.d	$a1, $zero, 1023
+	vreplgr2vr.d	$vr3, $a1
+	vfadd.d	$vr2, $vr2, $vr3
+	vfrecip.d	$vr2, $vr2
+	vextrins.d	$vr0, $vr1, 16
+	vfsub.d	$vr2, $vr2, $vr0
+	vreplvei.d	$vr0, $vr2, 0
+	movgr2fr.d	$fa1, $zero
+	fmadd.d	$fa0, $fa0, $fa0, $fa1
+	vreplvei.d	$vr1, $vr2, 1
+	fmadd.d	$fa1, $fa1, $fa1, $fa0
 	fsqrt.d	$fa0, $fa1
 	fcmp.cor.d	$fcc0, $fa0, $fa0
 	bceqz	$fcc0, .LBB8_2
 .LBB8_1:                                # %.split
-	fdiv.d	$fa1, $fs0, $fa0
-	fst.d	$fa1, $a0, 0
-	fdiv.d	$fa1, $fs1, $fa0
-	fst.d	$fa1, $a0, 8
-	fld.d	$fs1, $sp, 0                    # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 8                    # 8-byte Folded Reload
+	vreplvei.d	$vr1, $vr0, 0
+	vfdiv.d	$vr1, $vr2, $vr1
+	vst	$vr1, $a0, 0
+                                        # kill: def $f0_64 killed $f0_64 killed $vr0
+	ret
+.LBB8_2:                                # %call.sqrt
+	addi.d	$sp, $sp, -32
+	st.d	$ra, $sp, 24                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 16                    # 8-byte Folded Spill
+	fmov.d	$fa0, $fa1
+	move	$fp, $a0
+	vst	$vr2, $sp, 0                    # 16-byte Folded Spill
+	pcaddu18i	$ra, %call36(sqrt)
+	jirl	$ra, $ra, 0
+	vld	$vr2, $sp, 0                    # 16-byte Folded Reload
+	move	$a0, $fp
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
 	ld.d	$fp, $sp, 16                    # 8-byte Folded Reload
 	ld.d	$ra, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$sp, $sp, 32
-	ret
-.LBB8_2:                                # %call.sqrt
-	fmov.d	$fa0, $fa1
-	move	$fp, $a0
-	pcaddu18i	$ra, %call36(sqrt)
-	jirl	$ra, $ra, 0
-	move	$a0, $fp
 	b	.LBB8_1
 .Lfunc_end8:
 	.size	find_gradient_f, .Lfunc_end8-find_gradient_f

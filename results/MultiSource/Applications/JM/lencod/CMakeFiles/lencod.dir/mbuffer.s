@@ -3099,10 +3099,9 @@ init_lists:                             # @init_lists
 .LBB11_396:                             # %.loopexit1156
 	bnez	$a6, .LBB11_398
 # %bb.397:
-	ld.d	$a3, $a2, 8
-	ld.d	$a4, $a2, 0
-	st.d	$a3, $a2, 0
-	st.d	$a4, $a2, 8
+	vld	$vr0, $a2, 0
+	vshuf4i.d	$vr0, $vr0, 1
+	vst	$vr0, $a2, 0
 .LBB11_398:
 	pcalau12i	$a2, %got_pc_hi20(img)
 	ld.d	$a2, $a2, %got_pc_lo12(img)
@@ -3601,23 +3600,23 @@ reorder_ref_pic_list:                   # @reorder_ref_pic_list
 	sll.w	$t5, $a5, $a1
 	addi.d	$t8, $t7, -1
 	alsl.d	$a1, $t7, $s4, 3
-	addi.d	$a1, $a1, -8
+	addi.d	$a1, $a1, -16
 	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	ori	$fp, $zero, 1
 	ori	$s0, $zero, 4
-	ori	$s1, $zero, 1
+	ori	$s8, $zero, 1
 	st.d	$s6, $sp, 24                    # 8-byte Folded Spill
 	b	.LBB21_5
 	.p2align	4, , 16
 .LBB21_3:                               # %reorder_short_term.exit.sink.split
                                         #   in Loop: Header=BB21_5 Depth=1
-	slli.d	$a1, $s7, 3
+	slli.d	$a1, $s1, 3
 	stx.d	$a5, $s4, $a1
 .LBB21_4:                               # %reorder_short_term.exit
                                         #   in Loop: Header=BB21_5 Depth=1
 	slli.d	$a1, $a0, 2
 	ldx.w	$a6, $t6, $a1
-	addi.w	$s1, $s1, 1
+	addi.w	$s8, $s8, 1
 	beq	$a6, $s5, .LBB21_1
 .LBB21_5:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB21_13 Depth 2
@@ -3628,8 +3627,8 @@ reorder_ref_pic_list:                   # @reorder_ref_pic_list
                                         #     Child Loop BB21_52 Depth 2
                                         #     Child Loop BB21_55 Depth 2
                                         #     Child Loop BB21_59 Depth 2
-	move	$s7, $a0
-	slli.d	$s8, $a0, 2
+	move	$s1, $a0
+	slli.d	$s2, $a0, 2
 	blt	$a6, $s0, .LBB21_7
 # %bb.6:                                #   in Loop: Header=BB21_5 Depth=1
 	pcalau12i	$a0, %pc_hi20(.L.str.13)
@@ -3638,34 +3637,34 @@ reorder_ref_pic_list:                   # @reorder_ref_pic_list
 	move	$fp, $t5
 	move	$s5, $t6
 	move	$s0, $t7
-	move	$s2, $t8
+	move	$s7, $t8
 	pcaddu18i	$ra, %call36(error)
 	jirl	$ra, $ra, 0
-	move	$t8, $s2
+	move	$t8, $s7
 	move	$t7, $s0
 	ori	$s0, $zero, 4
 	move	$t6, $s5
 	ori	$s5, $zero, 3
 	move	$t5, $fp
 	ori	$fp, $zero, 1
-	ldx.w	$a6, $t6, $s8
+	ldx.w	$a6, $t6, $s2
 .LBB21_7:                               #   in Loop: Header=BB21_5 Depth=1
-	addi.d	$a1, $s1, -1
-	slt	$a0, $s7, $t8
+	addi.d	$a1, $s8, -1
+	slt	$a0, $s1, $t8
 	masknez	$a2, $t8, $a0
-	maskeqz	$a0, $s7, $a0
+	maskeqz	$a0, $s1, $a0
 	or	$a0, $a0, $a2
 	sub.d	$a3, $t7, $a0
-	alsl.d	$a2, $s1, $s4, 3
+	alsl.d	$a2, $s8, $s4, 3
 	move	$a4, $a3
-	bstrins.d	$a4, $zero, 0, 0
-	addi.d	$a0, $s7, 1
+	bstrins.d	$a4, $zero, 1, 0
+	addi.d	$a0, $s1, 1
 	pcalau12i	$a5, %pc_hi20(dpb)
 	addi.d	$a5, $a5, %pc_lo12(dpb)
 	blt	$fp, $a6, .LBB21_10
 # %bb.8:                                #   in Loop: Header=BB21_5 Depth=1
 	ld.d	$a7, $sp, 32                    # 8-byte Folded Reload
-	ldx.w	$a7, $a7, $s8
+	ldx.w	$a7, $a7, $s2
 	beqz	$a6, .LBB21_35
 # %bb.9:                                #   in Loop: Header=BB21_5 Depth=1
 	add.d	$a6, $s6, $a7
@@ -3678,7 +3677,7 @@ reorder_ref_pic_list:                   # @reorder_ref_pic_list
 .LBB21_10:                              #   in Loop: Header=BB21_5 Depth=1
 	ld.wu	$a7, $a5, 36
 	ld.d	$a6, $sp, 40                    # 8-byte Folded Reload
-	ldx.w	$a6, $a6, $s8
+	ldx.w	$a6, $a6, $s2
 	beqz	$a7, .LBB21_23
 # %bb.11:                               # %.lr.ph.i.i61
                                         #   in Loop: Header=BB21_5 Depth=1
@@ -3728,36 +3727,37 @@ reorder_ref_pic_list:                   # @reorder_ref_pic_list
 	.p2align	4, , 16
 .LBB21_22:                              # %get_long_term_pic.exit.i
                                         #   in Loop: Header=BB21_5 Depth=1
-	blt	$s3, $s7, .LBB21_3
+	blt	$s3, $s1, .LBB21_3
 	b	.LBB21_24
 	.p2align	4, , 16
 .LBB21_23:                              #   in Loop: Header=BB21_5 Depth=1
 	move	$a5, $zero
-	blt	$s3, $s7, .LBB21_3
+	blt	$s3, $s1, .LBB21_3
 .LBB21_24:                              # %.lr.ph.i72.preheader
                                         #   in Loop: Header=BB21_5 Depth=1
 	move	$a7, $t7
-	ori	$t0, $zero, 2
-	bltu	$a3, $t0, .LBB21_28
-# %bb.25:                               # %vector.ph105
+	bltu	$a3, $s0, .LBB21_28
+# %bb.25:                               # %vector.ph109
                                         #   in Loop: Header=BB21_5 Depth=1
 	move	$t0, $a3
-	bstrins.d	$t0, $zero, 0, 0
+	bstrins.d	$t0, $zero, 1, 0
 	sub.d	$a7, $t7, $t0
 	ld.d	$t1, $sp, 16                    # 8-byte Folded Reload
 	.p2align	4, , 16
-.LBB21_26:                              # %vector.body108
+.LBB21_26:                              # %vector.body112
                                         #   Parent Loop BB21_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr0, $t1, -8
-	vst	$vr0, $t1, 0
-	addi.d	$a4, $a4, -2
-	addi.d	$t1, $t1, -16
+	vld	$vr0, $t1, 0
+	vld	$vr1, $t1, -16
+	vst	$vr0, $t1, 8
+	vst	$vr1, $t1, -8
+	addi.d	$a4, $a4, -4
+	addi.d	$t1, $t1, -32
 	bnez	$a4, .LBB21_26
-# %bb.27:                               # %middle.block112
+# %bb.27:                               # %middle.block122
                                         #   in Loop: Header=BB21_5 Depth=1
 	beq	$a3, $t0, .LBB21_30
-.LBB21_28:                              # %.lr.ph.i72.preheader117
+.LBB21_28:                              # %.lr.ph.i72.preheader127
                                         #   in Loop: Header=BB21_5 Depth=1
 	alsl.d	$a3, $a7, $s4, 3
 	.p2align	4, , 16
@@ -3769,10 +3769,10 @@ reorder_ref_pic_list:                   # @reorder_ref_pic_list
 	addi.d	$a7, $a7, -1
 	st.d	$a4, $a3, 0
 	move	$a3, $t0
-	blt	$s7, $a7, .LBB21_29
+	blt	$s1, $a7, .LBB21_29
 .LBB21_30:                              # %.lr.ph35.preheader.i
                                         #   in Loop: Header=BB21_5 Depth=1
-	slli.d	$a3, $s7, 3
+	slli.d	$a3, $s1, 3
 	stx.d	$a5, $s4, $a3
 	move	$a3, $a0
 	b	.LBB21_33
@@ -3858,36 +3858,37 @@ reorder_ref_pic_list:                   # @reorder_ref_pic_list
 	.p2align	4, , 16
 .LBB21_48:                              # %get_short_term_pic.exit.i
                                         #   in Loop: Header=BB21_5 Depth=1
-	blt	$s3, $s7, .LBB21_3
+	blt	$s3, $s1, .LBB21_3
 	b	.LBB21_50
 	.p2align	4, , 16
 .LBB21_49:                              #   in Loop: Header=BB21_5 Depth=1
 	move	$a5, $zero
-	blt	$s3, $s7, .LBB21_3
+	blt	$s3, $s1, .LBB21_3
 .LBB21_50:                              # %.lr.ph.i.preheader
                                         #   in Loop: Header=BB21_5 Depth=1
 	move	$a7, $t7
-	ori	$t0, $zero, 2
-	bltu	$a3, $t0, .LBB21_54
+	bltu	$a3, $s0, .LBB21_54
 # %bb.51:                               # %vector.ph
                                         #   in Loop: Header=BB21_5 Depth=1
 	move	$t0, $a3
-	bstrins.d	$t0, $zero, 0, 0
+	bstrins.d	$t0, $zero, 1, 0
 	sub.d	$a7, $t7, $t0
 	ld.d	$t1, $sp, 16                    # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB21_52:                              # %vector.body
                                         #   Parent Loop BB21_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr0, $t1, -8
-	vst	$vr0, $t1, 0
-	addi.d	$a4, $a4, -2
-	addi.d	$t1, $t1, -16
+	vld	$vr0, $t1, 0
+	vld	$vr1, $t1, -16
+	vst	$vr0, $t1, 8
+	vst	$vr1, $t1, -8
+	addi.d	$a4, $a4, -4
+	addi.d	$t1, $t1, -32
 	bnez	$a4, .LBB21_52
 # %bb.53:                               # %middle.block
                                         #   in Loop: Header=BB21_5 Depth=1
 	beq	$a3, $t0, .LBB21_56
-.LBB21_54:                              # %.lr.ph.i.preheader115
+.LBB21_54:                              # %.lr.ph.i.preheader125
                                         #   in Loop: Header=BB21_5 Depth=1
 	alsl.d	$a3, $a7, $s4, 3
 	.p2align	4, , 16
@@ -3899,12 +3900,12 @@ reorder_ref_pic_list:                   # @reorder_ref_pic_list
 	addi.d	$a7, $a7, -1
 	st.d	$a4, $a3, 0
 	move	$a3, $t0
-	blt	$s7, $a7, .LBB21_55
+	blt	$s1, $a7, .LBB21_55
 .LBB21_56:                              # %.lr.ph39.preheader.i
                                         #   in Loop: Header=BB21_5 Depth=1
-	slli.d	$a3, $s7, 3
+	slli.d	$a3, $s1, 3
 	stx.d	$a5, $s4, $a3
-	addi.w	$a3, $s7, 1
+	addi.w	$a3, $s1, 1
 	b	.LBB21_59
 	.p2align	4, , 16
 .LBB21_57:                              #   in Loop: Header=BB21_59 Depth=2

@@ -25520,10 +25520,9 @@ _ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE13_M_quantifierEv: # @_ZN
 .LBB104_152:                            # %_ZNSt5stackIlSt5dequeIlSaIlEEE3popEv.exit
                                         #   in Loop: Header=BB104_153 Depth=1
 	st.d	$a2, $sp, 104
-	ld.d	$a3, $s0, 16
-	ld.d	$a4, $s0, 8
-	st.d	$a3, $s0, 8
-	st.d	$a4, $s0, 16
+	vld	$vr0, $s0, 8
+	vshuf4i.d	$vr0, $vr0, 1
+	vst	$vr0, $s0, 8
 	beq	$a2, $a1, .LBB104_155
 .LBB104_153:                            # =>This Inner Loop Header: Depth=1
 	ld.d	$a3, $fp, 256

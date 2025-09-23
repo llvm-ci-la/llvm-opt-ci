@@ -379,6 +379,21 @@ EPZSWindowPredictorInit:                # @EPZSWindowPredictorInit
 	.section	.rodata.cst16,"aM",@progbits,16
 	.p2align	4, 0x0                          # -- Begin function EPZSInit
 .LCPI6_0:
+	.word	8                               # 0x8
+	.word	7                               # 0x7
+	.word	7                               # 0x7
+	.word	6                               # 0x6
+.LCPI6_1:
+	.word	768                             # 0x300
+	.word	384                             # 0x180
+	.word	384                             # 0x180
+	.word	192                             # 0xc0
+.LCPI6_2:
+	.word	6                               # 0x6
+	.word	5                               # 0x5
+	.word	5                               # 0x5
+	.word	4                               # 0x4
+.LCPI6_3:
 	.word	0                               # 0x0
 	.word	0                               # 0x0
 	.word	3                               # 0x3
@@ -466,62 +481,45 @@ EPZSInit:                               # @EPZSInit
 	st.w	$zero, $a7, 0
 	pcalau12i	$t0, %pc_hi20(subthres)
 	addi.d	$t0, $t0, %pc_lo12(subthres)
+	pcalau12i	$t1, %pc_hi20(.LCPI6_0)
+	vld	$vr0, $t1, %pc_lo12(.LCPI6_0)
 	st.w	$zero, $t0, 0
-	slli.d	$t1, $a4, 8
+	vreplgr2vr.w	$vr1, $a4
+	vsll.w	$vr1, $vr1, $vr0
+	vreplgr2vr.w	$vr2, $a0
+	pcalau12i	$t1, %pc_hi20(.LCPI6_1)
+	vld	$vr3, $t1, %pc_lo12(.LCPI6_1)
+	vsll.w	$vr1, $vr1, $vr2
+	vst	$vr1, $a5, 4
+	vreplgr2vr.w	$vr1, $a3
+	vmul.w	$vr1, $vr1, $vr3
+	pcalau12i	$t1, %pc_hi20(.LCPI6_2)
+	vld	$vr3, $t1, %pc_lo12(.LCPI6_2)
+	vsll.w	$vr1, $vr1, $vr2
+	vst	$vr1, $a6, 4
+	vreplgr2vr.w	$vr1, $a2
+	vsll.w	$vr1, $vr1, $vr3
+	vsll.w	$vr1, $vr1, $vr2
+	vst	$vr1, $a7, 4
+	vreplgr2vr.w	$vr1, $a1
+	vsll.w	$vr0, $vr1, $vr0
+	vsll.w	$vr0, $vr0, $vr2
+	vst	$vr0, $t0, 4
+	slli.d	$t1, $a4, 5
 	sll.w	$t1, $t1, $a0
-	st.w	$t1, $a5, 4
-	alsl.d	$t1, $a3, $a3, 1
-	slli.d	$t2, $t1, 8
+	st.w	$t1, $a5, 20
+	alsl.d	$t2, $a3, $a3, 1
+	slli.d	$t2, $t2, 5
 	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a6, 4
-	slli.d	$t2, $a2, 6
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a7, 4
-	slli.d	$t2, $a1, 8
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $t0, 4
-	slli.d	$t2, $a4, 7
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a5, 8
-	slli.d	$t3, $t1, 7
-	sll.w	$t3, $t3, $a0
-	st.w	$t3, $a6, 8
-	slli.d	$t4, $a2, 5
-	sll.w	$t4, $t4, $a0
-	st.w	$t4, $a7, 8
-	slli.d	$t5, $a1, 7
-	sll.w	$t5, $t5, $a0
-	st.w	$t5, $t0, 8
-	st.w	$t2, $a5, 12
-	st.w	$t3, $a6, 12
-	st.w	$t4, $a7, 12
-	st.w	$t5, $t0, 12
-	slli.d	$t2, $a4, 6
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a5, 16
-	slli.d	$t2, $t1, 6
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a6, 16
-	slli.d	$t2, $a2, 4
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a7, 16
-	slli.d	$t2, $a1, 6
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $t0, 16
-	slli.d	$t2, $a4, 5
-	sll.w	$t2, $t2, $a0
-	st.w	$t2, $a5, 20
-	slli.d	$t1, $t1, 5
-	sll.w	$t1, $t1, $a0
-	st.w	$t1, $a6, 20
+	st.w	$t2, $a6, 20
 	slli.d	$t3, $a2, 3
 	sll.w	$t3, $t3, $a0
 	st.w	$t3, $a7, 20
 	slli.d	$t4, $a1, 5
 	sll.w	$t4, $t4, $a0
 	st.w	$t4, $t0, 20
-	st.w	$t2, $a5, 24
-	st.w	$t1, $a6, 24
+	st.w	$t1, $a5, 24
+	st.w	$t2, $a6, 24
 	st.w	$t3, $a7, 24
 	st.w	$t4, $t0, 24
 	slli.d	$a4, $a4, 4
@@ -567,11 +565,11 @@ EPZSInit:                               # @EPZSInit
 	srl.w	$s4, $s5, $s0
 	st.w	$s4, $a0, 4
 	ori	$s3, $zero, 3
-	ori	$s6, $zero, 3
-	pcalau12i	$a1, %pc_hi20(.LCPI6_0)
-	vld	$vr0, $a1, %pc_lo12(.LCPI6_0)
-	lu32i.d	$s6, 3
-	st.d	$s6, $a0, 8
+	ori	$s7, $zero, 3
+	pcalau12i	$a1, %pc_hi20(.LCPI6_3)
+	vld	$vr0, $a1, %pc_lo12(.LCPI6_3)
+	lu32i.d	$s7, 3
+	st.d	$s7, $a0, 8
 	st.w	$s4, $a0, 16
 	vst	$vr0, $a0, 20
 	addi.d	$a1, $zero, -4
@@ -581,7 +579,7 @@ EPZSInit:                               # @EPZSInit
 	lu32i.d	$a1, 3
 	st.d	$a1, $a0, 40
 	st.w	$s2, $a0, 48
-	ori	$s7, $zero, 0
+	ori	$s6, $zero, 0
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, 2
 	st.d	$a1, $a0, 52
@@ -639,15 +637,15 @@ EPZSInit:                               # @EPZSInit
 	st.d	$a2, $a0, 56
 	st.w	$zero, $a0, 64
 	st.w	$s2, $a0, 68
-	st.d	$s6, $a0, 72
+	st.d	$s7, $a0, 72
 	st.w	$s2, $a0, 80
 	st.w	$s2, $a0, 84
 	ori	$a2, $zero, 3
 	lu32i.d	$a2, 5
 	st.d	$a2, $a0, 88
 	st.w	$s2, $a0, 96
-	lu32i.d	$s7, 5
-	st.d	$s7, $a0, 100
+	lu32i.d	$s6, 5
+	st.d	$s6, $a0, 100
 	st.w	$s3, $a0, 108
 	st.w	$s2, $a0, 112
 	st.w	$s4, $a0, 116
@@ -701,9 +699,9 @@ EPZSInit:                               # @EPZSInit
 	st.d	$a3, $a6, 8
 	bne	$a1, $a2, .LBB6_11
 # %bb.12:                               # %assignEPZSpattern.exit34
-	ori	$s6, $zero, 1
-	lu32i.d	$s6, 1
-	st.d	$s6, $fp, 16
+	ori	$s7, $zero, 1
+	lu32i.d	$s7, 1
+	st.d	$s7, $fp, 16
 	st.d	$fp, $fp, 24
 	ori	$a0, $zero, 1
 	ori	$a1, $zero, 32
@@ -772,7 +770,7 @@ EPZSInit:                               # @EPZSInit
 	st.w	$a4, $a0, 116
 	lu32i.d	$a2, 3
 	st.d	$a2, $a0, 120
-	st.d	$s6, $fp, 16
+	st.d	$s7, $fp, 16
 	st.d	$fp, $fp, 24
 	ori	$a0, $zero, 1
 	ori	$a1, $zero, 32
@@ -795,7 +793,7 @@ EPZSInit:                               # @EPZSInit
 	jirl	$ra, $ra, 0
 	move	$a1, $zero
 	st.d	$a0, $fp, 8
-	ld.d	$s6, $s5, 0
+	ld.d	$s7, $s5, 0
 	pcalau12i	$a2, %pc_hi20(sbdiamond)
 	st.d	$fp, $a2, %pc_lo12(sbdiamond)
 	ori	$a2, $zero, 192
@@ -814,11 +812,11 @@ EPZSInit:                               # @EPZSInit
 	st.d	$a3, $a6, 8
 	bne	$a1, $a2, .LBB6_17
 # %bb.18:                               # %assignEPZSpattern.exit44
-	ori	$s7, $zero, 0
+	ori	$s6, $zero, 0
 	ori	$s4, $zero, 0
 	lu32i.d	$s4, 1
 	st.d	$s4, $fp, 16
-	st.d	$s6, $fp, 24
+	st.d	$s7, $fp, 24
 	ori	$a0, $zero, 1
 	ori	$a1, $zero, 32
 	pcaddu18i	$ra, %call36(calloc)
@@ -831,7 +829,7 @@ EPZSInit:                               # @EPZSInit
 	pcaddu18i	$ra, %call36(no_mem_exit)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(sdiamond)
-	ld.d	$s6, $a0, %pc_lo12(sdiamond)
+	ld.d	$s7, $a0, %pc_lo12(sdiamond)
 	ld.w	$s0, $s2, %pc_lo12(mv_rescale)
 .LBB6_20:                               # %.lr.ph.i46
 	ori	$s1, $zero, 8
@@ -879,15 +877,15 @@ EPZSInit:                               # @EPZSInit
 	lu32i.d	$a3, 3
 	st.d	$a3, $a0, 88
 	st.w	$a7, $a0, 96
-	lu32i.d	$s7, 4
-	st.d	$s7, $a0, 100
+	lu32i.d	$s6, 4
+	st.d	$s6, $a0, 100
 	st.w	$a1, $a0, 108
 	st.w	$a5, $a0, 112
 	st.w	$a4, $a0, 116
 	lu32i.d	$a2, 3
 	st.d	$a2, $a0, 120
 	st.d	$s4, $fp, 16
-	st.d	$s6, $fp, 24
+	st.d	$s7, $fp, 24
 	slli.w	$fp, $s8, 3
 	ori	$a0, $zero, 1
 	ori	$a1, $zero, 32

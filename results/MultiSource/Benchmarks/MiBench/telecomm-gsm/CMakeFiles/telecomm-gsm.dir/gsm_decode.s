@@ -48,35 +48,36 @@ gsm_decode:                             # @gsm_decode
 	st.h	$a3, $sp, 136
 	srli.d	$a3, $a2, 7
 	bstrins.d	$a3, $a4, 5, 1
-	ld.bu	$a4, $a1, 8
 	st.h	$a3, $sp, 120
-	bstrpick.d	$a3, $a2, 6, 4
-	bstrpick.d	$a5, $a2, 3, 1
-	srli.d	$a6, $a4, 6
-	bstrins.d	$a6, $a2, 2, 2
+	vinsgr2vr.b	$vr0, $a2, 0
+	vinsgr2vr.b	$vr0, $a2, 1
+	ld.bu	$a3, $a1, 8
+	vrepli.h	$vr1, 260
+	vsrl.b	$vr0, $vr0, $vr1
+	vandi.b	$vr1, $vr0, 7
+	srli.d	$a4, $a3, 6
+	bstrins.d	$a4, $a2, 2, 2
 	ld.bu	$a2, $a1, 9
-	bstrpick.d	$t0, $a4, 5, 3
-	ld.bu	$t1, $a1, 10
-	andi	$a4, $a4, 7
-	srli.d	$t2, $a2, 5
-	bstrpick.d	$t3, $a2, 4, 2
-	srli.d	$t4, $t1, 7
-	bstrins.d	$t4, $a2, 2, 1
-	vinsgr2vr.b	$vr1, $a3, 0
-	vinsgr2vr.b	$vr1, $a5, 1
-	vinsgr2vr.b	$vr1, $a6, 2
-	vinsgr2vr.b	$vr1, $t0, 3
-	vinsgr2vr.b	$vr1, $a4, 4
-	vinsgr2vr.b	$vr1, $t2, 5
-	vinsgr2vr.b	$vr1, $t3, 6
-	vinsgr2vr.b	$vr1, $t4, 7
+	bstrpick.d	$a5, $a3, 5, 3
+	ld.bu	$a6, $a1, 10
+	andi	$a3, $a3, 7
+	srli.d	$t0, $a2, 5
+	bstrpick.d	$t1, $a2, 4, 2
+	srli.d	$t2, $a6, 7
+	bstrins.d	$t2, $a2, 2, 1
+	vinsgr2vr.b	$vr1, $a4, 2
+	vinsgr2vr.b	$vr1, $a5, 3
+	vinsgr2vr.b	$vr1, $a3, 4
+	vinsgr2vr.b	$vr1, $t0, 5
+	vinsgr2vr.b	$vr1, $t1, 6
+	vinsgr2vr.b	$vr1, $t2, 7
 	vrepli.b	$vr0, 0
 	vilvl.b	$vr1, $vr0, $vr1
 	vst	$vr1, $sp, 16
-	bstrpick.d	$a2, $t1, 6, 4
+	bstrpick.d	$a2, $a6, 6, 4
 	st.h	$a2, $sp, 32
 	ld.bu	$a2, $a1, 12
-	bstrpick.d	$a3, $t1, 3, 1
+	bstrpick.d	$a3, $a6, 3, 1
 	ld.bu	$a4, $a1, 13
 	st.h	$a3, $sp, 34
 	srli.d	$a3, $a2, 1
@@ -92,7 +93,7 @@ gsm_decode:                             # @gsm_decode
 	bstrins.d	$a5, $a4, 5, 1
 	st.h	$a5, $sp, 122
 	srli.d	$a4, $a3, 6
-	bstrins.d	$a4, $t1, 2, 2
+	bstrins.d	$a4, $a6, 2, 2
 	st.h	$a4, $sp, 36
 	vinsgr2vr.b	$vr1, $a3, 0
 	vinsgr2vr.b	$vr1, $a2, 1

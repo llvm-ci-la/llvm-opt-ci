@@ -104,10 +104,10 @@ do_ari:                                 # @do_ari
 	pcalau12i	$a0, %pc_hi20(buffer)
 	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
 	st.w	$zero, $a0, %pc_lo12(buffer)
-	pcalau12i	$a1, %pc_hi20(bits_to_go)
-	ori	$a0, $zero, 8
-	st.d	$a1, $sp, 24                    # 8-byte Folded Spill
-	st.w	$a0, $a1, %pc_lo12(bits_to_go)
+	pcalau12i	$a0, %pc_hi20(bits_to_go)
+	ori	$a1, $zero, 8
+	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
+	st.w	$a1, $a0, %pc_lo12(bits_to_go)
 	pcalau12i	$a0, %pc_hi20(low)
 	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
 	st.d	$zero, $a0, %pc_lo12(low)
@@ -213,30 +213,34 @@ do_ari:                                 # @do_ari
 	sltu	$a3, $zero, $a2
 	sub.d	$a2, $a1, $a3
 	addi.d	$a2, $a2, 1
-	ori	$a4, $zero, 4
+	ori	$a4, $zero, 8
 	bltu	$a2, $a4, .LBB0_19
 # %bb.16:                               # %vector.ph54
                                         #   in Loop: Header=BB0_7 Depth=1
 	sub.d	$a4, $zero, $a3
-	and	$a3, $a2, $s4
+	addi.w	$a5, $zero, -8
+	and	$a3, $a2, $a5
 	sub.d	$a1, $a1, $a3
-	bstrpick.d	$a5, $a0, 31, 0
-	alsl.d	$a0, $a5, $s8, 2
+	bstrpick.d	$a6, $a0, 31, 0
+	alsl.d	$a0, $a6, $s8, 2
 	addi.d	$a0, $a0, -16
-	add.d	$a4, $a4, $a5
+	add.d	$a4, $a4, $a6
 	addi.d	$a4, $a4, 1
-	and	$a4, $a4, $s4
+	and	$a4, $a4, $a5
 	.p2align	4, , 16
 .LBB0_17:                               # %vector.body55
                                         #   Parent Loop BB0_7 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr0, $a0, 0
+	vld	$vr1, $a0, -16
 	vaddi.wu	$vr0, $vr0, 1
+	vaddi.wu	$vr1, $vr1, 1
 	vst	$vr0, $a0, 0
-	addi.d	$a4, $a4, -4
-	addi.d	$a0, $a0, -16
+	vst	$vr1, $a0, -16
+	addi.d	$a4, $a4, -8
+	addi.d	$a0, $a0, -32
 	bnez	$a4, .LBB0_17
-# %bb.18:                               # %middle.block59
+# %bb.18:                               # %middle.block62
                                         #   in Loop: Header=BB0_7 Depth=1
 	beq	$a2, $a3, .LBB0_6
 .LBB0_19:                               # %.lr.ph.i.preheader

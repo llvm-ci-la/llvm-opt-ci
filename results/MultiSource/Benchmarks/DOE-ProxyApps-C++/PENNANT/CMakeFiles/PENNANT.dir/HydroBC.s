@@ -198,33 +198,29 @@ _ZN7HydroBC12applyFixedBCEP7double2S1_ii: # @_ZN7HydroBC12applyFixedBCEP7double2
 	.p2align	4, , 16
 .LBB2_2:                                # =>This Inner Loop Header: Depth=1
 	ld.w	$a4, $a5, 0
-	alsl.d	$a6, $a4, $a1, 4
-	slli.d	$a7, $a4, 4
-	fldx.d	$fa0, $a1, $a7
-	fld.d	$fa1, $a6, 8
-	fld.d	$fa2, $a0, 24
-	fld.d	$fa3, $a0, 16
-	fmul.d	$fa4, $fa1, $fa2
-	fmadd.d	$fa4, $fa0, $fa3, $fa4
-	fmul.d	$fa3, $fa3, $fa4
-	fmul.d	$fa2, $fa2, $fa4
-	fsub.d	$fa0, $fa0, $fa3
-	fsub.d	$fa1, $fa1, $fa2
-	fstx.d	$fa0, $a1, $a7
-	fst.d	$fa1, $a6, 8
-	alsl.d	$a4, $a4, $a2, 4
-	fldx.d	$fa0, $a2, $a7
-	fld.d	$fa1, $a4, 8
-	fld.d	$fa2, $a0, 24
-	fld.d	$fa3, $a0, 16
-	fmul.d	$fa4, $fa1, $fa2
-	fmadd.d	$fa4, $fa0, $fa3, $fa4
-	fmul.d	$fa3, $fa3, $fa4
-	fmul.d	$fa2, $fa2, $fa4
-	fsub.d	$fa0, $fa0, $fa3
-	fsub.d	$fa1, $fa1, $fa2
-	fstx.d	$fa0, $a2, $a7
-	fst.d	$fa1, $a4, 8
+	slli.d	$a4, $a4, 4
+	vldx	$vr0, $a1, $a4
+	vld	$vr1, $a0, 16
+	vfmul.d	$vr2, $vr0, $vr1
+	vreplvei.d	$vr2, $vr2, 1
+	vreplvei.d	$vr3, $vr0, 0
+	vreplvei.d	$vr4, $vr1, 0
+	fmadd.d	$fa2, $fa3, $fa4, $fa2
+	vreplvei.d	$vr2, $vr2, 0
+	vfmul.d	$vr1, $vr1, $vr2
+	vfsub.d	$vr0, $vr0, $vr1
+	vstx	$vr0, $a1, $a4
+	vldx	$vr0, $a2, $a4
+	vld	$vr1, $a0, 16
+	vfmul.d	$vr2, $vr0, $vr1
+	vreplvei.d	$vr2, $vr2, 1
+	vreplvei.d	$vr3, $vr0, 0
+	vreplvei.d	$vr4, $vr1, 0
+	fmadd.d	$fa2, $fa3, $fa4, $fa2
+	vreplvei.d	$vr2, $vr2, 0
+	vfmul.d	$vr1, $vr1, $vr2
+	vfsub.d	$vr0, $vr0, $vr1
+	vstx	$vr0, $a2, $a4
 	addi.d	$a3, $a3, -1
 	addi.d	$a5, $a5, 4
 	bnez	$a3, .LBB2_2

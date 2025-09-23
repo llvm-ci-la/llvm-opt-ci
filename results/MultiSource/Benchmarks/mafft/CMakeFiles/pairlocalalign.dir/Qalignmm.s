@@ -3669,7 +3669,7 @@ Q__align:                               # @Q__align
 	vrepli.b	$vr0, 0
 	vrepli.b	$vr1, 45
 	vrepli.b	$vr2, 111
-	ori	$a5, $zero, 16
+	ori	$a5, $zero, 32
 	ld.d	$a6, $sp, 408                   # 8-byte Folded Reload
 	move	$a0, $s2
 	.p2align	4, , 16
@@ -3714,8 +3714,8 @@ Q__align:                               # @Q__align
 # %bb.260:                              # %vector.ph1347
                                         #   in Loop: Header=BB3_251 Depth=1
 	bstrpick.d	$s0, $t7, 31, 0
-	bstrpick.d	$t8, $s0, 31, 4
-	slli.d	$s1, $t8, 4
+	bstrpick.d	$t8, $s0, 31, 5
+	slli.d	$s1, $t8, 5
 	sub.d	$t7, $t7, $s1
 	sub.d	$t8, $s3, $s1
 	sub.d	$fp, $s8, $s1
@@ -3727,10 +3727,12 @@ Q__align:                               # @Q__align
                                         #   Parent Loop BB3_251 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vst	$vr2, $s2, 0
+	vst	$vr2, $s2, -16
 	vst	$vr1, $s3, 0
-	addi.d	$s5, $s5, -16
-	addi.d	$s2, $s2, -16
-	addi.d	$s3, $s3, -16
+	vst	$vr1, $s3, -16
+	addi.d	$s5, $s5, -32
+	addi.d	$s2, $s2, -32
+	addi.d	$s3, $s3, -32
 	bnez	$s5, .LBB3_261
 # %bb.262:                              # %middle.block1358
                                         #   in Loop: Header=BB3_251 Depth=1
@@ -4402,7 +4404,7 @@ Atracking:                              # @Atracking
 	vrepli.b	$vr0, 0
 	vrepli.b	$vr1, 45
 	vrepli.b	$vr2, 111
-	ori	$a4, $zero, 16
+	ori	$a4, $zero, 32
 	.p2align	4, , 16
 .LBB5_29:                               # %.lr.ph200
                                         # =>This Loop Header: Depth=1
@@ -4445,8 +4447,8 @@ Atracking:                              # @Atracking
 # %bb.38:                               # %vector.ph44
                                         #   in Loop: Header=BB5_29 Depth=1
 	bstrpick.d	$t6, $t3, 31, 0
-	bstrpick.d	$t4, $t6, 31, 4
-	slli.d	$t7, $t4, 4
+	bstrpick.d	$t4, $t6, 31, 5
+	slli.d	$t7, $t4, 5
 	sub.d	$t3, $t3, $t7
 	sub.d	$t4, $s1, $t7
 	sub.d	$t5, $s2, $t7
@@ -4458,10 +4460,12 @@ Atracking:                              # @Atracking
                                         #   Parent Loop BB5_29 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vst	$vr2, $t8, 0
+	vst	$vr2, $t8, -16
 	vst	$vr1, $s1, 0
-	addi.d	$s2, $s2, -16
-	addi.d	$t8, $t8, -16
-	addi.d	$s1, $s1, -16
+	vst	$vr1, $s1, -16
+	addi.d	$s2, $s2, -32
+	addi.d	$t8, $t8, -32
+	addi.d	$s1, $s1, -32
 	bnez	$s2, .LBB5_39
 # %bb.40:                               # %middle.block55
                                         #   in Loop: Header=BB5_29 Depth=1

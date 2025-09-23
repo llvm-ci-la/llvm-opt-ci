@@ -2108,14 +2108,13 @@ exhaustive_parse:                       # @exhaustive_parse
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $s8, 8
-	ld.d	$a1, $s8, 0
-	ld.d	$a2, $s8, 272
-	st.d	$a0, $sp, 432
+	vld	$vr0, $s8, 0
+	ld.d	$a0, $s8, 272
+	vshuf4i.d	$vr0, $vr0, 1
 	ld.d	$a3, $sp, 184
-	st.d	$a1, $sp, 440
-	st.d	$a2, $sp, 424
-	st.d	$a2, $sp, 352
+	vst	$vr0, $sp, 432
+	st.d	$a0, $sp, 424
+	st.d	$a0, $sp, 352
 	st.d	$a3, $sp, 408
 	addi.d	$a2, $sp, 184
 	addi.d	$a4, $sp, 216
@@ -3506,7 +3505,7 @@ commit_tree:                            # @commit_tree
 	ldx.w	$a1, $a0, $a1
 	addi.d	$s1, $s0, 40
 	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
-	beqz	$a2, .LBB31_67
+	beqz	$a2, .LBB31_74
 # %bb.30:                               # %.lr.ph
 	ld.w	$a0, $fp, 96
 	addi.d	$a1, $a1, -2
@@ -3526,11 +3525,12 @@ commit_tree:                            # @commit_tree
 .LBB31_32:                              #   in Loop: Header=BB31_33 Depth=1
 	ld.w	$a2, $s1, 0
 	addi.w	$s8, $s8, 1
-	bgeu	$s8, $a2, .LBB31_68
+	bgeu	$s8, $a2, .LBB31_75
 .LBB31_33:                              # =>This Loop Header: Depth=1
                                         #     Child Loop BB31_52 Depth 2
-                                        #     Child Loop BB31_61 Depth 2
-                                        #     Child Loop BB31_64 Depth 2
+                                        #     Child Loop BB31_72 Depth 2
+                                        #     Child Loop BB31_62 Depth 2
+                                        #     Child Loop BB31_65 Depth 2
                                         #     Child Loop BB31_41 Depth 2
                                         #     Child Loop BB31_44 Depth 2
 	ld.d	$a0, $s0, 48
@@ -3572,7 +3572,7 @@ commit_tree:                            # @commit_tree
 	move	$a2, $s8
 	ori	$a4, $zero, 4
 	bltu	$a3, $a4, .LBB31_43
-# %bb.40:                               # %vector.ph
+# %bb.40:                               # %vector.ph110
                                         #   in Loop: Header=BB31_33 Depth=1
 	move	$a4, $a3
 	bstrins.d	$a4, $zero, 1, 0
@@ -3581,7 +3581,7 @@ commit_tree:                            # @commit_tree
 	addi.d	$a5, $a5, 16
 	move	$a6, $a4
 	.p2align	4, , 16
-.LBB31_41:                              # %vector.body
+.LBB31_41:                              # %vector.body113
                                         #   Parent Loop BB31_33 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr0, $a5, -8
@@ -3591,16 +3591,16 @@ commit_tree:                            # @commit_tree
 	addi.d	$a6, $a6, -4
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB31_41
-# %bb.42:                               # %middle.block
+# %bb.42:                               # %middle.block119
                                         #   in Loop: Header=BB31_33 Depth=1
 	beq	$a3, $a4, .LBB31_45
-.LBB31_43:                              # %scalar.ph.preheader
+.LBB31_43:                              # %scalar.ph108.preheader
                                         #   in Loop: Header=BB31_33 Depth=1
 	alsl.d	$a1, $a2, $a1, 3
 	addi.d	$a1, $a1, 8
 	sub.d	$a0, $a0, $a2
 	.p2align	4, , 16
-.LBB31_44:                              # %scalar.ph
+.LBB31_44:                              # %scalar.ph108
                                         #   Parent Loop BB31_33 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a2, $a1, 0
@@ -3613,7 +3613,7 @@ commit_tree:                            # @commit_tree
 	ld.w	$a0, $s1, 0
 	addi.d	$a0, $a0, -1
 	st.w	$a0, $s1, 0
-	b	.LBB31_65
+	b	.LBB31_66
 .LBB31_46:                              #   in Loop: Header=BB31_33 Depth=1
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(d_fail)
@@ -3628,7 +3628,7 @@ commit_tree:                            # @commit_tree
 	addi.d	$a1, $a1, 1
 	st.w	$a1, $a0, 32
 	stx.d	$a0, $a2, $s7
-	b	.LBB31_65
+	b	.LBB31_66
 .LBB31_48:                              # %.preheader64.i
                                         #   in Loop: Header=BB31_33 Depth=1
 	ori	$a0, $zero, 2
@@ -3685,16 +3685,22 @@ commit_tree:                            # @commit_tree
 .LBB31_59:                              # %.preheader63.i
                                         #   in Loop: Header=BB31_33 Depth=1
 	addi.w	$a0, $s8, 1
-	bge	$a0, $s4, .LBB31_62
+	bge	$a0, $s4, .LBB31_63
 # %bb.60:                               # %.lr.ph71.i
                                         #   in Loop: Header=BB31_33 Depth=1
 	ld.d	$a1, $s0, 48
+	sub.d	$a2, $s4, $a0
+	ori	$a3, $zero, 16
+	bgeu	$a2, $a3, .LBB31_68
+.LBB31_61:                              # %scalar.ph.preheader
+                                        #   in Loop: Header=BB31_33 Depth=1
 	add.d	$a2, $s2, $s4
 	addi.w	$a2, $a2, -2
 	alsl.d	$a3, $s4, $a1, 3
 	addi.d	$a3, $a3, -8
 	.p2align	4, , 16
-.LBB31_61:                              #   Parent Loop BB31_33 Depth=1
+.LBB31_62:                              # %scalar.ph
+                                        #   Parent Loop BB31_33 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a4, $a3, 0
 	addi.d	$s4, $s4, -1
@@ -3702,17 +3708,17 @@ commit_tree:                            # @commit_tree
 	stx.d	$a4, $a1, $a5
 	addi.w	$a2, $a2, -1
 	addi.d	$a3, $a3, -8
-	blt	$a0, $s4, .LBB31_61
-.LBB31_62:                              # %.preheader.i
+	blt	$a0, $s4, .LBB31_62
+.LBB31_63:                              # %.preheader.i
                                         #   in Loop: Header=BB31_33 Depth=1
-	blez	$s2, .LBB31_65
-# %bb.63:                               # %.lr.ph73.i
+	blez	$s2, .LBB31_66
+# %bb.64:                               # %.lr.ph73.i
                                         #   in Loop: Header=BB31_33 Depth=1
 	ld.d	$a1, $s0, 48
 	ld.d	$a0, $s3, 48
 	alsl.d	$a1, $s8, $a1, 3
 	.p2align	4, , 16
-.LBB31_64:                              #   Parent Loop BB31_33 Depth=1
+.LBB31_65:                              #   Parent Loop BB31_33 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a2, $a0, 0
 	ld.w	$a3, $a2, 32
@@ -3722,83 +3728,128 @@ commit_tree:                            # @commit_tree
 	addi.d	$s2, $s2, -1
 	addi.d	$a1, $a1, 8
 	addi.d	$a0, $a0, 8
-	bnez	$s2, .LBB31_64
-.LBB31_65:                              # %.loopexit.i
+	bnez	$s2, .LBB31_65
+.LBB31_66:                              # %.loopexit.i
                                         #   in Loop: Header=BB31_33 Depth=1
 	ld.w	$a0, $s3, 32
 	addi.w	$a0, $a0, -1
 	st.w	$a0, $s3, 32
 	bnez	$a0, .LBB31_31
-# %bb.66:                               #   in Loop: Header=BB31_33 Depth=1
+# %bb.67:                               #   in Loop: Header=BB31_33 Depth=1
 	move	$a0, $fp
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(free_PNode)
 	jirl	$ra, $ra, 0
 	b	.LBB31_31
-.LBB31_67:
+.LBB31_68:                              # %vector.scevcheck
+                                        #   in Loop: Header=BB31_33 Depth=1
+	nor	$a3, $a0, $zero
+	add.d	$a4, $a3, $s4
+	add.d	$a3, $s2, $s4
+	addi.w	$a3, $a3, -2
+	sub.w	$a5, $a3, $a4
+	blt	$a3, $a5, .LBB31_61
+# %bb.69:                               # %vector.scevcheck
+                                        #   in Loop: Header=BB31_33 Depth=1
+	srli.d	$a4, $a4, 32
+	bnez	$a4, .LBB31_61
+# %bb.70:                               # %vector.memcheck
+                                        #   in Loop: Header=BB31_33 Depth=1
+	slli.d	$a5, $s4, 3
+	slli.d	$a4, $a3, 3
+	sub.d	$a4, $a5, $a4
+	addi.d	$a4, $a4, -8
+	ori	$a6, $zero, 32
+	bltu	$a4, $a6, .LBB31_61
+# %bb.71:                               # %vector.ph
+                                        #   in Loop: Header=BB31_33 Depth=1
+	move	$a4, $a2
+	bstrins.d	$a4, $zero, 1, 0
+	sub.d	$s4, $s4, $a4
+	add.d	$a5, $a1, $a5
+	addi.d	$a5, $a5, -16
+	move	$a6, $a4
+	.p2align	4, , 16
+.LBB31_72:                              # %vector.body
+                                        #   Parent Loop BB31_33 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	vld	$vr0, $a5, 0
+	vld	$vr1, $a5, -16
+	alsl.d	$a7, $a3, $a1, 3
+	vst	$vr0, $a7, -8
+	vst	$vr1, $a7, -24
+	addi.d	$a5, $a5, -32
+	addi.d	$a6, $a6, -4
+	addi.w	$a3, $a3, -4
+	bnez	$a6, .LBB31_72
+# %bb.73:                               # %middle.block
+                                        #   in Loop: Header=BB31_33 Depth=1
+	bne	$a2, $a4, .LBB31_61
+	b	.LBB31_63
+.LBB31_74:
 	move	$a2, $zero
-.LBB31_68:                              # %._crit_edge
+.LBB31_75:                              # %._crit_edge
 	ld.d	$a0, $s0, 16
-	beqz	$a0, .LBB31_71
-# %bb.69:
+	beqz	$a0, .LBB31_78
+# %bb.76:
 	ld.d	$a5, $a0, 16
-	beqz	$a5, .LBB31_71
-# %bb.70:
+	beqz	$a5, .LBB31_78
+# %bb.77:
 	ld.d	$a1, $s0, 48
 	ori	$a3, $zero, 152
 	move	$a0, $s0
 	move	$a4, $fp
 	jirl	$ra, $a5, 0
-.LBB31_71:
+.LBB31_78:
 	ld.bu	$a0, $s0, 84
 	beqz	$a0, .LBB31_1
-# %bb.72:
+# %bb.79:
 	ld.w	$a0, $fp, 88
 	bnez	$a0, .LBB31_1
-# %bb.73:
+# %bb.80:
 	ori	$a0, $zero, 2
 	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
 	beq	$a1, $a0, .LBB31_1
-# %bb.74:
+# %bb.81:
 	ld.wu	$a0, $s1, 0
-	beqz	$a0, .LBB31_79
-# %bb.75:                               # %.lr.ph.i61
+	beqz	$a0, .LBB31_86
+# %bb.82:                               # %.lr.ph.i61
 	move	$s2, $zero
 	move	$s3, $zero
-	b	.LBB31_77
+	b	.LBB31_84
 	.p2align	4, , 16
-.LBB31_76:                              #   in Loop: Header=BB31_77 Depth=1
+.LBB31_83:                              #   in Loop: Header=BB31_84 Depth=1
 	addi.d	$s3, $s3, 1
 	addi.d	$s2, $s2, 8
-	bgeu	$s3, $a0, .LBB31_79
-.LBB31_77:                              # =>This Inner Loop Header: Depth=1
+	bgeu	$s3, $a0, .LBB31_86
+.LBB31_84:                              # =>This Inner Loop Header: Depth=1
 	ld.d	$a1, $s0, 48
 	ldx.d	$a1, $a1, $s2
 	ld.w	$a2, $a1, 32
 	addi.w	$a2, $a2, -1
 	st.w	$a2, $a1, 32
-	bnez	$a2, .LBB31_76
-# %bb.78:                               #   in Loop: Header=BB31_77 Depth=1
+	bnez	$a2, .LBB31_83
+# %bb.85:                               #   in Loop: Header=BB31_84 Depth=1
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(free_PNode)
 	jirl	$ra, $ra, 0
 	ld.wu	$a0, $s1, 0
-	b	.LBB31_76
-.LBB31_79:                              # %._crit_edge.i64
+	b	.LBB31_83
+.LBB31_86:                              # %._crit_edge.i64
 	ld.d	$a0, $s0, 48
-	beqz	$a0, .LBB31_82
-# %bb.80:                               # %._crit_edge.i64
+	beqz	$a0, .LBB31_89
+# %bb.87:                               # %._crit_edge.i64
 	addi.d	$a1, $s0, 56
-	beq	$a0, $a1, .LBB31_82
-# %bb.81:
+	beq	$a0, $a1, .LBB31_89
+# %bb.88:
 	pcaddu18i	$ra, %call36(free)
 	jirl	$ra, $ra, 0
-.LBB31_82:
+.LBB31_89:
 	ld.d	$a1, $s0, 104
 	st.w	$zero, $s0, 40
 	st.d	$zero, $s0, 48
 	beqz	$a1, .LBB31_1
-# %bb.83:
+# %bb.90:
 	st.d	$zero, $s0, 104
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(free_PNode)

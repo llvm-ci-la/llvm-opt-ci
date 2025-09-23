@@ -2353,10 +2353,9 @@ _ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_comp_iterIPFbddEEEEvT_S7_T0_T
 	jirl	$ra, $s1, 0
 	beqz	$a0, .LBB15_11
 # %bb.8:                                #   in Loop: Header=BB15_3 Depth=1
-	fld.d	$fa0, $fp, 8
-	fld.d	$fa1, $fp, 0
-	fst.d	$fa0, $fp, 0
-	fst.d	$fa1, $fp, 8
+	vld	$vr0, $fp, 0
+	vshuf4i.d	$vr0, $vr0, 1
+	vst	$vr0, $fp, 0
 	b	.LBB15_14
 	.p2align	4, , 16
 .LBB15_9:                               #   in Loop: Header=BB15_3 Depth=1

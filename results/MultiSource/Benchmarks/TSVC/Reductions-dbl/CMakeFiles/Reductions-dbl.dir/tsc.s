@@ -11591,11 +11591,10 @@ s31111:                                 # @s31111
 	vfadd.d	$vr0, $vr0, $vr1
 	vpackod.d	$vr1, $vr3, $vr2
 	vfadd.d	$vr0, $vr0, $vr1
-	vreplvei.d	$vr1, $vr0, 0
-	vreplvei.d	$vr0, $vr0, 1
+	vreplvei.d	$vr1, $vr0, 1
 	vld	$vr2, $fp, 64
 	vld	$vr3, $fp, 96
-	fadd.d	$fa0, $fa1, $fa0
+	vfadd.d	$vr0, $vr0, $vr1
 	vld	$vr1, $fp, 80
 	vld	$vr4, $fp, 112
 	vpackev.d	$vr5, $vr3, $vr2
@@ -11606,12 +11605,11 @@ s31111:                                 # @s31111
 	vfadd.d	$vr2, $vr2, $vr3
 	vpackod.d	$vr1, $vr4, $vr1
 	vfadd.d	$vr1, $vr2, $vr1
-	vreplvei.d	$vr2, $vr1, 0
-	fadd.d	$fa0, $fa0, $fa2
+	vfadd.d	$vr0, $vr0, $vr1
 	vreplvei.d	$vr1, $vr1, 1
 	vld	$vr2, $fp, 128
 	vld	$vr3, $fp, 160
-	fadd.d	$fa0, $fa0, $fa1
+	vfadd.d	$vr0, $vr0, $vr1
 	vld	$vr1, $fp, 144
 	vld	$vr4, $fp, 176
 	vpackev.d	$vr5, $vr3, $vr2
@@ -11622,12 +11620,11 @@ s31111:                                 # @s31111
 	vfadd.d	$vr2, $vr2, $vr3
 	vpackod.d	$vr1, $vr4, $vr1
 	vfadd.d	$vr1, $vr2, $vr1
-	vreplvei.d	$vr2, $vr1, 0
-	fadd.d	$fa0, $fa0, $fa2
+	vfadd.d	$vr0, $vr0, $vr1
 	vreplvei.d	$vr1, $vr1, 1
 	vld	$vr2, $fp, 192
 	vld	$vr3, $fp, 224
-	fadd.d	$fa0, $fa0, $fa1
+	vfadd.d	$vr0, $vr0, $vr1
 	vld	$vr1, $fp, 208
 	vld	$vr4, $fp, 240
 	vpackev.d	$vr5, $vr3, $vr2
@@ -11638,10 +11635,10 @@ s31111:                                 # @s31111
 	vfadd.d	$vr2, $vr2, $vr3
 	vpackod.d	$vr1, $vr4, $vr1
 	vfadd.d	$vr1, $vr2, $vr1
-	vreplvei.d	$vr2, $vr1, 0
-	fadd.d	$fa0, $fa0, $fa2
+	vfadd.d	$vr0, $vr0, $vr1
 	vreplvei.d	$vr1, $vr1, 1
-	fadd.d	$fa0, $fa0, $fa1
+	vfadd.d	$vr0, $vr0, $vr1
+	vreplvei.d	$vr0, $vr0, 0
 	move	$a0, $fp
 	move	$a1, $s0
 	move	$a2, $s1
@@ -11650,6 +11647,7 @@ s31111:                                 # @s31111
 	move	$a5, $s4
 	move	$a6, $s5
 	move	$a7, $s6
+                                        # kill: def $f0_64 killed $f0_64 killed $vr0
 	pcaddu18i	$ra, %call36(dummy)
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $s7, %pc_lo12(ntimes)

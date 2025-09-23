@@ -2286,33 +2286,32 @@ mp_mul:                                 # @mp_mul
 	ori	$a0, $zero, 4
 	blt	$s2, $a0, .LBB8_35
 # %bb.33:                               # %.lr.ph.preheader.i117
-	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
-	addi.d	$a0, $a0, 32
-	addi.d	$a1, $s8, 32
-	addi.d	$a2, $s0, 32
+	addi.d	$a0, $s8, 32
+	addi.d	$a1, $s0, 32
+	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
+	addi.d	$a2, $a2, 24
 	ori	$a3, $zero, 3
 	.p2align	4, , 16
 .LBB8_34:                               # %.lr.ph.i118
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa0, $a1, -8
-	fld.d	$fa1, $a2, 0
-	fld.d	$fa2, $a1, 0
-	fld.d	$fa3, $a2, -8
-	fld.d	$fa4, $a0, -8
-	fneg.d	$fa5, $fa1
-	fmul.d	$fa5, $fa2, $fa5
-	fmadd.d	$fa5, $fa0, $fa3, $fa5
-	fadd.d	$fa4, $fa4, $fa5
-	fld.d	$fa5, $a0, 0
-	fst.d	$fa4, $a0, -8
-	fmul.d	$fa2, $fa2, $fa3
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
-	fadd.d	$fa0, $fa0, $fa5
-	fst.d	$fa0, $a0, 0
+	fld.d	$fa0, $a1, 0
+	fld.d	$fa1, $a0, 0
+	vld	$vr2, $a1, -8
+	fld.d	$fa3, $a0, -8
+	fneg.d	$fa0, $fa0
+	vreplvei.d	$vr1, $vr1, 0
+	vreplvei.d	$vr4, $vr2, 0
+	vextrins.d	$vr4, $vr0, 0
+	vld	$vr0, $a2, 0
+	vfmul.d	$vr1, $vr1, $vr4
+	vreplvei.d	$vr3, $vr3, 0
+	vfmadd.d	$vr1, $vr3, $vr2, $vr1
+	vfadd.d	$vr0, $vr0, $vr1
+	vst	$vr0, $a2, 0
 	addi.d	$a3, $a3, 2
-	addi.d	$a0, $a0, 16
 	addi.d	$a2, $a2, 16
 	addi.d	$a1, $a1, 16
+	addi.d	$a0, $a0, 16
 	bltu	$a3, $s2, .LBB8_34
 .LBB8_35:                               # %mp_mul_cmuladd.exit
 	sub.w	$a0, $s3, $s7
@@ -3558,7 +3557,7 @@ mp_unexp_add:                           # @mp_unexp_add
 	addi.w	$a1, $a0, -1
 	sltu	$a3, $zero, $a1
 	sub.d	$a0, $a0, $a3
-	ori	$a3, $zero, 4
+	ori	$a3, $zero, 8
 	bstrpick.d	$a4, $a1, 31, 0
 	bgeu	$a0, $a3, .LBB19_17
 # %bb.12:
@@ -3607,7 +3606,7 @@ mp_unexp_add:                           # @mp_unexp_add
 	b	.LBB19_22
 .LBB19_17:                              # %vector.ph
 	move	$a3, $a0
-	bstrins.d	$a3, $zero, 1, 0
+	bstrins.d	$a3, $zero, 2, 0
 	sub.d	$a1, $a4, $a3
 	alsl.d	$a4, $a4, $a5, 2
 	addi.d	$a4, $a4, -16
@@ -3616,13 +3615,15 @@ mp_unexp_add:                           # @mp_unexp_add
 .LBB19_18:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr0, $a4, 0
+	vld	$vr1, $a4, -16
 	vst	$vr0, $a4, 4
-	addi.d	$a6, $a6, -4
-	addi.d	$a4, $a4, -16
+	vst	$vr1, $a4, -12
+	addi.d	$a6, $a6, -8
+	addi.d	$a4, $a4, -32
 	bnez	$a6, .LBB19_18
 # %bb.19:                               # %middle.block
 	beq	$a0, $a3, .LBB19_22
-.LBB19_20:                              # %.lr.ph101.preheader115
+.LBB19_20:                              # %.lr.ph101.preheader118
 	addi.d	$a0, $a1, 1
 	alsl.d	$a1, $a1, $a5, 2
 	ori	$a2, $zero, 1
@@ -3846,11 +3847,11 @@ mp_unsgn_imul:                          # @mp_unsgn_imul
 	fcmp.cule.d	$fcc0, $fa1, $fa3
 	bcnez	$fcc0, .LBB21_16
 # %bb.4:                                # %.lr.ph63.preheader
+	move	$a7, $zero
 	move	$a5, $zero
 	move	$a4, $zero
 	move	$a6, $a0
-	slli.d	$a7, $a0, 2
-	ori	$t0, $zero, 12
+	slli.d	$t0, $a0, 2
 	.p2align	4, , 16
 .LBB21_5:                               # %.lr.ph63
                                         # =>This Inner Loop Header: Depth=1
@@ -3858,7 +3859,7 @@ mp_unsgn_imul:                          # @mp_unsgn_imul
 	addi.w	$a4, $a4, 1
 	addi.d	$a5, $a5, 1
 	fcmp.clt.d	$fcc0, $fa3, $fa1
-	addi.d	$t0, $t0, 4
+	addi.d	$a7, $a7, 4
 	bcnez	$fcc0, .LBB21_5
 # %bb.6:                                # %.preheader57
 	ld.w	$a1, $a1, 0
@@ -3878,13 +3879,13 @@ mp_unsgn_imul:                          # @mp_unsgn_imul
 	ori	$t2, $zero, 8
 	bltu	$a1, $t2, .LBB21_13
 # %bb.9:                                # %.lr.ph73.preheader
-	addi.d	$t2, $t0, -16
-	addi.w	$t3, $zero, -20
+	addi.d	$t2, $a7, -4
+	addi.w	$t3, $zero, -36
 	bltu	$t3, $t2, .LBB21_13
 # %bb.10:                               # %vector.ph
-	add.d	$a0, $a2, $a7
-	sub.d	$t0, $a0, $t0
-	addi.w	$t2, $zero, -4
+	add.d	$a0, $a2, $t0
+	sub.d	$t0, $a0, $a7
+	addi.w	$t2, $zero, -8
 	and	$a7, $a1, $t2
 	sub.d	$a0, $a6, $a7
 	sub.d	$t1, $a6, $t1
@@ -3894,15 +3895,17 @@ mp_unsgn_imul:                          # @mp_unsgn_imul
 	.p2align	4, , 16
 .LBB21_11:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr1, $t0, 0
+	vld	$vr1, $t0, -12
+	vld	$vr3, $t0, -28
 	vst	$vr1, $a6, 0
-	addi.d	$t1, $t1, -4
-	addi.d	$a6, $a6, -16
-	addi.d	$t0, $t0, -16
+	vst	$vr3, $a6, -16
+	addi.d	$t1, $t1, -8
+	addi.d	$a6, $a6, -32
+	addi.d	$t0, $t0, -32
 	bnez	$t1, .LBB21_11
 # %bb.12:                               # %middle.block
 	beq	$a1, $a7, .LBB21_15
-.LBB21_13:                              # %.lr.ph73.preheader101
+.LBB21_13:                              # %.lr.ph73.preheader104
 	alsl.d	$a1, $a0, $a2, 2
 	sub.d	$a6, $a0, $a5
 	alsl.d	$a6, $a6, $a2, 2
@@ -4561,8 +4564,9 @@ mp_mul_d2i:                             # @mp_mul_d2i
 	maskeqz	$a2, $a3, $a2
 	or	$a2, $a2, $a4
 	sub.w	$a2, $a3, $a2
+	ori	$a4, $zero, 7
 	bstrpick.d	$a5, $a3, 31, 0
-	bgeu	$a2, $a1, .LBB27_14
+	bgeu	$a2, $a4, .LBB27_14
 # %bb.12:
 	move	$a2, $a5
 	b	.LBB27_17
@@ -4572,8 +4576,8 @@ mp_mul_d2i:                             # @mp_mul_d2i
 .LBB27_14:                              # %vector.ph
 	bstrpick.d	$a2, $a2, 31, 0
 	addi.d	$a3, $a2, 1
-	bstrpick.d	$a2, $a3, 32, 2
-	slli.d	$a4, $a2, 2
+	bstrpick.d	$a2, $a3, 32, 3
+	slli.d	$a4, $a2, 3
 	sub.d	$a2, $a5, $a4
 	alsl.d	$a5, $a5, $fp, 2
 	addi.d	$a5, $a5, -16
@@ -4582,13 +4586,15 @@ mp_mul_d2i:                             # @mp_mul_d2i
 .LBB27_15:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr0, $a5, 0
+	vld	$vr1, $a5, -16
 	vst	$vr0, $a5, 4
-	addi.d	$a6, $a6, -4
-	addi.d	$a5, $a5, -16
+	vst	$vr1, $a5, -12
+	addi.d	$a6, $a6, -8
+	addi.d	$a5, $a5, -32
 	bnez	$a6, .LBB27_15
 # %bb.16:                               # %middle.block
 	beq	$a3, $a4, .LBB27_19
-.LBB27_17:                              # %.lr.ph137.preheader159
+.LBB27_17:                              # %.lr.ph137.preheader162
 	addi.d	$a3, $a2, 1
 	alsl.d	$a2, $a2, $fp, 2
 	.p2align	4, , 16
@@ -4668,28 +4674,27 @@ mp_mul_cmuladd:                         # @mp_mul_cmuladd
 	fst.d	$fa0, $a3, 16
 	blt	$a0, $a4, .LBB28_3
 # %bb.1:                                # %.lr.ph.preheader
-	addi.d	$a4, $a3, 32
-	addi.d	$a5, $a2, 32
-	addi.d	$a6, $a1, 32
+	addi.d	$a4, $a2, 32
+	addi.d	$a5, $a1, 32
+	addi.d	$a6, $a3, 24
 	ori	$a7, $zero, 3
 	.p2align	4, , 16
 .LBB28_2:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa0, $a6, -8
+	fld.d	$fa0, $a4, 0
 	fld.d	$fa1, $a5, 0
-	fld.d	$fa2, $a6, 0
+	vld	$vr2, $a4, -8
 	fld.d	$fa3, $a5, -8
-	fld.d	$fa4, $a4, -8
-	fneg.d	$fa5, $fa1
-	fmul.d	$fa5, $fa2, $fa5
-	fmadd.d	$fa5, $fa0, $fa3, $fa5
-	fadd.d	$fa4, $fa4, $fa5
-	fld.d	$fa5, $a4, 0
-	fst.d	$fa4, $a4, -8
-	fmul.d	$fa2, $fa2, $fa3
-	fmadd.d	$fa0, $fa0, $fa1, $fa2
-	fadd.d	$fa0, $fa0, $fa5
-	fst.d	$fa0, $a4, 0
+	fneg.d	$fa0, $fa0
+	vreplvei.d	$vr1, $vr1, 0
+	vreplvei.d	$vr4, $vr2, 0
+	vextrins.d	$vr4, $vr0, 0
+	vld	$vr0, $a6, 0
+	vfmul.d	$vr1, $vr1, $vr4
+	vreplvei.d	$vr3, $vr3, 0
+	vfmadd.d	$vr1, $vr3, $vr2, $vr1
+	vfadd.d	$vr0, $vr0, $vr1
+	vst	$vr0, $a6, 0
 	addi.d	$a7, $a7, 2
 	addi.d	$a4, $a4, 16
 	addi.d	$a5, $a5, 16

@@ -32,15 +32,15 @@ tsp:                                    # @tsp
 	move	$a2, $s1
 	pcaddu18i	$ra, %call36(tsp)
 	jirl	$ra, $ra, 0
-	fld.d	$fa0, $s3, 8
-	fld.d	$fa2, $fp, 8
+	fld.d	$fa1, $s3, 8
+	fld.d	$fa4, $fp, 8
 	move	$a4, $s3
-	fld.d	$fa1, $s3, 16
-	fld.d	$fa4, $fp, 16
+	fld.d	$fa2, $s3, 16
+	fld.d	$fa0, $fp, 16
 	move	$a1, $a0
-	fsub.d	$fa3, $fa0, $fa2
+	fsub.d	$fa3, $fa1, $fa4
 	ld.d	$a2, $fp, 40
-	fsub.d	$fa5, $fa1, $fa4
+	fsub.d	$fa5, $fa2, $fa0
 	fmul.d	$fa5, $fa5, $fa5
 	fmadd.d	$fa3, $fa3, $fa3, $fa5
 	fsqrt.d	$fa3, $fa3
@@ -50,25 +50,25 @@ tsp:                                    # @tsp
 	.p2align	4, , 16
 .LBB0_3:                                # %.lr.ph.i18
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa2, $a2, 8
+	fld.d	$fa0, $a2, 8
 	fld.d	$fa4, $a2, 16
-	fsub.d	$fa2, $fa2, $fa0
-	fsub.d	$fa4, $fa4, $fa1
+	fsub.d	$fa0, $fa0, $fa1
+	fsub.d	$fa4, $fa4, $fa2
 	fmul.d	$fa4, $fa4, $fa4
-	fmadd.d	$fa2, $fa2, $fa2, $fa4
-	fsqrt.d	$fa2, $fa2
-	fcmp.clt.d	$fcc0, $fa2, $fa3
+	fmadd.d	$fa0, $fa0, $fa0, $fa4
+	fsqrt.d	$fa0, $fa0
+	fcmp.clt.d	$fcc0, $fa0, $fa3
 	movcf2gr	$a0, $fcc0
 	maskeqz	$a5, $a2, $a0
 	ld.d	$a2, $a2, 40
-	fsel	$fa3, $fa3, $fa2, $fcc0
+	fsel	$fa3, $fa3, $fa0, $fcc0
 	masknez	$a0, $a3, $a0
 	or	$a3, $a5, $a0
 	bne	$a2, $fp, .LBB0_3
 # %bb.4:                                # %._crit_edge.loopexit.i20
 	ld.d	$a2, $a3, 40
-	fld.d	$fa2, $a3, 8
-	fld.d	$fa4, $a3, 16
+	fld.d	$fa4, $a3, 8
+	fld.d	$fa0, $a3, 16
 	b	.LBB0_17
 .LBB0_5:
 	pcaddu18i	$ra, %call36(makelist)
@@ -132,38 +132,32 @@ tsp:                                    # @tsp
 	move	$a3, $a0
 .LBB0_14:                               # %._crit_edge.i
                                         #   in Loop: Header=BB0_9 Depth=1
-	fld.d	$fa4, $a3, 8
-	fld.d	$fa5, $a3, 16
-	fld.d	$fa6, $a2, 8
-	fld.d	$fa7, $a2, 16
 	ld.d	$a5, $a3, 48
-	fsub.d	$ft0, $fa4, $fa6
-	fsub.d	$ft1, $fa5, $fa7
-	fmul.d	$ft1, $ft1, $ft1
-	fmadd.d	$ft0, $ft0, $ft0, $ft1
-	fld.d	$ft1, $a5, 8
-	fld.d	$ft2, $a5, 16
 	ld.d	$a4, $a1, 40
-	fsqrt.d	$ft0, $ft0
-	fsub.d	$fa4, $fa4, $ft1
-	fsub.d	$fa5, $fa5, $ft2
-	fmul.d	$fa5, $fa5, $fa5
-	fmadd.d	$fa4, $fa4, $fa4, $fa5
-	fsqrt.d	$fa4, $fa4
-	fsub.d	$fa5, $fa2, $fa6
-	fsub.d	$fa6, $fa3, $fa7
-	fmul.d	$fa6, $fa6, $fa6
-	fmadd.d	$fa5, $fa5, $fa5, $fa6
-	fsqrt.d	$fa5, $fa5
-	fsub.d	$fa2, $fa2, $ft1
-	fsub.d	$fa3, $fa3, $ft2
-	fmul.d	$fa3, $fa3, $fa3
-	fmadd.d	$fa2, $fa2, $fa2, $fa3
-	fsqrt.d	$fa2, $fa2
-	fsub.d	$fa2, $fa2, $fa4
-	fsub.d	$fa3, $fa5, $ft0
-	fcmp.cule.d	$fcc0, $fa3, $fa2
-	bceqz	$fcc0, .LBB0_7
+	vld	$vr4, $a2, 8
+	vld	$vr5, $a5, 8
+	vldrepl.d	$vr6, $a3, 8
+	vldrepl.d	$vr7, $a3, 16
+	vpackev.d	$vr8, $vr4, $vr5
+	vfsub.d	$vr6, $vr6, $vr8
+	vpackod.d	$vr4, $vr4, $vr5
+	vfsub.d	$vr5, $vr7, $vr4
+	vfmul.d	$vr5, $vr5, $vr5
+	vfmadd.d	$vr5, $vr6, $vr6, $vr5
+	vfsqrt.d	$vr5, $vr5
+	vreplvei.d	$vr2, $vr2, 0
+	vfsub.d	$vr2, $vr2, $vr8
+	vreplvei.d	$vr3, $vr3, 0
+	vfsub.d	$vr3, $vr3, $vr4
+	vfmul.d	$vr3, $vr3, $vr3
+	vfmadd.d	$vr2, $vr2, $vr2, $vr3
+	vfsqrt.d	$vr2, $vr2
+	vfsub.d	$vr2, $vr2, $vr5
+	vreplvei.d	$vr3, $vr2, 1
+	vfcmp.clt.d	$vr2, $vr2, $vr3
+	vpickve2gr.d	$a6, $vr2, 0
+	andi	$a6, $a6, 1
+	bnez	$a6, .LBB0_7
 # %bb.15:                               #   in Loop: Header=BB0_9 Depth=1
 	st.d	$a1, $a2, 48
 	st.d	$a2, $a1, 40
@@ -174,164 +168,158 @@ tsp:                                    # @tsp
 	move	$a3, $fp
 .LBB0_17:                               # %._crit_edge.i23
 	move	$a0, $a4
-	fld.d	$fa5, $a2, 8
-	fld.d	$fa6, $a2, 16
 	ld.d	$a4, $a3, 48
-	fsub.d	$fa7, $fa2, $fa5
-	fsub.d	$ft0, $fa4, $fa6
-	fmul.d	$ft0, $ft0, $ft0
-	fld.d	$ft1, $a4, 8
-	fld.d	$ft2, $a4, 16
-	fmadd.d	$fa7, $fa7, $fa7, $ft0
-	fsqrt.d	$fa7, $fa7
-	fsub.d	$fa2, $fa2, $ft1
-	fsub.d	$fa4, $fa4, $ft2
-	fmul.d	$fa4, $fa4, $fa4
-	fmadd.d	$fa2, $fa2, $fa2, $fa4
-	fsqrt.d	$fa2, $fa2
-	fsub.d	$fa4, $fa0, $fa5
-	fsub.d	$fa5, $fa1, $fa6
-	fmul.d	$fa5, $fa5, $fa5
-	fmadd.d	$fa4, $fa4, $fa4, $fa5
-	fsqrt.d	$fa4, $fa4
-	fsub.d	$fa5, $fa0, $ft1
-	fsub.d	$fa6, $fa1, $ft2
-	fmul.d	$fa6, $fa6, $fa6
-	fmadd.d	$fa5, $fa5, $fa5, $fa6
-	fsqrt.d	$fa5, $fa5
-	fsub.d	$fa2, $fa5, $fa2
-	fsub.d	$fa6, $fa4, $fa7
-	fcmp.clt.d	$fcc0, $fa2, $fa6
-	fsel	$fa2, $fa4, $fa3, $fcc0
-	fsel	$fa3, $fa3, $fa5, $fcc0
-	movcf2gr	$a5, $fcc0
+	vld	$vr5, $a2, 8
+	vld	$vr6, $a4, 8
+	vreplvei.d	$vr4, $vr4, 0
+	vpackev.d	$vr7, $vr5, $vr6
+	vfsub.d	$vr4, $vr4, $vr7
+	vreplvei.d	$vr0, $vr0, 0
+	vpackod.d	$vr6, $vr5, $vr6
+	vfsub.d	$vr0, $vr0, $vr6
+	vfmul.d	$vr0, $vr0, $vr0
+	vfmadd.d	$vr0, $vr4, $vr4, $vr0
+	vfsqrt.d	$vr0, $vr0
+	vreplvei.d	$vr4, $vr1, 0
+	vfsub.d	$vr7, $vr4, $vr7
+	vreplvei.d	$vr5, $vr2, 0
+	vfsub.d	$vr6, $vr5, $vr6
+	vfmul.d	$vr6, $vr6, $vr6
+	vfmadd.d	$vr6, $vr7, $vr7, $vr6
+	vfsqrt.d	$vr6, $vr6
+	vfsub.d	$vr0, $vr6, $vr0
+	vreplvei.d	$vr7, $vr0, 1
+	vfcmp.clt.d	$vr0, $vr0, $vr7
+	vpickve2gr.d	$a5, $vr0, 0
+	andi	$a5, $a5, 1
 	masknez	$a2, $a2, $a5
 	maskeqz	$a6, $a3, $a5
 	or	$a2, $a6, $a2
 	masknez	$a3, $a3, $a5
-	fld.d	$fa5, $a1, 8
 	maskeqz	$a4, $a4, $a5
-	fld.d	$fa6, $a1, 16
 	or	$a3, $a4, $a3
-	fsub.d	$fa4, $fa0, $fa5
+	vreplvei.d	$vr0, $vr6, 1
+	movgr2cf	$fcc0, $a5
+	fsel	$fa0, $fa0, $fa3, $fcc0
+	fld.d	$ft0, $a1, 8
+	vreplvei.d	$vr6, $vr6, 0
+	fld.d	$fa7, $a1, 16
+	fsel	$fa3, $fa3, $fa6, $fcc0
+	fsub.d	$fa6, $fa1, $ft0
 	ld.d	$a4, $a1, 40
-	fsub.d	$fa7, $fa1, $fa6
-	fmul.d	$fa7, $fa7, $fa7
-	fmadd.d	$fa4, $fa4, $fa4, $fa7
-	fsqrt.d	$fa4, $fa4
+	fsub.d	$ft1, $fa2, $fa7
+	fmul.d	$ft1, $ft1, $ft1
+	fmadd.d	$fa6, $fa6, $fa6, $ft1
+	fsqrt.d	$fa6, $fa6
 	beq	$a4, $a1, .LBB0_21
 # %bb.18:                               # %.lr.ph212.i.preheader
 	move	$a5, $a1
 	.p2align	4, , 16
 .LBB0_19:                               # %.lr.ph212.i
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa5, $a4, 8
-	fld.d	$fa6, $a4, 16
-	fsub.d	$fa5, $fa5, $fa0
-	fsub.d	$fa6, $fa6, $fa1
-	fmul.d	$fa6, $fa6, $fa6
-	fmadd.d	$fa5, $fa5, $fa5, $fa6
-	fsqrt.d	$fa5, $fa5
-	fcmp.clt.d	$fcc0, $fa5, $fa4
+	fld.d	$fa7, $a4, 8
+	fld.d	$ft0, $a4, 16
+	fsub.d	$fa7, $fa7, $fa1
+	fsub.d	$ft0, $ft0, $fa2
+	fmul.d	$ft0, $ft0, $ft0
+	fmadd.d	$fa7, $fa7, $fa7, $ft0
+	fsqrt.d	$fa7, $fa7
+	fcmp.clt.d	$fcc0, $fa7, $fa6
 	movcf2gr	$a6, $fcc0
 	maskeqz	$a7, $a4, $a6
 	ld.d	$a4, $a4, 40
-	fsel	$fa4, $fa4, $fa5, $fcc0
+	fsel	$fa6, $fa6, $fa7, $fcc0
 	masknez	$a5, $a5, $a6
 	or	$a5, $a7, $a5
 	bne	$a4, $a1, .LBB0_19
 # %bb.20:                               # %._crit_edge213.loopexit.i
 	ld.d	$a4, $a5, 40
-	fld.d	$fa5, $a5, 8
-	fld.d	$fa6, $a5, 16
+	fld.d	$ft0, $a5, 8
+	fld.d	$fa7, $a5, 16
 	b	.LBB0_22
 .LBB0_21:
 	move	$a5, $a1
 .LBB0_22:                               # %._crit_edge213.i
-	fld.d	$fa7, $a4, 8
-	fld.d	$ft0, $a4, 16
 	ld.d	$a6, $a5, 48
-	fsub.d	$ft1, $fa5, $fa7
-	fsub.d	$ft2, $fa6, $ft0
-	fmul.d	$ft2, $ft2, $ft2
-	fld.d	$ft3, $a6, 8
-	fld.d	$ft4, $a6, 16
-	fmadd.d	$ft1, $ft1, $ft1, $ft2
-	fsqrt.d	$ft1, $ft1
-	fsub.d	$fa5, $fa5, $ft3
-	fsub.d	$fa6, $fa6, $ft4
-	fmul.d	$fa6, $fa6, $fa6
-	fmadd.d	$fa5, $fa5, $fa5, $fa6
-	fsqrt.d	$fa5, $fa5
-	fsub.d	$fa6, $fa0, $fa7
-	fsub.d	$fa7, $fa1, $ft0
-	fmul.d	$fa7, $fa7, $fa7
-	fmadd.d	$fa6, $fa6, $fa6, $fa7
-	fsqrt.d	$fa6, $fa6
-	fsub.d	$fa0, $fa0, $ft3
-	fsub.d	$fa1, $fa1, $ft4
-	fmul.d	$fa1, $fa1, $fa1
-	fmadd.d	$fa0, $fa0, $fa0, $fa1
-	fsqrt.d	$fa0, $fa0
-	fsub.d	$fa1, $fa0, $fa5
-	fsub.d	$fa5, $fa6, $ft1
-	fcmp.clt.d	$fcc0, $fa1, $fa5
-	fsel	$fa1, $fa6, $fa4, $fcc0
-	fsel	$fa0, $fa4, $fa0, $fcc0
-	movcf2gr	$a7, $fcc0
+	vld	$vr1, $a4, 8
+	vld	$vr2, $a6, 8
+	vreplvei.d	$vr8, $vr8, 0
+	vpackev.d	$vr9, $vr1, $vr2
+	vfsub.d	$vr8, $vr8, $vr9
+	vreplvei.d	$vr7, $vr7, 0
+	vpackod.d	$vr1, $vr1, $vr2
+	vfsub.d	$vr2, $vr7, $vr1
+	vfmul.d	$vr2, $vr2, $vr2
+	vfmadd.d	$vr2, $vr8, $vr8, $vr2
+	vfsqrt.d	$vr2, $vr2
+	vfsub.d	$vr4, $vr4, $vr9
+	vfsub.d	$vr1, $vr5, $vr1
+	vfmul.d	$vr1, $vr1, $vr1
+	vfmadd.d	$vr1, $vr4, $vr4, $vr1
+	vfsqrt.d	$vr1, $vr1
+	vfsub.d	$vr2, $vr1, $vr2
+	vreplvei.d	$vr4, $vr2, 1
+	vfcmp.clt.d	$vr2, $vr2, $vr4
+	vpickve2gr.d	$a1, $vr2, 0
+	andi	$a7, $a1, 1
 	masknez	$a1, $a4, $a7
 	maskeqz	$a4, $a5, $a7
 	or	$a1, $a4, $a1
 	masknez	$a4, $a5, $a7
-	fld.d	$fa4, $a2, 8
-	fld.d	$fa5, $a2, 16
-	fld.d	$fa6, $a1, 8
-	fld.d	$fa7, $a1, 16
 	maskeqz	$a5, $a6, $a7
 	or	$a4, $a5, $a4
-	fsub.d	$ft0, $fa4, $fa6
-	fsub.d	$ft1, $fa5, $fa7
+	vreplvei.d	$vr2, $vr1, 1
+	movgr2cf	$fcc0, $a7
+	fsel	$fa2, $fa2, $fa6, $fcc0
+	fld.d	$fa4, $a2, 8
+	fld.d	$fa5, $a2, 16
+	fld.d	$fa7, $a1, 8
+	fld.d	$ft0, $a1, 16
+	vreplvei.d	$vr1, $vr1, 0
+	fsel	$fa1, $fa6, $fa1, $fcc0
+	fsub.d	$fa6, $fa4, $fa7
+	fsub.d	$ft1, $fa5, $ft0
 	fld.d	$ft2, $a4, 8
 	fld.d	$ft3, $a4, 16
 	fmul.d	$ft1, $ft1, $ft1
-	fmadd.d	$ft0, $ft0, $ft0, $ft1
+	fmadd.d	$fa6, $fa6, $fa6, $ft1
 	fsub.d	$fa4, $fa4, $ft2
 	fsub.d	$fa5, $fa5, $ft3
 	fmul.d	$fa5, $fa5, $fa5
 	fmadd.d	$fa4, $fa4, $fa4, $fa5
 	fld.d	$fa5, $a3, 8
 	fld.d	$ft1, $a3, 16
-	fsqrt.d	$ft0, $ft0
-	fsqrt.d	$fa4, $fa4
-	fsub.d	$fa6, $fa5, $fa6
-	fsub.d	$fa7, $ft1, $fa7
-	fmul.d	$fa7, $fa7, $fa7
-	fmadd.d	$fa6, $fa6, $fa6, $fa7
 	fsqrt.d	$fa6, $fa6
+	fsqrt.d	$fa4, $fa4
+	fsub.d	$fa7, $fa5, $fa7
+	fsub.d	$ft0, $ft1, $ft0
+	fmul.d	$ft0, $ft0, $ft0
+	fmadd.d	$fa7, $fa7, $fa7, $ft0
+	fsqrt.d	$fa7, $fa7
 	fsub.d	$fa5, $fa5, $ft2
-	fsub.d	$fa7, $ft1, $ft3
-	fmul.d	$fa7, $fa7, $fa7
-	fmadd.d	$fa5, $fa5, $fa5, $fa7
+	fsub.d	$ft0, $ft1, $ft3
+	fmul.d	$ft0, $ft0, $ft0
+	fmadd.d	$fa5, $fa5, $fa5, $ft0
 	fsqrt.d	$fa5, $fa5
-	fadd.d	$fa7, $fa3, $fa0
-	fadd.d	$fa7, $fa7, $ft0
-	fadd.d	$fa3, $fa3, $fa1
+	fadd.d	$ft0, $fa3, $fa1
+	fadd.d	$fa6, $ft0, $fa6
+	fadd.d	$fa3, $fa3, $fa2
 	fadd.d	$fa3, $fa3, $fa4
-	fcmp.clt.d	$fcc0, $fa3, $fa7
-	fsel	$fa3, $fa7, $fa3, $fcc0
+	fcmp.clt.d	$fcc0, $fa3, $fa6
+	fsel	$fa3, $fa6, $fa3, $fcc0
 	movcf2gr	$a5, $fcc0
 	addi.d	$a5, $a5, 1
-	fadd.d	$fa0, $fa2, $fa0
-	fadd.d	$fa0, $fa0, $fa6
-	fcmp.clt.d	$fcc0, $fa0, $fa3
-	fsel	$fa0, $fa3, $fa0, $fcc0
+	fadd.d	$fa1, $fa0, $fa1
+	fadd.d	$fa1, $fa1, $fa7
+	fcmp.clt.d	$fcc0, $fa1, $fa3
+	fsel	$fa1, $fa3, $fa1, $fcc0
 	movcf2gr	$a6, $fcc0
 	masknez	$a5, $a5, $a6
 	ori	$a7, $zero, 3
 	maskeqz	$a6, $a7, $a6
-	fadd.d	$fa1, $fa2, $fa1
-	fadd.d	$fa1, $fa1, $fa5
-	fcmp.clt.d	$fcc0, $fa1, $fa0
+	fadd.d	$fa0, $fa0, $fa2
+	fadd.d	$fa0, $fa0, $fa5
+	fcmp.clt.d	$fcc0, $fa0, $fa1
 	or	$a5, $a6, $a5
 	movcf2gr	$a6, $fcc0
 	masknez	$a5, $a5, $a6

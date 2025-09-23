@@ -1843,7 +1843,7 @@ finalpin:                               # @finalpin
 	masknez	$t8, $a0, $t8
 	or	$t8, $t7, $t8
 	sub.d	$t7, $t8, $s1
-	ori	$s0, $zero, 24
+	ori	$s0, $zero, 8
 	bltu	$t7, $s0, .LBB0_193
 # %bb.191:                              # %vector.memcheck1333
                                         #   in Loop: Header=BB0_175 Depth=4

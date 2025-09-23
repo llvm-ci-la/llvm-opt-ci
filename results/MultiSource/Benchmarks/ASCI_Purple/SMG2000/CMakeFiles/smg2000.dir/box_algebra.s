@@ -297,7 +297,7 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
 	ld.d	$a1, $s2, 0
 	addi.d	$a2, $sp, 180
 	addi.d	$a3, $sp, 192
-	ori	$a4, $zero, 4
+	ori	$a4, $zero, 8
 	ori	$a5, $zero, 3
 	b	.LBB2_4
 	.p2align	4, , 16
@@ -378,32 +378,34 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
                                         #   in Loop: Header=BB2_7 Depth=2
 	sub.d	$fp, $t1, $t6
 	bltu	$fp, $a4, .LBB2_18
-# %bb.15:                               # %vector.ph434
+# %bb.15:                               # %vector.ph437
                                         #   in Loop: Header=BB2_7 Depth=2
-	addi.w	$s1, $zero, -4
+	addi.w	$s1, $zero, -8
 	and	$s0, $fp, $s1
 	sub.d	$t7, $t1, $s0
 	and	$t8, $t8, $s1
 	alsl.d	$s1, $t1, $t2, 2
 	addi.d	$s1, $s1, -16
 	.p2align	4, , 16
-.LBB2_16:                               # %vector.body437
+.LBB2_16:                               # %vector.body440
                                         #   Parent Loop BB2_4 Depth=1
                                         #     Parent Loop BB2_7 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr0, $s1, 0
+	vld	$vr1, $s1, -16
 	vst	$vr0, $s1, 4
-	addi.d	$t8, $t8, -4
-	addi.d	$s1, $s1, -16
+	vst	$vr1, $s1, -12
+	addi.d	$t8, $t8, -8
+	addi.d	$s1, $s1, -32
 	bnez	$t8, .LBB2_16
-# %bb.17:                               # %middle.block444
+# %bb.17:                               # %middle.block450
                                         #   in Loop: Header=BB2_7 Depth=2
 	beq	$fp, $s0, .LBB2_20
-.LBB2_18:                               # %scalar.ph432.preheader
+.LBB2_18:                               # %scalar.ph435.preheader
                                         #   in Loop: Header=BB2_7 Depth=2
 	alsl.d	$t8, $t7, $t2, 2
 	.p2align	4, , 16
-.LBB2_19:                               # %scalar.ph432
+.LBB2_19:                               # %scalar.ph435
                                         #   Parent Loop BB2_4 Depth=1
                                         #     Parent Loop BB2_7 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
@@ -457,7 +459,7 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
 # %bb.29:                               # %vector.ph
                                         #   in Loop: Header=BB2_7 Depth=2
 	move	$t7, $t6
-	bstrins.d	$t7, $zero, 1, 0
+	bstrins.d	$t7, $zero, 2, 0
 	sub.d	$t3, $t1, $t7
 	alsl.d	$t8, $t1, $t2, 2
 	addi.d	$t8, $t8, -16
@@ -468,9 +470,11 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
                                         #     Parent Loop BB2_7 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr0, $t8, 0
+	vld	$vr1, $t8, -16
 	vst	$vr0, $t8, 4
-	addi.d	$fp, $fp, -4
-	addi.d	$t8, $t8, -16
+	vst	$vr1, $t8, -12
+	addi.d	$fp, $fp, -8
+	addi.d	$t8, $t8, -32
 	bnez	$fp, .LBB2_30
 # %bb.31:                               # %middle.block
                                         #   in Loop: Header=BB2_7 Depth=2
@@ -742,12 +746,12 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
 	move	$s3, $a4
 	ori	$s0, $zero, 8
 	bltu	$s7, $s0, .LBB2_63
-# %bb.60:                               # %vector.ph449
+# %bb.60:                               # %vector.ph455
                                         #   in Loop: Header=BB2_58 Depth=3
 	move	$s0, $ra
 	move	$s3, $a7
 	.p2align	4, , 16
-.LBB2_61:                               # %vector.body452
+.LBB2_61:                               # %vector.body458
                                         #   Parent Loop BB2_40 Depth=1
                                         #     Parent Loop BB2_55 Depth=2
                                         #       Parent Loop BB2_58 Depth=3
@@ -757,16 +761,16 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
 	addi.d	$s0, $s0, -8
 	addi.d	$s3, $s3, 32
 	bnez	$s0, .LBB2_61
-# %bb.62:                               # %middle.block456
+# %bb.62:                               # %middle.block462
                                         #   in Loop: Header=BB2_58 Depth=3
 	move	$s3, $t1
 	beq	$s7, $a0, .LBB2_57
-.LBB2_63:                               # %scalar.ph447.preheader
+.LBB2_63:                               # %scalar.ph453.preheader
                                         #   in Loop: Header=BB2_58 Depth=3
 	alsl.d	$s0, $s3, $a5, 2
 	sub.d	$s3, $t5, $s3
 	.p2align	4, , 16
-.LBB2_64:                               # %scalar.ph447
+.LBB2_64:                               # %scalar.ph453
                                         #   Parent Loop BB2_40 Depth=1
                                         #     Parent Loop BB2_55 Depth=2
                                         #       Parent Loop BB2_58 Depth=3
@@ -926,7 +930,7 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
 .LBB2_88:
 	move	$a1, $zero
 	b	.LBB2_94
-.LBB2_89:                               # %vector.ph461
+.LBB2_89:                               # %vector.ph467
 	bstrpick.d	$a0, $a3, 30, 3
 	slli.d	$a0, $a0, 3
 	vrepli.b	$vr0, 0
@@ -934,7 +938,7 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
 	move	$a2, $a0
 	vori.b	$vr1, $vr0, 0
 	.p2align	4, , 16
-.LBB2_90:                               # %vector.body464
+.LBB2_90:                               # %vector.body470
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr2, $a1, -16
 	vld	$vr3, $a1, 0
@@ -947,13 +951,13 @@ hypre_UnionBoxes:                       # @hypre_UnionBoxes
 	addi.d	$a2, $a2, -8
 	addi.d	$a1, $a1, 32
 	bnez	$a2, .LBB2_90
-# %bb.91:                               # %middle.block470
+# %bb.91:                               # %middle.block476
 	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a1, $vr0, 0
 	beq	$a0, $a3, .LBB2_94
-.LBB2_92:                               # %.lr.ph273.preheader473
+.LBB2_92:                               # %.lr.ph273.preheader479
 	alsl.d	$a2, $a0, $s1, 2
 	sub.d	$a0, $a3, $a0
 	.p2align	4, , 16

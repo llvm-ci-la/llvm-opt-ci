@@ -67,9 +67,9 @@ main:                                   # @main
 	vst	$vr1, $a1, %pc_lo12(v)
 	bne	$a0, $a2, .LBB1_4
 # %bb.1:
-	vpickve2gr.h	$a0, $vr0, 1
-	vpickve2gr.h	$a1, $vr0, 2
-	or	$a0, $a1, $a0
+	vreplvei.h	$vr2, $vr0, 2
+	vor.v	$vr2, $vr2, $vr0
+	vpickve2gr.h	$a0, $vr2, 1
 	vpickve2gr.h	$a1, $vr0, 3
 	or	$a0, $a1, $a0
 	slli.d	$a0, $a0, 48

@@ -5,24 +5,71 @@
 	.type	foo,@function
 foo:                                    # @foo
 # %bb.0:                                # %vector.ph
-	move	$a2, $zero
-	addi.d	$a0, $a0, 1020
-	addi.w	$a3, $zero, -1024
-	.p2align	4, , 16
-.LBB0_1:                                # %vector.body
-                                        # =>This Inner Loop Header: Depth=1
-	add.d	$a4, $a0, $a2
-	stx.w	$a1, $a0, $a2
-	st.w	$a1, $a4, -16
-	st.w	$a1, $a4, -4
-	st.w	$a1, $a4, -20
-	st.w	$a1, $a4, -8
-	st.w	$a1, $a4, -24
-	st.w	$a1, $a4, -12
-	addi.d	$a2, $a2, -32
-	st.w	$a1, $a4, -28
-	bne	$a2, $a3, .LBB0_1
-# %bb.2:                                # %middle.block
+	vreplgr2vr.w	$vr0, $a1
+	vst	$vr0, $a0, 1008
+	vst	$vr0, $a0, 992
+	vst	$vr0, $a0, 976
+	vst	$vr0, $a0, 960
+	vst	$vr0, $a0, 944
+	vst	$vr0, $a0, 928
+	vst	$vr0, $a0, 912
+	vst	$vr0, $a0, 896
+	vst	$vr0, $a0, 880
+	vst	$vr0, $a0, 864
+	vst	$vr0, $a0, 848
+	vst	$vr0, $a0, 832
+	vst	$vr0, $a0, 816
+	vst	$vr0, $a0, 800
+	vst	$vr0, $a0, 784
+	vst	$vr0, $a0, 768
+	vst	$vr0, $a0, 752
+	vst	$vr0, $a0, 736
+	vst	$vr0, $a0, 720
+	vst	$vr0, $a0, 704
+	vst	$vr0, $a0, 688
+	vst	$vr0, $a0, 672
+	vst	$vr0, $a0, 656
+	vst	$vr0, $a0, 640
+	vst	$vr0, $a0, 624
+	vst	$vr0, $a0, 608
+	vst	$vr0, $a0, 592
+	vst	$vr0, $a0, 576
+	vst	$vr0, $a0, 560
+	vst	$vr0, $a0, 544
+	vst	$vr0, $a0, 528
+	vst	$vr0, $a0, 512
+	vst	$vr0, $a0, 496
+	vst	$vr0, $a0, 480
+	vst	$vr0, $a0, 464
+	vst	$vr0, $a0, 448
+	vst	$vr0, $a0, 432
+	vst	$vr0, $a0, 416
+	vst	$vr0, $a0, 400
+	vst	$vr0, $a0, 384
+	vst	$vr0, $a0, 368
+	vst	$vr0, $a0, 352
+	vst	$vr0, $a0, 336
+	vst	$vr0, $a0, 320
+	vst	$vr0, $a0, 304
+	vst	$vr0, $a0, 288
+	vst	$vr0, $a0, 272
+	vst	$vr0, $a0, 256
+	vst	$vr0, $a0, 240
+	vst	$vr0, $a0, 224
+	vst	$vr0, $a0, 208
+	vst	$vr0, $a0, 192
+	vst	$vr0, $a0, 176
+	vst	$vr0, $a0, 160
+	vst	$vr0, $a0, 144
+	vst	$vr0, $a0, 128
+	vst	$vr0, $a0, 112
+	vst	$vr0, $a0, 96
+	vst	$vr0, $a0, 80
+	vst	$vr0, $a0, 64
+	vst	$vr0, $a0, 48
+	vst	$vr0, $a0, 32
+	vst	$vr0, $a0, 16
+	vst	$vr0, $a0, 0
 	ret
 .Lfunc_end0:
 	.size	foo, .Lfunc_end0-foo

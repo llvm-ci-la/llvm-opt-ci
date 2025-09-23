@@ -4705,7 +4705,7 @@ updateRCModel:                          # @updateRCModel
 	fsqrt.d	$fa1, $fa0
 	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bcnez	$fcc0, .LBB15_43
-# %bb.27:                               # %call.sqrt206
+# %bb.27:                               # %call.sqrt213
 	move	$s1, $a1
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
@@ -4734,7 +4734,7 @@ updateRCModel:                          # @updateRCModel
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 	ori	$a0, $zero, 4
 	bltu	$a1, $a0, .LBB15_30
-.LBB15_32:                              # %vector.ph170
+.LBB15_32:                              # %vector.ph176
 	bstrpick.d	$a0, $a1, 30, 2
 	slli.d	$a0, $a0, 2
 	addi.d	$a2, $s0, 8
@@ -4745,13 +4745,13 @@ updateRCModel:                          # @updateRCModel
 	move	$a5, $a0
 	b	.LBB15_34
 	.p2align	4, , 16
-.LBB15_33:                              # %pred.store.continue179
+.LBB15_33:                              # %pred.store.continue186
                                         #   in Loop: Header=BB15_34 Depth=1
 	addi.d	$a2, $a2, 16
 	addi.d	$a5, $a5, -4
 	addi.d	$a3, $a3, 32
 	beqz	$a5, .LBB15_42
-.LBB15_34:                              # %vector.body171
+.LBB15_34:                              # %vector.body177
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr2, $a3, -16
 	vbitclri.d	$vr2, $vr2, 63
@@ -4767,10 +4767,10 @@ updateRCModel:                          # @updateRCModel
 	vpickve2gr.d	$a6, $vr2, 1
 	andi	$a6, $a6, 1
 	beqz	$a6, .LBB15_38
-# %bb.37:                               # %pred.store.if174
+# %bb.37:                               # %pred.store.if181
                                         #   in Loop: Header=BB15_34 Depth=1
 	st.w	$a4, $a2, -4
-.LBB15_38:                              # %pred.store.continue175
+.LBB15_38:                              # %pred.store.continue182
                                         #   in Loop: Header=BB15_34 Depth=1
 	vld	$vr2, $a3, 0
 	vbitclri.d	$vr2, $vr2, 63
@@ -4778,19 +4778,19 @@ updateRCModel:                          # @updateRCModel
 	vpickve2gr.d	$a6, $vr2, 0
 	andi	$a6, $a6, 1
 	beqz	$a6, .LBB15_40
-# %bb.39:                               # %pred.store.if176
+# %bb.39:                               # %pred.store.if183
                                         #   in Loop: Header=BB15_34 Depth=1
 	st.w	$a4, $a2, 0
-.LBB15_40:                              # %pred.store.continue177
+.LBB15_40:                              # %pred.store.continue184
                                         #   in Loop: Header=BB15_34 Depth=1
 	vpickve2gr.d	$a6, $vr2, 1
 	andi	$a6, $a6, 1
 	beqz	$a6, .LBB15_33
-# %bb.41:                               # %pred.store.if178
+# %bb.41:                               # %pred.store.if185
                                         #   in Loop: Header=BB15_34 Depth=1
 	st.w	$a4, $a2, 4
 	b	.LBB15_33
-.LBB15_42:                              # %middle.block181
+.LBB15_42:                              # %middle.block188
 	bne	$a0, $a1, .LBB15_49
 .LBB15_43:                              # %._crit_edge138
 	st.w	$zero, $s0, 0
@@ -4831,7 +4831,7 @@ updateRCModel:                          # @updateRCModel
 	addi.d	$sp, $sp, 64
 	pcaddu18i	$t8, %call36(updateMADModel)
 	jr	$t8
-.LBB15_49:                              # %.lr.ph137.preheader183
+.LBB15_49:                              # %.lr.ph137.preheader190
 	pcalau12i	$a2, %pc_hi20(updateRCModel.error)
 	addi.d	$a2, $a2, %pc_lo12(updateRCModel.error)
 	alsl.d	$a2, $a0, $a2, 3
@@ -5288,7 +5288,7 @@ updateMADModel:                         # @updateMADModel
 	fsqrt.d	$fa1, $fa0
 	fcmp.cor.d	$fcc0, $fa1, $fa1
 	bcnez	$fcc0, .LBB17_38
-# %bb.22:                               # %call.sqrt152
+# %bb.22:                               # %call.sqrt158
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
 	b	.LBB17_38
@@ -5313,7 +5313,7 @@ updateMADModel:                         # @updateMADModel
                                         # kill: def $f0_64 killed $f0_64 def $vr0
 	ori	$a0, $zero, 4
 	bltu	$s0, $a0, .LBB17_25
-.LBB17_27:                              # %vector.ph116
+.LBB17_27:                              # %vector.ph121
 	bstrpick.d	$a0, $s0, 30, 2
 	slli.d	$a0, $a0, 2
 	addi.d	$a1, $s1, 8
@@ -5324,13 +5324,13 @@ updateMADModel:                         # @updateMADModel
 	move	$a4, $a0
 	b	.LBB17_29
 	.p2align	4, , 16
-.LBB17_28:                              # %pred.store.continue125
+.LBB17_28:                              # %pred.store.continue131
                                         #   in Loop: Header=BB17_29 Depth=1
 	addi.d	$a1, $a1, 16
 	addi.d	$a4, $a4, -4
 	addi.d	$a2, $a2, 32
 	beqz	$a4, .LBB17_37
-.LBB17_29:                              # %vector.body117
+.LBB17_29:                              # %vector.body122
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr2, $a2, -16
 	vbitclri.d	$vr2, $vr2, 63
@@ -5346,10 +5346,10 @@ updateMADModel:                         # @updateMADModel
 	vpickve2gr.d	$a5, $vr2, 1
 	andi	$a5, $a5, 1
 	beqz	$a5, .LBB17_33
-# %bb.32:                               # %pred.store.if120
+# %bb.32:                               # %pred.store.if126
                                         #   in Loop: Header=BB17_29 Depth=1
 	st.w	$a3, $a1, -4
-.LBB17_33:                              # %pred.store.continue121
+.LBB17_33:                              # %pred.store.continue127
                                         #   in Loop: Header=BB17_29 Depth=1
 	vld	$vr2, $a2, 0
 	vbitclri.d	$vr2, $vr2, 63
@@ -5357,19 +5357,19 @@ updateMADModel:                         # @updateMADModel
 	vpickve2gr.d	$a5, $vr2, 0
 	andi	$a5, $a5, 1
 	beqz	$a5, .LBB17_35
-# %bb.34:                               # %pred.store.if122
+# %bb.34:                               # %pred.store.if128
                                         #   in Loop: Header=BB17_29 Depth=1
 	st.w	$a3, $a1, 0
-.LBB17_35:                              # %pred.store.continue123
+.LBB17_35:                              # %pred.store.continue129
                                         #   in Loop: Header=BB17_29 Depth=1
 	vpickve2gr.d	$a5, $vr2, 1
 	andi	$a5, $a5, 1
 	beqz	$a5, .LBB17_28
-# %bb.36:                               # %pred.store.if124
+# %bb.36:                               # %pred.store.if130
                                         #   in Loop: Header=BB17_29 Depth=1
 	st.w	$a3, $a1, 4
 	b	.LBB17_28
-.LBB17_37:                              # %middle.block127
+.LBB17_37:                              # %middle.block133
 	bne	$a0, $s0, .LBB17_39
 .LBB17_38:                              # %._crit_edge92
 	st.w	$zero, $s1, 0
@@ -5385,7 +5385,7 @@ updateMADModel:                         # @updateMADModel
 	addi.d	$sp, $sp, 48
 	pcaddu18i	$t8, %call36(MADModelEstimator)
 	jr	$t8
-.LBB17_39:                              # %.lr.ph91.preheader129
+.LBB17_39:                              # %.lr.ph91.preheader135
 	pcalau12i	$a1, %pc_hi20(updateMADModel.error)
 	addi.d	$a1, $a1, %pc_lo12(updateMADModel.error)
 	alsl.d	$a1, $a0, $a1, 3

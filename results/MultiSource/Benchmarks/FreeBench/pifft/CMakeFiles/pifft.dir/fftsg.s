@@ -2603,7 +2603,7 @@ dfct:                                   # @dfct
 	bstrpick.d	$a5, $s2, 31, 0
 	slli.d	$a0, $a5, 3
 	slli.d	$a1, $a5, 4
-	ori	$a2, $zero, 12
+	ori	$a2, $zero, 10
 	bgeu	$s8, $a2, .LBB12_49
 # %bb.46:                               #   in Loop: Header=BB12_28 Depth=1
 	move	$a2, $zero
@@ -3453,7 +3453,7 @@ dfst:                                   # @dfst
 	ori	$a3, $zero, 1
 	slli.d	$a1, $s5, 3
 	slli.d	$a2, $s5, 4
-	ori	$a5, $zero, 12
+	ori	$a5, $zero, 10
 	bgeu	$a4, $a5, .LBB13_48
 .LBB13_46:                              # %.lr.ph247.preheader403
                                         #   in Loop: Header=BB13_29 Depth=1

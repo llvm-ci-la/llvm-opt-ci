@@ -50,19 +50,19 @@ cli_check_mydoom_log:                   # @cli_check_mydoom_log
 	vshuf4i.b	$vr0, $vr0, 27
 	vreplgr2vr.w	$vr1, $a0
 	vxor.v	$vr0, $vr0, $vr1
-	vpickve2gr.w	$a1, $vr0, 0
-	vpickve2gr.w	$a2, $vr0, 1
-	add.d	$a1, $a2, $a1
-	vpickve2gr.w	$a2, $vr0, 2
-	ld.w	$a3, $sp, 28
-	add.d	$a1, $a2, $a1
-	vpickve2gr.w	$a2, $vr0, 3
-	add.d	$a1, $a2, $a1
-	revb.2w	$a2, $a3
+	vreplvei.w	$vr1, $vr0, 1
+	vadd.w	$vr1, $vr1, $vr0
+	vreplvei.w	$vr2, $vr0, 2
+	vadd.w	$vr1, $vr2, $vr1
+	ld.w	$a1, $sp, 28
+	vreplvei.w	$vr2, $vr0, 3
+	vadd.w	$vr1, $vr2, $vr1
+	vpickve2gr.w	$a2, $vr1, 0
+	revb.2w	$a1, $a1
 	ld.w	$a3, $sp, 32
-	xor	$a2, $a2, $a0
-	st.w	$a2, $sp, 28
-	add.d	$a1, $a2, $a1
+	xor	$a1, $a1, $a0
+	st.w	$a1, $sp, 28
+	add.d	$a1, $a1, $a2
 	revb.2w	$a2, $a3
 	xor	$a2, $a2, $a0
 	ld.w	$a3, $sp, 36
