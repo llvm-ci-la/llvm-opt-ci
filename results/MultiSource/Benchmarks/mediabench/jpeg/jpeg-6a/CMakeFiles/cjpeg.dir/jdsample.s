@@ -1260,7 +1260,7 @@ h2v2_fancy_upsample:                    # @h2v2_fancy_upsample
 	vpickve2gr.b	$a6, $vr20, 8
 	andi	$s5, $a6, 255
 	xvpickve2gr.w	$s6, $xr18, 7
-	xvpermi.d	$xr27, $xr18, 78
+	xvpermi.d	$xr27, $xr18, 238
 	vinsgr2vr.w	$vr18, $s5, 0
 	vpickve2gr.b	$a6, $vr20, 9
 	andi	$a6, $a6, 255
@@ -1352,7 +1352,7 @@ h2v2_fancy_upsample:                    # @h2v2_fancy_upsample
 	xvpickve2gr.w	$s5, $xr18, 6
 	vinsgr2vr.w	$vr22, $s5, 3
 	xvpickve2gr.w	$a6, $xr9, 7
-	xvpermi.d	$xr25, $xr19, 78
+	xvpermi.d	$xr25, $xr19, 238
 	vinsgr2vr.w	$vr19, $a6, 0
 	xvpickve2gr.w	$a6, $xr18, 0
 	vinsgr2vr.w	$vr19, $a6, 1
@@ -2001,7 +2001,7 @@ h2v2_fancy_upsample:                    # @h2v2_fancy_upsample
 	vpickve2gr.b	$a6, $vr20, 8
 	andi	$ra, $a6, 255
 	xvpickve2gr.w	$s4, $xr18, 7
-	xvpermi.d	$xr27, $xr18, 78
+	xvpermi.d	$xr27, $xr18, 238
 	vinsgr2vr.w	$vr18, $ra, 0
 	vpickve2gr.b	$a6, $vr20, 9
 	andi	$a6, $a6, 255
@@ -2093,7 +2093,7 @@ h2v2_fancy_upsample:                    # @h2v2_fancy_upsample
 	xvpickve2gr.w	$ra, $xr18, 6
 	vinsgr2vr.w	$vr22, $ra, 3
 	xvpickve2gr.w	$a6, $xr9, 7
-	xvpermi.d	$xr25, $xr19, 78
+	xvpermi.d	$xr25, $xr19, 238
 	vinsgr2vr.w	$vr19, $a6, 0
 	xvpickve2gr.w	$a6, $xr18, 0
 	vinsgr2vr.w	$vr19, $a6, 1

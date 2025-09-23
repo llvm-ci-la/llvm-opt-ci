@@ -8600,14 +8600,12 @@ _ZN2PP3Cmd9get_nvalsERSt6vectorIiSaIiEERKS3_RiRNSt7__cxx1118basic_stringstreamIc
 	bnez	$a5, .LBB31_33
 # %bb.34:                               # %middle.block
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$s7, $xr0, 0
 	beq	$a2, $a3, .LBB31_41
@@ -9142,7 +9140,7 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	ldx.w	$a6, $t0, $a3
 	ld.d	$s8, $sp, 240
 	move	$s4, $a7
-	move	$s1, $a2
+	move	$s2, $a2
 	move	$a7, $a1
 	move	$s5, $a0
 	alsl.d	$a0, $s0, $t0, 2
@@ -9157,7 +9155,7 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	slli.d	$a2, $s0, 3
 	stx.d	$s5, $a1, $a2
 	ld.d	$a1, $a4, 0
-	stx.w	$s1, $a1, $a3
+	stx.w	$s2, $a1, $a3
 	ld.w	$a6, $a0, 0
 	addi.d	$a1, $a6, 1
 	st.w	$a1, $a0, 0
@@ -9187,13 +9185,13 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	ld.d	$a0, $s5, 200
 	sub.d	$a1, $a2, $a1
 	srai.d	$a1, $a1, 7
-	add.d	$a1, $a1, $s1
+	add.d	$a1, $a1, $s2
 	bltz	$a1, .LBB33_13
 # %bb.6:
 	ori	$a3, $zero, 3
 	bltu	$a3, $a1, .LBB33_14
 # %bb.7:
-	slli.d	$a0, $s1, 7
+	slli.d	$a0, $s2, 7
 	add.d	$a0, $a2, $a0
 	b	.LBB33_16
 .LBB33_8:
@@ -9205,13 +9203,13 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	ld.d	$a0, $s5, 200
 	sub.d	$a1, $a2, $a1
 	srai.d	$a1, $a1, 7
-	add.d	$a1, $a1, $s1
+	add.d	$a1, $a1, $s2
 	bltz	$a1, .LBB33_17
 # %bb.10:
 	ori	$a3, $zero, 3
 	bltu	$a3, $a1, .LBB33_18
 # %bb.11:
-	slli.d	$a0, $s1, 7
+	slli.d	$a0, $s2, 7
 	add.d	$a0, $a2, $a0
 	b	.LBB33_20
 .LBB33_12:
@@ -9257,14 +9255,14 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 .LBB33_21:
 	addi.w	$a0, $s6, 0
-	bstrpick.d	$s2, $s6, 30, 0
+	bstrpick.d	$s1, $s6, 30, 0
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	st.d	$s6, $sp, 16                    # 8-byte Folded Spill
 	blez	$a0, .LBB33_24
 # %bb.22:                               # %iter.check
 	ld.d	$a0, $s4, 0
 	ori	$a1, $zero, 3
-	bltu	$a1, $s2, .LBB33_25
+	bltu	$a1, $s1, .LBB33_25
 # %bb.23:
 	move	$a1, $zero
 	ori	$s6, $zero, 1
@@ -9274,7 +9272,7 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	b	.LBB33_36
 .LBB33_25:                              # %vector.main.loop.iter.check
 	ori	$a1, $zero, 16
-	bgeu	$s2, $a1, .LBB33_27
+	bgeu	$s1, $a1, .LBB33_27
 # %bb.26:
 	move	$a1, $zero
 	ori	$s6, $zero, 1
@@ -9298,17 +9296,15 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	bnez	$a3, .LBB33_28
 # %bb.29:                               # %middle.block
 	xvmul.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$s6, $xr0, 0
-	beq	$s2, $a1, .LBB33_36
+	beq	$s1, $a1, .LBB33_36
 # %bb.30:                               # %vec.epilog.iter.check
 	andi	$a2, $s7, 48
 	beqz	$a2, .LBB33_34
@@ -9335,10 +9331,10 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	vreplvei.w	$vr1, $vr0, 1
 	vmul.w	$vr0, $vr0, $vr1
 	vpickve2gr.w	$s6, $vr0, 0
-	beq	$s2, $a1, .LBB33_36
+	beq	$s1, $a1, .LBB33_36
 .LBB33_34:                              # %vec.epilog.scalar.ph.preheader
 	alsl.d	$a0, $a1, $a0, 2
-	sub.d	$a1, $a1, $s2
+	sub.d	$a1, $a1, $s1
 	.p2align	4, , 16
 .LBB33_35:                              # %vec.epilog.scalar.ph
                                         # =>This Inner Loop Header: Depth=1
@@ -9354,14 +9350,14 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	srli.d	$a1, $s3, 61
 	bnez	$a1, .LBB33_206
 # %bb.37:                               # %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-	st.d	$s1, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 40                    # 8-byte Folded Spill
 	beqz	$a0, .LBB33_39
 # %bb.38:                               # %.noexc84
 	srai.d	$s7, $a0, 30
 	move	$a0, $s7
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
-	move	$s1, $s5
+	move	$s2, $s5
 	move	$s5, $s8
 	move	$s8, $a0
 	st.d	$a0, $sp, 120
@@ -9375,7 +9371,7 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	jirl	$ra, $ra, 0
 	add.d	$a0, $s8, $s7
 	move	$s8, $s5
-	move	$s5, $s1
+	move	$s5, $s2
 	b	.LBB33_40
 .LBB33_39:                              # %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
 	move	$a0, $zero
@@ -9437,7 +9433,7 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 # %bb.46:                               # %.lr.ph293
 	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	addi.d	$a0, $a0, -1
-	bstrpick.d	$s1, $a0, 31, 0
+	bstrpick.d	$s2, $a0, 31, 0
 	pcalau12i	$a0, %pc_hi20(.L.str.197)
 	addi.d	$s3, $a0, %pc_lo12(.L.str.197)
 	move	$s4, $zero
@@ -9448,7 +9444,7 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
                                         #   in Loop: Header=BB33_48 Depth=1
 	addi.d	$s5, $s5, 1
 	addi.d	$s4, $s4, 4
-	beq	$s2, $s5, .LBB33_51
+	beq	$s1, $s5, .LBB33_51
 .LBB33_48:                              # =>This Inner Loop Header: Depth=1
 	ld.d	$a0, $sp, 120
 	ldx.w	$a1, $a0, $s4
@@ -9458,7 +9454,7 @@ _ZN2PP3Cmd14error_dup_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 	jirl	$ra, $ra, 0
 .Ltmp283:                               # EH_LABEL
 # %bb.49:                               #   in Loop: Header=BB33_48 Depth=1
-	bgeu	$s5, $s1, .LBB33_47
+	bgeu	$s5, $s2, .LBB33_47
 # %bb.50:                               #   in Loop: Header=BB33_48 Depth=1
 .Ltmp284:                               # EH_LABEL
 	ori	$a2, $zero, 1
@@ -13299,14 +13295,12 @@ _ZN2PP3Cmd8get_sizeERSt6vectorIiSaIiEERNSt7__cxx1118basic_stringstreamIcSt11char
 	bnez	$a5, .LBB39_18
 # %bb.19:                               # %middle.block
 	xvmul.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$a4, $xr0, 0
 	beq	$a3, $a2, .LBB39_26

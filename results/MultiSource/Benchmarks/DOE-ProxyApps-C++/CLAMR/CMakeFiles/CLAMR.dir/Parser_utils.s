@@ -93,14 +93,12 @@ _ZN2PP12Parser_utils9start_dexERSt6vectorIiSaIiEERKS3_: # @_ZN2PP12Parser_utils9
 # %bb.10:                               # %middle.block
                                         #   in Loop: Header=BB1_4 Depth=1
 	xvmul.w	$xr2, $xr3, $xr2
-	xvpermi.d	$xr3, $xr2, 78
+	xvpermi.d	$xr3, $xr2, 238
 	xvshuf4i.w	$xr3, $xr3, 228
 	xvmul.w	$xr2, $xr2, $xr3
-	xvpermi.d	$xr3, $xr2, 68
-	xvshuf4i.w	$xr3, $xr3, 14
+	xvshuf4i.w	$xr3, $xr2, 14
 	xvmul.w	$xr2, $xr2, $xr3
-	xvpermi.d	$xr3, $xr2, 68
-	xvrepl128vei.w	$xr3, $xr3, 1
+	xvrepl128vei.w	$xr3, $xr2, 1
 	xvmul.w	$xr2, $xr2, $xr3
 	xvpickve2gr.w	$t2, $xr2, 0
 	beq	$a6, $t1, .LBB1_3
@@ -367,14 +365,12 @@ _ZN2PP12Parser_utils11reverse_dexEiiRSt6vectorIiSaIiEERKS3_: # @_ZN2PP12Parser_u
 # %bb.35:                               # %middle.block178
                                         #   in Loop: Header=BB2_29 Depth=2
 	xvmul.w	$xr2, $xr3, $xr2
-	xvpermi.d	$xr3, $xr2, 78
+	xvpermi.d	$xr3, $xr2, 238
 	xvshuf4i.w	$xr3, $xr3, 228
 	xvmul.w	$xr2, $xr2, $xr3
-	xvpermi.d	$xr3, $xr2, 68
-	xvshuf4i.w	$xr3, $xr3, 14
+	xvshuf4i.w	$xr3, $xr2, 14
 	xvmul.w	$xr2, $xr2, $xr3
-	xvpermi.d	$xr3, $xr2, 68
-	xvrepl128vei.w	$xr3, $xr3, 1
+	xvrepl128vei.w	$xr3, $xr2, 1
 	xvmul.w	$xr2, $xr2, $xr3
 	xvpickve2gr.w	$s1, $xr2, 0
 	beq	$fp, $s0, .LBB2_28
@@ -500,14 +496,12 @@ _ZN2PP12Parser_utils11reverse_dexEiiRSt6vectorIiSaIiEERKS3_: # @_ZN2PP12Parser_u
 # %bb.54:                               # %middle.block144
                                         #   in Loop: Header=BB2_48 Depth=1
 	xvmul.w	$xr2, $xr3, $xr2
-	xvpermi.d	$xr3, $xr2, 78
+	xvpermi.d	$xr3, $xr2, 238
 	xvshuf4i.w	$xr3, $xr3, 228
 	xvmul.w	$xr2, $xr2, $xr3
-	xvpermi.d	$xr3, $xr2, 68
-	xvshuf4i.w	$xr3, $xr3, 14
+	xvshuf4i.w	$xr3, $xr2, 14
 	xvmul.w	$xr2, $xr2, $xr3
-	xvpermi.d	$xr3, $xr2, 68
-	xvrepl128vei.w	$xr3, $xr3, 1
+	xvrepl128vei.w	$xr3, $xr2, 1
 	xvmul.w	$xr2, $xr2, $xr3
 	xvpickve2gr.w	$t8, $xr2, 0
 	beq	$t2, $t7, .LBB2_47

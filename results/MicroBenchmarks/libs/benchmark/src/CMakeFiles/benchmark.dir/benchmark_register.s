@@ -4773,11 +4773,10 @@ _ZN9benchmark8internal9Benchmark11ArgsProductERKSt6vectorIS2_IlSaIlEESaIS4_EE: #
 	pcalau12i	$a3, %pc_hi20(.LCPI25_0)
 	xvld	$xr2, $a3, %pc_lo12(.LCPI25_0)
 	xvmul.d	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf.d	$xr2, $xr0, $xr1
 	xvmul.d	$xr0, $xr0, $xr2
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.d	$xr1, $xr1, 1
+	xvrepl128vei.d	$xr1, $xr0, 1
 	xvmul.d	$xr0, $xr0, $xr1
 	xvpickve2gr.d	$a3, $xr0, 0
 	beq	$a1, $a2, .LBB25_10
