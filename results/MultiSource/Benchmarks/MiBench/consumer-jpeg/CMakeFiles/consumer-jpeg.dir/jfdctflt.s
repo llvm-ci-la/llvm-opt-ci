@@ -148,7 +148,7 @@ jpeg_fdct_float:                        # @jpeg_fdct_float
 	vextrins.w	$vr7, $vr14, 48
 	xvpermi.q	$xr7, $xr10, 2
 	xvfadd.s	$xr8, $xr6, $xr7
-	xvfsub.s	$xr10, $xr6, $xr7
+	xvfsub.s	$xr9, $xr6, $xr7
 	xvfadd.s	$xr6, $xr1, $xr8
 	xvfsub.s	$xr8, $xr1, $xr8
 	xvfadd.s	$xr1, $xr3, $xr5
@@ -174,14 +174,14 @@ jpeg_fdct_float:                        # @jpeg_fdct_float
 	ori	$a1, $a1, 1267
 	xvreplgr2vr.w	$xr1, $a1
 	xvfmul.s	$xr3, $xr3, $xr1
-	xvfadd.s	$xr9, $xr8, $xr3
-	xvstelm.w	$xr9, $a0, 40, 1
-	xvstelm.w	$xr9, $a0, 72, 2
-	xvstelm.w	$xr9, $a0, 104, 3
-	xvstelm.w	$xr9, $a0, 136, 4
-	xvstelm.w	$xr9, $a0, 168, 5
-	xvstelm.w	$xr9, $a0, 200, 6
-	xvstelm.w	$xr9, $a0, 232, 7
+	xvfadd.s	$xr10, $xr8, $xr3
+	xvstelm.w	$xr10, $a0, 40, 1
+	xvstelm.w	$xr10, $a0, 72, 2
+	xvstelm.w	$xr10, $a0, 104, 3
+	xvstelm.w	$xr10, $a0, 136, 4
+	xvstelm.w	$xr10, $a0, 168, 5
+	xvstelm.w	$xr10, $a0, 200, 6
+	xvstelm.w	$xr10, $a0, 232, 7
 	xvfsub.s	$xr5, $xr8, $xr3
 	xvstelm.w	$xr5, $a0, 56, 1
 	xvstelm.w	$xr5, $a0, 88, 2
@@ -190,8 +190,8 @@ jpeg_fdct_float:                        # @jpeg_fdct_float
 	xvstelm.w	$xr5, $a0, 184, 5
 	xvstelm.w	$xr5, $a0, 216, 6
 	xvstelm.w	$xr5, $a0, 248, 7
-	xvfadd.s	$xr8, $xr4, $xr10
-	xvfadd.s	$xr10, $xr2, $xr4
+	xvfadd.s	$xr8, $xr4, $xr9
+	xvfadd.s	$xr9, $xr2, $xr4
 	xvfadd.s	$xr11, $xr0, $xr2
 	xvfsub.s	$xr3, $xr8, $xr11
 	lu12i.w	$a1, 257086
@@ -206,8 +206,8 @@ jpeg_fdct_float:                        # @jpeg_fdct_float
 	ori	$a1, $a1, 3445
 	xvreplgr2vr.w	$xr4, $a1
 	xvfmadd.s	$xr11, $xr11, $xr4, $xr12
-	xvfmul.s	$xr8, $xr10, $xr1
-	xvfadd.s	$xr10, $xr0, $xr8
+	xvfmul.s	$xr8, $xr9, $xr1
+	xvfadd.s	$xr9, $xr0, $xr8
 	xvfsub.s	$xr0, $xr0, $xr8
 	xvfadd.s	$xr8, $xr0, $xr13
 	xvstelm.w	$xr8, $a0, 52, 1
@@ -225,7 +225,7 @@ jpeg_fdct_float:                        # @jpeg_fdct_float
 	xvstelm.w	$xr12, $a0, 172, 5
 	xvstelm.w	$xr12, $a0, 204, 6
 	xvstelm.w	$xr12, $a0, 236, 7
-	xvfadd.s	$xr13, $xr10, $xr11
+	xvfadd.s	$xr13, $xr9, $xr11
 	xvstelm.w	$xr13, $a0, 36, 1
 	xvstelm.w	$xr13, $a0, 68, 2
 	xvstelm.w	$xr13, $a0, 100, 3
@@ -233,33 +233,25 @@ jpeg_fdct_float:                        # @jpeg_fdct_float
 	xvstelm.w	$xr13, $a0, 164, 5
 	xvstelm.w	$xr13, $a0, 196, 6
 	xvstelm.w	$xr13, $a0, 228, 7
-	xvfsub.s	$xr0, $xr10, $xr11
-	xvpermi.d	$xr7, $xr7, 68
-	xvpermi.d	$xr10, $xr13, 68
-	xvpackev.w	$xr7, $xr10, $xr7
-	xvpermi.d	$xr7, $xr7, 68
-	xvpermi.d	$xr7, $xr7, 68
-	xvpermi.d	$xr9, $xr9, 68
-	xvpermi.d	$xr9, $xr9, 68
-	xvpackev.d	$xr7, $xr9, $xr7
-	xvpermi.d	$xr7, $xr7, 68
+	xvfsub.s	$xr0, $xr9, $xr11
+	xvpackev.w	$xr7, $xr13, $xr7
 	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
 	xvld	$xr9, $a1, %pc_lo12(.LCPI0_0)
-	xvpermi.d	$xr10, $xr12, 68
+	xvpackev.d	$xr7, $xr10, $xr7
 	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
-	xvld	$xr11, $a1, %pc_lo12(.LCPI0_1)
-	xvshuf.w	$xr9, $xr10, $xr7
+	xvld	$xr10, $a1, %pc_lo12(.LCPI0_1)
+	xvshuf.w	$xr9, $xr12, $xr7
 	xvpermi.d	$xr7, $xr9, 68
 	xvpermi.d	$xr6, $xr6, 68
-	xvshuf.d	$xr11, $xr6, $xr7
-	xvpickve.w	$xr7, $xr11, 1
-	xvpickve.w	$xr9, $xr11, 2
-	xvpickve.w	$xr10, $xr11, 3
-	xvpermi.d	$xr12, $xr11, 78
-	vori.b	$vr6, $vr11, 0
+	xvshuf.d	$xr10, $xr6, $xr7
+	xvpickve.w	$xr7, $xr10, 1
+	xvpickve.w	$xr9, $xr10, 2
+	xvpickve.w	$xr11, $xr10, 3
+	xvpermi.d	$xr12, $xr10, 238
+	vori.b	$vr6, $vr10, 0
 	vextrins.w	$vr6, $vr7, 16
 	vextrins.w	$vr6, $vr9, 32
-	vextrins.w	$vr6, $vr10, 48
+	vextrins.w	$vr6, $vr11, 48
 	xvrepl128vei.w	$xr7, $xr12, 0
 	xvpickve.w	$xr8, $xr8, 0
 	vextrins.w	$vr7, $vr8, 16
@@ -267,14 +259,14 @@ jpeg_fdct_float:                        # @jpeg_fdct_float
 	xvpermi.q	$xr8, $xr7, 2
 	xvpickve.d	$xr7, $xr8, 1
 	vextrins.d	$vr6, $vr7, 16
-	xvpermi.d	$xr7, $xr8, 78
+	xvpermi.d	$xr7, $xr8, 238
 	xvrepl128vei.d	$xr7, $xr7, 0
 	xvpickve.d	$xr5, $xr5, 0
 	vextrins.d	$vr7, $vr5, 16
 	xvori.b	$xr5, $xr6, 0
 	xvpermi.q	$xr5, $xr7, 2
 	xvpickve.w	$xr7, $xr5, 5
-	xvpermi.d	$xr8, $xr5, 78
+	xvpermi.d	$xr8, $xr5, 238
 	xvrepl128vei.w	$xr8, $xr8, 0
 	vextrins.w	$vr8, $vr7, 16
 	xvpickve.w	$xr7, $xr5, 6

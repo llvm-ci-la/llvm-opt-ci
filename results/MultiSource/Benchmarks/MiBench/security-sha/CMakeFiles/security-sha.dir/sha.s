@@ -169,13 +169,11 @@ byte_reverse:                           # @byte_reverse
 	vinsgr2vr.h	$vr0, $a7, 0
 	st.b	$a6, $a0, 0
 	vld	$vr2, $a0, 4
+	pcalau12i	$a6, %pc_hi20(.LCPI2_0)
+	xvld	$xr1, $a6, %pc_lo12(.LCPI2_0)
 	ld.d	$a6, $a0, 20
-	pcalau12i	$a7, %pc_hi20(.LCPI2_0)
-	xvld	$xr1, $a7, %pc_lo12(.LCPI2_0)
 	ld.w	$a7, $a0, 28
 	vinsgr2vr.b	$vr3, $a5, 0
-	xvpermi.d	$xr3, $xr3, 68
-	xvpermi.d	$xr0, $xr0, 68
 	xvshuf.b	$xr0, $xr0, $xr3, $xr1
 	pcalau12i	$a5, %pc_hi20(.LCPI2_1)
 	xvld	$xr3, $a5, %pc_lo12(.LCPI2_1)
@@ -810,8 +808,6 @@ sha_stream:                             # @sha_stream
 	ld.d	$t0, $fp, 48
 	vinsgr2vr.w	$vr1, $t1, 0
 	vinsgr2vr.b	$vr4, $a7, 0
-	xvpermi.d	$xr4, $xr4, 68
-	xvpermi.d	$xr2, $xr2, 68
 	xvshuf.b	$xr2, $xr2, $xr4, $xr6
 	xvpermi.d	$xr2, $xr2, 68
 	xvpermi.d	$xr3, $xr3, 68

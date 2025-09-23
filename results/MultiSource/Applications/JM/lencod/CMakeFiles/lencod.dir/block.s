@@ -10168,68 +10168,68 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	bstrpick.d	$a0, $a0, 15, 0
 	vinsgr2vr.w	$vr5, $a0, 3
 	vpickve2gr.h	$a0, $vr6, 0
-	bstrpick.d	$a1, $a0, 15, 0
-	vinsgr2vr.w	$vr7, $a1, 0
-	vpickve2gr.h	$a0, $vr6, 1
 	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr7, $a0, 1
-	vpickve2gr.h	$a0, $vr6, 2
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr7, $a0, 2
-	vpickve2gr.h	$a0, $vr6, 3
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr7, $a0, 3
+	vinsgr2vr.w	$vr7, $a0, 0
+	vpickve2gr.h	$a1, $vr6, 1
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr7, $a1, 1
+	vpickve2gr.h	$a1, $vr6, 2
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr7, $a1, 2
+	vpickve2gr.h	$a1, $vr6, 3
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr7, $a1, 3
 	xvstelm.w	$xr7, $sp, 500, 1
-	addi.d	$a0, $sp, 532
-	xvstelm.w	$xr7, $a0, 0, 2
-	addi.d	$a0, $sp, 564
-	xvstelm.w	$xr7, $a0, 0, 3
+	addi.d	$a1, $sp, 532
+	xvstelm.w	$xr7, $a1, 0, 2
+	addi.d	$a1, $sp, 564
+	xvstelm.w	$xr7, $a1, 0, 3
 	xvpermi.q	$xr7, $xr5, 2
-	addi.d	$a0, $sp, 596
-	xvstelm.w	$xr7, $a0, 0, 4
-	addi.d	$a0, $sp, 628
-	xvstelm.w	$xr7, $a0, 0, 5
+	addi.d	$a1, $sp, 596
+	xvstelm.w	$xr7, $a1, 0, 4
+	addi.d	$a1, $sp, 628
+	xvstelm.w	$xr7, $a1, 0, 5
 	ori	$a2, $a4, 1168
 	xvldx	$xr5, $s7, $a2
-	addi.d	$a0, $sp, 660
-	xvstelm.w	$xr7, $a0, 0, 6
-	ori	$a0, $a4, 528
-	vldx	$vr6, $s7, $a0
+	addi.d	$a1, $sp, 660
+	xvstelm.w	$xr7, $a1, 0, 6
+	ori	$a1, $a4, 528
+	vldx	$vr6, $s7, $a1
 	xvadd.w	$xr5, $xr5, $xr7
 	st.d	$a2, $sp, 72                    # 8-byte Folded Spill
 	xvstx	$xr5, $s7, $a2
-	addi.d	$a0, $sp, 692
-	xvstelm.w	$xr7, $a0, 0, 7
-	vpickve2gr.h	$a0, $vr6, 4
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr5, $a0, 0
-	vpickve2gr.h	$a0, $vr6, 5
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr5, $a0, 1
-	vpickve2gr.h	$a0, $vr6, 6
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr5, $a0, 2
-	vpickve2gr.h	$a0, $vr6, 7
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr5, $a0, 3
-	vpickve2gr.h	$a0, $vr6, 0
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr7, $a0, 0
-	vpickve2gr.h	$a0, $vr6, 1
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr7, $a0, 1
-	vpickve2gr.h	$a0, $vr6, 2
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr7, $a0, 2
-	vpickve2gr.h	$a0, $vr6, 3
-	bstrpick.d	$a0, $a0, 15, 0
-	vinsgr2vr.w	$vr7, $a0, 3
+	addi.d	$a1, $sp, 692
+	xvstelm.w	$xr7, $a1, 0, 7
+	vpickve2gr.h	$a1, $vr6, 4
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr5, $a1, 0
+	vpickve2gr.h	$a1, $vr6, 5
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr5, $a1, 1
+	vpickve2gr.h	$a1, $vr6, 6
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr5, $a1, 2
+	vpickve2gr.h	$a1, $vr6, 7
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr5, $a1, 3
+	vpickve2gr.h	$a1, $vr6, 0
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr7, $a1, 0
+	vpickve2gr.h	$a1, $vr6, 1
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr7, $a1, 1
+	vpickve2gr.h	$a1, $vr6, 2
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr7, $a1, 2
+	vpickve2gr.h	$a1, $vr6, 3
+	bstrpick.d	$a1, $a1, 15, 0
+	vinsgr2vr.w	$vr7, $a1, 3
 	xvstelm.w	$xr7, $sp, 504, 1
-	addi.d	$a0, $sp, 536
-	xvstelm.w	$xr7, $a0, 0, 2
-	addi.d	$a0, $sp, 568
-	xvstelm.w	$xr7, $a0, 0, 3
-	xvpickve2gr.d	$a0, $xr7, 0
+	addi.d	$a1, $sp, 536
+	xvstelm.w	$xr7, $a1, 0, 2
+	addi.d	$a1, $sp, 568
+	xvstelm.w	$xr7, $a1, 0, 3
+	xvpickve2gr.d	$a1, $xr7, 0
 	xvpermi.q	$xr7, $xr5, 2
 	addi.d	$a2, $sp, 600
 	xvstelm.w	$xr7, $a2, 0, 4
@@ -10276,43 +10276,35 @@ dct_chroma_sp:                          # @dct_chroma_sp
 	addi.d	$a3, $sp, 572
 	xvstelm.w	$xr7, $a3, 0, 3
 	xvpermi.q	$xr7, $xr5, 2
-	xvpermi.d	$xr0, $xr0, 68
-	xvpermi.d	$xr1, $xr1, 68
 	xvpackev.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr0, $xr0, 68
-	xvpermi.d	$xr0, $xr0, 68
-	xvpermi.d	$xr1, $xr2, 68
-	xvpermi.d	$xr1, $xr1, 68
-	xvpackev.d	$xr0, $xr1, $xr0
-	xvpermi.d	$xr0, $xr0, 68
 	pcalau12i	$a3, %pc_hi20(.LCPI6_1)
 	xvld	$xr1, $a3, %pc_lo12(.LCPI6_1)
-	xvpermi.d	$xr2, $xr3, 68
+	xvpackev.d	$xr0, $xr2, $xr0
 	pcalau12i	$a3, %pc_hi20(.LCPI6_2)
-	xvld	$xr3, $a3, %pc_lo12(.LCPI6_2)
-	xvshuf.w	$xr1, $xr2, $xr0
+	xvld	$xr2, $a3, %pc_lo12(.LCPI6_2)
+	xvshuf.w	$xr1, $xr3, $xr0
 	xvpermi.d	$xr0, $xr1, 68
 	xvpermi.d	$xr1, $xr4, 68
-	xvshuf.d	$xr3, $xr1, $xr0
-	xvpickve2gr.w	$a3, $xr3, 0
+	xvshuf.d	$xr2, $xr1, $xr0
+	xvpickve2gr.w	$a3, $xr2, 0
 	vinsgr2vr.w	$vr0, $a3, 0
-	xvpickve2gr.w	$a3, $xr3, 1
+	xvpickve2gr.w	$a3, $xr2, 1
 	vinsgr2vr.w	$vr0, $a3, 1
-	xvpickve2gr.w	$a3, $xr3, 2
+	xvpickve2gr.w	$a3, $xr2, 2
 	vinsgr2vr.w	$vr0, $a3, 2
-	xvpickve2gr.w	$a3, $xr3, 3
+	xvpickve2gr.w	$a3, $xr2, 3
 	vinsgr2vr.w	$vr0, $a3, 3
-	xvpickve2gr.w	$a3, $xr3, 4
+	xvpickve2gr.w	$a3, $xr2, 4
 	vinsgr2vr.w	$vr1, $a3, 0
-	vinsgr2vr.w	$vr1, $a1, 1
+	vinsgr2vr.w	$vr1, $a0, 1
 	xvpermi.q	$xr0, $xr1, 2
-	xvpickve2gr.d	$a1, $xr0, 0
-	vinsgr2vr.d	$vr1, $a1, 0
-	xvpickve2gr.d	$a1, $xr0, 1
-	vinsgr2vr.d	$vr1, $a1, 1
-	xvpickve2gr.d	$a1, $xr0, 2
-	vinsgr2vr.d	$vr0, $a1, 0
-	vinsgr2vr.d	$vr0, $a0, 1
+	xvpickve2gr.d	$a0, $xr0, 0
+	vinsgr2vr.d	$vr1, $a0, 0
+	xvpickve2gr.d	$a0, $xr0, 1
+	vinsgr2vr.d	$vr1, $a0, 1
+	xvpickve2gr.d	$a0, $xr0, 2
+	vinsgr2vr.d	$vr0, $a0, 0
+	vinsgr2vr.d	$vr0, $a1, 1
 	xvpermi.q	$xr1, $xr0, 2
 	xvpickve2gr.w	$a0, $xr1, 4
 	vinsgr2vr.w	$vr0, $a0, 0

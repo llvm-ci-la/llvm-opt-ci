@@ -123,7 +123,7 @@ genorient:                              # @genorient
 	b	.LBB0_19
 .LBB0_12:                               #   in Loop: Header=BB0_4 Depth=1
 	xvpickve.d	$xr1, $xr0, 2
-	xvpermi.d	$xr0, $xr0, 78
+	xvpermi.d	$xr0, $xr0, 238
 	xvrepl128vei.d	$xr0, $xr0, 1
 	vextrins.d	$vr0, $vr1, 16
 	b	.LBB0_17
@@ -136,7 +136,7 @@ genorient:                              # @genorient
 	b	.LBB0_19
 .LBB0_14:                               #   in Loop: Header=BB0_4 Depth=1
 	xvpickve.d	$xr1, $xr0, 2
-	xvpermi.d	$xr0, $xr0, 78
+	xvpermi.d	$xr0, $xr0, 238
 	xvrepl128vei.d	$xr0, $xr0, 1
 	vextrins.d	$vr0, $vr1, 16
 .LBB0_15:                               # %.sink.split
@@ -317,7 +317,7 @@ genorient:                              # @genorient
 	b	.LBB0_46
 .LBB0_39:                               #   in Loop: Header=BB0_34 Depth=2
 	xvpickve.d	$xr1, $xr0, 2
-	xvpermi.d	$xr0, $xr0, 78
+	xvpermi.d	$xr0, $xr0, 238
 	xvrepl128vei.d	$xr0, $xr0, 1
 	vextrins.d	$vr0, $vr1, 16
 	b	.LBB0_44
@@ -330,7 +330,7 @@ genorient:                              # @genorient
 	b	.LBB0_46
 .LBB0_41:                               #   in Loop: Header=BB0_34 Depth=2
 	xvpickve.d	$xr1, $xr0, 2
-	xvpermi.d	$xr0, $xr0, 78
+	xvpermi.d	$xr0, $xr0, 238
 	xvrepl128vei.d	$xr0, $xr0, 1
 	vextrins.d	$vr0, $vr1, 16
 .LBB0_42:                               # %.sink.split1069

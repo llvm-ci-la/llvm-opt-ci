@@ -1605,14 +1605,12 @@ ascii85decode:                          # @ascii85decode
 	bnez	$a2, .LBB4_34
 # %bb.35:                               # %middle.block
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$s4, $xr0, 0
 	beq	$a0, $a1, .LBB4_42

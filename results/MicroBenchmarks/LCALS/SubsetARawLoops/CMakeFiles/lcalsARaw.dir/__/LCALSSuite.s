@@ -9454,11 +9454,10 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a5, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a5, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -9546,11 +9545,10 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a5, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a5, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -9638,11 +9636,10 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a5, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a5, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -9730,11 +9727,10 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a5, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a5, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -9822,11 +9818,10 @@ _Z8loopInitjR8LoopStat:                 # @_Z8loopInitjR8LoopStat
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a3, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a3, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -20227,11 +20222,10 @@ _Z8loopInitj:                           # @_Z8loopInitj
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a5, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a5, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -20319,11 +20313,10 @@ _Z8loopInitj:                           # @_Z8loopInitj
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a5, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a5, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -20411,11 +20404,10 @@ _Z8loopInitj:                           # @_Z8loopInitj
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a5, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a5, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -20503,11 +20495,10 @@ _Z8loopInitj:                           # @_Z8loopInitj
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a5, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a5, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -20595,11 +20586,10 @@ _Z8loopInitj:                           # @_Z8loopInitj
 	xvfadd.d	$xr8, $xr8, $xr7
 	xvfdiv.d	$xr10, $xr10, $xr8
 	xvfdiv.d	$xr8, $xr9, $xr8
-	xvpickve.d	$xr9, $xr8, 1
-	xvpermi.d	$xr11, $xr10, 68
-	xvrepl128vei.d	$xr11, $xr11, 1
-	vextrins.d	$vr11, $vr9, 16
-	vst	$vr11, $a3, -16
+	xvrepl128vei.d	$xr9, $xr10, 1
+	xvpickve.d	$xr11, $xr8, 1
+	vextrins.d	$vr9, $vr11, 16
+	vst	$vr9, $a3, -16
 	xvpermi.d	$xr9, $xr10, 238
 	xvpermi.d	$xr11, $xr8, 238
 	xvori.b	$xr12, $xr6, 0
@@ -27973,11 +27963,10 @@ _Z16allocateLoopDatav:                  # @_Z16allocateLoopDatav
 	xvfadd.d	$xr4, $xr4, $xr10
 	xvfdiv.d	$xr6, $xr6, $xr4
 	xvfdiv.d	$xr4, $xr5, $xr4
-	xvpickve.d	$xr5, $xr4, 1
-	xvpermi.d	$xr7, $xr6, 68
-	xvrepl128vei.d	$xr7, $xr7, 1
-	vextrins.d	$vr7, $vr5, 16
-	vst	$vr7, $a0, -16
+	xvrepl128vei.d	$xr5, $xr6, 1
+	xvpickve.d	$xr7, $xr4, 1
+	vextrins.d	$vr5, $vr7, 16
+	vst	$vr5, $a0, -16
 	xvpermi.d	$xr5, $xr6, 238
 	xvpermi.d	$xr7, $xr4, 238
 	xvori.b	$xr8, $xr3, 0
@@ -28045,11 +28034,10 @@ _Z16allocateLoopDatav:                  # @_Z16allocateLoopDatav
 	xvfadd.d	$xr4, $xr4, $xr10
 	xvfdiv.d	$xr6, $xr6, $xr4
 	xvfdiv.d	$xr4, $xr5, $xr4
-	xvpickve.d	$xr5, $xr4, 1
-	xvpermi.d	$xr7, $xr6, 68
-	xvrepl128vei.d	$xr7, $xr7, 1
-	vextrins.d	$vr7, $vr5, 16
-	vst	$vr7, $a0, -16
+	xvrepl128vei.d	$xr5, $xr6, 1
+	xvpickve.d	$xr7, $xr4, 1
+	vextrins.d	$vr5, $vr7, 16
+	vst	$vr5, $a0, -16
 	xvpermi.d	$xr5, $xr6, 238
 	xvpermi.d	$xr7, $xr4, 238
 	xvori.b	$xr8, $xr3, 0
@@ -28118,11 +28106,10 @@ _Z16allocateLoopDatav:                  # @_Z16allocateLoopDatav
 	xvfadd.d	$xr4, $xr4, $xr10
 	xvfdiv.d	$xr6, $xr6, $xr4
 	xvfdiv.d	$xr4, $xr5, $xr4
-	xvpickve.d	$xr5, $xr4, 1
-	xvpermi.d	$xr7, $xr6, 68
-	xvrepl128vei.d	$xr7, $xr7, 1
-	vextrins.d	$vr7, $vr5, 16
-	vst	$vr7, $a0, -16
+	xvrepl128vei.d	$xr5, $xr6, 1
+	xvpickve.d	$xr7, $xr4, 1
+	vextrins.d	$vr5, $vr7, 16
+	vst	$vr5, $a0, -16
 	xvpermi.d	$xr5, $xr6, 238
 	xvpermi.d	$xr7, $xr4, 238
 	xvori.b	$xr8, $xr3, 0
@@ -28191,11 +28178,10 @@ _Z16allocateLoopDatav:                  # @_Z16allocateLoopDatav
 	xvfadd.d	$xr4, $xr4, $xr10
 	xvfdiv.d	$xr6, $xr6, $xr4
 	xvfdiv.d	$xr4, $xr5, $xr4
-	xvpickve.d	$xr5, $xr4, 1
-	xvpermi.d	$xr7, $xr6, 68
-	xvrepl128vei.d	$xr7, $xr7, 1
-	vextrins.d	$vr7, $vr5, 16
-	vst	$vr7, $a0, -16
+	xvrepl128vei.d	$xr5, $xr6, 1
+	xvpickve.d	$xr7, $xr4, 1
+	vextrins.d	$vr5, $vr7, 16
+	vst	$vr5, $a0, -16
 	xvpermi.d	$xr5, $xr6, 238
 	xvpermi.d	$xr7, $xr4, 238
 	xvori.b	$xr8, $xr3, 0
@@ -28262,11 +28248,10 @@ _Z16allocateLoopDatav:                  # @_Z16allocateLoopDatav
 	xvfadd.d	$xr4, $xr4, $xr10
 	xvfdiv.d	$xr6, $xr6, $xr4
 	xvfdiv.d	$xr4, $xr5, $xr4
-	xvpickve.d	$xr5, $xr4, 1
-	xvpermi.d	$xr7, $xr6, 68
-	xvrepl128vei.d	$xr7, $xr7, 1
-	vextrins.d	$vr7, $vr5, 16
-	vst	$vr7, $a0, -16
+	xvrepl128vei.d	$xr5, $xr6, 1
+	xvpickve.d	$xr7, $xr4, 1
+	vextrins.d	$vr5, $vr7, 16
+	vst	$vr5, $a0, -16
 	xvpermi.d	$xr5, $xr6, 238
 	xvpermi.d	$xr7, $xr4, 238
 	xvori.b	$xr8, $xr3, 0

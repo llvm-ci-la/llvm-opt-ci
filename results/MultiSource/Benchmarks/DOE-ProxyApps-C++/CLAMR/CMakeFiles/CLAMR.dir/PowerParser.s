@@ -85,14 +85,12 @@ _ZN2PP11PowerParser7get_intIiEEvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 	bnez	$a4, .LBB0_7
 # %bb.8:                                # %middle.block
 	xvmul.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$fp, $xr0, 0
 	beq	$a0, $a1, .LBB0_15
@@ -1273,14 +1271,12 @@ _ZN2PP11PowerParser7get_intIlEEvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 	bnez	$a4, .LBB2_7
 # %bb.8:                                # %middle.block
 	xvmul.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$fp, $xr0, 0
 	beq	$a0, $a1, .LBB2_15
@@ -57164,14 +57160,12 @@ _ZN2PP11PowerParser12get_bool_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 	bnez	$a4, .LBB82_7
 # %bb.8:                                # %middle.block
 	xvmul.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$fp, $xr0, 0
 	beq	$a0, $a1, .LBB82_15
@@ -57975,14 +57969,12 @@ _ZN2PP11PowerParser8get_boolERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 	bnez	$a4, .LBB84_7
 # %bb.8:                                # %middle.block
 	xvmul.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$fp, $xr0, 0
 	beq	$a0, $a1, .LBB84_15
@@ -58767,14 +58759,12 @@ _ZN2PP11PowerParser8get_realERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 	bnez	$a4, .LBB86_7
 # %bb.8:                                # %middle.block
 	xvmul.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$fp, $xr0, 0
 	beq	$a0, $a1, .LBB86_15
@@ -59579,14 +59569,12 @@ _ZN2PP11PowerParser8get_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 	bnez	$a4, .LBB88_7
 # %bb.8:                                # %middle.block
 	xvmul.w	$xr0, $xr1, $xr0
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$fp, $xr0, 0
 	beq	$a0, $a1, .LBB88_15

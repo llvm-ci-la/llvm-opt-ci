@@ -1147,7 +1147,7 @@ mp_mul_radix_test:                      # @mp_mul_radix_test
 	xvshuf.d	$xr3, $xr2, $xr1
 	xvst	$xr3, $a3, 0
 	xvpickve.d	$xr3, $xr2, 3
-	xvpermi.d	$xr4, $xr1, 78
+	xvpermi.d	$xr4, $xr1, 238
 	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vst	$vr4, $a3, 32
@@ -1430,14 +1430,12 @@ mp_sscanf:                              # @mp_sscanf
 	bnez	$a3, .LBB2_42
 # %bb.43:                               # %middle.block
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$a3, $xr0, 0
 	beq	$a4, $a5, .LBB2_50
@@ -2873,7 +2871,7 @@ mp_squh:                                # @mp_squh
 	xvshuf.d	$xr3, $xr2, $xr1
 	xvst	$xr3, $a3, 0
 	xvpickve.d	$xr3, $xr2, 3
-	xvpermi.d	$xr4, $xr1, 78
+	xvpermi.d	$xr4, $xr1, 238
 	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vst	$vr4, $a3, 32
@@ -3513,7 +3511,7 @@ mp_squ:                                 # @mp_squ
 	xvshuf.d	$xr3, $xr2, $xr1
 	xvst	$xr3, $a3, 0
 	xvpickve.d	$xr3, $xr2, 3
-	xvpermi.d	$xr4, $xr1, 78
+	xvpermi.d	$xr4, $xr1, 238
 	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vst	$vr4, $a3, 32
@@ -4732,7 +4730,7 @@ mp_mul_csqu:                            # @mp_mul_csqu
 	xvshuf.d	$xr3, $xr2, $xr1
 	xvst	$xr3, $a5, 0
 	xvpickve.d	$xr3, $xr2, 3
-	xvpermi.d	$xr4, $xr1, 78
+	xvpermi.d	$xr4, $xr1, 238
 	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vst	$vr4, $a5, 32
@@ -5944,7 +5942,7 @@ mp_squh_use_in1fft:                     # @mp_squh_use_in1fft
 	xvshuf.d	$xr3, $xr2, $xr1
 	xvst	$xr3, $a4, 0
 	xvpickve.d	$xr3, $xr2, 3
-	xvpermi.d	$xr4, $xr1, 78
+	xvpermi.d	$xr4, $xr1, 238
 	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vst	$vr4, $a4, 32
@@ -6623,7 +6621,7 @@ mp_sqrt_newton:                         # @mp_sqrt_newton
 	xvshuf.d	$xr3, $xr2, $xr1
 	xvst	$xr3, $a3, 0
 	xvpickve.d	$xr3, $xr2, 3
-	xvpermi.d	$xr4, $xr1, 78
+	xvpermi.d	$xr4, $xr1, 238
 	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vst	$vr4, $a3, 32
@@ -6823,7 +6821,7 @@ mp_sqrt_newton:                         # @mp_sqrt_newton
 	xvshuf.d	$xr3, $xr2, $xr1
 	xvst	$xr3, $a3, 0
 	xvpickve.d	$xr3, $xr2, 3
-	xvpermi.d	$xr4, $xr1, 78
+	xvpermi.d	$xr4, $xr1, 238
 	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vst	$vr4, $a3, 32

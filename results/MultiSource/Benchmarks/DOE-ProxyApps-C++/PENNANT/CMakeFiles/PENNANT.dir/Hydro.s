@@ -2484,7 +2484,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	xvshuf.d	$xr3, $xr0, $xr2
 	xvst	$xr3, $t2, -16
 	xvpickve.d	$xr1, $xr0, 3
-	xvpermi.d	$xr3, $xr2, 78
+	xvpermi.d	$xr3, $xr2, 238
 	xvrepl128vei.d	$xr3, $xr3, 1
 	vextrins.d	$vr3, $vr1, 16
 	vst	$vr3, $t2, 16
@@ -3268,7 +3268,7 @@ _ZN5Hydro9calcAccelEPK7double2PKdPS0_ii: # @_ZN5Hydro9calcAccelEPK7double2PKdPS0
 	xvshuf.d	$xr4, $xr2, $xr3
 	xvst	$xr4, $a4, -16
 	xvpickve.d	$xr4, $xr2, 3
-	xvpermi.d	$xr5, $xr3, 78
+	xvpermi.d	$xr5, $xr3, 238
 	xvrepl128vei.d	$xr5, $xr5, 1
 	vextrins.d	$vr5, $vr4, 16
 	vst	$vr5, $a4, 16

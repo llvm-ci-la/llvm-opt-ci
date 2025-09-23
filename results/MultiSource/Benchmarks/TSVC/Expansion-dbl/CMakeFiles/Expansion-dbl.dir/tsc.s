@@ -12307,17 +12307,16 @@ s3251:                                  # @s3251
                                         # =>  This Inner Loop Header: Depth=2
 	xvldx	$xr1, $a1, $s8
 	xvldx	$xr2, $a1, $s0
-	xvpermi.d	$xr3, $xr0, 78
+	xvpermi.d	$xr3, $xr0, 238
 	xvfadd.d	$xr0, $xr1, $xr2
-	xvpickve.d	$xr1, $xr0, 2
-	xvpermi.d	$xr4, $xr0, 68
-	xvrepl128vei.d	$xr4, $xr4, 1
-	vextrins.d	$vr4, $vr1, 16
-	xvpickve.d	$xr1, $xr0, 0
+	xvrepl128vei.d	$xr1, $xr0, 1
+	xvpickve.d	$xr4, $xr0, 2
+	vextrins.d	$vr1, $vr4, 16
+	xvpickve.d	$xr4, $xr0, 0
 	xvrepl128vei.d	$xr3, $xr3, 1
 	xvldx	$xr5, $a1, $s1
-	vextrins.d	$vr3, $vr1, 16
-	xvpermi.q	$xr3, $xr4, 2
+	vextrins.d	$vr3, $vr4, 16
+	xvpermi.q	$xr3, $xr1, 2
 	xvst	$xr0, $a1, 8
 	xvfmul.d	$xr1, $xr2, $xr5
 	xvstx	$xr1, $a1, $s8
@@ -12503,25 +12502,23 @@ s252:                                   # @s252
 	xvld	$xr3, $a2, 64
 	xvldx	$xr4, $a1, $s0
 	xvfmul.d	$xr1, $xr2, $xr1
-	xvpermi.d	$xr0, $xr0, 78
+	xvpermi.d	$xr0, $xr0, 238
 	xvfmul.d	$xr2, $xr3, $xr4
-	xvpickve.d	$xr3, $xr1, 2
-	xvpermi.d	$xr4, $xr1, 68
-	xvrepl128vei.d	$xr4, $xr4, 1
-	vextrins.d	$vr4, $vr3, 16
-	xvpickve.d	$xr3, $xr1, 0
+	xvrepl128vei.d	$xr3, $xr1, 1
+	xvpickve.d	$xr4, $xr1, 2
+	vextrins.d	$vr3, $vr4, 16
+	xvpickve.d	$xr4, $xr1, 0
 	xvrepl128vei.d	$xr0, $xr0, 1
-	vextrins.d	$vr0, $vr3, 16
-	xvpermi.q	$xr0, $xr4, 2
-	xvpickve.d	$xr3, $xr2, 2
-	xvpermi.d	$xr4, $xr2, 68
-	xvrepl128vei.d	$xr4, $xr4, 1
-	vextrins.d	$vr4, $vr3, 16
-	xvpickve.d	$xr3, $xr2, 0
-	xvpermi.d	$xr5, $xr1, 78
+	vextrins.d	$vr0, $vr4, 16
+	xvpermi.q	$xr0, $xr3, 2
+	xvrepl128vei.d	$xr3, $xr2, 1
+	xvpickve.d	$xr4, $xr2, 2
+	vextrins.d	$vr3, $vr4, 16
+	xvpickve.d	$xr4, $xr2, 0
+	xvpermi.d	$xr5, $xr1, 238
 	xvrepl128vei.d	$xr5, $xr5, 1
-	vextrins.d	$vr5, $vr3, 16
-	xvpermi.q	$xr5, $xr4, 2
+	vextrins.d	$vr5, $vr4, 16
+	xvpermi.q	$xr5, $xr3, 2
 	xvfadd.d	$xr0, $xr0, $xr1
 	xvfadd.d	$xr1, $xr5, $xr2
 	xvstx	$xr0, $fp, $a0
@@ -12818,25 +12815,23 @@ s254:                                   # @s254
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$a1, $fp, $a0
 	xvldx	$xr1, $a1, $s7
-	xvpermi.d	$xr0, $xr0, 78
+	xvpermi.d	$xr0, $xr0, 238
 	xvldx	$xr2, $a1, $s0
-	xvpickve.d	$xr3, $xr1, 2
-	xvpermi.d	$xr4, $xr1, 68
-	xvrepl128vei.d	$xr4, $xr4, 1
-	vextrins.d	$vr4, $vr3, 16
-	xvpickve.d	$xr3, $xr1, 0
+	xvrepl128vei.d	$xr3, $xr1, 1
+	xvpickve.d	$xr4, $xr1, 2
+	vextrins.d	$vr3, $vr4, 16
+	xvpickve.d	$xr4, $xr1, 0
 	xvrepl128vei.d	$xr0, $xr0, 1
-	vextrins.d	$vr0, $vr3, 16
-	xvpermi.q	$xr0, $xr4, 2
-	xvpickve.d	$xr3, $xr2, 2
-	xvpermi.d	$xr4, $xr2, 68
-	xvrepl128vei.d	$xr4, $xr4, 1
-	vextrins.d	$vr4, $vr3, 16
-	xvpickve.d	$xr3, $xr2, 0
-	xvpermi.d	$xr5, $xr1, 78
+	vextrins.d	$vr0, $vr4, 16
+	xvpermi.q	$xr0, $xr3, 2
+	xvrepl128vei.d	$xr3, $xr2, 1
+	xvpickve.d	$xr4, $xr2, 2
+	vextrins.d	$vr3, $vr4, 16
+	xvpickve.d	$xr4, $xr2, 0
+	xvpermi.d	$xr5, $xr1, 238
 	xvrepl128vei.d	$xr5, $xr5, 1
-	vextrins.d	$vr5, $vr3, 16
-	xvpermi.q	$xr5, $xr4, 2
+	vextrins.d	$vr5, $vr4, 16
+	xvpermi.q	$xr5, $xr3, 2
 	xvfadd.d	$xr0, $xr0, $xr1
 	xvfadd.d	$xr1, $xr5, $xr2
 	xvfmul.d	$xr0, $xr0, $xr6
@@ -12990,24 +12985,22 @@ s255:                                   # @s255
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$a1, $fp, $a0
 	xvldx	$xr2, $a1, $s7
-	xvpermi.d	$xr1, $xr1, 78
-	xvpickve.d	$xr3, $xr2, 2
-	xvpermi.d	$xr4, $xr2, 68
-	xvrepl128vei.d	$xr4, $xr4, 1
-	vextrins.d	$vr4, $vr3, 16
-	xvpickve.d	$xr3, $xr2, 0
-	xvpermi.d	$xr0, $xr0, 78
+	xvpermi.d	$xr1, $xr1, 238
+	xvrepl128vei.d	$xr3, $xr2, 1
+	xvpickve.d	$xr4, $xr2, 2
+	vextrins.d	$vr3, $vr4, 16
+	xvpickve.d	$xr4, $xr2, 0
+	xvpermi.d	$xr0, $xr0, 238
 	xvrepl128vei.d	$xr5, $xr1, 1
-	vextrins.d	$vr5, $vr3, 16
-	xvpermi.q	$xr5, $xr4, 2
-	xvpickve.d	$xr1, $xr5, 2
-	xvpermi.d	$xr3, $xr5, 68
-	xvrepl128vei.d	$xr3, $xr3, 1
-	vextrins.d	$vr3, $vr1, 16
-	xvpickve.d	$xr1, $xr5, 0
+	vextrins.d	$vr5, $vr4, 16
+	xvpermi.q	$xr5, $xr3, 2
+	xvrepl128vei.d	$xr1, $xr5, 1
+	xvpickve.d	$xr3, $xr5, 2
+	vextrins.d	$vr1, $vr3, 16
+	xvpickve.d	$xr3, $xr5, 0
 	xvrepl128vei.d	$xr0, $xr0, 1
-	vextrins.d	$vr0, $vr1, 16
-	xvpermi.q	$xr0, $xr3, 2
+	vextrins.d	$vr0, $vr3, 16
+	xvpermi.q	$xr0, $xr1, 2
 	xvfadd.d	$xr1, $xr5, $xr2
 	xvfadd.d	$xr0, $xr0, $xr1
 	xvfmul.d	$xr0, $xr0, $xr6

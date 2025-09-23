@@ -94,12 +94,11 @@ jinit_1pass_quantizer:                  # @jinit_1pass_quantizer
 # %bb.8:                                # %middle.block
                                         #   in Loop: Header=BB0_5 Depth=1
 	xvmul.d	$xr2, $xr4, $xr2
-	xvpermi.d	$xr3, $xr2, 78
+	xvpermi.d	$xr3, $xr2, 238
 	xvori.b	$xr4, $xr0, 0
 	xvshuf.d	$xr4, $xr0, $xr3
 	xvmul.d	$xr2, $xr2, $xr4
-	xvpermi.d	$xr3, $xr2, 68
-	xvrepl128vei.d	$xr3, $xr3, 1
+	xvrepl128vei.d	$xr3, $xr2, 1
 	xvmul.d	$xr2, $xr2, $xr3
 	xvpickve2gr.d	$a5, $xr2, 0
 	move	$a6, $a2
@@ -198,14 +197,12 @@ jinit_1pass_quantizer:                  # @jinit_1pass_quantizer
 	bnez	$a2, .LBB0_22
 # %bb.23:                               # %middle.block78
 	xvmul.w	$xr0, $xr2, $xr1
-	xvpermi.d	$xr1, $xr0, 78
+	xvpermi.d	$xr1, $xr0, 238
 	xvshuf4i.w	$xr1, $xr1, 228
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvshuf4i.w	$xr1, $xr1, 14
+	xvshuf4i.w	$xr1, $xr0, 14
 	xvmul.w	$xr0, $xr0, $xr1
-	xvpermi.d	$xr1, $xr0, 68
-	xvrepl128vei.w	$xr1, $xr1, 1
+	xvrepl128vei.w	$xr1, $xr0, 1
 	xvmul.w	$xr0, $xr0, $xr1
 	xvpickve2gr.w	$s5, $xr0, 0
 	beq	$a0, $s3, .LBB0_30

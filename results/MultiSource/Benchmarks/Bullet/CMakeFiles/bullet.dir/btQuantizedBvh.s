@@ -4235,13 +4235,11 @@ _ZN14btQuantizedBvh18deSerializeInPlaceEPvjb: # @_ZN14btQuantizedBvh18deSerializ
 	vinsgr2vr.w	$vr0, $s3, 0
 	st.b	$s1, $a0, 8
 	vld	$vr2, $a0, 12
+	pcalau12i	$s1, %pc_hi20(.LCPI27_0)
+	xvld	$xr1, $s1, %pc_lo12(.LCPI27_0)
 	ld.d	$s1, $a0, 28
-	pcalau12i	$s3, %pc_hi20(.LCPI27_0)
-	xvld	$xr1, $s3, %pc_lo12(.LCPI27_0)
 	ld.w	$s3, $a0, 36
 	vinsgr2vr.b	$vr3, $s2, 0
-	xvpermi.d	$xr3, $xr3, 68
-	xvpermi.d	$xr0, $xr0, 68
 	xvshuf.b	$xr0, $xr0, $xr3, $xr1
 	pcalau12i	$s2, %pc_hi20(.LCPI27_1)
 	xvld	$xr3, $s2, %pc_lo12(.LCPI27_1)
