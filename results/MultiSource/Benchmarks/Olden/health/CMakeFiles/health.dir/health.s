@@ -113,106 +113,99 @@ get_results:                            # @get_results
 # %bb.0:
 	beqz	$a0, .LBB1_5
 # %bb.1:                                # %.preheader.preheader
-	addi.d	$sp, $sp, -96
-	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 32                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 24                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 16                   # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 8                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -80
+	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 40                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 32                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 24                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 16                   # 8-byte Folded Spill
 	ld.d	$a1, $a0, 24
-	move	$s5, $a0
+	move	$s2, $a0
 	move	$a0, $a1
 	pcaddu18i	$ra, %call36(get_results)
 	jirl	$ra, $ra, 0
-	ld.d	$a2, $s5, 16
+	ld.d	$a2, $s2, 16
 	move	$fp, $a0
-	move	$s0, $a1
-	movgr2fr.w	$fs0, $a0
+	movgr2fr.w	$fs0, $a1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(get_results)
 	jirl	$ra, $ra, 0
-	ld.d	$a2, $s5, 8
+	ld.d	$a2, $s2, 8
+	move	$s0, $a0
+	movgr2fr.w	$fs1, $a1
+	move	$a0, $a2
+	pcaddu18i	$ra, %call36(get_results)
+	jirl	$ra, $ra, 0
+	ld.d	$a2, $s2, 0
 	move	$s1, $a0
-	move	$s2, $a1
-	movgr2fr.w	$fs1, $a0
+	movgr2fr.w	$fs2, $a1
 	move	$a0, $a2
 	pcaddu18i	$ra, %call36(get_results)
 	jirl	$ra, $ra, 0
-	ld.d	$a2, $s5, 0
-	move	$s3, $a0
-	move	$s4, $a1
-	movgr2fr.w	$fs2, $a0
-	move	$a0, $a2
-	pcaddu18i	$ra, %call36(get_results)
-	jirl	$ra, $ra, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
-	vld	$vr0, $a2, %pc_lo12(.LCPI1_0)
-	movgr2fr.w	$fa1, $a0
-	movgr2fr.w	$fa2, $zero
-	fadd.s	$fa2, $fs0, $fa2
-	fadd.s	$fa2, $fa2, $fs1
-	fadd.s	$fa2, $fa2, $fs2
-	vinsgr2vr.d	$vr3, $s0, 0
-	vinsgr2vr.d	$vr3, $fp, 1
-	vsrl.d	$vr3, $vr3, $vr0
+	movgr2fr.w	$fa0, $a1
+	movgr2fr.w	$fa1, $zero
+	fadd.s	$fa1, $fs0, $fa1
+	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
+	vld	$vr2, $a1, %pc_lo12(.LCPI1_0)
+	fadd.s	$fa1, $fa1, $fs1
+	fadd.s	$fa1, $fa1, $fs2
+	vreplgr2vr.d	$vr3, $fp
+	vsrl.d	$vr3, $vr3, $vr2
 	vshuf4i.w	$vr3, $vr3, 8
-	vinsgr2vr.d	$vr4, $s2, 0
-	vinsgr2vr.d	$vr4, $s1, 1
-	vsrl.d	$vr4, $vr4, $vr0
+	vreplgr2vr.d	$vr4, $s0
+	vsrl.d	$vr4, $vr4, $vr2
 	vshuf4i.w	$vr4, $vr4, 8
-	vinsgr2vr.d	$vr5, $s4, 0
-	vinsgr2vr.d	$vr5, $s3, 1
-	vsrl.d	$vr5, $vr5, $vr0
+	vreplgr2vr.d	$vr5, $s1
+	vsrl.d	$vr5, $vr5, $vr2
 	vshuf4i.w	$vr5, $vr5, 8
-	vinsgr2vr.d	$vr6, $a1, 0
-	vinsgr2vr.d	$vr6, $a0, 1
-	vsrl.d	$vr0, $vr6, $vr0
-	vshuf4i.w	$vr0, $vr0, 8
+	vreplgr2vr.d	$vr6, $a0
+	vsrl.d	$vr2, $vr6, $vr2
+	vshuf4i.w	$vr2, $vr2, 8
 	vrepli.b	$vr6, 0
 	vfadd.s	$vr3, $vr3, $vr6
-	ld.d	$a0, $s5, 40
+	ld.d	$a0, $s2, 40
 	vfadd.s	$vr3, $vr3, $vr4
 	vfadd.s	$vr3, $vr3, $vr5
-	fadd.s	$fa1, $fa2, $fa1
-	vfadd.s	$vr0, $vr3, $vr0
+	fadd.s	$fa0, $fa1, $fa0
+	vfadd.s	$vr1, $vr3, $vr2
 	beqz	$a0, .LBB1_4
 # %bb.2:                                # %.lr.ph.preheader
-	vldi	$vr2, -1168
+	lu12i.w	$a1, 260096
+	vreplgr2vr.w	$vr2, $a1
 	.p2align	4, , 16
 .LBB1_3:                                # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
 	ld.d	$a1, $a0, 8
-	ld.d	$a1, $a1, 0
+	ld.w	$a2, $a1, 0
+	movgr2fr.w	$fa3, $a2
+	ld.w	$a1, $a1, 4
+	ffint.s.w	$fa3, $fa3
+	fadd.s	$fa0, $fa0, $fa3
 	ld.d	$a0, $a0, 0
-	vinsgr2vr.d	$vr3, $a1, 0
-	vffint.s.w	$vr3, $vr3
-	vfadd.s	$vr0, $vr0, $vr3
-	fadd.s	$fa1, $fa1, $fa2
+	movgr2fr.w	$fa3, $a1
+	ffint.s.w	$fa3, $fa3
+	vori.b	$vr4, $vr2, 0
+	vextrins.w	$vr4, $vr3, 16
+	vfadd.s	$vr1, $vr1, $vr4
 	bnez	$a0, .LBB1_3
 .LBB1_4:                                # %._crit_edge
-	movfr2gr.s	$a0, $fa1
-	vpickve2gr.w	$a2, $vr0, 1
-	vpickve2gr.w	$a1, $vr0, 0
+	vpickve2gr.w	$a0, $vr1, 0
+	vpickve2gr.w	$a2, $vr1, 1
+	movfr2gr.s	$a1, $fa0
 	bstrpick.d	$a1, $a1, 31, 0
 	bstrins.d	$a0, $a2, 63, 32
-	fld.d	$fs2, $sp, 8                    # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 16                   # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 24                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 88                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 96
+	fld.d	$fs2, $sp, 16                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 24                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 32                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 80
 	ret
 .LBB1_5:
 	move	$a1, $zero

@@ -69,26 +69,26 @@
 	.type	Gsm_LPC_Analysis,@function
 Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 # %bb.0:                                # %vector.ph
-	addi.d	$sp, $sp, -160
-	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 72                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 64                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -224
+	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 136                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 128                  # 8-byte Folded Spill
 	move	$s0, $a1
 	vld	$vr2, $a1, 0
 	vld	$vr3, $a1, 16
 	vslti.h	$vr4, $vr2, 0
 	vslti.h	$vr5, $vr3, 0
-	lu12i.w	$a0, 8
-	vreplgr2vr.h	$vr0, $a0
+	lu12i.w	$s2, 8
+	vreplgr2vr.h	$vr0, $s2
 	vseq.h	$vr6, $vr2, $vr0
 	vseq.h	$vr7, $vr3, $vr0
 	vneg.h	$vr8, $vr2
@@ -235,7 +235,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vmax.hu	$vr0, $vr1, $vr0
 	vpickve2gr.h	$a0, $vr0, 0
 	bstrpick.d	$a0, $a0, 15, 0
-	move	$s2, $a2
+	move	$s8, $a2
 	beqz	$a0, .LBB0_5
 # %bb.1:
 	slli.d	$a0, $a0, 16
@@ -1782,7 +1782,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr18, $s0, 288
 	vst	$vr16, $s0, 304
 .LBB0_15:                               # %Autocorrelation.exit
-	st.d	$s2, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 80                    # 8-byte Folded Spill
 	beqz	$s1, .LBB0_18
 # %bb.16:                               # %.preheader69.preheader.i
 	vadd.d	$vr0, $vr7, $vr0
@@ -1801,76 +1801,66 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vhaddw.q.d	$vr5, $vr5, $vr5
 	vhaddw.q.d	$vr6, $vr6, $vr6
 	vhaddw.q.d	$vr7, $vr7, $vr7
-	vpickve2gr.d	$a0, $vr0, 0
-	vpickve2gr.d	$a1, $vr1, 0
-	vpickve2gr.d	$a2, $vr2, 0
-	vpickve2gr.d	$a3, $vr3, 0
-	vpickve2gr.d	$a4, $vr4, 0
-	vpickve2gr.d	$a5, $vr5, 0
-	vpickve2gr.d	$a6, $vr6, 0
-	vpickve2gr.d	$a7, $vr7, 0
-	slli.d	$fp, $a7, 1
-	slli.d	$s0, $a6, 1
-	slli.d	$s2, $a5, 1
-	slli.d	$s3, $a4, 1
-	slli.d	$s6, $a3, 1
-	slli.d	$s7, $a2, 1
-	slli.d	$s8, $a1, 1
-	slli.d	$s5, $a0, 1
+	vextrins.d	$vr0, $vr1, 16
+	vextrins.d	$vr2, $vr3, 16
+	vextrins.d	$vr4, $vr5, 16
+	vextrins.d	$vr6, $vr7, 16
+	vslli.d	$vr1, $vr6, 1
+	vst	$vr1, $sp, 48                   # 16-byte Folded Spill
+	vslli.d	$vr1, $vr4, 1
+	vst	$vr1, $sp, 64                   # 16-byte Folded Spill
+	vslli.d	$vr1, $vr2, 1
+	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
+	vslli.d	$vr0, $vr0, 1
+	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
 	move	$a0, $s1
 	pcaddu18i	$ra, %call36(gsm_norm)
 	jirl	$ra, $ra, 0
-	sll.d	$a1, $s1, $a0
-	srli.d	$a1, $a1, 16
+	bstrpick.d	$a2, $a0, 31, 0
+	sll.d	$a0, $s1, $a0
+	srli.d	$a1, $a0, 16
 	ext.w.h	$a3, $a1
-	sll.d	$a2, $s5, $a0
-	srli.d	$s5, $a2, 16
-	bstrpick.d	$a2, $a2, 31, 16
-	ext.w.h	$a4, $s5
-	sll.d	$a5, $s8, $a0
-	srli.d	$a5, $a5, 16
-	sll.d	$a6, $s7, $a0
-	srli.d	$a6, $a6, 16
-	sll.d	$a7, $s6, $a0
-	srli.d	$a7, $a7, 16
-	sll.d	$t0, $s3, $a0
-	srli.d	$t0, $t0, 16
-	sll.d	$t1, $s2, $a0
-	ld.d	$t3, $sp, 16                    # 8-byte Folded Reload
-	srli.d	$t1, $t1, 16
-	sll.d	$t2, $s0, $a0
-	srli.d	$t2, $t2, 16
-	sll.d	$a0, $fp, $a0
-	srli.d	$a0, $a0, 16
-	st.h	$s5, $sp, 30
-	st.h	$a5, $sp, 32
-	st.h	$a6, $sp, 34
-	st.h	$a7, $sp, 36
-	st.h	$t0, $sp, 38
-	st.h	$t1, $sp, 40
-	st.h	$t2, $sp, 42
-	st.h	$s5, $sp, 48
-	st.h	$a5, $sp, 50
-	st.h	$a6, $sp, 52
-	st.h	$a7, $sp, 54
-	st.h	$t0, $sp, 56
-	st.h	$t1, $sp, 58
-	st.h	$t2, $sp, 60
-	st.h	$a0, $sp, 62
-	slti	$a0, $a4, 0
-	lu12i.w	$a4, 8
-	xor	$a2, $a2, $a4
+	vreplgr2vr.d	$vr0, $a2
+	vld	$vr1, $sp, 16                   # 16-byte Folded Reload
+	vsll.d	$vr1, $vr1, $vr0
+	vld	$vr2, $sp, 32                   # 16-byte Folded Reload
+	vsll.d	$vr2, $vr2, $vr0
+	vld	$vr3, $sp, 48                   # 16-byte Folded Reload
+	vsll.d	$vr3, $vr3, $vr0
+	vld	$vr4, $sp, 64                   # 16-byte Folded Reload
+	vsll.d	$vr0, $vr4, $vr0
+	vsrli.d	$vr0, $vr0, 16
+	vsrli.d	$vr3, $vr3, 16
+	vsrli.d	$vr2, $vr2, 16
+	vsrli.d	$vr1, $vr1, 16
+	vpickev.w	$vr1, $vr1, $vr2
+	vpickev.w	$vr0, $vr3, $vr0
+	vpickev.h	$vr2, $vr0, $vr1
+	vpickve2gr.h	$a0, $vr1, 0
+	bstrpick.d	$a2, $a0, 15, 0
+	ext.w.h	$fp, $a0
+	vstelm.h	$vr1, $sp, 94, 0
+	vstelm.h	$vr1, $sp, 96, 2
+	vstelm.h	$vr1, $sp, 98, 4
+	vstelm.h	$vr1, $sp, 100, 6
+	vstelm.h	$vr0, $sp, 102, 0
+	vstelm.h	$vr0, $sp, 104, 2
+	vstelm.h	$vr0, $sp, 106, 4
+	vst	$vr2, $sp, 112
+	slti	$a4, $fp, 0
+	move	$s3, $s2
+	xor	$a2, $a2, $s2
 	sltui	$a2, $a2, 1
-	sub.d	$a4, $zero, $s5
-	masknez	$a4, $a4, $a2
+	sub.d	$a5, $zero, $a0
+	masknez	$a5, $a5, $a2
 	maskeqz	$a2, $s4, $a2
-	or	$a2, $a2, $a4
-	masknez	$a4, $s5, $a0
-	maskeqz	$a0, $a2, $a0
-	or	$a0, $a0, $a4
+	or	$a2, $a2, $a5
+	masknez	$a0, $a0, $a4
+	maskeqz	$a2, $a2, $a4
+	or	$a0, $a2, $a0
 	ext.w.h	$a0, $a0
 	ori	$a2, $zero, 16
-	move	$s0, $t3
+	move	$s0, $s8
 	bge	$a3, $a0, .LBB0_23
 .LBB0_17:                               # %.lr.ph82.preheader.i
 	move	$a0, $s0
@@ -1879,15 +1869,15 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	jirl	$ra, $ra, 0
 	b	.LBB0_19
 .LBB0_18:                               # %.preheader.preheader.i
+	move	$s3, $s2
 	vrepli.b	$vr0, 0
-	vst	$vr0, $s2, 0
+	vst	$vr0, $s8, 0
 .LBB0_19:                               # %Reflection_coefficients.exit
-	ld.d	$s2, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 80                    # 8-byte Folded Reload
 	ld.hu	$a1, $s2, 0
 	ext.w.h	$a0, $a1
 	slti	$a0, $a0, 0
-	lu12i.w	$fp, 8
-	xor	$a2, $a1, $fp
+	xor	$a2, $a1, $s3
 	sltui	$a2, $a2, 1
 	sub.d	$a3, $zero, $a1
 	masknez	$a3, $a3, $a2
@@ -1915,13 +1905,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	add.d	$a2, $a1, $a2
 	b	.LBB0_31
 .LBB0_23:                               # %.lr.ph.preheader
-	move	$s6, $zero
-	ori	$fp, $zero, 8
-	ori	$s7, $zero, 0
-	lu32i.d	$s7, 32768
-	lu12i.w	$s3, -8
-	ori	$s8, $zero, 7
-	move	$s0, $t3
+	move	$s5, $zero
+	ori	$s6, $zero, 0
+	lu32i.d	$s6, 32768
+	lu12i.w	$s2, -8
+	ori	$s7, $zero, 7
+	move	$s0, $s8
 	ori	$a2, $zero, 1
 	b	.LBB0_25
 	.p2align	4, , 16
@@ -1929,97 +1918,97 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
                                         #   in Loop: Header=BB0_25 Depth=1
 	mul.d	$a0, $a1, $a0
 	slli.d	$a0, $a0, 33
-	add.d	$a0, $a0, $s7
+	add.d	$a0, $a0, $s6
 	srai.d	$a0, $a0, 48
 	add.d	$a0, $a0, $s1
 	slt	$a1, $a0, $s4
 	maskeqz	$a0, $a0, $a1
 	masknez	$a1, $s4, $a1
 	or	$a0, $a0, $a1
-	slt	$a1, $s3, $a0
+	slt	$a1, $s2, $a0
 	maskeqz	$a0, $a0, $a1
-	masknez	$a1, $s3, $a1
+	masknez	$a1, $s2, $a1
 	or	$a1, $a0, $a1
-	addi.d	$a2, $s2, 1
+	addi.d	$a2, $s8, 1
 	addi.d	$s0, $s0, 2
-	addi.d	$s6, $s6, 1
-	ext.w.h	$a0, $s5
+	addi.d	$s5, $s5, 1
+	ext.w.h	$a0, $fp
 	slti	$a0, $a0, 0
-	bstrpick.d	$a3, $s5, 15, 0
-	lu12i.w	$a4, 8
-	xor	$a3, $a3, $a4
+	bstrpick.d	$a3, $fp, 15, 0
+	xor	$a3, $a3, $s3
 	sltui	$a3, $a3, 1
-	sub.d	$a4, $zero, $s5
+	sub.d	$a4, $zero, $fp
 	masknez	$a4, $a4, $a3
 	maskeqz	$a3, $s4, $a3
 	or	$a3, $a3, $a4
 	maskeqz	$a3, $a3, $a0
-	masknez	$a0, $s5, $a0
+	masknez	$a0, $fp, $a0
 	or	$a0, $a3, $a0
 	ext.w.h	$a0, $a0
 	ext.w.h	$a3, $a1
-	addi.d	$s8, $s8, -1
+	addi.d	$s7, $s7, -1
 	blt	$a3, $a0, .LBB0_67
 .LBB0_25:                               # %.lr.ph
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB0_28 Depth 2
-	move	$s2, $a2
+	move	$s8, $a2
 	ext.w.h	$a0, $a0
 	ext.w.h	$s1, $a1
 	move	$a1, $s1
 	pcaddu18i	$ra, %call36(gsm_div)
 	jirl	$ra, $ra, 0
-	ext.w.h	$a1, $s5
+	ext.w.h	$a1, $fp
 	slt	$a2, $zero, $a1
 	sub.d	$a3, $zero, $a0
 	masknez	$a0, $a0, $a2
 	maskeqz	$a2, $a3, $a2
 	or	$a0, $a2, $a0
 	st.h	$a0, $s0, 0
-	beq	$s2, $fp, .LBB0_19
+	ori	$a2, $zero, 8
+	beq	$s8, $a2, .LBB0_19
 # %bb.26:                               #   in Loop: Header=BB0_25 Depth=1
 	ext.w.h	$a0, $a0
 	ori	$a2, $zero, 7
-	bltu	$a2, $s2, .LBB0_24
+	bltu	$a2, $s8, .LBB0_24
 # %bb.27:                               # %.lr.ph.i
                                         #   in Loop: Header=BB0_25 Depth=1
 	ori	$a3, $zero, 1
-	sltu	$a2, $a3, $s8
+	sltu	$a2, $a3, $s7
 	masknez	$a3, $a3, $a2
-	maskeqz	$a2, $s8, $a2
+	maskeqz	$a2, $s7, $a2
 	or	$a2, $a2, $a3
 	slli.d	$a3, $a0, 33
-	addi.d	$a4, $sp, 30
-	addi.d	$a5, $sp, 50
+	addi.d	$a4, $sp, 94
+	addi.d	$a5, $sp, 114
 	.p2align	4, , 16
 .LBB0_28:                               #   Parent Loop BB0_25 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.h	$a6, $a4, 0
 	ld.h	$a7, $a5, 0
 	mul.d	$t0, $a3, $a6
-	add.d	$t0, $t0, $s7
+	add.d	$t0, $t0, $s6
 	srai.d	$t0, $t0, 48
 	add.d	$t0, $t0, $a7
 	slt	$t1, $t0, $s4
 	maskeqz	$t0, $t0, $t1
 	masknez	$t1, $s4, $t1
 	or	$t0, $t0, $t1
-	slt	$t1, $s3, $t0
+	slt	$t1, $s2, $t0
 	maskeqz	$t0, $t0, $t1
-	masknez	$t1, $s3, $t1
+	masknez	$t1, $s2, $t1
 	or	$t0, $t0, $t1
 	st.h	$t0, $a5, -2
 	mul.d	$a7, $a3, $a7
-	add.d	$a7, $a7, $s7
+	add.d	$a7, $a7, $s6
 	srai.d	$a7, $a7, 48
 	add.d	$a6, $a7, $a6
 	slt	$a7, $a6, $s4
 	maskeqz	$a6, $a6, $a7
 	masknez	$a7, $s4, $a7
 	or	$a6, $a6, $a7
-	slt	$a7, $s3, $a6
+	slt	$a7, $s2, $a6
 	maskeqz	$a6, $a6, $a7
-	masknez	$a7, $s3, $a7
+	masknez	$a7, $s2, $a7
 	or	$a6, $a6, $a7
 	st.h	$a6, $a4, 0
 	addi.d	$a2, $a2, -1
@@ -2028,7 +2017,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	bnez	$a2, .LBB0_28
 # %bb.29:                               # %._crit_edge.i.loopexit
                                         #   in Loop: Header=BB0_25 Depth=1
-	ld.hu	$s5, $sp, 48
+	ld.hu	$fp, $sp, 112
 	b	.LBB0_24
 .LBB0_30:
 	lu12i.w	$a2, 6
@@ -2038,7 +2027,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$a4, $s2, 2
 	ext.w.h	$a1, $a4
 	slti	$a1, $a1, 0
-	xor	$a5, $a4, $fp
+	xor	$a5, $a4, $s3
 	sltui	$a5, $a5, 1
 	sub.d	$a6, $zero, $a4
 	masknez	$a6, $a6, $a5
@@ -2070,7 +2059,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$a6, $s2, 4
 	ext.w.h	$a4, $a6
 	slti	$a4, $a4, 0
-	xor	$a7, $a6, $fp
+	xor	$a7, $a6, $s3
 	sltui	$a7, $a7, 1
 	sub.d	$t0, $zero, $a6
 	masknez	$t0, $t0, $a7
@@ -2101,7 +2090,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t0, $s2, 6
 	ext.w.h	$a7, $t0
 	slti	$a7, $a7, 0
-	xor	$t1, $t0, $fp
+	xor	$t1, $t0, $s3
 	sltui	$t1, $t1, 1
 	sub.d	$t2, $zero, $t0
 	masknez	$t2, $t2, $t1
@@ -2132,7 +2121,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t2, $s2, 8
 	ext.w.h	$t0, $t2
 	slti	$t0, $t0, 0
-	xor	$t3, $t2, $fp
+	xor	$t3, $t2, $s3
 	sltui	$t3, $t3, 1
 	sub.d	$t4, $zero, $t2
 	masknez	$t4, $t4, $t3
@@ -2163,7 +2152,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t4, $s2, 10
 	ext.w.h	$t2, $t4
 	slti	$t2, $t2, 0
-	xor	$t5, $t4, $fp
+	xor	$t5, $t4, $s3
 	sltui	$t5, $t5, 1
 	sub.d	$t6, $zero, $t4
 	masknez	$t6, $t6, $t5
@@ -2194,7 +2183,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t6, $s2, 12
 	ext.w.h	$t4, $t6
 	slti	$t4, $t4, 0
-	xor	$t7, $t6, $fp
+	xor	$t7, $t6, $s3
 	sltui	$t7, $t7, 1
 	sub.d	$t8, $zero, $t6
 	masknez	$t8, $t8, $t7
@@ -2225,7 +2214,7 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	ld.hu	$t8, $s2, 14
 	ext.w.h	$t6, $t8
 	slti	$t6, $t6, 0
-	xor	$fp, $t8, $fp
+	xor	$fp, $t8, $s3
 	sltui	$fp, $fp, 1
 	sub.d	$s0, $zero, $t8
 	masknez	$s0, $s0, $fp
@@ -2348,25 +2337,25 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vadd.h	$vr0, $vr0, $vr4
 	vbitsel.v	$vr0, $vr0, $vr5, $vr3
 	vst	$vr0, $s2, 0
-	fld.d	$fs0, $sp, 64                   # 8-byte Folded Reload
-	ld.d	$s8, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 160
+	fld.d	$fs0, $sp, 128                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 224
 	ret
 .LBB0_67:                               # %.preheader64.i
 	ori	$a0, $zero, 7
-	bltu	$a0, $s2, .LBB0_19
+	bltu	$a0, $s8, .LBB0_19
 # %bb.68:
-	slli.d	$a0, $s6, 1
+	slli.d	$a0, $s5, 1
 	ori	$a1, $zero, 16
 	sub.d	$a2, $a1, $a0
 	b	.LBB0_17

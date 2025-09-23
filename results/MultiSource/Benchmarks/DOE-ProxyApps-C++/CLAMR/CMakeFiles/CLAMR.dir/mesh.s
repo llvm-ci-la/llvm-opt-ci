@@ -2937,6 +2937,9 @@ _ZN4Mesh36compare_mpot_cpu_local_to_cpu_globalEjPiS0_S0_S0_i: # @_ZN4Mesh36compa
 	.section	.rodata.cst16,"aM",@progbits,16
 	.p2align	4, 0x0                          # -- Begin function _ZN4MeshC2Eiiiiddiii
 .LCPI13_0:
+	.dword	0xbfe0000000000000              # double -0.5
+	.dword	0x3fe0000000000000              # double 0.5
+.LCPI13_1:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -2951,21 +2954,19 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception5
 # %bb.0:                                # %.preheader215
-	addi.d	$sp, $sp, -288
-	.cfi_def_cfa_offset 288
-	st.d	$ra, $sp, 280                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 272                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 264                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 256                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 248                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 240                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 232                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 224                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 216                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 208                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 200                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 192                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 184                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -304
+	.cfi_def_cfa_offset 304
+	st.d	$ra, $sp, 296                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 288                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 280                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 272                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 264                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 256                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 248                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 240                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 232                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 216                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -2977,14 +2978,14 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
-	.cfi_offset 56, -96
-	.cfi_offset 57, -104
-	st.d	$a6, $sp, 144                   # 8-byte Folded Spill
+	st.d	$a6, $sp, 176                   # 8-byte Folded Spill
 	move	$s2, $a5
-	fmov.d	$fs0, $fa1
-	fmov.d	$fs1, $fa0
+                                        # kill: def $f1_64 killed $f1_64 def $vr1
+	vst	$vr1, $sp, 144                  # 16-byte Folded Spill
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
+	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
 	move	$s1, $a4
-	move	$s4, $a3
+	move	$s7, $a3
 	move	$s5, $a2
 	move	$s8, $a1
 	move	$fp, $a0
@@ -3013,7 +3014,7 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	st.d	$a0, $fp, 184
 	addi.d	$a0, $fp, 192
 	addi.d	$s0, $fp, 680
-	addi.d	$s7, $fp, 856
+	addi.d	$s4, $fp, 856
 	st.d	$zero, $fp, 1320
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
@@ -3027,14 +3028,14 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	vld	$vr0, $sp, 96                   # 16-byte Folded Reload
 	vst	$vr0, $fp, 640
 	ori	$a2, $zero, 96
-	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
 	move	$a0, $s0
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	ori	$a2, $zero, 264
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	move	$a0, $s7
+	st.d	$s4, $sp, 64                    # 8-byte Folded Spill
+	move	$a0, $s4
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
@@ -3049,8 +3050,10 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
+	vld	$vr1, $sp, 128                  # 16-byte Folded Reload
+	vld	$vr3, $sp, 144                  # 16-byte Folded Reload
 	st.w	$s1, $fp, 0
-	st.w	$s4, $fp, 1120
+	st.w	$s7, $fp, 1120
 	st.d	$zero, $fp, 664
 	ori	$a0, $zero, 1
 	st.w	$a0, $fp, 672
@@ -3059,13 +3062,13 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	st.d	$a0, $fp, 620
 	st.d	$zero, $fp, 1160
 	st.d	$zero, $fp, 1176
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 176                   # 8-byte Folded Reload
 	st.w	$a0, $fp, 628
 	st.d	$zero, $fp, 632
 	lu12i.w	$a0, 260096
 	st.w	$a0, $fp, 656
-	fst.d	$fs1, $fp, 1280
-	fst.d	$fs0, $fp, 1288
+	fst.d	$fa1, $fp, 1280
+	fst.d	$fa3, $fp, 1288
 	st.w	$s2, $fp, 1124
 	st.w	$zero, $fp, 1132
 	st.w	$zero, $fp, 1140
@@ -3089,33 +3092,31 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	addi.d	$a0, $fp, 952
 	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
 	addi.d	$a0, $fp, 1024
+	pcalau12i	$a1, %pc_hi20(.LCPI13_0)
+	vld	$vr0, $a1, %pc_lo12(.LCPI13_0)
 	addi.d	$a1, $fp, 1048
 	st.d	$a1, $sp, 72                    # 8-byte Folded Spill
 	addi.d	$a1, $fp, 1072
 	st.d	$a1, $sp, 88                    # 8-byte Folded Spill
-	vldi	$vr0, -800
-	fmul.d	$fa1, $fs1, $fa0
+	vreplvei.d	$vr1, $vr1, 0
+	vfmul.d	$vr1, $vr1, $vr0
 	movgr2fr.w	$fa2, $s8
 	ffint.d.w	$fa2, $fa2
-	fmul.d	$fa1, $fa1, $fa2
-	fst.d	$fa1, $fp, 1184
-	fmul.d	$fa0, $fs0, $fa0
-	movgr2fr.w	$fa1, $s5
-	ffint.d.w	$fa1, $fa1
-	fmul.d	$fa0, $fa0, $fa1
-	fst.d	$fa0, $fp, 1200
-	vldi	$vr0, -928
-	fmul.d	$fa3, $fs1, $fa0
-	fmul.d	$fa2, $fa3, $fa2
-	fst.d	$fa2, $fp, 1192
+	vreplvei.d	$vr3, $vr3, 0
+	vfmul.d	$vr0, $vr3, $vr0
+	movgr2fr.w	$fa3, $s5
+	ffint.d.w	$fa3, $fa3
+	vreplvei.d	$vr2, $vr2, 0
+	vfmul.d	$vr1, $vr1, $vr2
+	vst	$vr1, $fp, 1184
 	ld.d	$a3, $fp, 1032
 	ld.d	$a1, $fp, 1024
-	fmul.d	$fa0, $fs0, $fa0
-	fmul.d	$fa0, $fa0, $fa1
-	addi.w	$s1, $s4, 1
+	vreplvei.d	$vr1, $vr3, 0
+	vfmul.d	$vr0, $vr0, $vr1
+	addi.w	$s1, $s7, 1
 	sub.d	$a2, $a3, $a1
 	srai.d	$a2, $a2, 2
-	fst.d	$fa0, $fp, 1208
+	vst	$vr0, $fp, 1200
 	st.d	$s0, $sp, 56                    # 8-byte Folded Spill
 	bgeu	$a2, $s1, .LBB13_4
 # %bb.3:
@@ -3357,17 +3358,17 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	move	$a3, $zero
 	ld.w	$a1, $fp, 1136
 	st.w	$zero, $fp, 1128
-	st.d	$zero, $sp, 168
+	st.d	$zero, $sp, 200
 	ld.w	$a2, $fp, 1144
-	st.w	$a1, $sp, 176
-	st.w	$a1, $sp, 180
-	st.w	$zero, $sp, 152
-	st.w	$a2, $sp, 156
-	st.w	$zero, $sp, 160
-	st.w	$a2, $sp, 164
+	st.w	$a1, $sp, 208
+	st.w	$a1, $sp, 212
+	st.w	$zero, $sp, 184
+	st.w	$a2, $sp, 188
+	st.w	$zero, $sp, 192
+	st.w	$a2, $sp, 196
 	addi.w	$a1, $zero, -4
 	lu52i.d	$a1, $a1, 2047
-	st.d	$a1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 176                   # 8-byte Folded Spill
 	ori	$s6, $zero, 1
 	addi.w	$a1, $zero, -1
 	lu52i.d	$s3, $a1, 511
@@ -3375,7 +3376,7 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	.p2align	4, , 16
 .LBB13_48:                              # %._crit_edge229
                                         #   in Loop: Header=BB13_49 Depth=1
-	ld.d	$a3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 120                   # 8-byte Folded Reload
 	addi.d	$a3, $a3, 1
 	ori	$a1, $zero, 4
 	beq	$a3, $a1, .LBB13_72
@@ -3384,32 +3385,32 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
                                         #       Child Loop BB13_56 Depth 3
 	ori	$a1, $zero, 2
 	sll.w	$a1, $a1, $a0
-	st.d	$a3, $sp, 112                   # 8-byte Folded Spill
+	st.d	$a3, $sp, 120                   # 8-byte Folded Spill
 	blez	$a1, .LBB13_48
 # %bb.50:                               # %.lr.ph228
                                         #   in Loop: Header=BB13_49 Depth=1
 	slli.d	$a2, $a3, 2
-	addi.d	$a3, $sp, 152
+	addi.d	$a3, $sp, 184
 	ldx.w	$a3, $a2, $a3
-	addi.d	$a4, $sp, 168
+	addi.d	$a4, $sp, 200
 	ldx.w	$a2, $a2, $a4
 	addi.d	$a4, $a3, 1
-	st.d	$a4, $sp, 120                   # 8-byte Folded Spill
+	st.d	$a4, $sp, 128                   # 8-byte Folded Spill
 	mul.d	$s0, $a1, $a3
-	st.d	$a2, $sp, 128                   # 8-byte Folded Spill
+	st.d	$a2, $sp, 144                   # 8-byte Folded Spill
 	addi.d	$s8, $a2, 1
 	b	.LBB13_52
 	.p2align	4, , 16
 .LBB13_51:                              # %._crit_edge225
                                         #   in Loop: Header=BB13_52 Depth=2
 	addi.w	$s0, $s0, 1
-	ld.d	$a2, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 128                   # 8-byte Folded Reload
 	mul.w	$a2, $a1, $a2
 	bge	$s0, $a2, .LBB13_48
 .LBB13_52:                              #   Parent Loop BB13_49 Depth=1
                                         # =>  This Loop Header: Depth=2
                                         #       Child Loop BB13_56 Depth 3
-	ld.d	$a2, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 144                   # 8-byte Folded Reload
 	mul.w	$s2, $a2, $a1
 	ori	$a1, $zero, 2
 	sll.w	$a1, $a1, $a0
@@ -3450,10 +3451,10 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	b	.LBB13_65
 	.p2align	4, , 16
 .LBB13_58:                              #   in Loop: Header=BB13_56 Depth=3
-	ld.d	$a1, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 168                   # 8-byte Folded Reload
 	ld.d	$s4, $a1, 0
 	sub.d	$s1, $a0, $s4
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 176                   # 8-byte Folded Reload
 	beq	$s1, $a0, .LBB13_78
 # %bb.59:                               # %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
                                         #   in Loop: Header=BB13_56 Depth=3
@@ -3509,7 +3510,7 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 .LBB13_65:                              #   in Loop: Header=BB13_56 Depth=3
 	ld.d	$s4, $fp, 704
 	sub.d	$s1, $a0, $s4
-	ld.d	$a0, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 176                   # 8-byte Folded Reload
 	beq	$s1, $a0, .LBB13_78
 # %bb.66:                               # %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i99
                                         #   in Loop: Header=BB13_56 Depth=3
@@ -3567,20 +3568,18 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	vld	$vr0, $sp, 96                   # 16-byte Folded Reload
 	vst	$vr0, $fp, 1368
 	vst	$vr0, $fp, 1384
-	fld.d	$fs1, $sp, 184                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 192                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 200                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 216                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 224                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 232                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 240                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 248                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 256                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 264                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 280                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 288
+	ld.d	$s8, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 232                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 240                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 248                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 256                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 264                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 272                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 280                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 288                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 296                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 304
 	ret
 .LBB13_73:                              # %vector.scevcheck
 	addi.d	$a2, $s1, -1
@@ -3594,8 +3593,8 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	bnez	$a2, .LBB13_44
 # %bb.75:                               # %vector.ph
 	bstrpick.d	$a1, $s1, 32, 3
-	pcalau12i	$a2, %pc_hi20(.LCPI13_0)
-	vld	$vr0, $a2, %pc_lo12(.LCPI13_0)
+	pcalau12i	$a2, %pc_hi20(.LCPI13_1)
+	vld	$vr0, $a2, %pc_lo12(.LCPI13_1)
 	slli.d	$a1, $a1, 3
 	addi.d	$a2, $a0, 16
 	vrepli.w	$vr1, 2
@@ -3804,7 +3803,7 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	ld.d	$a0, $fp, 704
 	bnez	$a0, .LBB13_191
 .LBB13_134:                             # %_ZNSt6vectorIiSaIiEED2Ev.exit205
-	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 0
 	beqz	$a0, .LBB13_136
 .LBB13_135:
@@ -4206,7 +4205,7 @@ _ZN4MeshC2Eiiiiddiii:                   # @_ZN4MeshC2Eiiiiddiii
 	sub.d	$a1, $a1, $a0
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 168                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 0
 	bnez	$a0, .LBB13_135
 	b	.LBB13_136

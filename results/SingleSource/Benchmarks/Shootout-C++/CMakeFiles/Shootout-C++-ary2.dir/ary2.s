@@ -6,20 +6,17 @@
 	.section	.rodata.cst16,"aM",@progbits,16
 	.p2align	4, 0x0                          # -- Begin function main
 .LCPI0_0:
-	.word	4                               # 0x4
-	.word	6                               # 0x6
-	.word	0                               # 0x0
-	.word	1                               # 0x1
+	.dword	4                               # 0x4
+	.dword	5                               # 0x5
 .LCPI0_1:
-	.word	0                               # 0x0
-	.word	0                               # 0x0
-	.word	2                               # 0x2
-	.word	3                               # 0x3
+	.dword	2                               # 0x2
+	.dword	3                               # 0x3
 .LCPI0_2:
-	.word	4                               # 0x4
-	.word	5                               # 0x5
-	.word	6                               # 0x6
-	.word	7                               # 0x7
+	.dword	8                               # 0x8
+	.dword	9                               # 0x9
+.LCPI0_3:
+	.dword	6                               # 0x6
+	.dword	7                               # 0x7
 	.text
 	.globl	main
 	.p2align	5
@@ -30,20 +27,22 @@ main:                                   # @main
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception0
 # %bb.0:
-	addi.d	$sp, $sp, -48
-	.cfi_def_cfa_offset 48
-	st.d	$ra, $sp, 40                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 8                     # 8-byte Folded Spill
-	st.d	$s3, $sp, 0                     # 8-byte Folded Spill
+	addi.d	$sp, $sp, -64
+	.cfi_def_cfa_offset 64
+	st.d	$ra, $sp, 56                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 8                     # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
 	.cfi_offset 25, -40
 	.cfi_offset 26, -48
+	.cfi_offset 27, -56
 	ori	$a2, $zero, 2
 	bne	$a0, $a2, .LBB0_3
 # %bb.1:
@@ -56,24 +55,25 @@ main:                                   # @main
 	bltz	$a1, .LBB0_20
 # %bb.2:                                # %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 	slli.d	$a1, $a0, 3
-	alsl.w	$s3, $a0, $a1, 1
-	slli.d	$fp, $s3, 2
+	alsl.w	$s4, $a0, $a1, 1
+	slli.d	$fp, $s4, 2
 	b	.LBB0_4
 .LBB0_3:
 	lu12i.w	$a0, 8789
 	ori	$fp, $a0, 256
 	lu12i.w	$a0, 2197
-	ori	$s3, $a0, 1088
+	ori	$s4, $a0, 1088
 .LBB0_4:                                # %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.thread
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_Znwm)
 	jirl	$ra, $ra, 0
 	move	$s0, $a0
 	st.w	$zero, $a0, 0
-	addi.d	$a0, $a0, 4
-	addi.d	$s2, $fp, -4
+	addi.d	$s2, $a0, 4
+	addi.d	$s3, $fp, -4
+	move	$a0, $s2
 	move	$a1, $zero
-	move	$a2, $s2
+	move	$a2, $s3
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 .Ltmp0:                                 # EH_LABEL
@@ -86,7 +86,7 @@ main:                                   # @main
 	st.w	$zero, $a0, 0
 	addi.d	$a0, $a0, 4
 	move	$a1, $zero
-	move	$a2, $s2
+	move	$a2, $s3
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI0_0)
@@ -95,34 +95,37 @@ main:                                   # @main
 	vld	$vr1, $a0, %pc_lo12(.LCPI0_1)
 	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
 	vld	$vr2, $a0, %pc_lo12(.LCPI0_2)
+	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
+	vld	$vr3, $a0, %pc_lo12(.LCPI0_3)
 	move	$a1, $zero
+	move	$a2, $zero
 	add.d	$a0, $s1, $fp
-	addi.d	$a2, $s0, 32
 	.p2align	4, , 16
 .LBB0_6:                                # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	addi.d	$a3, $a1, 1
-	vinsgr2vr.d	$vr3, $a1, 0
-	vinsgr2vr.d	$vr3, $a3, 1
-	vreplgr2vr.d	$vr4, $a1
-	vshuf4i.w	$vr5, $vr4, 8
-	vori.b	$vr6, $vr0, 0
-	vshuf.w	$vr6, $vr3, $vr5
-	vshuf4i.w	$vr3, $vr4, 136
-	vadd.w	$vr4, $vr6, $vr1
-	vadd.w	$vr3, $vr3, $vr2
-	vst	$vr3, $a2, -16
-	vst	$vr4, $a2, -32
-	addi.d	$a3, $a1, 8
-	st.w	$a3, $a2, 0
-	addi.d	$a3, $a1, 9
-	st.w	$a3, $a2, 4
+	st.w	$a1, $s2, -4
+	addi.d	$a3, $a2, 1
+	st.w	$a3, $s2, 0
+	vreplgr2vr.d	$vr4, $a2
+	vadd.d	$vr5, $vr4, $vr0
+	vadd.d	$vr6, $vr4, $vr1
+	vpickve2gr.d	$a3, $vr6, 0
+	slli.d	$a3, $a3, 2
+	vpickev.w	$vr5, $vr5, $vr6
+	vstx	$vr5, $s0, $a3
+	vadd.d	$vr5, $vr4, $vr2
+	vadd.d	$vr4, $vr4, $vr3
+	vpickve2gr.d	$a3, $vr4, 0
+	slli.d	$a3, $a3, 2
+	vpickev.w	$vr4, $vr5, $vr4
+	vstx	$vr4, $s0, $a3
+	addi.d	$a2, $a2, 10
 	addi.d	$a1, $a1, 10
-	addi.d	$a2, $a2, 40
-	bltu	$a1, $s3, .LBB0_6
+	addi.d	$s2, $s2, 40
+	bltu	$a2, $s4, .LBB0_6
 # %bb.7:                                # %.lr.ph164.preheader
-	addi.d	$a1, $s3, 10
-	slli.d	$a2, $s3, 2
+	addi.d	$a1, $s4, 10
+	slli.d	$a2, $s4, 2
 	ori	$a3, $zero, 10
 	.p2align	4, , 16
 .LBB0_8:                                # %.lr.ph164
@@ -195,13 +198,14 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(_ZdlPvm)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	ld.d	$s3, $sp, 0                     # 8-byte Folded Reload
-	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 40                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 48
+	ld.d	$s4, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$s3, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 64
 	ret
 .LBB0_18:
 .Ltmp13:                                # EH_LABEL

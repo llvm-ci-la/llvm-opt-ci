@@ -374,7 +374,7 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	lu52i.d	$a0, $a0, 1011
 	vreplgr2vr.d	$vr0, $a0
 	vfmul.d	$vr0, $vr1, $vr0
-	vfadd.d	$vr6, $vr2, $vr0
+	vfadd.d	$vr5, $vr2, $vr0
 .LBB0_7:                                # %.split56.us
 	pcalau12i	$a0, %pc_hi20(.LCPI0_15)
 	fld.d	$fa2, $a0, %pc_lo12(.LCPI0_15)
@@ -388,17 +388,16 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	bceqz	$fcc0, .LBB0_26
 .LBB0_8:
 	vreplvei.d	$vr2, $vr0, 0
-	vfmul.d	$vr2, $vr6, $vr2
-	vori.b	$vr3, $vr6, 0
+	vfmul.d	$vr2, $vr5, $vr2
+	vori.b	$vr3, $vr5, 0
 	vshuf4i.d	$vr3, $vr0, 1
 	vreplvei.d	$vr4, $vr1, 0
 	vfmul.d	$vr4, $vr3, $vr4
 	vfadd.d	$vr3, $vr2, $vr4
-	vfsub.d	$vr4, $vr2, $vr4
-	vori.b	$vr2, $vr3, 0
-	vreplvei.d	$vr5, $vr4, 1
-	fcmp.cor.d	$fcc0, $fa5, $fa5
-	vshuf4i.d	$vr2, $vr4, 12
+	vfsub.d	$vr2, $vr2, $vr4
+	vreplvei.d	$vr2, $vr2, 1
+	fcmp.cor.d	$fcc0, $fa2, $fa2
+	vpackev.d	$vr2, $vr2, $vr3
 	bceqz	$fcc0, .LBB0_28
 .LBB0_9:
 	vreplvei.d	$vr0, $vr2, 1
@@ -496,7 +495,7 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	jirl	$ra, $ra, 0
 	b	.LBB0_3
 .LBB0_19:                               # %.split.us.preheader
-	vrepli.b	$vr6, 0
+	vrepli.b	$vr5, 0
 	pcalau12i	$a0, %pc_hi20(.L__const.fast_nuclear_W.neg_1n)
 	addi.d	$fp, $a0, %pc_lo12(.L__const.fast_nuclear_W.neg_1n)
 	fcmp.cor.d	$fcc0, $fs4, $fs4
@@ -518,7 +517,7 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	ori	$s3, $zero, 80
 .LBB0_20:                               # %.split.us
                                         # =>This Inner Loop Header: Depth=1
-	vst	$vr6, $sp, 224                  # 16-byte Folded Spill
+	vst	$vr5, $sp, 224                  # 16-byte Folded Spill
 	fldx.d	$fa0, $fp, $s2
 	fst.d	$fa0, $sp, 208                  # 8-byte Folded Spill
 	fmov.d	$fa0, $fs5
@@ -560,8 +559,8 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	vextrins.d	$vr1, $vr0, 16
 	vfmul.d	$vr0, $vr2, $vr1
 	addi.d	$s2, $s2, 8
-	vld	$vr6, $sp, 224                  # 16-byte Folded Reload
-	vfadd.d	$vr6, $vr6, $vr0
+	vld	$vr5, $sp, 224                  # 16-byte Folded Reload
+	vfadd.d	$vr5, $vr5, $vr0
 	bne	$s2, $s3, .LBB0_20
 	b	.LBB0_7
 .LBB0_23:                               #   in Loop: Header=BB0_20 Depth=1
@@ -594,10 +593,10 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fmov.d	$fa1, $fa2
 	fmov.d	$fa2, $fs1
 	fmov.d	$fa3, $fs0
-	vst	$vr6, $sp, 224                  # 16-byte Folded Spill
+	vst	$vr5, $sp, 224                  # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(__muldc3)
 	jirl	$ra, $ra, 0
-	vld	$vr6, $sp, 224                  # 16-byte Folded Reload
+	vld	$vr5, $sp, 224                  # 16-byte Folded Reload
                                         # kill: def $f0_64 killed $f0_64 def $vr0
                                         # kill: def $f1_64 killed $f1_64 def $vr1
 	b	.LBB0_8
@@ -606,8 +605,8 @@ fast_nuclear_W:                         # @fast_nuclear_W
 	fcmp.cor.d	$fcc0, $fa3, $fa3
 	bcnez	$fcc0, .LBB0_9
 # %bb.29:
-	vreplvei.d	$vr3, $vr6, 0
-	vreplvei.d	$vr2, $vr6, 1
+	vreplvei.d	$vr3, $vr5, 0
+	vreplvei.d	$vr2, $vr5, 1
                                         # kill: def $f0_64 killed $f0_64 killed $vr0
                                         # kill: def $f1_64 killed $f1_64 killed $vr1
                                         # kill: def $f2_64 killed $f2_64 killed $vr2

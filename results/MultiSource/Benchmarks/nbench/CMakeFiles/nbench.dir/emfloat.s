@@ -933,9 +933,9 @@ DoEmFloatIteration:                     # @DoEmFloatIteration
 	st.h	$a1, $fp, 4
 	st.h	$a2, $fp, 2
 .LBB2_28:                               #   in Loop: Header=BB2_7 Depth=2
-	vpickve2gr.h	$a1, $vr1, 0
-	vpickve2gr.h	$a2, $vr1, 1
-	or	$a1, $a2, $a1
+	vreplvei.h	$vr0, $vr1, 1
+	vor.v	$vr0, $vr0, $vr1
+	vpickve2gr.h	$a1, $vr0, 0
 	or	$a0, $a1, $a0
 	vpickve2gr.h	$a1, $vr1, 2
 	or	$a0, $a0, $a1

@@ -590,9 +590,9 @@ TW_oldinput:                            # @TW_oldinput
 	sub.d	$s4, $a2, $a1
 	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$s8, $a1, 0
-	vpickve2gr.w	$a1, $vr0, 0
-	vpickve2gr.w	$a2, $vr0, 1
-	sub.d	$s0, $a2, $a1
+	vreplvei.w	$vr1, $vr0, 1
+	vsub.w	$vr1, $vr1, $vr0
+	vpickve2gr.w	$s0, $vr1, 0
 	addi.d	$s3, $s8, 56
 	addi.d	$s2, $s8, 60
 	addi.d	$s1, $s8, 64

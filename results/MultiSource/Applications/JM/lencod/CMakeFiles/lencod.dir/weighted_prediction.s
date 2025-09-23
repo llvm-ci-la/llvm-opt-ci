@@ -1951,7 +1951,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	fst.d	$fs0, $sp, 1936                 # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 1928                 # 8-byte Folded Spill
 	lu12i.w	$a1, 18
-	ori	$a1, $a1, 2768
+	ori	$a1, $a1, 2784
 	sub.d	$sp, $sp, $a1
 	move	$s7, $a0
 	pcalau12i	$a0, %got_pc_hi20(img)
@@ -1998,10 +1998,10 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	ld.d	$a1, $s8, %pc_lo12(wp_offset)
 	sll.w	$s1, $a3, $a2
 	lu12i.w	$a2, 18
-	ori	$a2, $a2, 88
+	ori	$a2, $a2, 104
 	add.d	$a2, $sp, $a2
 	lu12i.w	$a3, 18
-	ori	$a3, $a3, 2400
+	ori	$a3, $a3, 2416
 	add.d	$a3, $sp, $a3
 	pcalau12i	$a4, %got_pc_hi20(listXsize)
 	ld.d	$s3, $a4, %got_pc_lo12(listXsize)
@@ -2061,7 +2061,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	ld.w	$a1, $s3, 4
 	blez	$a1, .LBB3_18
 # %bb.10:                               # %.preheader300.lr.ph.split.us
-	st.d	$t5, $sp, 40                    # 8-byte Folded Spill
+	st.d	$t5, $sp, 56                    # 8-byte Folded Spill
 	pcalau12i	$a2, %got_pc_hi20(listX)
 	ld.d	$a3, $a2, %got_pc_lo12(listX)
 	ld.d	$a2, $a3, 8
@@ -2073,7 +2073,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	ld.w	$a5, $a5, 4
 	lu12i.w	$a6, 3
 	ori	$a6, $a6, 8
-	addi.d	$a7, $sp, 88
+	addi.d	$a7, $sp, 104
 	add.d	$a6, $a7, $a6
 	addi.w	$a7, $zero, -128
 	ori	$t0, $zero, 127
@@ -2171,7 +2171,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	b	.LBB3_13
 .LBB3_16:                               # %._crit_edge313
 	ori	$a1, $zero, 1
-	ld.d	$t5, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$t5, $sp, 56                    # 8-byte Folded Reload
 	beq	$s7, $a1, .LBB3_19
 	b	.LBB3_26
 .LBB3_17:                               # %._crit_edge313.thread
@@ -2190,7 +2190,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	ld.d	$a2, $a2, %pc_lo12(wbp_weight)
 	lu12i.w	$a3, 3
 	ori	$a3, $a3, 8
-	addi.d	$a4, $sp, 88
+	addi.d	$a4, $sp, 104
 	add.d	$a3, $a4, $a3
 	lu12i.w	$a5, -4
 	ori	$a4, $a5, 4088
@@ -2245,13 +2245,13 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	ld.w	$a0, $s3, 0
 	b	.LBB3_21
 .LBB3_26:                               # %.preheader299
-	st.d	$s8, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 8                     # 8-byte Folded Spill
+	st.d	$s7, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 24                    # 8-byte Folded Spill
 	ld.w	$a0, $t5, 68
 	movgr2fr.d	$fs0, $zero
 	fmov.d	$fa0, $fs0
-	st.d	$a0, $sp, 72                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 88                    # 8-byte Folded Spill
 	blez	$a0, .LBB3_32
 # %bb.27:                               # %.preheader298.lr.ph
 	ld.w	$a0, $t5, 52
@@ -2282,11 +2282,11 @@ test_wp_B_slice:                        # @test_wp_B_slice
 # %bb.31:                               # %._crit_edge319.us
                                         #   in Loop: Header=BB3_29 Depth=1
 	addi.d	$a2, $a2, 1
-	ld.d	$a3, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a3, $sp, 88                    # 8-byte Folded Reload
 	bne	$a2, $a3, .LBB3_29
 .LBB3_32:                               # %.preheader297
-	st.d	$t5, $sp, 40                    # 8-byte Folded Spill
-	ld.d	$a0, $sp, 72                    # 8-byte Folded Reload
+	st.d	$t5, $sp, 56                    # 8-byte Folded Spill
+	ld.d	$a0, $sp, 88                    # 8-byte Folded Reload
 	addi.w	$a0, $a0, 20
 	bstrpick.d	$a1, $s1, 31, 0
 	movgr2fr.d	$fa1, $a1
@@ -2297,17 +2297,19 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	masknez	$a1, $a1, $a2
 	maskeqz	$a0, $a0, $a2
 	or	$s7, $a0, $a1
+	vreplgr2vr.w	$vr2, $s1
 	lu12i.w	$a0, 18
-	ori	$a0, $a0, 2404
+	ori	$a0, $a0, 2428
 	add.d	$s2, $sp, $a0
 	pcalau12i	$a0, %got_pc_hi20(listX)
 	ld.d	$a0, $a0, %got_pc_lo12(listX)
-	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
 	move	$s8, $zero
 	lu12i.w	$a0, 18
-	ori	$a0, $a0, 2392
+	ori	$a0, $a0, 2408
 	add.d	$s4, $sp, $a0
-	st.d	$ra, $sp, 56                    # 8-byte Folded Spill
+	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
+	vst	$vr2, $sp, 32                   # 16-byte Folded Spill
 	b	.LBB3_35
 	.p2align	4, , 16
 .LBB3_33:                               # %._crit_edge332
@@ -2333,22 +2335,22 @@ test_wp_B_slice:                        # @test_wp_B_slice
 # %bb.36:                               # %.lr.ph
                                         #   in Loop: Header=BB3_35 Depth=1
 	slli.d	$a0, $s8, 3
-	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 64                    # 8-byte Folded Reload
 	ldx.d	$s5, $a1, $a0
 	alsl.d	$a0, $s8, $s8, 1
 	slli.d	$a1, $a0, 7
 	lu12i.w	$a0, 18
-	ori	$a0, $a0, 88
+	ori	$a0, $a0, 104
 	add.d	$a0, $sp, $a0
 	add.d	$a0, $a0, $a1
-	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 88                    # 8-byte Folded Reload
 	blez	$a2, .LBB3_46
 # %bb.37:                               # %.lr.ph.split.us
                                         #   in Loop: Header=BB3_35 Depth=1
-	ld.d	$a2, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 56                    # 8-byte Folded Reload
 	ld.w	$s6, $a2, 52
 	lu12i.w	$a2, 18
-	ori	$a2, $a2, 2392
+	ori	$a2, $a2, 2408
 	add.d	$a2, $sp, $a2
 	add.d	$s0, $a2, $a1
 	addi.w	$a1, $s6, 19
@@ -2357,17 +2359,17 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	masknez	$a3, $a3, $a2
 	maskeqz	$a1, $a1, $a2
 	or	$a1, $a1, $a3
-	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
+	st.d	$a1, $sp, 80                    # 8-byte Folded Spill
 	slli.d	$a1, $fp, 3
 	alsl.d	$a2, $fp, $a1, 2
 	move	$a1, $zero
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	move	$a1, $zero
-	ld.d	$a0, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 80                    # 8-byte Folded Reload
 	addi.d	$a2, $a0, -19
-	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
-	vldi	$vr2, -928
+	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
+	vldi	$vr3, -928
 	b	.LBB3_39
 	.p2align	4, , 16
 .LBB3_38:                               # %._crit_edge329.us.thread
@@ -2433,7 +2435,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	bceqz	$fcc0, .LBB3_38
 # %bb.45:                               #   in Loop: Header=BB3_39 Depth=2
 	fdiv.d	$fa0, $fs1, $fa0
-	fadd.d	$fa0, $fa0, $fa2
+	fadd.d	$fa0, $fa0, $fa3
 	ftintrz.w.d	$fa0, $fa0
 	movfr2gr.s	$a4, $fa0
 	b	.LBB3_38
@@ -2446,7 +2448,8 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	move	$a1, $zero
-	ld.d	$ra, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 72                    # 8-byte Folded Reload
+	vld	$vr2, $sp, 32                   # 16-byte Folded Reload
 	ori	$a0, $zero, 1
 	beq	$fp, $a0, .LBB3_50
 # %bb.47:                               # %vector.ph
@@ -2454,24 +2457,21 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	bstrpick.d	$a0, $s0, 30, 1
 	slli.d	$a1, $a0, 1
 	addi.d	$a2, $s5, 8
-	move	$a3, $s2
-	move	$a4, $a1
+	move	$a3, $a1
+	move	$a4, $s2
 	.p2align	4, , 16
 .LBB3_48:                               # %vector.body
                                         #   Parent Loop BB3_35 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a0, $a2, 0
 	ldptr.d	$a0, $a0, 6448
-	st.w	$s1, $a3, -12
-	st.w	$s1, $a3, 0
-	st.w	$s1, $a3, -8
-	st.w	$s1, $a3, 4
-	st.w	$s1, $a3, -4
-	st.w	$s1, $a3, 8
+	st.w	$s1, $a4, -4
+	vst	$vr2, $a4, -20
+	st.w	$s1, $a4, 0
 	addi.d	$a2, $a2, 16
-	addi.d	$a4, $a4, -2
-	addi.d	$a3, $a3, 24
-	bnez	$a4, .LBB3_48
+	addi.d	$a3, $a3, -2
+	addi.d	$a4, $a4, 24
+	bnez	$a3, .LBB3_48
 # %bb.49:                               # %middle.block
                                         #   in Loop: Header=BB3_35 Depth=1
 	beq	$a1, $s0, .LBB3_33
@@ -2536,11 +2536,11 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	blt	$a5, $a7, .LBB3_56
 	b	.LBB3_53
 .LBB3_57:
-	ld.d	$s6, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 24                    # 8-byte Folded Reload
 	ld.d	$a0, $s6, %pc_lo12(wp_weight)
-	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$a1, $a1, %pc_lo12(wp_offset)
-	ld.d	$s7, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 16                    # 8-byte Folded Reload
 	beqz	$s7, .LBB3_63
 # %bb.58:                               # %.preheader292.preheader
 	move	$a2, $zero
@@ -2582,10 +2582,10 @@ test_wp_B_slice:                        # @test_wp_B_slice
 .LBB3_63:                               # %.preheader289.preheader
 	move	$a2, $zero
 	lu12i.w	$a3, 18
-	ori	$a3, $a3, 96
+	ori	$a3, $a3, 112
 	add.d	$a3, $sp, $a3
 	lu12i.w	$a4, 18
-	ori	$a4, $a4, 2400
+	ori	$a4, $a4, 2416
 	add.d	$a4, $sp, $a4
 	b	.LBB3_65
 	.p2align	4, , 16
@@ -2703,7 +2703,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	move	$a0, $zero
 .LBB3_78:
 	lu12i.w	$a1, 18
-	ori	$a1, $a1, 2768
+	ori	$a1, $a1, 2784
 	add.d	$sp, $sp, $a1
 	fld.d	$fs1, $sp, 1928                 # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 1936                 # 8-byte Folded Reload
@@ -2737,7 +2737,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	ld.w	$a0, $a0, 44
 	ld.w	$a5, $s3, 4
 	or	$a3, $a3, $a4
-	st.w	$a3, $sp, 80
+	st.w	$a3, $sp, 96
 	sltui	$a0, $a0, 1
 	slt	$a3, $a2, $a5
 	masknez	$a4, $a5, $a3
@@ -2747,8 +2747,8 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	maskeqz	$a0, $a5, $a0
 	ld.d	$a2, $s6, %pc_lo12(wp_weight)
 	or	$a0, $a0, $a3
-	st.w	$a0, $sp, 84
-	addi.d	$a3, $sp, 80
+	st.w	$a0, $sp, 100
+	addi.d	$a3, $sp, 96
 .LBB3_80:                               # %.preheader277
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB3_82 Depth 2

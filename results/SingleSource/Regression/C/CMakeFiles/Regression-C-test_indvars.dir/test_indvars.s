@@ -644,38 +644,15 @@ main:                                   # @main
 .LBB0_1:                                # %.preheader.i
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a3, $a0, 0
-	st.w	$a3, $a1, 0
-	st.w	$a3, $a1, 4
-	st.w	$a3, $a1, 8
-	st.w	$a3, $a1, 12
-	st.w	$a3, $a1, 16
-	st.w	$a3, $a1, 20
-	st.w	$a3, $a1, 24
-	st.w	$a3, $a1, 28
-	st.w	$a3, $a1, 32
-	st.w	$a3, $a1, 36
-	st.w	$a3, $a1, 40
-	st.w	$a3, $a1, 44
-	st.w	$a3, $a1, 48
-	st.w	$a3, $a1, 52
-	st.w	$a3, $a1, 56
-	st.w	$a3, $a1, 60
-	st.w	$a3, $a1, 64
-	st.w	$a3, $a1, 68
-	st.w	$a3, $a1, 72
-	st.w	$a3, $a1, 76
-	st.w	$a3, $a1, 80
-	st.w	$a3, $a1, 84
-	st.w	$a3, $a1, 88
-	st.w	$a3, $a1, 92
-	st.w	$a3, $a1, 96
-	st.w	$a3, $a1, 100
-	st.w	$a3, $a1, 104
-	st.w	$a3, $a1, 108
-	st.w	$a3, $a1, 112
-	st.w	$a3, $a1, 116
-	st.w	$a3, $a1, 120
-	st.w	$a3, $a1, 124
+	vreplgr2vr.w	$vr0, $a3
+	vst	$vr0, $a1, 0
+	vst	$vr0, $a1, 16
+	vst	$vr0, $a1, 32
+	vst	$vr0, $a1, 48
+	vst	$vr0, $a1, 64
+	vst	$vr0, $a1, 80
+	vst	$vr0, $a1, 96
+	vst	$vr0, $a1, 112
 	st.w	$a3, $a1, 128
 	st.w	$a3, $a1, 132
 	addi.d	$a2, $a2, -1

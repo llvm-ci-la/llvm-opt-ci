@@ -875,13 +875,10 @@ decode_one_mb:                          # @decode_one_mb
 	.type	Get_Reference_Pixel,@function
 Get_Reference_Pixel:                    # @Get_Reference_Pixel
 # %bb.0:
-	addi.d	$sp, $sp, -48
-	st.d	$fp, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 24                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 16                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 8                     # 8-byte Folded Spill
-	st.d	$s4, $sp, 0                     # 8-byte Folded Spill
+	addi.d	$sp, $sp, -32
+	st.d	$fp, $sp, 24                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 16                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 8                     # 8-byte Folded Spill
 	srai.d	$a7, $a2, 2
 	srai.d	$a5, $a1, 2
 	pcalau12i	$a3, %got_pc_hi20(img)
@@ -893,258 +890,223 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	or	$a4, $a2, $a1
 	andi	$t1, $a4, 3
 	addi.w	$a4, $t0, -1
-	beqz	$t1, .LBB3_6
+	beqz	$t1, .LBB3_7
 # %bb.1:
 	andi	$t0, $a1, 3
 	andi	$a1, $a2, 3
-	beqz	$t0, .LBB3_7
+	beqz	$t0, .LBB3_8
 # %bb.2:
-	beqz	$a1, .LBB3_10
+	beqz	$a1, .LBB3_11
 # %bb.3:
 	ori	$a2, $zero, 2
-	bne	$a1, $a2, .LBB3_13
+	bne	$a1, $a2, .LBB3_14
 # %bb.4:                                # %.preheader170.preheader
-	slt	$a1, $a2, $a7
-	masknez	$t1, $a2, $a1
-	maskeqz	$a1, $a7, $a1
-	or	$a1, $a1, $t1
-	addi.d	$a1, $a1, -2
+	vinsgr2vr.w	$vr2, $a7, 0
+	vinsgr2vr.w	$vr2, $a7, 1
+	ori	$a1, $zero, 2
+	lu32i.d	$a1, 1
+	vreplgr2vr.d	$vr1, $a1
+	vmax.w	$vr3, $vr2, $vr1
+	vinsgr2vr.w	$vr0, $a5, 0
+	vinsgr2vr.w	$vr0, $a5, 1
+	vmax.w	$vr4, $vr0, $vr1
+	vrepli.d	$vr5, -2
+	vadd.w	$vr1, $vr3, $vr5
+	vinsgr2vr.w	$vr6, $a6, 0
+	vinsgr2vr.w	$vr6, $a6, 1
+	vmin.w	$vr7, $vr1, $vr6
+	srai.d	$a1, $a7, 63
+	andn	$a1, $a7, $a1
 	slt	$t1, $a1, $a6
 	maskeqz	$a1, $a1, $t1
 	masknez	$t1, $a6, $t1
 	or	$a1, $a1, $t1
-	slt	$t1, $a2, $a5
-	masknez	$a2, $a2, $t1
-	maskeqz	$t1, $a5, $t1
-	or	$a2, $t1, $a2
-	addi.d	$a2, $a2, -2
-	slt	$t1, $a2, $a4
-	maskeqz	$a2, $a2, $t1
-	masknez	$t1, $a4, $t1
-	or	$a2, $a2, $t1
+	addi.w	$t5, $zero, -1
+	slt	$t1, $t5, $a7
+	masknez	$t2, $t5, $t1
+	maskeqz	$a7, $a7, $t1
+	or	$a7, $a7, $t2
+	addi.d	$a7, $a7, 1
+	slt	$t1, $a7, $a6
+	maskeqz	$a7, $a7, $t1
+	masknez	$a6, $a6, $t1
+	or	$t1, $a7, $a6
+	addi.w	$a6, $zero, -2
+	lu32i.d	$a6, -3
+	vreplgr2vr.d	$vr1, $a6
+	vmax.w	$vr8, $vr2, $vr1
+	lu32i.d	$a2, 3
+	vreplgr2vr.d	$vr2, $a2
+	vadd.w	$vr4, $vr4, $vr5
+	vinsgr2vr.w	$vr3, $a4, 0
+	vinsgr2vr.w	$vr3, $a4, 1
+	vmin.w	$vr4, $vr4, $vr3
+	vpickve2gr.w	$a2, $vr4, 0
 	slli.d	$a2, $a2, 3
-	ldx.d	$t8, $a0, $a2
-	slli.d	$a2, $a1, 1
-	ori	$a1, $zero, 1
-	slt	$t1, $a1, $a7
-	masknez	$t2, $a1, $t1
-	maskeqz	$t1, $a7, $t1
-	or	$t1, $t1, $t2
-	addi.d	$t1, $t1, -1
-	slt	$t2, $t1, $a6
-	maskeqz	$t1, $t1, $t2
-	masknez	$t2, $a6, $t2
-	or	$t1, $t1, $t2
-	slli.d	$t1, $t1, 1
-	ldx.hu	$t2, $t8, $t1
-	ldx.hu	$t3, $t8, $a2
-	alsl.d	$t2, $t2, $t2, 2
-	sub.d	$t5, $t3, $t2
-	srai.d	$t2, $a7, 63
-	andn	$t2, $a7, $t2
-	slt	$t3, $t2, $a6
-	maskeqz	$t2, $t2, $t3
-	masknez	$t3, $a6, $t3
-	or	$t2, $t2, $t3
-	slli.d	$t3, $t2, 1
-	ldx.hu	$t6, $t8, $t3
-	addi.w	$fp, $zero, -1
-	slt	$t2, $fp, $a7
-	masknez	$t4, $fp, $t2
-	maskeqz	$t2, $a7, $t2
-	or	$t2, $t2, $t4
-	addi.d	$t2, $t2, 1
-	slt	$t4, $t2, $a6
-	maskeqz	$t2, $t2, $t4
-	masknez	$t4, $a6, $t4
-	or	$t2, $t2, $t4
-	slli.d	$t4, $t2, 1
-	ldx.hu	$t7, $t8, $t4
-	ori	$t2, $zero, 20
-	mul.d	$t6, $t6, $t2
-	add.d	$t5, $t6, $t5
-	mul.d	$t6, $t7, $t2
-	add.d	$s0, $t6, $t5
-	addi.w	$t7, $zero, -2
-	slt	$t5, $t7, $a7
-	masknez	$t6, $t7, $t5
-	maskeqz	$t5, $a7, $t5
-	or	$t5, $t5, $t6
-	addi.d	$t5, $t5, 2
-	slt	$t6, $t5, $a6
-	maskeqz	$t5, $t5, $t6
-	masknez	$t6, $a6, $t6
-	or	$t5, $t5, $t6
-	slli.d	$t5, $t5, 1
-	ldx.hu	$s1, $t8, $t5
-	addi.w	$t6, $zero, -3
-	slt	$s2, $t6, $a7
-	masknez	$s3, $t6, $s2
-	maskeqz	$a7, $a7, $s2
-	or	$a7, $a7, $s3
-	addi.d	$a7, $a7, 3
-	slt	$s2, $a7, $a6
-	maskeqz	$a7, $a7, $s2
-	masknez	$a6, $a6, $s2
-	or	$a6, $a7, $a6
+	ldx.d	$t4, $a0, $a2
+	vpickve2gr.w	$a2, $vr7, 0
+	slli.d	$a2, $a2, 1
+	vpickve2gr.w	$a6, $vr7, 1
 	slli.d	$a6, $a6, 1
-	slt	$a7, $a1, $a5
-	masknez	$s2, $a1, $a7
-	maskeqz	$a7, $a5, $a7
-	or	$a7, $a7, $s2
-	addi.d	$a7, $a7, -1
-	slt	$s2, $a7, $a4
-	maskeqz	$a7, $a7, $s2
-	masknez	$s2, $a4, $s2
-	or	$a7, $a7, $s2
-	slli.d	$a7, $a7, 3
-	ldx.d	$s2, $a0, $a7
-	ldx.hu	$a7, $t8, $a6
-	alsl.d	$t8, $s1, $s1, 2
-	sub.d	$t8, $s0, $t8
-	ldx.hu	$s0, $s2, $t1
-	add.d	$a7, $t8, $a7
-	ldx.hu	$t8, $s2, $a2
-	ldx.hu	$s1, $s2, $t3
-	alsl.d	$s0, $s0, $s0, 2
-	ldx.hu	$s3, $s2, $t4
-	sub.d	$t8, $t8, $s0
-	mul.d	$s0, $s1, $t2
-	add.d	$t8, $s0, $t8
-	mul.d	$s0, $s3, $t2
-	add.d	$t8, $s0, $t8
-	ldx.hu	$s0, $s2, $t5
-	srai.d	$s1, $a5, 63
-	andn	$s1, $a5, $s1
-	slt	$s3, $s1, $a4
-	maskeqz	$s1, $s1, $s3
-	masknez	$s3, $a4, $s3
-	or	$s1, $s1, $s3
-	slli.d	$s1, $s1, 3
-	ldx.d	$s1, $a0, $s1
-	ldx.hu	$s2, $s2, $a6
-	alsl.d	$s0, $s0, $s0, 2
-	sub.w	$t8, $t8, $s0
-	ldx.hu	$s0, $s1, $t1
-	add.d	$t8, $t8, $s2
-	ldx.hu	$s2, $s1, $a2
-	ldx.hu	$s3, $s1, $t3
-	alsl.d	$s0, $s0, $s0, 2
-	ldx.hu	$s4, $s1, $t4
-	sub.d	$s0, $s2, $s0
-	mul.d	$s2, $s3, $t2
-	add.d	$s0, $s2, $s0
-	mul.d	$s2, $s4, $t2
-	add.d	$s0, $s2, $s0
-	ldx.hu	$s2, $s1, $t5
-	slt	$s3, $fp, $a5
-	masknez	$fp, $fp, $s3
-	maskeqz	$s3, $a5, $s3
-	or	$fp, $s3, $fp
-	addi.d	$fp, $fp, 1
-	slt	$s3, $fp, $a4
-	maskeqz	$fp, $fp, $s3
-	masknez	$s3, $a4, $s3
-	or	$fp, $fp, $s3
+	ldx.hu	$a7, $t4, $a6
+	ldx.hu	$t2, $t4, $a2
+	vadd.w	$vr5, $vr8, $vr2
+	vmin.w	$vr5, $vr5, $vr6
+	alsl.d	$a7, $a7, $a7, 2
+	sub.d	$t2, $t2, $a7
+	slli.d	$a7, $a1, 1
+	ldx.hu	$t3, $t4, $a7
+	slli.d	$t1, $t1, 1
+	ldx.hu	$t6, $t4, $t1
+	ori	$a1, $zero, 20
+	mul.d	$t3, $t3, $a1
+	add.d	$t2, $t3, $t2
+	mul.d	$t3, $t6, $a1
+	add.d	$t6, $t3, $t2
+	vpickve2gr.w	$t2, $vr5, 0
+	slli.d	$t2, $t2, 1
+	ldx.hu	$t7, $t4, $t2
+	vpickve2gr.w	$t3, $vr5, 1
+	slli.d	$t3, $t3, 1
+	vpickve2gr.w	$t8, $vr4, 1
+	slli.d	$t8, $t8, 3
+	ldx.d	$t8, $a0, $t8
+	ldx.hu	$t4, $t4, $t3
+	alsl.d	$t7, $t7, $t7, 2
+	sub.d	$t6, $t6, $t7
+	ldx.hu	$t7, $t8, $a6
+	add.d	$t4, $t6, $t4
+	ldx.hu	$t6, $t8, $a2
+	ldx.hu	$fp, $t8, $a7
+	alsl.d	$t7, $t7, $t7, 2
+	ldx.hu	$s0, $t8, $t1
+	sub.d	$t6, $t6, $t7
+	mul.d	$t7, $fp, $a1
+	add.d	$t6, $t7, $t6
+	mul.d	$t7, $s0, $a1
+	add.d	$t6, $t7, $t6
+	ldx.hu	$t7, $t8, $t2
+	srai.d	$fp, $a5, 63
+	andn	$fp, $a5, $fp
+	slt	$s0, $fp, $a4
+	maskeqz	$fp, $fp, $s0
+	masknez	$s0, $a4, $s0
+	or	$fp, $fp, $s0
 	slli.d	$fp, $fp, 3
-	ldx.d	$s3, $a0, $fp
-	ldx.hu	$fp, $s1, $a6
-	alsl.d	$s1, $s2, $s2, 2
-	sub.d	$s0, $s0, $s1
-	ldx.hu	$s1, $s3, $t1
-	add.d	$fp, $s0, $fp
-	ldx.hu	$s0, $s3, $a2
-	ldx.hu	$s2, $s3, $t3
-	alsl.d	$s1, $s1, $s1, 2
-	ldx.hu	$s4, $s3, $t4
-	sub.d	$s0, $s0, $s1
-	mul.d	$s1, $s2, $t2
-	add.d	$s0, $s1, $s0
-	mul.d	$s1, $s4, $t2
-	add.d	$s0, $s1, $s0
-	ldx.hu	$s1, $s3, $t5
-	slt	$s2, $t7, $a5
-	masknez	$t7, $t7, $s2
-	maskeqz	$s2, $a5, $s2
-	or	$t7, $s2, $t7
-	addi.d	$t7, $t7, 2
-	slt	$s2, $t7, $a4
-	maskeqz	$t7, $t7, $s2
-	masknez	$s2, $a4, $s2
-	or	$t7, $t7, $s2
-	slli.d	$t7, $t7, 3
-	ldx.d	$s2, $a0, $t7
-	ldx.hu	$t7, $s3, $a6
-	alsl.d	$s1, $s1, $s1, 2
-	sub.d	$s0, $s0, $s1
-	ldx.hu	$s1, $s2, $t1
-	add.d	$t7, $s0, $t7
-	ldx.hu	$s0, $s2, $a2
-	ldx.hu	$s3, $s2, $t3
-	alsl.d	$s1, $s1, $s1, 2
-	ldx.hu	$s4, $s2, $t4
-	sub.d	$s0, $s0, $s1
-	mul.d	$s1, $s3, $t2
-	add.d	$s0, $s1, $s0
-	mul.d	$s1, $s4, $t2
-	add.d	$s0, $s1, $s0
-	slt	$s1, $t6, $a5
-	masknez	$t6, $t6, $s1
-	maskeqz	$a5, $a5, $s1
-	ldx.hu	$s1, $s2, $t5
-	or	$a5, $a5, $t6
-	addi.d	$a5, $a5, 3
-	slt	$t6, $a5, $a4
-	maskeqz	$a5, $a5, $t6
-	masknez	$a4, $a4, $t6
+	ldx.d	$fp, $a0, $fp
+	ldx.hu	$t8, $t8, $t3
+	alsl.d	$t7, $t7, $t7, 2
+	sub.w	$t6, $t6, $t7
+	ldx.hu	$t7, $fp, $a6
+	add.d	$t6, $t6, $t8
+	ldx.hu	$t8, $fp, $a2
+	ldx.hu	$s0, $fp, $a7
+	alsl.d	$t7, $t7, $t7, 2
+	ldx.hu	$s1, $fp, $t1
+	sub.d	$t7, $t8, $t7
+	mul.d	$t8, $s0, $a1
+	add.d	$t7, $t8, $t7
+	mul.d	$t8, $s1, $a1
+	add.d	$t7, $t8, $t7
+	ldx.hu	$t8, $fp, $t2
+	slt	$s0, $t5, $a5
+	masknez	$t5, $t5, $s0
+	maskeqz	$a5, $a5, $s0
+	or	$a5, $a5, $t5
+	addi.d	$a5, $a5, 1
+	slt	$t5, $a5, $a4
+	maskeqz	$a5, $a5, $t5
+	masknez	$a4, $a4, $t5
 	or	$a4, $a5, $a4
 	slli.d	$a4, $a4, 3
-	ldx.d	$a0, $a0, $a4
-	alsl.d	$a4, $s1, $s1, 2
-	ldx.hu	$a5, $s2, $a6
-	sub.d	$a4, $s0, $a4
-	ldx.hu	$t1, $a0, $t1
+	ldx.d	$a5, $a0, $a4
+	ldx.hu	$a4, $fp, $t3
+	alsl.d	$t5, $t8, $t8, 2
+	sub.d	$t5, $t7, $t5
+	ldx.hu	$t7, $a5, $a6
+	add.d	$a4, $t5, $a4
+	ldx.hu	$t5, $a5, $a2
+	ldx.hu	$t8, $a5, $a7
+	alsl.d	$t7, $t7, $t7, 2
+	ldx.hu	$fp, $a5, $t1
+	sub.d	$t5, $t5, $t7
+	mul.d	$t7, $t8, $a1
+	add.d	$t5, $t7, $t5
+	mul.d	$t7, $fp, $a1
+	add.d	$t5, $t7, $t5
+	ldx.hu	$t7, $a5, $t2
+	vmax.w	$vr0, $vr0, $vr1
+	vadd.w	$vr0, $vr0, $vr2
+	vmin.w	$vr0, $vr0, $vr3
+	vpickve2gr.w	$t8, $vr0, 0
+	slli.d	$t8, $t8, 3
+	ldx.d	$t8, $a0, $t8
+	ldx.hu	$a5, $a5, $t3
+	alsl.d	$t7, $t7, $t7, 2
+	sub.d	$t5, $t5, $t7
+	ldx.hu	$t7, $t8, $a6
+	add.d	$a5, $t5, $a5
+	ldx.hu	$t5, $t8, $a2
+	ldx.hu	$fp, $t8, $a7
+	alsl.d	$t7, $t7, $t7, 2
+	ldx.hu	$s0, $t8, $t1
+	sub.d	$t5, $t5, $t7
+	mul.d	$t7, $fp, $a1
+	add.d	$t5, $t7, $t5
+	mul.d	$t7, $s0, $a1
+	add.d	$t5, $t7, $t5
+	ldx.hu	$t7, $t8, $t2
+	vpickve2gr.w	$fp, $vr0, 1
+	slli.d	$fp, $fp, 3
+	ldx.d	$a0, $a0, $fp
+	alsl.d	$t7, $t7, $t7, 2
+	ldx.hu	$t8, $t8, $t3
+	sub.d	$t5, $t5, $t7
+	ldx.hu	$a6, $a0, $a6
 	ldx.hu	$a2, $a0, $a2
-	add.w	$a4, $a4, $a5
-	ldx.hu	$a5, $a0, $t3
-	alsl.d	$t1, $t1, $t1, 2
-	sub.d	$a2, $a2, $t1
-	ldx.hu	$t1, $a0, $t4
-	mul.d	$a5, $a5, $t2
-	add.d	$a2, $a5, $a2
-	ldx.hu	$a5, $a0, $t5
-	mul.d	$t1, $t1, $t2
-	ldx.hu	$a0, $a0, $a6
-	add.d	$a2, $t1, $a2
-	alsl.d	$a5, $a5, $a5, 2
-	sub.d	$a2, $a2, $a5
+	add.w	$t5, $t5, $t8
+	ldx.hu	$a7, $a0, $a7
+	alsl.d	$a6, $a6, $a6, 2
+	sub.d	$a2, $a2, $a6
+	ldx.hu	$a6, $a0, $t1
+	mul.d	$a7, $a7, $a1
+	add.d	$a2, $a7, $a2
+	ldx.hu	$a7, $a0, $t2
+	mul.d	$a6, $a6, $a1
+	ldx.hu	$a0, $a0, $t3
+	add.d	$a2, $a6, $a2
+	alsl.d	$a6, $a7, $a7, 2
+	sub.d	$a2, $a2, $a6
 	add.d	$a0, $a2, $a0
-	alsl.d	$a2, $t8, $t8, 2
-	sub.d	$a2, $a7, $a2
-	mul.d	$a5, $fp, $t2
-	add.d	$a2, $a5, $a2
-	mul.d	$a5, $t7, $t2
-	add.d	$a2, $a5, $a2
-	alsl.d	$a4, $a4, $a4, 2
-	sub.d	$a2, $a2, $a4
-	add.d	$a2, $a0, $a2
+	alsl.d	$a2, $t6, $t6, 2
+	sub.d	$a2, $t4, $a2
+	mul.d	$a6, $a4, $a1
+	add.d	$a2, $a6, $a2
+	mul.d	$a1, $a5, $a1
+	add.d	$a1, $a1, $a2
+	alsl.d	$a2, $t5, $t5, 2
+	sub.d	$a1, $a1, $a2
+	add.d	$a1, $a0, $a1
 	ldptr.w	$a0, $a3, 15520
-	addi.w	$a2, $a2, 512
-	bstrpick.d	$a3, $a2, 62, 53
-	add.w	$a2, $a2, $a3
-	srai.d	$a3, $a2, 10
-	srai.d	$a2, $a2, 63
-	andn	$a2, $a3, $a2
-	slt	$a3, $a2, $a0
-	maskeqz	$a2, $a2, $a3
-	masknez	$a3, $a0, $a3
-	or	$a3, $a2, $a3
-	beq	$t0, $a1, .LBB3_19
+	addi.w	$a1, $a1, 512
+	bstrpick.d	$a2, $a1, 62, 53
+	add.w	$a1, $a1, $a2
+	srai.d	$a2, $a1, 10
+	srai.d	$a1, $a1, 63
+	andn	$a1, $a2, $a1
+	slt	$a2, $a1, $a0
+	maskeqz	$a1, $a1, $a2
+	masknez	$a2, $a0, $a2
+	ori	$a3, $zero, 1
+	or	$a2, $a1, $a2
+	beq	$t0, $a3, .LBB3_19
 # %bb.5:                                # %.preheader170.preheader
 	ori	$a1, $zero, 3
-	beq	$t0, $a1, .LBB3_17
-	b	.LBB3_24
-.LBB3_6:
+	bne	$t0, $a1, .LBB3_25
+# %bb.6:
+	addi.w	$a1, $a5, 16
+	b	.LBB3_22
+.LBB3_7:
 	srai.d	$a1, $a5, 63
 	andn	$a1, $a5, $a1
 	slt	$a2, $a1, $a4
@@ -1160,9 +1122,9 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	masknez	$a2, $a6, $a2
 	or	$a1, $a1, $a2
 	slli.d	$a1, $a1, 1
-	ldx.hu	$a3, $a0, $a1
-	b	.LBB3_24
-.LBB3_7:
+	ldx.hu	$a2, $a0, $a1
+	b	.LBB3_25
+.LBB3_8:
 	srai.d	$a2, $a5, 63
 	andn	$a2, $a5, $a2
 	slt	$a5, $a2, $a4
@@ -1171,32 +1133,26 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	or	$a2, $a2, $a4
 	slli.d	$a2, $a2, 3
 	ldx.d	$a0, $a0, $a2
+	vinsgr2vr.w	$vr0, $a7, 0
+	vinsgr2vr.w	$vr0, $a7, 1
 	ori	$a2, $zero, 2
-	slt	$a4, $a2, $a7
-	masknez	$a2, $a2, $a4
-	maskeqz	$a4, $a7, $a4
-	or	$a2, $a4, $a2
-	addi.d	$a2, $a2, -2
-	slt	$a4, $a2, $a6
-	maskeqz	$a2, $a2, $a4
-	masknez	$a4, $a6, $a4
-	or	$a2, $a2, $a4
-	slli.d	$a4, $a2, 1
-	ori	$a2, $zero, 1
-	slt	$a5, $a2, $a7
-	masknez	$t0, $a2, $a5
-	maskeqz	$a5, $a7, $a5
-	or	$a5, $a5, $t0
-	addi.d	$a5, $a5, -1
-	slt	$t0, $a5, $a6
-	maskeqz	$a5, $a5, $t0
-	masknez	$t0, $a6, $t0
-	or	$a5, $a5, $t0
-	slli.d	$a5, $a5, 1
-	ldx.hu	$a5, $a0, $a5
+	lu32i.d	$a2, 1
+	vreplgr2vr.d	$vr1, $a2
+	vmax.w	$vr1, $vr0, $vr1
+	vrepli.d	$vr2, -2
+	vadd.w	$vr1, $vr1, $vr2
+	vinsgr2vr.w	$vr2, $a6, 0
+	vinsgr2vr.w	$vr2, $a6, 1
+	vmin.w	$vr1, $vr1, $vr2
+	vpickve2gr.w	$a2, $vr1, 0
+	slli.d	$a2, $a2, 1
+	vpickve2gr.w	$a4, $vr1, 1
+	slli.d	$a4, $a4, 1
 	ldx.hu	$a4, $a0, $a4
-	alsl.d	$a5, $a5, $a5, 2
-	sub.d	$t0, $a4, $a5
+	ldx.hu	$a2, $a0, $a2
+	ori	$t0, $zero, 2
+	alsl.d	$a4, $a4, $a4, 2
+	sub.d	$a2, $a2, $a4
 	srai.d	$a4, $a7, 63
 	andn	$a4, $a7, $a4
 	slt	$a5, $a4, $a6
@@ -1208,424 +1164,367 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	addi.w	$a5, $zero, -1
 	slt	$t1, $a5, $a7
 	masknez	$a5, $a5, $t1
-	maskeqz	$t1, $a7, $t1
-	or	$a5, $t1, $a5
+	maskeqz	$a7, $a7, $t1
+	or	$a5, $a7, $a5
 	addi.d	$a5, $a5, 1
-	slt	$t1, $a5, $a6
-	maskeqz	$a5, $a5, $t1
-	masknez	$t1, $a6, $t1
-	or	$a5, $a5, $t1
+	slt	$a7, $a5, $a6
+	maskeqz	$a5, $a5, $a7
+	masknez	$a6, $a6, $a7
+	or	$a5, $a5, $a6
 	slli.d	$a5, $a5, 1
-	ldx.hu	$t1, $a0, $a5
-	ori	$t2, $zero, 20
-	mul.d	$t3, $a4, $t2
-	add.d	$t0, $t3, $t0
-	mul.d	$t1, $t1, $t2
-	addi.w	$t2, $zero, -2
-	slt	$t3, $t2, $a7
-	masknez	$t2, $t2, $t3
-	maskeqz	$t3, $a7, $t3
-	or	$t2, $t3, $t2
-	addi.d	$t2, $t2, 2
-	slt	$t3, $t2, $a6
-	maskeqz	$t2, $t2, $t3
-	masknez	$t3, $a6, $t3
-	or	$t2, $t2, $t3
-	addi.w	$t3, $zero, -3
-	slt	$t4, $t3, $a7
-	masknez	$t3, $t3, $t4
-	maskeqz	$a7, $a7, $t4
-	or	$a7, $a7, $t3
-	addi.d	$a7, $a7, 3
-	slt	$t3, $a7, $a6
-	maskeqz	$a7, $a7, $t3
-	masknez	$a6, $a6, $t3
-	slli.d	$t2, $t2, 1
-	ldx.hu	$t2, $a0, $t2
-	or	$a6, $a7, $a6
-	slli.d	$a6, $a6, 1
-	ldx.hu	$a6, $a0, $a6
-	add.d	$a7, $t1, $t0
-	alsl.d	$t0, $t2, $t2, 2
-	sub.d	$a7, $a7, $t0
-	add.d	$a6, $a7, $a6
+	ldx.hu	$a6, $a0, $a5
+	ori	$a7, $zero, 20
+	mul.d	$t1, $a4, $a7
+	add.d	$a2, $t1, $a2
+	mul.d	$a6, $a6, $a7
+	addi.w	$a7, $zero, -2
+	lu32i.d	$a7, -3
+	vreplgr2vr.d	$vr1, $a7
+	vmax.w	$vr0, $vr0, $vr1
+	lu32i.d	$t0, 3
+	vreplgr2vr.d	$vr1, $t0
+	vadd.w	$vr0, $vr0, $vr1
+	vmin.w	$vr0, $vr0, $vr2
+	vpickve2gr.w	$a7, $vr0, 0
+	slli.d	$a7, $a7, 1
+	ldx.hu	$a7, $a0, $a7
+	vpickve2gr.w	$t0, $vr0, 1
+	slli.d	$t0, $t0, 1
+	ldx.hu	$t0, $a0, $t0
+	add.d	$a2, $a6, $a2
+	alsl.d	$a6, $a7, $a7, 2
+	sub.d	$a2, $a2, $a6
+	add.d	$a2, $a2, $t0
 	ldptr.w	$a3, $a3, 15520
-	addi.w	$a6, $a6, 16
-	bstrpick.d	$a7, $a6, 62, 58
-	add.w	$a6, $a6, $a7
-	srai.d	$a7, $a6, 5
-	srai.d	$a6, $a6, 63
-	andn	$a6, $a7, $a6
-	slt	$a7, $a6, $a3
-	maskeqz	$a6, $a6, $a7
-	masknez	$a3, $a3, $a7
-	ori	$a7, $zero, 3
-	or	$a3, $a6, $a3
-	beq	$a1, $a7, .LBB3_16
-# %bb.8:
-	bne	$a1, $a2, .LBB3_24
+	addi.w	$a2, $a2, 16
+	bstrpick.d	$a6, $a2, 62, 58
+	add.w	$a2, $a2, $a6
+	srai.d	$a6, $a2, 5
+	srai.d	$a2, $a2, 63
+	andn	$a2, $a6, $a2
+	slt	$a6, $a2, $a3
+	maskeqz	$a2, $a2, $a6
+	masknez	$a3, $a3, $a6
+	ori	$a6, $zero, 3
+	or	$a2, $a2, $a3
+	beq	$a1, $a6, .LBB3_17
 # %bb.9:
-	add.d	$a0, $a3, $a4
-	b	.LBB3_23
-.LBB3_10:
+	ori	$a0, $zero, 1
+	bne	$a1, $a0, .LBB3_25
+# %bb.10:
+	add.d	$a0, $a2, $a4
+	b	.LBB3_24
+.LBB3_11:
 	srai.d	$a1, $a7, 63
 	andn	$a1, $a7, $a1
 	slt	$a2, $a1, $a6
-	maskeqz	$a7, $a1, $a2
+	maskeqz	$a1, $a1, $a2
 	masknez	$a2, $a6, $a2
-	ori	$a1, $zero, 2
-	slt	$a6, $a1, $a5
-	masknez	$a1, $a1, $a6
-	maskeqz	$a6, $a5, $a6
-	or	$a1, $a6, $a1
-	addi.d	$a1, $a1, -2
-	slt	$a6, $a1, $a4
-	maskeqz	$a1, $a1, $a6
-	masknez	$a6, $a4, $a6
-	or	$a1, $a1, $a6
-	slli.d	$a1, $a1, 3
-	ldx.d	$a6, $a0, $a1
-	ori	$a1, $zero, 1
-	slt	$t1, $a1, $a5
-	masknez	$t2, $a1, $t1
-	maskeqz	$t1, $a5, $t1
-	or	$t1, $t1, $t2
-	addi.d	$t1, $t1, -1
-	slt	$t2, $t1, $a4
-	maskeqz	$t1, $t1, $t2
-	masknez	$t2, $a4, $t2
-	or	$t1, $t1, $t2
-	slli.d	$t1, $t1, 3
-	ldx.d	$t1, $a0, $t1
-	or	$a2, $a7, $a2
-	slli.d	$a2, $a2, 1
-	ldx.hu	$a6, $a6, $a2
-	ldx.hu	$a7, $t1, $a2
-	srai.d	$t1, $a5, 63
-	andn	$t1, $a5, $t1
-	slt	$t2, $t1, $a4
-	maskeqz	$t1, $t1, $t2
-	masknez	$t2, $a4, $t2
-	or	$t1, $t1, $t2
-	slli.d	$t1, $t1, 3
-	ldx.d	$t1, $a0, $t1
-	alsl.d	$a7, $a7, $a7, 2
-	sub.d	$t2, $a6, $a7
-	ldx.hu	$a6, $t1, $a2
-	addi.w	$a7, $zero, -1
-	slt	$t1, $a7, $a5
-	masknez	$a7, $a7, $t1
-	maskeqz	$t1, $a5, $t1
-	or	$a7, $t1, $a7
-	addi.d	$a7, $a7, 1
+	or	$a1, $a1, $a2
+	vinsgr2vr.w	$vr0, $a5, 0
+	vinsgr2vr.w	$vr0, $a5, 1
+	ori	$a2, $zero, 2
+	lu32i.d	$a2, 1
+	vreplgr2vr.d	$vr1, $a2
+	vmax.w	$vr1, $vr0, $vr1
+	vrepli.d	$vr2, -2
+	vadd.w	$vr1, $vr1, $vr2
+	vinsgr2vr.w	$vr2, $a4, 0
+	vinsgr2vr.w	$vr2, $a4, 1
+	vmin.w	$vr1, $vr1, $vr2
+	vpickve2gr.w	$a2, $vr1, 0
+	vpickve2gr.w	$a6, $vr1, 1
+	slli.d	$a6, $a6, 3
+	ldx.d	$a6, $a0, $a6
+	slli.d	$a2, $a2, 3
+	ldx.d	$a2, $a0, $a2
+	slli.d	$a1, $a1, 1
+	ldx.hu	$a6, $a6, $a1
+	srai.d	$a7, $a5, 63
+	andn	$a7, $a5, $a7
 	slt	$t1, $a7, $a4
 	maskeqz	$a7, $a7, $t1
 	masknez	$t1, $a4, $t1
 	or	$a7, $a7, $t1
 	slli.d	$a7, $a7, 3
-	addi.w	$t1, $zero, -2
-	slt	$t3, $t1, $a5
-	masknez	$t1, $t1, $t3
-	maskeqz	$t3, $a5, $t3
-	or	$t1, $t3, $t1
-	addi.d	$t1, $t1, 2
+	ldx.d	$a7, $a0, $a7
+	ori	$t1, $zero, 2
+	ldx.hu	$a2, $a2, $a1
+	alsl.d	$t2, $a6, $a6, 2
+	ldx.hu	$a6, $a7, $a1
+	addi.w	$a7, $zero, -1
+	slt	$t3, $a7, $a5
+	masknez	$a7, $a7, $t3
+	maskeqz	$a5, $a5, $t3
+	or	$a5, $a5, $a7
+	addi.d	$a5, $a5, 1
+	slt	$a7, $a5, $a4
+	maskeqz	$a5, $a5, $a7
+	masknez	$a4, $a4, $a7
+	or	$a4, $a5, $a4
+	slli.d	$a4, $a4, 3
+	ldx.d	$a5, $a0, $a4
+	sub.d	$a2, $a2, $t2
+	ori	$a7, $zero, 20
+	mul.d	$t2, $a6, $a7
+	ldx.hu	$a5, $a5, $a1
+	addi.w	$t3, $zero, -2
+	lu32i.d	$t3, -3
+	vreplgr2vr.d	$vr1, $t3
+	vmax.w	$vr0, $vr0, $vr1
+	lu32i.d	$t1, 3
+	vreplgr2vr.d	$vr1, $t1
+	vadd.w	$vr0, $vr0, $vr1
+	vmin.w	$vr0, $vr0, $vr2
+	vpickve2gr.w	$t1, $vr0, 0
+	slli.d	$t1, $t1, 3
+	ldx.d	$t1, $a0, $t1
+	vpickve2gr.w	$t3, $vr0, 1
+	slli.d	$t3, $t3, 3
+	ldx.d	$t3, $a0, $t3
+	add.d	$a2, $t2, $a2
+	ldx.hu	$t1, $t1, $a1
+	mul.d	$a5, $a5, $a7
+	ldx.hu	$a7, $t3, $a1
+	add.d	$a2, $a5, $a2
+	alsl.d	$a5, $t1, $t1, 2
+	sub.d	$a2, $a2, $a5
+	add.d	$a2, $a2, $a7
+	ldptr.w	$a3, $a3, 15520
+	addi.w	$a2, $a2, 16
+	bstrpick.d	$a5, $a2, 62, 58
+	add.w	$a2, $a2, $a5
+	srai.d	$a5, $a2, 5
+	srai.d	$a2, $a2, 63
+	andn	$a2, $a5, $a2
+	slt	$a5, $a2, $a3
+	maskeqz	$a2, $a2, $a5
+	masknez	$a3, $a3, $a5
+	ori	$a5, $zero, 3
+	or	$a2, $a2, $a3
+	beq	$t0, $a5, .LBB3_20
+# %bb.12:
+	ori	$a0, $zero, 1
+	bne	$t0, $a0, .LBB3_25
+# %bb.13:
+	add.d	$a0, $a2, $a6
+	b	.LBB3_24
+.LBB3_14:
+	bne	$t0, $a2, .LBB3_18
+# %bb.15:                               # %.preheader168.preheader
+	vinsgr2vr.w	$vr1, $a5, 0
+	vinsgr2vr.w	$vr1, $a5, 1
+	ori	$t2, $zero, 2
+	ori	$a2, $zero, 2
+	lu32i.d	$a2, 1
+	vreplgr2vr.d	$vr2, $a2
+	vmax.w	$vr3, $vr1, $vr2
+	vinsgr2vr.w	$vr0, $a7, 0
+	vinsgr2vr.w	$vr0, $a7, 1
+	vmax.w	$vr2, $vr0, $vr2
+	vrepli.d	$vr4, -2
+	vadd.w	$vr3, $vr3, $vr4
+	vinsgr2vr.w	$vr5, $a4, 0
+	vinsgr2vr.w	$vr5, $a4, 1
+	vmin.w	$vr3, $vr3, $vr5
+	vpickve2gr.w	$a2, $vr3, 0
+	slli.d	$a2, $a2, 3
+	ldx.d	$a2, $a0, $a2
+	vpickve2gr.w	$t0, $vr3, 1
+	slli.d	$t0, $t0, 3
+	ldx.d	$t0, $a0, $t0
+	srai.d	$t1, $a5, 63
+	andn	$t1, $a5, $t1
 	slt	$t3, $t1, $a4
 	maskeqz	$t1, $t1, $t3
 	masknez	$t3, $a4, $t3
 	or	$t1, $t1, $t3
-	addi.w	$t3, $zero, -3
-	slt	$t4, $t3, $a5
-	masknez	$t3, $t3, $t4
-	maskeqz	$a5, $a5, $t4
-	ldx.d	$t4, $a0, $a7
-	or	$a5, $a5, $t3
-	addi.d	$a5, $a5, 3
+	slli.d	$t1, $t1, 3
+	ldx.d	$t1, $a0, $t1
+	addi.w	$t5, $zero, -1
+	slt	$t3, $t5, $a5
+	masknez	$t4, $t5, $t3
+	maskeqz	$a5, $a5, $t3
+	or	$a5, $a5, $t4
+	addi.d	$a5, $a5, 1
 	slt	$t3, $a5, $a4
 	maskeqz	$a5, $a5, $t3
 	masknez	$a4, $a4, $t3
-	ori	$t3, $zero, 20
 	or	$a4, $a5, $a4
-	mul.d	$a5, $a6, $t3
-	ldx.hu	$t4, $t4, $a2
-	slli.d	$t1, $t1, 3
-	ldx.d	$t1, $a0, $t1
 	slli.d	$a4, $a4, 3
 	ldx.d	$a4, $a0, $a4
-	add.d	$a5, $a5, $t2
-	ldx.hu	$t1, $t1, $a2
-	mul.d	$t2, $t4, $t3
-	ldx.hu	$a4, $a4, $a2
-	add.d	$a5, $t2, $a5
-	alsl.d	$t1, $t1, $t1, 2
-	sub.d	$a5, $a5, $t1
-	add.d	$a4, $a5, $a4
-	ldptr.w	$a3, $a3, 15520
-	addi.w	$a4, $a4, 16
-	bstrpick.d	$a5, $a4, 62, 58
-	add.w	$a4, $a4, $a5
-	srai.d	$a5, $a4, 5
-	srai.d	$a4, $a4, 63
-	andn	$a4, $a5, $a4
-	slt	$a5, $a4, $a3
-	maskeqz	$a4, $a4, $a5
-	masknez	$a3, $a3, $a5
-	ori	$a5, $zero, 3
-	or	$a3, $a4, $a3
-	beq	$t0, $a5, .LBB3_21
-# %bb.11:
-	bne	$t0, $a1, .LBB3_24
-# %bb.12:
-	add.d	$a0, $a3, $a6
-	b	.LBB3_23
-.LBB3_13:
-	bne	$t0, $a2, .LBB3_18
-# %bb.14:                               # %.preheader168.preheader
-	ori	$a2, $zero, 2
-	slt	$t0, $a2, $a5
-	masknez	$t1, $a2, $t0
-	maskeqz	$t0, $a5, $t0
-	or	$t0, $t0, $t1
-	addi.d	$t0, $t0, -2
-	slt	$t1, $t0, $a4
-	maskeqz	$t0, $t0, $t1
-	masknez	$t1, $a4, $t1
-	or	$t0, $t0, $t1
-	slli.d	$t1, $t0, 3
-	slt	$t0, $a2, $a7
-	masknez	$a2, $a2, $t0
-	maskeqz	$t0, $a7, $t0
-	or	$a2, $t0, $a2
-	addi.d	$a2, $a2, -2
-	slt	$t0, $a2, $a6
-	maskeqz	$t2, $a2, $t0
-	masknez	$t3, $a6, $t0
-	ori	$a2, $zero, 1
-	slt	$t0, $a2, $a5
-	masknez	$t4, $a2, $t0
-	maskeqz	$t0, $a5, $t0
-	or	$t0, $t0, $t4
-	addi.d	$t0, $t0, -1
-	slt	$t4, $t0, $a4
-	maskeqz	$t0, $t0, $t4
-	masknez	$t4, $a4, $t4
-	or	$t0, $t0, $t4
-	slli.d	$t0, $t0, 3
-	ldx.d	$t0, $a0, $t0
-	or	$t2, $t2, $t3
-	ldx.d	$t1, $a0, $t1
-	slli.d	$fp, $t2, 1
-	ldx.hu	$t2, $t0, $fp
-	ldx.hu	$t5, $t1, $fp
-	alsl.d	$t2, $t2, $t2, 2
-	srai.d	$t3, $a5, 63
-	andn	$t3, $a5, $t3
-	slt	$t4, $t3, $a4
-	maskeqz	$t3, $t3, $t4
-	masknez	$t4, $a4, $t4
-	or	$t3, $t3, $t4
-	slli.d	$t3, $t3, 3
-	ldx.d	$t3, $a0, $t3
-	addi.w	$t8, $zero, -1
-	slt	$t4, $t8, $a5
-	masknez	$t6, $t8, $t4
-	maskeqz	$t4, $a5, $t4
-	or	$t4, $t4, $t6
-	addi.d	$t4, $t4, 1
-	slt	$t6, $t4, $a4
-	maskeqz	$t4, $t4, $t6
-	masknez	$t6, $a4, $t6
-	or	$t4, $t4, $t6
-	slli.d	$t4, $t4, 3
-	ldx.d	$t4, $a0, $t4
-	sub.d	$t6, $t5, $t2
-	ldx.hu	$s0, $t3, $fp
-	ori	$t2, $zero, 20
-	ldx.hu	$s1, $t4, $fp
-	addi.w	$t7, $zero, -2
-	slt	$t5, $t7, $a5
-	masknez	$s2, $t7, $t5
-	maskeqz	$t5, $a5, $t5
-	or	$t5, $t5, $s2
-	addi.d	$t5, $t5, 2
-	slt	$s2, $t5, $a4
-	maskeqz	$t5, $t5, $s2
-	masknez	$s2, $a4, $s2
-	or	$t5, $t5, $s2
-	slli.d	$t5, $t5, 3
-	ldx.d	$t5, $a0, $t5
-	mul.d	$s0, $s0, $t2
-	add.d	$s0, $s0, $t6
-	mul.d	$s1, $s1, $t2
-	ldx.hu	$s2, $t5, $fp
-	addi.w	$t6, $zero, -3
-	slt	$s3, $t6, $a5
-	maskeqz	$a5, $a5, $s3
-	masknez	$s3, $t6, $s3
-	or	$a5, $a5, $s3
-	addi.d	$a5, $a5, 3
-	slt	$s3, $a5, $a4
-	maskeqz	$a5, $a5, $s3
-	masknez	$a4, $a4, $s3
-	or	$a4, $a5, $a4
-	slli.d	$a4, $a4, 3
-	ldx.d	$a0, $a0, $a4
-	add.d	$a4, $s1, $s0
-	alsl.d	$a5, $s2, $s2, 2
-	sub.d	$a4, $a4, $a5
-	ldx.hu	$a5, $a0, $fp
-	slt	$fp, $a2, $a7
-	masknez	$s0, $a2, $fp
-	maskeqz	$fp, $a7, $fp
-	or	$fp, $fp, $s0
-	addi.d	$fp, $fp, -1
-	slt	$s0, $fp, $a6
-	maskeqz	$fp, $fp, $s0
-	masknez	$s0, $a6, $s0
-	or	$fp, $fp, $s0
-	slli.d	$fp, $fp, 1
-	ldx.hu	$s0, $t0, $fp
-	ldx.hu	$s1, $t1, $fp
-	add.d	$a4, $a4, $a5
-	ldx.hu	$a5, $t3, $fp
-	alsl.d	$s0, $s0, $s0, 2
-	sub.d	$s0, $s1, $s0
-	ldx.hu	$s1, $t4, $fp
-	mul.d	$a5, $a5, $t2
-	ldx.hu	$s2, $t5, $fp
-	add.d	$a5, $a5, $s0
-	mul.d	$s0, $s1, $t2
-	add.d	$a5, $s0, $a5
-	alsl.d	$s0, $s2, $s2, 2
-	sub.w	$a5, $a5, $s0
-	ldx.hu	$fp, $a0, $fp
-	srai.d	$s0, $a7, 63
-	andn	$s0, $a7, $s0
-	slt	$s1, $s0, $a6
-	maskeqz	$s0, $s0, $s1
-	masknez	$s1, $a6, $s1
-	or	$s0, $s0, $s1
-	slli.d	$s0, $s0, 1
-	ldx.hu	$s1, $t0, $s0
-	ldx.hu	$s2, $t1, $s0
-	add.d	$a5, $a5, $fp
-	ldx.hu	$fp, $t3, $s0
-	alsl.d	$s1, $s1, $s1, 2
-	sub.d	$s1, $s2, $s1
-	ldx.hu	$s2, $t4, $s0
-	mul.d	$fp, $fp, $t2
-	ldx.hu	$s3, $t5, $s0
-	add.d	$fp, $fp, $s1
-	mul.d	$s1, $s2, $t2
-	add.d	$fp, $s1, $fp
-	alsl.d	$s1, $s3, $s3, 2
-	sub.d	$fp, $fp, $s1
-	ldx.hu	$s0, $a0, $s0
-	slt	$s1, $t8, $a7
-	masknez	$t8, $t8, $s1
-	maskeqz	$s1, $a7, $s1
-	or	$t8, $s1, $t8
-	addi.d	$t8, $t8, 1
-	slt	$s1, $t8, $a6
-	maskeqz	$t8, $t8, $s1
-	masknez	$s1, $a6, $s1
-	or	$t8, $t8, $s1
-	slli.d	$s1, $t8, 1
-	ldx.hu	$s2, $t0, $s1
-	ldx.hu	$s3, $t1, $s1
-	add.d	$t8, $fp, $s0
-	ldx.hu	$fp, $t3, $s1
-	alsl.d	$s0, $s2, $s2, 2
-	sub.d	$s0, $s3, $s0
-	ldx.hu	$s2, $t4, $s1
-	mul.d	$fp, $fp, $t2
-	ldx.hu	$s3, $t5, $s1
-	add.d	$fp, $fp, $s0
-	mul.d	$s0, $s2, $t2
-	add.d	$fp, $s0, $fp
-	alsl.d	$s0, $s3, $s3, 2
-	sub.d	$fp, $fp, $s0
-	ldx.hu	$s0, $a0, $s1
-	slt	$s1, $t7, $a7
-	masknez	$t7, $t7, $s1
-	maskeqz	$s1, $a7, $s1
-	or	$t7, $s1, $t7
-	addi.d	$t7, $t7, 2
-	slt	$s1, $t7, $a6
-	maskeqz	$t7, $t7, $s1
-	masknez	$s1, $a6, $s1
-	or	$t7, $t7, $s1
-	slli.d	$s1, $t7, 1
-	ldx.hu	$s2, $t0, $s1
-	ldx.hu	$s3, $t1, $s1
-	add.d	$t7, $fp, $s0
-	ldx.hu	$fp, $t3, $s1
-	alsl.d	$s0, $s2, $s2, 2
-	sub.d	$s0, $s3, $s0
-	ldx.hu	$s2, $t4, $s1
-	mul.d	$fp, $fp, $t2
-	ldx.hu	$s3, $t5, $s1
-	add.d	$fp, $fp, $s0
-	mul.d	$s0, $s2, $t2
-	add.d	$fp, $s0, $fp
-	alsl.d	$s0, $s3, $s3, 2
-	sub.d	$fp, $fp, $s0
-	ldx.hu	$s0, $a0, $s1
-	slt	$s1, $t6, $a7
-	masknez	$t6, $t6, $s1
-	maskeqz	$a7, $a7, $s1
-	or	$a7, $a7, $t6
+	addi.w	$a5, $zero, -2
+	lu32i.d	$a5, -3
+	vreplgr2vr.d	$vr3, $a5
+	vmax.w	$vr1, $vr1, $vr3
+	lu32i.d	$t2, 3
+	vreplgr2vr.d	$vr3, $t2
+	vadd.w	$vr1, $vr1, $vr3
+	vmin.w	$vr1, $vr1, $vr5
+	vpickve2gr.w	$a5, $vr1, 0
+	slli.d	$a5, $a5, 3
+	ldx.d	$a5, $a0, $a5
+	vpickve2gr.w	$t2, $vr1, 1
+	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.w	$vr1, $a6, 0
+	vinsgr2vr.w	$vr1, $a6, 1
+	vmin.w	$vr2, $vr2, $vr1
+	vpickve2gr.w	$t3, $vr2, 0
+	slli.d	$t3, $t3, 1
+	ldx.hu	$t4, $t0, $t3
+	slli.d	$t2, $t2, 3
+	ldx.hu	$t6, $a2, $t3
+	ldx.d	$t2, $a0, $t2
+	alsl.d	$a0, $t4, $t4, 2
+	ldx.hu	$t4, $t1, $t3
+	sub.d	$t6, $t6, $a0
+	ori	$a0, $zero, 20
+	ldx.hu	$t7, $a4, $t3
+	mul.d	$t4, $t4, $a0
+	ldx.hu	$t8, $a5, $t3
+	add.d	$t4, $t4, $t6
+	mul.d	$t6, $t7, $a0
+	add.d	$t4, $t6, $t4
+	alsl.d	$t6, $t8, $t8, 2
+	sub.d	$t4, $t4, $t6
+	ldx.hu	$t3, $t2, $t3
+	vpickve2gr.w	$t6, $vr2, 1
+	slli.d	$t6, $t6, 1
+	ldx.hu	$t7, $t0, $t6
+	ldx.hu	$t8, $a2, $t6
+	add.d	$t3, $t4, $t3
+	ldx.hu	$t4, $t1, $t6
+	alsl.d	$t7, $t7, $t7, 2
+	sub.d	$t7, $t8, $t7
+	ldx.hu	$t8, $a4, $t6
+	mul.d	$t4, $t4, $a0
+	ldx.hu	$fp, $a5, $t6
+	add.d	$t4, $t4, $t7
+	mul.d	$t7, $t8, $a0
+	add.d	$t4, $t7, $t4
+	alsl.d	$t7, $fp, $fp, 2
+	sub.w	$t4, $t4, $t7
+	ldx.hu	$t6, $t2, $t6
+	srai.d	$t7, $a7, 63
+	andn	$t7, $a7, $t7
+	slt	$t8, $t7, $a6
+	maskeqz	$t7, $t7, $t8
+	masknez	$t8, $a6, $t8
+	or	$t7, $t7, $t8
+	slli.d	$t7, $t7, 1
+	ldx.hu	$t8, $t0, $t7
+	ldx.hu	$fp, $a2, $t7
+	add.d	$t4, $t4, $t6
+	ldx.hu	$t6, $t1, $t7
+	alsl.d	$t8, $t8, $t8, 2
+	sub.d	$t8, $fp, $t8
+	ldx.hu	$fp, $a4, $t7
+	mul.d	$t6, $t6, $a0
+	ldx.hu	$s0, $a5, $t7
+	add.d	$t6, $t6, $t8
+	mul.d	$t8, $fp, $a0
+	add.d	$t6, $t8, $t6
+	alsl.d	$t8, $s0, $s0, 2
+	sub.d	$t6, $t6, $t8
+	ldx.hu	$t7, $t2, $t7
+	lu32i.d	$t5, -2
+	vreplgr2vr.d	$vr2, $t5
+	vmax.w	$vr0, $vr0, $vr2
+	ori	$t5, $zero, 1
+	lu32i.d	$t5, 2
+	vreplgr2vr.d	$vr2, $t5
+	vadd.w	$vr0, $vr0, $vr2
+	vmin.w	$vr0, $vr0, $vr1
+	vpickve2gr.w	$t5, $vr0, 0
+	slli.d	$t8, $t5, 1
+	ldx.hu	$fp, $t0, $t8
+	ldx.hu	$s0, $a2, $t8
+	add.d	$t5, $t6, $t7
+	ldx.hu	$t6, $t1, $t8
+	alsl.d	$t7, $fp, $fp, 2
+	sub.d	$t7, $s0, $t7
+	ldx.hu	$fp, $a4, $t8
+	mul.d	$t6, $t6, $a0
+	ldx.hu	$s0, $a5, $t8
+	add.d	$t6, $t6, $t7
+	mul.d	$t7, $fp, $a0
+	add.d	$t6, $t7, $t6
+	alsl.d	$t7, $s0, $s0, 2
+	sub.d	$t6, $t6, $t7
+	ldx.hu	$t7, $t2, $t8
+	vpickve2gr.w	$t8, $vr0, 1
+	slli.d	$t8, $t8, 1
+	ldx.hu	$fp, $t0, $t8
+	ldx.hu	$s0, $a2, $t8
+	add.d	$t6, $t6, $t7
+	ldx.hu	$t7, $t1, $t8
+	alsl.d	$fp, $fp, $fp, 2
+	sub.d	$fp, $s0, $fp
+	ldx.hu	$s0, $a4, $t8
+	mul.d	$t7, $t7, $a0
+	ldx.hu	$s1, $a5, $t8
+	add.d	$t7, $t7, $fp
+	mul.d	$fp, $s0, $a0
+	add.d	$t7, $fp, $t7
+	alsl.d	$fp, $s1, $s1, 2
+	sub.d	$t7, $t7, $fp
+	addi.w	$fp, $zero, -3
+	slt	$s0, $fp, $a7
+	masknez	$fp, $fp, $s0
+	maskeqz	$a7, $a7, $s0
+	ori	$s0, $zero, 1
+	ldx.hu	$t8, $t2, $t8
+	or	$a7, $a7, $fp
 	addi.d	$a7, $a7, 3
-	slt	$t6, $a7, $a6
-	maskeqz	$a7, $a7, $t6
-	masknez	$a6, $a6, $t6
+	slt	$fp, $a7, $a6
+	maskeqz	$a7, $a7, $fp
+	masknez	$a6, $a6, $fp
 	or	$a6, $a7, $a6
 	slli.d	$a6, $a6, 1
 	ldx.hu	$a7, $t0, $a6
-	ldx.hu	$t0, $t1, $a6
-	add.w	$t1, $fp, $s0
-	ldx.hu	$t3, $t3, $a6
+	ldx.hu	$a2, $a2, $a6
+	add.w	$t0, $t7, $t8
+	ldx.hu	$t1, $t1, $a6
 	alsl.d	$a7, $a7, $a7, 2
-	sub.d	$a7, $t0, $a7
-	ldx.hu	$t0, $t4, $a6
-	mul.d	$t3, $t3, $t2
-	add.d	$a7, $t3, $a7
-	ldx.hu	$t3, $t5, $a6
-	mul.d	$t0, $t0, $t2
-	ldx.hu	$a0, $a0, $a6
-	add.d	$a6, $t0, $a7
-	alsl.d	$a7, $t3, $t3, 2
-	sub.d	$a6, $a6, $a7
-	add.d	$a0, $a6, $a0
-	alsl.d	$a5, $a5, $a5, 2
-	sub.d	$a4, $a4, $a5
-	mul.d	$a5, $t8, $t2
+	sub.d	$a2, $a2, $a7
+	ldx.hu	$a4, $a4, $a6
+	mul.d	$a7, $t1, $a0
+	add.d	$a2, $a7, $a2
+	ldx.hu	$a5, $a5, $a6
+	mul.d	$a4, $a4, $a0
+	ldx.hu	$a6, $t2, $a6
+	add.d	$a2, $a4, $a2
+	alsl.d	$a4, $a5, $a5, 2
+	sub.d	$a2, $a2, $a4
+	add.d	$a2, $a2, $a6
+	alsl.d	$a4, $t4, $t4, 2
+	sub.d	$a4, $t3, $a4
+	mul.d	$a5, $t5, $a0
 	add.d	$a4, $a5, $a4
-	mul.d	$a5, $t7, $t2
-	add.d	$a4, $a5, $a4
-	alsl.d	$a5, $t1, $t1, 2
-	sub.d	$a4, $a4, $a5
-	add.d	$a4, $a0, $a4
+	mul.d	$a0, $t6, $a0
+	add.d	$a0, $a0, $a4
+	alsl.d	$a4, $t0, $t0, 2
+	sub.d	$a0, $a0, $a4
+	add.d	$a2, $a2, $a0
 	ldptr.w	$a0, $a3, 15520
-	addi.w	$a3, $a4, 512
-	bstrpick.d	$a4, $a3, 62, 53
-	add.w	$a3, $a3, $a4
-	srai.d	$a4, $a3, 10
-	srai.d	$a3, $a3, 63
-	andn	$a3, $a4, $a3
-	slt	$a4, $a3, $a0
-	maskeqz	$a3, $a3, $a4
-	masknez	$a4, $a0, $a4
-	or	$a3, $a3, $a4
-	bne	$a1, $a2, .LBB3_17
-# %bb.15:
-	addi.w	$a1, $t8, 16
-	b	.LBB3_20
-.LBB3_16:
-	ldx.hu	$a0, $a0, $a5
+	addi.w	$a2, $a2, 512
+	bstrpick.d	$a3, $a2, 62, 53
+	add.w	$a2, $a2, $a3
+	srai.d	$a3, $a2, 10
+	srai.d	$a2, $a2, 63
+	andn	$a2, $a3, $a2
+	slt	$a3, $a2, $a0
+	maskeqz	$a2, $a2, $a3
+	masknez	$a3, $a0, $a3
+	or	$a2, $a2, $a3
+	bne	$a1, $s0, .LBB3_21
+# %bb.16:
+	addi.w	$a1, $t5, 16
 	b	.LBB3_22
 .LBB3_17:
-	addi.w	$a1, $t7, 16
-	b	.LBB3_20
+	ldx.hu	$a0, $a0, $a5
+	add.d	$a0, $a2, $a0
+	b	.LBB3_24
 .LBB3_18:
 	addi.d	$a2, $t0, -1
 	sltu	$a2, $zero, $a2
@@ -1638,28 +1537,22 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	or	$a2, $a2, $t0
 	slli.d	$a2, $a2, 3
 	ldx.d	$t4, $a0, $a2
-	ori	$fp, $zero, 2
-	slt	$a2, $fp, $a7
-	masknez	$t0, $fp, $a2
-	maskeqz	$a2, $a7, $a2
-	or	$a2, $a2, $t0
-	addi.d	$a2, $a2, -2
-	slt	$t0, $a2, $a6
-	maskeqz	$a2, $a2, $t0
-	masknez	$t0, $a6, $t0
-	or	$a2, $a2, $t0
+	vinsgr2vr.w	$vr0, $a7, 0
+	vinsgr2vr.w	$vr0, $a7, 1
+	ori	$t6, $zero, 2
+	ori	$a2, $zero, 2
+	lu32i.d	$a2, 1
+	vreplgr2vr.d	$vr1, $a2
+	vmax.w	$vr1, $vr0, $vr1
+	vrepli.d	$vr2, -2
+	vadd.w	$vr1, $vr1, $vr2
+	vinsgr2vr.w	$vr2, $a6, 0
+	vinsgr2vr.w	$vr2, $a6, 1
+	vmin.w	$vr1, $vr1, $vr2
+	vpickve2gr.w	$a2, $vr1, 0
 	slli.d	$a2, $a2, 1
 	ldx.hu	$a2, $t4, $a2
-	ori	$t8, $zero, 1
-	slt	$t0, $t8, $a7
-	masknez	$t1, $t8, $t0
-	maskeqz	$t0, $a7, $t0
-	or	$t0, $t0, $t1
-	addi.d	$t0, $t0, -1
-	slt	$t1, $t0, $a6
-	maskeqz	$t0, $t0, $t1
-	masknez	$t1, $a6, $t1
-	or	$t0, $t0, $t1
+	vpickve2gr.w	$t0, $vr1, 1
 	slli.d	$t0, $t0, 1
 	ldx.hu	$t0, $t4, $t0
 	srai.d	$t1, $a7, 63
@@ -1670,9 +1563,9 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	or	$t1, $t1, $t2
 	slli.d	$t1, $t1, 1
 	ldx.hu	$t1, $t4, $t1
-	addi.w	$t7, $zero, -1
-	slt	$t2, $t7, $a7
-	masknez	$t3, $t7, $t2
+	addi.w	$t5, $zero, -1
+	slt	$t2, $t5, $a7
+	masknez	$t3, $t5, $t2
 	maskeqz	$t2, $a7, $t2
 	or	$t2, $t2, $t3
 	addi.d	$t2, $t2, 1
@@ -1682,30 +1575,21 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	or	$t2, $t2, $t3
 	slli.d	$t2, $t2, 1
 	ldx.hu	$t2, $t4, $t2
-	addi.w	$t6, $zero, -2
-	slt	$t3, $t6, $a7
-	masknez	$t5, $t6, $t3
-	maskeqz	$t3, $a7, $t3
-	or	$t3, $t3, $t5
-	addi.d	$t3, $t3, 2
-	slt	$t5, $t3, $a6
-	maskeqz	$t3, $t3, $t5
-	masknez	$t5, $a6, $t5
-	or	$t3, $t3, $t5
+	addi.w	$t3, $zero, -2
+	lu32i.d	$t3, -3
+	vreplgr2vr.d	$vr1, $t3
+	vmax.w	$vr0, $vr0, $vr1
+	ori	$t3, $zero, 2
+	lu32i.d	$t3, 3
+	vreplgr2vr.d	$vr1, $t3
+	vadd.w	$vr0, $vr0, $vr1
+	vmin.w	$vr0, $vr0, $vr2
+	vpickve2gr.w	$t3, $vr0, 0
 	slli.d	$t3, $t3, 1
 	ldx.hu	$t3, $t4, $t3
-	addi.w	$t5, $zero, -3
-	slt	$s0, $t5, $a7
-	masknez	$s1, $t5, $s0
-	maskeqz	$s0, $a7, $s0
-	or	$s0, $s0, $s1
-	addi.d	$s0, $s0, 3
-	slt	$s1, $s0, $a6
-	maskeqz	$s0, $s0, $s1
-	masknez	$s1, $a6, $s1
-	or	$s0, $s0, $s1
-	slli.d	$s0, $s0, 1
-	ldx.hu	$t4, $t4, $s0
+	vpickve2gr.w	$t7, $vr0, 1
+	slli.d	$t7, $t7, 1
+	ldx.hu	$t4, $t4, $t7
 	addi.d	$a1, $a1, -1
 	sltu	$a1, $zero, $a1
 	add.d	$a1, $a7, $a1
@@ -1715,8 +1599,8 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	maskeqz	$a1, $a1, $a7
 	masknez	$a6, $a6, $a7
 	or	$a1, $a1, $a6
-	slt	$a6, $fp, $a5
-	masknez	$a7, $fp, $a6
+	slt	$a6, $t6, $a5
+	masknez	$a7, $t6, $a6
 	maskeqz	$a6, $a5, $a6
 	or	$a6, $a6, $a7
 	addi.d	$a6, $a6, -2
@@ -1724,73 +1608,70 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	maskeqz	$a6, $a6, $a7
 	masknez	$a7, $a4, $a7
 	or	$a6, $a6, $a7
-	slt	$a7, $t8, $a5
-	masknez	$t8, $t8, $a7
-	maskeqz	$a7, $a5, $a7
-	or	$a7, $a7, $t8
-	addi.d	$a7, $a7, -1
-	slt	$t8, $a7, $a4
-	maskeqz	$a7, $a7, $t8
-	masknez	$t8, $a4, $t8
-	or	$a7, $a7, $t8
-	slli.d	$a7, $a7, 3
-	ldx.d	$a7, $a0, $a7
 	slli.d	$a6, $a6, 3
-	ldx.d	$t8, $a0, $a6
+	ldx.d	$a7, $a0, $a6
+	ori	$t6, $zero, 1
+	slt	$a6, $t6, $a5
+	masknez	$t7, $t6, $a6
+	maskeqz	$a6, $a5, $a6
+	or	$a6, $a6, $t7
+	addi.d	$a6, $a6, -1
+	slt	$t7, $a6, $a4
+	maskeqz	$a6, $a6, $t7
+	masknez	$t7, $a4, $t7
+	or	$a6, $a6, $t7
+	slli.d	$a6, $a6, 3
+	ldx.d	$t7, $a0, $a6
+	srai.d	$a6, $a5, 63
+	andn	$a6, $a5, $a6
+	slt	$t8, $a6, $a4
+	maskeqz	$a6, $a6, $t8
+	masknez	$t8, $a4, $t8
+	or	$t8, $a6, $t8
 	slli.d	$a6, $a1, 1
 	ldx.hu	$a7, $a7, $a6
-	srai.d	$a1, $a5, 63
-	andn	$a1, $a5, $a1
-	slt	$fp, $a1, $a4
-	maskeqz	$a1, $a1, $fp
-	masknez	$fp, $a4, $fp
-	or	$a1, $a1, $fp
-	slli.d	$a1, $a1, 3
-	ldx.d	$fp, $a0, $a1
-	ldptr.w	$a1, $a3, 15520
-	ldx.hu	$a3, $t8, $a6
-	alsl.d	$a7, $a7, $a7, 2
-	ldx.hu	$t8, $fp, $a6
-	slt	$fp, $t7, $a5
-	masknez	$t7, $t7, $fp
-	maskeqz	$fp, $a5, $fp
-	or	$t7, $fp, $t7
-	addi.d	$t7, $t7, 1
-	slt	$fp, $t7, $a4
-	maskeqz	$t7, $t7, $fp
-	masknez	$fp, $a4, $fp
-	or	$t7, $t7, $fp
-	slli.d	$t7, $t7, 3
-	ldx.d	$t7, $a0, $t7
-	sub.d	$a3, $a3, $a7
-	ori	$a7, $zero, 20
-	mul.d	$t8, $t8, $a7
 	ldx.hu	$t7, $t7, $a6
-	slt	$fp, $t6, $a5
-	masknez	$t6, $t6, $fp
-	maskeqz	$fp, $a5, $fp
-	or	$t6, $fp, $t6
-	addi.d	$t6, $t6, 2
-	slt	$fp, $t6, $a4
-	maskeqz	$t6, $t6, $fp
-	masknez	$fp, $a4, $fp
-	or	$t6, $t6, $fp
+	slli.d	$a1, $t8, 3
+	ldx.d	$t8, $a0, $a1
+	ldptr.w	$a1, $a3, 15520
+	alsl.d	$a3, $t7, $t7, 2
+	sub.d	$a3, $a7, $a3
+	ldx.hu	$a7, $t8, $a6
+	vinsgr2vr.w	$vr0, $a5, 0
+	vinsgr2vr.w	$vr0, $a5, 1
+	lu32i.d	$t5, -2
+	vreplgr2vr.d	$vr1, $t5
+	vmax.w	$vr0, $vr0, $vr1
+	lu32i.d	$t6, 2
+	vreplgr2vr.d	$vr1, $t6
+	vadd.w	$vr0, $vr0, $vr1
+	vinsgr2vr.w	$vr1, $a4, 0
+	vinsgr2vr.w	$vr1, $a4, 1
+	vmin.w	$vr0, $vr0, $vr1
+	vpickve2gr.w	$t5, $vr0, 0
+	slli.d	$t5, $t5, 3
+	ldx.d	$t5, $a0, $t5
+	addi.w	$t6, $zero, -3
+	slt	$t7, $t6, $a5
+	masknez	$t6, $t6, $t7
+	maskeqz	$a5, $a5, $t7
+	ori	$t7, $zero, 20
+	mul.d	$a7, $a7, $t7
+	ldx.hu	$t5, $t5, $a6
+	or	$a5, $a5, $t6
+	addi.d	$a5, $a5, 3
+	slt	$t6, $a5, $a4
+	maskeqz	$a5, $a5, $t6
+	masknez	$a4, $a4, $t6
+	vpickve2gr.w	$t6, $vr0, 1
 	slli.d	$t6, $t6, 3
 	ldx.d	$t6, $a0, $t6
-	slt	$fp, $t5, $a5
-	masknez	$t5, $t5, $fp
-	maskeqz	$a5, $a5, $fp
-	or	$a5, $a5, $t5
-	addi.d	$a5, $a5, 3
-	slt	$t5, $a5, $a4
-	maskeqz	$a5, $a5, $t5
-	masknez	$a4, $a4, $t5
 	or	$a4, $a5, $a4
 	slli.d	$a4, $a4, 3
 	ldx.d	$a0, $a0, $a4
-	add.d	$a3, $t8, $a3
+	add.d	$a3, $a7, $a3
 	ldx.hu	$a4, $t6, $a6
-	mul.d	$a5, $t7, $a7
+	mul.d	$a5, $t5, $t7
 	ldx.hu	$a0, $a0, $a6
 	add.d	$a3, $a5, $a3
 	alsl.d	$a4, $a4, $a4, 2
@@ -1798,9 +1679,9 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	add.d	$a0, $a3, $a0
 	alsl.d	$a3, $t0, $t0, 2
 	sub.d	$a2, $a2, $a3
-	mul.d	$a3, $t1, $a7
+	mul.d	$a3, $t1, $t7
 	add.d	$a2, $a3, $a2
-	mul.d	$a3, $t2, $a7
+	mul.d	$a3, $t2, $t7
 	add.d	$a2, $a3, $a2
 	alsl.d	$a3, $t3, $t3, 2
 	sub.d	$a2, $a2, $a3
@@ -1825,40 +1706,39 @@ Get_Reference_Pixel:                    # @Get_Reference_Pixel
 	maskeqz	$a0, $a0, $a3
 	masknez	$a1, $a1, $a3
 	or	$a0, $a0, $a1
-	add.d	$a0, $a0, $a2
 	b	.LBB3_23
 .LBB3_19:
-	addi.w	$a1, $fp, 16
+	addi.w	$a1, $a4, 16
+	b	.LBB3_22
 .LBB3_20:
-	bstrpick.d	$a2, $a1, 62, 58
-	add.w	$a1, $a1, $a2
-	srai.d	$a2, $a1, 5
-	srai.d	$a1, $a1, 63
-	andn	$a1, $a2, $a1
-	slt	$a2, $a1, $a0
-	maskeqz	$a1, $a1, $a2
-	masknez	$a0, $a0, $a2
-	or	$a0, $a1, $a0
-	add.d	$a0, $a0, $a3
-	b	.LBB3_23
+	ldx.d	$a0, $a0, $a4
+	ldx.hu	$a0, $a0, $a1
+	add.d	$a0, $a2, $a0
+	b	.LBB3_24
 .LBB3_21:
-	ldx.d	$a0, $a0, $a7
-	ldx.hu	$a0, $a0, $a2
+	addi.w	$a1, $t6, 16
 .LBB3_22:
-	add.d	$a0, $a3, $a0
+	bstrpick.d	$a3, $a1, 62, 58
+	add.w	$a1, $a1, $a3
+	srai.d	$a3, $a1, 5
+	srai.d	$a1, $a1, 63
+	andn	$a1, $a3, $a1
+	slt	$a3, $a1, $a0
+	maskeqz	$a1, $a1, $a3
+	masknez	$a0, $a0, $a3
+	or	$a0, $a1, $a0
 .LBB3_23:
+	add.d	$a0, $a0, $a2
+.LBB3_24:
 	bstrpick.d	$a1, $a0, 31, 31
 	add.w	$a0, $a0, $a1
-	srai.d	$a3, $a0, 1
-.LBB3_24:
-	andi	$a0, $a3, 255
-	ld.d	$s4, $sp, 0                     # 8-byte Folded Reload
-	ld.d	$s3, $sp, 8                     # 8-byte Folded Reload
-	ld.d	$s2, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 40                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 48
+	srai.d	$a2, $a0, 1
+.LBB3_25:
+	andi	$a0, $a2, 255
+	ld.d	$s1, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$s0, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 24                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 32
 	ret
 .Lfunc_end3:
 	.size	Get_Reference_Pixel, .Lfunc_end3-Get_Reference_Pixel

@@ -2188,270 +2188,264 @@ profile:                                # @profile
 	.type	calculate_results,@function
 calculate_results:                      # @calculate_results
 # %bb.0:                                # %.preheader28
-	addi.d	$sp, $sp, -272
-	fst.d	$fs0, $sp, 264                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 256                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 248                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 240                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 232                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 224                  # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 216                  # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 208                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -240
+	fst.d	$fs0, $sp, 232                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 224                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 216                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 208                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 200                  # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 192                  # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 184                  # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 176                  # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(timer_all)
 	fld.d	$fa0, $a0, %pc_lo12(timer_all)
-	fst.d	$fa0, $sp, 184                  # 8-byte Folded Spill
+	fst.d	$fa0, $sp, 120                  # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(timer_comm_dir)
 	addi.d	$a0, $a0, %pc_lo12(timer_comm_dir)
-	fld.d	$fa1, $a0, 0
-	fst.d	$fa1, $sp, 200                  # 8-byte Folded Spill
+	fld.d	$ft15, $a0, 0
 	movgr2fr.d	$fa0, $zero
-	fadd.d	$fa1, $fa1, $fa0
-	pcalau12i	$a1, %pc_hi20(timer_comm_same)
-	addi.d	$a1, $a1, %pc_lo12(timer_comm_same)
-	fld.d	$fa2, $a1, 0
-	fst.d	$fa2, $sp, 192                  # 8-byte Folded Spill
-	fadd.d	$fa2, $fa2, $fa0
-	pcalau12i	$a2, %pc_hi20(timer_comm_diff)
-	addi.d	$a2, $a2, %pc_lo12(timer_comm_diff)
-	fld.d	$fa3, $a2, 0
-	fst.d	$fa3, $sp, 176                  # 8-byte Folded Spill
-	fadd.d	$fa3, $fa3, $fa0
-	pcalau12i	$a3, %pc_hi20(timer_comm_bc)
-	addi.d	$a3, $a3, %pc_lo12(timer_comm_bc)
-	fld.d	$fa4, $a3, 0
-	fst.d	$fa4, $sp, 168                  # 8-byte Folded Spill
-	fld.d	$fs5, $a0, 8
-	fadd.d	$fa0, $fa4, $fa0
-	fadd.d	$fa1, $fs5, $fa1
-	fld.d	$fs4, $a1, 8
-	fld.d	$fs3, $a2, 8
-	fld.d	$ft15, $a3, 8
-	fld.d	$ft14, $a0, 16
-	fadd.d	$fa2, $fs4, $fa2
-	fadd.d	$fa3, $fs3, $fa3
-	fadd.d	$fa0, $ft15, $fa0
-	fadd.d	$fa1, $ft14, $fa1
-	fst.d	$fa1, $sp, 56                   # 8-byte Folded Spill
-	fld.d	$ft13, $a1, 16
-	fld.d	$ft12, $a2, 16
-	fld.d	$ft11, $a3, 16
-	pcalau12i	$a0, %pc_hi20(timer_comm_all)
-	fld.d	$fa1, $a0, %pc_lo12(timer_comm_all)
-	fst.d	$fa1, $sp, 160                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_calc_all)
-	fld.d	$fa1, $a0, %pc_lo12(timer_calc_all)
-	fst.d	$fa1, $sp, 152                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_cs_all)
-	fld.d	$fa1, $a0, %pc_lo12(timer_cs_all)
-	fst.d	$fa1, $sp, 144                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_cs_calc)
-	fld.d	$fa1, $a0, %pc_lo12(timer_cs_calc)
-	fst.d	$fa1, $sp, 136                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_refine_all)
-	fld.d	$fa1, $a0, %pc_lo12(timer_refine_all)
-	fst.d	$fa1, $sp, 128                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_refine_co)
-	fld.d	$fa1, $a0, %pc_lo12(timer_refine_co)
-	fst.d	$fa1, $sp, 120                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_refine_mr)
-	fld.d	$fa1, $a0, %pc_lo12(timer_refine_mr)
-	fst.d	$fa1, $sp, 112                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_refine_cc)
-	fld.d	$fa1, $a0, %pc_lo12(timer_refine_cc)
-	fst.d	$fa1, $sp, 104                  # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_refine_sb)
-	fld.d	$fa1, $a0, %pc_lo12(timer_refine_sb)
-	fst.d	$fa1, $sp, 96                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_cb_all)
-	fld.d	$fa1, $a0, %pc_lo12(timer_cb_all)
-	fst.d	$fa1, $sp, 88                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_target_all)
-	fld.d	$fa1, $a0, %pc_lo12(timer_target_all)
-	fst.d	$fa1, $sp, 80                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_target_rb)
-	fld.d	$fa1, $a0, %pc_lo12(timer_target_rb)
-	fst.d	$fa1, $sp, 72                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_target_dc)
-	fld.d	$fa1, $a0, %pc_lo12(timer_target_dc)
-	fst.d	$fa1, $sp, 64                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_target_cb)
-	fld.d	$fa1, $a0, %pc_lo12(timer_target_cb)
-	fst.d	$fa1, $sp, 48                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_target_ab)
-	fld.d	$fa1, $a0, %pc_lo12(timer_target_ab)
-	fst.d	$fa1, $sp, 40                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_target_da)
-	fld.d	$fa1, $a0, %pc_lo12(timer_target_da)
-	fst.d	$fa1, $sp, 32                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_target_sb)
-	fld.d	$fa1, $a0, %pc_lo12(timer_target_sb)
-	fst.d	$fa1, $sp, 24                   # 8-byte Folded Spill
-	pcalau12i	$a0, %pc_hi20(timer_plot)
-	fld.d	$fa1, $a0, %pc_lo12(timer_plot)
+	fadd.d	$fa1, $ft15, $fa0
+	pcalau12i	$a1, %pc_hi20(timer_comm_bc)
+	addi.d	$a2, $a1, %pc_lo12(timer_comm_bc)
+	fld.d	$fs1, $a2, 0
+	fld.d	$ft12, $a0, 8
+	fld.d	$ft14, $a2, 8
+	fld.d	$ft13, $a0, 16
+	fadd.d	$fa0, $fs1, $fa0
+	fadd.d	$fa1, $ft12, $fa1
+	fadd.d	$fa0, $ft14, $fa0
+	fadd.d	$fa1, $ft13, $fa1
 	fst.d	$fa1, $sp, 16                   # 8-byte Folded Spill
-	fadd.d	$fs0, $ft13, $fa2
-	fadd.d	$fs1, $ft12, $fa3
-	fadd.d	$fs2, $ft11, $fa0
-	pcalau12i	$a0, %pc_hi20(counter_bc)
-	addi.d	$a0, $a0, %pc_lo12(counter_bc)
-	ld.w	$a1, $a0, 0
-	movgr2fr.w	$fa0, $a1
-	ffint.d.w	$fs6, $fa0
-	pcalau12i	$a1, %pc_hi20(counter_same)
-	addi.d	$a1, $a1, %pc_lo12(counter_same)
-	ld.w	$a2, $a1, 0
-	movgr2fr.w	$fa0, $a2
-	ffint.d.w	$ft5, $fa0
-	pcalau12i	$a2, %pc_hi20(counter_diff)
-	addi.d	$a2, $a2, %pc_lo12(counter_diff)
+	pcalau12i	$a0, %pc_hi20(timer_comm_same)
+	addi.d	$a0, $a0, %pc_lo12(timer_comm_same)
+	fld.d	$ft10, $a0, 16
+	pcalau12i	$a1, %pc_hi20(timer_comm_diff)
+	addi.d	$a1, $a1, %pc_lo12(timer_comm_diff)
+	fld.d	$ft9, $a1, 16
+	fld.d	$ft8, $a2, 16
+	pcalau12i	$a2, %pc_hi20(timer_comm_all)
+	fld.d	$fa1, $a2, %pc_lo12(timer_comm_all)
+	fst.d	$fa1, $sp, 168                  # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_calc_all)
+	fld.d	$fa1, $a2, %pc_lo12(timer_calc_all)
+	fst.d	$fa1, $sp, 160                  # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_cs_all)
+	fld.d	$fa1, $a2, %pc_lo12(timer_cs_all)
+	fst.d	$fa1, $sp, 152                  # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_cs_calc)
+	fld.d	$fa1, $a2, %pc_lo12(timer_cs_calc)
+	fst.d	$fa1, $sp, 144                  # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_refine_all)
+	fld.d	$fa1, $a2, %pc_lo12(timer_refine_all)
+	fst.d	$fa1, $sp, 136                  # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_refine_co)
+	fld.d	$fa1, $a2, %pc_lo12(timer_refine_co)
+	fst.d	$fa1, $sp, 128                  # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_refine_mr)
+	fld.d	$fa1, $a2, %pc_lo12(timer_refine_mr)
+	fst.d	$fa1, $sp, 112                  # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_refine_cc)
+	fld.d	$fa1, $a2, %pc_lo12(timer_refine_cc)
+	fst.d	$fa1, $sp, 104                  # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_refine_sb)
+	fld.d	$fa1, $a2, %pc_lo12(timer_refine_sb)
+	fst.d	$fa1, $sp, 96                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_cb_all)
+	fld.d	$fa1, $a2, %pc_lo12(timer_cb_all)
+	fst.d	$fa1, $sp, 88                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_target_all)
+	fld.d	$fa1, $a2, %pc_lo12(timer_target_all)
+	fst.d	$fa1, $sp, 80                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_target_rb)
+	fld.d	$fa1, $a2, %pc_lo12(timer_target_rb)
+	fst.d	$fa1, $sp, 72                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_target_dc)
+	fld.d	$fa1, $a2, %pc_lo12(timer_target_dc)
+	fst.d	$fa1, $sp, 64                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_target_cb)
+	fld.d	$fa1, $a2, %pc_lo12(timer_target_cb)
+	fst.d	$fa1, $sp, 56                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_target_ab)
+	fld.d	$fa1, $a2, %pc_lo12(timer_target_ab)
+	fst.d	$fa1, $sp, 48                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_target_da)
+	fld.d	$fa1, $a2, %pc_lo12(timer_target_da)
+	fst.d	$fa1, $sp, 40                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_target_sb)
+	fld.d	$fa1, $a2, %pc_lo12(timer_target_sb)
+	fst.d	$fa1, $sp, 32                   # 8-byte Folded Spill
+	pcalau12i	$a2, %pc_hi20(timer_plot)
+	fld.d	$fa1, $a2, %pc_lo12(timer_plot)
+	fst.d	$fa1, $sp, 24                   # 8-byte Folded Spill
+	fadd.d	$fs3, $ft8, $fa0
+	pcalau12i	$a2, %pc_hi20(counter_bc)
+	addi.d	$a2, $a2, %pc_lo12(counter_bc)
 	ld.w	$a3, $a2, 0
-	ld.w	$a4, $a0, 4
 	movgr2fr.w	$fa0, $a3
-	ld.w	$a3, $a1, 4
-	movgr2fr.w	$fa1, $a4
-	ffint.d.w	$ft2, $fa0
-	ffint.d.w	$ft1, $fa1
+	ffint.d.w	$fs0, $fa0
+	pcalau12i	$a3, %pc_hi20(counter_same)
+	addi.d	$a3, $a3, %pc_lo12(counter_same)
+	ld.w	$a4, $a3, 0
+	movgr2fr.w	$fa0, $a4
+	ffint.d.w	$fs4, $fa0
+	pcalau12i	$a4, %pc_hi20(counter_diff)
+	addi.d	$a4, $a4, %pc_lo12(counter_diff)
+	ld.w	$a5, $a4, 0
+	ld.w	$a6, $a2, 4
+	movgr2fr.w	$fa0, $a5
+	ld.w	$a5, $a3, 4
+	movgr2fr.w	$fa1, $a6
+	ffint.d.w	$fs6, $fa0
+	ffint.d.w	$fs7, $fa1
+	movgr2fr.w	$fa0, $a5
+	ld.w	$a5, $a4, 4
+	fadd.d	$fa1, $fs0, $fs7
+	ffint.d.w	$ft1, $fa0
+	fadd.d	$fa0, $fs4, $ft1
+	movgr2fr.w	$fa2, $a5
+	ld.w	$a2, $a2, 8
+	ffint.d.w	$ft0, $fa2
+	fadd.d	$fa7, $fs6, $ft0
+	ld.w	$a3, $a3, 8
+	movgr2fr.w	$fa2, $a2
+	ffint.d.w	$fa6, $fa2
+	fadd.d	$fs2, $fa1, $fa6
+	movgr2fr.w	$fa1, $a3
+	ffint.d.w	$fa5, $fa1
+	ld.w	$a2, $a4, 8
+	fadd.d	$ft11, $fa0, $fa5
+	pcalau12i	$a3, %pc_hi20(num_refined)
+	ld.w	$a3, $a3, %pc_lo12(num_refined)
+	movgr2fr.w	$fa0, $a2
+	ffint.d.w	$fa4, $fa0
+	fadd.d	$ft5, $fa7, $fa4
 	movgr2fr.w	$fa0, $a3
-	ld.w	$a3, $a2, 4
-	fadd.d	$fa1, $fs6, $ft1
-	ffint.d.w	$fa6, $fa0
-	fadd.d	$fa0, $ft5, $fa6
-	movgr2fr.w	$fa2, $a3
-	ld.w	$a0, $a0, 8
-	ffint.d.w	$fa5, $fa2
-	fadd.d	$fa7, $ft2, $fa5
-	ld.w	$a1, $a1, 8
-	movgr2fr.w	$fa2, $a0
-	ffint.d.w	$fa4, $fa2
-	fadd.d	$ft10, $fa1, $fa4
-	movgr2fr.w	$fa1, $a1
-	ffint.d.w	$fa3, $fa1
-	ld.w	$a0, $a2, 8
-	fadd.d	$ft9, $fa0, $fa3
-	pcalau12i	$a1, %pc_hi20(num_refined)
-	ld.w	$a1, $a1, %pc_lo12(num_refined)
-	movgr2fr.w	$fa0, $a0
-	ffint.d.w	$fa2, $fa0
-	fadd.d	$ft6, $fa7, $fa2
-	movgr2fr.w	$fa0, $a1
-	pcalau12i	$a0, %pc_hi20(num_reformed)
-	ld.w	$a0, $a0, %pc_lo12(num_reformed)
-	pcalau12i	$a1, %pc_hi20(counter_malloc)
-	ld.w	$a1, $a1, %pc_lo12(counter_malloc)
-	ffint.d.w	$ft8, $fa0
-	movgr2fr.w	$fa0, $a0
+	pcalau12i	$a2, %pc_hi20(num_reformed)
+	ld.w	$a2, $a2, %pc_lo12(num_reformed)
+	pcalau12i	$a3, %pc_hi20(counter_malloc)
+	ld.w	$a3, $a3, %pc_lo12(counter_malloc)
 	ffint.d.w	$ft7, $fa0
-	movgr2fr.w	$fa0, $a1
-	pcalau12i	$a0, %pc_hi20(counter_malloc_init)
-	ld.w	$a0, $a0, %pc_lo12(counter_malloc_init)
+	movgr2fr.w	$fa0, $a2
+	ffint.d.w	$ft6, $fa0
+	movgr2fr.w	$fa0, $a3
+	pcalau12i	$a2, %pc_hi20(counter_malloc_init)
+	ld.w	$a2, $a2, %pc_lo12(counter_malloc_init)
 	ffint.d.w	$ft4, $fa0
-	pcalau12i	$a2, %pc_hi20(size_malloc)
-	fld.d	$fa1, $a2, %pc_lo12(size_malloc)
-	movgr2fr.w	$fa0, $a0
+	pcalau12i	$a4, %pc_hi20(size_malloc)
+	fld.d	$fa3, $a4, %pc_lo12(size_malloc)
+	movgr2fr.w	$fa0, $a2
 	ffint.d.w	$ft3, $fa0
-	pcalau12i	$a2, %pc_hi20(size_malloc_init)
-	fld.d	$fa0, $a2, %pc_lo12(size_malloc_init)
-	sub.d	$a0, $a1, $a0
-	movgr2fr.w	$fa7, $a0
+	pcalau12i	$a4, %pc_hi20(size_malloc_init)
+	fld.d	$fa2, $a4, %pc_lo12(size_malloc_init)
+	sub.d	$a2, $a3, $a2
+	movgr2fr.w	$fa7, $a2
 	ffint.d.w	$fa7, $fa7
-	fsub.d	$ft0, $fa1, $fa0
-	pcalau12i	$a0, %pc_hi20(average)
-	addi.d	$a0, $a0, %pc_lo12(average)
-	fld.d	$fs7, $sp, 184                  # 8-byte Folded Reload
-	fst.d	$fs7, $a0, 0
-	fld.d	$fs7, $sp, 56                   # 8-byte Folded Reload
-	fst.d	$fs7, $a0, 8
-	fst.d	$fs0, $a0, 40
-	fst.d	$fs1, $a0, 48
-	fst.d	$fs2, $a0, 56
-	fld.d	$fs0, $sp, 200                  # 8-byte Folded Reload
-	fst.d	$fs0, $a0, 80
-	fld.d	$fs0, $sp, 192                  # 8-byte Folded Reload
-	fst.d	$fs0, $a0, 112
-	fld.d	$fs0, $sp, 176                  # 8-byte Folded Reload
-	fst.d	$fs0, $a0, 120
-	fld.d	$fs0, $sp, 168                  # 8-byte Folded Reload
-	fst.d	$fs0, $a0, 128
-	fst.d	$fs5, $a0, 152
-	fst.d	$fs4, $a0, 184
-	fst.d	$fs3, $a0, 192
-	fst.d	$ft15, $a0, 200
-	fst.d	$ft14, $a0, 224
-	fst.d	$ft13, $a0, 256
-	fst.d	$ft12, $a0, 264
-	fst.d	$ft11, $a0, 272
-	fld.d	$ft11, $sp, 160                 # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 296
-	fld.d	$ft11, $sp, 152                 # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 304
-	fld.d	$ft11, $sp, 144                 # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 312
-	fld.d	$ft11, $sp, 136                 # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 328
-	fld.d	$ft11, $sp, 128                 # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 336
-	fld.d	$ft11, $sp, 120                 # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 344
-	fld.d	$ft11, $sp, 112                 # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 352
-	fld.d	$ft11, $sp, 104                 # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 360
-	fld.d	$ft11, $sp, 96                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 368
-	fld.d	$ft11, $sp, 88                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 376
-	fld.d	$ft11, $sp, 80                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 416
-	fld.d	$ft11, $sp, 72                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 424
-	fld.d	$ft11, $sp, 64                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 432
-	fld.d	$ft11, $sp, 48                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 464
-	fld.d	$ft11, $sp, 40                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 472
-	fld.d	$ft11, $sp, 32                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 480
-	fld.d	$ft11, $sp, 24                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 488
-	fld.d	$ft11, $sp, 16                  # 8-byte Folded Reload
-	fst.d	$ft11, $a0, 536
-	vrepli.b	$vr19, 0
-	vst	$vr19, $a0, 24
-	vst	$vr19, $a0, 64
-	vst	$vr19, $a0, 576
-	vst	$vr19, $a0, 560
-	vst	$vr19, $a0, 544
-	fst.d	$ft10, $a0, 592
-	fst.d	$ft9, $a0, 600
-	fst.d	$ft6, $a0, 608
-	fst.d	$fs6, $a0, 664
-	fst.d	$ft5, $a0, 672
-	fst.d	$ft2, $a0, 680
-	fst.d	$ft1, $a0, 736
-	fst.d	$fa6, $a0, 744
-	fst.d	$fa5, $a0, 752
-	fst.d	$fa4, $a0, 808
-	fst.d	$fa3, $a0, 816
-	fst.d	$fa2, $a0, 824
-	fst.d	$ft8, $a0, 832
-	fst.d	$ft7, $a0, 840
-	fst.d	$ft4, $a0, 880
-	fst.d	$fa1, $a0, 888
-	fst.d	$ft3, $a0, 896
-	fst.d	$fa0, $a0, 904
-	fst.d	$fa7, $a0, 912
-	fst.d	$ft0, $a0, 920
-	st.d	$zero, $a0, 16
-	fld.d	$fs7, $sp, 208                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 216                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 224                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 232                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 240                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 248                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 256                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 264                  # 8-byte Folded Reload
-	addi.d	$sp, $sp, 272
+	fsub.d	$ft2, $fa3, $fa2
+	pcalau12i	$a2, %pc_hi20(average)
+	addi.d	$a2, $a2, %pc_lo12(average)
+	vld	$vr1, $a0, 0
+	vld	$vr0, $a1, 0
+	fld.d	$fs5, $sp, 120                  # 8-byte Folded Reload
+	fst.d	$fs5, $a2, 0
+	fld.d	$fs5, $sp, 16                   # 8-byte Folded Reload
+	fst.d	$fs5, $a2, 8
+	vpackev.d	$vr29, $vr0, $vr1
+	vpackod.d	$vr0, $vr0, $vr1
+	vrepli.b	$vr1, 0
+	vfadd.d	$vr29, $vr29, $vr1
+	vfadd.d	$vr0, $vr0, $vr29
+	vori.b	$vr29, $vr18, 0
+	vextrins.d	$vr29, $vr17, 16
+	vfadd.d	$vr0, $vr29, $vr0
+	vst	$vr0, $a2, 40
+	fld.d	$fa0, $a0, 0
+	fld.d	$fs5, $a1, 0
+	fst.d	$fs3, $a2, 56
+	fst.d	$ft15, $a2, 80
+	fst.d	$fa0, $a2, 112
+	fst.d	$fs5, $a2, 120
+	fld.d	$fa0, $a0, 8
+	fld.d	$ft15, $a1, 8
+	fst.d	$fs1, $a2, 128
+	fst.d	$ft12, $a2, 152
+	fst.d	$fa0, $a2, 184
+	fst.d	$ft15, $a2, 192
+	fst.d	$ft14, $a2, 200
+	fst.d	$ft13, $a2, 224
+	fst.d	$ft10, $a2, 256
+	fst.d	$ft9, $a2, 264
+	fst.d	$ft8, $a2, 272
+	fld.d	$fa0, $sp, 168                  # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 296
+	fld.d	$fa0, $sp, 160                  # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 304
+	fld.d	$fa0, $sp, 152                  # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 312
+	fld.d	$fa0, $sp, 144                  # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 328
+	fld.d	$fa0, $sp, 136                  # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 336
+	fld.d	$fa0, $sp, 128                  # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 344
+	fld.d	$fa0, $sp, 112                  # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 352
+	fld.d	$fa0, $sp, 104                  # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 360
+	fld.d	$fa0, $sp, 96                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 368
+	fld.d	$fa0, $sp, 88                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 376
+	fld.d	$fa0, $sp, 80                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 416
+	fld.d	$fa0, $sp, 72                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 424
+	fld.d	$fa0, $sp, 64                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 432
+	fld.d	$fa0, $sp, 56                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 464
+	fld.d	$fa0, $sp, 48                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 472
+	fld.d	$fa0, $sp, 40                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 480
+	fld.d	$fa0, $sp, 32                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 488
+	fld.d	$fa0, $sp, 24                   # 8-byte Folded Reload
+	fst.d	$fa0, $a2, 536
+	vst	$vr1, $a2, 24
+	vst	$vr1, $a2, 64
+	vst	$vr1, $a2, 576
+	vst	$vr1, $a2, 560
+	vst	$vr1, $a2, 544
+	fst.d	$fs2, $a2, 592
+	fst.d	$ft11, $a2, 600
+	fst.d	$ft5, $a2, 608
+	fst.d	$fs0, $a2, 664
+	fst.d	$fs4, $a2, 672
+	fst.d	$fs6, $a2, 680
+	fst.d	$fs7, $a2, 736
+	fst.d	$ft1, $a2, 744
+	fst.d	$ft0, $a2, 752
+	fst.d	$fa6, $a2, 808
+	fst.d	$fa5, $a2, 816
+	fst.d	$fa4, $a2, 824
+	fst.d	$ft7, $a2, 832
+	fst.d	$ft6, $a2, 840
+	fst.d	$ft4, $a2, 880
+	fst.d	$fa3, $a2, 888
+	fst.d	$ft3, $a2, 896
+	fst.d	$fa2, $a2, 904
+	fst.d	$fa7, $a2, 912
+	fst.d	$ft2, $a2, 920
+	st.d	$zero, $a2, 16
+	fld.d	$fs7, $sp, 176                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 184                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 192                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 200                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 208                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 216                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 224                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 232                  # 8-byte Folded Reload
+	addi.d	$sp, $sp, 240
 	ret
 .Lfunc_end1:
 	.size	calculate_results, .Lfunc_end1-calculate_results

@@ -397,16 +397,11 @@ main:                                   # @main
 	sltui	$a0, $a0, 1
 	ld.d	$a2, $sp, 32                    # 8-byte Folded Reload
 	st.w	$a0, $a2, %pc_lo12(global_custrun)
+	vreplgr2vr.w	$vr0, $a1
 	pcalau12i	$a0, %pc_hi20(tests_to_do)
 	addi.d	$a0, $a0, %pc_lo12(tests_to_do)
-	st.w	$a1, $a0, 0
-	st.w	$a1, $a0, 4
-	st.w	$a1, $a0, 8
-	st.w	$a1, $a0, 12
-	st.w	$a1, $a0, 16
-	st.w	$a1, $a0, 20
-	st.w	$a1, $a0, 24
-	st.w	$a1, $a0, 28
+	vst	$vr0, $a0, 0
+	vst	$vr0, $a0, 16
 	st.w	$a1, $a0, 32
 	st.w	$a1, $a0, 36
 	b	.LBB0_14
