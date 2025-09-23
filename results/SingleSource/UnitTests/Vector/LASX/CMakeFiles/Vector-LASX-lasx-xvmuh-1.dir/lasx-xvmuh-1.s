@@ -1159,9 +1159,7 @@ main:                                   # @main
 	lu32i.d	$a0, 0
 	xvreplgr2vr.d	$xr0, $a0
 	xvst	$xr0, $sp, 160
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, 65535
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1744
 	xvmuh.d	$xr0, $xr0, $xr0
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160

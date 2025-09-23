@@ -653,8 +653,7 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 8
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -3712
 	vst	$vr0, $sp, 64
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vadda.b	$vr0, $vr1, $vr0
@@ -685,11 +684,10 @@ main:                                   # @main
 	lu12i.w	$a0, -523296
 	vreplgr2vr.w	$vr0, $a0
 	vst	$vr0, $sp, 64
-	lu12i.w	$a0, 1008
-	vreplgr2vr.w	$vr0, $a0
 	lu12i.w	$a0, 524272
-	vreplgr2vr.w	$vr1, $a0
-	vadda.h	$vr0, $vr1, $vr0
+	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr1, -3521
+	vadda.h	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 80
 	addi.d	$a0, $sp, 64
 	addi.d	$a1, $sp, 80
@@ -887,8 +885,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_30)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_30)
 	vst	$vr0, $sp, 64
-	lu12i.w	$a0, 40960
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -3318
 	vadda.w	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 80
 	addi.d	$a0, $sp, 64

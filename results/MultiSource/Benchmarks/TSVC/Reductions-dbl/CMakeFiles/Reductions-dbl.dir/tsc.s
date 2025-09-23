@@ -2025,8 +2025,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB5_151:                              # %vector.body6187
                                         # =>This Inner Loop Header: Depth=1
@@ -2135,8 +2134,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB5_161:                              # %vector.body6172
                                         # =>This Inner Loop Header: Depth=1
@@ -2176,8 +2174,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB5_165:                              # %vector.body6157
                                         # =>This Inner Loop Header: Depth=1
@@ -2385,8 +2382,7 @@ init:                                   # @init
 	addi.d	$a1, $a0, 32
 	lu12i.w	$a2, 7
 	ori	$a2, $a2, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB5_173:                              # %vector.body6117
                                         # =>This Inner Loop Header: Depth=1
@@ -2634,8 +2630,7 @@ init:                                   # @init
 	addi.d	$a0, $a0, %pc_lo12(global_data+32)
 	lu12i.w	$a1, 7
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB5_181:                              # %vector.body6111
                                         # =>This Inner Loop Header: Depth=1
@@ -2651,8 +2646,7 @@ init:                                   # @init
 	addi.d	$a1, $a0, 32
 	lu12i.w	$a2, 7
 	ori	$a2, $a2, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB5_183:                              # %vector.body6099
                                         # =>This Inner Loop Header: Depth=1
@@ -2750,8 +2744,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB5_187:                              # %.preheader.i1144
                                         # =>This Inner Loop Header: Depth=1
@@ -2912,8 +2905,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_191:                              # %vector.body6070
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -2951,8 +2943,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_195:                              # %vector.body6055
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -2997,8 +2988,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_199:                              # %vector.body6025
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -3079,8 +3069,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_207:                              # %vector.body5995
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -3162,8 +3151,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_215:                              # %.preheader.i1220
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -3239,8 +3227,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3392
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1022
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -928
 .LBB5_217:                              # %.preheader.i1227
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -3316,8 +3303,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3488
 	add.d	$a0, $a0, $a1
 	ori	$a1, $zero, 256
-	lu52i.d	$a2, $zero, 1024
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -1024
 .LBB5_219:                              # %.preheader.i1234
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -1024
@@ -3396,8 +3382,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3392
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_221:                              # %.preheader.i1241
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -3588,8 +3573,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_227:                              # %vector.body5921
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -3681,8 +3665,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1024
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -1024
 .LBB5_235:                              # %vector.body5903
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -3695,8 +3678,7 @@ init:                                   # @init
 	ori	$a1, $a1, 96
 	add.d	$a1, $fp, $a1
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_237:                              # %vector.body5909
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -3723,8 +3705,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_241:                              # %vector.body5888
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -3763,8 +3744,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_245:                              # %.preheader.i1309
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -3889,8 +3869,7 @@ init:                                   # @init
 	addi.d	$a0, $a0, %pc_lo12(array+32)
 	lu12i.w	$a1, 7
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_251:                              # %vector.body5850
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -3985,8 +3964,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_255:                              # %vector.body5835
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4024,8 +4002,7 @@ init:                                   # @init
 	addi.d	$a0, $fp, 32
 	lu12i.w	$s0, 7
 	ori	$a1, $s0, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_259:                              # %vector.body5802
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -4114,35 +4091,35 @@ init:                                   # @init
 .LBB5_266:                              # %vector.body5759.preheader
 	pcalau12i	$a0, %pc_hi20(global_data)
 	addi.d	$a0, $a0, %pc_lo12(global_data)
-	addi.d	$a3, $a0, 32
+	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
-	ori	$a4, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	ori	$a3, $a1, 3328
+	xvldi	$xr0, -912
 .LBB5_267:                              # %vector.body5759
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB5_267
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB5_267
 # %bb.268:                              # %vector.body5765.preheader
-	lu12i.w	$a3, 62
-	ori	$a4, $a3, 2096
-	add.d	$a5, $a0, $a4
-	lu12i.w	$a4, 3
-	ori	$a6, $a4, 3712
+	lu12i.w	$a2, 62
+	ori	$a3, $a2, 2096
+	add.d	$a4, $a0, $a3
+	lu12i.w	$a3, 3
+	ori	$a5, $a3, 3712
+	lu52i.d	$a6, $zero, 1023
 .LBB5_269:                              # %vector.body5765
                                         # =>This Inner Loop Header: Depth=1
-	st.d	$a2, $a5, -16
-	st.d	$a2, $a5, 0
-	addi.d	$a6, $a6, -2
-	addi.d	$a5, $a5, 32
-	bnez	$a6, .LBB5_269
+	st.d	$a6, $a4, -16
+	st.d	$a6, $a4, 0
+	addi.d	$a5, $a5, -2
+	addi.d	$a4, $a4, 32
+	bnez	$a5, .LBB5_269
 # %bb.270:                              # %vector.body5771.preheader
-	ori	$a2, $a3, 2104
+	ori	$a2, $a2, 2104
 	add.d	$a2, $a0, $a2
-	ori	$a3, $a4, 3712
+	ori	$a3, $a3, 3712
 	lu52i.d	$a4, $zero, -1025
 .LBB5_271:                              # %vector.body5771
                                         # =>This Inner Loop Header: Depth=1
@@ -4217,8 +4194,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_279:                              # %vector.body5735
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4280,8 +4256,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_285:                              # %vector.body5720
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4319,8 +4294,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_289:                              # %vector.body5705
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4358,8 +4332,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_293:                              # %vector.body5690
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4397,8 +4370,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_297:                              # %vector.body5675
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4436,8 +4408,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_301:                              # %vector.body5660
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4475,8 +4446,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_305:                              # %vector.body5636
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4545,8 +4515,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_311:                              # %vector.body5603
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -4655,8 +4624,7 @@ init:                                   # @init
 	ori	$a3, $a3, 2112
 	add.d	$a3, $a1, $a3
 	ori	$a4, $a2, 3328
-	lu52i.d	$a5, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a5
+	xvldi	$xr0, -912
 .LBB5_321:                              # %vector.body5582
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a3, -32
@@ -4706,8 +4674,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_327:                              # %vector.body5540
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -4799,8 +4766,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_335:                              # %vector.body5528
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -4828,8 +4794,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_339:                              # %.preheader.i1541
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -4989,8 +4954,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_343:                              # %.preheader.i1556
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -5328,8 +5292,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_354:                              # %.preheader.i1594
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -5571,8 +5534,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_360:                              # %vector.body5424
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -5790,8 +5752,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_370:                              # %vector.body5400
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -5904,8 +5865,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_386:                              # %vector.body5343
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -5997,8 +5957,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_394:                              # %vector.body5325
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -6049,8 +6008,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_400:                              # %vector.body5292
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -6142,8 +6100,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_408:                              # %vector.body5280
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -6170,8 +6127,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_412:                              # %vector.body5253
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -6246,8 +6202,7 @@ init:                                   # @init
 	add.d	$a0, $fp, $a0
 	lu12i.w	$a1, 7
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_420:                              # %vector.body5247
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -6269,8 +6224,7 @@ init:                                   # @init
 	add.d	$a0, $fp, $a0
 	lu12i.w	$a1, 7
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_422:                              # %vector.body5241
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -6285,8 +6239,7 @@ init:                                   # @init
 	addi.d	$a1, $a0, 32
 	lu12i.w	$a2, 7
 	ori	$a2, $a2, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_424:                              # %vector.body5223
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -6299,8 +6252,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1024
-	xvreplgr2vr.d	$xr1, $a3
+	xvldi	$xr1, -1024
 .LBB5_426:                              # %.preheader.i1789
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr1, $a1, -1024
@@ -6453,8 +6405,7 @@ init:                                   # @init
 	addi.d	$a1, $a0, 32
 	lu12i.w	$a2, 7
 	ori	$a2, $a2, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_430:                              # %vector.body5205
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -6467,8 +6418,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1024
-	xvreplgr2vr.d	$xr1, $a3
+	xvldi	$xr1, -1024
 .LBB5_432:                              # %.preheader.i1807
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr1, $a1, -1024
@@ -6790,8 +6740,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_444:                              # %vector.body5140
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -6863,8 +6812,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_452:                              # %vector.body5116
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -6926,8 +6874,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_458:                              # %vector.body5080
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -6999,8 +6946,7 @@ init:                                   # @init
 	ori	$a2, $a2, 192
 	add.d	$a0, $a0, $a2
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1024
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -1024
 .LBB5_466:                              # %vector.body5110
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -7015,8 +6961,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_468:                              # %vector.body5047
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7103,8 +7048,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_478:                              # %vector.body5017
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -7179,8 +7123,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_486:                              # %.preheader.i1949
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -7413,8 +7356,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_492:                              # %vector.body4966
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7499,8 +7441,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_500:                              # %vector.body4921
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7525,8 +7466,7 @@ init:                                   # @init
 	ori	$a2, $a2, 3136
 	add.d	$a2, $a0, $a2
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -784
 .LBB5_504:                              # %vector.body4933
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7611,8 +7551,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -784
 .LBB5_512:                              # %vector.body4876
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7625,8 +7564,7 @@ init:                                   # @init
 	ori	$a2, $a2, 1056
 	add.d	$a2, $a0, $a2
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_514:                              # %vector.body4882
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7723,8 +7661,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -784
 .LBB5_524:                              # %vector.body4831
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7737,8 +7674,7 @@ init:                                   # @init
 	ori	$a2, $a2, 1056
 	add.d	$a2, $a0, $a2
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_526:                              # %vector.body4837
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7835,8 +7771,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_536:                              # %vector.body4792
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7933,8 +7868,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_546:                              # %vector.body4768
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -7996,8 +7930,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_552:                              # %vector.body4744
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -8066,8 +7999,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_558:                              # %vector.body4732
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -8101,8 +8033,7 @@ init:                                   # @init
 	add.d	$a0, $fp, $a0
 	lu12i.w	$a1, 7
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_562:                              # %vector.body4726
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -8124,8 +8055,7 @@ init:                                   # @init
 	add.d	$a0, $fp, $a0
 	lu12i.w	$a1, 7
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_564:                              # %vector.body4720
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -8166,8 +8096,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_568:                              # %.preheader.i2154
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -8870,8 +8799,7 @@ init:                                   # @init
 	addi.d	$a1, $a0, 32
 	lu12i.w	$a2, 7
 	ori	$a2, $a2, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_608:                              # %vector.body4552
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -8891,8 +8819,7 @@ init:                                   # @init
 	addi.d	$a0, $s0, 32
 	lu12i.w	$a1, 7
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_611:                              # %vector.body4546
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -8923,8 +8850,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_614:                              # %vector.body4507
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -9245,8 +9171,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3392
 	add.d	$a0, $a0, $a1
 	ori	$a1, $zero, 256
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_639:                              # %.preheader.i2360
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -1024
@@ -9321,30 +9246,29 @@ init:                                   # @init
 .LBB5_640:                              # %vector.body4436.preheader
 	pcalau12i	$a0, %pc_hi20(global_data)
 	addi.d	$a0, $a0, %pc_lo12(global_data)
-	addi.d	$a3, $a0, 32
-	lu12i.w	$a2, 7
-	ori	$a4, $a2, 3328
-	lu52i.d	$a1, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a1
+	addi.d	$a2, $a0, 32
+	lu12i.w	$a1, 7
+	ori	$a3, $a1, 3328
+	xvldi	$xr0, -912
 .LBB5_641:                              # %vector.body4436
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB5_641
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB5_641
 # %bb.642:                              # %vector.body4442.preheader
-	lu12i.w	$a3, 62
-	ori	$a3, $a3, 2112
-	add.d	$a3, $a0, $a3
-	ori	$a2, $a2, 3328
+	lu12i.w	$a2, 62
+	ori	$a2, $a2, 2112
+	add.d	$a2, $a0, $a2
+	ori	$a1, $a1, 3328
 .LBB5_643:                              # %vector.body4442
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a2, $a2, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a2, .LBB5_643
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a1, $a1, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a1, .LBB5_643
 	b	.LBB5_652
 .LBB5_644:                              # %vector.body4418.preheader
 	pcalau12i	$a0, %pc_hi20(.LCPI5_0)
@@ -9398,34 +9322,34 @@ init:                                   # @init
 .LBB5_648:                              # %vector.body4406.preheader
 	pcalau12i	$a0, %pc_hi20(global_data)
 	addi.d	$a0, $a0, %pc_lo12(global_data)
-	addi.d	$a3, $a0, 32
-	lu12i.w	$a2, 7
-	ori	$a4, $a2, 3328
-	lu52i.d	$a1, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a1
+	addi.d	$a2, $a0, 32
+	lu12i.w	$a1, 7
+	ori	$a3, $a1, 3328
+	xvldi	$xr0, -912
 .LBB5_649:                              # %vector.body4406
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB5_649
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB5_649
 # %bb.650:                              # %vector.body4412.preheader
-	lu12i.w	$a3, 62
-	ori	$a3, $a3, 2112
-	add.d	$a3, $a0, $a3
-	ori	$a2, $a2, 3328
+	lu12i.w	$a2, 62
+	ori	$a2, $a2, 2112
+	add.d	$a2, $a0, $a2
+	ori	$a1, $a1, 3328
 .LBB5_651:                              # %vector.body4412
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a2, $a2, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a2, .LBB5_651
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a1, $a1, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a1, .LBB5_651
 .LBB5_652:                              # %set1d.exit2374
-	lu12i.w	$a2, 125
-	ori	$a2, $a2, 64
-	stx.d	$a1, $a0, $a2
+	lu12i.w	$a1, 125
+	ori	$a1, $a1, 64
+	lu52i.d	$a2, $zero, 1023
+	stx.d	$a2, $a0, $a1
 	b	.LBB5_573
 .LBB5_653:                              # %vector.body4382.preheader
 	pcalau12i	$a0, %pc_hi20(global_data)
@@ -9433,8 +9357,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_654:                              # %vector.body4382
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -9496,8 +9419,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_660:                              # %vector.body4358
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -9566,8 +9488,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_666:                              # %vector.body4328
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -9642,8 +9563,7 @@ init:                                   # @init
 	ori	$a1, $a1, 3296
 	add.d	$a1, $a0, $a1
 	ori	$a2, $zero, 256
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_674:                              # %.preheader.i2443
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -1024
@@ -9885,8 +9805,7 @@ init:                                   # @init
 	addi.d	$a1, $a0, 32
 	lu12i.w	$a2, 7
 	ori	$a3, $a2, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_680:                              # %vector.body4282
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -9975,8 +9894,7 @@ init:                                   # @init
 	ori	$a2, $a2, 2112
 	add.d	$a0, $a0, $a2
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 .LBB5_689:                              # %vector.body4276
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -9990,8 +9908,7 @@ init:                                   # @init
 	addi.d	$a0, $a0, %pc_lo12(array+32)
 	lu12i.w	$a1, 7
 	ori	$a2, $a1, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_691:                              # %vector.body4252
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -10058,8 +9975,7 @@ init:                                   # @init
 	addi.d	$a0, $a0, %pc_lo12(array+32)
 	lu12i.w	$a1, 7
 	ori	$a2, $a1, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_697:                              # %vector.body4228
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -10096,8 +10012,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_701:                              # %vector.body4213
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -10135,8 +10050,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_705:                              # %vector.body4198
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -10174,8 +10088,7 @@ init:                                   # @init
 	addi.d	$a0, $fp, 32
 	lu12i.w	$s0, 7
 	ori	$a1, $s0, 3328
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 	xvst	$xr0, $sp, 16                   # 32-byte Folded Spill
 .LBB5_709:                              # %vector.body4162
                                         # =>This Inner Loop Header: Depth=1
@@ -10237,8 +10150,7 @@ init:                                   # @init
 	ori	$a0, $a0, 2176
 	add.d	$a0, $fp, $a0
 	ori	$a2, $s0, 3328
-	lu52i.d	$a3, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -784
 .LBB5_715:                              # %vector.body4186
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -10272,8 +10184,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_719:                              # %vector.body4120
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -10381,8 +10292,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_729:                              # %vector.body4096
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -10499,23 +10409,22 @@ init:                                   # @init
 	pcaddu18i	$ra, %call36(memset)
 	jirl	$ra, $ra, 0
 	ori	$a0, $s0, 2112
-	add.d	$a1, $fp, $a0
-	lu12i.w	$a0, 7
-	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	add.d	$a0, $fp, $a0
+	lu12i.w	$a1, 7
+	ori	$a2, $a1, 3328
+	xvldi	$xr0, -912
 .LBB5_739:                              # %vector.body4066
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a1, -32
-	xvst	$xr0, $a1, 0
+	xvst	$xr0, $a0, -32
+	xvst	$xr0, $a0, 0
 	addi.d	$a2, $a2, -8
-	addi.d	$a1, $a1, 64
+	addi.d	$a0, $a0, 64
 	bnez	$a2, .LBB5_739
 # %bb.740:                              # %vector.body4072.preheader
-	lu12i.w	$a1, 125
-	ori	$a1, $a1, 96
-	add.d	$a1, $fp, $a1
-	ori	$a0, $a0, 3328
+	lu12i.w	$a0, 125
+	ori	$a0, $a0, 96
+	add.d	$a0, $fp, $a0
+	ori	$a1, $a1, 3328
 	lu12i.w	$a2, -390306
 	ori	$a2, $a2, 3469
 	lu32i.d	$a2, 50935
@@ -10523,11 +10432,11 @@ init:                                   # @init
 	xvreplgr2vr.d	$xr0, $a2
 .LBB5_741:                              # %vector.body4072
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a1, -32
-	xvst	$xr0, $a1, 0
-	addi.d	$a0, $a0, -8
-	addi.d	$a1, $a1, 64
-	bnez	$a0, .LBB5_741
+	xvst	$xr0, $a0, -32
+	xvst	$xr0, $a0, 0
+	addi.d	$a1, $a1, -8
+	addi.d	$a0, $a0, 64
+	bnez	$a1, .LBB5_741
 	b	.LBB5_573
 .LBB5_742:                              # %.preheader.i2620.preheader
 	pcalau12i	$a0, %pc_hi20(global_data)
@@ -10567,8 +10476,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_745:                              # %vector.body4021
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -10654,8 +10562,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_755:                              # %vector.body3988
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -10740,8 +10647,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_763:                              # %vector.body3964
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -10810,8 +10716,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_769:                              # %vector.body3940
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -10873,8 +10778,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_775:                              # %vector.body3925
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -10920,8 +10824,7 @@ init:                                   # @init
 	add.d	$a0, $fp, $a0
 	lu12i.w	$a1, 7
 	ori	$a2, $a1, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_779:                              # %vector.body3910
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -10966,8 +10869,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_783:                              # %vector.body3886
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -11193,8 +11095,7 @@ init:                                   # @init
 	add.d	$a1, $fp, $a0
 	lu12i.w	$a0, 7
 	ori	$a2, $a0, 3328
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 .LBB5_797:                              # %vector.body3827
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a1, -32
@@ -11256,8 +11157,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_803:                              # %vector.body3803
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -11479,8 +11379,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_819:                              # %vector.body3746
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -11507,8 +11406,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_823:                              # %vector.body3722
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -11570,8 +11468,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_829:                              # %vector.body3707
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -11632,8 +11529,7 @@ init:                                   # @init
 	ori	$a2, $a2, 2112
 	add.d	$a2, $a0, $a2
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_835:                              # %vector.body3695
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -11646,8 +11542,7 @@ init:                                   # @init
 	ori	$a2, $a2, 96
 	add.d	$a0, $a0, $a2
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -784
 .LBB5_837:                              # %vector.body3701
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -11662,8 +11557,7 @@ init:                                   # @init
 	addi.d	$a2, $a0, 32
 	lu12i.w	$a1, 7
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -912
 .LBB5_839:                              # %vector.body3668
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -11676,8 +11570,7 @@ init:                                   # @init
 	ori	$a2, $a2, 2112
 	add.d	$a2, $a0, $a2
 	ori	$a3, $a1, 3328
-	lu52i.d	$a4, $zero, 1024
-	xvreplgr2vr.d	$xr0, $a4
+	xvldi	$xr0, -1024
 .LBB5_841:                              # %vector.body3674
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a2, -32
@@ -11690,8 +11583,7 @@ init:                                   # @init
 	ori	$a2, $a2, 96
 	add.d	$a0, $a0, $a2
 	ori	$a1, $a1, 3328
-	lu52i.d	$a2, $zero, 1022
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -928
 .LBB5_843:                              # %vector.body3680
                                         # =>This Inner Loop Header: Depth=1
 	xvst	$xr0, $a0, -32
@@ -12544,7 +12436,7 @@ s315:                                   # @s315
 	lu12i.w	$a3, 67108
 	ori	$a3, $a3, 3539
 	vreplgr2vr.w	$vr2, $a3
-	vreplgr2vr.w	$vr3, $a2
+	vldi	$vr3, -3715
 	.p2align	4, , 16
 .LBB12_1:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -14015,245 +13907,78 @@ set:                                    # @set
 	bnez	$a2, .LBB23_1
 # %bb.2:                                # %vector.body67.preheader
 	pcalau12i	$a0, %pc_hi20(global_data)
-	addi.d	$a2, $a0, %pc_lo12(global_data)
-	addi.d	$a3, $a2, 32
-	lu12i.w	$a1, 7
-	ori	$a4, $a1, 3328
-	lu52i.d	$a0, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a0
+	addi.d	$a1, $a0, %pc_lo12(global_data)
+	addi.d	$a2, $a1, 32
+	lu12i.w	$a0, 7
+	ori	$a3, $a0, 3328
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB23_3:                               # %vector.body67
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB23_3
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB23_3
 # %bb.4:                                # %vector.body73.preheader
-	ori	$a3, $s2, 2112
-	add.d	$a3, $a2, $a3
-	ori	$a4, $a1, 3328
+	ori	$a2, $s2, 2112
+	add.d	$a2, $a1, $a2
+	ori	$a3, $a0, 3328
 	.p2align	4, , 16
 .LBB23_5:                               # %vector.body73
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB23_5
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB23_5
 # %bb.6:                                # %vector.body79.preheader
-	lu12i.w	$a3, 125
-	ori	$a3, $a3, 96
-	add.d	$a3, $a2, $a3
-	ori	$a4, $a1, 3328
+	lu12i.w	$a2, 125
+	ori	$a2, $a2, 96
+	add.d	$a2, $a1, $a2
+	ori	$a3, $a0, 3328
 	.p2align	4, , 16
 .LBB23_7:                               # %vector.body79
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB23_7
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB23_7
 # %bb.8:                                # %vector.body85.preheader
-	lu12i.w	$a3, 187
-	ori	$a3, $a3, 2176
-	add.d	$a3, $a2, $a3
-	ori	$a4, $a1, 3328
+	lu12i.w	$a2, 187
+	ori	$a2, $a2, 2176
+	add.d	$a2, $a1, $a2
+	ori	$a3, $a0, 3328
 	.p2align	4, , 16
 .LBB23_9:                               # %vector.body85
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB23_9
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB23_9
 # %bb.10:                               # %vector.body91.preheader
-	lu12i.w	$a3, 250
-	ori	$a3, $a3, 192
-	add.d	$a3, $a2, $a3
-	ori	$a4, $a1, 3328
+	lu12i.w	$a2, 250
+	ori	$a2, $a2, 192
+	add.d	$a2, $a1, $a2
+	ori	$a3, $a0, 3328
 	.p2align	4, , 16
 .LBB23_11:                              # %vector.body91
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -8
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB23_11
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -8
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB23_11
 # %bb.12:                               # %.preheader34.i.preheader
-	lu12i.w	$a3, 312
-	ori	$a3, $a3, 3296
-	add.d	$a3, $a2, $a3
-	ori	$a4, $zero, 1
-	ori	$a5, $zero, 256
-	.p2align	4, , 16
-.LBB23_13:                              # %.preheader34.i
-                                        # =>This Inner Loop Header: Depth=1
-	bstrpick.d	$a6, $a4, 31, 0
-	movgr2fr.d	$fa0, $a6
-	ffint.d.l	$fa0, $fa0
-	frecip.d	$fa0, $fa0
-	xvreplve0.d	$xr0, $xr0
-	xvst	$xr0, $a3, -1024
-	xvst	$xr0, $a3, -992
-	xvst	$xr0, $a3, -960
-	xvst	$xr0, $a3, -928
-	xvst	$xr0, $a3, -896
-	xvst	$xr0, $a3, -864
-	xvst	$xr0, $a3, -832
-	xvst	$xr0, $a3, -800
-	xvst	$xr0, $a3, -768
-	xvst	$xr0, $a3, -736
-	xvst	$xr0, $a3, -704
-	xvst	$xr0, $a3, -672
-	xvst	$xr0, $a3, -640
-	xvst	$xr0, $a3, -608
-	xvst	$xr0, $a3, -576
-	xvst	$xr0, $a3, -544
-	xvst	$xr0, $a3, -512
-	xvst	$xr0, $a3, -480
-	xvst	$xr0, $a3, -448
-	xvst	$xr0, $a3, -416
-	xvst	$xr0, $a3, -384
-	xvst	$xr0, $a3, -352
-	xvst	$xr0, $a3, -320
-	xvst	$xr0, $a3, -288
-	xvst	$xr0, $a3, -256
-	xvst	$xr0, $a3, -224
-	xvst	$xr0, $a3, -192
-	xvst	$xr0, $a3, -160
-	xvst	$xr0, $a3, -128
-	xvst	$xr0, $a3, -96
-	xvst	$xr0, $a3, -64
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	xvst	$xr0, $a3, 32
-	xvst	$xr0, $a3, 64
-	xvst	$xr0, $a3, 96
-	xvst	$xr0, $a3, 128
-	xvst	$xr0, $a3, 160
-	xvst	$xr0, $a3, 192
-	xvst	$xr0, $a3, 224
-	xvst	$xr0, $a3, 256
-	xvst	$xr0, $a3, 288
-	xvst	$xr0, $a3, 320
-	xvst	$xr0, $a3, 352
-	xvst	$xr0, $a3, 384
-	xvst	$xr0, $a3, 416
-	xvst	$xr0, $a3, 448
-	xvst	$xr0, $a3, 480
-	xvst	$xr0, $a3, 512
-	xvst	$xr0, $a3, 544
-	xvst	$xr0, $a3, 576
-	xvst	$xr0, $a3, 608
-	xvst	$xr0, $a3, 640
-	xvst	$xr0, $a3, 672
-	xvst	$xr0, $a3, 704
-	xvst	$xr0, $a3, 736
-	xvst	$xr0, $a3, 768
-	xvst	$xr0, $a3, 800
-	xvst	$xr0, $a3, 832
-	xvst	$xr0, $a3, 864
-	xvst	$xr0, $a3, 896
-	xvst	$xr0, $a3, 928
-	xvst	$xr0, $a3, 960
-	xvst	$xr0, $a3, 992
-	addi.w	$a4, $a4, 1
-	addi.d	$a5, $a5, -1
-	addi.d	$a3, $a3, 2047
-	addi.d	$a3, $a3, 1
-	bnez	$a5, .LBB23_13
-# %bb.14:                               # %.preheader34.i39.preheader
-	lu12i.w	$a3, 440
-	ori	$a3, $a3, 3392
-	add.d	$a3, $a2, $a3
-	ori	$a4, $zero, 1
-	ori	$a5, $zero, 256
-	.p2align	4, , 16
-.LBB23_15:                              # %.preheader34.i39
-                                        # =>This Inner Loop Header: Depth=1
-	bstrpick.d	$a6, $a4, 31, 0
-	movgr2fr.d	$fa0, $a6
-	ffint.d.l	$fa0, $fa0
-	frecip.d	$fa0, $fa0
-	xvreplve0.d	$xr0, $xr0
-	xvst	$xr0, $a3, -1024
-	xvst	$xr0, $a3, -992
-	xvst	$xr0, $a3, -960
-	xvst	$xr0, $a3, -928
-	xvst	$xr0, $a3, -896
-	xvst	$xr0, $a3, -864
-	xvst	$xr0, $a3, -832
-	xvst	$xr0, $a3, -800
-	xvst	$xr0, $a3, -768
-	xvst	$xr0, $a3, -736
-	xvst	$xr0, $a3, -704
-	xvst	$xr0, $a3, -672
-	xvst	$xr0, $a3, -640
-	xvst	$xr0, $a3, -608
-	xvst	$xr0, $a3, -576
-	xvst	$xr0, $a3, -544
-	xvst	$xr0, $a3, -512
-	xvst	$xr0, $a3, -480
-	xvst	$xr0, $a3, -448
-	xvst	$xr0, $a3, -416
-	xvst	$xr0, $a3, -384
-	xvst	$xr0, $a3, -352
-	xvst	$xr0, $a3, -320
-	xvst	$xr0, $a3, -288
-	xvst	$xr0, $a3, -256
-	xvst	$xr0, $a3, -224
-	xvst	$xr0, $a3, -192
-	xvst	$xr0, $a3, -160
-	xvst	$xr0, $a3, -128
-	xvst	$xr0, $a3, -96
-	xvst	$xr0, $a3, -64
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	xvst	$xr0, $a3, 32
-	xvst	$xr0, $a3, 64
-	xvst	$xr0, $a3, 96
-	xvst	$xr0, $a3, 128
-	xvst	$xr0, $a3, 160
-	xvst	$xr0, $a3, 192
-	xvst	$xr0, $a3, 224
-	xvst	$xr0, $a3, 256
-	xvst	$xr0, $a3, 288
-	xvst	$xr0, $a3, 320
-	xvst	$xr0, $a3, 352
-	xvst	$xr0, $a3, 384
-	xvst	$xr0, $a3, 416
-	xvst	$xr0, $a3, 448
-	xvst	$xr0, $a3, 480
-	xvst	$xr0, $a3, 512
-	xvst	$xr0, $a3, 544
-	xvst	$xr0, $a3, 576
-	xvst	$xr0, $a3, 608
-	xvst	$xr0, $a3, 640
-	xvst	$xr0, $a3, 672
-	xvst	$xr0, $a3, 704
-	xvst	$xr0, $a3, 736
-	xvst	$xr0, $a3, 768
-	xvst	$xr0, $a3, 800
-	xvst	$xr0, $a3, 832
-	xvst	$xr0, $a3, 864
-	xvst	$xr0, $a3, 896
-	xvst	$xr0, $a3, 928
-	xvst	$xr0, $a3, 960
-	xvst	$xr0, $a3, 992
-	addi.w	$a4, $a4, 1
-	addi.d	$a5, $a5, -1
-	addi.d	$a3, $a3, 2047
-	addi.d	$a3, $a3, 1
-	bnez	$a5, .LBB23_15
-# %bb.16:                               # %.preheader34.i47.preheader
-	lu12i.w	$a3, 568
-	ori	$a3, $a3, 3488
-	add.d	$a2, $a2, $a3
+	lu12i.w	$a2, 312
+	ori	$a2, $a2, 3296
+	add.d	$a2, $a1, $a2
 	ori	$a3, $zero, 1
 	ori	$a4, $zero, 256
 	.p2align	4, , 16
-.LBB23_17:                              # %.preheader34.i47
+.LBB23_13:                              # %.preheader34.i
                                         # =>This Inner Loop Header: Depth=1
 	bstrpick.d	$a5, $a3, 31, 0
 	movgr2fr.d	$fa0, $a5
@@ -14328,45 +14053,212 @@ set:                                    # @set
 	addi.d	$a4, $a4, -1
 	addi.d	$a2, $a2, 2047
 	addi.d	$a2, $a2, 1
-	bnez	$a4, .LBB23_17
+	bnez	$a4, .LBB23_13
+# %bb.14:                               # %.preheader34.i39.preheader
+	lu12i.w	$a2, 440
+	ori	$a2, $a2, 3392
+	add.d	$a2, $a1, $a2
+	ori	$a3, $zero, 1
+	ori	$a4, $zero, 256
+	.p2align	4, , 16
+.LBB23_15:                              # %.preheader34.i39
+                                        # =>This Inner Loop Header: Depth=1
+	bstrpick.d	$a5, $a3, 31, 0
+	movgr2fr.d	$fa0, $a5
+	ffint.d.l	$fa0, $fa0
+	frecip.d	$fa0, $fa0
+	xvreplve0.d	$xr0, $xr0
+	xvst	$xr0, $a2, -1024
+	xvst	$xr0, $a2, -992
+	xvst	$xr0, $a2, -960
+	xvst	$xr0, $a2, -928
+	xvst	$xr0, $a2, -896
+	xvst	$xr0, $a2, -864
+	xvst	$xr0, $a2, -832
+	xvst	$xr0, $a2, -800
+	xvst	$xr0, $a2, -768
+	xvst	$xr0, $a2, -736
+	xvst	$xr0, $a2, -704
+	xvst	$xr0, $a2, -672
+	xvst	$xr0, $a2, -640
+	xvst	$xr0, $a2, -608
+	xvst	$xr0, $a2, -576
+	xvst	$xr0, $a2, -544
+	xvst	$xr0, $a2, -512
+	xvst	$xr0, $a2, -480
+	xvst	$xr0, $a2, -448
+	xvst	$xr0, $a2, -416
+	xvst	$xr0, $a2, -384
+	xvst	$xr0, $a2, -352
+	xvst	$xr0, $a2, -320
+	xvst	$xr0, $a2, -288
+	xvst	$xr0, $a2, -256
+	xvst	$xr0, $a2, -224
+	xvst	$xr0, $a2, -192
+	xvst	$xr0, $a2, -160
+	xvst	$xr0, $a2, -128
+	xvst	$xr0, $a2, -96
+	xvst	$xr0, $a2, -64
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	xvst	$xr0, $a2, 32
+	xvst	$xr0, $a2, 64
+	xvst	$xr0, $a2, 96
+	xvst	$xr0, $a2, 128
+	xvst	$xr0, $a2, 160
+	xvst	$xr0, $a2, 192
+	xvst	$xr0, $a2, 224
+	xvst	$xr0, $a2, 256
+	xvst	$xr0, $a2, 288
+	xvst	$xr0, $a2, 320
+	xvst	$xr0, $a2, 352
+	xvst	$xr0, $a2, 384
+	xvst	$xr0, $a2, 416
+	xvst	$xr0, $a2, 448
+	xvst	$xr0, $a2, 480
+	xvst	$xr0, $a2, 512
+	xvst	$xr0, $a2, 544
+	xvst	$xr0, $a2, 576
+	xvst	$xr0, $a2, 608
+	xvst	$xr0, $a2, 640
+	xvst	$xr0, $a2, 672
+	xvst	$xr0, $a2, 704
+	xvst	$xr0, $a2, 736
+	xvst	$xr0, $a2, 768
+	xvst	$xr0, $a2, 800
+	xvst	$xr0, $a2, 832
+	xvst	$xr0, $a2, 864
+	xvst	$xr0, $a2, 896
+	xvst	$xr0, $a2, 928
+	xvst	$xr0, $a2, 960
+	xvst	$xr0, $a2, 992
+	addi.w	$a3, $a3, 1
+	addi.d	$a4, $a4, -1
+	addi.d	$a2, $a2, 2047
+	addi.d	$a2, $a2, 1
+	bnez	$a4, .LBB23_15
+# %bb.16:                               # %.preheader34.i47.preheader
+	lu12i.w	$a2, 568
+	ori	$a2, $a2, 3488
+	add.d	$a1, $a1, $a2
+	ori	$a2, $zero, 1
+	ori	$a3, $zero, 256
+	.p2align	4, , 16
+.LBB23_17:                              # %.preheader34.i47
+                                        # =>This Inner Loop Header: Depth=1
+	bstrpick.d	$a4, $a2, 31, 0
+	movgr2fr.d	$fa0, $a4
+	ffint.d.l	$fa0, $fa0
+	frecip.d	$fa0, $fa0
+	xvreplve0.d	$xr0, $xr0
+	xvst	$xr0, $a1, -1024
+	xvst	$xr0, $a1, -992
+	xvst	$xr0, $a1, -960
+	xvst	$xr0, $a1, -928
+	xvst	$xr0, $a1, -896
+	xvst	$xr0, $a1, -864
+	xvst	$xr0, $a1, -832
+	xvst	$xr0, $a1, -800
+	xvst	$xr0, $a1, -768
+	xvst	$xr0, $a1, -736
+	xvst	$xr0, $a1, -704
+	xvst	$xr0, $a1, -672
+	xvst	$xr0, $a1, -640
+	xvst	$xr0, $a1, -608
+	xvst	$xr0, $a1, -576
+	xvst	$xr0, $a1, -544
+	xvst	$xr0, $a1, -512
+	xvst	$xr0, $a1, -480
+	xvst	$xr0, $a1, -448
+	xvst	$xr0, $a1, -416
+	xvst	$xr0, $a1, -384
+	xvst	$xr0, $a1, -352
+	xvst	$xr0, $a1, -320
+	xvst	$xr0, $a1, -288
+	xvst	$xr0, $a1, -256
+	xvst	$xr0, $a1, -224
+	xvst	$xr0, $a1, -192
+	xvst	$xr0, $a1, -160
+	xvst	$xr0, $a1, -128
+	xvst	$xr0, $a1, -96
+	xvst	$xr0, $a1, -64
+	xvst	$xr0, $a1, -32
+	xvst	$xr0, $a1, 0
+	xvst	$xr0, $a1, 32
+	xvst	$xr0, $a1, 64
+	xvst	$xr0, $a1, 96
+	xvst	$xr0, $a1, 128
+	xvst	$xr0, $a1, 160
+	xvst	$xr0, $a1, 192
+	xvst	$xr0, $a1, 224
+	xvst	$xr0, $a1, 256
+	xvst	$xr0, $a1, 288
+	xvst	$xr0, $a1, 320
+	xvst	$xr0, $a1, 352
+	xvst	$xr0, $a1, 384
+	xvst	$xr0, $a1, 416
+	xvst	$xr0, $a1, 448
+	xvst	$xr0, $a1, 480
+	xvst	$xr0, $a1, 512
+	xvst	$xr0, $a1, 544
+	xvst	$xr0, $a1, 576
+	xvst	$xr0, $a1, 608
+	xvst	$xr0, $a1, 640
+	xvst	$xr0, $a1, 672
+	xvst	$xr0, $a1, 704
+	xvst	$xr0, $a1, 736
+	xvst	$xr0, $a1, 768
+	xvst	$xr0, $a1, 800
+	xvst	$xr0, $a1, 832
+	xvst	$xr0, $a1, 864
+	xvst	$xr0, $a1, 896
+	xvst	$xr0, $a1, 928
+	xvst	$xr0, $a1, 960
+	xvst	$xr0, $a1, 992
+	addi.w	$a2, $a2, 1
+	addi.d	$a3, $a3, -1
+	addi.d	$a1, $a1, 2047
+	addi.d	$a1, $a1, 1
+	bnez	$a3, .LBB23_17
 # %bb.18:                               # %vector.body119.preheader
-	pcalau12i	$a2, %pc_hi20(.LCPI23_0)
-	xvld	$xr0, $a2, %pc_lo12(.LCPI23_0)
-	pcalau12i	$a2, %pc_hi20(.LCPI23_1)
-	xvld	$xr1, $a2, %pc_lo12(.LCPI23_1)
-	pcalau12i	$a2, %pc_hi20(indx)
-	addi.d	$a2, $a2, %pc_lo12(indx)
-	ori	$a1, $a1, 3328
+	pcalau12i	$a1, %pc_hi20(.LCPI23_0)
+	xvld	$xr0, $a1, %pc_lo12(.LCPI23_0)
+	pcalau12i	$a1, %pc_hi20(.LCPI23_1)
+	xvld	$xr1, $a1, %pc_lo12(.LCPI23_1)
+	pcalau12i	$a1, %pc_hi20(indx)
+	addi.d	$a1, $a1, %pc_lo12(indx)
+	ori	$a0, $a0, 3328
 	xvrepli.w	$xr2, 3
 	.p2align	4, , 16
 .LBB23_19:                              # %vector.body119
                                         # =>This Inner Loop Header: Depth=1
-	xvpickve2gr.d	$a3, $xr1, 0
-	xvinsgr2vr.w	$xr3, $a3, 0
-	xvpickve2gr.d	$a3, $xr1, 1
-	xvinsgr2vr.w	$xr3, $a3, 1
-	xvpickve2gr.d	$a3, $xr1, 2
-	xvinsgr2vr.w	$xr3, $a3, 2
-	xvpickve2gr.d	$a3, $xr1, 3
-	xvinsgr2vr.w	$xr3, $a3, 3
-	xvpickve2gr.d	$a3, $xr0, 0
-	xvinsgr2vr.w	$xr3, $a3, 4
-	xvpickve2gr.d	$a3, $xr0, 1
-	xvinsgr2vr.w	$xr3, $a3, 5
-	xvpickve2gr.d	$a3, $xr0, 2
-	xvinsgr2vr.w	$xr3, $a3, 6
-	xvpickve2gr.d	$a3, $xr0, 3
-	xvinsgr2vr.w	$xr3, $a3, 7
+	xvpickve2gr.d	$a2, $xr1, 0
+	xvinsgr2vr.w	$xr3, $a2, 0
+	xvpickve2gr.d	$a2, $xr1, 1
+	xvinsgr2vr.w	$xr3, $a2, 1
+	xvpickve2gr.d	$a2, $xr1, 2
+	xvinsgr2vr.w	$xr3, $a2, 2
+	xvpickve2gr.d	$a2, $xr1, 3
+	xvinsgr2vr.w	$xr3, $a2, 3
+	xvpickve2gr.d	$a2, $xr0, 0
+	xvinsgr2vr.w	$xr3, $a2, 4
+	xvpickve2gr.d	$a2, $xr0, 1
+	xvinsgr2vr.w	$xr3, $a2, 5
+	xvpickve2gr.d	$a2, $xr0, 2
+	xvinsgr2vr.w	$xr3, $a2, 6
+	xvpickve2gr.d	$a2, $xr0, 3
+	xvinsgr2vr.w	$xr3, $a2, 7
 	xvaddi.wu	$xr3, $xr3, 1
 	xvand.v	$xr3, $xr3, $xr2
 	xvaddi.wu	$xr3, $xr3, 1
-	xvst	$xr3, $a2, 0
+	xvst	$xr3, $a1, 0
 	xvaddi.du	$xr1, $xr1, 8
 	xvaddi.du	$xr0, $xr0, 8
-	addi.d	$a1, $a1, -8
-	addi.d	$a2, $a2, 32
-	bnez	$a1, .LBB23_19
+	addi.d	$a0, $a0, -8
+	addi.d	$a1, $a1, 32
+	bnez	$a0, .LBB23_19
 # %bb.20:                               # %middle.block122
+	lu52i.d	$a0, $zero, 1023
 	st.d	$a0, $s0, 0
 	lu52i.d	$a0, $zero, 1024
 	st.d	$a0, $fp, 0

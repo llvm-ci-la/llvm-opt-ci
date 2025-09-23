@@ -771,8 +771,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_28)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_28)
 	vst	$vr0, $sp, 48
-	ori	$a0, $zero, 2048
-	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr0, -2808
 	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
 	vsrani.w.d	$vr1, $vr0, 21
 	vst	$vr1, $sp, 64

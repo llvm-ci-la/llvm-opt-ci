@@ -49,8 +49,7 @@ Crystal_pow:                            # @Crystal_pow
 	slli.d	$a0, $a0, 2
 	addi.d	$a1, $sp, 112
 	addi.d	$a2, $sp, 16
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr1, $a3
+	xvldi	$xr1, -912
 	lu12i.w	$a3, -419431
 	ori	$a3, $a3, 2458
 	lu32i.d	$a3, -419431
@@ -61,10 +60,7 @@ Crystal_pow:                            # @Crystal_pow
 	lu32i.d	$a3, -209716
 	lu52i.d	$a3, $a3, 1022
 	xvreplgr2vr.d	$xr3, $a3
-	ori	$a3, $zero, 0
-	lu32i.d	$a3, -524288
-	lu52i.d	$a3, $a3, 1026
-	xvreplgr2vr.d	$xr4, $a3
+	xvldi	$xr4, -984
 	move	$a3, $a0
 	.p2align	4, , 16
 .LBB0_4:                                # %vector.body

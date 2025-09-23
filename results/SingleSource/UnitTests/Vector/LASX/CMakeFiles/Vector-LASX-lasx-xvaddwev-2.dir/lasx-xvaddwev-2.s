@@ -1033,13 +1033,11 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_9)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_9)
-	xvst	$xr0, $sp, 96
 	pcalau12i	$a0, %pc_hi20(.LCPI2_10)
-	xvld	$xr0, $a0, %pc_lo12(.LCPI2_10)
-	lu12i.w	$a0, 7
-	ori	$a0, $a0, 3072
-	xvreplgr2vr.h	$xr1, $a0
-	xvaddwev.h.bu	$xr0, $xr0, $xr1
+	xvld	$xr1, $a0, %pc_lo12(.LCPI2_10)
+	xvst	$xr0, $sp, 96
+	xvldi	$xr0, -2692
+	xvaddwev.h.bu	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 128
 	addi.d	$a0, $sp, 96
 	addi.d	$a1, $sp, 128

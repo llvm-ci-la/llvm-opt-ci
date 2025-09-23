@@ -543,8 +543,7 @@ _ZN9NCompress5NBcj28CEncoder8CodeRealEPP19ISequentialInStreamPPKyjPP20ISequentia
 	ori	$a0, $zero, 1
 	st.w	$a0, $fp, 192
 	st.b	$zero, $fp, 196
-	ori	$a0, $zero, 1024
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3836
 	xvst	$xr0, $fp, 272
 	xvst	$xr0, $fp, 304
 	xvst	$xr0, $fp, 336
@@ -577,6 +576,7 @@ _ZN9NCompress5NBcj28CEncoder8CodeRealEPP19ISequentialInStreamPPKyjPP20ISequentia
 	xvst	$xr0, $fp, 1200
 	xvst	$xr0, $fp, 1232
 	xvst	$xr0, $fp, 1264
+	ori	$a0, $zero, 1024
 	lu32i.d	$a0, 1024
 	st.d	$a0, $fp, 1296
 	st.d	$zero, $sp, 168
@@ -1637,8 +1637,7 @@ _ZN9NCompress5NBcj28CDecoderC2Ev:       # @_ZN9NCompress5NBcj28CDecoderC2Ev
 	st.d	$zero, $s0, 1296
 	lu12i.w	$a0, 16
 	st.w	$a0, $s0, 1328
-	lu12i.w	$a0, 256
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -3568
 	vst	$vr0, $s0, 1312
 	ld.d	$s2, $sp, 8                     # 8-byte Folded Reload
 	ld.d	$s1, $sp, 16                    # 8-byte Folded Reload
@@ -1949,8 +1948,7 @@ _ZN9NCompress5NBcj28CDecoder8CodeRealEPP19ISequentialInStreamPPKyjPP20ISequentia
 	move	$s3, $zero
 	addi.d	$a0, $s0, 224
 	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
-	ori	$a0, $zero, 1024
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3836
 	xvst	$xr0, $s0, 224
 	xvst	$xr0, $s0, 256
 	xvst	$xr0, $s0, 288
@@ -1983,6 +1981,7 @@ _ZN9NCompress5NBcj28CDecoder8CodeRealEPP19ISequentialInStreamPPKyjPP20ISequentia
 	xvst	$xr0, $s0, 1152
 	xvst	$xr0, $s0, 1184
 	xvst	$xr0, $s0, 1216
+	ori	$a0, $zero, 1024
 	lu32i.d	$a0, 1024
 	st.d	$a0, $s0, 1248
 	b	.LBB14_21

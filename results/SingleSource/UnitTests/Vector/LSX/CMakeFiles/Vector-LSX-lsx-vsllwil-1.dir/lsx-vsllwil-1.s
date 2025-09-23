@@ -783,9 +783,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
 	vst	$vr0, $sp, 48
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1777
 	vsllwil.w.h	$vr0, $vr0, 0
 	vst	$vr0, $sp, 64
 	addi.d	$a0, $sp, 48

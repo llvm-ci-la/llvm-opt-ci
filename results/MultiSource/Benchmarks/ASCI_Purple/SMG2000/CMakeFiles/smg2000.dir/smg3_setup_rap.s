@@ -5828,8 +5828,7 @@ hypre_SMG3RAPPeriodicSym:               # @hypre_SMG3RAPPeriodicSym
 	st.d	$a2, $sp, 120                   # 8-byte Folded Spill
 	ori	$s7, $zero, 16
 	xvrepli.b	$xr6, 0
-	lu52i.d	$a0, $zero, 1024
-	xvreplgr2vr.d	$xr7, $a0
+	xvldi	$xr7, -1024
                                         # implicit-def: $r4
                                         # kill: killed $r4
                                         # implicit-def: $r4

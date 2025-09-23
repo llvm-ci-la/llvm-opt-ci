@@ -284,8 +284,7 @@ main:                                   # @main
 	slli.d	$a0, $a0, 3
 	slli.d	$a2, $s3, 3
 	bstrins.d	$a2, $zero, 5, 0
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 	.p2align	4, , 16
 .LBB4_6:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1

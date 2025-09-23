@@ -408,7 +408,6 @@ main:                                   # @main
 	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
 	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
 	vrepli.b	$vr0, -1
 	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
 	vst	$vr0, $sp, 80
@@ -425,10 +424,7 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	addi.w	$s1, $zero, -1
-	lu32i.d	$s1, 255
-	lu52i.d	$a0, $s1, -16
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1633
 	vst	$vr0, $sp, 80
 	ori	$s0, $zero, 0
 	ori	$a0, $zero, 0
@@ -470,11 +466,10 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vreplgr2vr.d	$vr0, $s1
+	vldi	$vr0, -1761
 	vst	$vr0, $sp, 80
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -8192
-	lu52i.d	$a0, $a0, 881
+	lu32i.d	$s0, -8192
+	lu52i.d	$a0, $s0, 881
 	vreplgr2vr.d	$vr0, $a0
 	vslti.bu	$vr0, $vr0, 8
 	vst	$vr0, $sp, 96
@@ -615,9 +610,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_10)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_10)
-	lu32i.d	$s0, -1
-	vreplgr2vr.d	$vr1, $s0
-	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
+	vldi	$vr1, -1552
 	vst	$vr1, $sp, 80
 	vslti.hu	$vr0, $vr0, 6
 	vst	$vr0, $sp, 96
@@ -682,7 +675,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_14)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_14)
-	vld	$vr1, $sp, 16                   # 16-byte Folded Reload
+	vldi	$vr1, -1552
 	vst	$vr1, $sp, 80
 	vslti.wu	$vr0, $vr0, 22
 	vst	$vr0, $sp, 96
@@ -926,7 +919,6 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload

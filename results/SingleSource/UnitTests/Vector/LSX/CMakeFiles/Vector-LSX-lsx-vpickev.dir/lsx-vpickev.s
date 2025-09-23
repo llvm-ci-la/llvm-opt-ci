@@ -483,12 +483,10 @@ main:                                   # @main
 	addi.d	$sp, $sp, -128
 	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	addi.w	$a0, $zero, -1
-	pcalau12i	$a1, %pc_hi20(.LCPI2_0)
-	vld	$vr1, $a1, %pc_lo12(.LCPI2_0)
+	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
+	vld	$vr1, $a0, %pc_lo12(.LCPI2_0)
 	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1777
 	vst	$vr0, $sp, 80
 	vpickev.b	$vr0, $vr1, $vr1
 	vst	$vr0, $sp, 96
@@ -872,13 +870,11 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_35)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_35)
 	vst	$vr0, $sp, 80
-	lu12i.w	$a0, -16
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
 	lu12i.w	$a0, 14
 	ori	$a0, $a0, 3578
-	vreplgr2vr.h	$vr1, $a0
-	vpickev.d	$vr0, $vr1, $vr0
+	vreplgr2vr.h	$vr0, $a0
+	vldi	$vr1, -1780
+	vpickev.d	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 96
 	addi.d	$a0, $sp, 80
 	addi.d	$a1, $sp, 96

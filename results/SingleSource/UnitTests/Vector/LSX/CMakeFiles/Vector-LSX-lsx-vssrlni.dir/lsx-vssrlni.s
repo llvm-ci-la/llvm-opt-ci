@@ -794,7 +794,6 @@ main:                                   # @main
 	st.d	$ra, $sp, 248                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 240                   # 8-byte Folded Spill
 	st.d	$s0, $sp, 232                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 224                   # 8-byte Folded Spill
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 176                  # 16-byte Folded Spill
 	vst	$vr0, $sp, 192
@@ -1338,14 +1337,11 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 192
 	pcalau12i	$a0, %pc_hi20(.LCPI2_54)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_54)
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	vreplgr2vr.w	$vr1, $a0
-	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	vst	$vr1, $sp, 192
+	vldi	$vr1, -2305
 	vssrlni.d.q	$vr0, $vr1, 32
 	vst	$vr0, $sp, 208
 	addi.d	$a0, $sp, 192
@@ -1355,10 +1351,7 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	ori	$s1, $zero, 0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1552
 	vst	$vr0, $sp, 192
 	vld	$vr0, $sp, 112                  # 16-byte Folded Reload
 	vssrlni.bu.h	$vr0, $vr0, 1
@@ -1383,10 +1376,11 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI2_56)
-	vld	$vr0, $a0, %pc_lo12(.LCPI2_56)
-	lu32i.d	$s1, 65537
-	vreplgr2vr.d	$vr1, $s1
+	ori	$a0, $zero, 0
+	pcalau12i	$a1, %pc_hi20(.LCPI2_56)
+	vld	$vr0, $a1, %pc_lo12(.LCPI2_56)
+	lu32i.d	$a0, 65537
+	vreplgr2vr.d	$vr1, $a0
 	vst	$vr1, $sp, 192
 	vssrlni.bu.h	$vr0, $vr0, 15
 	vst	$vr0, $sp, 208
@@ -1543,7 +1537,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vld	$vr0, $sp, 160                  # 16-byte Folded Reload
 	vst	$vr0, $sp, 192
-	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
+	vldi	$vr0, -2305
 	vld	$vr1, $sp, 176                  # 16-byte Folded Reload
 	vssrlni.hu.w	$vr0, $vr1, 0
 	vst	$vr0, $sp, 208
@@ -1837,7 +1831,6 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
-	ld.d	$s1, $sp, 224                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 232                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 240                   # 8-byte Folded Reload
 	ld.d	$ra, $sp, 248                   # 8-byte Folded Reload

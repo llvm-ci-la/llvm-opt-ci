@@ -1297,15 +1297,13 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_49)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_49)
-	xvst	$xr0, $sp, 192
 	pcalau12i	$a0, %pc_hi20(.LCPI2_50)
-	xvld	$xr0, $a0, %pc_lo12(.LCPI2_50)
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr1, $a0
-	xvst	$xr1, $sp, 32                   # 32-byte Folded Spill
-	xvmaddwev.q.d	$xr0, $xr1, $xr0
-	xvst	$xr0, $sp, 224
+	xvld	$xr1, $a0, %pc_lo12(.LCPI2_50)
+	xvst	$xr0, $sp, 192
+	xvldi	$xr0, -1777
+	xvst	$xr0, $sp, 32                   # 32-byte Folded Spill
+	xvmaddwev.q.d	$xr1, $xr0, $xr1
+	xvst	$xr1, $sp, 224
 	addi.d	$a0, $sp, 192
 	addi.d	$a1, $sp, 224
 	ori	$a2, $zero, 32

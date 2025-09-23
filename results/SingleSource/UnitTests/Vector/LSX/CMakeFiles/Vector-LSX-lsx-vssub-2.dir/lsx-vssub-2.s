@@ -1073,10 +1073,10 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
 	lu12i.w	$a0, 1
-	ori	$a1, $a0, 514
-	vreplgr2vr.h	$vr0, $a1
-	vst	$vr0, $sp, 112
+	ori	$a0, $a0, 514
 	vreplgr2vr.h	$vr0, $a0
+	vst	$vr0, $sp, 112
+	vldi	$vr0, -2800
 	vrepli.b	$vr1, -2
 	vst	$vr1, $sp, 32                   # 16-byte Folded Spill
 	vssub.b	$vr0, $vr0, $vr1

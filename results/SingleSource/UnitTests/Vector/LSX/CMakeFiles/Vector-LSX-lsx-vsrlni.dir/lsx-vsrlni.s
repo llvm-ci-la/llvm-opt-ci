@@ -589,9 +589,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_13)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_13)
 	vst	$vr0, $sp, 48
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 65535
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1729
 	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
 	vsrlni.h.w	$vr1, $vr0, 18
 	vst	$vr1, $sp, 64

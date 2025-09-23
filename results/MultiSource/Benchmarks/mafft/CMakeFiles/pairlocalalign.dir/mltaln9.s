@@ -8252,12 +8252,11 @@ veryfastsupg:                           # @veryfastsupg
 	vldi	$vr0, -928
 	pcalau12i	$a5, %pc_hi20(.LCPI27_0)
 	fld.d	$fs0, $a5, %pc_lo12(.LCPI27_0)
-	lu52i.d	$a5, $zero, 1022
-	xvreplgr2vr.d	$xr1, $a5
 	ori	$a5, $zero, 0
 	lu32i.d	$a5, -97152
 	lu52i.d	$a5, $a5, 1042
-	xvreplgr2vr.d	$xr2, $a5
+	xvreplgr2vr.d	$xr1, $a5
+	xvldi	$xr2, -928
 	b	.LBB27_4
 	.p2align	4, , 16
 .LBB27_3:                               # %._crit_edge.us
@@ -8287,8 +8286,8 @@ veryfastsupg:                           # @veryfastsupg
                                         # =>  This Inner Loop Header: Depth=2
 	xvld	$xr3, $t0, -32
 	xvld	$xr4, $t0, 0
-	xvfmadd.d	$xr3, $xr3, $xr2, $xr1
-	xvfmadd.d	$xr4, $xr4, $xr2, $xr1
+	xvfmadd.d	$xr3, $xr3, $xr1, $xr2
+	xvfmadd.d	$xr4, $xr4, $xr1, $xr2
 	xvftintrz.l.d	$xr3, $xr3
 	xvpermi.d	$xr5, $xr3, 238
 	xvpickev.w	$xr3, $xr5, $xr3
@@ -11329,8 +11328,7 @@ counteff_simple_float:                  # @counteff_simple_float
 	addi.d	$a2, $a0, 32
 	bstrpick.d	$a1, $fp, 30, 3
 	slli.d	$a1, $a1, 3
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 	move	$a3, $a1
 	.p2align	4, , 16
 .LBB35_3:                               # %vector.body
@@ -11577,8 +11575,7 @@ counteff_simple:                        # @counteff_simple
 	addi.d	$a2, $a0, 32
 	bstrpick.d	$a1, $fp, 30, 3
 	slli.d	$a1, $a1, 3
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 	move	$a3, $a1
 	.p2align	4, , 16
 .LBB36_3:                               # %vector.body
@@ -11978,8 +11975,7 @@ counteff:                               # @counteff
 # %bb.25:                               # %vector.ph
 	slli.d	$a1, $a0, 3
 	addi.d	$a2, $sp, 48
-	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 	move	$a3, $a1
 	.p2align	4, , 16
 .LBB37_26:                              # %vector.body
@@ -12859,7 +12855,7 @@ treeconstruction:                       # @treeconstruction
 	slli.d	$a1, $a1, 3
 	ori	$a2, $zero, 8
 	lu52i.d	$a3, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a3
+	xvldi	$xr0, -912
 	b	.LBB44_18
 	.p2align	4, , 16
 .LBB44_17:                              # %._crit_edge.us

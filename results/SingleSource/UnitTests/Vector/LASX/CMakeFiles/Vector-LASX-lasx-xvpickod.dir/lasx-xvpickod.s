@@ -785,8 +785,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_8)
 	xvld	$xr1, $a0, %pc_lo12(.LCPI2_8)
 	xvst	$xr0, $sp, 224
-	ori	$a0, $zero, 1024
-	xvreplgr2vr.h	$xr0, $a0
+	xvldi	$xr0, -2812
 	xvpickod.h	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 256
 	addi.d	$a0, $sp, 224
@@ -848,8 +847,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_17)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_17)
 	xvst	$xr0, $sp, 224
-	lu52i.d	$a0, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -784
 	xvld	$xr1, $sp, 160                  # 32-byte Folded Reload
 	xvpickod.h	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 256

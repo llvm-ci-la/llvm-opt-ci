@@ -741,13 +741,11 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_5)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_5)
-	vst	$vr0, $sp, 112
 	pcalau12i	$a0, %pc_hi20(.LCPI2_6)
-	vld	$vr0, $a0, %pc_lo12(.LCPI2_6)
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr1, $a0
-	vssrarn.b.h	$vr0, $vr1, $vr0
+	vld	$vr1, $a0, %pc_lo12(.LCPI2_6)
+	vst	$vr0, $sp, 112
+	vldi	$vr0, -1777
+	vssrarn.b.h	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 128
 	addi.d	$a0, $sp, 112
 	addi.d	$a1, $sp, 128
@@ -1282,12 +1280,11 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_49)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_49)
 	vst	$vr0, $sp, 112
-	lu12i.w	$a0, 260096
-	vreplgr2vr.w	$vr0, $a0
 	lu12i.w	$a0, 262143
 	ori	$a0, $a0, 3840
-	vreplgr2vr.d	$vr1, $a0
-	vssrarn.bu.h	$vr0, $vr1, $vr0
+	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr1, -1424
+	vssrarn.bu.h	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 128
 	addi.d	$a0, $sp, 112
 	addi.d	$a1, $sp, 128

@@ -1281,9 +1281,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1552
 	xvst	$xr0, $sp, 288
 	lu52i.d	$a0, $zero, 2047
 	xvreplgr2vr.d	$xr1, $a0

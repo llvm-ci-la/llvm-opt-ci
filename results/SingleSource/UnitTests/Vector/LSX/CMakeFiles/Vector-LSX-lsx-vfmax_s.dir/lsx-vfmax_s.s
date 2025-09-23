@@ -594,13 +594,11 @@ main:                                   # @main
 	lu32i.d	$a1, 0
 	vreplgr2vr.d	$vr0, $a1
 	vst	$vr0, $sp, 48
-	addi.w	$a1, $zero, -1
-	lu32i.d	$a1, 0
-	vreplgr2vr.d	$vr0, $a1
 	lu32i.d	$a0, 152146
 	lu52i.d	$a0, $a0, 1317
-	vreplgr2vr.d	$vr1, $a0
-	vfmin.s	$vr0, $vr1, $vr0
+	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr1, -1777
+	vfmin.s	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 64
 	addi.d	$a0, $sp, 48
 	addi.d	$a1, $sp, 64

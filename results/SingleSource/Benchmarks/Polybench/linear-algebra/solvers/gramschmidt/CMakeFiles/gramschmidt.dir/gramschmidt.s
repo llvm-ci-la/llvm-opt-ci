@@ -203,13 +203,10 @@ main:                                   # @main
 	lu32i.d	$t0, -49152
 	lu52i.d	$t0, $t0, 1032
 	xvreplgr2vr.d	$xr6, $t0
-	ori	$t0, $zero, 0
-	lu32i.d	$t0, -458752
-	lu52i.d	$t0, $t0, 1029
-	xvreplgr2vr.d	$xr7, $t0
-	lu32i.d	$a7, 262144
-	lu52i.d	$a7, $a7, 1026
-	xvreplgr2vr.d	$xr8, $a7
+	lu32i.d	$a7, -458752
+	lu52i.d	$a7, $a7, 1029
+	xvreplgr2vr.d	$xr7, $a7
+	xvldi	$xr8, -988
 	xvrepli.b	$xr9, 0
 	move	$a7, $t1
 	st.d	$t2, $sp, 88                    # 8-byte Folded Spill

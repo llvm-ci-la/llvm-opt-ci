@@ -1335,15 +1335,13 @@ VBR_iteration_loop:                     # @VBR_iteration_loop
 	ld.d	$a2, $sp, 24                    # 8-byte Folded Reload
 	addi.d	$a2, $a2, 32
 	addi.d	$a3, $sp, 384
-	lu52i.d	$a4, $zero, 1022
-	xvreplgr2vr.d	$xr2, $a4
+	xvldi	$xr2, -928
 	lu12i.w	$a4, 335544
 	ori	$a4, $a4, 1311
 	lu32i.d	$a4, 335544
 	lu52i.d	$a4, $a4, 1021
 	xvreplgr2vr.d	$xr3, $a4
-	lu52i.d	$a4, $zero, 1023
-	xvreplgr2vr.d	$xr4, $a4
+	xvldi	$xr4, -912
 	vrepli.w	$vr5, 125
 	move	$a4, $a1
 	.p2align	4, , 16

@@ -223,8 +223,7 @@ very_real_unpack:                       # @very_real_unpack
 	ori	$a3, $zero, 3660
 	alsl.d	$a0, $a0, $a3, 1
 	add.d	$a3, $s7, $a0
-	ori	$a4, $zero, 1024
-	xvreplgr2vr.h	$xr0, $a4
+	xvldi	$xr0, -2812
 	addi.w	$a4, $zero, -20
 	.p2align	4, , 16
 .LBB1_3:                                # %vector.body

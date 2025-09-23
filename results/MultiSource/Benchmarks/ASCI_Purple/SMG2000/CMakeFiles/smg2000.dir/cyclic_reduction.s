@@ -1091,8 +1091,7 @@ hypre_CycRedSetupCoarseOp:              # @hypre_CycRedSetupCoarseOp
 	ori	$s7, $zero, 1
 	ori	$s8, $zero, 4
 	xvrepli.b	$xr3, 0
-	lu52i.d	$a0, $zero, 1024
-	xvreplgr2vr.d	$xr4, $a0
+	xvldi	$xr4, -1024
 	xvst	$xr3, $sp, 272                  # 32-byte Folded Spill
 	xvst	$xr4, $sp, 240                  # 32-byte Folded Spill
 	b	.LBB2_67

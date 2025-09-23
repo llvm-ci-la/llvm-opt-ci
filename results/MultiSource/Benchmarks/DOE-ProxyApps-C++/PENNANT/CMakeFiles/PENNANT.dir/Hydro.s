@@ -1814,20 +1814,20 @@ _ZN5Hydro12resetDtHydroEv:              # @_ZN5Hydro12resetDtHydroEv
 _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	.cfi_startproc
 # %bb.0:
-	addi.d	$sp, $sp, -448
-	.cfi_def_cfa_offset 448
-	st.d	$ra, $sp, 440                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 432                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 424                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 416                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 408                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 400                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 392                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 384                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 376                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 368                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 360                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 352                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -432
+	.cfi_def_cfa_offset 432
+	st.d	$ra, $sp, 424                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 416                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 408                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 400                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 392                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 384                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 376                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 368                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 360                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 352                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 344                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 336                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -1844,45 +1844,45 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	ld.d	$a0, $a0, 0
 	ld.w	$s0, $a0, 504
 	ld.w	$a1, $a0, 400
-	st.d	$a1, $sp, 224                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 208                   # 8-byte Folded Spill
 	ld.d	$a1, $a0, 240
-	st.d	$a1, $sp, 256                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 240                   # 8-byte Folded Spill
 	ld.d	$a1, $a0, 248
-	st.d	$a1, $sp, 120                   # 8-byte Folded Spill
-	ld.d	$a1, $a0, 256
 	st.d	$a1, $sp, 112                   # 8-byte Folded Spill
-	ld.d	$a1, $a0, 296
+	ld.d	$a1, $a0, 256
 	st.d	$a1, $sp, 104                   # 8-byte Folded Spill
-	ld.d	$a1, $a0, 304
+	ld.d	$a1, $a0, 296
 	st.d	$a1, $sp, 96                    # 8-byte Folded Spill
-	ld.d	$a1, $a0, 312
+	ld.d	$a1, $a0, 304
 	st.d	$a1, $sp, 88                    # 8-byte Folded Spill
-	ld.d	$a1, $a0, 320
-	st.d	$a1, $sp, 216                   # 8-byte Folded Spill
-	ld.d	$a1, $a0, 328
-	st.d	$a1, $sp, 192                   # 8-byte Folded Spill
-	ld.d	$a1, $a0, 336
+	ld.d	$a1, $a0, 312
 	st.d	$a1, $sp, 80                    # 8-byte Folded Spill
+	ld.d	$a1, $a0, 320
+	st.d	$a1, $sp, 200                   # 8-byte Folded Spill
+	ld.d	$a1, $a0, 328
+	st.d	$a1, $sp, 160                   # 8-byte Folded Spill
+	ld.d	$a1, $a0, 336
+	st.d	$a1, $sp, 72                    # 8-byte Folded Spill
 	ld.d	$s8, $a0, 344
 	ld.d	$a1, $a0, 352
-	st.d	$a1, $sp, 304                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 288                   # 8-byte Folded Spill
 	ld.d	$a1, $a0, 360
-	st.d	$a1, $sp, 344                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 328                   # 8-byte Folded Spill
 	ld.d	$a1, $a0, 368
-	st.d	$a1, $sp, 160                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 152                   # 8-byte Folded Spill
 	ld.d	$a1, $a0, 376
-	st.d	$a1, $sp, 72                    # 8-byte Folded Spill
+	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
 	ld.d	$t7, $a0, 288
 	ld.d	$s4, $a0, 264
 	ld.d	$a1, $a0, 272
-	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
-	ld.d	$a1, $a0, 280
 	st.d	$a1, $sp, 56                    # 8-byte Folded Spill
+	ld.d	$a1, $a0, 280
+	st.d	$a1, $sp, 48                    # 8-byte Folded Spill
 	ld.d	$s3, $a0, 384
 	ld.d	$a1, $a0, 392
-	st.d	$a1, $sp, 208                   # 8-byte Folded Spill
+	st.d	$a1, $sp, 192                   # 8-byte Folded Spill
                                         # kill: def $f0_64 killed $f0_64 def $vr0
-	vst	$vr0, $sp, 288                  # 16-byte Folded Spill
+	vst	$vr0, $sp, 272                  # 16-byte Folded Spill
 	blez	$s0, .LBB5_11
 # %bb.1:                                # %.lr.ph
 	move	$a1, $zero
@@ -1891,7 +1891,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	ld.d	$a4, $fp, 248
 	ld.d	$a5, $fp, 256
 	vldi	$vr0, -928
-	vld	$vr1, $sp, 288                  # 16-byte Folded Reload
+	vld	$vr1, $sp, 272                  # 16-byte Folded Reload
 	fmul.d	$fa0, $fa1, $fa0
 	vreplvei.d	$vr0, $vr0, 0
 	ori	$a6, $zero, 1
@@ -1916,7 +1916,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	alsl.d	$t4, $t1, $t7, 4
 	sub.d	$t3, $t2, $t1
 	addi.d	$t3, $t3, 1
-	ld.d	$t5, $sp, 256                   # 8-byte Folded Reload
+	ld.d	$t5, $sp, 240                   # 8-byte Folded Reload
 	add.d	$t5, $t5, $t0
 	move	$t6, $t3
 	.p2align	4, , 16
@@ -1967,22 +1967,22 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	bnez	$a7, .LBB5_10
 	b	.LBB5_2
 .LBB5_11:                               # %.preheader
-	st.d	$t7, $sp, 48                    # 8-byte Folded Spill
-	ld.d	$a1, $sp, 224                   # 8-byte Folded Reload
-	st.d	$s0, $sp, 128                   # 8-byte Folded Spill
+	st.d	$t7, $sp, 40                    # 8-byte Folded Spill
+	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
+	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
 	blez	$a1, .LBB5_35
 # %bb.12:                               # %.lr.ph221
 	move	$a4, $zero
-	ld.d	$a0, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 288                   # 8-byte Folded Reload
 	addi.d	$a0, $a0, 32
-	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 32                    # 8-byte Folded Spill
 	b	.LBB5_14
 	.p2align	4, , 16
 .LBB5_13:                               # %_ZN5Hydro12sumCrnrForceEPK7double2S2_S2_PS0_ii.exit
                                         #   in Loop: Header=BB5_14 Depth=1
-	ld.d	$a4, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 144                   # 8-byte Folded Reload
 	addi.d	$a4, $a4, 1
-	ld.d	$a0, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
 	beq	$a4, $a0, .LBB5_34
 .LBB5_14:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_30 Depth 2
@@ -1993,21 +1993,21 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	ld.d	$a1, $a0, 408
 	ld.d	$a2, $a0, 456
 	ld.d	$a3, $a0, 480
-	st.d	$a4, $sp, 152                   # 8-byte Folded Spill
+	st.d	$a4, $sp, 144                   # 8-byte Folded Spill
 	slli.d	$a4, $a4, 2
 	ld.d	$a5, $a0, 432
 	ldx.w	$s6, $a2, $a4
 	ldx.w	$a6, $a3, $a4
 	ldx.w	$s0, $a1, $a4
 	ldx.w	$s7, $a5, $a4
-	ld.d	$a1, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 200                   # 8-byte Folded Reload
 	alsl.d	$a1, $s6, $a1, 3
 	sub.d	$a4, $a6, $s6
-	ld.d	$a2, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 328                   # 8-byte Folded Reload
 	alsl.d	$a3, $s6, $a2, 3
 	ori	$a2, $zero, 2
-	st.d	$a6, $sp, 144                   # 8-byte Folded Spill
-	st.d	$a4, $sp, 136                   # 8-byte Folded Spill
+	st.d	$a6, $sp, 136                   # 8-byte Folded Spill
+	st.d	$a4, $sp, 128                   # 8-byte Folded Spill
 	blt	$a4, $a2, .LBB5_32
 # %bb.15:                               #   in Loop: Header=BB5_14 Depth=1
 	slli.d	$a2, $a4, 3
@@ -2018,9 +2018,9 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 .LBB5_16:                               # %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
                                         #   in Loop: Header=BB5_14 Depth=1
 	move	$a1, $s4
-	ld.d	$s2, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 56                    # 8-byte Folded Reload
 	move	$a2, $s2
-	ld.d	$s1, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 48                    # 8-byte Folded Reload
 	move	$a3, $s1
 	move	$a4, $s0
 	move	$a5, $s7
@@ -2030,32 +2030,32 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	st.d	$s7, $sp, 0
 	move	$a1, $s4
 	move	$a2, $s1
-	ld.d	$s5, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
 	move	$a3, $s5
-	ld.d	$a4, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a4, $sp, 72                    # 8-byte Folded Reload
 	move	$a5, $s8
-	ld.d	$a6, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$a6, $sp, 288                   # 8-byte Folded Reload
 	move	$a7, $s0
 	pcaddu18i	$ra, %call36(_ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, 0
 	move	$a1, $s1
 	move	$a2, $s2
-	ld.d	$a3, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 152                   # 8-byte Folded Reload
 	move	$a4, $s0
 	move	$a5, $s7
 	pcaddu18i	$ra, %call36(_ZN4Mesh12calcSurfVecsEPK7double2S2_PS0_ii)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, 0
 	move	$a1, $s4
-	ld.d	$a2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$a2, $sp, 64                    # 8-byte Folded Reload
 	move	$a3, $s0
 	move	$a4, $s7
 	pcaddu18i	$ra, %call36(_ZN4Mesh11calcEdgeLenEPK7double2Pdii)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, 0
 	move	$a1, $s5
-	ld.d	$a2, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 192                   # 8-byte Folded Reload
 	move	$a3, $s0
 	move	$a4, $s7
 	pcaddu18i	$ra, %call36(_ZN4Mesh11calcCharLenEPKdPdii)
@@ -2063,12 +2063,12 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	ld.d	$a6, $fp, 296
 	ld.d	$a0, $fp, 312
 	vldi	$vr4, -928
-	ld.d	$t1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$t1, $sp, 136                   # 8-byte Folded Reload
 	bge	$s6, $t1, .LBB5_21
 # %bb.17:                               # %.lr.ph.i166.preheader
                                         #   in Loop: Header=BB5_14 Depth=1
 	ori	$a1, $zero, 8
-	ld.d	$t0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$t0, $sp, 128                   # 8-byte Folded Reload
 	bgeu	$t0, $a1, .LBB5_27
 .LBB5_18:                               #   in Loop: Header=BB5_14 Depth=1
 	move	$a1, $s6
@@ -2076,7 +2076,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
                                         #   in Loop: Header=BB5_14 Depth=1
 	sub.d	$a2, $t1, $a1
 	alsl.d	$a3, $a1, $a0, 3
-	ld.d	$a4, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 288                   # 8-byte Folded Reload
 	alsl.d	$a4, $a1, $a4, 3
 	alsl.d	$a1, $a1, $a6, 3
 	.p2align	4, , 16
@@ -2139,16 +2139,16 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	st.d	$t1, $sp, 16
 	st.d	$s6, $sp, 8
 	st.d	$a2, $sp, 0
-	ld.d	$a2, $sp, 304                   # 8-byte Folded Reload
-	ld.d	$a3, $sp, 344                   # 8-byte Folded Reload
-	vld	$vr0, $sp, 288                  # 16-byte Folded Reload
+	ld.d	$a2, $sp, 288                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 328                   # 8-byte Folded Reload
+	vld	$vr0, $sp, 272                  # 16-byte Folded Reload
                                         # kill: def $f0_64 killed $f0_64 killed $vr0
 	pcaddu18i	$ra, %call36(_ZN7PolyGas15calcStateAtHalfEPKdS1_S1_S1_S1_S1_dPdS2_ii)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, 8
 	ld.d	$a1, $fp, 352
 	ld.d	$a3, $fp, 376
-	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 152                   # 8-byte Folded Reload
 	move	$a2, $s1
 	move	$a4, $s0
 	move	$a5, $s7
@@ -2161,7 +2161,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	st.d	$s7, $sp, 8
 	st.d	$s0, $sp, 0
 	move	$a1, $s8
-	ld.d	$a4, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 160                   # 8-byte Folded Reload
 	move	$a5, $s3
 	move	$a6, $s1
 	pcaddu18i	$ra, %call36(_ZN3TTS9calcForceEPKdS1_S1_S1_S1_PK7double2PS2_ii)
@@ -2220,7 +2220,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	bltu	$a1, $a3, .LBB5_18
 # %bb.28:                               # %vector.memcheck
                                         #   in Loop: Header=BB5_14 Depth=1
-	ld.d	$a1, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 288                   # 8-byte Folded Reload
 	sub.d	$a2, $a0, $a1
 	move	$a1, $s6
 	bltu	$a2, $a3, .LBB5_19
@@ -2233,7 +2233,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	addi.d	$a3, $a3, 32
 	alsl.d	$a4, $s6, $a0, 3
 	addi.d	$a4, $a4, 32
-	ld.d	$a5, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a5, $sp, 32                    # 8-byte Folded Reload
 	alsl.d	$a5, $s6, $a5, 3
 	move	$a7, $a2
 	.p2align	4, , 16
@@ -2266,7 +2266,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	b	.LBB5_16
 .LBB5_34:                               # %._crit_edge.loopexit
 	ld.d	$a0, $fp, 0
-	ld.d	$s0, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
 .LBB5_35:                               # %._crit_edge
 	pcaddu18i	$ra, %call36(_ZN4Mesh13checkBadSidesEv)
 	jirl	$ra, $ra, 0
@@ -2286,26 +2286,23 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	move	$s0, $zero
 	ld.d	$a1, $fp, 40
 	ld.d	$a0, $fp, 32
-	vld	$vr0, $sp, 288                  # 16-byte Folded Reload
+	vld	$vr0, $sp, 272                  # 16-byte Folded Reload
 	vreplvei.d	$vr6, $vr0, 0
 	ori	$s1, $zero, 4
 	fld.d	$fs0, $s2, %pc_lo12(.LCPI5_1)
-	lu52i.d	$a2, $zero, 1022
-	vreplgr2vr.d	$vr7, $a2
 	lu12i.w	$a2, 322956
 	ori	$a2, $a2, 830
 	lu32i.d	$a2, 98173
 	lu52i.d	$a2, $a2, 694
 	xvreplgr2vr.d	$xr8, $a2
-	vst	$vr6, $sp, 304                  # 16-byte Folded Spill
-	vst	$vr7, $sp, 192                  # 16-byte Folded Spill
+	vst	$vr6, $sp, 288                  # 16-byte Folded Spill
 	xvst	$xr8, $sp, 160                  # 32-byte Folded Spill
 	b	.LBB5_38
 	.p2align	4, , 16
 .LBB5_37:                               # %_ZN5Hydro10advPosFullEPK7double2S2_S2_dPS0_S3_ii.exit
                                         #   in Loop: Header=BB5_38 Depth=1
 	addi.d	$s0, $s0, 1
-	ld.d	$a2, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 120                   # 8-byte Folded Reload
 	beq	$s0, $a2, .LBB5_54
 .LBB5_38:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_40 Depth 2
@@ -2345,16 +2342,16 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	bltu	$s3, $a2, .LBB5_40
 # %bb.41:                               # %._crit_edge225
                                         #   in Loop: Header=BB5_38 Depth=1
-	vld	$vr6, $sp, 304                  # 16-byte Folded Reload
-	vld	$vr7, $sp, 192                  # 16-byte Folded Reload
+	vld	$vr6, $sp, 288                  # 16-byte Folded Reload
+	vldi	$vr7, -928
 	xvld	$xr8, $sp, 160                  # 32-byte Folded Reload
 	bge	$s5, $s6, .LBB5_37
 	b	.LBB5_43
 	.p2align	4, , 16
 .LBB5_42:                               #   in Loop: Header=BB5_38 Depth=1
 	move	$a1, $a0
-	vld	$vr6, $sp, 304                  # 16-byte Folded Reload
-	vld	$vr7, $sp, 192                  # 16-byte Folded Reload
+	vld	$vr6, $sp, 288                  # 16-byte Folded Reload
+	vldi	$vr7, -928
 	xvld	$xr8, $sp, 160                  # 32-byte Folded Reload
 	bge	$s5, $s6, .LBB5_37
 .LBB5_43:                               # %.cont.preheader.i
@@ -2398,9 +2395,9 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
                                         #   in Loop: Header=BB5_38 Depth=1
 	ld.d	$a6, $fp, 248
 	ld.d	$a7, $fp, 256
-	ld.d	$a4, $sp, 256                   # 8-byte Folded Reload
+	ld.d	$a4, $sp, 240                   # 8-byte Folded Reload
 	alsl.d	$a4, $s5, $a4, 4
-	ld.d	$a5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a5, $sp, 40                    # 8-byte Folded Reload
 	alsl.d	$a5, $s5, $a5, 4
 	alsl.d	$a6, $s5, $a6, 4
 	alsl.d	$a7, $s5, $a7, 4
@@ -2511,19 +2508,19 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	ld.d	$a0, $a0, 6
 	st.d	$a1, $fp, 168
 	st.d	$a0, $fp, 174
-	ld.d	$a0, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
 	blez	$a0, .LBB5_62
 # %bb.55:                               # %.lr.ph232
 	move	$s5, $zero
 	vldi	$vr0, -800
-	vld	$vr1, $sp, 288                  # 16-byte Folded Reload
+	vld	$vr1, $sp, 272                  # 16-byte Folded Reload
 	fmul.d	$fs0, $fa1, $fa0
 	b	.LBB5_57
 	.p2align	4, , 16
 .LBB5_56:                               # %_ZN5Hydro8calcWorkEPK7double2S2_S2_S2_S2_dPdS3_ii.exit
                                         #   in Loop: Header=BB5_57 Depth=1
 	addi.d	$s5, $s5, 1
-	ld.d	$a0, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
 	beq	$s5, $a0, .LBB5_62
 .LBB5_57:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_61 Depth 2
@@ -2537,10 +2534,10 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	ldx.w	$s1, $a3, $a2
 	ldx.w	$s3, $a4, $a2
 	ldx.w	$s7, $a5, $a2
-	ld.d	$s6, $sp, 256                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 240                   # 8-byte Folded Reload
 	move	$a1, $s6
-	ld.d	$a2, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s8, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 104                   # 8-byte Folded Reload
 	move	$a3, $s8
 	move	$a4, $s0
 	move	$a5, $s1
@@ -2550,10 +2547,10 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	st.d	$s1, $sp, 0
 	move	$a1, $s6
 	move	$a2, $s8
-	ld.d	$a3, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$a4, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$a5, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$a6, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$a4, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$a5, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$a6, $sp, 200                   # 8-byte Folded Reload
 	move	$a7, $s0
 	pcaddu18i	$ra, %call36(_ZN4Mesh8calcVolsEPK7double2S2_PdS3_S3_S3_ii)
 	jirl	$ra, $ra, 0
@@ -2651,16 +2648,16 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $fp, 0
 	ld.w	$a1, $a0, 560
-	ld.d	$s3, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 200                   # 8-byte Folded Reload
 	blez	$a1, .LBB5_92
 # %bb.63:                               # %.lr.ph236
 	move	$s0, $zero
-	vld	$vr0, $sp, 288                  # 16-byte Folded Reload
+	vld	$vr0, $sp, 272                  # 16-byte Folded Reload
 	frecip.d	$ft0, $fa0
 	xvreplve0.d	$xr0, $xr8
-	xvst	$xr0, $sp, 256                  # 32-byte Folded Spill
+	xvst	$xr0, $sp, 240                  # 32-byte Folded Spill
 	addi.d	$s1, $s3, 32
-	ld.d	$a1, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 328                   # 8-byte Folded Reload
 	addi.d	$s4, $a1, 32
 	ori	$s5, $zero, 8
 	ori	$s6, $zero, 64
@@ -2669,21 +2666,21 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	lu32i.d	$a1, 98173
 	lu52i.d	$a1, $a1, 694
 	xvreplgr2vr.d	$xr0, $a1
-	xvst	$xr0, $sp, 224                  # 32-byte Folded Spill
-	xvst	$xr8, $sp, 304                  # 32-byte Folded Spill
+	xvst	$xr0, $sp, 208                  # 32-byte Folded Spill
+	xvst	$xr8, $sp, 288                  # 32-byte Folded Spill
 	b	.LBB5_65
 	.p2align	4, , 16
 .LBB5_64:                               # %_ZN5Hydro7calcRhoEPKdS1_Pdii.exit213
                                         #   in Loop: Header=BB5_65 Depth=1
 	move	$a0, $fp
-	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
 	move	$a2, $s3
-	ld.d	$a3, $sp, 344                   # 8-byte Folded Reload
-	vld	$vr0, $sp, 288                  # 16-byte Folded Reload
+	ld.d	$a3, $sp, 328                   # 8-byte Folded Reload
+	vld	$vr0, $sp, 272                  # 16-byte Folded Reload
                                         # kill: def $f0_64 killed $f0_64 killed $vr0
 	pcaddu18i	$ra, %call36(_ZN5Hydro11calcDtHydroEPKdS1_S1_dii)
 	jirl	$ra, $ra, 0
-	xvld	$xr8, $sp, 304                  # 32-byte Folded Reload
+	xvld	$xr8, $sp, 288                  # 32-byte Folded Reload
 	ld.d	$a0, $fp, 0
 	ld.w	$a1, $a0, 560
 	addi.d	$s0, $s0, 1
@@ -2708,7 +2705,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	ld.d	$a3, $fp, 344
 	sub.d	$a0, $a5, $a4
 	move	$a6, $a4
-	xvld	$xr9, $sp, 256                  # 32-byte Folded Reload
+	xvld	$xr9, $sp, 240                  # 32-byte Folded Reload
 	bgeu	$a0, $s5, .LBB5_75
 .LBB5_67:                               # %.lr.ph.i197.preheader
                                         #   in Loop: Header=BB5_65 Depth=1
@@ -2716,7 +2713,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	alsl.d	$a3, $a6, $a3, 3
 	alsl.d	$a2, $a6, $a2, 3
 	alsl.d	$a1, $a6, $a1, 3
-	ld.d	$t0, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$t0, $sp, 328                   # 8-byte Folded Reload
 	alsl.d	$t0, $a6, $t0, 3
 	alsl.d	$a6, $a6, $s3, 3
 	.p2align	4, , 16
@@ -2799,7 +2796,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	bltu	$a7, $s6, .LBB5_67
 # %bb.76:                               # %vector.memcheck344
                                         #   in Loop: Header=BB5_65 Depth=1
-	ld.d	$a6, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$a6, $sp, 328                   # 8-byte Folded Reload
 	sub.d	$a7, $a3, $a6
 	move	$a6, $a4
 	bltu	$a7, $s6, .LBB5_67
@@ -2881,7 +2878,7 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	alsl.d	$t2, $a4, $a1, 3
 	addi.d	$t2, $t2, 32
 	move	$t3, $a7
-	xvld	$xr4, $sp, 224                  # 32-byte Folded Reload
+	xvld	$xr4, $sp, 208                  # 32-byte Folded Reload
 	.p2align	4, , 16
 .LBB5_85:                               # %vector.body333
                                         #   Parent Loop BB5_65 Depth=1
@@ -2949,19 +2946,19 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	beq	$a0, $a6, .LBB5_64
 	b	.LBB5_73
 .LBB5_92:                               # %._crit_edge237
-	fld.d	$fs0, $sp, 352                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 360                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 368                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 376                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 384                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 392                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 400                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 408                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 416                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 424                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 432                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 440                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 448
+	fld.d	$fs0, $sp, 336                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 344                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 352                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 360                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 368                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 376                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 384                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 392                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 400                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 408                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 416                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 424                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 432
 	ret
 .Lfunc_end5:
 	.size	_ZN5Hydro7doCycleEd, .Lfunc_end5-_ZN5Hydro7doCycleEd
@@ -3303,8 +3300,7 @@ _ZN5Hydro10advPosFullEPK7double2S2_S2_dPS0_S3_ii: # @_ZN5Hydro10advPosFullEPK7do
 	alsl.d	$a1, $a6, $a1, 4
 	alsl.d	$a4, $a6, $a4, 4
 	sub.d	$a5, $a7, $a6
-	lu52i.d	$a6, $zero, 1022
-	vreplgr2vr.d	$vr1, $a6
+	vldi	$vr1, -928
 	.p2align	4, , 16
 .LBB11_2:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1

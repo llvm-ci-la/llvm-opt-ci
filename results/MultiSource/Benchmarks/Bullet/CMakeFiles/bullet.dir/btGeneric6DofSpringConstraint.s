@@ -23,9 +23,9 @@ _ZN29btGeneric6DofSpringConstraintC2ER11btRigidBodyS1_RK11btTransformS4_b: # @_Z
 	xvrepli.b	$xr0, 0
 	xvst	$xr0, $fp, 1282
 	st.d	$zero, $fp, 1312
-	lu12i.w	$a0, 260096
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -1424
 	vst	$vr0, $fp, 1320
+	lu12i.w	$a0, 260096
 	lu52i.d	$a0, $a0, 1016
 	st.d	$a0, $fp, 1336
 	ld.d	$fp, $sp, 0                     # 8-byte Folded Reload

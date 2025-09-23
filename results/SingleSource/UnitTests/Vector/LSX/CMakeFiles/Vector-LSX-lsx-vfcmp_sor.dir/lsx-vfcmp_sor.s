@@ -344,9 +344,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
 	vst	$vr0, $sp, 96
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1777
 	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vfcmp.sor.s	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 112
@@ -512,8 +510,7 @@ main:                                   # @main
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_12)
 	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vst	$vr1, $sp, 96
-	lu12i.w	$a0, -524288
-	vreplgr2vr.w	$vr1, $a0
+	vldi	$vr1, -3200
 	vfcmp.sor.s	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 112
 	addi.d	$a0, $sp, 96

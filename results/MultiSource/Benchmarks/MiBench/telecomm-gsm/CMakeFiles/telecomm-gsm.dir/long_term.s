@@ -39,26 +39,26 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	move	$s4, $a1
 	vld	$vr0, $a1, 16
 	vslti.h	$vr1, $vr0, 0
-	lu12i.w	$a0, 8
-	vreplgr2vr.h	$vr2, $a0
+	vldi	$vr2, -2688
 	vseq.h	$vr3, $vr0, $vr2
 	vneg.h	$vr4, $vr0
 	lu12i.w	$a0, 7
-	ori	$a1, $a0, 4095
-	vld	$vr5, $s4, 48
-	vreplgr2vr.h	$vr6, $a1
+	ori	$a0, $a0, 4095
+	vld	$vr5, $a1, 48
+	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
+	vreplgr2vr.h	$vr6, $a0
 	vbitsel.v	$vr3, $vr4, $vr6, $vr3
 	vbitsel.v	$vr0, $vr0, $vr3, $vr1
 	vslti.h	$vr1, $vr5, 0
 	vseq.h	$vr3, $vr5, $vr2
 	vneg.h	$vr4, $vr5
-	vld	$vr7, $s4, 0
+	vld	$vr7, $a1, 0
 	vbitsel.v	$vr3, $vr4, $vr6, $vr3
 	vbitsel.v	$vr1, $vr5, $vr3, $vr1
 	vmax.h	$vr0, $vr0, $vr1
 	vslti.h	$vr1, $vr7, 0
 	vseq.h	$vr3, $vr7, $vr2
-	vld	$vr4, $s4, 32
+	vld	$vr4, $a1, 32
 	vneg.h	$vr5, $vr7
 	vbitsel.v	$vr3, $vr5, $vr6, $vr3
 	vbitsel.v	$vr1, $vr7, $vr3, $vr1
@@ -75,7 +75,7 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vbsrl.v	$vr1, $vr0, 4
 	vmax.h	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 2
-	vld	$vr3, $s4, 64
+	vld	$vr3, $a1, 64
 	vmax.h	$vr0, $vr1, $vr0
 	vpickve2gr.h	$a0, $vr0, 0
 	vreplgr2vr.h	$vr0, $a0
@@ -97,7 +97,6 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	st.d	$a4, $sp, 48                    # 8-byte Folded Spill
 	st.d	$a3, $sp, 56                    # 8-byte Folded Spill
 	move	$s5, $a2
-	st.d	$a1, $sp, 8                     # 8-byte Folded Spill
 	st.d	$a5, $sp, 32                    # 8-byte Folded Spill
 	beqz	$a0, .LBB0_2
 # %bb.1:
@@ -587,10 +586,8 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vpickve2gr.h	$a1, $vr0, 7
 	ext.w.h	$a1, $a1
 	xvinsgr2vr.w	$xr2, $a1, 7
-	lu12i.w	$a1, 4
-	xvreplgr2vr.w	$xr0, $a1
-	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
-	xvreplgr2vr.w	$xr1, $a1
+	xvldi	$xr0, -3776
+	xvldi	$xr1, -2433
 	xvori.b	$xr3, $xr0, 0
 	xvmadd.w	$xr3, $xr2, $xr1
 	xvsrli.w	$xr2, $xr3, 15
@@ -872,10 +869,9 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vpickve2gr.h	$a1, $vr0, 7
 	ext.w.h	$a1, $a1
 	xvinsgr2vr.w	$xr2, $a1, 7
-	lu12i.w	$a1, 4
-	xvreplgr2vr.w	$xr0, $a1
 	ori	$a1, $zero, 3277
 .LBB0_22:                               # %Long_term_analysis_filtering.exit
+	xvldi	$xr0, -3776
 	xvreplgr2vr.w	$xr1, $a1
 	xvori.b	$xr3, $xr0, 0
 	xvmadd.w	$xr3, $xr2, $xr1
@@ -1236,8 +1232,6 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vpickve2gr.h	$a1, $vr0, 7
 	ext.w.h	$a1, $a1
 	xvinsgr2vr.w	$xr2, $a1, 7
-	lu12i.w	$a1, 4
-	xvreplgr2vr.w	$xr0, $a1
 	lu12i.w	$a1, 2
 	ori	$a1, $a1, 3277
 	b	.LBB0_22
@@ -1329,8 +1323,6 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vpickve2gr.h	$a1, $vr0, 7
 	ext.w.h	$a1, $a1
 	xvinsgr2vr.w	$xr2, $a1, 7
-	lu12i.w	$a1, 4
-	xvreplgr2vr.w	$xr0, $a1
 	lu12i.w	$a1, 5
 	ori	$a1, $a1, 819
 	b	.LBB0_22

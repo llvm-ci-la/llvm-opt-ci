@@ -1486,9 +1486,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_27)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_27)
 	xvst	$xr0, $sp, 192
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -2305
 	xvst	$xr0, $sp, 64                   # 32-byte Folded Spill
 	vext2xv.du.bu	$xr0, $xr0
 	xvst	$xr0, $sp, 224
@@ -1755,7 +1753,7 @@ main:                                   # @main
 	lu12i.w	$a0, 8
 	xvreplgr2vr.d	$xr0, $a0
 	xvst	$xr0, $sp, 192
-	xvreplgr2vr.h	$xr0, $a0
+	xvldi	$xr0, -2688
 	vext2xv.du.hu	$xr0, $xr0
 	xvst	$xr0, $sp, 224
 	addi.d	$a0, $sp, 192
@@ -1799,9 +1797,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1777
 	xvst	$xr0, $sp, 64                   # 32-byte Folded Spill
 	xvst	$xr0, $sp, 192
 	xvrepli.b	$xr0, -1

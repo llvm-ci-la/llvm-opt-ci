@@ -853,9 +853,7 @@ main:                                   # @main
 	lu32i.d	$a0, -255
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 96
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 255
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1761
 	vld	$vr1, $sp, 48                   # 16-byte Folded Reload
 	vmulwev.w.h	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 112

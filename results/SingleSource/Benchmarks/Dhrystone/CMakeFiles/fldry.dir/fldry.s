@@ -72,28 +72,28 @@ Proc0:                                  # @Proc0
 	jirl	$ra, $ra, 0
 	lu12i.w	$a0, 24414
 	ori	$a0, $a0, 256
-	lu32i.d	$s1, -262144
-	lu52i.d	$a1, $s1, 1025
-	vreplgr2vr.d	$vr0, $a1
-	pcalau12i	$a2, %pc_hi20(Array1Glob)
-	addi.d	$a2, $a2, %pc_lo12(Array1Glob)
-	lu52i.d	$a3, $zero, 1026
-	ori	$a4, $zero, 3320
+	pcalau12i	$a1, %pc_hi20(Array1Glob)
+	addi.d	$a1, $a1, %pc_lo12(Array1Glob)
+	vldi	$vr0, -996
+	lu52i.d	$a2, $zero, 1026
+	ori	$a3, $zero, 3320
 	vldi	$vr1, -912
+	lu32i.d	$s1, -262144
+	lu52i.d	$a4, $s1, 1025
 	lu52i.d	$a5, $s2, 1025
 	.p2align	4, , 16
 .LBB1_1:                                # %.lr.ph.i
                                         # =>This Inner Loop Header: Depth=1
-	vst	$vr0, $a2, 64
-	st.d	$a3, $a2, 304
-	fldx.d	$fa2, $fp, $a4
+	vst	$vr0, $a1, 64
+	st.d	$a2, $a1, 304
+	fldx.d	$fa2, $fp, $a3
 	ld.d	$a6, $s0, %pc_lo12(PtrGlb)
-	stptr.d	$a3, $fp, 3328
-	stptr.d	$a3, $fp, 3336
+	stptr.d	$a2, $fp, 3328
+	stptr.d	$a2, $fp, 3336
 	fadd.d	$fa2, $fa2, $fa1
 	ld.d	$a7, $a6, 0
-	fstx.d	$fa2, $fp, $a4
-	stptr.d	$a1, $fp, 11488
+	fstx.d	$fa2, $fp, $a3
+	stptr.d	$a4, $fp, 11488
 	st.d	$a5, $a6, 16
 	st.d	$a5, $a7, 16
 	addi.w	$a0, $a0, -1

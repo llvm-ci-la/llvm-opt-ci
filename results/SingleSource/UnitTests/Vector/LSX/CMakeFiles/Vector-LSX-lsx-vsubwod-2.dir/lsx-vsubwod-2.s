@@ -617,11 +617,9 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 15
-	pcalau12i	$a1, %pc_hi20(.LCPI2_11)
-	vld	$vr0, $a1, %pc_lo12(.LCPI2_11)
-	ori	$a0, $a0, 4095
-	vreplgr2vr.d	$vr1, $a0
+	pcalau12i	$a0, %pc_hi20(.LCPI2_11)
+	vld	$vr0, $a0, %pc_lo12(.LCPI2_11)
+	vldi	$vr1, -1789
 	vst	$vr1, $sp, 80
 	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
 	vsubwod.w.hu	$vr0, $vr0, $vr1

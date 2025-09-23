@@ -1787,12 +1787,9 @@ Q__align:                               # @Q__align
 	bstrpick.d	$t2, $t3, 31, 3
 	slli.d	$t2, $t2, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$t3, $zero, 1023
-	xvreplgr2vr.d	$xr2, $t3
-	lu52i.d	$t3, $zero, 1022
-	xvreplgr2vr.d	$xr3, $t3
-	lu12i.w	$t3, 260096
-	xvreplgr2vr.w	$xr4, $t3
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
+	xvldi	$xr4, -1424
 	move	$t3, $a0
 	move	$t4, $a1
 	move	$t5, $a2
@@ -2190,12 +2187,9 @@ Q__align:                               # @Q__align
 	bstrpick.d	$t2, $t3, 31, 3
 	slli.d	$t2, $t2, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$t3, $zero, 1023
-	xvreplgr2vr.d	$xr2, $t3
-	lu52i.d	$t3, $zero, 1022
-	xvreplgr2vr.d	$xr3, $t3
-	lu12i.w	$t3, 260096
-	xvreplgr2vr.w	$xr4, $t3
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
+	xvldi	$xr4, -1424
 	move	$t3, $a0
 	move	$t4, $a1
 	move	$t5, $a2
@@ -2652,17 +2646,16 @@ Q__align:                               # @Q__align
 	ori	$a5, $zero, 1
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
-	xvreplgr2vr.w	$xr0, $a0
 	pcalau12i	$a5, %pc_hi20(.LCPI3_1)
-	xvld	$xr1, $a5, %pc_lo12(.LCPI3_1)
+	xvld	$xr0, $a5, %pc_lo12(.LCPI3_1)
+	xvreplgr2vr.w	$xr1, $a0
 	addi.d	$a5, $t3, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr2, $a6
+	xvldi	$xr2, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB3_135:                              # %vector.body1099
                                         # =>This Inner Loop Header: Depth=1
-	xvmul.w	$xr3, $xr0, $xr1
+	xvmul.w	$xr3, $xr1, $xr0
 	xvpermi.q	$xr4, $xr3, 1
 	vext2xv.d.w	$xr4, $xr4
 	xvffint.d.l	$xr4, $xr4
@@ -2720,7 +2713,7 @@ Q__align:                               # @Q__align
 	fcvt.s.d	$fa3, $fa3
 	xvinsve0.w	$xr6, $xr3, 7
 	xvst	$xr6, $a5, 0
-	xvaddi.wu	$xr1, $xr1, 8
+	xvaddi.wu	$xr0, $xr0, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB3_135
@@ -2772,17 +2765,16 @@ Q__align:                               # @Q__align
 	ori	$a6, $zero, 1
 	move	$a4, $a3
 	bstrins.d	$a4, $a6, 2, 0
-	xvreplgr2vr.w	$xr0, $a0
 	pcalau12i	$a6, %pc_hi20(.LCPI3_1)
-	xvld	$xr1, $a6, %pc_lo12(.LCPI3_1)
+	xvld	$xr0, $a6, %pc_lo12(.LCPI3_1)
+	xvreplgr2vr.w	$xr1, $a0
 	addi.d	$a6, $a1, 4
-	lu52i.d	$a7, $zero, -1026
-	xvreplgr2vr.d	$xr2, $a7
+	xvldi	$xr2, -800
 	move	$a7, $a5
 	.p2align	4, , 16
 .LBB3_143:                              # %vector.body1114
                                         # =>This Inner Loop Header: Depth=1
-	xvmul.w	$xr3, $xr0, $xr1
+	xvmul.w	$xr3, $xr1, $xr0
 	xvpermi.q	$xr4, $xr3, 1
 	vext2xv.d.w	$xr4, $xr4
 	xvffint.d.l	$xr4, $xr4
@@ -2840,7 +2832,7 @@ Q__align:                               # @Q__align
 	fcvt.s.d	$fa3, $fa3
 	xvinsve0.w	$xr6, $xr3, 7
 	xvst	$xr6, $a6, 0
-	xvaddi.wu	$xr1, $xr1, 8
+	xvaddi.wu	$xr0, $xr0, 8
 	addi.d	$a7, $a7, -8
 	addi.d	$a6, $a6, 32
 	bnez	$a7, .LBB3_143
@@ -3533,20 +3525,19 @@ Q__align:                               # @Q__align
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
 	xvreplgr2vr.w	$xr0, $a0
-	xvreplgr2vr.d	$xr1, $s8
 	pcalau12i	$a5, %pc_hi20(.LCPI3_3)
-	xvld	$xr2, $a5, %pc_lo12(.LCPI3_3)
+	xvld	$xr1, $a5, %pc_lo12(.LCPI3_3)
 	pcalau12i	$a5, %pc_hi20(.LCPI3_4)
-	xvld	$xr3, $a5, %pc_lo12(.LCPI3_4)
+	xvld	$xr2, $a5, %pc_lo12(.LCPI3_4)
+	xvreplgr2vr.d	$xr3, $s8
 	addi.d	$a5, $t3, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr4, $a6
+	xvldi	$xr4, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB3_216:                              # %vector.body1300
                                         # =>This Inner Loop Header: Depth=1
-	xvsub.d	$xr5, $xr1, $xr2
-	xvsub.d	$xr6, $xr1, $xr3
+	xvsub.d	$xr5, $xr3, $xr1
+	xvsub.d	$xr6, $xr3, $xr2
 	xvpickve2gr.d	$a7, $xr6, 0
 	xvinsgr2vr.w	$xr7, $a7, 0
 	xvpickve2gr.d	$a7, $xr6, 1
@@ -3621,8 +3612,8 @@ Q__align:                               # @Q__align
 	fcvt.s.d	$fa5, $fa5
 	xvinsve0.w	$xr8, $xr5, 7
 	xvst	$xr8, $a5, 0
-	xvaddi.du	$xr3, $xr3, 8
 	xvaddi.du	$xr2, $xr2, 8
+	xvaddi.du	$xr1, $xr1, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB3_216
@@ -3676,17 +3667,16 @@ Q__align:                               # @Q__align
 	move	$a0, $a3
 	bstrins.d	$a0, $a5, 1, 0
 	xvreplve0.d	$xr2, $xr0
-	xvreplve0.d	$xr3, $xr1
 	pcalau12i	$a5, %pc_hi20(.LCPI3_5)
-	vld	$vr4, $a5, %pc_lo12(.LCPI3_5)
+	vld	$vr3, $a5, %pc_lo12(.LCPI3_5)
+	xvreplve0.d	$xr4, $xr1
 	addi.d	$a5, $a1, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr5, $a6
+	xvldi	$xr5, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB3_223:                              # %vector.body1319
                                         # =>This Inner Loop Header: Depth=1
-	vext2xv.du.wu	$xr6, $xr4
+	vext2xv.du.wu	$xr6, $xr3
 	vld	$vr7, $a5, 0
 	xvffint.d.lu	$xr6, $xr6
 	xvfmul.d	$xr6, $xr6, $xr5
@@ -3702,7 +3692,7 @@ Q__align:                               # @Q__align
 	vreplvei.w	$vr7, $vr7, 3
 	fcvt.d.s	$fa7, $fa7
 	xvinsve0.d	$xr9, $xr7, 3
-	xvfmadd.d	$xr6, $xr3, $xr6, $xr9
+	xvfmadd.d	$xr6, $xr4, $xr6, $xr9
 	xvpickve.d	$xr7, $xr6, 1
 	fcvt.s.d	$fa7, $fa7
 	xvpickve.d	$xr8, $xr6, 0
@@ -3715,7 +3705,7 @@ Q__align:                               # @Q__align
 	fcvt.s.d	$fa6, $fa6
 	vextrins.w	$vr8, $vr6, 48
 	vst	$vr8, $a5, 0
-	vaddi.wu	$vr4, $vr4, 4
+	vaddi.wu	$vr3, $vr3, 4
 	addi.d	$a6, $a6, -4
 	addi.d	$a5, $a5, 16
 	bnez	$a6, .LBB3_223
@@ -6840,12 +6830,9 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	bstrpick.d	$t2, $t3, 31, 3
 	slli.d	$t2, $t2, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$t3, $zero, 1023
-	xvreplgr2vr.d	$xr2, $t3
-	lu52i.d	$t3, $zero, 1022
-	xvreplgr2vr.d	$xr3, $t3
-	lu12i.w	$t3, 260096
-	xvreplgr2vr.w	$xr4, $t3
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
+	xvldi	$xr4, -1424
 	move	$t3, $a0
 	move	$t4, $a1
 	move	$t5, $a2
@@ -7243,12 +7230,9 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	bstrpick.d	$t2, $t3, 31, 3
 	slli.d	$t2, $t2, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$t3, $zero, 1023
-	xvreplgr2vr.d	$xr2, $t3
-	lu52i.d	$t3, $zero, 1022
-	xvreplgr2vr.d	$xr3, $t3
-	lu12i.w	$t3, 260096
-	xvreplgr2vr.w	$xr4, $t3
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
+	xvldi	$xr4, -1424
 	move	$t3, $a0
 	move	$t4, $a1
 	move	$t5, $a2
@@ -7697,17 +7681,16 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	ori	$a6, $zero, 1
 	move	$a4, $a3
 	bstrins.d	$a4, $a6, 2, 0
-	xvreplgr2vr.w	$xr0, $a1
 	pcalau12i	$a6, %pc_hi20(.LCPI6_1)
-	xvld	$xr1, $a6, %pc_lo12(.LCPI6_1)
+	xvld	$xr0, $a6, %pc_lo12(.LCPI6_1)
+	xvreplgr2vr.w	$xr1, $a1
 	addi.d	$a6, $t5, 4
-	lu52i.d	$a7, $zero, -1026
-	xvreplgr2vr.d	$xr2, $a7
+	xvldi	$xr2, -800
 	move	$a7, $a5
 	.p2align	4, , 16
 .LBB6_132:                              # %vector.body1043
                                         # =>This Inner Loop Header: Depth=1
-	xvmul.w	$xr3, $xr0, $xr1
+	xvmul.w	$xr3, $xr1, $xr0
 	xvpermi.q	$xr4, $xr3, 1
 	vext2xv.d.w	$xr4, $xr4
 	xvffint.d.l	$xr4, $xr4
@@ -7765,7 +7748,7 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	fcvt.s.d	$fa3, $fa3
 	xvinsve0.w	$xr6, $xr3, 7
 	xvst	$xr6, $a6, 0
-	xvaddi.wu	$xr1, $xr1, 8
+	xvaddi.wu	$xr0, $xr0, 8
 	addi.d	$a7, $a7, -8
 	addi.d	$a6, $a6, 32
 	bnez	$a7, .LBB6_132
@@ -7810,17 +7793,16 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	ori	$a7, $zero, 1
 	move	$a5, $a4
 	bstrins.d	$a5, $a7, 2, 0
-	xvreplgr2vr.w	$xr0, $a1
 	pcalau12i	$a7, %pc_hi20(.LCPI6_1)
-	xvld	$xr1, $a7, %pc_lo12(.LCPI6_1)
+	xvld	$xr0, $a7, %pc_lo12(.LCPI6_1)
+	xvreplgr2vr.w	$xr1, $a1
 	addi.d	$a7, $a2, 4
-	lu52i.d	$t0, $zero, -1026
-	xvreplgr2vr.d	$xr2, $t0
+	xvldi	$xr2, -800
 	move	$t0, $a6
 	.p2align	4, , 16
 .LBB6_139:                              # %vector.body1057
                                         # =>This Inner Loop Header: Depth=1
-	xvmul.w	$xr3, $xr0, $xr1
+	xvmul.w	$xr3, $xr1, $xr0
 	xvpermi.q	$xr4, $xr3, 1
 	vext2xv.d.w	$xr4, $xr4
 	xvffint.d.l	$xr4, $xr4
@@ -7878,7 +7860,7 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	fcvt.s.d	$fa3, $fa3
 	xvinsve0.w	$xr6, $xr3, 7
 	xvst	$xr6, $a7, 0
-	xvaddi.wu	$xr1, $xr1, 8
+	xvaddi.wu	$xr0, $xr0, 8
 	addi.d	$t0, $t0, -8
 	addi.d	$a7, $a7, 32
 	bnez	$t0, .LBB6_139
@@ -8461,21 +8443,20 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	move	$a3, $a2
 	bstrins.d	$a3, $a5, 2, 0
 	xvreplgr2vr.w	$xr0, $a0
-	ld.d	$a5, $sp, 344                   # 8-byte Folded Reload
-	xvreplgr2vr.d	$xr1, $a5
 	pcalau12i	$a5, %pc_hi20(.LCPI6_3)
-	xvld	$xr2, $a5, %pc_lo12(.LCPI6_3)
+	xvld	$xr1, $a5, %pc_lo12(.LCPI6_3)
 	pcalau12i	$a5, %pc_hi20(.LCPI6_4)
-	xvld	$xr3, $a5, %pc_lo12(.LCPI6_4)
+	xvld	$xr2, $a5, %pc_lo12(.LCPI6_4)
+	ld.d	$a5, $sp, 344                   # 8-byte Folded Reload
+	xvreplgr2vr.d	$xr3, $a5
 	addi.d	$a5, $t5, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr4, $a6
+	xvldi	$xr4, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB6_197:                              # %vector.body1179
                                         # =>This Inner Loop Header: Depth=1
-	xvsub.d	$xr5, $xr1, $xr2
-	xvsub.d	$xr6, $xr1, $xr3
+	xvsub.d	$xr5, $xr3, $xr1
+	xvsub.d	$xr6, $xr3, $xr2
 	xvpickve2gr.d	$a7, $xr6, 0
 	xvinsgr2vr.w	$xr7, $a7, 0
 	xvpickve2gr.d	$a7, $xr6, 1
@@ -8550,8 +8531,8 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	fcvt.s.d	$fa5, $fa5
 	xvinsve0.w	$xr8, $xr5, 7
 	xvst	$xr8, $a5, 0
-	xvaddi.du	$xr3, $xr3, 8
 	xvaddi.du	$xr2, $xr2, 8
+	xvaddi.du	$xr1, $xr1, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 32
 	bnez	$a6, .LBB6_197
@@ -8606,17 +8587,16 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	move	$a0, $a3
 	bstrins.d	$a0, $a5, 1, 0
 	xvreplve0.d	$xr2, $xr0
-	xvreplve0.d	$xr3, $xr1
 	pcalau12i	$a5, %pc_hi20(.LCPI6_5)
-	vld	$vr4, $a5, %pc_lo12(.LCPI6_5)
+	vld	$vr3, $a5, %pc_lo12(.LCPI6_5)
+	xvreplve0.d	$xr4, $xr1
 	addi.d	$a5, $a1, 4
-	lu52i.d	$a6, $zero, -1026
-	xvreplgr2vr.d	$xr5, $a6
+	xvldi	$xr5, -800
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB6_204:                              # %vector.body1198
                                         # =>This Inner Loop Header: Depth=1
-	vext2xv.du.wu	$xr6, $xr4
+	vext2xv.du.wu	$xr6, $xr3
 	vld	$vr7, $a5, 0
 	xvffint.d.lu	$xr6, $xr6
 	xvfmul.d	$xr6, $xr6, $xr5
@@ -8632,7 +8612,7 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	vreplvei.w	$vr7, $vr7, 3
 	fcvt.d.s	$fa7, $fa7
 	xvinsve0.d	$xr9, $xr7, 3
-	xvfmadd.d	$xr6, $xr3, $xr6, $xr9
+	xvfmadd.d	$xr6, $xr4, $xr6, $xr9
 	xvpickve.d	$xr7, $xr6, 1
 	fcvt.s.d	$fa7, $fa7
 	xvpickve.d	$xr8, $xr6, 0
@@ -8645,7 +8625,7 @@ Q__align_gapmap:                        # @Q__align_gapmap
 	fcvt.s.d	$fa6, $fa6
 	vextrins.w	$vr8, $vr6, 48
 	vst	$vr8, $a5, 0
-	vaddi.wu	$vr4, $vr4, 4
+	vaddi.wu	$vr3, $vr3, 4
 	addi.d	$a6, $a6, -4
 	addi.d	$a5, $a5, 16
 	bnez	$a6, .LBB6_204

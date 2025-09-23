@@ -460,9 +460,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 7
-	ori	$a0, $a0, 3072
-	xvreplgr2vr.h	$xr0, $a0
+	xvldi	$xr0, -2692
 	xvst	$xr0, $sp, 224
 	xvrepli.b	$xr0, 109
 	xvfcvt.h.s	$xr0, $xr0, $xr0
@@ -615,9 +613,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr1, $sp, 128                  # 32-byte Folded Reload
 	xvst	$xr1, $sp, 160
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -2305
 	xvfcvt.s.d	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 192
 	addi.d	$a0, $sp, 160

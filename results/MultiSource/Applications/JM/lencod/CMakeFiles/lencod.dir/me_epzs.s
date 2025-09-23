@@ -1535,7 +1535,7 @@ EPZSSliceInit:                          # @EPZSSliceInit
 	vrepli.w	$vr1, -128
 	vrepli.w	$vr2, 127
 	vrepli.w	$vr3, 32
-	vreplgr2vr.w	$vr4, $s1
+	vldi	$vr4, -2553
 	vrepli.b	$vr5, 0
 	vrepli.h	$vr6, 1
 	b	.LBB8_3

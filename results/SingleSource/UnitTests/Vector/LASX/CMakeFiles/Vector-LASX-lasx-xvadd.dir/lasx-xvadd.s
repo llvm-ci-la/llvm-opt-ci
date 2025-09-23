@@ -778,13 +778,11 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_22)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_22)
-	xvst	$xr0, $sp, 128
 	pcalau12i	$a0, %pc_hi20(.LCPI2_23)
-	xvld	$xr0, $a0, %pc_lo12(.LCPI2_23)
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	xvreplgr2vr.d	$xr1, $a0
-	xvadd.q	$xr0, $xr1, $xr0
+	xvld	$xr1, $a0, %pc_lo12(.LCPI2_23)
+	xvst	$xr0, $sp, 128
+	xvldi	$xr0, -1552
+	xvadd.q	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 160
 	addi.d	$a0, $sp, 128
 	addi.d	$a1, $sp, 160

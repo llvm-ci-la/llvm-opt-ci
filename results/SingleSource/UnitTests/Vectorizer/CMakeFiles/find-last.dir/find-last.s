@@ -2997,18 +2997,17 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception1
 # %bb.0:
-	addi.d	$sp, $sp, -192
-	.cfi_def_cfa_offset 192
-	st.d	$ra, $sp, 184                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 112                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -176
+	.cfi_def_cfa_offset 176
+	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -3018,7 +3017,6 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	.cfi_offset 27, -56
 	.cfi_offset 28, -64
 	.cfi_offset 29, -72
-	.cfi_offset 30, -80
 	move	$fp, $a2
 	move	$s1, $a1
 	move	$s2, $a0
@@ -3069,38 +3067,38 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 .Ltmp406:                               # EH_LABEL
 # %bb.4:
 	move	$s0, $a0
-	lu12i.w	$s6, -524288
-	lu52i.d	$s5, $s6, 2047
-	st.d	$s5, $sp, 104
+	lu12i.w	$a0, -524288
+	lu52i.d	$s5, $a0, 2047
+	st.d	$s5, $sp, 96
 	lu12i.w	$s4, -1
-	ori	$s7, $s4, 96
+	ori	$s6, $s4, 96
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s3, $a0, %pc_lo12(_ZL3rng)
 	.p2align	4, , 16
 .LBB1_5:                                # =>This Inner Loop Header: Depth=1
 .Ltmp408:                               # EH_LABEL
-	addi.d	$a0, $sp, 104
-	addi.d	$a2, $sp, 104
+	addi.d	$a0, $sp, 96
+	addi.d	$a2, $sp, 96
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
 .Ltmp409:                               # EH_LABEL
 # %bb.6:                                # %.noexc
                                         #   in Loop: Header=BB1_5 Depth=1
-	add.d	$a1, $fp, $s7
-	addi.d	$s7, $s7, 4
+	add.d	$a1, $fp, $s6
+	addi.d	$s6, $s6, 4
 	stptr.w	$a0, $a1, 4000
-	bnez	$s7, .LBB1_5
+	bnez	$s6, .LBB1_5
 # %bb.7:
-	st.d	$s5, $sp, 104
+	st.d	$s5, $sp, 96
 	ori	$s5, $s4, 96
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s3, $a0, %pc_lo12(_ZL3rng)
 	.p2align	4, , 16
 .LBB1_8:                                # =>This Inner Loop Header: Depth=1
 .Ltmp411:                               # EH_LABEL
-	addi.d	$a0, $sp, 104
-	addi.d	$a2, $sp, 104
+	addi.d	$a0, $sp, 96
+	addi.d	$a2, $sp, 96
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -3113,34 +3111,34 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	bnez	$s5, .LBB1_8
 # %bb.10:
 	ld.d	$a0, $s2, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_58
 # %bb.11:
 	ld.d	$a4, $s2, 24
 .Ltmp414:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp415:                               # EH_LABEL
 # %bb.12:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_60
 # %bb.13:
 	ld.d	$a4, $s1, 24
 .Ltmp416:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp417:                               # EH_LABEL
@@ -3153,7 +3151,7 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvreplgr2vr.w	$xr1, $s5
 	ori	$a1, $zero, 3968
 	ori	$a2, $zero, 4000
-	xvreplgr2vr.w	$xr0, $s6
+	xvldi	$xr0, -3200
 	.p2align	4, , 16
 .LBB1_16:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -3172,34 +3170,34 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvst	$xr0, $sp, 48                   # 32-byte Folded Spill
 	xvstx	$xr0, $s0, $a0
 	ld.d	$a0, $s2, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_63
 # %bb.18:
 	ld.d	$a4, $s2, 24
 .Ltmp420:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp421:                               # EH_LABEL
 # %bb.19:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_65
 # %bb.20:
 	ld.d	$a4, $s1, 24
 .Ltmp422:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp423:                               # EH_LABEL
@@ -3227,34 +3225,34 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvstx	$xr0, $fp, $a0
 	xvstx	$xr1, $s0, $a0
 	ld.d	$a0, $s2, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_68
 # %bb.25:
 	ld.d	$a4, $s2, 24
 .Ltmp426:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp427:                               # EH_LABEL
 # %bb.26:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_70
 # %bb.27:
 	ld.d	$a4, $s1, 24
 .Ltmp428:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp429:                               # EH_LABEL
@@ -3282,34 +3280,34 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvstx	$xr0, $fp, $a0
 	stptr.w	$s5, $fp, 3992
 	ld.d	$a0, $s2, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_73
 # %bb.32:
 	ld.d	$a4, $s2, 24
 .Ltmp432:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp433:                               # EH_LABEL
 # %bb.33:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_75
 # %bb.34:
 	ld.d	$a4, $s1, 24
 .Ltmp434:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp435:                               # EH_LABEL
@@ -3337,34 +3335,34 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvstx	$xr0, $fp, $a0
 	st.w	$s5, $fp, 0
 	ld.d	$a0, $s2, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_78
 # %bb.39:
 	ld.d	$a4, $s2, 24
 .Ltmp438:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp439:                               # EH_LABEL
 # %bb.40:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_80
 # %bb.41:
 	ld.d	$a4, $s1, 24
 .Ltmp440:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp441:                               # EH_LABEL
@@ -3392,34 +3390,34 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvstx	$xr0, $fp, $a0
 	stptr.w	$s5, $fp, 3996
 	ld.d	$a0, $s2, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_83
 # %bb.46:
 	ld.d	$a4, $s2, 24
 .Ltmp444:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp445:                               # EH_LABEL
 # %bb.47:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_85
 # %bb.48:
 	ld.d	$a4, $s1, 24
 .Ltmp446:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp447:                               # EH_LABEL
@@ -3448,34 +3446,34 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	stptr.w	$s5, $fp, 3996
 	st.w	$s5, $fp, 0
 	ld.d	$a0, $s2, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_88
 # %bb.53:
 	ld.d	$a4, $s2, 24
 .Ltmp450:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp451:                               # EH_LABEL
 # %bb.54:
 	move	$s2, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 104
-	st.d	$s0, $sp, 96
+	st.d	$fp, $sp, 96
+	st.d	$s0, $sp, 88
 	ori	$a1, $zero, 1000
-	st.w	$a1, $sp, 92
+	st.w	$a1, $sp, 84
 	beqz	$a0, .LBB1_90
 # %bb.55:
 	ld.d	$a4, $s1, 24
 .Ltmp452:                               # EH_LABEL
-	addi.d	$a1, $sp, 104
-	addi.d	$a2, $sp, 96
-	addi.d	$a3, $sp, 92
+	addi.d	$a1, $sp, 96
+	addi.d	$a2, $sp, 88
+	addi.d	$a3, $sp, 84
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp453:                               # EH_LABEL
@@ -3488,17 +3486,16 @@ _ZL19checkVectorFunctionIiiEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s7, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 184                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 192
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 176
 	ret
 .LBB1_58:
 .Ltmp495:                               # EH_LABEL
@@ -4000,8 +3997,7 @@ _ZL19checkVectorFunctionIifEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvreplgr2vr.w	$xr1, $s4
 	ori	$a1, $zero, 3968
 	ori	$a2, $zero, 4000
-	lu12i.w	$a3, 2048
-	xvreplgr2vr.w	$xr0, $a3
+	xvldi	$xr0, -3456
 	.p2align	4, , 16
 .LBB2_10:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -4720,17 +4716,17 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception3
 # %bb.0:
-	addi.d	$sp, $sp, -208
-	.cfi_def_cfa_offset 208
-	st.d	$ra, $sp, 200                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 192                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 184                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 136                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -192
+	.cfi_def_cfa_offset 192
+	st.d	$ra, $sp, 184                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 120                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -4792,15 +4788,15 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 # %bb.4:
 	move	$s0, $a0
 	lu12i.w	$s5, 524280
-	st.w	$s5, $sp, 128
+	st.w	$s5, $sp, 112
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s3, $a0, %pc_lo12(_ZL3rng)
 	move	$s6, $zero
 	.p2align	4, , 16
 .LBB3_5:                                # =>This Inner Loop Header: Depth=1
 .Ltmp588:                               # EH_LABEL
-	addi.d	$a0, $sp, 128
-	addi.d	$a2, $sp, 128
+	addi.d	$a0, $sp, 112
+	addi.d	$a2, $sp, 112
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIsEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEsRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -4811,7 +4807,7 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	addi.d	$s6, $s6, 2
 	bne	$s6, $s4, .LBB3_5
 # %bb.7:
-	st.w	$s5, $sp, 128
+	st.w	$s5, $sp, 112
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s3, $a0, %pc_lo12(_ZL3rng)
 	move	$s4, $zero
@@ -4819,8 +4815,8 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	.p2align	4, , 16
 .LBB3_8:                                # =>This Inner Loop Header: Depth=1
 .Ltmp591:                               # EH_LABEL
-	addi.d	$a0, $sp, 128
-	addi.d	$a2, $sp, 128
+	addi.d	$a0, $sp, 112
+	addi.d	$a2, $sp, 112
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIsEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEsRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -4832,34 +4828,34 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	bne	$s4, $s5, .LBB3_8
 # %bb.10:
 	ld.d	$a0, $s2, 16
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	ori	$a1, $zero, 1000
-	st.h	$a1, $sp, 118
+	st.h	$a1, $sp, 102
 	beqz	$a0, .LBB3_46
 # %bb.11:
 	ld.d	$a4, $s2, 24
 .Ltmp594:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp595:                               # EH_LABEL
 # %bb.12:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	ori	$a1, $zero, 1000
-	st.h	$a1, $sp, 118
+	st.h	$a1, $sp, 102
 	beqz	$a0, .LBB3_48
 # %bb.13:
 	ld.d	$a4, $s1, 24
 .Ltmp596:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp597:                               # EH_LABEL
@@ -4871,8 +4867,7 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvreplgr2vr.h	$xr1, $s4
 	xvst	$xr1, $fp, 0
 	xvst	$xr1, $fp, 32
-	lu12i.w	$a0, 8
-	xvreplgr2vr.h	$xr0, $a0
+	xvldi	$xr0, -2688
 	xvst	$xr0, $s0, 0
 	xvst	$xr0, $s0, 32
 	xvst	$xr1, $fp, 64
@@ -4995,50 +4990,49 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvst	$xr1, $sp, 32                   # 32-byte Folded Spill
 	xvst	$xr1, $fp, 1952
 	xvst	$xr0, $s0, 1920
-	xvst	$xr0, $sp, 80                   # 32-byte Folded Spill
+	xvst	$xr0, $sp, 64                   # 32-byte Folded Spill
 	xvst	$xr0, $s0, 1952
-	vreplgr2vr.h	$vr1, $s4
-	vreplgr2vr.h	$vr0, $a0
+	vreplgr2vr.h	$vr0, $s4
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	vst	$vr0, $fp, 1984
 	ori	$a0, $zero, 1000
-	st.h	$a0, $sp, 118
+	st.h	$a0, $sp, 102
 	ld.d	$a0, $s2, 16
-	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
-	vst	$vr1, $fp, 1984
-	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
+	vldi	$vr0, -2688
 	vst	$vr0, $s0, 1984
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	beqz	$a0, .LBB3_51
 # %bb.16:
 	ld.d	$a4, $s2, 24
 .Ltmp600:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp601:                               # EH_LABEL
 # %bb.17:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	ori	$a1, $zero, 1000
-	st.h	$a1, $sp, 118
+	st.h	$a1, $sp, 102
 	beqz	$a0, .LBB3_53
 # %bb.18:
 	ld.d	$a4, $s1, 24
 .Ltmp602:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp603:                               # EH_LABEL
 # %bb.19:
 	bne	$s3, $a0, .LBB3_55
 # %bb.20:                               # %vector.body254
-	xvld	$xr0, $sp, 80                   # 32-byte Folded Reload
+	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $fp, 0
 	xvst	$xr0, $fp, 32
 	xvld	$xr1, $sp, 32                   # 32-byte Folded Reload
@@ -5164,46 +5158,46 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvst	$xr0, $fp, 1952
 	xvst	$xr1, $s0, 1920
 	xvst	$xr1, $s0, 1952
+	vldi	$vr0, -2688
 	ori	$a0, $zero, 1000
-	st.h	$a0, $sp, 118
+	st.h	$a0, $sp, 102
 	ld.d	$a0, $s2, 16
-	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vst	$vr0, $fp, 1984
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
 	vst	$vr0, $s0, 1984
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	beqz	$a0, .LBB3_56
 # %bb.21:
 	ld.d	$a4, $s2, 24
 .Ltmp606:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp607:                               # EH_LABEL
 # %bb.22:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	ori	$a1, $zero, 1000
-	st.h	$a1, $sp, 118
+	st.h	$a1, $sp, 102
 	beqz	$a0, .LBB3_58
 # %bb.23:
 	ld.d	$a4, $s1, 24
 .Ltmp608:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp609:                               # EH_LABEL
 # %bb.24:
 	bne	$s3, $a0, .LBB3_60
 # %bb.25:                               # %vector.body271
-	xvld	$xr0, $sp, 80                   # 32-byte Folded Reload
+	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $s0, 0
 	xvst	$xr0, $s0, 32
 	xvst	$xr0, $fp, 0
@@ -5328,46 +5322,46 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvst	$xr0, $s0, 1952
 	xvst	$xr0, $fp, 1920
 	xvst	$xr0, $fp, 1952
-	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+	vldi	$vr0, -2688
 	vst	$vr0, $s0, 1984
 	ori	$a0, $zero, 1000
-	st.h	$a0, $sp, 118
+	st.h	$a0, $sp, 102
 	ld.d	$a0, $s2, 16
 	vst	$vr0, $fp, 1984
 	st.h	$s4, $fp, 1996
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	beqz	$a0, .LBB3_61
 # %bb.26:
 	ld.d	$a4, $s2, 24
 .Ltmp612:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp613:                               # EH_LABEL
 # %bb.27:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	ori	$a1, $zero, 1000
-	st.h	$a1, $sp, 118
+	st.h	$a1, $sp, 102
 	beqz	$a0, .LBB3_63
 # %bb.28:
 	ld.d	$a4, $s1, 24
 .Ltmp614:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp615:                               # EH_LABEL
 # %bb.29:
 	bne	$s3, $a0, .LBB3_65
 # %bb.30:                               # %vector.body288
-	xvld	$xr0, $sp, 80                   # 32-byte Folded Reload
+	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $s0, 0
 	xvst	$xr0, $s0, 32
 	xvst	$xr0, $fp, 0
@@ -5492,46 +5486,46 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvst	$xr0, $s0, 1952
 	xvst	$xr0, $fp, 1920
 	xvst	$xr0, $fp, 1952
-	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+	vldi	$vr0, -2688
 	vst	$vr0, $s0, 1984
 	ori	$a0, $zero, 1000
-	st.h	$a0, $sp, 118
+	st.h	$a0, $sp, 102
 	ld.d	$a0, $s2, 16
 	vst	$vr0, $fp, 1984
 	st.h	$s4, $fp, 0
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	beqz	$a0, .LBB3_66
 # %bb.31:
 	ld.d	$a4, $s2, 24
 .Ltmp618:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp619:                               # EH_LABEL
 # %bb.32:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	ori	$a1, $zero, 1000
-	st.h	$a1, $sp, 118
+	st.h	$a1, $sp, 102
 	beqz	$a0, .LBB3_68
 # %bb.33:
 	ld.d	$a4, $s1, 24
 .Ltmp620:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp621:                               # EH_LABEL
 # %bb.34:
 	bne	$s3, $a0, .LBB3_70
 # %bb.35:                               # %vector.body305
-	xvld	$xr0, $sp, 80                   # 32-byte Folded Reload
+	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $s0, 0
 	xvst	$xr0, $s0, 32
 	xvst	$xr0, $fp, 0
@@ -5656,46 +5650,46 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvst	$xr0, $s0, 1952
 	xvst	$xr0, $fp, 1920
 	xvst	$xr0, $fp, 1952
-	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+	vldi	$vr0, -2688
 	vst	$vr0, $s0, 1984
 	ori	$a0, $zero, 1000
-	st.h	$a0, $sp, 118
+	st.h	$a0, $sp, 102
 	ld.d	$a0, $s2, 16
 	vst	$vr0, $fp, 1984
 	st.h	$s4, $fp, 1998
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	beqz	$a0, .LBB3_71
 # %bb.36:
 	ld.d	$a4, $s2, 24
 .Ltmp624:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp625:                               # EH_LABEL
 # %bb.37:
 	move	$s3, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	ori	$a1, $zero, 1000
-	st.h	$a1, $sp, 118
+	st.h	$a1, $sp, 102
 	beqz	$a0, .LBB3_73
 # %bb.38:
 	ld.d	$a4, $s1, 24
 .Ltmp626:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp627:                               # EH_LABEL
 # %bb.39:
 	bne	$s3, $a0, .LBB3_75
 # %bb.40:                               # %vector.body322
-	xvld	$xr0, $sp, 80                   # 32-byte Folded Reload
+	xvld	$xr0, $sp, 64                   # 32-byte Folded Reload
 	xvst	$xr0, $s0, 0
 	xvst	$xr0, $s0, 32
 	xvst	$xr0, $fp, 0
@@ -5819,41 +5813,41 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	xvst	$xr0, $s0, 1920
 	xvst	$xr0, $s0, 1952
 	xvst	$xr0, $fp, 1920
-	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
-	vst	$vr1, $fp, 1984
+	xvst	$xr0, $fp, 1952
+	vldi	$vr0, -2688
+	vst	$vr0, $fp, 1984
 	st.h	$s4, $fp, 1998
 	st.h	$s4, $fp, 0
 	ori	$a0, $zero, 1000
-	st.h	$a0, $sp, 118
-	ld.d	$a0, $s2, 16
-	xvst	$xr0, $fp, 1952
-	vst	$vr1, $s0, 1984
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
-	beqz	$a0, .LBB3_76
+	ld.d	$a1, $s2, 16
+	st.h	$a0, $sp, 102
+	vst	$vr0, $s0, 1984
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
+	beqz	$a1, .LBB3_76
 # %bb.41:
 	ld.d	$a4, $s2, 24
 .Ltmp630:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s2
 	jirl	$ra, $a4, 0
 .Ltmp631:                               # EH_LABEL
 # %bb.42:
 	move	$s2, $a0
 	ld.d	$a0, $s1, 16
-	st.d	$fp, $sp, 128
-	st.d	$s0, $sp, 120
+	st.d	$fp, $sp, 112
+	st.d	$s0, $sp, 104
 	ori	$a1, $zero, 1000
-	st.h	$a1, $sp, 118
+	st.h	$a1, $sp, 102
 	beqz	$a0, .LBB3_78
 # %bb.43:
 	ld.d	$a4, $s1, 24
 .Ltmp632:                               # EH_LABEL
-	addi.d	$a1, $sp, 128
-	addi.d	$a2, $sp, 120
-	addi.d	$a3, $sp, 118
+	addi.d	$a1, $sp, 112
+	addi.d	$a2, $sp, 104
+	addi.d	$a3, $sp, 102
 	move	$a0, $s1
 	jirl	$ra, $a4, 0
 .Ltmp633:                               # EH_LABEL
@@ -5866,16 +5860,16 @@ _ZL19checkVectorFunctionIssEvSt8functionIFT_PT0_S3_S1_EES5_PKc: # @_ZL19checkVec
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s6, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 200                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 208
+	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 184                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 192
 	ret
 .LBB3_46:
 .Ltmp675:                               # EH_LABEL
@@ -6639,7 +6633,7 @@ _ZNSt17_Function_handlerIFiPiS0_iEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS0_S7_Oi
 	pcalau12i	$a5, %pc_hi20(.LCPI9_0)
 	xvld	$xr0, $a5, %pc_lo12(.LCPI9_0)
 	addi.d	$a5, $a3, 32
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$a6, $a1, 32
 	move	$a7, $a2
 	xvori.b	$xr2, $xr1, 0
@@ -7198,7 +7192,7 @@ _ZNSt17_Function_handlerIFiPfS0_iEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS0_S7_Oi
 	pcalau12i	$a5, %pc_hi20(.LCPI14_0)
 	xvld	$xr0, $a5, %pc_lo12(.LCPI14_0)
 	addi.d	$a5, $a3, 32
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$a6, $a1, 32
 	move	$a7, $a2
 	xvori.b	$xr2, $xr1, 0
@@ -7546,12 +7540,12 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataOS0_S7_Os
 	slli.d	$a3, $a3, 5
 	addi.d	$a6, $a2, 32
 	pcalau12i	$a7, %pc_hi20(.LCPI19_0)
-	xvld	$xr1, $a7, %pc_lo12(.LCPI19_0)
-	xvreplgr2vr.h	$xr0, $a4
+	xvld	$xr0, $a7, %pc_lo12(.LCPI19_0)
 	addi.d	$a7, $a1, 32
+	xvldi	$xr1, -2688
 	xvrepli.h	$xr2, 32
 	move	$t0, $a3
-	xvori.b	$xr3, $xr0, 0
+	xvori.b	$xr3, $xr1, 0
 	.p2align	4, , 16
 .LBB19_7:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -7559,18 +7553,18 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataOS0_S7_Os
 	xvld	$xr5, $a7, 0
 	xvld	$xr6, $a6, -32
 	xvld	$xr7, $a6, 0
-	xvaddi.hu	$xr8, $xr1, 16
+	xvaddi.hu	$xr8, $xr0, 16
 	xvslt.h	$xr4, $xr6, $xr4
 	xvslt.h	$xr5, $xr7, $xr5
-	xvbitsel.v	$xr0, $xr0, $xr1, $xr4
+	xvbitsel.v	$xr1, $xr1, $xr0, $xr4
 	xvbitsel.v	$xr3, $xr3, $xr8, $xr5
-	xvadd.h	$xr1, $xr1, $xr2
+	xvadd.h	$xr0, $xr0, $xr2
 	addi.d	$t0, $t0, -32
 	addi.d	$a6, $a6, 64
 	addi.d	$a7, $a7, 64
 	bnez	$t0, .LBB19_7
 # %bb.8:                                # %middle.block
-	xvmax.h	$xr0, $xr0, $xr3
+	xvmax.h	$xr0, $xr1, $xr3
 	xvpermi.q	$xr1, $xr0, 1
 	vmax.h	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8
@@ -7791,7 +7785,7 @@ _ZNSt17_Function_handlerIFiPiS0_iEZ4mainE3$_5E9_M_invokeERKSt9_Any_dataOS0_S7_Oi
 	pcalau12i	$a5, %pc_hi20(.LCPI23_0)
 	xvld	$xr0, $a5, %pc_lo12(.LCPI23_0)
 	addi.d	$a5, $a3, 32
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$a6, $a1, 32
 	move	$a7, $a2
 	xvori.b	$xr2, $xr1, 0
@@ -8029,7 +8023,7 @@ _ZNSt17_Function_handlerIFiPfS0_iEZ4mainE3$_5E9_M_invokeERKSt9_Any_dataOS0_S7_Oi
 	pcalau12i	$a5, %pc_hi20(.LCPI27_0)
 	xvld	$xr0, $a5, %pc_lo12(.LCPI27_0)
 	addi.d	$a5, $a3, 32
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$a6, $a1, 32
 	move	$a7, $a2
 	xvori.b	$xr2, $xr1, 0
@@ -8283,12 +8277,12 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE3$_7E9_M_invokeERKSt9_Any_dataOS0_S7_Os
 	slli.d	$a3, $a3, 5
 	addi.d	$a6, $a2, 32
 	pcalau12i	$a7, %pc_hi20(.LCPI31_0)
-	xvld	$xr1, $a7, %pc_lo12(.LCPI31_0)
-	xvreplgr2vr.h	$xr0, $a4
+	xvld	$xr0, $a7, %pc_lo12(.LCPI31_0)
 	addi.d	$a7, $a1, 32
+	xvldi	$xr1, -2688
 	xvrepli.h	$xr2, 32
 	move	$t0, $a3
-	xvori.b	$xr3, $xr0, 0
+	xvori.b	$xr3, $xr1, 0
 	.p2align	4, , 16
 .LBB31_7:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -8296,18 +8290,18 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE3$_7E9_M_invokeERKSt9_Any_dataOS0_S7_Os
 	xvld	$xr5, $a7, 0
 	xvld	$xr6, $a6, -32
 	xvld	$xr7, $a6, 0
-	xvaddi.hu	$xr8, $xr1, 16
+	xvaddi.hu	$xr8, $xr0, 16
 	xvslt.h	$xr4, $xr6, $xr4
 	xvslt.h	$xr5, $xr7, $xr5
-	xvbitsel.v	$xr0, $xr1, $xr0, $xr4
+	xvbitsel.v	$xr1, $xr0, $xr1, $xr4
 	xvbitsel.v	$xr3, $xr8, $xr3, $xr5
-	xvadd.h	$xr1, $xr1, $xr2
+	xvadd.h	$xr0, $xr0, $xr2
 	addi.d	$t0, $t0, -32
 	addi.d	$a6, $a6, 64
 	addi.d	$a7, $a7, 64
 	bnez	$t0, .LBB31_7
 # %bb.8:                                # %middle.block
-	xvmax.h	$xr0, $xr0, $xr3
+	xvmax.h	$xr0, $xr1, $xr3
 	xvpermi.q	$xr1, $xr0, 1
 	vmax.h	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8
@@ -8525,7 +8519,7 @@ _ZNSt17_Function_handlerIFiPiS0_iEZ4mainE3$_9E9_M_invokeERKSt9_Any_dataOS0_S7_Oi
 	pcalau12i	$a5, %pc_hi20(.LCPI35_0)
 	xvld	$xr0, $a5, %pc_lo12(.LCPI35_0)
 	addi.d	$a5, $a2, 32
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$a6, $a3, 32
 	move	$a7, $a1
 	xvori.b	$xr2, $xr1, 0
@@ -8758,7 +8752,7 @@ _ZNSt17_Function_handlerIFiPfS0_iEZ4mainE3$_9E9_M_invokeERKSt9_Any_dataOS0_S7_Oi
 	pcalau12i	$a5, %pc_hi20(.LCPI39_0)
 	xvld	$xr0, $a5, %pc_lo12(.LCPI39_0)
 	addi.d	$a5, $a2, 32
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$a6, $a3, 32
 	move	$a7, $a1
 	xvori.b	$xr2, $xr1, 0
@@ -9004,12 +8998,12 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_11E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	slli.d	$a4, $a4, 5
 	addi.d	$a6, $a2, 32
 	pcalau12i	$a7, %pc_hi20(.LCPI43_0)
-	xvld	$xr1, $a7, %pc_lo12(.LCPI43_0)
-	xvreplgr2vr.h	$xr0, $a5
+	xvld	$xr0, $a7, %pc_lo12(.LCPI43_0)
 	addi.d	$a7, $a3, 32
+	xvldi	$xr1, -2688
 	xvrepli.h	$xr2, 32
 	move	$t0, $a4
-	xvori.b	$xr3, $xr0, 0
+	xvori.b	$xr3, $xr1, 0
 	.p2align	4, , 16
 .LBB43_6:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -9017,18 +9011,18 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_11E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	xvld	$xr5, $a7, 0
 	xvld	$xr6, $a6, -32
 	xvld	$xr7, $a6, 0
-	xvaddi.hu	$xr8, $xr1, 16
+	xvaddi.hu	$xr8, $xr0, 16
 	xvslt.h	$xr4, $xr6, $xr4
 	xvslt.h	$xr5, $xr7, $xr5
-	xvbitsel.v	$xr0, $xr0, $xr1, $xr4
+	xvbitsel.v	$xr1, $xr1, $xr0, $xr4
 	xvbitsel.v	$xr3, $xr3, $xr8, $xr5
-	xvadd.h	$xr1, $xr1, $xr2
+	xvadd.h	$xr0, $xr0, $xr2
 	addi.d	$t0, $t0, -32
 	addi.d	$a6, $a6, 64
 	addi.d	$a7, $a7, 64
 	bnez	$t0, .LBB43_6
 # %bb.7:                                # %middle.block
-	xvmax.h	$xr0, $xr0, $xr3
+	xvmax.h	$xr0, $xr1, $xr3
 	xvpermi.q	$xr1, $xr0, 1
 	vmax.h	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8
@@ -9967,7 +9961,7 @@ _ZNSt17_Function_handlerIFiPiS0_iEZ4mainE4$_21E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	pcalau12i	$a6, %pc_hi20(.LCPI71_0)
 	xvld	$xr0, $a6, %pc_lo12(.LCPI71_0)
 	addi.d	$a6, $a1, 44
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$t0, $a2, 44
 	move	$t1, $a5
 	xvori.b	$xr2, $xr1, 0
@@ -10219,7 +10213,7 @@ _ZNSt17_Function_handlerIFiPfS0_iEZ4mainE4$_21E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	pcalau12i	$a6, %pc_hi20(.LCPI75_0)
 	xvld	$xr0, $a6, %pc_lo12(.LCPI75_0)
 	addi.d	$a6, $a1, 44
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$t0, $a2, 44
 	move	$t1, $a5
 	xvori.b	$xr2, $xr1, 0
@@ -10487,12 +10481,12 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_23E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	bstrins.d	$a7, $t1, 4, 0
 	addi.d	$t1, $a1, 38
 	pcalau12i	$t2, %pc_hi20(.LCPI79_0)
-	xvld	$xr1, $t2, %pc_lo12(.LCPI79_0)
-	xvreplgr2vr.h	$xr0, $a4
+	xvld	$xr0, $t2, %pc_lo12(.LCPI79_0)
 	addi.d	$t2, $a2, 38
+	xvldi	$xr1, -2688
 	xvrepli.h	$xr2, 32
 	move	$t3, $a5
-	xvori.b	$xr3, $xr0, 0
+	xvori.b	$xr3, $xr1, 0
 	.p2align	4, , 16
 .LBB79_7:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -10500,18 +10494,18 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_23E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	xvld	$xr5, $t1, 0
 	xvld	$xr6, $t2, -32
 	xvld	$xr7, $t2, 0
-	xvaddi.hu	$xr8, $xr1, 16
+	xvaddi.hu	$xr8, $xr0, 16
 	xvslt.h	$xr4, $xr6, $xr4
 	xvslt.h	$xr5, $xr7, $xr5
-	xvbitsel.v	$xr0, $xr0, $xr1, $xr4
+	xvbitsel.v	$xr1, $xr1, $xr0, $xr4
 	xvbitsel.v	$xr3, $xr3, $xr8, $xr5
-	xvadd.h	$xr1, $xr1, $xr2
+	xvadd.h	$xr0, $xr0, $xr2
 	addi.d	$t1, $t1, 64
 	addi.d	$t3, $t3, -32
 	addi.d	$t2, $t2, 64
 	bnez	$t3, .LBB79_7
 # %bb.8:                                # %middle.block
-	xvmax.h	$xr0, $xr0, $xr3
+	xvmax.h	$xr0, $xr1, $xr3
 	xvpermi.q	$xr1, $xr0, 1
 	vmax.h	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8
@@ -10740,7 +10734,7 @@ _ZNSt17_Function_handlerIFiPiS0_iEZ4mainE4$_25E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	pcalau12i	$a6, %pc_hi20(.LCPI83_0)
 	xvld	$xr0, $a6, %pc_lo12(.LCPI83_0)
 	addi.d	$a6, $a1, 44
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$t0, $a2, 44
 	move	$t1, $a5
 	xvori.b	$xr2, $xr1, 0
@@ -10985,7 +10979,7 @@ _ZNSt17_Function_handlerIFiPfS0_iEZ4mainE4$_25E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	pcalau12i	$a6, %pc_hi20(.LCPI87_0)
 	xvld	$xr0, $a6, %pc_lo12(.LCPI87_0)
 	addi.d	$a6, $a1, 44
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$t0, $a2, 44
 	move	$t1, $a5
 	xvori.b	$xr2, $xr1, 0
@@ -11242,12 +11236,12 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_27E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	bstrins.d	$a7, $t0, 4, 0
 	addi.d	$t0, $a1, 38
 	pcalau12i	$t1, %pc_hi20(.LCPI91_0)
-	xvld	$xr1, $t1, %pc_lo12(.LCPI91_0)
-	xvreplgr2vr.h	$xr0, $a4
+	xvld	$xr0, $t1, %pc_lo12(.LCPI91_0)
 	addi.d	$t1, $a2, 38
+	xvldi	$xr1, -2688
 	xvrepli.h	$xr2, 32
 	move	$t2, $a5
-	xvori.b	$xr3, $xr0, 0
+	xvori.b	$xr3, $xr1, 0
 	.p2align	4, , 16
 .LBB91_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -11255,18 +11249,18 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_27E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	xvld	$xr5, $t0, 0
 	xvld	$xr6, $t1, -32
 	xvld	$xr7, $t1, 0
-	xvaddi.hu	$xr8, $xr1, 16
+	xvaddi.hu	$xr8, $xr0, 16
 	xvslt.h	$xr4, $xr6, $xr4
 	xvslt.h	$xr5, $xr7, $xr5
-	xvbitsel.v	$xr0, $xr0, $xr1, $xr4
+	xvbitsel.v	$xr1, $xr1, $xr0, $xr4
 	xvbitsel.v	$xr3, $xr3, $xr8, $xr5
-	xvadd.h	$xr1, $xr1, $xr2
+	xvadd.h	$xr0, $xr0, $xr2
 	addi.d	$t0, $t0, 64
 	addi.d	$t2, $t2, -32
 	addi.d	$t1, $t1, 64
 	bnez	$t2, .LBB91_5
 # %bb.6:                                # %middle.block
-	xvmax.h	$xr0, $xr0, $xr3
+	xvmax.h	$xr0, $xr1, $xr3
 	xvpermi.q	$xr1, $xr0, 1
 	vmax.h	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8
@@ -11497,7 +11491,7 @@ _ZNSt17_Function_handlerIFiPiS0_iEZ4mainE4$_29E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	pcalau12i	$a6, %pc_hi20(.LCPI95_0)
 	xvld	$xr0, $a6, %pc_lo12(.LCPI95_0)
 	addi.d	$a6, $a1, 44
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$t0, $a2, 44
 	move	$t1, $a5
 	xvori.b	$xr2, $xr1, 0
@@ -11744,7 +11738,7 @@ _ZNSt17_Function_handlerIFiPfS0_iEZ4mainE4$_29E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	pcalau12i	$a6, %pc_hi20(.LCPI99_0)
 	xvld	$xr0, $a6, %pc_lo12(.LCPI99_0)
 	addi.d	$a6, $a1, 44
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$t0, $a2, 44
 	move	$t1, $a5
 	xvori.b	$xr2, $xr1, 0
@@ -12003,12 +11997,12 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_31E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	bstrins.d	$a7, $t0, 4, 0
 	addi.d	$t0, $a1, 38
 	pcalau12i	$t1, %pc_hi20(.LCPI103_0)
-	xvld	$xr1, $t1, %pc_lo12(.LCPI103_0)
-	xvreplgr2vr.h	$xr0, $a4
+	xvld	$xr0, $t1, %pc_lo12(.LCPI103_0)
 	addi.d	$t1, $a2, 38
+	xvldi	$xr1, -2688
 	xvrepli.h	$xr2, 32
 	move	$t2, $a5
-	xvori.b	$xr3, $xr0, 0
+	xvori.b	$xr3, $xr1, 0
 	.p2align	4, , 16
 .LBB103_6:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -12016,18 +12010,18 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_31E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	xvld	$xr5, $t0, 0
 	xvld	$xr6, $t1, -32
 	xvld	$xr7, $t1, 0
-	xvaddi.hu	$xr8, $xr1, 16
+	xvaddi.hu	$xr8, $xr0, 16
 	xvslt.h	$xr4, $xr6, $xr4
 	xvslt.h	$xr5, $xr7, $xr5
-	xvbitsel.v	$xr0, $xr0, $xr1, $xr4
+	xvbitsel.v	$xr1, $xr1, $xr0, $xr4
 	xvbitsel.v	$xr3, $xr3, $xr8, $xr5
-	xvadd.h	$xr1, $xr1, $xr2
+	xvadd.h	$xr0, $xr0, $xr2
 	addi.d	$t0, $t0, 64
 	addi.d	$t2, $t2, -32
 	addi.d	$t1, $t1, 64
 	bnez	$t2, .LBB103_6
 # %bb.7:                                # %middle.block
-	xvmax.h	$xr0, $xr0, $xr3
+	xvmax.h	$xr0, $xr1, $xr3
 	xvpermi.q	$xr1, $xr0, 1
 	vmax.h	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8
@@ -12254,7 +12248,7 @@ _ZNSt17_Function_handlerIFiPiS0_iEZ4mainE4$_33E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	pcalau12i	$a6, %pc_hi20(.LCPI107_0)
 	xvld	$xr0, $a6, %pc_lo12(.LCPI107_0)
 	addi.d	$a6, $a1, 44
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$t0, $a2, 44
 	move	$t1, $a5
 	xvori.b	$xr2, $xr1, 0
@@ -12497,7 +12491,7 @@ _ZNSt17_Function_handlerIFiPfS0_iEZ4mainE4$_33E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	pcalau12i	$a6, %pc_hi20(.LCPI111_0)
 	xvld	$xr0, $a6, %pc_lo12(.LCPI111_0)
 	addi.d	$a6, $a1, 44
-	xvreplgr2vr.w	$xr1, $a4
+	xvldi	$xr1, -3200
 	addi.d	$t0, $a2, 44
 	move	$t1, $a5
 	xvori.b	$xr2, $xr1, 0
@@ -12754,12 +12748,12 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_35E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	bstrins.d	$a7, $t0, 4, 0
 	addi.d	$t0, $a1, 38
 	pcalau12i	$t1, %pc_hi20(.LCPI115_0)
-	xvld	$xr1, $t1, %pc_lo12(.LCPI115_0)
-	xvreplgr2vr.h	$xr0, $a4
+	xvld	$xr0, $t1, %pc_lo12(.LCPI115_0)
 	addi.d	$t1, $a2, 38
+	xvldi	$xr1, -2688
 	xvrepli.h	$xr2, 32
 	move	$t2, $a5
-	xvori.b	$xr3, $xr0, 0
+	xvori.b	$xr3, $xr1, 0
 	.p2align	4, , 16
 .LBB115_6:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -12767,18 +12761,18 @@ _ZNSt17_Function_handlerIFsPsS0_sEZ4mainE4$_35E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	xvld	$xr5, $t0, 0
 	xvld	$xr6, $t1, -32
 	xvld	$xr7, $t1, 0
-	xvaddi.hu	$xr8, $xr1, 16
+	xvaddi.hu	$xr8, $xr0, 16
 	xvslt.h	$xr4, $xr6, $xr4
 	xvslt.h	$xr5, $xr7, $xr5
-	xvbitsel.v	$xr0, $xr0, $xr1, $xr4
+	xvbitsel.v	$xr1, $xr1, $xr0, $xr4
 	xvbitsel.v	$xr3, $xr3, $xr8, $xr5
-	xvadd.h	$xr1, $xr1, $xr2
+	xvadd.h	$xr0, $xr0, $xr2
 	addi.d	$t0, $t0, 64
 	addi.d	$t2, $t2, -32
 	addi.d	$t1, $t1, 64
 	bnez	$t2, .LBB115_6
 # %bb.7:                                # %middle.block
-	xvmax.h	$xr0, $xr0, $xr3
+	xvmax.h	$xr0, $xr1, $xr3
 	xvpermi.q	$xr1, $xr0, 1
 	vmax.h	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8

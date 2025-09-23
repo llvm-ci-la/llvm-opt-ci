@@ -2288,8 +2288,7 @@ _ZL19checkVectorFunctionIfEvSt8functionIFT_PS1_jEES4_PKc: # @_ZL19checkVectorFun
 	jirl	$ra, $a3, 0
 .Ltmp279:                               # EH_LABEL
 .LBB1_52:                               # %vector.body1258
-	lu12i.w	$a0, 2048
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3456
 	xvst	$xr0, $fp, 0
 	xvst	$xr0, $fp, 32
 	xvst	$xr0, $fp, 64
@@ -2967,8 +2966,7 @@ _ZL19checkVectorFunctionIfEvSt8functionIFT_PS1_jEES4_PKc: # @_ZL19checkVectorFun
 .LBB1_100:                              # %.preheader715
 	move	$s6, $zero
 	addi.d	$s7, $fp, 4
-	lu12i.w	$a0, -264192
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -1296
 	xvst	$xr0, $sp, 240                  # 32-byte Folded Spill
 	lu12i.w	$s3, -524288
 	lu32i.d	$s3, 0
@@ -7478,9 +7476,8 @@ _ZNSt17_Function_handlerIFfPfjEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_M
 	.type	_ZNSt17_Function_handlerIFfPfjEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS0_Oj,@function
 _ZNSt17_Function_handlerIFfPfjEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS0_Oj: # @"_ZNSt17_Function_handlerIFfPfjEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataOS0_Oj"
 # %bb.0:                                # %vector.ph
-	lu12i.w	$a0, -262144
-	xvreplgr2vr.w	$xr0, $a0
 	ld.d	$a0, $a1, 0
+	xvldi	$xr0, -3136
 	lu12i.w	$a1, -2
 	ori	$a6, $a1, 4032
 	lu12i.w	$a1, 1
@@ -7698,9 +7695,8 @@ _ZNSt17_Function_handlerIFfPfjEZ4mainE3$_2E10_M_managerERSt9_Any_dataRKS4_St18_M
 	.type	_ZNSt17_Function_handlerIFfPfjEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataOS0_Oj,@function
 _ZNSt17_Function_handlerIFfPfjEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataOS0_Oj: # @"_ZNSt17_Function_handlerIFfPfjEZ4mainE3$_3E9_M_invokeERKSt9_Any_dataOS0_Oj"
 # %bb.0:                                # %vector.ph
-	lu12i.w	$a0, 2048
-	xvreplgr2vr.w	$xr0, $a0
 	ld.d	$a0, $a1, 0
+	xvldi	$xr0, -3456
 	lu12i.w	$a1, -2
 	ori	$a6, $a1, 4032
 	lu12i.w	$a1, 1

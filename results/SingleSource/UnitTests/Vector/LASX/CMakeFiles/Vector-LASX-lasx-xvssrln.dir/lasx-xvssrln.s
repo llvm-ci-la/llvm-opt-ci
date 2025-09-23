@@ -857,7 +857,6 @@ main:                                   # @main
 	st.d	$ra, $sp, 312                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 304                   # 8-byte Folded Spill
 	st.d	$s0, $sp, 296                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 288                   # 8-byte Folded Spill
 	addi.d	$fp, $sp, 320
 	bstrins.d	$sp, $zero, 4, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
@@ -881,10 +880,9 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_3)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_3)
 	xvst	$xr0, $sp, 224
-	lu12i.w	$a0, 2
-	xvreplgr2vr.h	$xr0, $a0
-	xvrepli.b	$xr1, 1
-	xvssrln.b.h	$xr0, $xr0, $xr1
+	xvrepli.b	$xr0, 1
+	xvldi	$xr1, -2784
+	xvssrln.b.h	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 256
 	addi.d	$a0, $sp, 224
 	addi.d	$a1, $sp, 256
@@ -1435,11 +1433,8 @@ main:                                   # @main
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_53)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_54)
 	xvld	$xr1, $a0, %pc_lo12(.LCPI2_54)
-	addi.w	$s1, $zero, -1
 	xvst	$xr0, $sp, 224
-	move	$a0, $s1
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1777
 	xvst	$xr0, $sp, 32                   # 32-byte Folded Spill
 	xvssrln.bu.h	$xr0, $xr1, $xr0
 	xvst	$xr0, $sp, 256
@@ -1454,7 +1449,8 @@ main:                                   # @main
 	xvst	$xr0, $sp, 224
 	lu52i.d	$a0, $zero, 2047
 	xvreplgr2vr.d	$xr0, $a0
-	lu52i.d	$a0, $s1, 2046
+	addi.w	$a0, $zero, -1
+	lu52i.d	$a0, $a0, 2046
 	xvreplgr2vr.d	$xr1, $a0
 	xvssrln.bu.h	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 256
@@ -1745,7 +1741,6 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
 	addi.d	$sp, $fp, -320
-	ld.d	$s1, $sp, 288                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 296                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 304                   # 8-byte Folded Reload
 	ld.d	$ra, $sp, 312                   # 8-byte Folded Reload

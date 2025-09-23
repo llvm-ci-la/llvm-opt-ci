@@ -8935,8 +8935,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	xvld	$xr2, $sp, 1440                 # 32-byte Folded Reload
 	xvinsve0.d	$xr1, $xr2, 2
 	xvinsve0.d	$xr1, $xr0, 3
-	lu52i.d	$a0, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -912
 	xvst	$xr0, $sp, 640                  # 32-byte Folded Spill
 	xvfadd.d	$xr0, $xr1, $xr0
 	xvfrecip.d	$xr0, $xr0
@@ -10968,8 +10967,7 @@ DoNNetIteration:                        # @DoNNetIteration
 	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	fst.d	$fa0, $a0, %pc_lo12(average_error)
 	fcmp.cult.d	$fcc0, $fa1, $fa2
-	lu52i.d	$a0, $zero, 1027
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -976
 	bcnez	$fcc0, .LBB15_82
 # %bb.72:                               # %.lr.ph.split.i.preheader
                                         #   in Loop: Header=BB15_25 Depth=2

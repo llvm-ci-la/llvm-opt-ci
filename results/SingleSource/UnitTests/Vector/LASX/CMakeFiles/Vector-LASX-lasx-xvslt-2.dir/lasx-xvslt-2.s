@@ -1075,8 +1075,7 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	xvld	$xr1, $sp, 160                  # 32-byte Folded Reload
 	xvst	$xr1, $sp, 192
-	lu52i.d	$a0, $zero, -1025
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -784
 	xvslt.wu	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 224
 	addi.d	$a0, $sp, 192

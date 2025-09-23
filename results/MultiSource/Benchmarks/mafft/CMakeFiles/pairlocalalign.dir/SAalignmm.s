@@ -293,8 +293,7 @@ Aalign:                                 # @Aalign
 	xvreplve0.d	$xr1, $xr0
 	ld.d	$a5, $sp, 80                    # 8-byte Folded Reload
 	addi.d	$a5, $a5, 4
-	lu52i.d	$a6, $zero, 1022
-	xvreplgr2vr.d	$xr2, $a6
+	xvldi	$xr2, -928
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB0_24:                               # %vector.body318
@@ -391,8 +390,7 @@ Aalign:                                 # @Aalign
 	bstrins.d	$a3, $a5, 2, 0
 	xvreplve0.d	$xr1, $xr0
 	addi.d	$a5, $s7, 4
-	lu52i.d	$a6, $zero, 1022
-	xvreplgr2vr.d	$xr2, $a6
+	xvldi	$xr2, -928
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB0_31:                               # %vector.body332
@@ -535,8 +533,7 @@ Aalign:                                 # @Aalign
 	slli.d	$a3, $a3, 3
 	vext2xv.d.w	$xr0, $xr0
 	xvffint.d.l	$xr0, $xr0
-	lu52i.d	$a5, $zero, 1022
-	xvreplgr2vr.d	$xr1, $a5
+	xvldi	$xr1, -928
 	xvrepli.b	$xr2, 0
 	move	$a5, $a1
 	move	$a6, $a2

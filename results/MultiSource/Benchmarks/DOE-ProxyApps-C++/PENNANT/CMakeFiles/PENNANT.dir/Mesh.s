@@ -3762,8 +3762,7 @@ _ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii:  # @_ZN4Mesh8calcCtrsEPK7double2PS0_S3_ii
 	alsl.d	$a2, $s5, $a2, 2
 	alsl.d	$a3, $s5, $a3, 2
 	sub.d	$a4, $s4, $s5
-	lu52i.d	$a5, $zero, 1022
-	vreplgr2vr.d	$vr0, $a5
+	vldi	$vr0, -928
 	.p2align	4, , 16
 .LBB9_4:                                # =>This Inner Loop Header: Depth=1
 	ld.w	$a5, $a1, 0

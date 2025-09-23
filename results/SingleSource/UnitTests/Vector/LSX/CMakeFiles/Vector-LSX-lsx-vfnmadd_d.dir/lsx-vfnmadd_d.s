@@ -334,12 +334,12 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, 65535
-	lu52i.d	$a1, $a0, -2048
-	pcalau12i	$a2, %pc_hi20(.LCPI2_3)
-	vld	$vr0, $a2, %pc_lo12(.LCPI2_3)
-	vreplgr2vr.d	$vr1, $a1
-	vst	$vr1, $sp, 48
+	lu52i.d	$a0, $a0, -2048
+	pcalau12i	$a1, %pc_hi20(.LCPI2_3)
+	vld	$vr0, $a1, %pc_lo12(.LCPI2_3)
 	vreplgr2vr.d	$vr1, $a0
+	vst	$vr1, $sp, 48
+	vldi	$vr1, -1744
 	vld	$vr2, $sp, 32                   # 16-byte Folded Reload
 	vfnmadd.d	$vr0, $vr2, $vr0, $vr1
 	vst	$vr0, $sp, 64

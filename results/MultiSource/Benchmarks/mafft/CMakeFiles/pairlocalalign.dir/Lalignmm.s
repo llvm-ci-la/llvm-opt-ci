@@ -241,13 +241,13 @@ Lalignmm_hmout:                         # @Lalignmm_hmout
 	ori	$a1, $zero, 8
 	bltu	$a0, $a1, .LBB0_14
 # %bb.12:                               # %vector.memcheck
-	ld.d	$a4, $sp, 384                   # 8-byte Folded Reload
-	alsl.d	$a1, $a0, $a4, 2
-	ld.d	$a3, $sp, 392                   # 8-byte Folded Reload
-	bgeu	$a3, $a1, .LBB0_67
-# %bb.13:                               # %vector.memcheck
+	ld.d	$a3, $sp, 384                   # 8-byte Folded Reload
 	alsl.d	$a1, $a0, $a3, 2
-	bgeu	$a4, $a1, .LBB0_67
+	ld.d	$a2, $sp, 392                   # 8-byte Folded Reload
+	bgeu	$a2, $a1, .LBB0_67
+# %bb.13:                               # %vector.memcheck
+	alsl.d	$a1, $a0, $a2, 2
+	bgeu	$a3, $a1, .LBB0_67
 .LBB0_14:
 	move	$a1, $zero
 .LBB0_15:                               # %scalar.ph.preheader
@@ -287,10 +287,10 @@ Lalignmm_hmout:                         # @Lalignmm_hmout
 	bltu	$a0, $a1, .LBB0_21
 # %bb.19:                               # %vector.memcheck258
 	alsl.d	$a1, $a0, $a5, 2
-	ld.d	$a3, $sp, 160                   # 8-byte Folded Reload
-	bgeu	$a3, $a1, .LBB0_70
+	ld.d	$a2, $sp, 160                   # 8-byte Folded Reload
+	bgeu	$a2, $a1, .LBB0_70
 # %bb.20:                               # %vector.memcheck258
-	alsl.d	$a1, $a0, $a3, 2
+	alsl.d	$a1, $a0, $a2, 2
 	bgeu	$a5, $a1, .LBB0_70
 .LBB0_21:
 	move	$a1, $zero
@@ -736,12 +736,8 @@ Lalignmm_hmout:                         # @Lalignmm_hmout
 	bstrpick.d	$a1, $a1, 30, 3
 	slli.d	$a1, $a1, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a2
-	lu52i.d	$a2, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a2
-	move	$a2, $a3
-	move	$a3, $a4
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
 	move	$a4, $a1
 	.p2align	4, , 16
 .LBB0_68:                               # %vector.body
@@ -865,11 +861,8 @@ Lalignmm_hmout:                         # @Lalignmm_hmout
 	bstrpick.d	$a1, $s1, 30, 3
 	slli.d	$a1, $a1, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a2
-	lu52i.d	$a2, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a2
-	move	$a2, $a3
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
 	move	$a3, $a5
 	move	$a4, $a1
 	.p2align	4, , 16
@@ -2939,13 +2932,13 @@ Lalign2m2m_hmout:                       # @Lalign2m2m_hmout
 	ori	$a1, $zero, 8
 	bltu	$a0, $a1, .LBB1_15
 # %bb.13:                               # %vector.memcheck
-	ld.d	$a4, $sp, 384                   # 8-byte Folded Reload
-	alsl.d	$a1, $a0, $a4, 2
-	ld.d	$a3, $sp, 392                   # 8-byte Folded Reload
-	bgeu	$a3, $a1, .LBB1_68
-# %bb.14:                               # %vector.memcheck
+	ld.d	$a3, $sp, 384                   # 8-byte Folded Reload
 	alsl.d	$a1, $a0, $a3, 2
-	bgeu	$a4, $a1, .LBB1_68
+	ld.d	$a2, $sp, 392                   # 8-byte Folded Reload
+	bgeu	$a2, $a1, .LBB1_68
+# %bb.14:                               # %vector.memcheck
+	alsl.d	$a1, $a0, $a2, 2
+	bgeu	$a3, $a1, .LBB1_68
 .LBB1_15:
 	move	$a1, $zero
 .LBB1_16:                               # %scalar.ph.preheader
@@ -2986,10 +2979,10 @@ Lalign2m2m_hmout:                       # @Lalign2m2m_hmout
 	bltu	$a0, $a1, .LBB1_22
 # %bb.20:                               # %vector.memcheck262
 	alsl.d	$a1, $a0, $a5, 2
-	ld.d	$a3, $sp, 152                   # 8-byte Folded Reload
-	bgeu	$a3, $a1, .LBB1_71
+	ld.d	$a2, $sp, 152                   # 8-byte Folded Reload
+	bgeu	$a2, $a1, .LBB1_71
 # %bb.21:                               # %vector.memcheck262
-	alsl.d	$a1, $a0, $a3, 2
+	alsl.d	$a1, $a0, $a2, 2
 	bgeu	$a5, $a1, .LBB1_71
 .LBB1_22:
 	move	$a1, $zero
@@ -3435,12 +3428,8 @@ Lalign2m2m_hmout:                       # @Lalign2m2m_hmout
 	bstrpick.d	$a1, $a1, 30, 3
 	slli.d	$a1, $a1, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a2
-	lu52i.d	$a2, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a2
-	move	$a2, $a3
-	move	$a3, $a4
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
 	move	$a4, $a1
 	.p2align	4, , 16
 .LBB1_69:                               # %vector.body
@@ -3564,11 +3553,8 @@ Lalign2m2m_hmout:                       # @Lalign2m2m_hmout
 	bstrpick.d	$a1, $s0, 30, 3
 	slli.d	$a1, $a1, 3
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a2
-	lu52i.d	$a2, $zero, 1022
-	xvreplgr2vr.d	$xr3, $a2
-	move	$a2, $a3
+	xvldi	$xr2, -912
+	xvldi	$xr3, -928
 	move	$a3, $a5
 	move	$a4, $a1
 	.p2align	4, , 16

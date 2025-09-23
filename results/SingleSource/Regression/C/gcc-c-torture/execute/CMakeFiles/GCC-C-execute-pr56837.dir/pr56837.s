@@ -8,9 +8,7 @@ foo:                                    # @foo
 	lu12i.w	$a0, -2
 	pcalau12i	$a1, %pc_hi20(a)
 	addi.d	$a1, $a1, %pc_lo12(a)
-	addi.w	$a2, $zero, -1
-	lu32i.d	$a2, 0
-	vreplgr2vr.d	$vr0, $a2
+	vldi	$vr0, -1777
 	lu12i.w	$a2, 2
 	.p2align	4, , 16
 .LBB0_1:                                # %vector.body

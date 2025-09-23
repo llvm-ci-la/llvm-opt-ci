@@ -646,13 +646,12 @@ main:                                   # @main
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
 	vst	$vr0, $sp, 80
-	lu52i.d	$a0, $zero, 1023
-	vreplgr2vr.d	$vr0, $a0
 	lu12i.w	$a0, 524287
 	ori	$a0, $a0, 4095
 	lu52i.d	$a0, $a0, -2048
-	vreplgr2vr.d	$vr1, $a0
-	vhaddw.h.b	$vr0, $vr0, $vr1
+	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr1, -912
+	vhaddw.h.b	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 96
 	addi.d	$a0, $sp, 80
 	addi.d	$a1, $sp, 96
@@ -843,8 +842,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_22)
 	vld	$vr1, $a0, %pc_lo12(.LCPI2_22)
 	vst	$vr0, $sp, 80
-	lu12i.w	$a0, 479232
-	vreplgr2vr.w	$vr0, $a0
+	vldi	$vr0, -3211
 	vhaddw.w.h	$vr0, $vr1, $vr0
 	vst	$vr0, $sp, 96
 	addi.d	$a0, $sp, 80

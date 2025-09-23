@@ -1445,8 +1445,7 @@ main:                                   # @main
 	bstrpick.d	$a0, $s5, 30, 3
 	slli.d	$a0, $a0, 3
 	addi.d	$a1, $fp, 32
-	lu52i.d	$a2, $zero, 1023
-	xvreplgr2vr.d	$xr0, $a2
+	xvldi	$xr0, -912
 	move	$a2, $a0
 	.p2align	4, , 16
 .LBB0_154:                              # %vector.body970

@@ -195,8 +195,7 @@ main:                                   # @main
 	lu32i.d	$a1, 26624
 	lu52i.d	$a1, $a1, 1034
 	xvreplgr2vr.d	$xr1, $a1
-	lu52i.d	$a1, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a1
+	xvldi	$xr2, -912
 	.p2align	4, , 16
 .LBB7_9:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1

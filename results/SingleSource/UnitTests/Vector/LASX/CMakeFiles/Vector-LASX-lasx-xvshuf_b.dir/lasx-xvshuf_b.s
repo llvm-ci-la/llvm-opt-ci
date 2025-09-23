@@ -1163,11 +1163,9 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$a0, 15
-	pcalau12i	$a1, %pc_hi20(.LCPI2_21)
-	xvld	$xr0, $a1, %pc_lo12(.LCPI2_21)
-	ori	$a0, $a0, 2048
-	xvreplgr2vr.h	$xr1, $a0
+	pcalau12i	$a0, %pc_hi20(.LCPI2_21)
+	xvld	$xr0, $a0, %pc_lo12(.LCPI2_21)
+	xvldi	$xr1, -2568
 	xvst	$xr1, $sp, 96
 	xvld	$xr1, $sp, 64                   # 32-byte Folded Reload
 	xvshuf.h	$xr1, $xr0, $xr0

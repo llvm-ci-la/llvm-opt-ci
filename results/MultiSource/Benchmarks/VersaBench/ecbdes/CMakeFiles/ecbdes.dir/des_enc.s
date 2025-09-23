@@ -847,9 +847,7 @@ des_encrypt2:                           # @des_encrypt2
 	vsrli.d	$vr1, $vr0, 3
 	vslli.d	$vr0, $vr0, 29
 	vadd.d	$vr0, $vr1, $vr0
-	addi.w	$a1, $zero, -1
-	lu32i.d	$a1, 0
-	vreplgr2vr.d	$vr1, $a1
+	vldi	$vr1, -1777
 	vand.v	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 0
 	ld.d	$s3, $sp, 8                     # 8-byte Folded Reload

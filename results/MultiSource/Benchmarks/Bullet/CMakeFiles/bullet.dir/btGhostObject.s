@@ -1935,8 +1935,7 @@ _ZNK11btMatrix3x311getRotationER12btQuaternion: # @_ZNK11btMatrix3x311getRotatio
 	fsub.s	$fa2, $fa2, $fa5
 	vextrins.w	$vr4, $vr0, 16
 	vshuf4i.w	$vr0, $vr4, 64
-	lu12i.w	$a0, 258048
-	vreplgr2vr.w	$vr4, $a0
+	vldi	$vr4, -3265
 	vextrins.w	$vr4, $vr1, 0
 	vextrins.w	$vr4, $vr3, 16
 	vextrins.w	$vr4, $vr2, 32

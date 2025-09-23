@@ -1370,67 +1370,67 @@ align_get_dist:                         # @align_get_dist
 	move	$s7, $a0
 	blt	$s6, $s0, .LBB1_15
 # %bb.3:                                # %iter.check
-	ori	$a1, $zero, 3
-	lu12i.w	$a0, -524288
-	move	$a3, $s0
-	bltu	$fp, $a1, .LBB1_13
+	ori	$a0, $zero, 3
+	move	$a2, $s0
+	bltu	$fp, $a0, .LBB1_13
 # %bb.4:                                # %vector.main.loop.iter.check
-	bstrpick.d	$a1, $fp, 31, 0
-	ori	$a2, $zero, 15
-	addi.d	$a1, $a1, 1
-	bgeu	$fp, $a2, .LBB1_6
+	bstrpick.d	$a0, $fp, 31, 0
+	ori	$a1, $zero, 15
+	addi.d	$a0, $a0, 1
+	bgeu	$fp, $a1, .LBB1_6
 # %bb.5:
-	move	$a2, $zero
+	move	$a1, $zero
 	b	.LBB1_10
 .LBB1_6:                                # %vector.ph
-	bstrpick.d	$a2, $a1, 32, 4
-	slli.d	$a2, $a2, 4
-	addi.d	$a3, $a6, 32
-	xvreplgr2vr.w	$xr0, $a0
-	move	$a4, $a2
+	bstrpick.d	$a1, $a0, 32, 4
+	slli.d	$a1, $a1, 4
+	addi.d	$a2, $a6, 32
+	xvldi	$xr0, -3200
+	move	$a3, $a1
 	.p2align	4, , 16
 .LBB1_7:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	xvst	$xr0, $a3, -32
-	xvst	$xr0, $a3, 0
-	addi.d	$a4, $a4, -16
-	addi.d	$a3, $a3, 64
-	bnez	$a4, .LBB1_7
+	xvst	$xr0, $a2, -32
+	xvst	$xr0, $a2, 0
+	addi.d	$a3, $a3, -16
+	addi.d	$a2, $a2, 64
+	bnez	$a3, .LBB1_7
 # %bb.8:                                # %middle.block
-	beq	$a1, $a2, .LBB1_15
+	beq	$a0, $a1, .LBB1_15
 # %bb.9:                                # %vec.epilog.iter.check
-	andi	$a3, $a1, 12
-	beqz	$a3, .LBB1_68
+	andi	$a2, $a0, 12
+	beqz	$a2, .LBB1_68
 .LBB1_10:                               # %vec.epilog.ph
-	bstrpick.d	$a3, $a1, 32, 2
-	slli.d	$a4, $a3, 2
-	alsl.d	$a3, $a3, $s0, 2
-	alsl.d	$a5, $a2, $a6, 2
-	sub.d	$a2, $a2, $a4
-	vreplgr2vr.w	$vr0, $a0
+	bstrpick.d	$a2, $a0, 32, 2
+	slli.d	$a3, $a2, 2
+	alsl.d	$a2, $a2, $s0, 2
+	alsl.d	$a4, $a1, $a6, 2
+	sub.d	$a1, $a1, $a3
+	vldi	$vr0, -3200
 	.p2align	4, , 16
 .LBB1_11:                               # %vec.epilog.vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vst	$vr0, $a5, 0
-	addi.d	$a2, $a2, 4
-	addi.d	$a5, $a5, 16
-	bnez	$a2, .LBB1_11
+	vst	$vr0, $a4, 0
+	addi.d	$a1, $a1, 4
+	addi.d	$a4, $a4, 16
+	bnez	$a1, .LBB1_11
 # %bb.12:                               # %vec.epilog.middle.block
-	beq	$a1, $a4, .LBB1_15
+	beq	$a0, $a3, .LBB1_15
 .LBB1_13:                               # %.lr.ph.preheader
-	slli.d	$a1, $a3, 2
-	sub.d	$a1, $a1, $t1
-	add.d	$a1, $a6, $a1
-	sub.d	$a2, $s6, $a3
-	addi.d	$a2, $a2, 1
-	lu32i.d	$a0, 0
+	slli.d	$a0, $a2, 2
+	sub.d	$a0, $a0, $t1
+	add.d	$a0, $a6, $a0
+	sub.d	$a1, $s6, $a2
+	addi.d	$a1, $a1, 1
+	lu12i.w	$a2, -524288
+	lu32i.d	$a2, 0
 	.p2align	4, , 16
 .LBB1_14:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	st.w	$a0, $a1, 0
-	addi.w	$a2, $a2, -1
-	addi.d	$a1, $a1, 4
-	bnez	$a2, .LBB1_14
+	st.w	$a2, $a0, 0
+	addi.w	$a1, $a1, -1
+	addi.d	$a0, $a0, 4
+	bnez	$a1, .LBB1_14
 .LBB1_15:                               # %._crit_edge
 	sub.d	$a0, $a6, $t1
 	ld.d	$t8, $sp, 112                   # 8-byte Folded Reload
@@ -1776,7 +1776,7 @@ align_get_dist:                         # @align_get_dist
 	addi.d	$sp, $sp, 208
 	ret
 .LBB1_68:
-	add.d	$a3, $a2, $s0
+	add.d	$a2, $a1, $s0
 	b	.LBB1_13
 .Lfunc_end1:
 	.size	align_get_dist, .Lfunc_end1-align_get_dist

@@ -596,14 +596,9 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	ori	$s1, $zero, 0
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, -1
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1552
 	xvst	$xr0, $sp, 192
-	ori	$a0, $zero, 0
-	lu32i.d	$a0, 65535
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1744
 	xvld	$xr1, $sp, 160                  # 32-byte Folded Reload
 	xvfcmp.cne.s	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 224
@@ -832,13 +827,9 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1777
 	xvst	$xr0, $sp, 192
-	lu12i.w	$a0, 15
-	ori	$a0, $a0, 4095
-	xvreplgr2vr.d	$xr0, $a0
+	xvldi	$xr0, -1789
 	xvld	$xr1, $sp, 160                  # 32-byte Folded Reload
 	xvfcmp.cune.s	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 224
@@ -986,6 +977,7 @@ main:                                   # @main
 	xvst	$xr0, $sp, 192
 	pcalau12i	$a0, %pc_hi20(.LCPI2_32)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_32)
+	ori	$s1, $zero, 0
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -524288
 	lu52i.d	$a0, $a0, -513

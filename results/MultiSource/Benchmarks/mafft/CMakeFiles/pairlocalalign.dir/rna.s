@@ -634,8 +634,8 @@ foldrna:                                # @foldrna
 	lu12i.w	$t0, 260096
 	ori	$t1, $zero, 64
 	ori	$t2, $zero, 16
-	vreplgr2vr.w	$vr1, $t0
-	xvreplgr2vr.w	$xr2, $t0
+	vldi	$vr1, -1424
+	xvldi	$xr2, -1424
 	b	.LBB1_56
 	.p2align	4, , 16
 .LBB1_55:                               # %._crit_edge352.us

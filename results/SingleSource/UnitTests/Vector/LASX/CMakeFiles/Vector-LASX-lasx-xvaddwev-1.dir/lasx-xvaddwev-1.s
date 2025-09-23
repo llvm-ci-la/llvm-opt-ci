@@ -1359,8 +1359,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_38)
 	xvld	$xr1, $a0, %pc_lo12(.LCPI2_38)
 	xvst	$xr0, $sp, 224
-	lu12i.w	$a0, 256
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3568
 	xvaddwev.d.w	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 256
 	addi.d	$a0, $sp, 224
@@ -1626,8 +1625,7 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_65)
 	xvld	$xr0, $a0, %pc_lo12(.LCPI2_65)
 	xvst	$xr0, $sp, 224
-	ori	$a0, $zero, 512
-	xvreplgr2vr.w	$xr0, $a0
+	xvldi	$xr0, -3838
 	xvld	$xr1, $sp, 192                  # 32-byte Folded Reload
 	xvaddwev.q.d	$xr0, $xr0, $xr1
 	xvst	$xr0, $sp, 256

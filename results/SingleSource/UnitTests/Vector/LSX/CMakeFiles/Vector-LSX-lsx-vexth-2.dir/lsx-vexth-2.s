@@ -505,9 +505,7 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	addi.w	$a0, $zero, -1
-	lu32i.d	$a0, 0
-	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr0, -1777
 	vst	$vr0, $sp, 48
 	vrepli.b	$vr0, -1
 	vexth.du.wu	$vr0, $vr0

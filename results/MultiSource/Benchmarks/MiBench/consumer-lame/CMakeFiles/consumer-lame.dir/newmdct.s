@@ -1756,8 +1756,7 @@ mdct_init48:                            # @mdct_init48
 	xvld	$xr0, $a0, %pc_lo12(.LCPI1_10)
 	pcalau12i	$a0, %pc_hi20(.LCPI1_11)
 	vld	$vr1, $a0, %pc_lo12(.LCPI1_11)
-	lu52i.d	$a0, $zero, 1023
-	xvreplgr2vr.d	$xr2, $a0
+	xvldi	$xr2, -912
 	xvst	$xr2, $fp, 448
 	xvst	$xr0, $fp, 480
 	vst	$vr1, $fp, 512

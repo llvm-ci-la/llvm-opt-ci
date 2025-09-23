@@ -3022,8 +3022,7 @@ rc_init_GOP:                            # @rc_init_GOP
 	bstrpick.d	$a7, $a5, 30, 2
 	slli.d	$a7, $a7, 2
 	xvreplve0.d	$xr1, $xr0
-	lu52i.d	$t2, $zero, 1022
-	xvreplgr2vr.d	$xr2, $t2
+	xvldi	$xr2, -928
 	move	$t2, $a7
 	.p2align	4, , 16
 .LBB8_26:                               # %vector.body

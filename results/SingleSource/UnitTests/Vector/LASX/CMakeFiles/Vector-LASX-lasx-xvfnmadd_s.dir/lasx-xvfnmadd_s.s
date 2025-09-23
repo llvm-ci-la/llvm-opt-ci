@@ -580,7 +580,6 @@ main:                                   # @main
 	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
 	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
 	addi.d	$fp, $sp, 224
 	bstrins.d	$sp, $zero, 4, 0
 	lu12i.w	$a0, -11
@@ -688,8 +687,7 @@ main:                                   # @main
 	move	$a3, $s0
 	pcaddu18i	$ra, %call36(check_lasx_out)
 	jirl	$ra, $ra, 0
-	lu12i.w	$s1, -524288
-	xvreplgr2vr.w	$xr0, $s1
+	xvldi	$xr0, -3200
 	xvst	$xr0, $sp, 64                   # 32-byte Folded Spill
 	xvst	$xr0, $sp, 128
 	xvld	$xr0, $sp, 96                   # 32-byte Folded Reload
@@ -753,7 +751,8 @@ main:                                   # @main
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3330
 	xvreplgr2vr.h	$xr0, $a0
-	lu52i.d	$a0, $s1, 2047
+	lu12i.w	$a0, -524288
+	lu52i.d	$a0, $a0, 2047
 	xvreplgr2vr.d	$xr1, $a0
 	xvfnmadd.s	$xr0, $xr1, $xr0, $xr0
 	xvst	$xr0, $sp, 160
@@ -970,7 +969,6 @@ main:                                   # @main
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
 	addi.d	$sp, $fp, -224
-	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
 	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
 	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload

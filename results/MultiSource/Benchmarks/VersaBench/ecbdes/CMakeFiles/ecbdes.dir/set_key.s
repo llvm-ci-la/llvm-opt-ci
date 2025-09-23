@@ -267,16 +267,14 @@ des_set_key:                            # @des_set_key
 	ori	$a3, $a3, 259
 	pcalau12i	$a4, %pc_hi20(des_skb)
 	addi.d	$a4, $a4, %pc_lo12(des_skb)
+	pcalau12i	$a5, %pc_hi20(.LCPI2_0)
+	vld	$vr0, $a5, %pc_lo12(.LCPI2_0)
+	pcalau12i	$a5, %pc_hi20(.LCPI2_1)
+	vld	$vr1, $a5, %pc_lo12(.LCPI2_1)
+	pcalau12i	$a5, %pc_hi20(.LCPI2_2)
+	vld	$vr2, $a5, %pc_lo12(.LCPI2_2)
 	move	$a5, $zero
-	lu12i.w	$a6, -16
-	pcalau12i	$t0, %pc_hi20(.LCPI2_0)
-	vld	$vr0, $t0, %pc_lo12(.LCPI2_0)
-	pcalau12i	$t0, %pc_hi20(.LCPI2_1)
-	vld	$vr1, $t0, %pc_lo12(.LCPI2_1)
-	pcalau12i	$t0, %pc_hi20(.LCPI2_2)
-	vld	$vr2, $t0, %pc_lo12(.LCPI2_2)
-	lu32i.d	$a6, 0
-	vreplgr2vr.d	$vr3, $a6
+	vldi	$vr3, -1780
 	ori	$a6, $zero, 16
 	.p2align	4, , 16
 .LBB2_13:                               # =>This Inner Loop Header: Depth=1

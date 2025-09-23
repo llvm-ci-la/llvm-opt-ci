@@ -905,13 +905,12 @@ main:                                   # @main
 	lu52i.d	$a0, $zero, 1016
 	vreplgr2vr.d	$vr0, $a0
 	vst	$vr0, $sp, 80
-	lu12i.w	$a0, 260096
-	vreplgr2vr.w	$vr0, $a0
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -256
 	lu52i.d	$a0, $a0, 1023
-	vreplgr2vr.d	$vr1, $a0
-	vsigncov.w	$vr0, $vr1, $vr0
+	vreplgr2vr.d	$vr0, $a0
+	vldi	$vr1, -1424
+	vsigncov.w	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 96
 	addi.d	$a0, $sp, 80
 	addi.d	$a1, $sp, 96
@@ -966,13 +965,11 @@ main:                                   # @main
 	move	$a3, $fp
 	pcaddu18i	$ra, %call36(check_lsx_out)
 	jirl	$ra, $ra, 0
-	addi.w	$a0, $zero, -1
-	move	$a1, $a0
-	lu32i.d	$a1, 0
-	vreplgr2vr.d	$vr0, $a1
+	vldi	$vr0, -1777
 	vst	$vr0, $sp, 80
-	pcalau12i	$a1, %pc_hi20(.LCPI2_28)
-	vld	$vr0, $a1, %pc_lo12(.LCPI2_28)
+	pcalau12i	$a0, %pc_hi20(.LCPI2_28)
+	vld	$vr0, $a0, %pc_lo12(.LCPI2_28)
+	addi.w	$a0, $zero, -1
 	lu32i.d	$a0, -65536
 	lu52i.d	$a0, $a0, 3
 	vreplgr2vr.d	$vr1, $a0
