@@ -11516,23 +11516,22 @@ s3251:                                  # @s3251
 	xvldx	$xr2, $a1, $s2
 	xvpermi.d	$xr3, $xr0, 78
 	xvfadd.s	$xr0, $xr1, $xr2
-	xvpickve.w	$xr1, $xr0, 4
-	xvpermi.d	$xr4, $xr0, 68
-	xvrepl128vei.w	$xr4, $xr4, 3
-	vextrins.w	$vr4, $vr1, 16
-	xvpickve.w	$xr1, $xr0, 5
-	vextrins.w	$vr4, $vr1, 32
-	xvpickve.w	$xr1, $xr0, 6
-	vextrins.w	$vr4, $vr1, 48
-	xvpickve.w	$xr1, $xr0, 0
+	vreplvei.w	$vr1, $vr0, 3
+	xvpickve.w	$xr4, $xr0, 4
+	vextrins.w	$vr1, $vr4, 16
+	xvpickve.w	$xr4, $xr0, 5
+	vextrins.w	$vr1, $vr4, 32
+	xvpickve.w	$xr4, $xr0, 6
+	vextrins.w	$vr1, $vr4, 48
+	xvpickve.w	$xr4, $xr0, 0
 	xvrepl128vei.w	$xr3, $xr3, 3
-	vextrins.w	$vr3, $vr1, 16
-	xvpickve.w	$xr1, $xr0, 1
-	vextrins.w	$vr3, $vr1, 32
-	xvpickve.w	$xr1, $xr0, 2
+	vextrins.w	$vr3, $vr4, 16
+	xvpickve.w	$xr4, $xr0, 1
+	vextrins.w	$vr3, $vr4, 32
+	xvpickve.w	$xr4, $xr0, 2
 	xvldx	$xr5, $a1, $s5
-	vextrins.w	$vr3, $vr1, 48
-	xvpermi.q	$xr3, $xr4, 2
+	vextrins.w	$vr3, $vr4, 48
+	xvpermi.q	$xr3, $xr1, 2
 	xvst	$xr0, $a1, 4
 	xvfmul.s	$xr1, $xr2, $xr5
 	xvstx	$xr1, $a1, $s7
@@ -11776,22 +11775,21 @@ s252:                                   # @s252
 	xvldx	$xr2, $a1, $s0
 	xvpermi.d	$xr0, $xr0, 78
 	xvfmul.s	$xr1, $xr1, $xr2
-	xvpickve.w	$xr2, $xr1, 4
-	xvpermi.d	$xr3, $xr1, 68
-	xvrepl128vei.w	$xr3, $xr3, 3
-	vextrins.w	$vr3, $vr2, 16
-	xvpickve.w	$xr2, $xr1, 5
-	vextrins.w	$vr3, $vr2, 32
-	xvpickve.w	$xr2, $xr1, 6
-	vextrins.w	$vr3, $vr2, 48
-	xvpickve.w	$xr2, $xr1, 0
+	vreplvei.w	$vr2, $vr1, 3
+	xvpickve.w	$xr3, $xr1, 4
+	vextrins.w	$vr2, $vr3, 16
+	xvpickve.w	$xr3, $xr1, 5
+	vextrins.w	$vr2, $vr3, 32
+	xvpickve.w	$xr3, $xr1, 6
+	vextrins.w	$vr2, $vr3, 48
+	xvpickve.w	$xr3, $xr1, 0
 	xvrepl128vei.w	$xr0, $xr0, 3
-	vextrins.w	$vr0, $vr2, 16
-	xvpickve.w	$xr2, $xr1, 1
-	vextrins.w	$vr0, $vr2, 32
-	xvpickve.w	$xr2, $xr1, 2
-	vextrins.w	$vr0, $vr2, 48
-	xvpermi.q	$xr0, $xr3, 2
+	vextrins.w	$vr0, $vr3, 16
+	xvpickve.w	$xr3, $xr1, 1
+	vextrins.w	$vr0, $vr3, 32
+	xvpickve.w	$xr3, $xr1, 2
+	vextrins.w	$vr0, $vr3, 48
+	xvpermi.q	$xr0, $xr2, 2
 	xvfadd.s	$xr0, $xr0, $xr1
 	xvstx	$xr0, $fp, $a0
 	addi.d	$a0, $a0, 32
@@ -12087,22 +12085,21 @@ s254:                                   # @s254
 	add.d	$a1, $fp, $a0
 	xvldx	$xr1, $a1, $s7
 	xvpermi.d	$xr0, $xr0, 78
-	xvpickve.w	$xr2, $xr1, 4
-	xvpermi.d	$xr3, $xr1, 68
-	xvrepl128vei.w	$xr3, $xr3, 3
-	vextrins.w	$vr3, $vr2, 16
-	xvpickve.w	$xr2, $xr1, 5
-	vextrins.w	$vr3, $vr2, 32
-	xvpickve.w	$xr2, $xr1, 6
-	vextrins.w	$vr3, $vr2, 48
-	xvpickve.w	$xr2, $xr1, 0
+	vreplvei.w	$vr2, $vr1, 3
+	xvpickve.w	$xr3, $xr1, 4
+	vextrins.w	$vr2, $vr3, 16
+	xvpickve.w	$xr3, $xr1, 5
+	vextrins.w	$vr2, $vr3, 32
+	xvpickve.w	$xr3, $xr1, 6
+	vextrins.w	$vr2, $vr3, 48
+	xvpickve.w	$xr3, $xr1, 0
 	xvrepl128vei.w	$xr0, $xr0, 3
-	vextrins.w	$vr0, $vr2, 16
-	xvpickve.w	$xr2, $xr1, 1
-	vextrins.w	$vr0, $vr2, 32
-	xvpickve.w	$xr2, $xr1, 2
-	vextrins.w	$vr0, $vr2, 48
-	xvpermi.q	$xr0, $xr3, 2
+	vextrins.w	$vr0, $vr3, 16
+	xvpickve.w	$xr3, $xr1, 1
+	vextrins.w	$vr0, $vr3, 32
+	xvpickve.w	$xr3, $xr1, 2
+	vextrins.w	$vr0, $vr3, 48
+	xvpermi.q	$xr0, $xr2, 2
 	xvfadd.s	$xr0, $xr0, $xr1
 	xvfmul.s	$xr0, $xr0, $xr4
 	xvstx	$xr0, $fp, $a0
@@ -12253,31 +12250,30 @@ s255:                                   # @s255
 	add.d	$a1, $fp, $a0
 	xvldx	$xr0, $a1, $s7
 	xvpermi.d	$xr2, $xr2, 78
-	xvpickve.w	$xr3, $xr0, 4
-	xvpermi.d	$xr4, $xr0, 68
-	xvrepl128vei.w	$xr4, $xr4, 3
-	vextrins.w	$vr4, $vr3, 16
-	xvpickve.w	$xr3, $xr0, 5
-	vextrins.w	$vr4, $vr3, 32
-	xvpickve.w	$xr3, $xr0, 6
-	vextrins.w	$vr4, $vr3, 48
-	xvpickve.w	$xr3, $xr0, 0
+	vreplvei.w	$vr3, $vr0, 3
+	xvpickve.w	$xr4, $xr0, 4
+	vextrins.w	$vr3, $vr4, 16
+	xvpickve.w	$xr4, $xr0, 5
+	vextrins.w	$vr3, $vr4, 32
+	xvpickve.w	$xr4, $xr0, 6
+	vextrins.w	$vr3, $vr4, 48
+	xvpickve.w	$xr4, $xr0, 0
+	xvrepl128vei.w	$xr2, $xr2, 3
+	vextrins.w	$vr2, $vr4, 16
+	xvpickve.w	$xr4, $xr0, 1
+	vextrins.w	$vr2, $vr4, 32
+	xvpickve.w	$xr4, $xr0, 2
+	vextrins.w	$vr2, $vr4, 48
+	vreplvei.w	$vr4, $vr2, 3
 	xvpermi.d	$xr1, $xr1, 78
-	xvrepl128vei.w	$xr5, $xr2, 3
-	vextrins.w	$vr5, $vr3, 16
-	xvpickve.w	$xr2, $xr0, 1
-	vextrins.w	$vr5, $vr2, 32
-	xvpickve.w	$xr2, $xr0, 2
-	vextrins.w	$vr5, $vr2, 48
-	xvpermi.q	$xr5, $xr4, 2
+	xvori.b	$xr5, $xr2, 0
+	xvpermi.q	$xr5, $xr3, 2
 	xvpickve.w	$xr2, $xr5, 4
-	xvpermi.d	$xr3, $xr5, 68
-	xvrepl128vei.w	$xr3, $xr3, 3
-	vextrins.w	$vr3, $vr2, 16
+	vextrins.w	$vr4, $vr2, 16
 	xvpickve.w	$xr2, $xr5, 5
-	vextrins.w	$vr3, $vr2, 32
+	vextrins.w	$vr4, $vr2, 32
 	xvpickve.w	$xr2, $xr5, 6
-	vextrins.w	$vr3, $vr2, 48
+	vextrins.w	$vr4, $vr2, 48
 	xvpickve.w	$xr2, $xr5, 0
 	xvrepl128vei.w	$xr1, $xr1, 3
 	vextrins.w	$vr1, $vr2, 16
@@ -12285,7 +12281,7 @@ s255:                                   # @s255
 	vextrins.w	$vr1, $vr2, 32
 	xvpickve.w	$xr2, $xr5, 2
 	vextrins.w	$vr1, $vr2, 48
-	xvpermi.q	$xr1, $xr3, 2
+	xvpermi.q	$xr1, $xr4, 2
 	xvfadd.s	$xr2, $xr5, $xr0
 	xvfadd.s	$xr1, $xr1, $xr2
 	xvfmul.s	$xr1, $xr1, $xr6

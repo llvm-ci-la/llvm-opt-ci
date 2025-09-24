@@ -11982,14 +11982,13 @@ s31111:                                 # @s31111
 	xvld	$xr0, $fp, 32
 	xvld	$xr1, $fp, 0
 	xvpickve.d	$xr2, $xr0, 0
-	xvpermi.d	$xr3, $xr1, 68
+	vreplvei.d	$vr3, $vr1, 1
 	xvpermi.d	$xr4, $xr1, 78
                                         # kill: def $vr1 killed $vr1 killed $xr1
 	vextrins.d	$vr1, $vr2, 16
 	vld	$vr6, $sp, 16                   # 16-byte Folded Reload
 	vfadd.d	$vr1, $vr1, $vr6
 	xvpickve.d	$xr2, $xr0, 1
-	xvrepl128vei.d	$xr3, $xr3, 1
 	vextrins.d	$vr3, $vr2, 16
 	vfadd.d	$vr1, $vr1, $vr3
 	xvpickve.d	$xr2, $xr0, 2
@@ -12006,13 +12005,12 @@ s31111:                                 # @s31111
 	vreplvei.d	$vr0, $vr0, 1
 	fadd.d	$fa0, $fa1, $fa0
 	xvpickve.d	$xr1, $xr2, 0
-	xvpermi.d	$xr4, $xr3, 68
+	vreplvei.d	$vr4, $vr3, 1
 	xvpermi.d	$xr5, $xr3, 78
                                         # kill: def $vr3 killed $vr3 killed $xr3
 	vextrins.d	$vr3, $vr1, 16
 	vfadd.d	$vr1, $vr3, $vr6
 	xvpickve.d	$xr3, $xr2, 1
-	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vfadd.d	$vr1, $vr1, $vr4
 	xvpickve.d	$xr3, $xr2, 2
@@ -12030,13 +12028,12 @@ s31111:                                 # @s31111
 	vreplvei.d	$vr1, $vr1, 1
 	fadd.d	$fa0, $fa0, $fa1
 	xvpickve.d	$xr1, $xr2, 0
-	xvpermi.d	$xr4, $xr3, 68
+	vreplvei.d	$vr4, $vr3, 1
 	xvpermi.d	$xr5, $xr3, 78
                                         # kill: def $vr3 killed $vr3 killed $xr3
 	vextrins.d	$vr3, $vr1, 16
 	vfadd.d	$vr1, $vr3, $vr6
 	xvpickve.d	$xr3, $xr2, 1
-	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vfadd.d	$vr1, $vr1, $vr4
 	xvpickve.d	$xr3, $xr2, 2
@@ -12054,13 +12051,12 @@ s31111:                                 # @s31111
 	vreplvei.d	$vr1, $vr1, 1
 	fadd.d	$fa0, $fa0, $fa1
 	xvpickve.d	$xr1, $xr2, 0
-	xvpermi.d	$xr4, $xr3, 68
+	vreplvei.d	$vr4, $vr3, 1
 	xvpermi.d	$xr5, $xr3, 78
                                         # kill: def $vr3 killed $vr3 killed $xr3
 	vextrins.d	$vr3, $vr1, 16
 	vfadd.d	$vr1, $vr3, $vr6
 	xvpickve.d	$xr3, $xr2, 1
-	xvrepl128vei.d	$xr4, $xr4, 1
 	vextrins.d	$vr4, $vr3, 16
 	vfadd.d	$vr1, $vr1, $vr4
 	xvpickve.d	$xr3, $xr2, 2

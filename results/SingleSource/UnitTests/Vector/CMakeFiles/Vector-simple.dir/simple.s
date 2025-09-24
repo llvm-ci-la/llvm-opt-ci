@@ -24,6 +24,7 @@ main:                                   # @main
 	addi.d	$sp, $sp, -112
 	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
 	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 88                   # 8-byte Folded Spill
 	lu12i.w	$a1, 1
 	ori	$a1, $a1, 1027
 	xor	$a1, $a0, $a1
@@ -43,11 +44,11 @@ main:                                   # @main
 	pcalau12i	$a2, %pc_hi20(.LCPI0_1)
 	addi.d	$a2, $a2, %pc_lo12(.LCPI0_1)
 	fldx.d	$fa1, $a2, $a1
-	vfadd.d	$vr2, $vr0, $vr0
-	vst	$vr2, $sp, 64                   # 16-byte Folded Spill
-	vextrins.d	$vr0, $vr1, 16
-	vfadd.d	$vr0, $vr0, $vr0
-	vst	$vr0, $sp, 80                   # 16-byte Folded Spill
+	vori.b	$vr2, $vr0, 0
+	vextrins.d	$vr2, $vr1, 16
+	vfadd.d	$vr1, $vr2, $vr2
+	vst	$vr1, $sp, 64                   # 16-byte Folded Spill
+	fadd.d	$fs0, $fa0, $fa0
 	slli.d	$a0, $a0, 2
 	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
 	addi.d	$a1, $a1, %pc_lo12(.LCPI0_2)
@@ -64,18 +65,18 @@ main:                                   # @main
 	pcalau12i	$a1, %pc_hi20(.LCPI0_3)
 	addi.d	$a1, $a1, %pc_lo12(.LCPI0_3)
 	fldx.s	$fa1, $a1, $a0
-	vfmul.s	$vr2, $vr1, $vr1
-	vextrins.w	$vr1, $vr1, 16
-	vori.b	$vr3, $vr1, 0
+	vori.b	$vr2, $vr1, 0
+	vextrins.w	$vr2, $vr1, 16
+	vori.b	$vr3, $vr2, 0
 	vextrins.w	$vr3, $vr0, 32
 	vextrins.w	$vr3, $vr0, 48
 	vfadd.s	$vr0, $vr3, $vr3
 	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
 	vrepli.b	$vr0, 0
-	vshuf4i.d	$vr1, $vr0, 12
-	vfadd.s	$vr0, $vr1, $vr1
+	vshuf4i.d	$vr2, $vr0, 12
+	vfadd.s	$vr0, $vr2, $vr2
 	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
-	vreplvei.w	$vr0, $vr2, 0
+	fmul.s	$fa0, $fa1, $fa1
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$a1, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -134,21 +135,21 @@ main:                                   # @main
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
-	vpickve2gr.d	$a1, $vr0, 0
+	movfr2gr.d	$a1, $fs0
 	pcalau12i	$a0, %pc_hi20(.L.str.1)
 	addi.d	$fp, $a0, %pc_lo12(.L.str.1)
 	move	$a0, $fp
 	move	$a2, $a1
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
 	vpickve2gr.d	$a1, $vr0, 0
 	vpickve2gr.d	$a2, $vr0, 1
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
 	move	$a0, $zero
+	fld.d	$fs0, $sp, 88                   # 8-byte Folded Reload
 	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
 	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
 	addi.d	$sp, $sp, 112
