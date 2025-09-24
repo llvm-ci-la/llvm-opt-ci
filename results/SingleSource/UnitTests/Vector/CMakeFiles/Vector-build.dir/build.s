@@ -5,15 +5,10 @@
 	.word	0x3f9df3b6                      # float 1.23399997
 	.word	0x401874d1                      # float 2.38212991
 	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0
+	.p2align	3, 0x0
 .LCPI0_1:
 	.dword	0x3ff85d3540000000              # double 1.5227558612823486
 	.dword	0x4016b2bb60000000              # double 5.6745429039001465
-.LCPI0_2:
-	.word	0                               # 0x0
-	.word	0                               # 0x0
-	.word	6                               # 0x6
-	.word	7                               # 0x7
 	.text
 	.globl	main
 	.p2align	5
@@ -31,7 +26,8 @@ main:                                   # @main
 	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
 	addi.d	$a1, $a1, %pc_lo12(.LCPI0_0)
 	fldx.s	$fa0, $a1, $a0
-	vst	$vr0, $sp, 0                    # 16-byte Folded Spill
+	vreplvei.w	$vr1, $vr0, 0
+	vst	$vr1, $sp, 0                    # 16-byte Folded Spill
 	fcvt.d.s	$fa0, $fa0
 	movfr2gr.d	$fp, $fa0
 	pcalau12i	$a0, %pc_hi20(.L.str)
@@ -53,12 +49,10 @@ main:                                   # @main
 	move	$a4, $a1
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
-	vld	$vr2, $a0, %pc_lo12(.LCPI0_2)
 	vrepli.b	$vr0, 0
 	vld	$vr1, $sp, 0                    # 16-byte Folded Reload
-	vshuf.w	$vr2, $vr0, $vr1
-	vst	$vr2, $sp, 0                    # 16-byte Folded Spill
+	vshuf4i.d	$vr1, $vr0, 12
+	vst	$vr1, $sp, 0                    # 16-byte Folded Spill
 	move	$a0, $s0
 	move	$a1, $fp
 	move	$a2, $fp

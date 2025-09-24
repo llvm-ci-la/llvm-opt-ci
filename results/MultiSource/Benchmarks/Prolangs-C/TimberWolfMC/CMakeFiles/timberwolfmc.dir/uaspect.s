@@ -526,15 +526,15 @@ uaspect:                                # @uaspect
 	vld	$vr0, $s1, 56
 	vpickve2gr.w	$a0, $vr0, 2
 	vpickve2gr.w	$a1, $vr0, 3
-	sub.w	$a4, $a1, $a0
-	vpickve2gr.w	$a1, $vr0, 0
-	vpickve2gr.w	$a2, $vr0, 1
+	sub.w	$a3, $a1, $a0
+	vreplvei.w	$vr1, $vr0, 1
+	vsub.w	$vr1, $vr1, $vr0
 	addi.d	$a0, $s0, -2
-	ori	$a3, $zero, 5
-	sub.d	$a1, $a2, $a1
-	st.d	$a1, $sp, 64                    # 8-byte Folded Spill
-	st.d	$a4, $sp, 40                    # 8-byte Folded Spill
-	bltu	$a3, $a0, .LBB0_33
+	ori	$a1, $zero, 5
+	vpickve2gr.w	$a2, $vr1, 0
+	st.d	$a2, $sp, 64                    # 8-byte Folded Spill
+	st.d	$a3, $sp, 40                    # 8-byte Folded Spill
+	bltu	$a1, $a0, .LBB0_33
 # %bb.25:
 	slli.d	$a0, $a0, 2
 	pcalau12i	$a1, %pc_hi20(.LJTI0_0)

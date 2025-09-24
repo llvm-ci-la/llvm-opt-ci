@@ -517,25 +517,30 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 	pcalau12i	$a1, %pc_hi20(active_pps)
 	blez	$a0, .LBB1_24
 # %bb.9:                                # %.preheader263.lr.ph
-	ld.wu	$a3, $fp, 4
-	addi.w	$a4, $a3, 0
-	pcalau12i	$a2, %got_pc_hi20(listX)
-	ld.d	$a2, $a2, %got_pc_lo12(listX)
-	ld.d	$a5, $a2, 8
-	ld.d	$a6, $a2, 0
-	pcalau12i	$a2, %got_pc_hi20(enc_picture)
-	ld.d	$a2, $a2, %got_pc_lo12(enc_picture)
+	ld.wu	$a2, $fp, 4
+	addi.w	$a3, $a2, 0
+	pcalau12i	$a4, %got_pc_hi20(listX)
+	ld.d	$a4, $a4, %got_pc_lo12(listX)
+	ld.d	$a5, $a4, 8
+	ld.d	$a6, $a4, 0
+	pcalau12i	$a4, %got_pc_hi20(enc_picture)
+	ld.d	$a4, $a4, %got_pc_lo12(enc_picture)
 	move	$a7, $zero
-	ld.d	$t0, $a2, 0
-	lu12i.w	$a2, 3
-	ori	$a2, $a2, 8
+	ld.d	$t0, $a4, 0
+	lu12i.w	$a4, 3
+	ori	$a4, $a4, 8
 	addi.d	$t1, $sp, 56
-	add.d	$t1, $t1, $a2
+	add.d	$t1, $t1, $a4
 	addi.w	$t2, $zero, -128
 	ori	$t3, $zero, 127
 	lu12i.w	$t4, 4
+	vrepli.w	$vr0, 32
 	addi.w	$t5, $zero, -1024
+	vreplgr2vr.w	$vr1, $t5
 	ori	$t6, $zero, 1023
+	vreplgr2vr.w	$vr2, $t6
+	vrepli.w	$vr3, -129
+	vrepli.w	$vr4, -193
 	ori	$t7, $zero, 32
 	ori	$t8, $zero, 64
 	b	.LBB1_11
@@ -548,47 +553,49 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 .LBB1_11:                               # %.preheader263
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB1_15 Depth 2
-	blez	$a4, .LBB1_10
+	blez	$a3, .LBB1_10
 # %bb.12:                               # %.lr.ph
                                         #   in Loop: Header=BB1_11 Depth=1
 	slli.d	$s0, $a7, 3
 	ldx.d	$s0, $a6, $s0
-	ld.w	$s0, $s0, 4
-	ld.w	$s1, $t0, 4
-	sub.w	$s1, $s1, $s0
-	slt	$s2, $t2, $s1
-	maskeqz	$s1, $s1, $s2
+	ld.w	$s1, $s0, 4
+	ld.w	$s0, $t0, 4
+	sub.w	$s0, $s0, $s1
+	slt	$s2, $t2, $s0
+	maskeqz	$s0, $s0, $s2
 	masknez	$s2, $t2, $s2
-	or	$s1, $s1, $s2
-	slti	$s2, $s1, 127
-	maskeqz	$s1, $s1, $s2
+	or	$s0, $s0, $s2
+	slti	$s2, $s0, 127
+	maskeqz	$s0, $s0, $s2
 	masknez	$s2, $t3, $s2
-	or	$s1, $s1, $s2
-	move	$s2, $t1
-	move	$s4, $a3
-	move	$s5, $a5
+	or	$s2, $s0, $s2
+	vinsgr2vr.w	$vr5, $s2, 0
+	vinsgr2vr.w	$vr5, $s2, 1
+	move	$s4, $t1
+	move	$s5, $a2
+	move	$s0, $a5
 	b	.LBB1_15
 	.p2align	4, , 16
 .LBB1_13:                               #   in Loop: Header=BB1_15 Depth=2
 	ori	$s6, $zero, 32
 	ori	$s7, $zero, 32
 	lu32i.d	$s7, 32
-	st.d	$s7, $s2, -8
-	stptr.d	$s7, $s2, -12296
-	st.w	$s6, $s2, 0
+	st.d	$s7, $s4, -8
+	stptr.d	$s7, $s4, -12296
+	st.w	$s6, $s4, 0
 .LBB1_14:                               #   in Loop: Header=BB1_15 Depth=2
-	stptr.w	$s6, $s2, -12288
-	addi.d	$s5, $s5, 8
-	addi.d	$s4, $s4, -1
-	addi.d	$s2, $s2, 12
-	beqz	$s4, .LBB1_10
+	stptr.w	$s6, $s4, -12288
+	addi.d	$s0, $s0, 8
+	addi.d	$s5, $s5, -1
+	addi.d	$s4, $s4, 12
+	beqz	$s5, .LBB1_10
 .LBB1_15:                               #   Parent Loop BB1_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	ld.d	$s6, $s5, 0
+	ld.d	$s6, $s0, 0
 	ld.w	$s6, $s6, 4
-	beq	$s6, $s0, .LBB1_13
+	beq	$s6, $s1, .LBB1_13
 # %bb.16:                               #   in Loop: Header=BB1_15 Depth=2
-	sub.w	$s6, $s6, $s0
+	sub.w	$s6, $s6, $s1
 	slt	$s7, $t2, $s6
 	maskeqz	$s6, $s6, $s7
 	masknez	$s7, $t2, $s7
@@ -605,10 +612,40 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 	xor	$s7, $s7, $s8
 	sub.d	$s7, $s7, $s8
 	or	$s7, $s7, $t4
-	ext.w.h	$s6, $s6
 	div.d	$s6, $s7, $s6
+	vinsgr2vr.h	$vr6, $s6, 0
+	vinsgr2vr.h	$vr6, $s6, 2
+	vslli.w	$vr6, $vr6, 16
+	vsrai.w	$vr6, $vr6, 16
+	vori.b	$vr7, $vr0, 0
+	vmadd.w	$vr7, $vr5, $vr6
+	vsrai.w	$vr6, $vr7, 6
+	vmax.w	$vr6, $vr6, $vr1
+	vmin.w	$vr6, $vr6, $vr2
+	vsrai.w	$vr6, $vr6, 2
+	vadd.w	$vr7, $vr6, $vr3
+	vslt.wu	$vr7, $vr7, $vr4
+	vshuf4i.w	$vr8, $vr7, 16
+	vpickve2gr.d	$s7, $vr8, 1
+	andi	$s7, $s7, 1
+	vpickve2gr.w	$s8, $vr6, 1
+	masknez	$s8, $s8, $s7
+	maskeqz	$s7, $t7, $s7
+	or	$s7, $s7, $s8
+	st.w	$s7, $s4, -8
+	sub.d	$s7, $t8, $s7
+	stptr.w	$s7, $s4, -12296
+	vpickve2gr.d	$s7, $vr7, 0
+	andi	$s7, $s7, 1
+	vpickve2gr.w	$s8, $vr6, 0
+	masknez	$s8, $s8, $s7
+	maskeqz	$s7, $t7, $s7
+	or	$s7, $s7, $s8
+	st.w	$s7, $s4, -4
+	sub.d	$s7, $t8, $s7
+	stptr.w	$s7, $s4, -12292
 	ext.w.h	$s6, $s6
-	mul.d	$s6, $s1, $s6
+	mul.d	$s6, $s2, $s6
 	addi.w	$s6, $s6, 32
 	srai.d	$s6, $s6, 6
 	slt	$s7, $t5, $s6
@@ -624,26 +661,22 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 	sltui	$s7, $s7, -193
 	masknez	$s6, $s6, $s7
 	maskeqz	$s7, $t7, $s7
-	or	$s7, $s7, $s6
-	st.w	$s7, $s2, -8
-	sub.d	$s6, $t8, $s7
-	stptr.w	$s6, $s2, -12296
-	st.w	$s7, $s2, -4
-	stptr.w	$s6, $s2, -12292
-	st.w	$s7, $s2, 0
+	or	$s6, $s7, $s6
+	st.w	$s6, $s4, 0
+	sub.d	$s6, $t8, $s6
 	b	.LBB1_14
 .LBB1_17:                               # %._crit_edge274
 	ld.d	$a1, $a1, %pc_lo12(active_pps)
-	ld.w	$a7, $a1, 196
+	ld.w	$a2, $a1, 196
 	ori	$a1, $zero, 2
-	bne	$a7, $a1, .LBB1_30
+	bne	$a2, $a1, .LBB1_30
 # %bb.18:                               # %.preheader246.lr.ph
 	move	$a1, $zero
-	pcalau12i	$a3, %pc_hi20(wbp_weight)
-	ld.d	$a3, $a3, %pc_lo12(wbp_weight)
+	pcalau12i	$a2, %pc_hi20(wbp_weight)
+	ld.d	$a2, $a2, %pc_lo12(wbp_weight)
 	ld.w	$t0, $fp, 4
-	addi.d	$a4, $sp, 56
-	add.d	$a2, $a4, $a2
+	addi.d	$a3, $sp, 56
+	add.d	$a3, $a3, $a4
 	lu12i.w	$a5, -4
 	ori	$a4, $a5, 4088
 	ori	$a5, $a5, 4092
@@ -653,7 +686,7 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 .LBB1_19:                               # %._crit_edge308
                                         #   in Loop: Header=BB1_20 Depth=1
 	addi.d	$a1, $a1, 1
-	addi.d	$a2, $a2, 384
+	addi.d	$a3, $a3, 384
 	bge	$a1, $a0, .LBB1_25
 .LBB1_20:                               # %.preheader246
                                         # =>This Loop Header: Depth=1
@@ -661,13 +694,13 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 	blez	$t0, .LBB1_19
 # %bb.21:                               # %.preheader245.lr.ph
                                         #   in Loop: Header=BB1_20 Depth=1
-	ld.d	$a0, $a3, 8
-	ld.d	$a7, $a3, 0
+	ld.d	$a0, $a2, 8
+	ld.d	$a7, $a2, 0
 	slli.d	$t0, $a1, 3
 	ldx.d	$a0, $a0, $t0
 	ldx.d	$a7, $a7, $t0
 	move	$t1, $zero
-	move	$t2, $a2
+	move	$t2, $a3
 	.p2align	4, , 16
 .LBB1_22:                               # %.preheader245
                                         #   Parent Loop BB1_20 Depth=1
@@ -698,9 +731,9 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 	b	.LBB1_19
 .LBB1_24:                               # %._crit_edge274.thread
 	ld.d	$a0, $a1, %pc_lo12(active_pps)
-	ld.w	$a7, $a0, 196
+	ld.w	$a2, $a0, 196
 	ori	$a0, $zero, 2
-	bne	$a7, $a0, .LBB1_30
+	bne	$a2, $a0, .LBB1_30
 .LBB1_25:                               # %.preheader244
 	move	$a0, $zero
 	ld.d	$a1, $sp, 32                    # 8-byte Folded Reload
@@ -745,6 +778,7 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 	blt	$a7, $t1, .LBB1_29
 	b	.LBB1_26
 .LBB1_30:                               # %.preheader262
+	st.d	$a2, $sp, 16                    # 8-byte Folded Spill
 	ld.w	$s5, $s3, 68
 	movgr2fr.d	$fs0, $zero
 	fmov.d	$fs1, $fs0
@@ -787,7 +821,6 @@ estimate_weighting_factor_B_slice:      # @estimate_weighting_factor_B_slice
 	fld.d	$fa1, $a0, %pc_lo12(.LCPI1_0)
 	fmul.d	$fs1, $fa0, $fa1
 .LBB1_37:                               # %.preheader260
-	st.d	$a7, $sp, 16                    # 8-byte Folded Spill
 	addi.w	$a0, $s5, 19
 	ori	$a1, $zero, 20
 	slt	$a2, $a1, $a0
@@ -1699,22 +1732,27 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	ld.wu	$a1, $s3, 4
 	addi.w	$a2, $a1, 0
 	pcalau12i	$a3, %got_pc_hi20(listX)
-	ld.d	$a3, $a3, %got_pc_lo12(listX)
-	ld.d	$a4, $a3, 8
-	ld.d	$a5, $a3, 0
-	pcalau12i	$a3, %got_pc_hi20(enc_picture)
-	ld.d	$a3, $a3, %got_pc_lo12(enc_picture)
+	ld.d	$a4, $a3, %got_pc_lo12(listX)
+	ld.d	$a3, $a4, 8
+	ld.d	$a4, $a4, 0
+	pcalau12i	$a5, %got_pc_hi20(enc_picture)
+	ld.d	$a5, $a5, %got_pc_lo12(enc_picture)
 	move	$a6, $zero
-	ld.d	$a7, $a3, 0
-	lu12i.w	$a3, 3
-	ori	$a3, $a3, 8
+	ld.d	$a7, $a5, 0
+	lu12i.w	$a5, 3
+	ori	$a5, $a5, 8
 	addi.d	$t0, $sp, 56
-	add.d	$t0, $t0, $a3
+	add.d	$t0, $t0, $a5
 	addi.w	$t1, $zero, -128
 	ori	$t2, $zero, 127
 	lu12i.w	$t3, 4
+	vrepli.w	$vr0, 32
 	addi.w	$t4, $zero, -1024
+	vreplgr2vr.w	$vr1, $t4
 	ori	$t5, $zero, 1023
+	vreplgr2vr.w	$vr2, $t5
+	vrepli.w	$vr3, -129
+	vrepli.w	$vr4, -193
 	ori	$t6, $zero, 32
 	ori	$t7, $zero, 64
 	b	.LBB3_11
@@ -1731,7 +1769,7 @@ test_wp_B_slice:                        # @test_wp_B_slice
 # %bb.12:                               # %.lr.ph
                                         #   in Loop: Header=BB3_11 Depth=1
 	slli.d	$t8, $a6, 3
-	ldx.d	$t8, $a5, $t8
+	ldx.d	$t8, $a4, $t8
 	ld.w	$t8, $t8, 4
 	ld.w	$fp, $a7, 4
 	sub.w	$fp, $fp, $t8
@@ -1743,9 +1781,11 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	maskeqz	$fp, $fp, $s2
 	masknez	$s2, $t2, $s2
 	or	$fp, $fp, $s2
+	vinsgr2vr.w	$vr5, $fp, 0
+	vinsgr2vr.w	$vr5, $fp, 1
 	move	$s2, $t0
 	move	$s4, $a1
-	move	$s6, $a4
+	move	$s6, $a3
 	b	.LBB3_15
 	.p2align	4, , 16
 .LBB3_13:                               #   in Loop: Header=BB3_15 Depth=2
@@ -1784,8 +1824,38 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	xor	$s8, $s8, $ra
 	sub.d	$s8, $s8, $ra
 	or	$s8, $s8, $t3
-	ext.w.h	$s7, $s7
 	div.d	$s7, $s8, $s7
+	vinsgr2vr.h	$vr6, $s7, 0
+	vinsgr2vr.h	$vr6, $s7, 2
+	vslli.w	$vr6, $vr6, 16
+	vsrai.w	$vr6, $vr6, 16
+	vori.b	$vr7, $vr0, 0
+	vmadd.w	$vr7, $vr5, $vr6
+	vsrai.w	$vr6, $vr7, 6
+	vmax.w	$vr6, $vr6, $vr1
+	vmin.w	$vr6, $vr6, $vr2
+	vsrai.w	$vr6, $vr6, 2
+	vadd.w	$vr7, $vr6, $vr3
+	vslt.wu	$vr7, $vr7, $vr4
+	vshuf4i.w	$vr8, $vr7, 16
+	vpickve2gr.d	$s8, $vr8, 1
+	andi	$s8, $s8, 1
+	vpickve2gr.w	$ra, $vr6, 1
+	masknez	$ra, $ra, $s8
+	maskeqz	$s8, $t6, $s8
+	or	$s8, $s8, $ra
+	st.w	$s8, $s2, -8
+	sub.d	$s8, $t7, $s8
+	stptr.w	$s8, $s2, -12296
+	vpickve2gr.d	$s8, $vr7, 0
+	andi	$s8, $s8, 1
+	vpickve2gr.w	$ra, $vr6, 0
+	masknez	$ra, $ra, $s8
+	maskeqz	$s8, $t6, $s8
+	or	$s8, $s8, $ra
+	st.w	$s8, $s2, -4
+	sub.d	$s8, $t7, $s8
+	stptr.w	$s8, $s2, -12292
 	ext.w.h	$s7, $s7
 	mul.d	$s7, $fp, $s7
 	addi.w	$s7, $s7, 32
@@ -1803,13 +1873,9 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	sltui	$s8, $s8, -193
 	masknez	$s7, $s7, $s8
 	maskeqz	$s8, $t6, $s8
-	or	$s8, $s8, $s7
-	st.w	$s8, $s2, -8
-	sub.d	$s7, $t7, $s8
-	stptr.w	$s7, $s2, -12296
-	st.w	$s8, $s2, -4
-	stptr.w	$s7, $s2, -12292
-	st.w	$s8, $s2, 0
+	or	$s7, $s8, $s7
+	st.w	$s7, $s2, 0
+	sub.d	$s7, $t7, $s7
 	b	.LBB3_14
 .LBB3_17:                               # %._crit_edge311
 	ori	$a1, $zero, 1
@@ -1820,8 +1886,8 @@ test_wp_B_slice:                        # @test_wp_B_slice
 	pcalau12i	$a2, %pc_hi20(wbp_weight)
 	ld.d	$a2, $a2, %pc_lo12(wbp_weight)
 	ld.w	$t0, $s3, 4
-	addi.d	$a4, $sp, 56
-	add.d	$a3, $a4, $a3
+	addi.d	$a3, $sp, 56
+	add.d	$a3, $a3, $a5
 	lu12i.w	$a5, -4
 	ori	$a4, $a5, 4088
 	ori	$a5, $a5, 4092

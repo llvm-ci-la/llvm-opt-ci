@@ -718,6 +718,7 @@ setTemperature:                         # @setTemperature
 	ld.d	$a1, $a1, 120
 	move	$a2, $zero
 	move	$a3, $zero
+	vreplvei.d	$vr1, $vr0, 0
 	b	.LBB4_13
 	.p2align	4, , 16
 .LBB4_12:                               # %._crit_edge72
@@ -741,15 +742,12 @@ setTemperature:                         # @setTemperature
 	.p2align	4, , 16
 .LBB4_15:                               #   Parent Loop BB4_13 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	fld.d	$fa1, $a5, -16
-	fld.d	$fa2, $a5, -8
-	fmul.d	$fa1, $fa0, $fa1
+	vld	$vr2, $a5, -16
 	fld.d	$fa3, $a5, 0
-	fst.d	$fa1, $a5, -16
-	fmul.d	$fa1, $fa0, $fa2
-	fst.d	$fa1, $a5, -8
-	fmul.d	$fa1, $fa0, $fa3
-	fst.d	$fa1, $a5, 0
+	vfmul.d	$vr2, $vr1, $vr2
+	vst	$vr2, $a5, -16
+	fmul.d	$fa2, $fa0, $fa3
+	fst.d	$fa2, $a5, 0
 	addi.w	$a4, $a4, -1
 	addi.d	$a5, $a5, 24
 	bnez	$a4, .LBB4_15
@@ -775,10 +773,11 @@ setTemperature:                         # @setTemperature
 	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
 	addi.d	$sp, $sp, 144
 	ret
-.LBB4_18:                               # %call.sqrt106
+.LBB4_18:                               # %call.sqrt105
 	fmov.d	$fa0, $fa1
 	pcaddu18i	$ra, %call36(sqrt)
 	jirl	$ra, $ra, 0
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
 	b	.LBB4_10
 .Lfunc_end4:
 	.size	setTemperature, .Lfunc_end4-setTemperature

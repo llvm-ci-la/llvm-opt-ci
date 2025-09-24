@@ -1042,14 +1042,11 @@ _Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj2EdEvRN9benchmark5S
 	.p2align	4, , 16
 .LBB14_3:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa0, $sp, 32
-	fld.d	$fa1, $sp, 16
-	fld.d	$fa2, $sp, 24
-	fld.d	$fa3, $sp, 40
-	fmadd.d	$fa1, $fa0, $fa1, $fa0
-	fst.d	$fa1, $sp, 32
-	fmadd.d	$fa0, $fa0, $fa2, $fa3
-	fst.d	$fa0, $sp, 40
+	vld	$vr0, $sp, 32
+	vld	$vr1, $sp, 16
+	vreplvei.d	$vr2, $vr0, 0
+	vfmadd.d	$vr0, $vr2, $vr1, $vr0
+	vst	$vr0, $sp, 32
 	#APP
 	#NO_APP
 	#APP
@@ -1209,18 +1206,18 @@ _Z49benchmark_multiply_accumulate_runtime_checks_failILj3EdEvRN9benchmark5StateE
 _Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj3EdEvRN9benchmark5StateE: # @_Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj3EdEvRN9benchmark5StateE
 	.cfi_startproc
 # %bb.0:                                # %_ZN9benchmark5State13StateIteratorC2EPS0_.exit
-	addi.d	$sp, $sp, -96
-	.cfi_def_cfa_offset 96
-	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
-	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 64                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	.cfi_def_cfa_offset 112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
 	.cfi_offset 24, -32
 	move	$fp, $a0
-	addi.d	$a0, $sp, 40
+	addi.d	$a0, $sp, 48
 	ori	$a1, $zero, 3
 	pcaddu18i	$ra, %call36(_ZL9init_dataIdEvPT_j)
 	jirl	$ra, $ra, 0
@@ -1237,23 +1234,21 @@ _Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj3EdEvRN9benchmark5S
 # %bb.1:                                # %_ZN9benchmark5State13StateIteratorC2EPS0_.exit
 	beqz	$s0, .LBB17_4
 # %bb.2:
-	addi.d	$a0, $sp, 40
+	addi.d	$a0, $sp, 48
 	addi.d	$a1, $sp, 16
 	.p2align	4, , 16
 .LBB17_3:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa0, $sp, 40
-	fld.d	$fa1, $sp, 16
-	fmadd.d	$fa1, $fa0, $fa1, $fa0
-	fld.d	$fa2, $sp, 24
-	fld.d	$fa3, $sp, 48
-	fld.d	$fa4, $sp, 32
-	fld.d	$fa5, $sp, 56
-	fst.d	$fa1, $sp, 40
-	fmadd.d	$fa1, $fa0, $fa2, $fa3
-	fst.d	$fa1, $sp, 48
-	fmadd.d	$fa0, $fa0, $fa4, $fa5
-	fst.d	$fa0, $sp, 56
+	vld	$vr0, $sp, 16
+	vld	$vr1, $sp, 48
+	fld.d	$fa2, $sp, 48
+	fld.d	$fa3, $sp, 32
+	fld.d	$fa4, $sp, 64
+	vreplvei.d	$vr5, $vr1, 0
+	vfmadd.d	$vr0, $vr5, $vr0, $vr1
+	vst	$vr0, $sp, 48
+	fmadd.d	$fa0, $fa2, $fa3, $fa4
+	fst.d	$fa0, $sp, 64
 	#APP
 	#NO_APP
 	#APP
@@ -1265,11 +1260,11 @@ _Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj3EdEvRN9benchmark5S
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State17FinishKeepRunningEv)
 	jirl	$ra, $ra, 0
-	ld.d	$s1, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 88                    # 8-byte Folded Reload
-	addi.d	$sp, $sp, 96
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .Lfunc_end17:
 	.size	_Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj3EdEvRN9benchmark5StateE, .Lfunc_end17-_Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj3EdEvRN9benchmark5StateE
@@ -1446,22 +1441,15 @@ _Z54benchmark_multiply_accumulate_no_runtime_checks_neededILj4EdEvRN9benchmark5S
 	.p2align	4, , 16
 .LBB20_3:                               # %.lr.ph
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa0, $sp, 48
-	fld.d	$fa1, $sp, 16
-	fld.d	$fa2, $sp, 24
-	fld.d	$fa3, $sp, 56
-	fmadd.d	$fa1, $fa0, $fa1, $fa0
-	fst.d	$fa1, $sp, 48
-	fmadd.d	$fa1, $fa0, $fa2, $fa3
-	fld.d	$fa2, $sp, 32
-	fld.d	$fa3, $sp, 64
-	fld.d	$fa4, $sp, 40
-	fld.d	$fa5, $sp, 72
-	fst.d	$fa1, $sp, 56
-	fmadd.d	$fa1, $fa0, $fa2, $fa3
-	fst.d	$fa1, $sp, 64
-	fmadd.d	$fa0, $fa0, $fa4, $fa5
-	fst.d	$fa0, $sp, 72
+	vld	$vr0, $sp, 48
+	vld	$vr1, $sp, 16
+	vld	$vr2, $sp, 32
+	vld	$vr3, $sp, 64
+	vreplvei.d	$vr4, $vr0, 0
+	vfmadd.d	$vr0, $vr4, $vr1, $vr0
+	vst	$vr0, $sp, 48
+	vfmadd.d	$vr0, $vr4, $vr2, $vr3
+	vst	$vr0, $sp, 64
 	#APP
 	#NO_APP
 	#APP

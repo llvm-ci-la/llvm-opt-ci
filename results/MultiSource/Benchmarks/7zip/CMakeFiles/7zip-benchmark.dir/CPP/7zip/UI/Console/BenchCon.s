@@ -218,20 +218,18 @@ _ZN14CBenchCallback15SetDecodeResultERK10CBenchInfob: # @_ZN14CBenchCallback15Se
 	ori	$s2, $zero, 1
 	pcaddu18i	$ra, %call36(fwrite)
 	jirl	$ra, $ra, 0
-	vld	$vr0, $s0, 16
 	ld.d	$a0, $s0, 48
+	vld	$vr0, $s0, 16
 	vld	$vr1, $s0, 0
-	vst	$vr0, $sp, 32
 	st.d	$a0, $sp, 64
-	ld.d	$a1, $s0, 32
+	vst	$vr0, $sp, 32
+	vld	$vr0, $s0, 32
 	vst	$vr1, $sp, 16
-	ld.d	$a2, $s0, 40
 	bstrpick.d	$a0, $a0, 31, 0
-	mul.d	$a1, $a1, $a0
-	st.d	$a1, $sp, 48
-	mul.d	$a1, $a2, $a0
+	vreplgr2vr.d	$vr1, $a0
+	vmul.d	$vr0, $vr0, $vr1
 	ld.d	$a0, $fp, 72
-	st.d	$a1, $sp, 56
+	vst	$vr0, $sp, 48
 	st.w	$s2, $sp, 64
 	addi.d	$a3, $fp, 40
 	addi.d	$a1, $sp, 16
@@ -523,14 +521,12 @@ _Z12LzmaBenchConP8_IO_FILEjjj:          # @_Z12LzmaBenchConP8_IO_FILEjjj
 	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB3_20
 # %bb.19:
-	ld.d	$a1, $sp, 32
-	ld.d	$a2, $sp, 40
-	div.du	$a1, $a1, $a0
-	ld.d	$a3, $sp, 48
-	st.d	$a1, $sp, 32
-	div.du	$a1, $a2, $a0
-	st.d	$a1, $sp, 40
-	div.du	$a0, $a3, $a0
+	vld	$vr0, $sp, 32
+	ld.d	$a1, $sp, 48
+	vreplgr2vr.d	$vr1, $a0
+	vdiv.du	$vr0, $vr0, $vr1
+	vst	$vr0, $sp, 32
+	div.du	$a0, $a1, $a0
 	st.d	$a0, $sp, 48
 	ori	$a0, $zero, 1
 	st.d	$a0, $sp, 24
@@ -538,14 +534,12 @@ _Z12LzmaBenchConP8_IO_FILEjjj:          # @_Z12LzmaBenchConP8_IO_FILEjjj
 	ld.d	$a0, $sp, 56
 	beqz	$a0, .LBB3_22
 # %bb.21:
-	ld.d	$a1, $sp, 64
-	ld.d	$a2, $sp, 72
-	div.du	$a1, $a1, $a0
-	ld.d	$a3, $sp, 80
-	st.d	$a1, $sp, 64
-	div.du	$a1, $a2, $a0
-	st.d	$a1, $sp, 72
-	div.du	$a0, $a3, $a0
+	vld	$vr0, $sp, 64
+	ld.d	$a1, $sp, 80
+	vreplgr2vr.d	$vr1, $a0
+	vdiv.du	$vr0, $vr0, $vr1
+	vst	$vr0, $sp, 64
+	div.du	$a0, $a1, $a0
 	st.d	$a0, $sp, 80
 	ori	$a0, $zero, 1
 	st.d	$a0, $sp, 56

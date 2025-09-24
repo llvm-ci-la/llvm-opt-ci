@@ -2719,35 +2719,10 @@ quantize_xrpow:                         # @quantize_xrpow
 	ori	$a4, $zero, 1
 	.p2align	4, , 16
 .LBB12_1:                               # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a0, 0
-	vld	$vr1, $a0, 48
-	vld	$vr2, $a0, 32
-	vld	$vr4, $a0, 16
-	addi.d	$a0, $a0, 64
+	vld	$vr1, $a0, 16
+	vld	$vr2, $a0, 0
 	vfmul.d	$vr1, $vr0, $vr1
 	vfmul.d	$vr2, $vr0, $vr2
-	vfmul.d	$vr7, $vr0, $vr4
-	vfmul.d	$vr8, $vr0, $vr3
-	vreplvei.d	$vr3, $vr8, 1
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a5, $fa3
-	vreplvei.d	$vr3, $vr8, 0
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a6, $fa3
-	slli.d	$a6, $a6, 3
-	fldx.d	$ft1, $a3, $a6
-	slli.d	$a5, $a5, 3
-	fldx.d	$ft2, $a3, $a5
-	vreplvei.d	$vr3, $vr7, 1
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a5, $fa3
-	vreplvei.d	$vr3, $vr7, 0
-	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a6, $fa3
-	slli.d	$a6, $a6, 3
-	fldx.d	$ft3, $a3, $a6
-	slli.d	$a5, $a5, 3
-	fldx.d	$ft4, $a3, $a5
 	vreplvei.d	$vr3, $vr2, 1
 	ftintrz.w.d	$fa3, $fa3
 	movfr2gr.s	$a5, $fa3
@@ -2768,51 +2743,75 @@ quantize_xrpow:                         # @quantize_xrpow
 	fldx.d	$fa5, $a3, $a6
 	slli.d	$a5, $a5, 3
 	fldx.d	$fa6, $a3, $a5
-	vextrins.d	$vr9, $vr10, 16
-	vextrins.d	$vr11, $vr12, 16
-	vfadd.d	$vr7, $vr7, $vr11
-	vfadd.d	$vr8, $vr8, $vr9
-	vreplvei.d	$vr9, $vr8, 0
-	ftintrz.w.d	$ft1, $ft1
-	movfr2gr.s	$a5, $ft1
-	vinsgr2vr.w	$vr9, $a5, 0
-	vreplvei.d	$vr8, $vr8, 1
-	ftintrz.w.d	$ft0, $ft0
-	movfr2gr.s	$a5, $ft0
-	vinsgr2vr.w	$vr9, $a5, 1
-	vreplvei.d	$vr8, $vr7, 0
-	ftintrz.w.d	$ft0, $ft0
-	movfr2gr.s	$a5, $ft0
-	vinsgr2vr.w	$vr9, $a5, 2
-	vreplvei.d	$vr7, $vr7, 1
-	ftintrz.w.d	$fa7, $fa7
-	movfr2gr.s	$a5, $fa7
-	vinsgr2vr.w	$vr9, $a5, 3
-	vst	$vr9, $a1, 0
-	addi.d	$a5, $a1, 32
 	vextrins.d	$vr3, $vr4, 16
 	vextrins.d	$vr5, $vr6, 16
 	vfadd.d	$vr1, $vr1, $vr5
 	vfadd.d	$vr2, $vr2, $vr3
 	vreplvei.d	$vr3, $vr2, 0
 	ftintrz.w.d	$fa3, $fa3
-	movfr2gr.s	$a6, $fa3
-	vinsgr2vr.w	$vr3, $a6, 0
+	movfr2gr.s	$a5, $fa3
+	vinsgr2vr.w	$vr3, $a5, 0
 	vreplvei.d	$vr2, $vr2, 1
 	ftintrz.w.d	$fa2, $fa2
-	movfr2gr.s	$a6, $fa2
-	vinsgr2vr.w	$vr3, $a6, 1
+	movfr2gr.s	$a5, $fa2
+	vinsgr2vr.w	$vr3, $a5, 1
 	vreplvei.d	$vr2, $vr1, 0
 	ftintrz.w.d	$fa2, $fa2
-	movfr2gr.s	$a6, $fa2
-	vinsgr2vr.w	$vr3, $a6, 2
+	movfr2gr.s	$a5, $fa2
+	vinsgr2vr.w	$vr3, $a5, 2
+	vreplvei.d	$vr1, $vr1, 1
+	vld	$vr2, $a0, 48
+	vld	$vr4, $a0, 32
+	ftintrz.w.d	$fa1, $fa1
+	movfr2gr.s	$a5, $fa1
+	vfmul.d	$vr1, $vr0, $vr2
+	vfmul.d	$vr2, $vr0, $vr4
+	vreplvei.d	$vr4, $vr2, 1
+	ftintrz.w.d	$fa4, $fa4
+	vreplvei.d	$vr5, $vr2, 0
+	ftintrz.w.d	$fa5, $fa5
+	movfr2gr.s	$a6, $fa5
+	slli.d	$a6, $a6, 3
+	fldx.d	$fa5, $a3, $a6
+	movfr2gr.s	$a6, $fa4
+	slli.d	$a6, $a6, 3
+	fldx.d	$fa4, $a3, $a6
+	vreplvei.d	$vr6, $vr1, 1
+	ftintrz.w.d	$fa6, $fa6
+	vreplvei.d	$vr7, $vr1, 0
+	ftintrz.w.d	$fa7, $fa7
+	movfr2gr.s	$a6, $fa7
+	slli.d	$a6, $a6, 3
+	fldx.d	$fa7, $a3, $a6
+	movfr2gr.s	$a6, $fa6
+	slli.d	$a6, $a6, 3
+	fldx.d	$fa6, $a3, $a6
+	vinsgr2vr.w	$vr3, $a5, 3
+	vst	$vr3, $a1, 0
+	vextrins.d	$vr5, $vr4, 16
+	vextrins.d	$vr7, $vr6, 16
+	vfadd.d	$vr1, $vr1, $vr7
+	vfadd.d	$vr2, $vr2, $vr5
+	vreplvei.d	$vr3, $vr2, 0
+	ftintrz.w.d	$fa3, $fa3
+	movfr2gr.s	$a5, $fa3
+	vinsgr2vr.w	$vr3, $a5, 0
+	vreplvei.d	$vr2, $vr2, 1
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$a5, $fa2
+	vinsgr2vr.w	$vr3, $a5, 1
+	vreplvei.d	$vr2, $vr1, 0
+	ftintrz.w.d	$fa2, $fa2
+	movfr2gr.s	$a5, $fa2
+	vinsgr2vr.w	$vr3, $a5, 2
 	vreplvei.d	$vr1, $vr1, 1
 	ftintrz.w.d	$fa1, $fa1
-	movfr2gr.s	$a6, $fa1
-	vinsgr2vr.w	$vr3, $a6, 3
-	addi.w	$a2, $a2, -1
+	movfr2gr.s	$a5, $fa1
+	vinsgr2vr.w	$vr3, $a5, 3
 	vst	$vr3, $a1, 16
-	move	$a1, $a5
+	addi.w	$a2, $a2, -1
+	addi.d	$a0, $a0, 64
+	addi.d	$a1, $a1, 32
 	bltu	$a4, $a2, .LBB12_1
 # %bb.2:
 	ret

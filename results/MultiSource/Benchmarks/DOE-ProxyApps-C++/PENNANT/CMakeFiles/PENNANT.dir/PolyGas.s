@@ -532,23 +532,19 @@ _ZN7PolyGas9calcForceEPKdPK7double2PS2_ii: # @_ZN7PolyGas9calcForceEPKdPK7double
 	ld.d	$a0, $a0, 0
 	ld.d	$a0, $a0, 104
 	alsl.d	$a0, $a4, $a0, 2
-	slli.d	$a6, $a4, 4
-	addi.d	$a6, $a6, 8
-	add.d	$a2, $a2, $a6
-	add.d	$a3, $a3, $a6
+	alsl.d	$a2, $a4, $a2, 4
+	alsl.d	$a3, $a4, $a3, 4
 	sub.d	$a4, $a5, $a4
 	.p2align	4, , 16
 .LBB3_2:                                # =>This Inner Loop Header: Depth=1
 	ld.w	$a5, $a0, 0
 	slli.d	$a5, $a5, 3
 	fldx.d	$fa0, $a1, $a5
-	fld.d	$fa1, $a2, -8
-	fld.d	$fa2, $a2, 0
+	vld	$vr1, $a2, 0
 	fneg.d	$fa0, $fa0
-	fmul.d	$fa1, $fa1, $fa0
-	fmul.d	$fa0, $fa2, $fa0
-	fst.d	$fa1, $a3, -8
-	fst.d	$fa0, $a3, 0
+	vreplvei.d	$vr0, $vr0, 0
+	vfmul.d	$vr0, $vr1, $vr0
+	vst	$vr0, $a3, 0
 	addi.d	$a0, $a0, 4
 	addi.d	$a2, $a2, 16
 	addi.d	$a4, $a4, -1

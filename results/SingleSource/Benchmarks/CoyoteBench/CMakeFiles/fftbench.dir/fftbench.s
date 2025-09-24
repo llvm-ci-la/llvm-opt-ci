@@ -1914,17 +1914,14 @@ _ZN10polynomialIdE11inverse_fftERKS_ISt7complexIdEE: # @_ZN10polynomialIdE11inve
 	bstrins.d	$a1, $a2, 63, 32
 	movgr2fr.d	$fa1, $a1
 	fadd.d	$fa0, $fa1, $fa0
-	addi.d	$a1, $s5, 8
+	vreplvei.d	$vr0, $vr0, 0
 	.p2align	4, , 16
 .LBB6_31:                               # =>This Inner Loop Header: Depth=1
-	fld.d	$fa1, $a1, -8
-	fld.d	$fa2, $a1, 0
-	fdiv.d	$fa1, $fa1, $fa0
-	fdiv.d	$fa2, $fa2, $fa0
-	fst.d	$fa1, $a1, -8
-	fst.d	$fa2, $a1, 0
+	vld	$vr1, $s5, 0
+	vfdiv.d	$vr1, $vr1, $vr0
+	vst	$vr1, $s5, 0
 	addi.d	$a0, $a0, 1
-	addi.d	$a1, $a1, 16
+	addi.d	$s5, $s5, 16
 	bltu	$a0, $s4, .LBB6_31
 .LBB6_32:                               # %._crit_edge80
 	fld.d	$fs6, $sp, 80                   # 8-byte Folded Reload

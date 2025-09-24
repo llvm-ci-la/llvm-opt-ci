@@ -1608,15 +1608,15 @@ _ZL27loopWithReductionWithVW1IC4i:      # @_ZL27loopWithReductionWithVW1IC4i
 	addi.d	$a1, $a1, 16
 	bnez	$a3, .LBB21_5
 # %bb.6:                                # %middle.block
-	vpickve2gr.w	$a1, $vr0, 0
-	vpickve2gr.w	$a3, $vr0, 1
-	add.d	$a1, $a3, $a1
-	vpickve2gr.w	$a3, $vr0, 2
-	add.d	$a1, $a3, $a1
+	vreplvei.w	$vr1, $vr0, 1
+	vadd.w	$vr1, $vr1, $vr0
+	vreplvei.w	$vr2, $vr0, 2
+	vadd.w	$vr1, $vr2, $vr1
+	vpickve2gr.w	$a1, $vr1, 0
 	vpickve2gr.w	$a3, $vr0, 3
 	add.w	$a1, $a3, $a1
 	beq	$a2, $a0, .LBB21_9
-.LBB21_7:                               # %.lr.ph.preheader14
+.LBB21_7:                               # %.lr.ph.preheader18
 	pcalau12i	$a3, %pc_hi20(A)
 	addi.d	$a3, $a3, %pc_lo12(A)
 	alsl.d	$a3, $a2, $a3, 2
@@ -3709,15 +3709,15 @@ _ZL30bigLoopWithReductionWithVW1IC4i:   # @_ZL30bigLoopWithReductionWithVW1IC4i
 	addi.d	$a1, $a1, 16
 	bnez	$a7, .LBB42_5
 # %bb.6:                                # %middle.block
-	vpickve2gr.w	$a1, $vr0, 0
-	vpickve2gr.w	$a4, $vr0, 1
-	add.d	$a1, $a4, $a1
-	vpickve2gr.w	$a4, $vr0, 2
-	add.d	$a1, $a4, $a1
+	vreplvei.w	$vr1, $vr0, 1
+	vadd.w	$vr1, $vr1, $vr0
+	vreplvei.w	$vr2, $vr0, 2
+	vadd.w	$vr1, $vr2, $vr1
+	vpickve2gr.w	$a1, $vr1, 0
 	vpickve2gr.w	$a4, $vr0, 3
 	add.w	$a1, $a4, $a1
 	beq	$a3, $a0, .LBB42_9
-.LBB42_7:                               # %.lr.ph.preheader17
+.LBB42_7:                               # %.lr.ph.preheader21
 	pcalau12i	$a4, %pc_hi20(A)
 	addi.d	$a4, $a4, %pc_lo12(A)
 	alsl.d	$a4, $a3, $a4, 2

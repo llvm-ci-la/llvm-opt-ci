@@ -129,50 +129,56 @@ image_init:                             # @image_init
 	st.w	$s6, $s7, 0
 	move	$t1, $s5
 	st.w	$s5, $s7, 4
-	fld.s	$fa0, $sp, 16
+	fld.s	$fa1, $sp, 16
 	pcalau12i	$a2, %pc_hi20(.LCPI1_0)
-	fld.s	$fa2, $a2, %pc_lo12(.LCPI1_0)
+	fld.s	$fa0, $a2, %pc_lo12(.LCPI1_0)
 	move	$a2, $s4
 	st.w	$s4, $s7, 8
 	move	$a5, $s3
 	st.w	$s3, $s7, 12
 	move	$a3, $s2
 	st.w	$s2, $s7, 16
-	fmul.s	$fa0, $fa0, $fa2
-	fld.s	$fa1, $sp, 64
-	ftintrz.l.s	$fa0, $fa0
-	movfr2gr.d	$t2, $fa0
-	fst.d	$fa0, $s7, 24
-	fmul.s	$fa0, $fa1, $fa2
-	ld.d	$t4, $sp, 32
-	ld.d	$t5, $sp, 48
-	ftintrz.l.s	$fa0, $fa0
-	movfr2gr.d	$t3, $fa0
-	fst.d	$fa0, $s7, 48
-	or	$t0, $t5, $t4
+	fmul.s	$fa1, $fa1, $fa0
+	fld.s	$fa2, $sp, 64
+	ftintrz.l.s	$fa1, $fa1
+	movfr2gr.d	$t3, $fa1
+	fst.d	$fa1, $s7, 24
+	fmul.s	$fa1, $fa2, $fa0
+	ld.d	$t2, $sp, 32
+	ld.d	$t4, $sp, 48
+	ftintrz.l.s	$fa1, $fa1
+	movfr2gr.d	$t5, $fa1
+	fst.d	$fa1, $s7, 48
+	or	$t0, $t4, $t2
 	bstrpick.d	$t0, $t0, 62, 0
 	sltu	$t6, $zero, $t0
+	vinsgr2vr.w	$vr1, $t2, 0
+	vinsgr2vr.w	$vr1, $t4, 1
+	lu12i.w	$t7, 284672
+	vreplgr2vr.w	$vr2, $t7
+	vfmul.s	$vr1, $vr1, $vr2
+	vreplvei.w	$vr2, $vr1, 0
+	ftintrz.l.s	$fa2, $fa2
+	movfr2gr.d	$t7, $fa2
+	vinsgr2vr.d	$vr2, $t7, 0
+	vreplvei.w	$vr1, $vr1, 1
+	ftintrz.l.s	$fa1, $fa1
+	movfr2gr.d	$t7, $fa1
+	vinsgr2vr.d	$vr2, $t7, 1
+	vreplgr2vr.d	$vr1, $t6
+	vslli.d	$vr1, $vr1, 63
+	vsrai.d	$vr1, $vr1, 63
+	vand.v	$vr1, $vr1, $vr2
+	fld.s	$fa2, $sp, 80
 	st.w	$t6, $s7, 100
-	movgr2fr.w	$fa0, $t4
-	movgr2fr.w	$fa1, $t5
-	fmul.s	$fa0, $fa0, $fa2
-	ftintrz.l.s	$fa0, $fa0
-	movfr2gr.d	$t4, $fa0
-	fmul.s	$fa0, $fa1, $fa2
-	ftintrz.l.s	$fa0, $fa0
-	movfr2gr.d	$t5, $fa0
-	maskeqz	$t7, $t4, $t6
-	maskeqz	$t6, $t5, $t6
-	fld.s	$fa0, $sp, 80
-	st.d	$t7, $s7, 32
-	st.d	$t6, $s7, 40
-	fld.s	$fa3, $sp, 96
-	fmul.s	$fa0, $fa0, $fa2
-	ftintrz.l.s	$fa1, $fa0
-	fst.d	$fa1, $s7, 160
-	fmul.s	$fa0, $fa3, $fa2
-	ftintrz.l.s	$fa0, $fa0
-	fst.d	$fa0, $s7, 168
+	vst	$vr1, $s7, 32
+	fld.s	$fa1, $sp, 96
+	fmul.s	$fa2, $fa2, $fa0
+	ftintrz.l.s	$fa2, $fa2
+	fst.d	$fa2, $s7, 160
+	fmul.s	$fa1, $fa1, $fa0
+	ftintrz.l.s	$fa1, $fa1
+	fst.d	$fa1, $s7, 168
 	st.d	$fp, $s7, 72
 	st.d	$a0, $s7, 80
 	st.w	$s0, $s7, 88
@@ -245,45 +251,53 @@ image_init:                             # @image_init
 	stptr.w	$zero, $a1, 8360
 .LBB1_17:
 	ld.d	$t6, $fp, 264
-	mul.d	$a0, $t2, $a4
-	mul.d	$t2, $t3, $t1
+	mul.d	$a0, $t3, $a4
+	mul.d	$t3, $t5, $t1
 	beqz	$t0, .LBB1_19
 # %bb.18:
-	mul.d	$t1, $t5, $t1
-	add.d	$t5, $t1, $a0
-	mul.d	$t1, $t4, $a4
-	add.d	$t2, $t1, $t2
+	movgr2fr.w	$fa3, $t4
+	fmul.s	$fa3, $fa3, $fa0
+	ftintrz.l.s	$fa3, $fa3
+	movfr2gr.d	$t4, $fa3
+	mul.d	$t1, $t4, $t1
+	add.d	$t4, $t1, $a0
+	movgr2fr.w	$fa3, $t2
+	fmul.s	$fa0, $fa3, $fa0
+	ftintrz.l.s	$fa0, $fa0
+	movfr2gr.d	$t1, $fa0
+	mul.d	$t1, $t1, $a4
+	add.d	$t3, $t1, $t3
 	b	.LBB1_20
 .LBB1_19:
-	move	$t5, $a0
+	move	$t4, $a0
 .LBB1_20:
 	ld.d	$t8, $t6, 56
-	ld.d	$t4, $t6, 64
+	ld.d	$t5, $t6, 64
 	ld.d	$t7, $t6, 72
-	ld.d	$t3, $t6, 80
-	movfr2gr.d	$t1, $fa1
-	bltz	$t5, .LBB1_23
+	ld.d	$t2, $t6, 80
+	movfr2gr.d	$t1, $fa2
+	bltz	$t4, .LBB1_23
 # %bb.21:
 	blt	$t1, $t8, .LBB1_27
 # %bb.22:
-	add.d	$t5, $t5, $t1
-	bge	$t7, $t5, .LBB1_25
+	add.d	$t4, $t4, $t1
+	bge	$t7, $t4, .LBB1_25
 	b	.LBB1_27
 .LBB1_23:
-	add.d	$t5, $t5, $t1
-	blt	$t5, $t8, .LBB1_27
+	add.d	$t4, $t4, $t1
+	blt	$t4, $t8, .LBB1_27
 # %bb.24:
 	blt	$t7, $t1, .LBB1_27
 .LBB1_25:
-	movfr2gr.d	$t5, $fa0
-	bltz	$t2, .LBB1_41
+	movfr2gr.d	$t4, $fa1
+	bltz	$t3, .LBB1_41
 # %bb.26:
-	slt	$t4, $t5, $t4
-	xori	$t4, $t4, 1
-	add.d	$t2, $t2, $t5
-	slt	$t2, $t3, $t2
+	slt	$t5, $t4, $t5
+	xori	$t5, $t5, 1
+	add.d	$t3, $t3, $t4
+	slt	$t2, $t2, $t3
 	xori	$t2, $t2, 1
-	and	$t3, $t4, $t2
+	and	$t3, $t5, $t2
 	b	.LBB1_42
 .LBB1_27:                               # %.critedge
 	st.w	$zero, $a1, 96
@@ -360,12 +374,12 @@ image_init:                             # @image_init
 	addi.d	$sp, $sp, 192
 	ret
 .LBB1_41:
-	add.d	$t2, $t2, $t5
-	slt	$t2, $t2, $t4
-	xori	$t2, $t2, 1
+	add.d	$t3, $t3, $t4
 	slt	$t3, $t3, $t5
 	xori	$t3, $t3, 1
-	and	$t3, $t2, $t3
+	slt	$t2, $t2, $t4
+	xori	$t2, $t2, 1
+	and	$t3, $t3, $t2
 .LBB1_42:
 	st.w	$t3, $a1, 96
 	ori	$t2, $zero, 1
