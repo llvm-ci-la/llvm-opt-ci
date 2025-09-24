@@ -1770,111 +1770,108 @@ mdct_init48:                            # @mdct_init48
 	vst	$vr2, $s0, 80
 	vst	$vr3, $s0, 96
 	pcalau12i	$a0, %pc_hi20(enwindow)
-	addi.d	$a1, $a0, %pc_lo12(enwindow)
-	fld.d	$fa4, $a1, 1984
-	fld.d	$fa0, $a1, 0
-	move	$a0, $zero
+	addi.d	$a0, $a0, %pc_lo12(enwindow)
+	fld.d	$fa4, $a0, 1984
+	fld.d	$fa0, $a0, 0
+	move	$a1, $zero
 	fdiv.d	$fa1, $fa0, $fa4
-	vld	$vr2, $a1, 8
-	vld	$vr3, $a1, 24
+	vld	$vr2, $a0, 8
 	fst.d	$fa1, $sp, 264
 	vreplvei.d	$vr1, $vr0, 0
+	vld	$vr3, $a0, 24
 	vfdiv.d	$vr2, $vr2, $vr1
-	vfdiv.d	$vr1, $vr3, $vr1
-	fld.d	$fa3, $a1, 40
-	vst	$vr1, $a1, 16
-	vst	$vr2, $a1, 0
-	fld.d	$fa1, $a1, 48
-	fdiv.d	$fa2, $fa3, $fa0
-	fst.d	$fa2, $a1, 32
-	fld.d	$fa2, $a1, 56
-	fdiv.d	$fa1, $fa1, $fa0
-	fst.d	$fa1, $a1, 40
-	addi.d	$a6, $a1, 56
-	fdiv.d	$fa0, $fa2, $fa0
-	fst.d	$fa0, $a1, 48
+	vst	$vr2, $a0, 0
+	vld	$vr2, $a0, 40
+	vfdiv.d	$vr3, $vr3, $vr1
+	vst	$vr3, $a0, 16
+	fld.d	$fa3, $a0, 56
+	vfdiv.d	$vr1, $vr2, $vr1
+	vst	$vr1, $a0, 32
+	addi.d	$a6, $a0, 56
+	fdiv.d	$fa0, $fa3, $fa0
+	fst.d	$fa0, $a0, 48
 	addi.d	$a3, $sp, 256
-	addi.d	$a1, $a1, 120
+	addi.d	$a0, $a0, 120
 	addi.d	$a4, $sp, 272
 	ori	$a5, $zero, 120
 	.p2align	4, , 16
 .LBB1_5:                                # %.preheader198
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa0, $a1, -56
-	fld.d	$fa1, $a1, -48
+	fld.d	$fa0, $a0, -56
+	fld.d	$fa1, $a0, -48
 	move	$a2, $a6
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 0
-	fld.d	$fa1, $a1, -40
+	fld.d	$fa1, $a0, -40
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 8
-	fld.d	$fa1, $a1, -32
+	fld.d	$fa1, $a0, -32
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 16
-	fld.d	$fa1, $a1, -24
+	fld.d	$fa1, $a0, -24
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 24
-	fld.d	$fa1, $a1, -16
+	fld.d	$fa1, $a0, -16
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 32
-	fld.d	$fa1, $a1, -8
+	fld.d	$fa1, $a0, -8
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 40
-	fld.d	$fa1, $a1, 0
+	fld.d	$fa1, $a0, 0
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 48
-	fld.d	$fa1, $a1, 8
+	fld.d	$fa1, $a0, 8
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 56
-	fld.d	$fa1, $a1, 16
+	fld.d	$fa1, $a0, 16
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 64
-	fld.d	$fa1, $a1, 24
+	fld.d	$fa1, $a0, 24
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 72
-	fld.d	$fa1, $a1, 32
+	fld.d	$fa1, $a0, 32
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 80
-	fld.d	$fa1, $a1, 40
+	fld.d	$fa1, $a0, 40
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 88
-	fld.d	$fa1, $a1, 48
+	fld.d	$fa1, $a0, 48
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 96
-	fld.d	$fa1, $a1, 56
+	fld.d	$fa1, $a0, 56
 	fdiv.d	$fa1, $fa1, $fa0
 	fst.d	$fa1, $a6, 104
-	fld.d	$fa1, $a1, 64
+	fld.d	$fa1, $a0, 64
 	fdiv.d	$fa2, $fa0, $fa4
-	fstx.d	$fa2, $a4, $a0
+	fstx.d	$fa2, $a4, $a1
 	fst.d	$fa2, $a3, 0
 	fdiv.d	$fa0, $fa1, $fa0
 	fst.d	$fa0, $a6, 112
-	addi.d	$a0, $a0, 8
+	addi.d	$a1, $a1, 8
 	addi.d	$a3, $a3, -8
-	addi.d	$a1, $a1, 128
+	addi.d	$a0, $a0, 128
 	addi.d	$a6, $a6, 120
-	bne	$a0, $a5, .LBB1_5
+	bne	$a1, $a5, .LBB1_5
 # %bb.6:                                # %.preheader197.preheader
-	fld.d	$fa0, $a1, -48
+	fld.d	$fa0, $a0, -48
 	fdiv.d	$fa0, $fa0, $fa4
 	fst.d	$fa0, $a2, 120
-	fld.d	$fa0, $a1, -40
+	fld.d	$fa0, $a0, -40
 	fdiv.d	$fa0, $fa0, $fa4
 	fst.d	$fa0, $a2, 128
-	fld.d	$fa0, $a1, -32
+	fld.d	$fa0, $a0, -32
 	fdiv.d	$fa0, $fa0, $fa4
 	fst.d	$fa0, $a2, 136
-	fld.d	$fa0, $a1, -24
+	fld.d	$fa0, $a0, -24
 	fdiv.d	$fa0, $fa0, $fa4
 	fst.d	$fa0, $a2, 144
-	fld.d	$fa0, $a1, -16
+	fld.d	$fa0, $a0, -16
 	fdiv.d	$fa0, $fa0, $fa4
 	fst.d	$fa0, $a2, 152
-	fld.d	$fa0, $a1, -8
+	fld.d	$fa0, $a0, -8
 	fdiv.d	$fa0, $fa0, $fa4
 	fst.d	$fa0, $a2, 160
-	fld.d	$fa0, $a1, 0
+	fld.d	$fa0, $a0, 0
 	vst	$vr4, $sp, 128                  # 16-byte Folded Spill
 	fdiv.d	$fa0, $fa0, $fa4
 	fst.d	$fa0, $a2, 168
@@ -2682,7 +2679,7 @@ all:
 
 	.type	enwindow,@object                # @enwindow
 	.data
-	.p2align	5, 0x0
+	.p2align	4, 0x0
 enwindow:
 	.dword	0x3fa251e002c5be4c              # double 0.035780907000000001
 	.dword	0x3f924e1ffc2760f6              # double 0.017876148000000001

@@ -127,12 +127,10 @@ _ZN16CLimitedInStream4ReadEPvjPj:       # @_ZN16CLimitedInStream4ReadEPvjPj
 # %bb.8:
 	st.w	$a1, $s0, 0
 .LBB1_9:
-	ld.d	$a2, $fp, 32
-	ld.d	$a3, $fp, 24
-	add.d	$a2, $a2, $a1
-	st.d	$a2, $fp, 32
-	add.d	$a1, $a3, $a1
-	st.d	$a1, $fp, 24
+	vld	$vr0, $fp, 24
+	vreplgr2vr.d	$vr1, $a1
+	vadd.d	$vr0, $vr0, $vr1
+	vst	$vr0, $fp, 24
 	b	.LBB1_11
 .LBB1_10:
 	xor	$a0, $a3, $a0
@@ -243,14 +241,12 @@ _ZN16CClusterInStream4ReadEPvjPj:       # @_ZN16CClusterInStream4ReadEPvjPj
 # %bb.7:
 	st.w	$a1, $s0, 0
 .LBB3_8:
-	ld.d	$a2, $fp, 24
-	ld.d	$a3, $fp, 16
-	add.d	$a2, $a2, $a1
-	ld.w	$a4, $fp, 32
-	st.d	$a2, $fp, 24
-	add.d	$a2, $a3, $a1
-	st.d	$a2, $fp, 16
-	sub.d	$a1, $a4, $a1
+	vld	$vr0, $fp, 16
+	ld.w	$a2, $fp, 32
+	vreplgr2vr.d	$vr1, $a1
+	vadd.d	$vr0, $vr0, $vr1
+	vst	$vr0, $fp, 16
+	sub.d	$a1, $a2, $a1
 	st.w	$a1, $fp, 32
 	b	.LBB3_10
 .LBB3_9:

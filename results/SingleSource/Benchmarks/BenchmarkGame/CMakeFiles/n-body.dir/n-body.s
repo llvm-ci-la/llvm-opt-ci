@@ -5,6 +5,7 @@
 	.type	advance,@function
 advance:                                # @advance
 # %bb.0:
+                                        # kill: def $f0_64 killed $f0_64 def $vr0
 	blez	$a0, .LBB0_8
 # %bb.1:                                # %.lr.ph69.preheader
 	move	$a3, $zero
@@ -28,75 +29,65 @@ advance:                                # @advance
                                         #   in Loop: Header=BB0_3 Depth=1
 	mul.d	$a7, $a6, $a5
 	add.d	$a6, $a1, $a7
-	fldx.d	$fa1, $a1, $a7
-	fld.d	$fa2, $a6, 8
+	vldx	$vr1, $a1, $a7
+	fld.d	$fa2, $a6, 48
 	fld.d	$fa3, $a6, 16
-	fld.d	$fa4, $a6, 48
-	move	$a7, $a2
-	move	$t0, $a0
+	vreplvei.d	$vr4, $vr2, 0
+	move	$a7, $a0
+	move	$t0, $a2
 	.p2align	4, , 16
 .LBB0_5:                                #   Parent Loop BB0_3 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	fld.d	$fa5, $a7, -48
-	fld.d	$fa6, $a7, -40
-	fld.d	$fa7, $a7, -32
-	fsub.d	$fa5, $fa1, $fa5
-	fsub.d	$fa6, $fa2, $fa6
-	fsub.d	$fa7, $fa3, $fa7
-	fmul.d	$ft0, $fa6, $fa6
-	fmadd.d	$ft0, $fa5, $fa5, $ft0
-	fmadd.d	$ft0, $fa7, $fa7, $ft0
-	fsqrt.d	$ft0, $ft0
-	fmul.d	$ft1, $ft0, $ft0
-	fld.d	$ft2, $a7, 0
-	fmul.d	$ft0, $ft0, $ft1
-	fdiv.d	$ft0, $fa0, $ft0
-	fld.d	$ft1, $a6, 24
-	fneg.d	$ft2, $ft2
-	fmul.d	$ft3, $fa5, $ft2
-	fld.d	$ft4, $a6, 32
-	fmadd.d	$ft1, $ft3, $ft0, $ft1
-	fst.d	$ft1, $a6, 24
-	fmul.d	$ft1, $fa6, $ft2
-	fmadd.d	$ft1, $ft1, $ft0, $ft4
-	fld.d	$ft3, $a6, 40
-	fst.d	$ft1, $a6, 32
-	fmul.d	$ft1, $fa7, $ft2
-	fld.d	$ft2, $a7, -24
-	fmadd.d	$ft1, $ft1, $ft0, $ft3
-	fst.d	$ft1, $a6, 40
-	fmul.d	$fa5, $fa5, $fa4
-	fmadd.d	$fa5, $fa5, $ft0, $ft2
-	fld.d	$ft1, $a7, -16
-	fst.d	$fa5, $a7, -24
-	fmul.d	$fa5, $fa6, $fa4
-	fld.d	$fa6, $a7, -8
-	fmadd.d	$fa5, $fa5, $ft0, $ft1
-	fst.d	$fa5, $a7, -16
-	fmul.d	$fa5, $fa7, $fa4
-	fmadd.d	$fa5, $fa5, $ft0, $fa6
-	fst.d	$fa5, $a7, -8
-	addi.d	$t0, $t0, -1
-	addi.d	$a7, $a7, 56
-	bne	$a4, $t0, .LBB0_5
+	fld.d	$fa5, $t0, -32
+	fld.d	$fa6, $t0, 0
+	fsub.d	$fa5, $fa3, $fa5
+	vld	$vr7, $t0, -48
+	fneg.d	$fa6, $fa6
+	fld.d	$ft0, $a6, 40
+	fmul.d	$ft1, $fa5, $fa6
+	vfsub.d	$vr7, $vr1, $vr7
+	vfmul.d	$vr10, $vr7, $vr7
+	vreplvei.d	$vr10, $vr10, 1
+	vreplvei.d	$vr11, $vr7, 0
+	fmadd.d	$ft2, $ft3, $ft3, $ft2
+	fmadd.d	$ft2, $fa5, $fa5, $ft2
+	fsqrt.d	$ft2, $ft2
+	fmul.d	$ft3, $ft2, $ft2
+	fmul.d	$ft2, $ft2, $ft3
+	fdiv.d	$ft2, $fa0, $ft2
+	vld	$vr11, $a6, 24
+	vreplvei.d	$vr6, $vr6, 0
+	vfmul.d	$vr6, $vr7, $vr6
+	vreplvei.d	$vr12, $vr10, 0
+	vfmadd.d	$vr6, $vr6, $vr12, $vr11
+	vst	$vr6, $a6, 24
+	fmadd.d	$fa6, $ft1, $ft2, $ft0
+	fst.d	$fa6, $a6, 40
+	vld	$vr6, $t0, -24
+	vfmul.d	$vr7, $vr7, $vr4
+	fld.d	$ft0, $t0, -8
+	vfmadd.d	$vr6, $vr7, $vr12, $vr6
+	vst	$vr6, $t0, -24
+	fmul.d	$fa5, $fa5, $fa2
+	fmadd.d	$fa5, $fa5, $ft2, $ft0
+	fst.d	$fa5, $t0, -8
+	addi.d	$a7, $a7, -1
+	addi.d	$t0, $t0, 56
+	bne	$a4, $a7, .LBB0_5
 	b	.LBB0_2
 .LBB0_6:                                # %.lr.ph71.preheader
-	addi.d	$a1, $a1, 24
+	vreplvei.d	$vr1, $vr0, 0
 	.p2align	4, , 16
 .LBB0_7:                                # %.lr.ph71
                                         # =>This Inner Loop Header: Depth=1
-	fld.d	$fa1, $a1, 0
-	fld.d	$fa2, $a1, -24
-	fmadd.d	$fa1, $fa0, $fa1, $fa2
-	fld.d	$fa2, $a1, 8
-	fld.d	$fa3, $a1, -16
-	fld.d	$fa4, $a1, 16
-	fld.d	$fa5, $a1, -8
-	fst.d	$fa1, $a1, -24
-	fmadd.d	$fa1, $fa0, $fa2, $fa3
-	fst.d	$fa1, $a1, -16
-	fmadd.d	$fa1, $fa0, $fa4, $fa5
-	fst.d	$fa1, $a1, -8
+	vld	$vr2, $a1, 24
+	vld	$vr3, $a1, 0
+	fld.d	$fa4, $a1, 40
+	fld.d	$fa5, $a1, 16
+	vfmadd.d	$vr2, $vr1, $vr2, $vr3
+	vst	$vr2, $a1, 0
+	fmadd.d	$fa2, $fa0, $fa4, $fa5
+	fst.d	$fa2, $a1, 16
 	addi.d	$a0, $a0, -1
 	addi.d	$a1, $a1, 56
 	bnez	$a0, .LBB0_7
@@ -242,50 +233,49 @@ main:                                   # @main
 	fst.d	$fs0, $sp, 0                    # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(bodies)
 	addi.d	$a0, $a0, %pc_lo12(bodies)
-	move	$a1, $zero
-	fld.d	$fa1, $a0, 24
 	fld.d	$fa2, $a0, 48
+	fld.d	$fa3, $a0, 40
+	fld.d	$fa1, $a0, 104
+	fld.d	$fa4, $a0, 96
+	move	$a1, $zero
 	movgr2fr.d	$fa0, $zero
-	fld.d	$fa3, $a0, 32
-	fld.d	$fa4, $a0, 40
-	fld.d	$fa5, $a0, 80
-	fld.d	$fa6, $a0, 104
-	fmadd.d	$fa1, $fa1, $fa2, $fa0
 	fmadd.d	$fa3, $fa3, $fa2, $fa0
-	fmadd.d	$fa2, $fa4, $fa2, $fa0
-	fmadd.d	$fa1, $fa5, $fa6, $fa1
-	fld.d	$fa4, $a0, 88
-	fld.d	$fa5, $a0, 96
-	fld.d	$fa7, $a0, 136
-	fld.d	$ft0, $a0, 160
-	fld.d	$ft1, $a0, 144
-	fmadd.d	$fa3, $fa4, $fa6, $fa3
-	fmadd.d	$fa2, $fa5, $fa6, $fa2
-	fmadd.d	$fa1, $fa7, $ft0, $fa1
-	fmadd.d	$fa3, $ft1, $ft0, $fa3
-	fld.d	$fa4, $a0, 152
-	fld.d	$fa5, $a0, 192
+	fmadd.d	$fa3, $fa4, $fa1, $fa3
+	fld.d	$fa4, $a0, 160
+	fld.d	$fa5, $a0, 152
 	fld.d	$fa6, $a0, 216
-	fld.d	$fa7, $a0, 200
-	fld.d	$ft1, $a0, 208
-	fmadd.d	$fa2, $fa4, $ft0, $fa2
-	fmadd.d	$fa1, $fa5, $fa6, $fa1
-	fmadd.d	$fa3, $fa7, $fa6, $fa3
-	fmadd.d	$fa2, $ft1, $fa6, $fa2
-	fld.d	$fa4, $a0, 248
-	fld.d	$fa5, $a0, 272
-	fld.d	$fa6, $a0, 256
-	fld.d	$fa7, $a0, 264
-	pcalau12i	$a2, %pc_hi20(.LCPI3_0)
-	fld.d	$ft0, $a2, %pc_lo12(.LCPI3_0)
-	fmadd.d	$fa1, $fa4, $fa5, $fa1
-	fmadd.d	$fa3, $fa6, $fa5, $fa3
-	fmadd.d	$fa2, $fa7, $fa5, $fa2
-	fdiv.d	$fa1, $fa1, $ft0
-	fst.d	$fa1, $a0, 24
-	fdiv.d	$fa1, $fa3, $ft0
-	fst.d	$fa1, $a0, 32
-	fdiv.d	$fa1, $fa2, $ft0
+	vld	$vr7, $a0, 24
+	fld.d	$ft0, $a0, 208
+	vreplvei.d	$vr2, $vr2, 0
+	vrepli.b	$vr9, 0
+	vfmadd.d	$vr2, $vr7, $vr2, $vr9
+	fld.d	$fa7, $a0, 272
+	fld.d	$ft1, $a0, 264
+	fmadd.d	$fa3, $fa5, $fa4, $fa3
+	fmadd.d	$fa3, $ft0, $fa6, $fa3
+	vld	$vr5, $a0, 80
+	fmadd.d	$fa3, $ft1, $fa7, $fa3
+	vreplvei.d	$vr1, $vr1, 0
+	vld	$vr8, $a0, 136
+	vfmadd.d	$vr1, $vr5, $vr1, $vr2
+	vreplvei.d	$vr2, $vr4, 0
+	vld	$vr4, $a0, 192
+	vfmadd.d	$vr1, $vr8, $vr2, $vr1
+	vld	$vr2, $a0, 248
+	vreplvei.d	$vr5, $vr6, 0
+	vfmadd.d	$vr1, $vr4, $vr5, $vr1
+	vreplvei.d	$vr4, $vr7, 0
+	vfmadd.d	$vr1, $vr2, $vr4, $vr1
+	lu12i.w	$a2, -222236
+	ori	$a2, $a2, 1502
+	lu32i.d	$a2, 245052
+	lu52i.d	$a2, $a2, -1020
+	pcalau12i	$a3, %pc_hi20(.LCPI3_0)
+	fld.d	$fa2, $a3, %pc_lo12(.LCPI3_0)
+	vreplgr2vr.d	$vr4, $a2
+	vfdiv.d	$vr1, $vr1, $vr4
+	vst	$vr1, $a0, 24
+	fdiv.d	$fa1, $fa3, $fa2
 	fst.d	$fa1, $a0, 40
 	addi.d	$a2, $a0, 56
 	ori	$a3, $zero, 4

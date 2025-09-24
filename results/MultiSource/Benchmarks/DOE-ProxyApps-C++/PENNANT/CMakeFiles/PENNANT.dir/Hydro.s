@@ -2292,35 +2292,32 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	bge	$s1, $s2, .LBB5_37
 # %bb.43:                               # %.cont.preheader.i
                                         #   in Loop: Header=BB5_38 Depth=1
+	ld.d	$a5, $fp, 272
 	ld.d	$a3, $fp, 264
-	ld.d	$a6, $fp, 272
-	ld.d	$a5, $fp, 280
+	ld.d	$a4, $fp, 280
 	sub.d	$a2, $s2, $s1
-	alsl.d	$a4, $s1, $a3, 4
 	slli.d	$a7, $s1, 4
-	addi.d	$a4, $a4, 8
-	alsl.d	$a5, $s1, $a5, 3
-	alsl.d	$a6, $s1, $a6, 4
-	addi.d	$a6, $a6, 8
+	alsl.d	$a3, $s1, $a3, 4
+	alsl.d	$a4, $s1, $a4, 3
+	alsl.d	$a5, $s1, $a5, 4
+	move	$a6, $a3
 	move	$t0, $a2
 	.p2align	4, , 16
 .LBB5_44:                               # %.cont.i
                                         #   Parent Loop BB5_38 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	fld.d	$fa0, $a5, 0
+	fld.d	$fa0, $a4, 0
 	fcmp.clt.d	$fcc0, $fa0, $fs0
-	fld.d	$fa1, $a6, -8
-	fld.d	$fa2, $a6, 0
+	vld	$vr1, $a5, 0
 	fsel	$fa0, $fa0, $fs0, $fcc0
 	frecip.d	$fa0, $fa0
-	fmul.d	$fa1, $fa1, $fa0
-	fmul.d	$fa0, $fa2, $fa0
-	fst.d	$fa1, $a4, -8
-	fst.d	$fa0, $a4, 0
+	vreplvei.d	$vr0, $vr0, 0
+	vfmul.d	$vr0, $vr1, $vr0
+	vst	$vr0, $a6, 0
 	addi.d	$t0, $t0, -1
-	addi.d	$a4, $a4, 16
-	addi.d	$a5, $a5, 8
 	addi.d	$a6, $a6, 16
+	addi.d	$a4, $a4, 8
+	addi.d	$a5, $a5, 16
 	bnez	$t0, .LBB5_44
 # %bb.45:                               # %.lr.ph.preheader.i184
                                         #   in Loop: Header=BB5_38 Depth=1
@@ -2331,7 +2328,6 @@ _ZN5Hydro7doCycleEd:                    # @_ZN5Hydro7doCycleEd
 	ld.d	$a5, $sp, 48                    # 8-byte Folded Reload
 	add.d	$a5, $a5, $a7
 	add.d	$a6, $a6, $a7
-	add.d	$a3, $a3, $a7
 	add.d	$a7, $t0, $a7
 	.p2align	4, , 16
 .LBB5_46:                               # %.lr.ph.i186
@@ -2959,27 +2955,23 @@ _ZN5Hydro9calcAccelEPK7double2PKdPS0_ii: # @_ZN5Hydro9calcAccelEPK7double2PKdPS0
 # %bb.0:
 	bge	$a4, $a5, .LBB10_3
 # %bb.1:                                # %.cont.preheader
-	slli.d	$a0, $a4, 4
-	addi.d	$a6, $a0, 8
-	add.d	$a0, $a1, $a6
+	alsl.d	$a0, $a4, $a1, 4
 	pcalau12i	$a1, %pc_hi20(.LCPI10_0)
 	fld.d	$fa0, $a1, %pc_lo12(.LCPI10_0)
 	alsl.d	$a1, $a4, $a2, 3
-	add.d	$a2, $a3, $a6
+	alsl.d	$a2, $a4, $a3, 4
 	sub.d	$a3, $a5, $a4
 	.p2align	4, , 16
 .LBB10_2:                               # %.cont
                                         # =>This Inner Loop Header: Depth=1
 	fld.d	$fa1, $a1, 0
 	fcmp.clt.d	$fcc0, $fa1, $fa0
-	fld.d	$fa2, $a0, -8
-	fld.d	$fa3, $a0, 0
+	vld	$vr2, $a0, 0
 	fsel	$fa1, $fa1, $fa0, $fcc0
 	frecip.d	$fa1, $fa1
-	fmul.d	$fa2, $fa2, $fa1
-	fmul.d	$fa1, $fa3, $fa1
-	fst.d	$fa2, $a2, -8
-	fst.d	$fa1, $a2, 0
+	vreplvei.d	$vr1, $vr1, 0
+	vfmul.d	$vr1, $vr2, $vr1
+	vst	$vr1, $a2, 0
 	addi.d	$a0, $a0, 16
 	addi.d	$a1, $a1, 8
 	addi.d	$a3, $a3, -1

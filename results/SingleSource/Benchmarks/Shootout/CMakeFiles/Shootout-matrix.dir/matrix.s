@@ -346,15 +346,15 @@ mmult:                                  # @mmult
 	.section	.rodata.cst16,"aM",@progbits,16
 	.p2align	4, 0x0                          # -- Begin function main
 .LCPI4_0:
-	.word	0                               # 0x0
-	.word	1                               # 0x1
-	.word	2                               # 0x2
-	.word	3                               # 0x3
-.LCPI4_1:
 	.word	4                               # 0x4
 	.word	5                               # 0x5
 	.word	6                               # 0x6
 	.word	7                               # 0x7
+.LCPI4_1:
+	.word	0                               # 0x0
+	.word	1                               # 0x1
+	.word	2                               # 0x2
+	.word	3                               # 0x3
 	.text
 	.globl	main
 	.p2align	5
@@ -412,8 +412,8 @@ main:                                   # @main
 	vadd.w	$vr1, $vr0, $vr1
 	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	vadd.w	$vr0, $vr0, $vr2
-	vst	$vr0, $a0, 16
-	vst	$vr1, $a0, 0
+	vst	$vr0, $a0, 0
+	vst	$vr1, $a0, 16
 	addi.d	$a1, $s3, 8
 	st.w	$a1, $a0, 32
 	addi.d	$a1, $s3, 9
@@ -441,8 +441,8 @@ main:                                   # @main
 	vadd.w	$vr1, $vr0, $vr1
 	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	vadd.w	$vr0, $vr0, $vr2
-	vst	$vr0, $a0, 16
-	vst	$vr1, $a0, 0
+	vst	$vr0, $a0, 0
+	vst	$vr1, $a0, 16
 	addi.d	$a1, $s4, 8
 	st.w	$a1, $a0, 32
 	addi.d	$a1, $s4, 9
@@ -470,8 +470,8 @@ main:                                   # @main
 	vadd.w	$vr1, $vr0, $vr1
 	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	vadd.w	$vr0, $vr0, $vr2
-	vst	$vr0, $a0, 16
-	vst	$vr1, $a0, 0
+	vst	$vr0, $a0, 0
+	vst	$vr1, $a0, 16
 	addi.d	$a1, $s5, 8
 	st.w	$a1, $a0, 32
 	addi.d	$a1, $s5, 9

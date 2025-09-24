@@ -1307,24 +1307,22 @@ conceal_lost_frames:                    # @conceal_lost_frames
 	move	$s0, $a0
 	add.d	$s4, $a0, $s5
 	st.w	$s6, $s4, 76
-	st.w	$s3, $s4, 8
-	stx.w	$s3, $a0, $s5
-	st.w	$zero, $s4, 32
 	st.d	$s6, $s4, 24
 	ld.d	$a0, $sp, 80                    # 8-byte Folded Reload
 	ldx.w	$a0, $fp, $a0
 	ld.d	$a1, $sp, 72                    # 8-byte Folded Reload
 	ldx.w	$a1, $fp, $a1
-	st.w	$s6, $s4, 272
-	st.w	$zero, $s4, 216
+	st.w	$s3, $s4, 8
+	stx.w	$s3, $s0, $s5
 	stptr.w	$s3, $fp, 5676
 	add.d	$a1, $a1, $a0
-	st.w	$a1, $s0, 8
+	vreplgr2vr.w	$vr0, $a1
+	vst	$vr0, $s0, 4
 	ld.d	$a2, $sp, 64                    # 8-byte Folded Reload
 	ld.w	$a0, $a2, 28
-	st.w	$a1, $s0, 12
-	st.w	$a1, $s0, 16
-	st.w	$a1, $s0, 4
+	st.w	$zero, $s4, 32
+	st.w	$s6, $s4, 272
+	st.w	$zero, $s4, 216
 	addi.w	$a0, $a0, -1
 	stptr.w	$a1, $fp, 6056
 	bltz	$a0, .LBB3_12
@@ -2263,11 +2261,9 @@ conceal_non_ref_pics:                   # @conceal_non_ref_pics
 # %bb.10:                               #   in Loop: Header=BB18_8 Depth=1
 	move	$s1, $a0
 	stptr.w	$s8, $a2, 6072
+	vreplgr2vr.w	$vr0, $s8
+	vst	$vr0, $a0, 4
 	ldptr.w	$a0, $a2, 6068
-	st.w	$s8, $s1, 8
-	st.w	$s8, $s1, 12
-	st.w	$s8, $s1, 16
-	st.w	$s8, $s1, 4
 	ori	$a4, $zero, 2
 	beq	$a0, $a4, .LBB18_13
 # %bb.11:                               #   in Loop: Header=BB18_8 Depth=1

@@ -179,74 +179,96 @@ my_clrsb:                               # @my_clrsb
 .Lfunc_end3:
 	.size	my_clrsb, .Lfunc_end3-my_clrsb
                                         # -- End function
-	.globl	my_popcount                     # -- Begin function my_popcount
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4, 0x0                          # -- Begin function my_popcount
+.LCPI4_0:
+	.word	8                               # 0x8
+	.word	9                               # 0x9
+	.word	10                              # 0xa
+	.word	11                              # 0xb
+.LCPI4_1:
+	.word	24                              # 0x18
+	.word	25                              # 0x19
+	.word	26                              # 0x1a
+	.word	27                              # 0x1b
+.LCPI4_2:
+	.word	1                               # 0x1
+	.word	0                               # 0x0
+	.word	2                               # 0x2
+	.word	3                               # 0x3
+.LCPI4_3:
+	.word	16                              # 0x10
+	.word	17                              # 0x11
+	.word	18                              # 0x12
+	.word	19                              # 0x13
+.LCPI4_4:
+	.word	4                               # 0x4
+	.word	5                               # 0x5
+	.word	6                               # 0x6
+	.word	7                               # 0x7
+.LCPI4_5:
+	.word	20                              # 0x14
+	.word	21                              # 0x15
+	.word	22                              # 0x16
+	.word	23                              # 0x17
+.LCPI4_6:
+	.word	12                              # 0xc
+	.word	13                              # 0xd
+	.word	14                              # 0xe
+	.word	15                              # 0xf
+	.text
+	.globl	my_popcount
 	.p2align	5
 	.type	my_popcount,@function
 my_popcount:                            # @my_popcount
 # %bb.0:
-	andi	$a1, $a0, 1
-	bstrpick.d	$a2, $a0, 1, 1
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 2, 2
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 3, 3
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 4, 4
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 5, 5
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 6, 6
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 7, 7
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 8, 8
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 9, 9
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 10, 10
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 11, 11
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 12, 12
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 13, 13
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 14, 14
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 15, 15
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 16, 16
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 17, 17
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 18, 18
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 19, 19
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 20, 20
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 21, 21
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 22, 22
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 23, 23
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 24, 24
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 25, 25
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 26, 26
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 27, 27
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 28, 28
-	add.d	$a1, $a2, $a1
+	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
+	vld	$vr0, $a1, %pc_lo12(.LCPI4_0)
+	pcalau12i	$a1, %pc_hi20(.LCPI4_1)
+	vld	$vr1, $a1, %pc_lo12(.LCPI4_1)
+	pcalau12i	$a1, %pc_hi20(.LCPI4_2)
+	vld	$vr2, $a1, %pc_lo12(.LCPI4_2)
+	vreplgr2vr.w	$vr3, $a0
+	vsrl.w	$vr0, $vr3, $vr0
+	vsrl.w	$vr1, $vr3, $vr1
+	vsrl.w	$vr2, $vr3, $vr2
+	pcalau12i	$a1, %pc_hi20(.LCPI4_3)
+	vld	$vr4, $a1, %pc_lo12(.LCPI4_3)
+	pcalau12i	$a1, %pc_hi20(.LCPI4_4)
+	vld	$vr5, $a1, %pc_lo12(.LCPI4_4)
+	pcalau12i	$a1, %pc_hi20(.LCPI4_5)
+	vld	$vr6, $a1, %pc_lo12(.LCPI4_5)
+	pcalau12i	$a1, %pc_hi20(.LCPI4_6)
+	vld	$vr7, $a1, %pc_lo12(.LCPI4_6)
+	vsrl.w	$vr4, $vr3, $vr4
+	vsrl.w	$vr5, $vr3, $vr5
+	vsrl.w	$vr6, $vr3, $vr6
+	vsrl.w	$vr3, $vr3, $vr7
+	vrepli.w	$vr7, 1
+	vand.v	$vr3, $vr3, $vr7
+	vand.v	$vr6, $vr6, $vr7
+	vand.v	$vr5, $vr5, $vr7
+	vand.v	$vr4, $vr4, $vr7
+	vand.v	$vr2, $vr2, $vr7
+	vand.v	$vr1, $vr1, $vr7
+	vand.v	$vr0, $vr0, $vr7
+	bstrpick.d	$a1, $a0, 28, 28
 	bstrpick.d	$a2, $a0, 29, 29
-	add.d	$a1, $a2, $a1
-	bstrpick.d	$a2, $a0, 30, 30
-	add.d	$a1, $a2, $a1
+	bstrpick.d	$a3, $a0, 30, 30
 	bstrpick.d	$a0, $a0, 31, 31
-	add.w	$a0, $a0, $a1
+	vadd.w	$vr0, $vr0, $vr1
+	vadd.w	$vr1, $vr2, $vr4
+	vadd.w	$vr0, $vr1, $vr0
+	vadd.w	$vr1, $vr5, $vr6
+	vadd.w	$vr1, $vr1, $vr3
+	vadd.w	$vr0, $vr0, $vr1
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a4, $vr0, 0
+	add.d	$a1, $a4, $a1
+	add.d	$a2, $a2, $a3
+	add.d	$a1, $a1, $a2
+	add.w	$a0, $a1, $a0
 	ret
 .Lfunc_end4:
 	.size	my_popcount, .Lfunc_end4-my_popcount
