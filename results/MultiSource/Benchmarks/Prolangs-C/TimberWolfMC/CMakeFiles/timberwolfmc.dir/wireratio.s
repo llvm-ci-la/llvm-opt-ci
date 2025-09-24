@@ -1794,15 +1794,16 @@ findratio:                              # @findratio
 	vld	$vr10, $sp, 1152                # 16-byte Folded Reload
 	vextrins.d	$vr9, $vr10, 16
 	vld	$vr13, $sp, 1120                # 16-byte Folded Reload
-	vfmul.d	$vr10, $vr12, $vr13
-	vextrins.d	$vr13, $vr8, 16
-	vfadd.d	$vr8, $vr9, $vr13
-	vld	$vr9, $sp, 1104                 # 16-byte Folded Reload
-	vextrins.d	$vr9, $vr11, 16
+	vori.b	$vr10, $vr13, 0
+	vextrins.d	$vr10, $vr8, 16
+	vfadd.d	$vr8, $vr9, $vr10
+	fmul.d	$ft1, $ft4, $ft5
+	vld	$vr10, $sp, 1104                # 16-byte Folded Reload
+	vextrins.d	$vr10, $vr11, 16
 	vextrins.d	$vr6, $vr23, 16
-	vfmul.d	$vr6, $vr9, $vr6
+	vfmul.d	$vr6, $vr10, $vr6
 	vfsub.d	$vr8, $vr8, $vr6
-	vfadd.d	$vr6, $vr10, $vr6
+	vfadd.d	$vr6, $vr9, $vr6
 	vshuf4i.d	$vr6, $vr8, 12
 	vld	$vr8, $sp, 1488                 # 16-byte Folded Reload
 	vreplvei.d	$vr8, $vr8, 0

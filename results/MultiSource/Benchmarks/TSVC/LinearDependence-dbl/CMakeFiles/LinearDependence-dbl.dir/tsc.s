@@ -13513,13 +13513,12 @@ s116:                                   # @s116
                                         # =>  This Inner Loop Header: Depth=2
 	xvld	$xr1, $a0, -24
 	fld.d	$fa2, $a0, 0
-	xvpickve.d	$xr3, $xr1, 2
-	xvpermi.d	$xr4, $xr1, 68
-	xvrepl128vei.d	$xr4, $xr4, 1
-	vextrins.d	$vr4, $vr3, 16
-	xvpickve.d	$xr3, $xr1, 0
-	vextrins.d	$vr0, $vr3, 16
-	xvpermi.q	$xr0, $xr4, 2
+	vreplvei.d	$vr3, $vr1, 1
+	xvpickve.d	$xr4, $xr1, 2
+	vextrins.d	$vr3, $vr4, 16
+	xvpickve.d	$xr4, $xr1, 0
+	vextrins.d	$vr0, $vr4, 16
+	xvpermi.q	$xr0, $xr3, 2
 	xvfmul.d	$xr1, $xr1, $xr0
 	fld.d	$fa0, $a0, 8
 	xvst	$xr1, $a0, -32
