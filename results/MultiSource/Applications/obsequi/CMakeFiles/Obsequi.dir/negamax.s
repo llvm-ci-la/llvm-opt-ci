@@ -39,8 +39,8 @@ search_for_move:                        # @search_for_move
 	pcalau12i	$a0, %got_pc_hi20(g_board_size)
 	ld.d	$a0, $a0, %got_pc_lo12(g_board_size)
 	ld.w	$a0, $a0, 0
-	vrepli.b	$vr10, 0
-	vst	$vr10, $sp, 96                  # 16-byte Folded Spill
+	vrepli.b	$vr0, 0
+	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
 	blez	$a0, .LBB0_6
 # %bb.4:                                # %.lr.ph.preheader
 	ori	$a1, $zero, 8
@@ -65,8 +65,8 @@ search_for_move:                        # @search_for_move
 	pcalau12i	$a3, %got_pc_hi20(countbits16)
 	ld.d	$a3, $a3, %got_pc_lo12(countbits16)
 	move	$a4, $a1
-	vori.b	$vr2, $vr10, 0
-	vori.b	$vr3, $vr10, 0
+	vld	$vr3, $sp, 96                   # 16-byte Folded Reload
+	vori.b	$vr2, $vr3, 0
 	.p2align	4, , 16
 .LBB0_8:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -76,10 +76,12 @@ search_for_move:                        # @search_for_move
 	vxor.v	$vr7, $vr5, $vr0
 	vandn.v	$vr4, $vr4, $vr1
 	vandn.v	$vr5, $vr5, $vr1
-	vilvh.w	$vr8, $vr10, $vr4
-	vilvl.w	$vr4, $vr10, $vr4
-	vilvh.w	$vr9, $vr10, $vr5
-	vilvl.w	$vr5, $vr10, $vr5
+	vshuf4i.w	$vr8, $vr4, 14
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vshuf4i.w	$vr9, $vr5, 14
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
 	vpickve2gr.d	$a5, $vr4, 0
 	slli.d	$a5, $a5, 2
 	vpickve2gr.d	$a6, $vr4, 1
@@ -114,10 +116,12 @@ search_for_move:                        # @search_for_move
 	vinsgr2vr.w	$vr5, $t0, 3
 	vsrli.w	$vr6, $vr6, 16
 	vsrli.w	$vr7, $vr7, 16
-	vilvh.w	$vr8, $vr10, $vr6
-	vilvl.w	$vr6, $vr10, $vr6
-	vilvh.w	$vr9, $vr10, $vr7
-	vilvl.w	$vr7, $vr10, $vr7
+	vshuf4i.w	$vr8, $vr6, 14
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vshuf4i.w	$vr9, $vr7, 14
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
 	vpickve2gr.d	$a5, $vr6, 0
 	slli.d	$a5, $a5, 2
 	vpickve2gr.d	$a6, $vr6, 1

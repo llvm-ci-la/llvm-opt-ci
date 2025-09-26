@@ -166,12 +166,9 @@ RandomIntraNewPicture:                  # @RandomIntraNewPicture
 .LBB2_4:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vmod.w	$vr2, $vr1, $vr0
-	vshuf4i.w	$vr3, $vr2, 50
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
+	vshuf4i.w	$vr3, $vr2, 14
+	vsllwil.d.w	$vr3, $vr3, 0
+	vsllwil.d.w	$vr2, $vr2, 0
 	vpickve2gr.d	$t0, $vr2, 0
 	slli.d	$t0, $t0, 2
 	vpickve2gr.d	$t1, $vr2, 1

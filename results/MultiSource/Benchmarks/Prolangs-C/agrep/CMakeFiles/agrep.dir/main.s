@@ -2041,15 +2041,11 @@ checksg:                                # @checksg
 	vxori.b	$vr4, $vr4, 255
 	vandn.v	$vr4, $vr6, $vr4
 	vandn.v	$vr3, $vr7, $vr3
-	vilvl.b	$vr3, $vr3, $vr3
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 24
-	vsrai.w	$vr3, $vr3, 24
+	vsllwil.h.b	$vr3, $vr3, 0
+	vsllwil.w.h	$vr3, $vr3, 0
 	vandn.v	$vr4, $vr8, $vr4
-	vilvl.b	$vr4, $vr4, $vr4
-	vilvl.h	$vr4, $vr4, $vr4
-	vslli.w	$vr4, $vr4, 24
-	vsrai.w	$vr4, $vr4, 24
+	vsllwil.h.b	$vr4, $vr4, 0
+	vsllwil.w.h	$vr4, $vr4, 0
 	vpickve2gr.w	$a5, $vr4, 0
 	vinsgr2vr.h	$vr5, $a5, 0
 	vpickve2gr.w	$a5, $vr4, 1

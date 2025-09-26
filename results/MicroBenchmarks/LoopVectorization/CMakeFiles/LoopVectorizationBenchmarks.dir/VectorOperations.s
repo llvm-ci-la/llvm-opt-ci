@@ -14679,19 +14679,19 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception36
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -128
+	.cfi_def_cfa_offset 128
+	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 40                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -14719,8 +14719,8 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 .Ltmp775:                               # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s3, $a0
-	st.d	$s0, $sp, 32                    # 8-byte Folded Spill
-	st.d	$a0, $sp, 40
+	st.d	$s0, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 24
 .Ltmp777:                               # EH_LABEL
 	move	$a0, $s2
 	pcaddu18i	$ra, %call36(_Znam)
@@ -14734,7 +14734,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	add.d	$s1, $s3, $a0
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 38
 	lu12i.w	$a0, -3
 	ori	$s8, $a0, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -14742,8 +14742,8 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	.p2align	4, , 16
 .LBB36_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp780:                               # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 38
+	addi.d	$a2, $sp, 38
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -14775,7 +14775,6 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	addi.d	$a0, $s3, 32
 	lu12i.w	$a1, -3
 	ori	$a1, $a1, 2304
-	vrepli.b	$vr4, 0
 	.p2align	4, , 16
 .LBB36_8:                               # %vector.body84
                                         # =>This Inner Loop Header: Depth=1
@@ -14788,10 +14787,10 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	vinsgr2vr.d	$vr1, $a4, 0
 	vinsgr2vr.d	$vr2, $a5, 0
 	vinsgr2vr.d	$vr3, $a2, 0
-	vilvl.b	$vr0, $vr4, $vr0
-	vilvl.b	$vr1, $vr4, $vr1
-	vilvl.b	$vr2, $vr4, $vr2
-	vilvl.b	$vr3, $vr4, $vr3
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
 	vst	$vr0, $a0, -32
 	vst	$vr1, $a0, -16
 	vst	$vr2, $a0, 0
@@ -14859,8 +14858,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	addi.d	$s8, $s8, 2
 	bnez	$s1, .LBB36_10
 # %bb.12:
-	vst	$vr4, $sp, 16                   # 16-byte Folded Spill
-	ld.d	$s6, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 16                    # 8-byte Folded Reload
 	ld.w	$s3, $s6, 28
 	ld.d	$s1, $s6, 16
 .Ltmp798:                               # EH_LABEL
@@ -14869,13 +14867,12 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	jirl	$ra, $ra, 0
 .Ltmp799:                               # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr4, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s3, .LBB36_25
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s1, .LBB36_25
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s4
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 24
 	lu12i.w	$a3, -3
 	ori	$a2, $a3, 2288
 	ori	$a3, $a3, 2304
@@ -14887,7 +14884,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a4, $sp, 40
+	ld.d	$a4, $sp, 24
 	bgeu	$a4, $a0, .LBB36_19
 # %bb.17:                               # %.lr.ph
                                         #   in Loop: Header=BB36_16 Depth=1
@@ -14914,10 +14911,10 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	vinsgr2vr.d	$vr1, $t1, 0
 	vinsgr2vr.d	$vr2, $t2, 0
 	vinsgr2vr.d	$vr3, $a7, 0
-	vilvl.b	$vr0, $vr4, $vr0
-	vilvl.b	$vr1, $vr4, $vr1
-	vilvl.b	$vr2, $vr4, $vr2
-	vilvl.b	$vr3, $vr4, $vr3
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
 	vst	$vr0, $a5, -32
 	vst	$vr1, $a5, -16
 	vst	$vr2, $a5, 0
@@ -14956,7 +14953,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB36_28
 # %bb.27:                               # %_ZNKSt14default_deleteIA_tEclItEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -14965,18 +14962,18 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 128
 	ret
 .LBB36_29:
 .Ltmp783:                               # EH_LABEL
@@ -15068,7 +15065,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchmark5Sta
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s3, $sp, 40
+	ld.d	$s3, $sp, 24
 	beqz	$s3, .LBB36_44
 .LBB36_43:                              # %_ZNKSt14default_deleteIA_tEclItEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s3
@@ -15138,19 +15135,19 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception37
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -128
+	.cfi_def_cfa_offset 128
+	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 40                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -15178,7 +15175,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 .Ltmp804:                               # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s4, $a0
-	st.d	$a0, $sp, 40
+	st.d	$a0, $sp, 24
 .Ltmp806:                               # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
@@ -15193,7 +15190,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 38
 	lu12i.w	$s8, -3
 	ori	$s6, $s8, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -15201,8 +15198,8 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	.p2align	4, , 16
 .LBB37_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp809:                               # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 38
+	addi.d	$a2, $sp, 38
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -15236,7 +15233,6 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	ori	$s5, $a5, 1792
 	ori	$s6, $a5, 1824
 	ori	$s7, $a5, 1840
-	vrepli.b	$vr8, 0
 	.p2align	4, , 16
 .LBB37_8:                               # %vector.body84
                                         # =>This Inner Loop Header: Depth=1
@@ -15245,22 +15241,26 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	vldx	$vr1, $a2, $s1
 	vldx	$vr2, $a2, $s6
 	vldx	$vr3, $a2, $s7
-	vilvl.b	$vr4, $vr8, $vr0
-	vilvh.b	$vr0, $vr8, $vr0
-	vilvl.b	$vr5, $vr8, $vr1
-	vilvh.b	$vr1, $vr8, $vr1
-	vilvl.b	$vr6, $vr8, $vr2
-	vilvh.b	$vr2, $vr8, $vr2
-	vilvl.b	$vr7, $vr8, $vr3
-	vilvh.b	$vr3, $vr8, $vr3
-	vst	$vr0, $a0, -48
-	vst	$vr4, $a0, -64
-	vst	$vr1, $a0, -16
-	vst	$vr5, $a0, -32
-	vst	$vr2, $a0, 16
-	vst	$vr6, $a0, 0
-	vst	$vr3, $a0, 48
-	vst	$vr7, $a0, 32
+	vbsrl.v	$vr4, $vr0, 8
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vbsrl.v	$vr5, $vr1, 8
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vbsrl.v	$vr6, $vr2, 8
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vbsrl.v	$vr7, $vr3, 8
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vst	$vr0, $a0, -64
+	vst	$vr4, $a0, -48
+	vst	$vr1, $a0, -32
+	vst	$vr5, $a0, -16
+	vst	$vr2, $a0, 0
+	vst	$vr6, $a0, 16
+	vst	$vr3, $a0, 32
+	vst	$vr7, $a0, 48
 	addi.d	$a1, $a1, 64
 	addi.d	$a0, $a0, 128
 	bnez	$a1, .LBB37_8
@@ -15326,7 +15326,6 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	addi.d	$s8, $s8, 2
 	bnez	$s2, .LBB37_10
 # %bb.12:
-	vst	$vr8, $sp, 16                   # 16-byte Folded Spill
 	move	$s8, $a3
 	ld.w	$s4, $a3, 28
 	ld.d	$s2, $a3, 16
@@ -15336,13 +15335,12 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp828:                               # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr8, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s4, .LBB37_25
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s2, .LBB37_25
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s1
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 24
 	lu12i.w	$a3, -3
 	ori	$a2, $a3, 2288
 	ori	$a3, $a3, 2304
@@ -15354,7 +15352,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a4, $sp, 40
+	ld.d	$a4, $sp, 24
 	bgeu	$a4, $a0, .LBB37_19
 # %bb.17:                               # %.lr.ph
                                         #   in Loop: Header=BB37_16 Depth=1
@@ -15377,22 +15375,26 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	vldx	$vr1, $a7, $s1
 	vldx	$vr2, $a7, $s6
 	vldx	$vr3, $a7, $s7
-	vilvl.b	$vr4, $vr8, $vr0
-	vilvh.b	$vr0, $vr8, $vr0
-	vilvl.b	$vr5, $vr8, $vr1
-	vilvh.b	$vr1, $vr8, $vr1
-	vilvl.b	$vr6, $vr8, $vr2
-	vilvh.b	$vr2, $vr8, $vr2
-	vilvl.b	$vr7, $vr8, $vr3
-	vilvh.b	$vr3, $vr8, $vr3
-	vst	$vr0, $a5, -48
-	vst	$vr4, $a5, -64
-	vst	$vr1, $a5, -16
-	vst	$vr5, $a5, -32
-	vst	$vr2, $a5, 16
-	vst	$vr6, $a5, 0
-	vst	$vr3, $a5, 48
-	vst	$vr7, $a5, 32
+	vbsrl.v	$vr4, $vr0, 8
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vbsrl.v	$vr5, $vr1, 8
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vbsrl.v	$vr6, $vr2, 8
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vbsrl.v	$vr7, $vr3, 8
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vst	$vr0, $a5, -64
+	vst	$vr4, $a5, -48
+	vst	$vr1, $a5, -32
+	vst	$vr5, $a5, -16
+	vst	$vr2, $a5, 0
+	vst	$vr6, $a5, 16
+	vst	$vr3, $a5, 32
+	vst	$vr7, $a5, 48
 	addi.d	$a6, $a6, 64
 	addi.d	$a5, $a5, 128
 	bnez	$a6, .LBB37_20
@@ -15427,7 +15429,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB37_28
 # %bb.27:                               # %_ZNKSt14default_deleteIA_tEclItEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -15436,18 +15438,18 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 128
 	ret
 .LBB37_29:
 .Ltmp812:                               # EH_LABEL
@@ -15539,7 +15541,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint16_t_RN9benchmark5St
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s4, $sp, 40
+	ld.d	$s4, $sp, 24
 	beqz	$s4, .LBB37_44
 .LBB37_43:                              # %_ZNKSt14default_deleteIA_tEclItEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s4
@@ -15609,19 +15611,19 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception38
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	.cfi_def_cfa_offset 112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 24                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -15649,7 +15651,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 .Ltmp833:                               # EH_LABEL
 # %bb.1:
 	move	$s4, $a0
-	st.d	$a0, $sp, 40
+	st.d	$a0, $sp, 8
 .Ltmp835:                               # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
@@ -15659,7 +15661,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	move	$s0, $a0
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 22
 	lu12i.w	$s6, -3
 	ori	$s8, $s6, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -15667,8 +15669,8 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	.p2align	4, , 16
 .LBB38_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp838:                               # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 22
+	addi.d	$a2, $sp, 22
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -15697,7 +15699,6 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 # %bb.7:                                # %vector.body84.preheader
 	addi.d	$a0, $s4, 16
 	ori	$a1, $s6, 2288
-	vrepli.b	$vr2, 0
 	.p2align	4, , 16
 .LBB38_8:                               # %vector.body84
                                         # =>This Inner Loop Header: Depth=1
@@ -15706,8 +15707,8 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	ldptr.d	$a2, $a2, 10008
 	vinsgr2vr.d	$vr0, $a3, 0
 	vinsgr2vr.d	$vr1, $a2, 0
-	vilvl.b	$vr0, $vr2, $vr0
-	vilvl.b	$vr1, $vr2, $vr1
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
 	vst	$vr0, $a0, -16
 	vst	$vr1, $a0, 0
 	addi.d	$a1, $a1, 16
@@ -15728,7 +15729,6 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	addi.d	$s5, $s5, 2
 	bnez	$s7, .LBB38_10
 # %bb.12:
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	ld.w	$s5, $s2, 28
 	ld.d	$s4, $s2, 16
 .Ltmp856:                               # EH_LABEL
@@ -15737,13 +15737,12 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	jirl	$ra, $ra, 0
 .Ltmp857:                               # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s5, .LBB38_23
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s4, .LBB38_23
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s1
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 8
 	ori	$a2, $s6, 2288
 	b	.LBB38_17
 	.p2align	4, , 16
@@ -15758,7 +15757,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a3, $sp, 40
+	ld.d	$a3, $sp, 8
 	bgeu	$a3, $a0, .LBB38_21
 # %bb.18:                               # %.lr.ph
                                         #   in Loop: Header=BB38_17 Depth=1
@@ -15792,8 +15791,8 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	ldptr.d	$a5, $a5, 10008
 	vinsgr2vr.d	$vr0, $a6, 0
 	vinsgr2vr.d	$vr1, $a5, 0
-	vilvl.b	$vr0, $vr2, $vr0
-	vilvl.b	$vr1, $vr2, $vr1
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
 	vst	$vr0, $a3, -16
 	vst	$vr1, $a3, 0
 	addi.d	$a4, $a4, 16
@@ -15810,7 +15809,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 8
 	beqz	$a0, .LBB38_26
 # %bb.25:                               # %_ZNKSt14default_deleteIA_tEclItEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -15819,18 +15818,18 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .LBB38_27:
 .Ltmp841:                               # EH_LABEL
@@ -15922,7 +15921,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5StateE: # 
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s4, $sp, 40
+	ld.d	$s4, $sp, 8
 	beqz	$s4, .LBB38_42
 .LBB38_41:                              # %_ZNKSt14default_deleteIA_tEclItEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s4
@@ -16093,7 +16092,6 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchm
 	addi.d	$a1, $sp, 16
 	ori	$a2, $s6, 2288
 	ori	$a3, $s6, 2304
-	vrepli.b	$vr0, 0
 	ori	$a4, $s5, 1792
 	.p2align	4, , 16
 .LBB39_11:                              # %.lr.ph
@@ -16126,26 +16124,26 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint16_t_RN9benchm
 	ldptr.d	$t2, $t0, 9992
 	ldptr.d	$t3, $t0, 10000
 	ldptr.d	$t0, $t0, 10008
-	vinsgr2vr.d	$vr1, $t1, 0
-	vinsgr2vr.d	$vr2, $t2, 0
-	vinsgr2vr.d	$vr3, $t3, 0
-	vinsgr2vr.d	$vr4, $t0, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.b	$vr2, $vr0, $vr2
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vld	$vr5, $a6, -32
-	vld	$vr6, $a6, -16
-	vld	$vr7, $a6, 0
-	vld	$vr8, $a6, 16
+	vinsgr2vr.d	$vr0, $t1, 0
+	vinsgr2vr.d	$vr1, $t2, 0
+	vinsgr2vr.d	$vr2, $t3, 0
+	vinsgr2vr.d	$vr3, $t0, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vld	$vr4, $a6, -32
+	vld	$vr5, $a6, -16
+	vld	$vr6, $a6, 0
+	vld	$vr7, $a6, 16
+	vadd.h	$vr0, $vr4, $vr0
 	vadd.h	$vr1, $vr5, $vr1
 	vadd.h	$vr2, $vr6, $vr2
 	vadd.h	$vr3, $vr7, $vr3
-	vadd.h	$vr4, $vr8, $vr4
-	vst	$vr1, $a6, -32
-	vst	$vr2, $a6, -16
-	vst	$vr3, $a6, 0
-	vst	$vr4, $a6, 16
+	vst	$vr0, $a6, -32
+	vst	$vr1, $a6, -16
+	vst	$vr2, $a6, 0
+	vst	$vr3, $a6, 16
 	addi.d	$a7, $a7, 32
 	addi.d	$a6, $a6, 64
 	bnez	$a7, .LBB39_15
@@ -16386,7 +16384,6 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint16_t_RN9bench
 	ori	$a4, $s5, 1792
 	ori	$a5, $s5, 1824
 	ori	$a6, $s5, 1840
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB40_11:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -16414,42 +16411,46 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint16_t_RN9bench
                                         #   Parent Loop BB40_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$t2, $fp, $t1
-	vldx	$vr1, $t2, $a4
-	vldx	$vr2, $t2, $s1
-	vldx	$vr3, $t2, $a5
-	vldx	$vr4, $t2, $a6
-	vilvl.b	$vr5, $vr0, $vr1
-	vilvh.b	$vr1, $vr0, $vr1
-	vilvl.b	$vr6, $vr0, $vr2
-	vilvh.b	$vr2, $vr0, $vr2
-	vilvl.b	$vr7, $vr0, $vr3
-	vilvh.b	$vr3, $vr0, $vr3
-	vilvl.b	$vr8, $vr0, $vr4
-	vilvh.b	$vr4, $vr0, $vr4
-	vld	$vr9, $t0, -64
-	vld	$vr10, $t0, -48
-	vld	$vr11, $t0, -32
-	vld	$vr12, $t0, -16
-	vld	$vr13, $t0, 0
-	vld	$vr14, $t0, 16
-	vld	$vr15, $t0, 32
-	vld	$vr16, $t0, 48
-	vadd.h	$vr1, $vr10, $vr1
-	vadd.h	$vr5, $vr9, $vr5
-	vadd.h	$vr2, $vr12, $vr2
-	vadd.h	$vr6, $vr11, $vr6
-	vadd.h	$vr3, $vr14, $vr3
-	vadd.h	$vr7, $vr13, $vr7
-	vadd.h	$vr4, $vr16, $vr4
-	vadd.h	$vr8, $vr15, $vr8
-	vst	$vr5, $t0, -64
-	vst	$vr1, $t0, -48
-	vst	$vr6, $t0, -32
-	vst	$vr2, $t0, -16
-	vst	$vr7, $t0, 0
-	vst	$vr3, $t0, 16
-	vst	$vr8, $t0, 32
-	vst	$vr4, $t0, 48
+	vldx	$vr0, $t2, $a4
+	vldx	$vr1, $t2, $s1
+	vldx	$vr2, $t2, $a5
+	vldx	$vr3, $t2, $a6
+	vsllwil.hu.bu	$vr4, $vr0, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr5, $vr1, 0
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr6, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr7, $vr3, 0
+	vbsrl.v	$vr3, $vr3, 8
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vld	$vr8, $t0, -64
+	vld	$vr9, $t0, -48
+	vld	$vr10, $t0, -32
+	vld	$vr11, $t0, -16
+	vld	$vr12, $t0, 0
+	vld	$vr13, $t0, 16
+	vld	$vr14, $t0, 32
+	vld	$vr15, $t0, 48
+	vadd.h	$vr0, $vr9, $vr0
+	vadd.h	$vr4, $vr8, $vr4
+	vadd.h	$vr1, $vr11, $vr1
+	vadd.h	$vr5, $vr10, $vr5
+	vadd.h	$vr2, $vr13, $vr2
+	vadd.h	$vr6, $vr12, $vr6
+	vadd.h	$vr3, $vr15, $vr3
+	vadd.h	$vr7, $vr14, $vr7
+	vst	$vr4, $t0, -64
+	vst	$vr0, $t0, -48
+	vst	$vr5, $t0, -32
+	vst	$vr1, $t0, -16
+	vst	$vr6, $t0, 0
+	vst	$vr2, $t0, 16
+	vst	$vr7, $t0, 32
+	vst	$vr3, $t0, 48
 	addi.d	$t1, $t1, 64
 	addi.d	$t0, $t0, 128
 	bnez	$t1, .LBB40_15
@@ -16684,7 +16685,6 @@ _Z60benchForTruncOrZextVecWithAddInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5Sta
 	add.d	$a0, $fp, $s1
 	addi.d	$a1, $sp, 8
 	ori	$a2, $s5, 2288
-	vrepli.b	$vr0, 0
 	b	.LBB41_12
 	.p2align	4, , 16
 .LBB41_11:                              # %_ZL27truncOrZextVecWithAddInLoopIhtEvPKT_PT0_i.exit
@@ -16732,16 +16732,16 @@ _Z60benchForTruncOrZextVecWithAddInLoopFrom_uint8_t_To_uint16_t_RN9benchmark5Sta
 	add.d	$a5, $fp, $a4
 	ldptr.d	$a6, $a5, 10000
 	ldptr.d	$a5, $a5, 10008
-	vinsgr2vr.d	$vr1, $a6, 0
-	vinsgr2vr.d	$vr2, $a5, 0
-	vld	$vr3, $a3, -16
-	vld	$vr4, $a3, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.b	$vr2, $vr0, $vr2
+	vinsgr2vr.d	$vr0, $a6, 0
+	vinsgr2vr.d	$vr1, $a5, 0
+	vld	$vr2, $a3, -16
+	vld	$vr3, $a3, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vadd.h	$vr0, $vr2, $vr0
 	vadd.h	$vr1, $vr3, $vr1
-	vadd.h	$vr2, $vr4, $vr2
-	vst	$vr1, $a3, -16
-	vst	$vr2, $a3, 0
+	vst	$vr0, $a3, -16
+	vst	$vr1, $a3, 0
 	addi.d	$a4, $a4, 16
 	addi.d	$a3, $a3, 32
 	bnez	$a4, .LBB41_17
@@ -16855,19 +16855,19 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception42
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -128
+	.cfi_def_cfa_offset 128
+	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 40                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -16895,8 +16895,8 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 .Ltmp904:                               # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s3, $a0
-	st.d	$s0, $sp, 32                    # 8-byte Folded Spill
-	st.d	$a0, $sp, 40
+	st.d	$s0, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 24
 .Ltmp906:                               # EH_LABEL
 	move	$a0, $s2
 	pcaddu18i	$ra, %call36(_Znam)
@@ -16910,7 +16910,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	add.d	$s8, $s3, $a0
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 38
 	lu12i.w	$a0, -3
 	ori	$s6, $a0, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -16918,8 +16918,8 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	.p2align	4, , 16
 .LBB42_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp909:                               # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 38
+	addi.d	$a2, $sp, 38
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -16950,7 +16950,6 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	addi.d	$a0, $s3, 64
 	lu12i.w	$a1, -3
 	ori	$a1, $a1, 2304
-	vrepli.b	$vr8, 0
 	.p2align	4, , 16
 .LBB42_8:                               # %vector.body84
                                         # =>This Inner Loop Header: Depth=1
@@ -16963,26 +16962,34 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	vinsgr2vr.d	$vr1, $a4, 0
 	vinsgr2vr.d	$vr2, $a5, 0
 	vinsgr2vr.d	$vr3, $a2, 0
-	vilvl.b	$vr0, $vr8, $vr0
-	vilvl.h	$vr4, $vr8, $vr0
-	vilvh.h	$vr0, $vr8, $vr0
-	vilvl.b	$vr1, $vr8, $vr1
-	vilvl.h	$vr5, $vr8, $vr1
-	vilvh.h	$vr1, $vr8, $vr1
-	vilvl.b	$vr2, $vr8, $vr2
-	vilvl.h	$vr6, $vr8, $vr2
-	vilvh.h	$vr2, $vr8, $vr2
-	vilvl.b	$vr3, $vr8, $vr3
-	vilvl.h	$vr7, $vr8, $vr3
-	vilvh.h	$vr3, $vr8, $vr3
-	vst	$vr0, $a0, -48
-	vst	$vr4, $a0, -64
-	vst	$vr1, $a0, -16
-	vst	$vr5, $a0, -32
-	vst	$vr2, $a0, 16
-	vst	$vr6, $a0, 0
-	vst	$vr3, $a0, 48
-	vst	$vr7, $a0, 32
+	vsrli.d	$vr4, $vr0, 32
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsrli.d	$vr5, $vr1, 32
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsrli.d	$vr6, $vr2, 32
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsrli.d	$vr7, $vr3, 32
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vst	$vr0, $a0, -64
+	vst	$vr4, $a0, -48
+	vst	$vr1, $a0, -32
+	vst	$vr5, $a0, -16
+	vst	$vr2, $a0, 0
+	vst	$vr6, $a0, 16
+	vst	$vr3, $a0, 32
+	vst	$vr7, $a0, 48
 	addi.d	$a1, $a1, 32
 	addi.d	$a0, $a0, 128
 	bnez	$a1, .LBB42_8
@@ -17038,8 +17045,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	addi.d	$s6, $s6, 4
 	bnez	$s1, .LBB42_10
 # %bb.12:
-	vst	$vr8, $sp, 16                   # 16-byte Folded Spill
-	ld.d	$s6, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 16                    # 8-byte Folded Reload
 	ld.w	$s3, $s6, 28
 	ld.d	$s1, $s6, 16
 .Ltmp927:                               # EH_LABEL
@@ -17048,13 +17054,12 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	jirl	$ra, $ra, 0
 .Ltmp928:                               # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr8, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s3, .LBB42_25
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s1, .LBB42_25
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s4
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 24
 	lu12i.w	$a3, -3
 	ori	$a2, $a3, 2288
 	ori	$a3, $a3, 2304
@@ -17066,7 +17071,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a4, $sp, 40
+	ld.d	$a4, $sp, 24
 	bgeu	$a4, $a0, .LBB42_19
 # %bb.17:                               # %.lr.ph
                                         #   in Loop: Header=BB42_16 Depth=1
@@ -17093,26 +17098,34 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	vinsgr2vr.d	$vr1, $t1, 0
 	vinsgr2vr.d	$vr2, $t2, 0
 	vinsgr2vr.d	$vr3, $a7, 0
-	vilvl.b	$vr0, $vr8, $vr0
-	vilvl.h	$vr4, $vr8, $vr0
-	vilvh.h	$vr0, $vr8, $vr0
-	vilvl.b	$vr1, $vr8, $vr1
-	vilvl.h	$vr5, $vr8, $vr1
-	vilvh.h	$vr1, $vr8, $vr1
-	vilvl.b	$vr2, $vr8, $vr2
-	vilvl.h	$vr6, $vr8, $vr2
-	vilvh.h	$vr2, $vr8, $vr2
-	vilvl.b	$vr3, $vr8, $vr3
-	vilvl.h	$vr7, $vr8, $vr3
-	vilvh.h	$vr3, $vr8, $vr3
-	vst	$vr0, $a5, -48
-	vst	$vr4, $a5, -64
-	vst	$vr1, $a5, -16
-	vst	$vr5, $a5, -32
-	vst	$vr2, $a5, 16
-	vst	$vr6, $a5, 0
-	vst	$vr3, $a5, 48
-	vst	$vr7, $a5, 32
+	vsrli.d	$vr4, $vr0, 32
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsrli.d	$vr5, $vr1, 32
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsrli.d	$vr6, $vr2, 32
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsrli.d	$vr7, $vr3, 32
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vst	$vr0, $a5, -64
+	vst	$vr4, $a5, -48
+	vst	$vr1, $a5, -32
+	vst	$vr5, $a5, -16
+	vst	$vr2, $a5, 0
+	vst	$vr6, $a5, 16
+	vst	$vr3, $a5, 32
+	vst	$vr7, $a5, 48
 	addi.d	$a6, $a6, 32
 	addi.d	$a5, $a5, 128
 	bnez	$a6, .LBB42_20
@@ -17147,7 +17160,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB42_28
 # %bb.27:                               # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -17156,18 +17169,18 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 128
 	ret
 .LBB42_29:
 .Ltmp912:                               # EH_LABEL
@@ -17259,7 +17272,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchmark5Sta
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s3, $sp, 40
+	ld.d	$s3, $sp, 24
 	beqz	$s3, .LBB42_44
 .LBB42_43:                              # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s3
@@ -17329,19 +17342,19 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception43
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -128
+	.cfi_def_cfa_offset 128
+	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 40                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -17370,7 +17383,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 # %bb.1:                                # %.split
 	move	$s4, $a0
 	st.d	$s0, $sp, 8                     # 8-byte Folded Spill
-	st.d	$a0, $sp, 40
+	st.d	$a0, $sp, 24
 .Ltmp935:                               # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
@@ -17385,7 +17398,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	add.d	$s8, $s4, $a0
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 38
 	lu12i.w	$s6, -3
 	ori	$s2, $s6, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -17393,8 +17406,8 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	.p2align	4, , 16
 .LBB43_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp938:                               # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 38
+	addi.d	$a2, $sp, 38
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -17427,7 +17440,6 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	ori	$s6, $s7, 1824
 	move	$a4, $s7
 	ori	$s7, $s7, 1840
-	vrepli.b	$vr16, 0
 	.p2align	4, , 16
 .LBB43_8:                               # %vector.body84
                                         # =>This Inner Loop Header: Depth=1
@@ -17436,46 +17448,66 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	vldx	$vr1, $a2, $s1
 	vldx	$vr2, $a2, $s6
 	vldx	$vr3, $a2, $s7
-	vilvl.b	$vr4, $vr16, $vr0
-	vilvl.h	$vr5, $vr16, $vr4
-	vilvh.h	$vr4, $vr16, $vr4
-	vilvh.b	$vr0, $vr16, $vr0
-	vilvl.h	$vr6, $vr16, $vr0
-	vilvh.h	$vr0, $vr16, $vr0
-	vilvl.b	$vr7, $vr16, $vr1
-	vilvl.h	$vr8, $vr16, $vr7
-	vilvh.h	$vr7, $vr16, $vr7
-	vilvh.b	$vr1, $vr16, $vr1
-	vilvl.h	$vr9, $vr16, $vr1
-	vilvh.h	$vr1, $vr16, $vr1
-	vilvl.b	$vr10, $vr16, $vr2
-	vilvl.h	$vr11, $vr16, $vr10
-	vilvh.h	$vr10, $vr16, $vr10
-	vilvh.b	$vr2, $vr16, $vr2
-	vilvl.h	$vr12, $vr16, $vr2
-	vilvh.h	$vr2, $vr16, $vr2
-	vilvl.b	$vr13, $vr16, $vr3
-	vilvl.h	$vr14, $vr16, $vr13
-	vilvh.h	$vr13, $vr16, $vr13
-	vilvh.b	$vr3, $vr16, $vr3
-	vilvl.h	$vr15, $vr16, $vr3
-	vilvh.h	$vr3, $vr16, $vr3
-	vst	$vr0, $a0, -80
-	vst	$vr6, $a0, -96
+	vsrli.d	$vr4, $vr0, 32
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vbsrl.v	$vr5, $vr0, 8
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vbsrl.v	$vr6, $vr0, 12
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsrli.d	$vr7, $vr1, 32
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vbsrl.v	$vr8, $vr1, 8
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vbsrl.v	$vr9, $vr1, 12
+	vsllwil.hu.bu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsrli.d	$vr10, $vr2, 32
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vbsrl.v	$vr11, $vr2, 8
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vbsrl.v	$vr12, $vr2, 12
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsrli.d	$vr13, $vr3, 32
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr3, 8
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vbsrl.v	$vr15, $vr3, 12
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vst	$vr0, $a0, -128
+	vst	$vr6, $a0, -80
+	vst	$vr5, $a0, -96
 	vst	$vr4, $a0, -112
-	vst	$vr5, $a0, -128
-	vst	$vr1, $a0, -16
-	vst	$vr9, $a0, -32
+	vst	$vr1, $a0, -64
+	vst	$vr9, $a0, -16
+	vst	$vr8, $a0, -32
 	vst	$vr7, $a0, -48
-	vst	$vr8, $a0, -64
-	vst	$vr2, $a0, 48
-	vst	$vr12, $a0, 32
+	vst	$vr2, $a0, 0
+	vst	$vr12, $a0, 48
+	vst	$vr11, $a0, 32
 	vst	$vr10, $a0, 16
-	vst	$vr11, $a0, 0
-	vst	$vr3, $a0, 112
-	vst	$vr15, $a0, 96
+	vst	$vr3, $a0, 64
+	vst	$vr15, $a0, 112
+	vst	$vr14, $a0, 96
 	vst	$vr13, $a0, 80
-	vst	$vr14, $a0, 64
 	addi.d	$a1, $a1, 64
 	addi.d	$a0, $a0, 256
 	bnez	$a1, .LBB43_8
@@ -17531,7 +17563,6 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	addi.d	$s2, $s2, 4
 	bnez	$s8, .LBB43_10
 # %bb.12:
-	vst	$vr16, $sp, 16                  # 16-byte Folded Spill
 	ld.d	$s8, $sp, 8                     # 8-byte Folded Reload
 	ld.w	$s4, $s8, 28
 	ld.d	$s2, $s8, 16
@@ -17541,13 +17572,12 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp957:                               # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr16, $sp, 16                  # 16-byte Folded Reload
 	bnez	$s4, .LBB43_25
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s2, .LBB43_25
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s1
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 24
 	lu12i.w	$a3, -3
 	ori	$a2, $a3, 2288
 	ori	$a3, $a3, 2304
@@ -17559,7 +17589,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a4, $sp, 40
+	ld.d	$a4, $sp, 24
 	bgeu	$a4, $a0, .LBB43_19
 # %bb.17:                               # %.lr.ph
                                         #   in Loop: Header=BB43_16 Depth=1
@@ -17582,46 +17612,66 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	vldx	$vr1, $a7, $s1
 	vldx	$vr2, $a7, $s6
 	vldx	$vr3, $a7, $s7
-	vilvl.b	$vr4, $vr16, $vr0
-	vilvl.h	$vr5, $vr16, $vr4
-	vilvh.h	$vr4, $vr16, $vr4
-	vilvh.b	$vr0, $vr16, $vr0
-	vilvl.h	$vr6, $vr16, $vr0
-	vilvh.h	$vr0, $vr16, $vr0
-	vilvl.b	$vr7, $vr16, $vr1
-	vilvl.h	$vr8, $vr16, $vr7
-	vilvh.h	$vr7, $vr16, $vr7
-	vilvh.b	$vr1, $vr16, $vr1
-	vilvl.h	$vr9, $vr16, $vr1
-	vilvh.h	$vr1, $vr16, $vr1
-	vilvl.b	$vr10, $vr16, $vr2
-	vilvl.h	$vr11, $vr16, $vr10
-	vilvh.h	$vr10, $vr16, $vr10
-	vilvh.b	$vr2, $vr16, $vr2
-	vilvl.h	$vr12, $vr16, $vr2
-	vilvh.h	$vr2, $vr16, $vr2
-	vilvl.b	$vr13, $vr16, $vr3
-	vilvl.h	$vr14, $vr16, $vr13
-	vilvh.h	$vr13, $vr16, $vr13
-	vilvh.b	$vr3, $vr16, $vr3
-	vilvl.h	$vr15, $vr16, $vr3
-	vilvh.h	$vr3, $vr16, $vr3
-	vst	$vr0, $a5, -80
-	vst	$vr6, $a5, -96
+	vsrli.d	$vr4, $vr0, 32
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vbsrl.v	$vr5, $vr0, 8
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vbsrl.v	$vr6, $vr0, 12
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsrli.d	$vr7, $vr1, 32
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vbsrl.v	$vr8, $vr1, 8
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vbsrl.v	$vr9, $vr1, 12
+	vsllwil.hu.bu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsrli.d	$vr10, $vr2, 32
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vbsrl.v	$vr11, $vr2, 8
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vbsrl.v	$vr12, $vr2, 12
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsrli.d	$vr13, $vr3, 32
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr3, 8
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vbsrl.v	$vr15, $vr3, 12
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vst	$vr0, $a5, -128
+	vst	$vr6, $a5, -80
+	vst	$vr5, $a5, -96
 	vst	$vr4, $a5, -112
-	vst	$vr5, $a5, -128
-	vst	$vr1, $a5, -16
-	vst	$vr9, $a5, -32
+	vst	$vr1, $a5, -64
+	vst	$vr9, $a5, -16
+	vst	$vr8, $a5, -32
 	vst	$vr7, $a5, -48
-	vst	$vr8, $a5, -64
-	vst	$vr2, $a5, 48
-	vst	$vr12, $a5, 32
+	vst	$vr2, $a5, 0
+	vst	$vr12, $a5, 48
+	vst	$vr11, $a5, 32
 	vst	$vr10, $a5, 16
-	vst	$vr11, $a5, 0
-	vst	$vr3, $a5, 112
-	vst	$vr15, $a5, 96
+	vst	$vr3, $a5, 64
+	vst	$vr15, $a5, 112
+	vst	$vr14, $a5, 96
 	vst	$vr13, $a5, 80
-	vst	$vr14, $a5, 64
 	addi.d	$a6, $a6, 64
 	addi.d	$a5, $a5, 256
 	bnez	$a6, .LBB43_20
@@ -17656,7 +17706,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB43_28
 # %bb.27:                               # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -17665,18 +17715,18 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 128
 	ret
 .LBB43_29:
 .Ltmp941:                               # EH_LABEL
@@ -17768,7 +17818,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint32_t_RN9benchmark5St
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s4, $sp, 40
+	ld.d	$s4, $sp, 24
 	beqz	$s4, .LBB43_44
 .LBB43_43:                              # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s4
@@ -17838,19 +17888,19 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception44
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	.cfi_def_cfa_offset 112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 24                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -17878,7 +17928,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 .Ltmp962:                               # EH_LABEL
 # %bb.1:
 	move	$s4, $a0
-	st.d	$a0, $sp, 40
+	st.d	$a0, $sp, 8
 .Ltmp964:                               # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
@@ -17888,7 +17938,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	move	$s0, $a0
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 22
 	lu12i.w	$s6, -3
 	ori	$s8, $s6, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -17896,8 +17946,8 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	.p2align	4, , 16
 .LBB44_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp967:                               # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 22
+	addi.d	$a2, $sp, 22
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -17927,7 +17977,6 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	addi.d	$a0, $s4, 16
 	ori	$a1, $s6, 2288
 	ori	$s5, $s7, 1812
-	vrepli.b	$vr2, 0
 	.p2align	4, , 16
 .LBB44_8:                               # %vector.body84
                                         # =>This Inner Loop Header: Depth=1
@@ -17936,10 +17985,10 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	ldx.w	$a2, $a2, $s5
 	vinsgr2vr.w	$vr0, $a3, 0
 	vinsgr2vr.w	$vr1, $a2, 0
-	vilvl.b	$vr0, $vr2, $vr0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.b	$vr1, $vr2, $vr1
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vst	$vr0, $a0, -16
 	vst	$vr1, $a0, 0
 	addi.d	$a1, $a1, 8
@@ -17960,7 +18009,6 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	addi.d	$s7, $s7, 4
 	bnez	$s8, .LBB44_10
 # %bb.12:
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	ld.w	$s7, $s2, 28
 	ld.d	$s4, $s2, 16
 .Ltmp985:                               # EH_LABEL
@@ -17969,13 +18017,12 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	jirl	$ra, $ra, 0
 .Ltmp986:                               # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s7, .LBB44_23
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s4, .LBB44_23
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s1
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 8
 	ori	$a2, $s6, 2288
 	b	.LBB44_17
 	.p2align	4, , 16
@@ -17990,7 +18037,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a3, $sp, 40
+	ld.d	$a3, $sp, 8
 	bgeu	$a3, $a0, .LBB44_21
 # %bb.18:                               # %.lr.ph
                                         #   in Loop: Header=BB44_17 Depth=1
@@ -18024,10 +18071,10 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	ldx.w	$a5, $a5, $s5
 	vinsgr2vr.w	$vr0, $a6, 0
 	vinsgr2vr.w	$vr1, $a5, 0
-	vilvl.b	$vr0, $vr2, $vr0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.b	$vr1, $vr2, $vr1
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vst	$vr0, $a3, -16
 	vst	$vr1, $a3, 0
 	addi.d	$a4, $a4, 8
@@ -18044,7 +18091,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 8
 	beqz	$a0, .LBB44_26
 # %bb.25:                               # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -18053,18 +18100,18 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .LBB44_27:
 .Ltmp970:                               # EH_LABEL
@@ -18156,7 +18203,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5StateE: # 
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s4, $sp, 40
+	ld.d	$s4, $sp, 8
 	beqz	$s4, .LBB44_42
 .LBB44_41:                              # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s4
@@ -18325,7 +18372,6 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchm
 	addi.d	$a1, $sp, 16
 	ori	$a2, $s6, 2288
 	ori	$a3, $s6, 2304
-	vrepli.b	$vr0, 0
 	ori	$a4, $s5, 1792
 	.p2align	4, , 16
 .LBB45_11:                              # %.lr.ph
@@ -18358,46 +18404,54 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint32_t_RN9benchm
 	ldptr.d	$t2, $t0, 9992
 	ldptr.d	$t3, $t0, 10000
 	ldptr.d	$t0, $t0, 10008
-	vinsgr2vr.d	$vr1, $t1, 0
-	vinsgr2vr.d	$vr2, $t2, 0
-	vinsgr2vr.d	$vr3, $t3, 0
-	vinsgr2vr.d	$vr4, $t0, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.h	$vr5, $vr0, $vr1
-	vilvh.h	$vr1, $vr0, $vr1
-	vilvl.b	$vr2, $vr0, $vr2
-	vilvl.h	$vr6, $vr0, $vr2
-	vilvh.h	$vr2, $vr0, $vr2
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr7, $vr0, $vr3
-	vilvh.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr8, $vr0, $vr4
-	vilvh.h	$vr4, $vr0, $vr4
-	vld	$vr9, $a6, -64
-	vld	$vr10, $a6, -48
-	vld	$vr11, $a6, -32
-	vld	$vr12, $a6, -16
-	vld	$vr13, $a6, 0
-	vld	$vr14, $a6, 16
-	vld	$vr15, $a6, 32
-	vld	$vr16, $a6, 48
-	vadd.w	$vr1, $vr10, $vr1
-	vadd.w	$vr5, $vr9, $vr5
-	vadd.w	$vr2, $vr12, $vr2
-	vadd.w	$vr6, $vr11, $vr6
-	vadd.w	$vr3, $vr14, $vr3
-	vadd.w	$vr7, $vr13, $vr7
-	vadd.w	$vr4, $vr16, $vr4
-	vadd.w	$vr8, $vr15, $vr8
-	vst	$vr5, $a6, -64
-	vst	$vr1, $a6, -48
-	vst	$vr6, $a6, -32
-	vst	$vr2, $a6, -16
-	vst	$vr7, $a6, 0
-	vst	$vr3, $a6, 16
-	vst	$vr8, $a6, 32
-	vst	$vr4, $a6, 48
+	vinsgr2vr.d	$vr0, $t1, 0
+	vinsgr2vr.d	$vr1, $t2, 0
+	vinsgr2vr.d	$vr2, $t3, 0
+	vinsgr2vr.d	$vr3, $t0, 0
+	vsllwil.hu.bu	$vr4, $vr0, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsrli.d	$vr0, $vr0, 32
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr5, $vr1, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsrli.d	$vr1, $vr1, 32
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr6, $vr2, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsrli.d	$vr2, $vr2, 32
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr7, $vr3, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsrli.d	$vr3, $vr3, 32
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vld	$vr8, $a6, -64
+	vld	$vr9, $a6, -48
+	vld	$vr10, $a6, -32
+	vld	$vr11, $a6, -16
+	vld	$vr12, $a6, 0
+	vld	$vr13, $a6, 16
+	vld	$vr14, $a6, 32
+	vld	$vr15, $a6, 48
+	vadd.w	$vr0, $vr9, $vr0
+	vadd.w	$vr4, $vr8, $vr4
+	vadd.w	$vr1, $vr11, $vr1
+	vadd.w	$vr5, $vr10, $vr5
+	vadd.w	$vr2, $vr13, $vr2
+	vadd.w	$vr6, $vr12, $vr6
+	vadd.w	$vr3, $vr15, $vr3
+	vadd.w	$vr7, $vr14, $vr7
+	vst	$vr4, $a6, -64
+	vst	$vr0, $a6, -48
+	vst	$vr5, $a6, -32
+	vst	$vr1, $a6, -16
+	vst	$vr6, $a6, 0
+	vst	$vr2, $a6, 16
+	vst	$vr7, $a6, 32
+	vst	$vr3, $a6, 48
 	addi.d	$a7, $a7, 32
 	addi.d	$a6, $a6, 128
 	bnez	$a7, .LBB45_15
@@ -18534,18 +18588,26 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint32_t_RN9bench
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception46
 # %bb.0:
-	addi.d	$sp, $sp, -112
-	.cfi_def_cfa_offset 112
-	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -176
+	.cfi_def_cfa_offset 176
+	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 72                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 64                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 40                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 32                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -18556,6 +18618,14 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint32_t_RN9bench
 	.cfi_offset 28, -64
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
+	.cfi_offset 56, -88
+	.cfi_offset 57, -96
+	.cfi_offset 58, -104
+	.cfi_offset 59, -112
+	.cfi_offset 60, -120
+	.cfi_offset 61, -128
+	.cfi_offset 62, -136
+	.cfi_offset 63, -144
 	move	$s0, $a0
 	lu12i.w	$s5, 2
 	ori	$s1, $s5, 1808
@@ -18636,7 +18706,6 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint32_t_RN9bench
 	ori	$a4, $s5, 1792
 	ori	$a5, $s5, 1824
 	ori	$a6, $s5, 1840
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB46_11:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -18664,82 +18733,102 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint32_t_RN9bench
                                         #   Parent Loop BB46_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$t2, $fp, $t1
-	vldx	$vr1, $t2, $a4
-	vldx	$vr2, $t2, $s1
-	vldx	$vr3, $t2, $a5
-	vldx	$vr4, $t2, $a6
-	vilvh.b	$vr5, $vr0, $vr1
-	vilvl.h	$vr6, $vr0, $vr5
-	vilvh.h	$vr5, $vr0, $vr5
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.h	$vr7, $vr0, $vr1
-	vilvh.h	$vr1, $vr0, $vr1
-	vilvh.b	$vr8, $vr0, $vr2
-	vilvl.h	$vr9, $vr0, $vr8
-	vilvh.h	$vr8, $vr0, $vr8
-	vilvl.b	$vr2, $vr0, $vr2
-	vilvl.h	$vr10, $vr0, $vr2
-	vilvh.h	$vr2, $vr0, $vr2
-	vilvh.b	$vr11, $vr0, $vr3
-	vilvl.h	$vr12, $vr0, $vr11
-	vilvh.h	$vr11, $vr0, $vr11
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr13, $vr0, $vr3
-	vilvh.h	$vr3, $vr0, $vr3
-	vilvh.b	$vr14, $vr0, $vr4
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr15, $vr0, $vr4
-	vld	$vr16, $t0, -112
-	vilvh.h	$vr4, $vr0, $vr4
-	vld	$vr17, $t0, -128
+	vldx	$vr0, $t2, $a4
+	vldx	$vr1, $t2, $s1
+	vldx	$vr2, $t2, $a5
+	vldx	$vr3, $t2, $a6
+	vsllwil.hu.bu	$vr4, $vr0, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vbsrl.v	$vr5, $vr0, 8
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vbsrl.v	$vr6, $vr0, 12
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsrli.d	$vr0, $vr0, 32
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr7, $vr1, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vbsrl.v	$vr8, $vr1, 8
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vbsrl.v	$vr9, $vr1, 12
+	vsllwil.hu.bu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsrli.d	$vr1, $vr1, 32
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr10, $vr2, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vbsrl.v	$vr11, $vr2, 8
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vbsrl.v	$vr12, $vr2, 12
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsrli.d	$vr2, $vr2, 32
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr13, $vr3, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr3, 8
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vbsrl.v	$vr15, $vr3, 12
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsrli.d	$vr3, $vr3, 32
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vld	$vr16, $t0, -128
+	vld	$vr17, $t0, -96
 	vld	$vr18, $t0, -80
-	vadd.w	$vr1, $vr16, $vr1
-	vld	$vr16, $t0, -96
-	vadd.w	$vr7, $vr17, $vr7
-	vld	$vr17, $t0, -48
-	vadd.w	$vr5, $vr18, $vr5
-	vld	$vr18, $t0, -64
-	vadd.w	$vr6, $vr16, $vr6
-	vld	$vr16, $t0, -16
-	vadd.w	$vr2, $vr17, $vr2
-	vld	$vr17, $t0, -32
-	vadd.w	$vr10, $vr18, $vr10
-	vld	$vr18, $t0, 16
-	vadd.w	$vr8, $vr16, $vr8
-	vld	$vr16, $t0, 0
-	vadd.w	$vr9, $vr17, $vr9
-	vld	$vr17, $t0, 48
-	vadd.w	$vr3, $vr18, $vr3
-	vld	$vr18, $t0, 32
-	vadd.w	$vr13, $vr16, $vr13
-	vld	$vr16, $t0, 80
-	vadd.w	$vr11, $vr17, $vr11
-	vld	$vr17, $t0, 64
-	vadd.w	$vr12, $vr18, $vr12
-	vld	$vr18, $t0, 112
+	vld	$vr19, $t0, -112
+	vld	$vr20, $t0, -64
+	vld	$vr21, $t0, -32
+	vld	$vr22, $t0, -16
+	vld	$vr23, $t0, -48
+	vld	$vr24, $t0, 0
+	vld	$vr25, $t0, 32
+	vld	$vr26, $t0, 48
+	vld	$vr27, $t0, 16
+	vld	$vr28, $t0, 64
+	vld	$vr29, $t0, 96
+	vld	$vr30, $t0, 112
+	vld	$vr31, $t0, 80
+	vadd.w	$vr0, $vr19, $vr0
+	vadd.w	$vr6, $vr18, $vr6
+	vadd.w	$vr5, $vr17, $vr5
 	vadd.w	$vr4, $vr16, $vr4
-	vld	$vr16, $t0, 96
-	vadd.w	$vr15, $vr17, $vr15
-	vilvh.h	$vr17, $vr0, $vr14
-	vadd.w	$vr17, $vr18, $vr17
-	vilvl.h	$vr14, $vr0, $vr14
-	vadd.w	$vr14, $vr16, $vr14
-	vst	$vr6, $t0, -96
-	vst	$vr5, $t0, -80
-	vst	$vr7, $t0, -128
-	vst	$vr1, $t0, -112
-	vst	$vr9, $t0, -32
-	vst	$vr8, $t0, -16
-	vst	$vr10, $t0, -64
-	vst	$vr2, $t0, -48
-	vst	$vr12, $t0, 32
-	vst	$vr11, $t0, 48
-	vst	$vr13, $t0, 0
-	vst	$vr3, $t0, 16
+	vadd.w	$vr1, $vr23, $vr1
+	vadd.w	$vr9, $vr22, $vr9
+	vadd.w	$vr8, $vr21, $vr8
+	vadd.w	$vr7, $vr20, $vr7
+	vadd.w	$vr2, $vr27, $vr2
+	vadd.w	$vr12, $vr26, $vr12
+	vadd.w	$vr11, $vr25, $vr11
+	vadd.w	$vr10, $vr24, $vr10
+	vadd.w	$vr3, $vr31, $vr3
+	vadd.w	$vr15, $vr30, $vr15
+	vadd.w	$vr14, $vr29, $vr14
+	vadd.w	$vr13, $vr28, $vr13
+	vst	$vr4, $t0, -128
+	vst	$vr5, $t0, -96
+	vst	$vr6, $t0, -80
+	vst	$vr0, $t0, -112
+	vst	$vr7, $t0, -64
+	vst	$vr8, $t0, -32
+	vst	$vr9, $t0, -16
+	vst	$vr1, $t0, -48
+	vst	$vr10, $t0, 0
+	vst	$vr11, $t0, 32
+	vst	$vr12, $t0, 48
+	vst	$vr2, $t0, 16
+	vst	$vr13, $t0, 64
 	vst	$vr14, $t0, 96
-	vst	$vr17, $t0, 112
-	vst	$vr15, $t0, 64
-	vst	$vr4, $t0, 80
+	vst	$vr15, $t0, 112
+	vst	$vr3, $t0, 80
 	addi.d	$t1, $t1, 64
 	addi.d	$t0, $t0, 256
 	bnez	$t1, .LBB46_15
@@ -18782,17 +18871,25 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint32_t_RN9bench
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 112
+	fld.d	$fs7, $sp, 32                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 48                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 64                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 88                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 176
 	ret
 .LBB46_24:
 .Ltmp1006:                              # EH_LABEL
@@ -18975,7 +19072,6 @@ _Z60benchForTruncOrZextVecWithAddInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5Sta
 	addi.d	$a1, $sp, 16
 	ori	$a2, $s6, 2288
 	ori	$a3, $s5, 1812
-	vrepli.b	$vr0, 0
 	b	.LBB47_12
 	.p2align	4, , 16
 .LBB47_11:                              # %_ZL27truncOrZextVecWithAddInLoopIhjEvPKT_PT0_i.exit
@@ -19023,18 +19119,18 @@ _Z60benchForTruncOrZextVecWithAddInLoopFrom_uint8_t_To_uint32_t_RN9benchmark5Sta
 	add.d	$a6, $fp, $a5
 	ldx.w	$a7, $a6, $s1
 	ldx.w	$a6, $a6, $a3
-	vinsgr2vr.w	$vr1, $a7, 0
-	vinsgr2vr.w	$vr2, $a6, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.h	$vr1, $vr0, $vr1
-	vld	$vr3, $a4, -16
-	vld	$vr4, $a4, 0
-	vilvl.b	$vr2, $vr0, $vr2
-	vilvl.h	$vr2, $vr0, $vr2
+	vinsgr2vr.w	$vr0, $a7, 0
+	vinsgr2vr.w	$vr1, $a6, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vld	$vr2, $a4, -16
+	vld	$vr3, $a4, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vadd.w	$vr0, $vr2, $vr0
 	vadd.w	$vr1, $vr3, $vr1
-	vadd.w	$vr2, $vr4, $vr2
-	vst	$vr1, $a4, -16
-	vst	$vr2, $a4, 0
+	vst	$vr0, $a4, -16
+	vst	$vr1, $a4, 0
 	addi.d	$a5, $a5, 8
 	addi.d	$a4, $a4, 32
 	bnez	$a5, .LBB47_17
@@ -19149,19 +19245,19 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception48
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -128
+	.cfi_def_cfa_offset 128
+	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 40                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -19189,8 +19285,8 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 .Ltmp1033:                              # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s3, $a0
-	st.d	$s0, $sp, 32                    # 8-byte Folded Spill
-	st.d	$a0, $sp, 40
+	st.d	$s0, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 24
 .Ltmp1035:                              # EH_LABEL
 	move	$a0, $s2
 	pcaddu18i	$ra, %call36(_Znam)
@@ -19204,7 +19300,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	add.d	$s8, $s3, $a0
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 38
 	lu12i.w	$a0, -3
 	ori	$s6, $a0, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -19212,8 +19308,8 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	.p2align	4, , 16
 .LBB48_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1038:                              # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 38
+	addi.d	$a2, $sp, 38
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -19227,7 +19323,6 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 # %bb.5:                                # %vector.ph
 	lu12i.w	$a0, -3
 	ori	$a0, $a0, 2288
-	vrepli.b	$vr16, 0
 	move	$a1, $s0
 	.p2align	4, , 16
 .LBB48_6:                               # %vector.body
@@ -19235,9 +19330,9 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	add.d	$a2, $fp, $a0
 	ldx.h	$a2, $a2, $s4
 	vinsgr2vr.h	$vr0, $a2, 0
-	vilvl.b	$vr0, $vr16, $vr0
-	vilvl.h	$vr0, $vr16, $vr0
-	vilvl.w	$vr0, $vr16, $vr0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 2
 	addi.d	$a1, $a1, 16
@@ -19258,50 +19353,82 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	vinsgr2vr.d	$vr1, $a4, 0
 	vinsgr2vr.d	$vr2, $a5, 0
 	vinsgr2vr.d	$vr3, $a2, 0
-	vilvl.b	$vr0, $vr16, $vr0
-	vilvl.h	$vr4, $vr16, $vr0
-	vilvl.w	$vr5, $vr16, $vr4
-	vilvh.w	$vr4, $vr16, $vr4
-	vilvh.h	$vr0, $vr16, $vr0
-	vilvl.w	$vr6, $vr16, $vr0
-	vilvh.w	$vr0, $vr16, $vr0
-	vilvl.b	$vr1, $vr16, $vr1
-	vilvl.h	$vr7, $vr16, $vr1
-	vilvl.w	$vr8, $vr16, $vr7
-	vilvh.w	$vr7, $vr16, $vr7
-	vilvh.h	$vr1, $vr16, $vr1
-	vilvl.w	$vr9, $vr16, $vr1
-	vilvh.w	$vr1, $vr16, $vr1
-	vilvl.b	$vr2, $vr16, $vr2
-	vilvl.h	$vr10, $vr16, $vr2
-	vilvl.w	$vr11, $vr16, $vr10
-	vilvh.w	$vr10, $vr16, $vr10
-	vilvh.h	$vr2, $vr16, $vr2
-	vilvl.w	$vr12, $vr16, $vr2
-	vilvh.w	$vr2, $vr16, $vr2
-	vilvl.b	$vr3, $vr16, $vr3
-	vilvl.h	$vr13, $vr16, $vr3
-	vilvl.w	$vr14, $vr16, $vr13
-	vilvh.w	$vr13, $vr16, $vr13
-	vilvh.h	$vr3, $vr16, $vr3
-	vilvl.w	$vr15, $vr16, $vr3
-	vilvh.w	$vr3, $vr16, $vr3
-	vst	$vr0, $a0, -80
-	vst	$vr6, $a0, -96
+	vshuf4i.b	$vr4, $vr0, 14
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsrli.d	$vr5, $vr0, 32
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsrli.d	$vr6, $vr0, 48
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf4i.b	$vr7, $vr1, 14
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsrli.d	$vr8, $vr1, 32
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vsrli.d	$vr9, $vr1, 48
+	vsllwil.hu.bu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vshuf4i.b	$vr10, $vr2, 14
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vsrli.d	$vr11, $vr2, 32
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vsrli.d	$vr12, $vr2, 48
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vshuf4i.b	$vr13, $vr3, 14
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsrli.d	$vr14, $vr3, 32
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vsrli.d	$vr15, $vr3, 48
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vst	$vr0, $a0, -128
+	vst	$vr6, $a0, -80
+	vst	$vr5, $a0, -96
 	vst	$vr4, $a0, -112
-	vst	$vr5, $a0, -128
-	vst	$vr1, $a0, -16
-	vst	$vr9, $a0, -32
+	vst	$vr1, $a0, -64
+	vst	$vr9, $a0, -16
+	vst	$vr8, $a0, -32
 	vst	$vr7, $a0, -48
-	vst	$vr8, $a0, -64
-	vst	$vr2, $a0, 48
-	vst	$vr12, $a0, 32
+	vst	$vr2, $a0, 0
+	vst	$vr12, $a0, 48
+	vst	$vr11, $a0, 32
 	vst	$vr10, $a0, 16
-	vst	$vr11, $a0, 0
-	vst	$vr3, $a0, 112
-	vst	$vr15, $a0, 96
+	vst	$vr3, $a0, 64
+	vst	$vr15, $a0, 112
+	vst	$vr14, $a0, 96
 	vst	$vr13, $a0, 80
-	vst	$vr14, $a0, 64
 	addi.d	$a1, $a1, 32
 	addi.d	$a0, $a0, 256
 	bnez	$a1, .LBB48_8
@@ -19357,8 +19484,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	addi.d	$s6, $s6, 8
 	bnez	$s1, .LBB48_10
 # %bb.12:
-	vst	$vr16, $sp, 16                  # 16-byte Folded Spill
-	ld.d	$s6, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 16                    # 8-byte Folded Reload
 	ld.w	$s3, $s6, 28
 	ld.d	$s1, $s6, 16
 .Ltmp1056:                              # EH_LABEL
@@ -19367,13 +19493,12 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	jirl	$ra, $ra, 0
 .Ltmp1057:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr16, $sp, 16                  # 16-byte Folded Reload
 	bnez	$s3, .LBB48_25
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s1, .LBB48_25
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s4
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 24
 	lu12i.w	$a3, -3
 	ori	$a2, $a3, 2288
 	ori	$a3, $a3, 2304
@@ -19385,7 +19510,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a4, $sp, 40
+	ld.d	$a4, $sp, 24
 	bgeu	$a4, $a0, .LBB48_19
 # %bb.17:                               # %.lr.ph
                                         #   in Loop: Header=BB48_16 Depth=1
@@ -19412,50 +19537,82 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	vinsgr2vr.d	$vr1, $t1, 0
 	vinsgr2vr.d	$vr2, $t2, 0
 	vinsgr2vr.d	$vr3, $a7, 0
-	vilvl.b	$vr0, $vr16, $vr0
-	vilvl.h	$vr4, $vr16, $vr0
-	vilvl.w	$vr5, $vr16, $vr4
-	vilvh.w	$vr4, $vr16, $vr4
-	vilvh.h	$vr0, $vr16, $vr0
-	vilvl.w	$vr6, $vr16, $vr0
-	vilvh.w	$vr0, $vr16, $vr0
-	vilvl.b	$vr1, $vr16, $vr1
-	vilvl.h	$vr7, $vr16, $vr1
-	vilvl.w	$vr8, $vr16, $vr7
-	vilvh.w	$vr7, $vr16, $vr7
-	vilvh.h	$vr1, $vr16, $vr1
-	vilvl.w	$vr9, $vr16, $vr1
-	vilvh.w	$vr1, $vr16, $vr1
-	vilvl.b	$vr2, $vr16, $vr2
-	vilvl.h	$vr10, $vr16, $vr2
-	vilvl.w	$vr11, $vr16, $vr10
-	vilvh.w	$vr10, $vr16, $vr10
-	vilvh.h	$vr2, $vr16, $vr2
-	vilvl.w	$vr12, $vr16, $vr2
-	vilvh.w	$vr2, $vr16, $vr2
-	vilvl.b	$vr3, $vr16, $vr3
-	vilvl.h	$vr13, $vr16, $vr3
-	vilvl.w	$vr14, $vr16, $vr13
-	vilvh.w	$vr13, $vr16, $vr13
-	vilvh.h	$vr3, $vr16, $vr3
-	vilvl.w	$vr15, $vr16, $vr3
-	vilvh.w	$vr3, $vr16, $vr3
-	vst	$vr0, $a5, -80
-	vst	$vr6, $a5, -96
+	vshuf4i.b	$vr4, $vr0, 14
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsrli.d	$vr5, $vr0, 32
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsrli.d	$vr6, $vr0, 48
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf4i.b	$vr7, $vr1, 14
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsrli.d	$vr8, $vr1, 32
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vsrli.d	$vr9, $vr1, 48
+	vsllwil.hu.bu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vshuf4i.b	$vr10, $vr2, 14
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vsrli.d	$vr11, $vr2, 32
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vsrli.d	$vr12, $vr2, 48
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vshuf4i.b	$vr13, $vr3, 14
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsrli.d	$vr14, $vr3, 32
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vsrli.d	$vr15, $vr3, 48
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vst	$vr0, $a5, -128
+	vst	$vr6, $a5, -80
+	vst	$vr5, $a5, -96
 	vst	$vr4, $a5, -112
-	vst	$vr5, $a5, -128
-	vst	$vr1, $a5, -16
-	vst	$vr9, $a5, -32
+	vst	$vr1, $a5, -64
+	vst	$vr9, $a5, -16
+	vst	$vr8, $a5, -32
 	vst	$vr7, $a5, -48
-	vst	$vr8, $a5, -64
-	vst	$vr2, $a5, 48
-	vst	$vr12, $a5, 32
+	vst	$vr2, $a5, 0
+	vst	$vr12, $a5, 48
+	vst	$vr11, $a5, 32
 	vst	$vr10, $a5, 16
-	vst	$vr11, $a5, 0
-	vst	$vr3, $a5, 112
-	vst	$vr15, $a5, 96
+	vst	$vr3, $a5, 64
+	vst	$vr15, $a5, 112
+	vst	$vr14, $a5, 96
 	vst	$vr13, $a5, 80
-	vst	$vr14, $a5, 64
 	addi.d	$a6, $a6, 32
 	addi.d	$a5, $a5, 256
 	bnez	$a6, .LBB48_20
@@ -19490,7 +19647,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB48_28
 # %bb.27:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -19499,18 +19656,18 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 128
 	ret
 .LBB48_29:
 .Ltmp1041:                              # EH_LABEL
@@ -19602,7 +19759,7 @@ _Z60benchForTruncOrZextVecInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchmark5Sta
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s3, $sp, 40
+	ld.d	$s3, $sp, 24
 	beqz	$s3, .LBB48_44
 .LBB48_43:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s3
@@ -19672,19 +19829,27 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception49
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -192
+	.cfi_def_cfa_offset 192
+	st.d	$ra, $sp, 184                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 104                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 96                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 72                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 64                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 40                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -19696,6 +19861,14 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
+	.cfi_offset 56, -96
+	.cfi_offset 57, -104
+	.cfi_offset 58, -112
+	.cfi_offset 59, -120
+	.cfi_offset 60, -128
+	.cfi_offset 61, -136
+	.cfi_offset 62, -144
+	.cfi_offset 63, -152
 	move	$s0, $a0
 	lu12i.w	$s7, 2
 	ori	$s1, $s7, 1808
@@ -19713,7 +19886,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 # %bb.1:                                # %.split
 	move	$s4, $a0
 	st.d	$s0, $sp, 8                     # 8-byte Folded Spill
-	st.d	$a0, $sp, 40
+	st.d	$a0, $sp, 24
 .Ltmp1064:                              # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
@@ -19728,7 +19901,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	add.d	$s8, $s4, $a0
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 38
 	lu12i.w	$s6, -3
 	ori	$s2, $s6, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -19736,8 +19909,8 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	.p2align	4, , 16
 .LBB49_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1067:                              # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 38
+	addi.d	$a2, $sp, 38
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -19750,7 +19923,6 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	bnez	$s2, .LBB49_3
 # %bb.5:                                # %vector.ph
 	ori	$a0, $s6, 2288
-	vrepli.b	$vr4, 0
 	move	$a1, $s0
 	.p2align	4, , 16
 .LBB49_6:                               # %vector.body
@@ -19758,9 +19930,9 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	add.d	$a2, $fp, $a0
 	ldx.h	$a2, $a2, $s1
 	vinsgr2vr.h	$vr0, $a2, 0
-	vilvl.b	$vr0, $vr4, $vr0
-	vilvl.h	$vr0, $vr4, $vr0
-	vilvl.w	$vr0, $vr4, $vr0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 2
 	addi.d	$a1, $a1, 16
@@ -19776,98 +19948,166 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 .LBB49_8:                               # %vector.body84
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a2, $fp, $a1
-	vldx	$vr0, $a2, $s5
-	vilvh.b	$vr1, $vr4, $vr0
-	vilvh.h	$vr2, $vr4, $vr1
-	vilvh.w	$vr3, $vr4, $vr2
-	vst	$vr3, $a0, -144
-	vldx	$vr3, $a2, $s1
-	vilvl.b	$vr0, $vr4, $vr0
-	vilvl.h	$vr1, $vr4, $vr1
-	vilvl.w	$vr2, $vr4, $vr2
-	vst	$vr2, $a0, -160
-	vilvh.w	$vr2, $vr4, $vr1
-	vst	$vr2, $a0, -176
-	vilvl.h	$vr2, $vr4, $vr0
-	vilvh.h	$vr0, $vr4, $vr0
-	vilvl.w	$vr1, $vr4, $vr1
-	vst	$vr1, $a0, -192
-	vilvh.w	$vr1, $vr4, $vr0
-	vst	$vr1, $a0, -208
-	vilvl.w	$vr1, $vr4, $vr2
-	vilvh.w	$vr2, $vr4, $vr2
-	vilvl.w	$vr0, $vr4, $vr0
-	vst	$vr0, $a0, -224
-	vilvh.b	$vr0, $vr4, $vr3
-	vst	$vr2, $a0, -240
-	vilvh.h	$vr2, $vr4, $vr0
-	vst	$vr1, $a0, -256
-	vilvh.w	$vr1, $vr4, $vr2
-	vst	$vr1, $a0, -16
-	vldx	$vr1, $a2, $s6
-	vilvl.b	$vr3, $vr4, $vr3
-	vilvl.h	$vr0, $vr4, $vr0
-	vilvl.w	$vr2, $vr4, $vr2
-	vst	$vr2, $a0, -32
-	vilvh.w	$vr2, $vr4, $vr0
-	vst	$vr2, $a0, -48
-	vilvl.h	$vr2, $vr4, $vr3
-	vilvh.h	$vr3, $vr4, $vr3
-	vilvl.w	$vr0, $vr4, $vr0
-	vst	$vr0, $a0, -64
-	vilvh.w	$vr0, $vr4, $vr3
-	vst	$vr0, $a0, -80
-	vilvl.w	$vr0, $vr4, $vr2
-	vilvh.w	$vr2, $vr4, $vr2
-	vilvl.w	$vr3, $vr4, $vr3
-	vst	$vr3, $a0, -96
-	vilvh.b	$vr3, $vr4, $vr1
-	vst	$vr2, $a0, -112
-	vilvh.h	$vr2, $vr4, $vr3
-	vst	$vr0, $a0, -128
-	vilvh.w	$vr0, $vr4, $vr2
-	vst	$vr0, $a0, 112
-	vldx	$vr0, $a2, $s7
-	vilvl.b	$vr1, $vr4, $vr1
-	vilvl.h	$vr3, $vr4, $vr3
-	vilvl.w	$vr2, $vr4, $vr2
-	vst	$vr2, $a0, 96
-	vilvh.w	$vr2, $vr4, $vr3
-	vst	$vr2, $a0, 80
-	vilvl.h	$vr2, $vr4, $vr1
-	vilvh.h	$vr1, $vr4, $vr1
-	vilvl.w	$vr3, $vr4, $vr3
-	vst	$vr3, $a0, 64
-	vilvh.w	$vr3, $vr4, $vr1
-	vst	$vr3, $a0, 48
-	vilvl.w	$vr3, $vr4, $vr2
-	vilvh.w	$vr2, $vr4, $vr2
-	vilvl.w	$vr1, $vr4, $vr1
-	vst	$vr1, $a0, 32
-	vilvh.b	$vr1, $vr4, $vr0
-	vst	$vr2, $a0, 16
-	vilvh.h	$vr2, $vr4, $vr1
-	vst	$vr3, $a0, 0
-	vilvh.w	$vr3, $vr4, $vr2
-	vst	$vr3, $a0, 240
-	vilvl.b	$vr0, $vr4, $vr0
-	vilvl.h	$vr1, $vr4, $vr1
-	vilvl.w	$vr2, $vr4, $vr2
-	vst	$vr2, $a0, 224
-	vilvh.w	$vr2, $vr4, $vr1
-	vst	$vr2, $a0, 208
-	vilvh.h	$vr2, $vr4, $vr0
-	vilvl.w	$vr1, $vr4, $vr1
-	vst	$vr1, $a0, 192
-	vilvh.w	$vr1, $vr4, $vr2
-	vst	$vr1, $a0, 176
-	vilvl.h	$vr0, $vr4, $vr0
-	vilvl.w	$vr1, $vr4, $vr2
-	vst	$vr1, $a0, 160
-	vilvh.w	$vr1, $vr4, $vr0
-	vst	$vr1, $a0, 144
-	vilvl.w	$vr0, $vr4, $vr0
-	vst	$vr0, $a0, 128
+	vldx	$vr6, $a2, $s5
+	vldx	$vr15, $a2, $s1
+	vldx	$vr12, $a2, $s6
+	vldx	$vr2, $a2, $s7
+	vshuf4i.b	$vr0, $vr6, 14
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsrli.d	$vr1, $vr6, 32
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsrli.d	$vr3, $vr6, 48
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr6, 8
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vbsrl.v	$vr5, $vr6, 10
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr7, $vr6, 12
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vbsrl.v	$vr8, $vr6, 14
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr9, $vr8, 0
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr11, $vr6, 0
+	vshuf4i.b	$vr6, $vr15, 14
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsrli.d	$vr8, $vr15, 32
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vsrli.d	$vr10, $vr15, 48
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vbsrl.v	$vr13, $vr15, 8
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr15, 10
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vbsrl.v	$vr16, $vr15, 12
+	vsllwil.hu.bu	$vr16, $vr16, 0
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vsllwil.du.wu	$vr16, $vr16, 0
+	vbsrl.v	$vr17, $vr15, 14
+	vsllwil.hu.bu	$vr17, $vr17, 0
+	vsllwil.wu.hu	$vr17, $vr17, 0
+	vsllwil.du.wu	$vr18, $vr17, 0
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr20, $vr15, 0
+	vshuf4i.b	$vr15, $vr12, 14
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsrli.d	$vr17, $vr12, 32
+	vsllwil.hu.bu	$vr17, $vr17, 0
+	vsllwil.wu.hu	$vr17, $vr17, 0
+	vsllwil.du.wu	$vr17, $vr17, 0
+	vsrli.d	$vr19, $vr12, 48
+	vsllwil.hu.bu	$vr19, $vr19, 0
+	vsllwil.wu.hu	$vr19, $vr19, 0
+	vsllwil.du.wu	$vr19, $vr19, 0
+	vbsrl.v	$vr21, $vr12, 8
+	vsllwil.hu.bu	$vr21, $vr21, 0
+	vsllwil.wu.hu	$vr21, $vr21, 0
+	vsllwil.du.wu	$vr21, $vr21, 0
+	vbsrl.v	$vr22, $vr12, 10
+	vsllwil.hu.bu	$vr22, $vr22, 0
+	vsllwil.wu.hu	$vr22, $vr22, 0
+	vsllwil.du.wu	$vr22, $vr22, 0
+	vbsrl.v	$vr23, $vr12, 12
+	vsllwil.hu.bu	$vr23, $vr23, 0
+	vsllwil.wu.hu	$vr23, $vr23, 0
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vbsrl.v	$vr24, $vr12, 14
+	vsllwil.hu.bu	$vr24, $vr24, 0
+	vsllwil.wu.hu	$vr24, $vr24, 0
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.b	$vr25, $vr2, 14
+	vsllwil.hu.bu	$vr25, $vr25, 0
+	vsllwil.wu.hu	$vr25, $vr25, 0
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vsrli.d	$vr26, $vr2, 32
+	vsllwil.hu.bu	$vr26, $vr26, 0
+	vsllwil.wu.hu	$vr26, $vr26, 0
+	vsllwil.du.wu	$vr26, $vr26, 0
+	vsrli.d	$vr27, $vr2, 48
+	vsllwil.hu.bu	$vr27, $vr27, 0
+	vsllwil.wu.hu	$vr27, $vr27, 0
+	vsllwil.du.wu	$vr27, $vr27, 0
+	vbsrl.v	$vr28, $vr2, 8
+	vsllwil.hu.bu	$vr28, $vr28, 0
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vbsrl.v	$vr29, $vr2, 10
+	vsllwil.hu.bu	$vr29, $vr29, 0
+	vsllwil.wu.hu	$vr29, $vr29, 0
+	vsllwil.du.wu	$vr29, $vr29, 0
+	vbsrl.v	$vr30, $vr2, 12
+	vsllwil.hu.bu	$vr30, $vr30, 0
+	vsllwil.wu.hu	$vr30, $vr30, 0
+	vsllwil.du.wu	$vr30, $vr30, 0
+	vbsrl.v	$vr31, $vr2, 14
+	vsllwil.hu.bu	$vr31, $vr31, 0
+	vsllwil.wu.hu	$vr31, $vr31, 0
+	vsllwil.du.wu	$vr31, $vr31, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vst	$vr11, $a0, -256
+	vst	$vr9, $a0, -144
+	vst	$vr7, $a0, -160
+	vst	$vr5, $a0, -176
+	vst	$vr4, $a0, -192
+	vst	$vr3, $a0, -208
+	vst	$vr1, $a0, -224
+	vst	$vr0, $a0, -240
+	vst	$vr20, $a0, -128
+	vst	$vr18, $a0, -16
+	vst	$vr16, $a0, -32
+	vst	$vr14, $a0, -48
+	vst	$vr13, $a0, -64
+	vst	$vr10, $a0, -80
+	vst	$vr8, $a0, -96
+	vst	$vr6, $a0, -112
+	vst	$vr12, $a0, 0
+	vst	$vr24, $a0, 112
+	vst	$vr23, $a0, 96
+	vst	$vr22, $a0, 80
+	vst	$vr21, $a0, 64
+	vst	$vr19, $a0, 48
+	vst	$vr17, $a0, 32
+	vst	$vr15, $a0, 16
+	vst	$vr2, $a0, 128
+	vst	$vr31, $a0, 240
+	vst	$vr30, $a0, 224
+	vst	$vr29, $a0, 208
+	vst	$vr28, $a0, 192
+	vst	$vr27, $a0, 176
+	vst	$vr26, $a0, 160
+	vst	$vr25, $a0, 144
 	addi.d	$a1, $a1, 64
 	addi.d	$a0, $a0, 512
 	bnez	$a1, .LBB49_8
@@ -19923,7 +20163,6 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	addi.d	$s2, $s2, 8
 	bnez	$s8, .LBB49_10
 # %bb.12:
-	vst	$vr4, $sp, 16                   # 16-byte Folded Spill
 	ld.d	$s8, $sp, 8                     # 8-byte Folded Reload
 	ld.w	$s4, $s8, 28
 	ld.d	$s2, $s8, 16
@@ -19933,13 +20172,12 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp1086:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr4, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s4, .LBB49_25
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s2, .LBB49_25
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s1
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 24
 	lu12i.w	$a3, -3
 	ori	$a2, $a3, 2288
 	ori	$a3, $a3, 2304
@@ -19951,7 +20189,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a4, $sp, 40
+	ld.d	$a4, $sp, 24
 	bgeu	$a4, $a0, .LBB49_19
 # %bb.17:                               # %.lr.ph
                                         #   in Loop: Header=BB49_16 Depth=1
@@ -19970,98 +20208,166 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
                                         #   Parent Loop BB49_16 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$a7, $fp, $a6
-	vldx	$vr0, $a7, $s5
-	vilvh.b	$vr1, $vr4, $vr0
-	vilvh.h	$vr2, $vr4, $vr1
-	vilvh.w	$vr3, $vr4, $vr2
-	vst	$vr3, $a5, -144
-	vldx	$vr3, $a7, $s1
-	vilvl.b	$vr0, $vr4, $vr0
-	vilvl.h	$vr1, $vr4, $vr1
-	vilvl.w	$vr2, $vr4, $vr2
-	vst	$vr2, $a5, -160
-	vilvh.w	$vr2, $vr4, $vr1
-	vst	$vr2, $a5, -176
-	vilvl.h	$vr2, $vr4, $vr0
-	vilvh.h	$vr0, $vr4, $vr0
-	vilvl.w	$vr1, $vr4, $vr1
-	vst	$vr1, $a5, -192
-	vilvh.w	$vr1, $vr4, $vr0
-	vst	$vr1, $a5, -208
-	vilvl.w	$vr1, $vr4, $vr2
-	vilvh.w	$vr2, $vr4, $vr2
-	vilvl.w	$vr0, $vr4, $vr0
-	vst	$vr0, $a5, -224
-	vilvh.b	$vr0, $vr4, $vr3
-	vst	$vr2, $a5, -240
-	vilvh.h	$vr2, $vr4, $vr0
-	vst	$vr1, $a5, -256
-	vilvh.w	$vr1, $vr4, $vr2
-	vst	$vr1, $a5, -16
-	vldx	$vr1, $a7, $s6
-	vilvl.b	$vr3, $vr4, $vr3
-	vilvl.h	$vr0, $vr4, $vr0
-	vilvl.w	$vr2, $vr4, $vr2
-	vst	$vr2, $a5, -32
-	vilvh.w	$vr2, $vr4, $vr0
-	vst	$vr2, $a5, -48
-	vilvl.h	$vr2, $vr4, $vr3
-	vilvh.h	$vr3, $vr4, $vr3
-	vilvl.w	$vr0, $vr4, $vr0
-	vst	$vr0, $a5, -64
-	vilvh.w	$vr0, $vr4, $vr3
-	vst	$vr0, $a5, -80
-	vilvl.w	$vr0, $vr4, $vr2
-	vilvh.w	$vr2, $vr4, $vr2
-	vilvl.w	$vr3, $vr4, $vr3
-	vst	$vr3, $a5, -96
-	vilvh.b	$vr3, $vr4, $vr1
-	vst	$vr2, $a5, -112
-	vilvh.h	$vr2, $vr4, $vr3
-	vst	$vr0, $a5, -128
-	vilvh.w	$vr0, $vr4, $vr2
-	vst	$vr0, $a5, 112
-	vldx	$vr0, $a7, $s7
-	vilvl.b	$vr1, $vr4, $vr1
-	vilvl.h	$vr3, $vr4, $vr3
-	vilvl.w	$vr2, $vr4, $vr2
-	vst	$vr2, $a5, 96
-	vilvh.w	$vr2, $vr4, $vr3
-	vst	$vr2, $a5, 80
-	vilvl.h	$vr2, $vr4, $vr1
-	vilvh.h	$vr1, $vr4, $vr1
-	vilvl.w	$vr3, $vr4, $vr3
-	vst	$vr3, $a5, 64
-	vilvh.w	$vr3, $vr4, $vr1
-	vst	$vr3, $a5, 48
-	vilvl.w	$vr3, $vr4, $vr2
-	vilvh.w	$vr2, $vr4, $vr2
-	vilvl.w	$vr1, $vr4, $vr1
-	vst	$vr1, $a5, 32
-	vilvh.b	$vr1, $vr4, $vr0
-	vst	$vr2, $a5, 16
-	vilvh.h	$vr2, $vr4, $vr1
-	vst	$vr3, $a5, 0
-	vilvh.w	$vr3, $vr4, $vr2
-	vst	$vr3, $a5, 240
-	vilvl.b	$vr0, $vr4, $vr0
-	vilvl.h	$vr1, $vr4, $vr1
-	vilvl.w	$vr2, $vr4, $vr2
-	vst	$vr2, $a5, 224
-	vilvh.w	$vr2, $vr4, $vr1
-	vst	$vr2, $a5, 208
-	vilvh.h	$vr2, $vr4, $vr0
-	vilvl.w	$vr1, $vr4, $vr1
-	vst	$vr1, $a5, 192
-	vilvh.w	$vr1, $vr4, $vr2
-	vst	$vr1, $a5, 176
-	vilvl.h	$vr0, $vr4, $vr0
-	vilvl.w	$vr1, $vr4, $vr2
-	vst	$vr1, $a5, 160
-	vilvh.w	$vr1, $vr4, $vr0
-	vst	$vr1, $a5, 144
-	vilvl.w	$vr0, $vr4, $vr0
-	vst	$vr0, $a5, 128
+	vldx	$vr6, $a7, $s5
+	vldx	$vr15, $a7, $s1
+	vldx	$vr12, $a7, $s6
+	vldx	$vr2, $a7, $s7
+	vshuf4i.b	$vr0, $vr6, 14
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsrli.d	$vr1, $vr6, 32
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsrli.d	$vr3, $vr6, 48
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr6, 8
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vbsrl.v	$vr5, $vr6, 10
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr7, $vr6, 12
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vbsrl.v	$vr8, $vr6, 14
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr9, $vr8, 0
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr11, $vr6, 0
+	vshuf4i.b	$vr6, $vr15, 14
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsrli.d	$vr8, $vr15, 32
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vsrli.d	$vr10, $vr15, 48
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vbsrl.v	$vr13, $vr15, 8
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr15, 10
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vbsrl.v	$vr16, $vr15, 12
+	vsllwil.hu.bu	$vr16, $vr16, 0
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vsllwil.du.wu	$vr16, $vr16, 0
+	vbsrl.v	$vr17, $vr15, 14
+	vsllwil.hu.bu	$vr17, $vr17, 0
+	vsllwil.wu.hu	$vr17, $vr17, 0
+	vsllwil.du.wu	$vr18, $vr17, 0
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr20, $vr15, 0
+	vshuf4i.b	$vr15, $vr12, 14
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsrli.d	$vr17, $vr12, 32
+	vsllwil.hu.bu	$vr17, $vr17, 0
+	vsllwil.wu.hu	$vr17, $vr17, 0
+	vsllwil.du.wu	$vr17, $vr17, 0
+	vsrli.d	$vr19, $vr12, 48
+	vsllwil.hu.bu	$vr19, $vr19, 0
+	vsllwil.wu.hu	$vr19, $vr19, 0
+	vsllwil.du.wu	$vr19, $vr19, 0
+	vbsrl.v	$vr21, $vr12, 8
+	vsllwil.hu.bu	$vr21, $vr21, 0
+	vsllwil.wu.hu	$vr21, $vr21, 0
+	vsllwil.du.wu	$vr21, $vr21, 0
+	vbsrl.v	$vr22, $vr12, 10
+	vsllwil.hu.bu	$vr22, $vr22, 0
+	vsllwil.wu.hu	$vr22, $vr22, 0
+	vsllwil.du.wu	$vr22, $vr22, 0
+	vbsrl.v	$vr23, $vr12, 12
+	vsllwil.hu.bu	$vr23, $vr23, 0
+	vsllwil.wu.hu	$vr23, $vr23, 0
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vbsrl.v	$vr24, $vr12, 14
+	vsllwil.hu.bu	$vr24, $vr24, 0
+	vsllwil.wu.hu	$vr24, $vr24, 0
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.b	$vr25, $vr2, 14
+	vsllwil.hu.bu	$vr25, $vr25, 0
+	vsllwil.wu.hu	$vr25, $vr25, 0
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vsrli.d	$vr26, $vr2, 32
+	vsllwil.hu.bu	$vr26, $vr26, 0
+	vsllwil.wu.hu	$vr26, $vr26, 0
+	vsllwil.du.wu	$vr26, $vr26, 0
+	vsrli.d	$vr27, $vr2, 48
+	vsllwil.hu.bu	$vr27, $vr27, 0
+	vsllwil.wu.hu	$vr27, $vr27, 0
+	vsllwil.du.wu	$vr27, $vr27, 0
+	vbsrl.v	$vr28, $vr2, 8
+	vsllwil.hu.bu	$vr28, $vr28, 0
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vbsrl.v	$vr29, $vr2, 10
+	vsllwil.hu.bu	$vr29, $vr29, 0
+	vsllwil.wu.hu	$vr29, $vr29, 0
+	vsllwil.du.wu	$vr29, $vr29, 0
+	vbsrl.v	$vr30, $vr2, 12
+	vsllwil.hu.bu	$vr30, $vr30, 0
+	vsllwil.wu.hu	$vr30, $vr30, 0
+	vsllwil.du.wu	$vr30, $vr30, 0
+	vbsrl.v	$vr31, $vr2, 14
+	vsllwil.hu.bu	$vr31, $vr31, 0
+	vsllwil.wu.hu	$vr31, $vr31, 0
+	vsllwil.du.wu	$vr31, $vr31, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vst	$vr11, $a5, -256
+	vst	$vr9, $a5, -144
+	vst	$vr7, $a5, -160
+	vst	$vr5, $a5, -176
+	vst	$vr4, $a5, -192
+	vst	$vr3, $a5, -208
+	vst	$vr1, $a5, -224
+	vst	$vr0, $a5, -240
+	vst	$vr20, $a5, -128
+	vst	$vr18, $a5, -16
+	vst	$vr16, $a5, -32
+	vst	$vr14, $a5, -48
+	vst	$vr13, $a5, -64
+	vst	$vr10, $a5, -80
+	vst	$vr8, $a5, -96
+	vst	$vr6, $a5, -112
+	vst	$vr12, $a5, 0
+	vst	$vr24, $a5, 112
+	vst	$vr23, $a5, 96
+	vst	$vr22, $a5, 80
+	vst	$vr21, $a5, 64
+	vst	$vr19, $a5, 48
+	vst	$vr17, $a5, 32
+	vst	$vr15, $a5, 16
+	vst	$vr2, $a5, 128
+	vst	$vr31, $a5, 240
+	vst	$vr30, $a5, 224
+	vst	$vr29, $a5, 208
+	vst	$vr28, $a5, 192
+	vst	$vr27, $a5, 176
+	vst	$vr26, $a5, 160
+	vst	$vr25, $a5, 144
 	addi.d	$a6, $a6, 64
 	addi.d	$a5, $a5, 512
 	bnez	$a6, .LBB49_20
@@ -20096,7 +20402,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB49_28
 # %bb.27:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -20105,18 +20411,26 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	fld.d	$fs7, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 48                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 64                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 88                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 96                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 184                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 192
 	ret
 .LBB49_29:
 .Ltmp1070:                              # EH_LABEL
@@ -20208,7 +20522,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW16From_uint8_t_To_uint64_t_RN9benchmark5St
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s4, $sp, 40
+	ld.d	$s4, $sp, 24
 	beqz	$s4, .LBB49_44
 .LBB49_43:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s4
@@ -20278,19 +20592,19 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception50
 # %bb.0:
-	addi.d	$sp, $sp, -144
-	.cfi_def_cfa_offset 144
-	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	.cfi_def_cfa_offset 112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 24                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -20318,7 +20632,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 .Ltmp1091:                              # EH_LABEL
 # %bb.1:
 	move	$s4, $a0
-	st.d	$a0, $sp, 40
+	st.d	$a0, $sp, 8
 .Ltmp1093:                              # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
@@ -20328,7 +20642,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	move	$s0, $a0
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 54
+	st.h	$a0, $sp, 22
 	lu12i.w	$s6, -3
 	ori	$s8, $s6, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -20336,8 +20650,8 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	.p2align	4, , 16
 .LBB50_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1096:                              # EH_LABEL
-	addi.d	$a0, $sp, 54
-	addi.d	$a2, $sp, 54
+	addi.d	$a0, $sp, 22
+	addi.d	$a2, $sp, 22
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -20350,7 +20664,6 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	bnez	$s8, .LBB50_3
 # %bb.5:                                # %vector.ph
 	ori	$a0, $s6, 2288
-	vrepli.b	$vr2, 0
 	move	$a1, $s0
 	.p2align	4, , 16
 .LBB50_6:                               # %vector.body
@@ -20358,9 +20671,9 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	add.d	$a2, $fp, $a0
 	ldx.h	$a2, $a2, $s1
 	vinsgr2vr.h	$vr0, $a2, 0
-	vilvl.b	$vr0, $vr2, $vr0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.w	$vr0, $vr2, $vr0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 2
 	addi.d	$a1, $a1, 16
@@ -20377,12 +20690,12 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	ldx.h	$a2, $a2, $s5
 	vinsgr2vr.h	$vr0, $a3, 0
 	vinsgr2vr.h	$vr1, $a2, 0
-	vilvl.b	$vr0, $vr2, $vr0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.w	$vr0, $vr2, $vr0
-	vilvl.b	$vr1, $vr2, $vr1
-	vilvl.h	$vr1, $vr2, $vr1
-	vilvl.w	$vr1, $vr2, $vr1
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
 	vst	$vr0, $a0, -16
 	vst	$vr1, $a0, 0
 	addi.d	$a1, $a1, 4
@@ -20403,7 +20716,6 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	addi.d	$s7, $s7, 8
 	bnez	$s8, .LBB50_10
 # %bb.12:
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	ld.w	$s7, $s2, 28
 	ld.d	$s4, $s2, 16
 .Ltmp1114:                              # EH_LABEL
@@ -20412,13 +20724,12 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	jirl	$ra, $ra, 0
 .Ltmp1115:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s7, .LBB50_23
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s4, .LBB50_23
 # %bb.15:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s1
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 8
 	ori	$a2, $s6, 2288
 	b	.LBB50_17
 	.p2align	4, , 16
@@ -20433,7 +20744,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a3, $sp, 40
+	ld.d	$a3, $sp, 8
 	bgeu	$a3, $a0, .LBB50_21
 # %bb.18:                               # %.lr.ph
                                         #   in Loop: Header=BB50_17 Depth=1
@@ -20467,12 +20778,12 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	ldx.h	$a5, $a5, $s5
 	vinsgr2vr.h	$vr0, $a6, 0
 	vinsgr2vr.h	$vr1, $a5, 0
-	vilvl.b	$vr0, $vr2, $vr0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.w	$vr0, $vr2, $vr0
-	vilvl.b	$vr1, $vr2, $vr1
-	vilvl.h	$vr1, $vr2, $vr1
-	vilvl.w	$vr1, $vr2, $vr1
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
 	vst	$vr0, $a3, -16
 	vst	$vr1, $a3, 0
 	addi.d	$a4, $a4, 4
@@ -20489,7 +20800,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 8
 	beqz	$a0, .LBB50_26
 # %bb.25:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i37
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -20498,18 +20809,18 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 144
+	ld.d	$s8, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .LBB50_27:
 .Ltmp1099:                              # EH_LABEL
@@ -20601,7 +20912,7 @@ _Z53benchForTruncOrZextVecInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5StateE: # 
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s4, $sp, 40
+	ld.d	$s4, $sp, 8
 	beqz	$s4, .LBB50_42
 .LBB50_41:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i30
 	move	$a0, $s4
@@ -20676,18 +20987,26 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchm
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception51
 # %bb.0:
-	addi.d	$sp, $sp, -112
-	.cfi_def_cfa_offset 112
-	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -176
+	.cfi_def_cfa_offset 176
+	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 72                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 64                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 40                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 32                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -20698,6 +21017,14 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchm
 	.cfi_offset 28, -64
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
+	.cfi_offset 56, -88
+	.cfi_offset 57, -96
+	.cfi_offset 58, -104
+	.cfi_offset 59, -112
+	.cfi_offset 60, -120
+	.cfi_offset 61, -128
+	.cfi_offset 62, -136
+	.cfi_offset 63, -144
 	move	$s0, $a0
 	lu12i.w	$s5, 2
 	ori	$s2, $s5, 1808
@@ -20775,7 +21102,6 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchm
 	addi.d	$a1, $sp, 8
 	ori	$a2, $s6, 2288
 	ori	$a3, $s6, 2304
-	vrepli.b	$vr0, 0
 	ori	$a4, $s5, 1792
 	.p2align	4, , 16
 .LBB51_11:                              # %.lr.ph
@@ -20808,86 +21134,118 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchm
 	ldptr.d	$t2, $t0, 9992
 	ldptr.d	$t3, $t0, 10000
 	ldptr.d	$t0, $t0, 10008
-	vinsgr2vr.d	$vr1, $t1, 0
-	vinsgr2vr.d	$vr2, $t2, 0
-	vinsgr2vr.d	$vr3, $t3, 0
-	vinsgr2vr.d	$vr4, $t0, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvh.h	$vr5, $vr0, $vr1
-	vilvl.w	$vr6, $vr0, $vr5
-	vilvh.w	$vr5, $vr0, $vr5
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr7, $vr0, $vr1
-	vilvh.w	$vr1, $vr0, $vr1
-	vilvl.b	$vr2, $vr0, $vr2
-	vilvh.h	$vr8, $vr0, $vr2
-	vilvl.w	$vr9, $vr0, $vr8
-	vilvh.w	$vr8, $vr0, $vr8
-	vilvl.h	$vr2, $vr0, $vr2
-	vilvl.w	$vr10, $vr0, $vr2
-	vilvh.w	$vr2, $vr0, $vr2
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvh.h	$vr11, $vr0, $vr3
-	vilvl.w	$vr12, $vr0, $vr11
-	vilvh.w	$vr11, $vr0, $vr11
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.w	$vr13, $vr0, $vr3
-	vilvh.w	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvh.h	$vr14, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vilvl.w	$vr15, $vr0, $vr4
-	vld	$vr16, $a6, -112
-	vilvh.w	$vr4, $vr0, $vr4
-	vld	$vr17, $a6, -128
+	vinsgr2vr.d	$vr3, $t1, 0
+	vinsgr2vr.d	$vr4, $t2, 0
+	vinsgr2vr.d	$vr5, $t3, 0
+	vinsgr2vr.d	$vr6, $t0, 0
+	vsllwil.hu.bu	$vr0, $vr3, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsrli.d	$vr1, $vr3, 32
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsrli.d	$vr2, $vr3, 48
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vshuf4i.b	$vr3, $vr3, 14
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr7, $vr3, 0
+	vsllwil.hu.bu	$vr3, $vr4, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsrli.d	$vr8, $vr4, 32
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vsrli.d	$vr9, $vr4, 48
+	vsllwil.hu.bu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vshuf4i.b	$vr4, $vr4, 14
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsllwil.hu.bu	$vr10, $vr5, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vsrli.d	$vr11, $vr5, 32
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vsrli.d	$vr12, $vr5, 48
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.b	$vr5, $vr5, 14
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr13, $vr6, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsrli.d	$vr14, $vr6, 32
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vsrli.d	$vr15, $vr6, 48
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vshuf4i.b	$vr6, $vr6, 14
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vld	$vr16, $a6, -128
+	vld	$vr17, $a6, -96
 	vld	$vr18, $a6, -80
-	vadd.d	$vr1, $vr16, $vr1
-	vld	$vr16, $a6, -96
-	vadd.d	$vr7, $vr17, $vr7
-	vld	$vr17, $a6, -48
-	vadd.d	$vr5, $vr18, $vr5
-	vld	$vr18, $a6, -64
-	vadd.d	$vr6, $vr16, $vr6
-	vld	$vr16, $a6, -16
-	vadd.d	$vr2, $vr17, $vr2
-	vld	$vr17, $a6, -32
-	vadd.d	$vr10, $vr18, $vr10
-	vld	$vr18, $a6, 16
-	vadd.d	$vr8, $vr16, $vr8
-	vld	$vr16, $a6, 0
-	vadd.d	$vr9, $vr17, $vr9
-	vld	$vr17, $a6, 48
-	vadd.d	$vr3, $vr18, $vr3
-	vld	$vr18, $a6, 32
-	vadd.d	$vr13, $vr16, $vr13
-	vld	$vr16, $a6, 80
-	vadd.d	$vr11, $vr17, $vr11
-	vld	$vr17, $a6, 64
-	vadd.d	$vr12, $vr18, $vr12
-	vld	$vr18, $a6, 112
-	vadd.d	$vr4, $vr16, $vr4
-	vld	$vr16, $a6, 96
-	vadd.d	$vr15, $vr17, $vr15
-	vilvh.w	$vr17, $vr0, $vr14
-	vadd.d	$vr17, $vr18, $vr17
-	vilvl.w	$vr14, $vr0, $vr14
-	vadd.d	$vr14, $vr16, $vr14
-	vst	$vr6, $a6, -96
-	vst	$vr5, $a6, -80
-	vst	$vr7, $a6, -128
-	vst	$vr1, $a6, -112
-	vst	$vr9, $a6, -32
-	vst	$vr8, $a6, -16
-	vst	$vr10, $a6, -64
-	vst	$vr2, $a6, -48
-	vst	$vr12, $a6, 32
-	vst	$vr11, $a6, 48
-	vst	$vr13, $a6, 0
-	vst	$vr3, $a6, 16
+	vld	$vr19, $a6, -112
+	vld	$vr20, $a6, -64
+	vld	$vr21, $a6, -32
+	vld	$vr22, $a6, -16
+	vld	$vr23, $a6, -48
+	vld	$vr24, $a6, 0
+	vld	$vr25, $a6, 32
+	vld	$vr26, $a6, 48
+	vld	$vr27, $a6, 16
+	vld	$vr28, $a6, 64
+	vld	$vr29, $a6, 96
+	vld	$vr30, $a6, 112
+	vld	$vr31, $a6, 80
+	vadd.d	$vr7, $vr19, $vr7
+	vadd.d	$vr2, $vr18, $vr2
+	vadd.d	$vr1, $vr17, $vr1
+	vadd.d	$vr0, $vr16, $vr0
+	vadd.d	$vr4, $vr23, $vr4
+	vadd.d	$vr9, $vr22, $vr9
+	vadd.d	$vr8, $vr21, $vr8
+	vadd.d	$vr3, $vr20, $vr3
+	vadd.d	$vr5, $vr27, $vr5
+	vadd.d	$vr12, $vr26, $vr12
+	vadd.d	$vr11, $vr25, $vr11
+	vadd.d	$vr10, $vr24, $vr10
+	vadd.d	$vr6, $vr31, $vr6
+	vadd.d	$vr15, $vr30, $vr15
+	vadd.d	$vr14, $vr29, $vr14
+	vadd.d	$vr13, $vr28, $vr13
+	vst	$vr0, $a6, -128
+	vst	$vr1, $a6, -96
+	vst	$vr2, $a6, -80
+	vst	$vr7, $a6, -112
+	vst	$vr3, $a6, -64
+	vst	$vr8, $a6, -32
+	vst	$vr9, $a6, -16
+	vst	$vr4, $a6, -48
+	vst	$vr10, $a6, 0
+	vst	$vr11, $a6, 32
+	vst	$vr12, $a6, 48
+	vst	$vr5, $a6, 16
+	vst	$vr13, $a6, 64
 	vst	$vr14, $a6, 96
-	vst	$vr17, $a6, 112
-	vst	$vr15, $a6, 64
-	vst	$vr4, $a6, 80
+	vst	$vr15, $a6, 112
+	vst	$vr6, $a6, 80
 	addi.d	$a7, $a7, 32
 	addi.d	$a6, $a6, 256
 	bnez	$a7, .LBB51_15
@@ -20930,17 +21288,25 @@ _Z67benchForTruncOrZextVecWithAddInLoopWithVW8From_uint8_t_To_uint64_t_RN9benchm
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 112
+	fld.d	$fs7, $sp, 32                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 48                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 64                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 88                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 176
 	ret
 .LBB51_24:
 .Ltmp1121:                              # EH_LABEL
@@ -21029,26 +21395,26 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception52
 # %bb.0:
-	addi.d	$sp, $sp, -288
-	.cfi_def_cfa_offset 288
-	st.d	$ra, $sp, 280                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 272                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 264                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 256                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 248                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 240                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 232                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 224                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 216                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 208                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 200                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 192                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 184                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 176                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 168                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 160                  # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 152                  # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 144                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -224
+	.cfi_def_cfa_offset 224
+	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 144                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 136                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 128                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 120                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 112                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 104                  # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 96                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 80                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -21083,10 +21449,10 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 .Ltmp1134:                              # EH_LABEL
 # %bb.1:
 	move	$s3, $a0
-	st.d	$a0, $sp, 120
+	st.d	$a0, $sp, 56
 	lu12i.w	$a0, 15
 	ori	$a0, $a0, 3840
-	st.h	$a0, $sp, 128
+	st.h	$a0, $sp, 64
 	lu12i.w	$s6, -3
 	ori	$s7, $s6, 2288
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -21094,8 +21460,8 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 	.p2align	4, , 16
 .LBB52_2:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1136:                              # EH_LABEL
-	addi.d	$a0, $sp, 128
-	addi.d	$a2, $sp, 128
+	addi.d	$a0, $sp, 64
+	addi.d	$a2, $sp, 64
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIhEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEhRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -21109,15 +21475,15 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 # %bb.4:
 	pcalau12i	$a0, %pc_hi20(.LCPI52_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI52_0)
-	vst	$vr0, $sp, 128
+	vst	$vr0, $sp, 64
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s4, $a0, %pc_lo12(_ZL3rng)
 	move	$s7, $zero
 	.p2align	4, , 16
 .LBB52_5:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1139:                              # EH_LABEL
-	addi.d	$a0, $sp, 128
-	addi.d	$a2, $sp, 128
+	addi.d	$a0, $sp, 64
+	addi.d	$a2, $sp, 64
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -21141,13 +21507,12 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 	beqz	$s3, .LBB52_20
 # %bb.10:                               # %.lr.ph.preheader
 	add.d	$a0, $fp, $s1
-	addi.d	$a1, $sp, 120
+	addi.d	$a1, $sp, 56
 	ori	$a2, $s6, 2288
 	ori	$a3, $s6, 2304
 	ori	$a4, $s5, 1792
 	ori	$a5, $s5, 1824
 	ori	$a6, $s5, 1840
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB52_11:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -21156,7 +21521,7 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a7, $sp, 120
+	ld.d	$a7, $sp, 56
 	bgeu	$a7, $a0, .LBB52_14
 # %bb.12:                               # %.lr.ph
                                         #   in Loop: Header=BB52_11 Depth=1
@@ -21175,174 +21540,234 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
                                         #   Parent Loop BB52_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$t2, $fp, $t1
-	vldx	$vr1, $t2, $a4
-	vldx	$vr2, $t2, $s1
-	vldx	$vr4, $t2, $a5
-	vldx	$vr13, $t2, $a6
-	vilvh.b	$vr3, $vr0, $vr1
-	vilvh.h	$vr5, $vr0, $vr3
-	vilvl.w	$vr6, $vr0, $vr5
-	vst	$vr6, $sp, 80                   # 16-byte Folded Spill
-	vilvh.w	$vr8, $vr0, $vr5
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.w	$vr12, $vr0, $vr3
-	vilvh.w	$vr7, $vr0, $vr3
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvh.h	$vr3, $vr0, $vr1
-	vilvl.w	$vr6, $vr0, $vr3
-	vilvh.w	$vr22, $vr0, $vr3
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr26, $vr0, $vr1
-	vilvh.w	$vr28, $vr0, $vr1
-	vilvh.b	$vr1, $vr0, $vr2
-	vilvh.h	$vr5, $vr0, $vr1
-	vilvl.w	$vr3, $vr0, $vr5
-	vst	$vr3, $sp, 96                   # 16-byte Folded Spill
-	vilvh.w	$vr3, $vr0, $vr5
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr10, $vr0, $vr1
-	vilvh.w	$vr14, $vr0, $vr1
-	vilvl.b	$vr1, $vr0, $vr2
-	vilvh.h	$vr2, $vr0, $vr1
-	vilvl.w	$vr18, $vr0, $vr2
-	vilvh.w	$vr21, $vr0, $vr2
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr24, $vr0, $vr1
-	vilvh.w	$vr27, $vr0, $vr1
-	vilvh.b	$vr1, $vr0, $vr4
-	vilvh.h	$vr5, $vr0, $vr1
-	vilvl.w	$vr2, $vr0, $vr5
-	vilvh.w	$vr5, $vr0, $vr5
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr9, $vr0, $vr1
-	vilvh.w	$vr11, $vr0, $vr1
-	vilvl.b	$vr1, $vr0, $vr4
-	vilvh.h	$vr4, $vr0, $vr1
-	vilvl.w	$vr17, $vr0, $vr4
-	vilvh.w	$vr19, $vr0, $vr4
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr23, $vr0, $vr1
-	vilvh.w	$vr25, $vr0, $vr1
-	vilvh.b	$vr20, $vr0, $vr13
-	vilvl.h	$vr16, $vr0, $vr20
-	vilvl.b	$vr29, $vr0, $vr13
-	vilvh.h	$vr15, $vr0, $vr29
-	vilvl.w	$vr1, $vr0, $vr15
-	vst	$vr1, $sp, 64                   # 16-byte Folded Spill
-	vld	$vr30, $t0, -240
-	vilvl.h	$vr29, $vr0, $vr29
-	vld	$vr31, $t0, -256
-	vld	$vr1, $t0, -208
-	vadd.d	$vr4, $vr30, $vr28
-	vst	$vr4, $sp, 48                   # 16-byte Folded Spill
+	vldx	$vr4, $t2, $a4
+	vldx	$vr10, $t2, $s1
+	vldx	$vr15, $t2, $a5
+	vldx	$vr7, $t2, $a6
+	vsllwil.hu.bu	$vr1, $vr4, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vbsrl.v	$vr2, $vr4, 12
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vbsrl.v	$vr3, $vr4, 14
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vbsrl.v	$vr5, $vr4, 8
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr6, $vr4, 10
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr0, $vr6, 0
+	vsrli.d	$vr6, $vr4, 32
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr9, $vr6, 0
+	vsrli.d	$vr6, $vr4, 48
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr12, $vr6, 0
+	vshuf4i.b	$vr4, $vr4, 14
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr16, $vr4, 0
+	vsllwil.hu.bu	$vr4, $vr10, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vbsrl.v	$vr6, $vr10, 12
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vbsrl.v	$vr8, $vr10, 14
+	vsllwil.hu.bu	$vr8, $vr8, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vbsrl.v	$vr11, $vr10, 8
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vbsrl.v	$vr13, $vr10, 10
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr14, $vr13, 0
+	vsrli.d	$vr13, $vr10, 32
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr18, $vr13, 0
+	vsrli.d	$vr13, $vr10, 48
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr21, $vr13, 0
+	vshuf4i.b	$vr10, $vr10, 14
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr23, $vr10, 0
+	vsllwil.hu.bu	$vr10, $vr15, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vst	$vr10, $sp, 32                  # 16-byte Folded Spill
+	vbsrl.v	$vr10, $vr15, 12
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vbsrl.v	$vr13, $vr15, 14
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr17, $vr13, 0
+	vbsrl.v	$vr13, $vr15, 8
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr19, $vr13, 0
+	vbsrl.v	$vr13, $vr15, 10
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr22, $vr13, 0
+	vsrli.d	$vr13, $vr15, 32
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr25, $vr13, 0
+	vsrli.d	$vr13, $vr15, 48
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr26, $vr13, 0
+	vshuf4i.b	$vr13, $vr15, 14
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr27, $vr13, 0
+	vbsrl.v	$vr15, $vr7, 14
+	vbsrl.v	$vr20, $vr7, 8
+	vbsrl.v	$vr24, $vr7, 10
+	vld	$vr13, $t0, -240
+	vsrli.d	$vr28, $vr7, 32
+	vld	$vr29, $t0, -208
 	vld	$vr30, $t0, -224
-	vadd.d	$vr4, $vr31, $vr26
-	vst	$vr4, $sp, 32                   # 16-byte Folded Spill
+	vadd.d	$vr13, $vr13, $vr16
+	vst	$vr13, $sp, 16                  # 16-byte Folded Spill
 	vld	$vr31, $t0, -176
-	vadd.d	$vr1, $vr1, $vr22
-	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
-	vld	$vr1, $t0, -192
-	vadd.d	$vr22, $vr30, $vr6
-	vld	$vr30, $t0, -144
-	vadd.d	$vr13, $vr31, $vr7
-	vld	$vr31, $t0, -160
-	vadd.d	$vr4, $vr1, $vr12
-	vld	$vr12, $t0, -112
-	vadd.d	$vr30, $vr30, $vr8
-	vld	$vr8, $t0, -128
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
+	vadd.d	$vr16, $vr29, $vr12
+	vld	$vr29, $t0, -192
+	vadd.d	$vr13, $vr30, $vr9
+	vld	$vr9, $t0, -144
+	vadd.d	$vr12, $vr31, $vr0
+	vld	$vr30, $t0, -160
+	vadd.d	$vr5, $vr29, $vr5
+	vld	$vr31, $t0, -256
+	vadd.d	$vr29, $vr9, $vr3
+	vld	$vr3, $t0, -112
+	vadd.d	$vr30, $vr30, $vr2
+	vld	$vr2, $t0, -80
 	vadd.d	$vr31, $vr31, $vr1
-	vld	$vr6, $t0, -80
-	vadd.d	$vr12, $vr12, $vr27
-	vld	$vr27, $t0, -96
-	vadd.d	$vr8, $vr8, $vr24
-	vld	$vr24, $t0, -48
-	vadd.d	$vr6, $vr6, $vr21
+	vld	$vr1, $t0, -96
+	vadd.d	$vr9, $vr3, $vr23
+	vld	$vr23, $t0, -48
+	vadd.d	$vr2, $vr2, $vr21
 	vld	$vr21, $t0, -64
-	vadd.d	$vr18, $vr27, $vr18
-	vld	$vr27, $t0, -16
-	vadd.d	$vr14, $vr24, $vr14
-	vld	$vr24, $t0, -32
-	vadd.d	$vr10, $vr21, $vr10
-	vld	$vr21, $t0, 16
-	vadd.d	$vr7, $vr27, $vr3
-	vld	$vr27, $t0, 0
-	vld	$vr1, $sp, 96                   # 16-byte Folded Reload
-	vadd.d	$vr3, $vr24, $vr1
-	vld	$vr24, $t0, 48
-	vadd.d	$vr21, $vr21, $vr25
-	vld	$vr25, $t0, 32
-	vadd.d	$vr23, $vr27, $vr23
+	vadd.d	$vr3, $vr1, $vr18
+	vld	$vr1, $t0, -16
+	vadd.d	$vr14, $vr23, $vr14
+	vld	$vr23, $t0, -32
+	vadd.d	$vr11, $vr21, $vr11
+	vld	$vr21, $t0, -128
+	vadd.d	$vr18, $vr1, $vr8
+	vld	$vr8, $t0, 16
+	vadd.d	$vr23, $vr23, $vr6
+	vld	$vr6, $t0, 48
+	vadd.d	$vr1, $vr21, $vr4
+	vld	$vr21, $t0, 32
+	vadd.d	$vr4, $vr8, $vr27
 	vld	$vr27, $t0, 80
-	vadd.d	$vr19, $vr24, $vr19
-	vld	$vr24, $t0, 64
-	vadd.d	$vr17, $vr25, $vr17
+	vadd.d	$vr6, $vr6, $vr26
+	vld	$vr26, $t0, 64
+	vadd.d	$vr8, $vr21, $vr25
 	vld	$vr25, $t0, 112
-	vadd.d	$vr11, $vr27, $vr11
-	vld	$vr27, $t0, 96
-	vadd.d	$vr9, $vr24, $vr9
-	vilvl.w	$vr24, $vr0, $vr29
-	vadd.d	$vr5, $vr25, $vr5
-	vld	$vr25, $t0, 144
-	vadd.d	$vr27, $vr27, $vr2
-	vld	$vr1, $t0, 128
-	vilvh.w	$vr29, $vr0, $vr29
-	vadd.d	$vr25, $vr25, $vr29
-	vld	$vr29, $t0, 176
-	vadd.d	$vr2, $vr1, $vr24
-	vld	$vr24, $t0, 160
-	vilvh.w	$vr15, $vr0, $vr15
-	vadd.d	$vr15, $vr29, $vr15
-	vld	$vr29, $t0, 208
-	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
-	vadd.d	$vr24, $vr24, $vr1
-	vld	$vr1, $t0, 192
-	vilvh.w	$vr28, $vr0, $vr16
-	vadd.d	$vr28, $vr29, $vr28
-	vilvl.w	$vr16, $vr0, $vr16
-	vadd.d	$vr1, $vr1, $vr16
-	vld	$vr16, $t0, 240
-	vilvh.h	$vr20, $vr0, $vr20
-	vld	$vr29, $t0, 224
-	vilvh.w	$vr26, $vr0, $vr20
-	vadd.d	$vr16, $vr16, $vr26
-	vilvl.w	$vr20, $vr0, $vr20
-	vadd.d	$vr20, $vr29, $vr20
-	vst	$vr31, $t0, -160
-	vst	$vr30, $t0, -144
-	vst	$vr4, $t0, -192
-	vst	$vr13, $t0, -176
-	vst	$vr22, $t0, -224
-	vld	$vr4, $sp, 16                   # 16-byte Folded Reload
-	vst	$vr4, $t0, -208
-	vld	$vr4, $sp, 32                   # 16-byte Folded Reload
-	vst	$vr4, $t0, -256
-	vld	$vr4, $sp, 48                   # 16-byte Folded Reload
-	vst	$vr4, $t0, -240
-	vst	$vr3, $t0, -32
-	vst	$vr7, $t0, -16
-	vst	$vr10, $t0, -64
+	vadd.d	$vr21, $vr27, $vr22
+	vld	$vr22, $t0, 96
+	vadd.d	$vr19, $vr26, $vr19
+	vld	$vr26, $t0, 0
+	vadd.d	$vr17, $vr25, $vr17
+	vsrli.d	$vr25, $vr7, 48
+	vadd.d	$vr22, $vr22, $vr10
+	vshuf4i.b	$vr10, $vr7, 14
+	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
+	vadd.d	$vr26, $vr26, $vr0
+	vld	$vr27, $t0, 144
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vadd.d	$vr10, $vr27, $vr10
+	vld	$vr27, $t0, 176
+	vsllwil.hu.bu	$vr25, $vr25, 0
+	vsllwil.wu.hu	$vr25, $vr25, 0
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vadd.d	$vr25, $vr27, $vr25
+	vld	$vr27, $t0, 160
+	vsllwil.hu.bu	$vr28, $vr28, 0
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vadd.d	$vr27, $vr27, $vr28
+	vld	$vr28, $t0, 208
+	vsllwil.hu.bu	$vr24, $vr24, 0
+	vsllwil.wu.hu	$vr24, $vr24, 0
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vadd.d	$vr24, $vr28, $vr24
+	vld	$vr28, $t0, 192
+	vsllwil.hu.bu	$vr20, $vr20, 0
+	vsllwil.wu.hu	$vr20, $vr20, 0
+	vsllwil.du.wu	$vr20, $vr20, 0
+	vadd.d	$vr20, $vr28, $vr20
+	vld	$vr28, $t0, 240
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vadd.d	$vr15, $vr28, $vr15
+	vbsrl.v	$vr28, $vr7, 12
+	vld	$vr0, $t0, 224
+	vsllwil.hu.bu	$vr28, $vr28, 0
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vadd.d	$vr0, $vr0, $vr28
+	vld	$vr28, $t0, 128
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vadd.d	$vr7, $vr28, $vr7
+	vst	$vr31, $t0, -256
+	vst	$vr30, $t0, -160
+	vst	$vr29, $t0, -144
+	vst	$vr5, $t0, -192
+	vst	$vr12, $t0, -176
+	vst	$vr13, $t0, -224
+	vst	$vr16, $t0, -208
+	vld	$vr5, $sp, 16                   # 16-byte Folded Reload
+	vst	$vr5, $t0, -240
+	vst	$vr1, $t0, -128
+	vst	$vr23, $t0, -32
+	vst	$vr18, $t0, -16
+	vst	$vr11, $t0, -64
 	vst	$vr14, $t0, -48
-	vst	$vr18, $t0, -96
-	vst	$vr6, $t0, -80
-	vst	$vr8, $t0, -128
-	vst	$vr12, $t0, -112
-	vst	$vr27, $t0, 96
-	vst	$vr5, $t0, 112
-	vst	$vr9, $t0, 64
-	vst	$vr11, $t0, 80
-	vst	$vr17, $t0, 32
-	vst	$vr19, $t0, 48
-	vst	$vr23, $t0, 0
-	vst	$vr21, $t0, 16
-	vst	$vr20, $t0, 224
-	vst	$vr16, $t0, 240
-	vst	$vr1, $t0, 192
-	vst	$vr28, $t0, 208
-	vst	$vr24, $t0, 160
-	vst	$vr15, $t0, 176
-	vst	$vr2, $t0, 128
-	vst	$vr25, $t0, 144
+	vst	$vr3, $t0, -96
+	vst	$vr2, $t0, -80
+	vst	$vr9, $t0, -112
+	vst	$vr26, $t0, 0
+	vst	$vr22, $t0, 96
+	vst	$vr17, $t0, 112
+	vst	$vr19, $t0, 64
+	vst	$vr21, $t0, 80
+	vst	$vr8, $t0, 32
+	vst	$vr6, $t0, 48
+	vst	$vr4, $t0, 16
+	vst	$vr7, $t0, 128
+	vst	$vr0, $t0, 224
+	vst	$vr15, $t0, 240
+	vst	$vr20, $t0, 192
+	vst	$vr24, $t0, 208
+	vst	$vr27, $t0, 160
+	vst	$vr25, $t0, 176
+	vst	$vr10, $t0, 144
 	addi.d	$t1, $t1, 64
 	addi.d	$t0, $t0, 512
 	bnez	$t1, .LBB52_15
@@ -21376,7 +21801,7 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 	jirl	$ra, $ra, 0
 .Ltmp1145:                              # EH_LABEL
 # %bb.21:                               # %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit22
-	ld.d	$a0, $sp, 120
+	ld.d	$a0, $sp, 56
 	beqz	$a0, .LBB52_23
 # %bb.22:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i24
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -21385,25 +21810,25 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	fld.d	$fs7, $sp, 144                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 152                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 160                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 168                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 176                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 184                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 192                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 200                  # 8-byte Folded Reload
-	ld.d	$s7, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 216                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 224                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 232                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 240                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 248                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 256                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 264                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 280                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 288
+	fld.d	$fs7, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 88                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 96                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 104                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 112                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 120                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 128                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 136                  # 8-byte Folded Reload
+	ld.d	$s7, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 224
 	ret
 .LBB52_24:
 .Ltmp1135:                              # EH_LABEL
@@ -21416,7 +21841,7 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW16From_uint8_t_To_uint64_t_RN9bench
 	jirl	$ra, $ra, 0
 .LBB52_25:
 .Ltmp1146:                              # EH_LABEL
-	ld.d	$s3, $sp, 120
+	ld.d	$s3, $sp, 56
 	move	$s0, $a0
 	bnez	$s3, .LBB52_29
 	b	.LBB52_30
@@ -21591,7 +22016,6 @@ _Z60benchForTruncOrZextVecWithAddInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5Sta
 	addi.d	$a1, $sp, 8
 	ori	$a2, $s6, 2288
 	ori	$a3, $s5, 1810
-	vrepli.b	$vr0, 0
 	b	.LBB53_12
 	.p2align	4, , 16
 .LBB53_11:                              # %_ZL27truncOrZextVecWithAddInLoopIhmEvPKT_PT0_i.exit
@@ -21639,20 +22063,20 @@ _Z60benchForTruncOrZextVecWithAddInLoopFrom_uint8_t_To_uint64_t_RN9benchmark5Sta
 	add.d	$a6, $fp, $a5
 	ldx.h	$a7, $a6, $s1
 	ldx.h	$a6, $a6, $a3
-	vinsgr2vr.h	$vr1, $a7, 0
-	vinsgr2vr.h	$vr2, $a6, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr1, $vr0, $vr1
-	vilvl.b	$vr2, $vr0, $vr2
-	vld	$vr3, $a4, -16
-	vld	$vr4, $a4, 0
-	vilvl.h	$vr2, $vr0, $vr2
-	vilvl.w	$vr2, $vr0, $vr2
+	vinsgr2vr.h	$vr0, $a7, 0
+	vinsgr2vr.h	$vr1, $a6, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vld	$vr2, $a4, -16
+	vld	$vr3, $a4, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vadd.d	$vr0, $vr2, $vr0
 	vadd.d	$vr1, $vr3, $vr1
-	vadd.d	$vr2, $vr4, $vr2
-	vst	$vr1, $a4, -16
-	vst	$vr2, $a4, 0
+	vst	$vr0, $a4, -16
+	vst	$vr1, $a4, 0
 	addi.d	$a5, $a5, 4
 	addi.d	$a4, $a4, 32
 	bnez	$a5, .LBB53_17
@@ -21767,19 +22191,19 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception54
 # %bb.0:
-	addi.d	$sp, $sp, -176
-	.cfi_def_cfa_offset 176
-	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -160
+	.cfi_def_cfa_offset 160
+	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 72                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -21791,7 +22215,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
-	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	lu12i.w	$s6, 4
 	ori	$s3, $s6, 3616
 	move	$a0, $s3
@@ -21807,22 +22231,22 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 .Ltmp1162:                              # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s2, $a0
-	st.d	$a0, $sp, 72
+	st.d	$a0, $sp, 56
 .Ltmp1164:                              # EH_LABEL
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_Znam)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 .Ltmp1165:                              # EH_LABEL
 # %bb.2:
 	ori	$a0, $s6, 3586
 	add.d	$s5, $fp, $a0
 	ori	$a0, $s1, 3072
-	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	add.d	$s1, $s2, $a0
 	lu12i.w	$a0, -16
 	lu32i.d	$a0, 0
-	st.w	$a0, $sp, 84
+	st.w	$a0, $sp, 68
 	lu12i.w	$s7, -5
 	ori	$s0, $s7, 480
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -21830,8 +22254,8 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	.p2align	4, , 16
 .LBB54_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1167:                              # EH_LABEL
-	addi.d	$a0, $sp, 84
-	addi.d	$a2, $sp, 84
+	addi.d	$a0, $sp, 68
+	addi.d	$a2, $sp, 68
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionItEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEtRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -21843,7 +22267,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	stx.h	$a0, $a1, $s3
 	bnez	$s0, .LBB54_3
 # %bb.5:                                # %vector.ph
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	addi.d	$a0, $a0, 4
 	ori	$a1, $s7, 480
 	ori	$a2, $s6, 3618
@@ -21859,13 +22283,12 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	addi.d	$a0, $a0, 8
 	bnez	$a1, .LBB54_6
 # %bb.7:                                # %vector.body85.preheader
-	st.d	$s2, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 32                    # 8-byte Folded Spill
 	addi.d	$a0, $s2, 64
 	ori	$a1, $s7, 512
 	ori	$s4, $s6, 3584
 	ori	$a4, $s6, 3600
 	ori	$a2, $s6, 3632
-	vrepli.b	$vr8, 0
 	.p2align	4, , 16
 .LBB54_8:                               # %vector.body85
                                         # =>This Inner Loop Header: Depth=1
@@ -21874,22 +22297,26 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	vldx	$vr1, $a3, $a4
 	vldx	$vr2, $a3, $s3
 	vldx	$vr3, $a3, $a2
-	vilvl.h	$vr4, $vr8, $vr0
-	vilvh.h	$vr0, $vr8, $vr0
-	vilvl.h	$vr5, $vr8, $vr1
-	vilvh.h	$vr1, $vr8, $vr1
-	vilvl.h	$vr6, $vr8, $vr2
-	vilvh.h	$vr2, $vr8, $vr2
-	vilvl.h	$vr7, $vr8, $vr3
-	vilvh.h	$vr3, $vr8, $vr3
-	vst	$vr0, $a0, -48
-	vst	$vr4, $a0, -64
-	vst	$vr1, $a0, -16
-	vst	$vr5, $a0, -32
-	vst	$vr2, $a0, 16
-	vst	$vr6, $a0, 0
-	vst	$vr3, $a0, 48
-	vst	$vr7, $a0, 32
+	vbsrl.v	$vr4, $vr0, 8
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vbsrl.v	$vr5, $vr1, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vbsrl.v	$vr6, $vr2, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vbsrl.v	$vr7, $vr3, 8
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vst	$vr0, $a0, -64
+	vst	$vr4, $a0, -48
+	vst	$vr1, $a0, -32
+	vst	$vr5, $a0, -16
+	vst	$vr2, $a0, 0
+	vst	$vr6, $a0, 16
+	vst	$vr3, $a0, 32
+	vst	$vr7, $a0, 48
 	addi.d	$a1, $a1, 64
 	addi.d	$a0, $a0, 128
 	bnez	$a1, .LBB54_8
@@ -21939,10 +22366,10 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	.p2align	4, , 16
 .LBB54_10:                              # %_ZL27truncOrZextVecInLoopWithVW8ItjEvPKT_PT0_i.exit.preheader
                                         # =>This Inner Loop Header: Depth=1
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ldx.w	$a0, $a0, $a1
 	move	$a2, $a1
-	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	ldx.w	$a1, $a1, $a2
 	bne	$a0, $a1, .LBB54_23
 # %bb.11:                               # %_ZL27truncOrZextVecInLoopWithVW8ItjEvPKT_PT0_i.exit
@@ -21951,26 +22378,24 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	addi.d	$a1, $a2, 4
 	bnez	$s7, .LBB54_10
 # %bb.12:
-	vst	$vr8, $sp, 16                   # 16-byte Folded Spill
-	st.d	$a4, $sp, 48                    # 8-byte Folded Spill
-	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
+	st.d	$a4, $sp, 32                    # 8-byte Folded Spill
+	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	ld.w	$a1, $a0, 28
-	st.d	$a1, $sp, 8                     # 8-byte Folded Spill
+	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	ld.d	$s7, $a0, 16
 .Ltmp1185:                              # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16StartKeepRunningEv)
 	jirl	$ra, $ra, 0
 .Ltmp1186:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	ld.d	$t2, $sp, 48                    # 8-byte Folded Reload
-	vld	$vr8, $sp, 16                   # 16-byte Folded Reload
-	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$t2, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	bnez	$a0, .LBB54_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s7, .LBB54_19
 # %bb.15:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 48
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 56
 	lu12i.w	$a2, -5
 	ori	$a2, $a2, 512
 	lu12i.w	$a5, 4
@@ -21984,8 +22409,8 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a7, $sp, 72
-	ld.d	$a6, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$a7, $sp, 56
+	ld.d	$a6, $sp, 48                    # 8-byte Folded Reload
 	add.d	$a6, $a7, $a6
 	addi.d	$a7, $a7, 64
 	move	$t0, $a2
@@ -21998,22 +22423,26 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	vldx	$vr1, $t1, $a4
 	vldx	$vr2, $t1, $a5
 	vldx	$vr3, $t1, $s4
-	vilvl.h	$vr4, $vr8, $vr0
-	vilvh.h	$vr0, $vr8, $vr0
-	vilvl.h	$vr5, $vr8, $vr1
-	vilvh.h	$vr1, $vr8, $vr1
-	vilvl.h	$vr6, $vr8, $vr2
-	vilvh.h	$vr2, $vr8, $vr2
-	vilvl.h	$vr7, $vr8, $vr3
-	vilvh.h	$vr3, $vr8, $vr3
-	vst	$vr0, $a7, -48
-	vst	$vr4, $a7, -64
-	vst	$vr1, $a7, -16
-	vst	$vr5, $a7, -32
-	vst	$vr2, $a7, 16
-	vst	$vr6, $a7, 0
-	vst	$vr3, $a7, 48
-	vst	$vr7, $a7, 32
+	vbsrl.v	$vr4, $vr0, 8
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vbsrl.v	$vr5, $vr1, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vbsrl.v	$vr6, $vr2, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vbsrl.v	$vr7, $vr3, 8
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vst	$vr0, $a7, -64
+	vst	$vr4, $a7, -48
+	vst	$vr1, $a7, -32
+	vst	$vr5, $a7, -16
+	vst	$vr2, $a7, 0
+	vst	$vr6, $a7, 16
+	vst	$vr3, $a7, 32
+	vst	$vr7, $a7, 48
 	addi.d	$t0, $t0, 64
 	addi.d	$a7, $a7, 128
 	bnez	$t0, .LBB54_17
@@ -22055,15 +22484,15 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	bnez	$s7, .LBB54_16
 .LBB54_19:                              # %_ZN9benchmark5State3endEv.exit._crit_edge
 .Ltmp1187:                              # EH_LABEL
-	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State17FinishKeepRunningEv)
 	jirl	$ra, $ra, 0
 .Ltmp1188:                              # EH_LABEL
 # %bb.20:                               # %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit36
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 56
 	beqz	$a0, .LBB54_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -22072,18 +22501,18 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 176
+	ld.d	$s8, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 160
 	ret
 .LBB54_23:
 .Ltmp1170:                              # EH_LABEL
@@ -22117,7 +22546,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp1175:                              # EH_LABEL
 # %bb.26:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ldx.wu	$a1, $a0, $s0
 .Ltmp1176:                              # EH_LABEL
 	move	$a0, $s1
@@ -22135,7 +22564,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp1179:                              # EH_LABEL
 # %bb.28:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	ldx.wu	$a1, $a0, $s0
 .Ltmp1180:                              # EH_LABEL
 	move	$a0, $s1
@@ -22176,10 +22605,10 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint32_t_RN9benchmark5St
 .Ltmp1169:                              # EH_LABEL
 .LBB54_36:
 	move	$s1, $a0
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 56
 	move	$s2, $a0
 	beqz	$a0, .LBB54_38
 .LBB54_37:                              # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
@@ -22250,19 +22679,19 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception55
 # %bb.0:
-	addi.d	$sp, $sp, -176
-	.cfi_def_cfa_offset 176
-	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -160
+	.cfi_def_cfa_offset 160
+	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 72                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -22290,22 +22719,22 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 .Ltmp1191:                              # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s2, $a0
-	st.d	$a0, $sp, 72
+	st.d	$a0, $sp, 56
 .Ltmp1193:                              # EH_LABEL
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_Znam)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 .Ltmp1194:                              # EH_LABEL
 # %bb.2:
 	ori	$a0, $s6, 3586
 	add.d	$s5, $fp, $a0
 	ori	$a0, $s1, 3072
-	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	add.d	$s1, $s2, $a0
 	lu12i.w	$a0, -16
 	lu32i.d	$a0, 0
-	st.w	$a0, $sp, 84
+	st.w	$a0, $sp, 68
 	lu12i.w	$s8, -5
 	ori	$s0, $s8, 480
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -22313,8 +22742,8 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	.p2align	4, , 16
 .LBB55_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1196:                              # EH_LABEL
-	addi.d	$a0, $sp, 84
-	addi.d	$a2, $sp, 84
+	addi.d	$a0, $sp, 68
+	addi.d	$a2, $sp, 68
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionItEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEtRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -22326,7 +22755,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	stx.h	$a0, $a1, $s3
 	bnez	$s0, .LBB55_3
 # %bb.5:                                # %vector.ph
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	addi.d	$a0, $a0, 4
 	ori	$a1, $s8, 480
 	ori	$a2, $s6, 3618
@@ -22352,7 +22781,6 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	ori	$a4, $s6, 3648
 	ori	$a5, $s6, 3696
 	ori	$a6, $s6, 3680
-	vrepli.b	$vr16, 0
 	.p2align	4, , 16
 .LBB55_8:                               # %vector.body85
                                         # =>This Inner Loop Header: Depth=1
@@ -22365,38 +22793,46 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	vldx	$vr5, $a7, $a4
 	vldx	$vr6, $a7, $a5
 	vldx	$vr7, $a7, $a6
-	vilvl.h	$vr8, $vr16, $vr1
-	vilvh.h	$vr1, $vr16, $vr1
-	vilvl.h	$vr9, $vr16, $vr0
-	vilvh.h	$vr0, $vr16, $vr0
-	vilvl.h	$vr10, $vr16, $vr3
-	vilvh.h	$vr3, $vr16, $vr3
-	vilvl.h	$vr11, $vr16, $vr2
-	vilvh.h	$vr2, $vr16, $vr2
-	vilvl.h	$vr12, $vr16, $vr5
-	vilvh.h	$vr5, $vr16, $vr5
-	vilvl.h	$vr13, $vr16, $vr4
-	vilvh.h	$vr4, $vr16, $vr4
-	vilvl.h	$vr14, $vr16, $vr7
-	vilvh.h	$vr7, $vr16, $vr7
-	vilvl.h	$vr15, $vr16, $vr6
-	vilvh.h	$vr6, $vr16, $vr6
-	vst	$vr0, $a0, -80
-	vst	$vr9, $a0, -96
-	vst	$vr1, $a0, -112
-	vst	$vr8, $a0, -128
-	vst	$vr2, $a0, -16
-	vst	$vr11, $a0, -32
-	vst	$vr3, $a0, -48
-	vst	$vr10, $a0, -64
-	vst	$vr4, $a0, 48
-	vst	$vr13, $a0, 32
-	vst	$vr5, $a0, 16
-	vst	$vr12, $a0, 0
-	vst	$vr6, $a0, 112
-	vst	$vr15, $a0, 96
-	vst	$vr7, $a0, 80
-	vst	$vr14, $a0, 64
+	vbsrl.v	$vr8, $vr1, 8
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vbsrl.v	$vr9, $vr0, 8
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vbsrl.v	$vr10, $vr3, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vbsrl.v	$vr11, $vr2, 8
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vbsrl.v	$vr12, $vr5, 8
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vbsrl.v	$vr13, $vr4, 8
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vbsrl.v	$vr14, $vr7, 8
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vbsrl.v	$vr15, $vr6, 8
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vst	$vr0, $a0, -96
+	vst	$vr1, $a0, -128
+	vst	$vr9, $a0, -80
+	vst	$vr8, $a0, -112
+	vst	$vr2, $a0, -32
+	vst	$vr3, $a0, -64
+	vst	$vr11, $a0, -16
+	vst	$vr10, $a0, -48
+	vst	$vr4, $a0, 32
+	vst	$vr5, $a0, 0
+	vst	$vr13, $a0, 48
+	vst	$vr12, $a0, 16
+	vst	$vr6, $a0, 96
+	vst	$vr7, $a0, 64
+	vst	$vr15, $a0, 112
+	vst	$vr14, $a0, 80
 	addi.d	$a1, $a1, 128
 	addi.d	$a0, $a0, 256
 	bnez	$a1, .LBB55_8
@@ -22449,7 +22885,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ldx.w	$a0, $a0, $a1
 	move	$a2, $a1
-	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	ldx.w	$a1, $a1, $a2
 	bne	$a0, $a1, .LBB55_23
 # %bb.11:                               # %_ZL28truncOrZextVecInLoopWithVW16ItjEvPKT_PT0_i.exit
@@ -22458,26 +22894,24 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	addi.d	$a1, $a2, 4
 	bnez	$s8, .LBB55_10
 # %bb.12:
-	st.d	$a5, $sp, 16                    # 8-byte Folded Spill
-	vst	$vr16, $sp, 32                  # 16-byte Folded Spill
+	st.d	$a5, $sp, 32                    # 8-byte Folded Spill
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	ld.w	$a1, $a0, 28
-	st.d	$a1, $sp, 8                     # 8-byte Folded Spill
+	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	ld.d	$s8, $a0, 16
 .Ltmp1214:                              # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16StartKeepRunningEv)
 	jirl	$ra, $ra, 0
 .Ltmp1215:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr16, $sp, 32                  # 16-byte Folded Reload
-	ld.d	$t5, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$t5, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	bnez	$a0, .LBB55_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s8, .LBB55_19
 # %bb.15:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 96
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 56
 	lu12i.w	$a2, -5
 	ori	$a2, $a2, 512
 	lu12i.w	$t0, 4
@@ -22494,8 +22928,8 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$t2, $sp, 72
-	ld.d	$t1, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$t2, $sp, 56
+	ld.d	$t1, $sp, 48                    # 8-byte Folded Reload
 	add.d	$t1, $t2, $t1
 	addi.d	$t2, $t2, 128
 	move	$t3, $a2
@@ -22512,38 +22946,46 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	vldx	$vr5, $t4, $t0
 	vldx	$vr6, $t4, $s4
 	vldx	$vr7, $t4, $s7
-	vilvl.h	$vr8, $vr16, $vr1
-	vilvh.h	$vr1, $vr16, $vr1
-	vilvl.h	$vr9, $vr16, $vr0
-	vilvh.h	$vr0, $vr16, $vr0
-	vilvl.h	$vr10, $vr16, $vr3
-	vilvh.h	$vr3, $vr16, $vr3
-	vilvl.h	$vr11, $vr16, $vr2
-	vilvh.h	$vr2, $vr16, $vr2
-	vilvl.h	$vr12, $vr16, $vr5
-	vilvh.h	$vr5, $vr16, $vr5
-	vilvl.h	$vr13, $vr16, $vr4
-	vilvh.h	$vr4, $vr16, $vr4
-	vilvl.h	$vr14, $vr16, $vr7
-	vilvh.h	$vr7, $vr16, $vr7
-	vilvl.h	$vr15, $vr16, $vr6
-	vilvh.h	$vr6, $vr16, $vr6
-	vst	$vr0, $t2, -80
-	vst	$vr9, $t2, -96
-	vst	$vr1, $t2, -112
-	vst	$vr8, $t2, -128
-	vst	$vr2, $t2, -16
-	vst	$vr11, $t2, -32
-	vst	$vr3, $t2, -48
-	vst	$vr10, $t2, -64
-	vst	$vr4, $t2, 48
-	vst	$vr13, $t2, 32
-	vst	$vr5, $t2, 16
-	vst	$vr12, $t2, 0
-	vst	$vr6, $t2, 112
-	vst	$vr15, $t2, 96
-	vst	$vr7, $t2, 80
-	vst	$vr14, $t2, 64
+	vbsrl.v	$vr8, $vr1, 8
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vbsrl.v	$vr9, $vr0, 8
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vbsrl.v	$vr10, $vr3, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vbsrl.v	$vr11, $vr2, 8
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vbsrl.v	$vr12, $vr5, 8
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vbsrl.v	$vr13, $vr4, 8
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vbsrl.v	$vr14, $vr7, 8
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vbsrl.v	$vr15, $vr6, 8
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vst	$vr0, $t2, -96
+	vst	$vr1, $t2, -128
+	vst	$vr9, $t2, -80
+	vst	$vr8, $t2, -112
+	vst	$vr2, $t2, -32
+	vst	$vr3, $t2, -64
+	vst	$vr11, $t2, -16
+	vst	$vr10, $t2, -48
+	vst	$vr4, $t2, 32
+	vst	$vr5, $t2, 0
+	vst	$vr13, $t2, 48
+	vst	$vr12, $t2, 16
+	vst	$vr6, $t2, 96
+	vst	$vr7, $t2, 64
+	vst	$vr15, $t2, 112
+	vst	$vr14, $t2, 80
 	addi.d	$t3, $t3, 128
 	addi.d	$t2, $t2, 256
 	bnez	$t3, .LBB55_17
@@ -22590,10 +23032,10 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	jirl	$ra, $ra, 0
 .Ltmp1217:                              # EH_LABEL
 # %bb.20:                               # %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit36
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 56
 	beqz	$a0, .LBB55_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -22602,18 +23044,18 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 176
+	ld.d	$s8, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 160
 	ret
 .LBB55_23:
 .Ltmp1199:                              # EH_LABEL
@@ -22665,7 +23107,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 	jirl	$ra, $ra, 0
 .Ltmp1208:                              # EH_LABEL
 # %bb.28:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	ldx.wu	$a1, $a0, $s0
 .Ltmp1209:                              # EH_LABEL
 	move	$a0, $s1
@@ -22706,10 +23148,10 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint32_t_RN9benchmark5S
 .Ltmp1198:                              # EH_LABEL
 .LBB55_36:
 	move	$s1, $a0
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 56
 	move	$s2, $a0
 	beqz	$a0, .LBB55_38
 .LBB55_37:                              # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
@@ -22780,18 +23222,18 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception56
 # %bb.0:
-	addi.d	$sp, $sp, -128
-	.cfi_def_cfa_offset 128
-	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	.cfi_def_cfa_offset 112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -22818,7 +23260,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 .Ltmp1220:                              # EH_LABEL
 # %bb.1:
 	move	$s2, $a0
-	st.d	$a0, $sp, 32
+	st.d	$a0, $sp, 16
 .Ltmp1222:                              # EH_LABEL
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_Znam)
@@ -22828,7 +23270,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	move	$s0, $a0
 	lu12i.w	$a0, -16
 	lu32i.d	$a0, 0
-	st.w	$a0, $sp, 44
+	st.w	$a0, $sp, 28
 	lu12i.w	$s5, -5
 	ori	$s7, $s5, 480
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -22836,8 +23278,8 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	.p2align	4, , 16
 .LBB56_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1225:                              # EH_LABEL
-	addi.d	$a0, $sp, 44
-	addi.d	$a2, $sp, 44
+	addi.d	$a0, $sp, 28
+	addi.d	$a2, $sp, 28
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionItEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEtRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -22866,7 +23308,6 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 # %bb.7:                                # %vector.body85.preheader
 	addi.d	$a0, $s2, 16
 	ori	$a1, $s5, 480
-	vrepli.b	$vr2, 0
 	.p2align	4, , 16
 .LBB56_8:                               # %vector.body85
                                         # =>This Inner Loop Header: Depth=1
@@ -22875,8 +23316,8 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	ldptr.d	$a2, $a2, 20008
 	vinsgr2vr.d	$vr0, $a3, 0
 	vinsgr2vr.d	$vr1, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vst	$vr0, $a0, -16
 	vst	$vr1, $a0, 0
 	addi.d	$a1, $a1, 16
@@ -22897,7 +23338,6 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	addi.d	$s4, $s4, 4
 	bnez	$s6, .LBB56_10
 # %bb.12:
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	ld.w	$s3, $s1, 28
 	ld.d	$s2, $s1, 16
 .Ltmp1243:                              # EH_LABEL
@@ -22906,12 +23346,11 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	jirl	$ra, $ra, 0
 .Ltmp1244:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s3, .LBB56_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s2, .LBB56_19
 # %bb.15:
-	addi.d	$a0, $sp, 32
+	addi.d	$a0, $sp, 16
 	ori	$a1, $s5, 480
 	.p2align	4, , 16
 .LBB56_16:                              # %.lr.ph
@@ -22920,7 +23359,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a2, $sp, 32
+	ld.d	$a2, $sp, 16
 	addi.d	$a2, $a2, 16
 	move	$a3, $a1
 	.p2align	4, , 16
@@ -22932,8 +23371,8 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	ldptr.d	$a4, $a4, 20008
 	vinsgr2vr.d	$vr0, $a5, 0
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vst	$vr0, $a2, -16
 	vst	$vr1, $a2, 0
 	addi.d	$a3, $a3, 16
@@ -22953,7 +23392,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 32
+	ld.d	$a0, $sp, 16
 	beqz	$a0, .LBB56_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -22962,17 +23401,17 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 128
+	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .LBB56_23:
 .Ltmp1228:                              # EH_LABEL
@@ -23064,7 +23503,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5StateE: #
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s2, $sp, 32
+	ld.d	$s2, $sp, 16
 	beqz	$s2, .LBB56_38
 .LBB56_37:                              # %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
 	move	$a0, $s2
@@ -23242,7 +23681,6 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint16_t_To_uint32_t_RN9bench
 	ori	$a5, $s6, 3552
 	ori	$a6, $s6, 3568
 	ori	$a7, $s6, 3584
-	vrepli.b	$vr0, 0
 	ori	$t0, $s6, 3588
 	ori	$t1, $s6, 3592
 	ori	$t2, $s6, 3596
@@ -23266,42 +23704,46 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint16_t_To_uint32_t_RN9bench
                                         #   Parent Loop BB57_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$s3, $a0, $s2
-	vldx	$vr1, $s3, $a4
-	vldx	$vr2, $s3, $a5
-	vldx	$vr3, $s3, $a6
-	vldx	$vr4, $s3, $a7
-	vilvl.h	$vr5, $vr0, $vr1
-	vilvh.h	$vr1, $vr0, $vr1
-	vilvl.h	$vr6, $vr0, $vr2
-	vilvh.h	$vr2, $vr0, $vr2
-	vilvl.h	$vr7, $vr0, $vr3
-	vilvh.h	$vr3, $vr0, $vr3
-	vilvl.h	$vr8, $vr0, $vr4
-	vilvh.h	$vr4, $vr0, $vr4
-	vld	$vr9, $t8, -64
-	vld	$vr10, $t8, -48
-	vld	$vr11, $t8, -32
-	vld	$vr12, $t8, -16
-	vld	$vr13, $t8, 0
-	vld	$vr14, $t8, 16
-	vld	$vr15, $t8, 32
-	vld	$vr16, $t8, 48
-	vadd.w	$vr1, $vr10, $vr1
-	vadd.w	$vr5, $vr9, $vr5
-	vadd.w	$vr2, $vr12, $vr2
-	vadd.w	$vr6, $vr11, $vr6
-	vadd.w	$vr3, $vr14, $vr3
-	vadd.w	$vr7, $vr13, $vr7
-	vadd.w	$vr4, $vr16, $vr4
-	vadd.w	$vr8, $vr15, $vr8
-	vst	$vr5, $t8, -64
-	vst	$vr1, $t8, -48
-	vst	$vr6, $t8, -32
-	vst	$vr2, $t8, -16
-	vst	$vr7, $t8, 0
-	vst	$vr3, $t8, 16
-	vst	$vr8, $t8, 32
-	vst	$vr4, $t8, 48
+	vldx	$vr0, $s3, $a4
+	vldx	$vr1, $s3, $a5
+	vldx	$vr2, $s3, $a6
+	vldx	$vr3, $s3, $a7
+	vsllwil.wu.hu	$vr4, $vr0, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr5, $vr1, 0
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr6, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr7, $vr3, 0
+	vbsrl.v	$vr3, $vr3, 8
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vld	$vr8, $t8, -64
+	vld	$vr9, $t8, -48
+	vld	$vr10, $t8, -32
+	vld	$vr11, $t8, -16
+	vld	$vr12, $t8, 0
+	vld	$vr13, $t8, 16
+	vld	$vr14, $t8, 32
+	vld	$vr15, $t8, 48
+	vadd.w	$vr0, $vr9, $vr0
+	vadd.w	$vr4, $vr8, $vr4
+	vadd.w	$vr1, $vr11, $vr1
+	vadd.w	$vr5, $vr10, $vr5
+	vadd.w	$vr2, $vr13, $vr2
+	vadd.w	$vr6, $vr12, $vr6
+	vadd.w	$vr3, $vr15, $vr3
+	vadd.w	$vr7, $vr14, $vr7
+	vst	$vr4, $t8, -64
+	vst	$vr0, $t8, -48
+	vst	$vr5, $t8, -32
+	vst	$vr1, $t8, -16
+	vst	$vr6, $t8, 0
+	vst	$vr2, $t8, 16
+	vst	$vr7, $t8, 32
+	vst	$vr3, $t8, 48
 	addi.d	$s2, $s2, 64
 	addi.d	$t8, $t8, 128
 	bnez	$s2, .LBB57_12
@@ -23484,19 +23926,27 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint32_t_RN9benc
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception58
 # %bb.0:
-	addi.d	$sp, $sp, -112
-	.cfi_def_cfa_offset 112
-	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 24                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -176
+	.cfi_def_cfa_offset 176
+	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 72                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 64                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 40                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 32                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 24                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -23508,6 +23958,14 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint32_t_RN9benc
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
+	.cfi_offset 56, -96
+	.cfi_offset 57, -104
+	.cfi_offset 58, -112
+	.cfi_offset 59, -120
+	.cfi_offset 60, -128
+	.cfi_offset 61, -136
+	.cfi_offset 62, -144
+	.cfi_offset 63, -152
 	move	$s0, $a0
 	lu12i.w	$s6, 4
 	ori	$s3, $s6, 3616
@@ -23596,7 +24054,6 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint32_t_RN9benc
 	ori	$t1, $s6, 3568
 	ori	$t2, $s6, 3584
 	ori	$t3, $s6, 3600
-	vrepli.b	$vr0, 0
 	ori	$t4, $s6, 3588
 	ori	$t5, $s6, 3592
 	ori	$t6, $s6, 3596
@@ -23619,78 +24076,86 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint32_t_RN9benc
                                         #   Parent Loop BB58_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$s7, $a0, $s6
-	vldx	$vr2, $s7, $a4
-	vldx	$vr3, $s7, $a5
-	vldx	$vr4, $s7, $a6
-	vldx	$vr5, $s7, $a7
-	vldx	$vr6, $s7, $t0
-	vldx	$vr7, $s7, $t1
-	vldx	$vr8, $s7, $t2
-	vldx	$vr1, $s7, $t3
-	vilvl.h	$vr9, $vr0, $vr3
-	vilvh.h	$vr3, $vr0, $vr3
-	vilvl.h	$vr10, $vr0, $vr2
-	vilvh.h	$vr2, $vr0, $vr2
-	vilvl.h	$vr11, $vr0, $vr5
-	vilvh.h	$vr5, $vr0, $vr5
-	vilvl.h	$vr12, $vr0, $vr4
-	vilvh.h	$vr4, $vr0, $vr4
-	vilvl.h	$vr13, $vr0, $vr7
-	vilvh.h	$vr7, $vr0, $vr7
-	vilvl.h	$vr14, $vr0, $vr6
-	vilvh.h	$vr6, $vr0, $vr6
-	vilvl.h	$vr15, $vr0, $vr8
-	vld	$vr16, $s4, -112
-	vilvh.h	$vr8, $vr0, $vr8
+	vldx	$vr0, $s7, $a4
+	vldx	$vr1, $s7, $a5
+	vldx	$vr2, $s7, $a6
+	vldx	$vr3, $s7, $a7
+	vldx	$vr4, $s7, $t0
+	vldx	$vr5, $s7, $t1
+	vldx	$vr6, $s7, $t2
+	vldx	$vr7, $s7, $t3
+	vsllwil.wu.hu	$vr8, $vr1, 0
+	vsllwil.wu.hu	$vr9, $vr0, 0
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr10, $vr3, 0
+	vsllwil.wu.hu	$vr11, $vr2, 0
+	vbsrl.v	$vr3, $vr3, 8
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr12, $vr5, 0
+	vsllwil.wu.hu	$vr13, $vr4, 0
+	vbsrl.v	$vr5, $vr5, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vbsrl.v	$vr4, $vr4, 8
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr14, $vr7, 0
+	vsllwil.wu.hu	$vr15, $vr6, 0
+	vbsrl.v	$vr7, $vr7, 8
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vbsrl.v	$vr6, $vr6, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vld	$vr16, $s4, -96
 	vld	$vr17, $s4, -128
 	vld	$vr18, $s4, -80
-	vadd.w	$vr2, $vr16, $vr2
-	vld	$vr16, $s4, -96
-	vadd.w	$vr10, $vr17, $vr10
-	vld	$vr17, $s4, -48
-	vadd.w	$vr3, $vr18, $vr3
-	vld	$vr18, $s4, -64
-	vadd.w	$vr9, $vr16, $vr9
-	vld	$vr16, $s4, -16
-	vadd.w	$vr4, $vr17, $vr4
-	vld	$vr17, $s4, -32
-	vadd.w	$vr12, $vr18, $vr12
-	vld	$vr18, $s4, 16
-	vadd.w	$vr5, $vr16, $vr5
-	vld	$vr16, $s4, 0
-	vadd.w	$vr11, $vr17, $vr11
-	vld	$vr17, $s4, 48
-	vadd.w	$vr6, $vr18, $vr6
-	vld	$vr18, $s4, 32
-	vadd.w	$vr14, $vr16, $vr14
-	vld	$vr16, $s4, 80
-	vadd.w	$vr7, $vr17, $vr7
-	vld	$vr17, $s4, 64
-	vadd.w	$vr13, $vr18, $vr13
-	vld	$vr18, $s4, 112
+	vld	$vr19, $s4, -112
+	vld	$vr20, $s4, -32
+	vld	$vr21, $s4, -64
+	vld	$vr22, $s4, -16
+	vld	$vr23, $s4, -48
+	vld	$vr24, $s4, 32
+	vld	$vr25, $s4, 0
+	vld	$vr26, $s4, 48
+	vld	$vr27, $s4, 16
+	vld	$vr28, $s4, 96
+	vld	$vr29, $s4, 64
+	vld	$vr30, $s4, 112
+	vld	$vr31, $s4, 80
+	vadd.w	$vr0, $vr19, $vr0
+	vadd.w	$vr1, $vr18, $vr1
+	vadd.w	$vr9, $vr17, $vr9
 	vadd.w	$vr8, $vr16, $vr8
-	vld	$vr16, $s4, 96
-	vadd.w	$vr15, $vr17, $vr15
-	vilvh.h	$vr17, $vr0, $vr1
-	vadd.w	$vr17, $vr18, $vr17
-	vilvl.h	$vr1, $vr0, $vr1
-	vadd.w	$vr1, $vr16, $vr1
-	vst	$vr9, $s4, -96
-	vst	$vr3, $s4, -80
-	vst	$vr10, $s4, -128
-	vst	$vr2, $s4, -112
-	vst	$vr11, $s4, -32
-	vst	$vr5, $s4, -16
-	vst	$vr12, $s4, -64
-	vst	$vr4, $s4, -48
-	vst	$vr13, $s4, 32
-	vst	$vr7, $s4, 48
-	vst	$vr14, $s4, 0
-	vst	$vr6, $s4, 16
-	vst	$vr1, $s4, 96
-	vst	$vr17, $s4, 112
+	vadd.w	$vr2, $vr23, $vr2
+	vadd.w	$vr3, $vr22, $vr3
+	vadd.w	$vr11, $vr21, $vr11
+	vadd.w	$vr10, $vr20, $vr10
+	vadd.w	$vr4, $vr27, $vr4
+	vadd.w	$vr5, $vr26, $vr5
+	vadd.w	$vr13, $vr25, $vr13
+	vadd.w	$vr12, $vr24, $vr12
+	vadd.w	$vr6, $vr31, $vr6
+	vadd.w	$vr7, $vr30, $vr7
+	vadd.w	$vr15, $vr29, $vr15
+	vadd.w	$vr14, $vr28, $vr14
+	vst	$vr8, $s4, -96
+	vst	$vr9, $s4, -128
+	vst	$vr1, $s4, -80
+	vst	$vr0, $s4, -112
+	vst	$vr10, $s4, -32
+	vst	$vr11, $s4, -64
+	vst	$vr3, $s4, -16
+	vst	$vr2, $s4, -48
+	vst	$vr12, $s4, 32
+	vst	$vr13, $s4, 0
+	vst	$vr5, $s4, 48
+	vst	$vr4, $s4, 16
+	vst	$vr14, $s4, 96
 	vst	$vr15, $s4, 64
-	vst	$vr8, $s4, 80
+	vst	$vr7, $s4, 112
+	vst	$vr6, $s4, 80
 	addi.d	$s6, $s6, 128
 	addi.d	$s4, $s4, 256
 	bnez	$s6, .LBB58_12
@@ -23778,18 +24243,26 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint32_t_RN9benc
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 24                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 112
+	fld.d	$fs7, $sp, 24                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 32                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 48                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 64                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 80                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 176
 	ret
 .LBB58_18:
 .Ltmp1264:                              # EH_LABEL
@@ -23968,7 +24441,6 @@ _Z61benchForTruncOrZextVecWithAddInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5St
 # %bb.10:
 	addi.d	$a0, $sp, 8
 	ori	$a1, $s5, 480
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB59_11:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -23986,16 +24458,16 @@ _Z61benchForTruncOrZextVecWithAddInLoopFrom_uint16_t_To_uint32_t_RN9benchmark5St
 	add.d	$a4, $fp, $a3
 	ldptr.d	$a5, $a4, 20000
 	ldptr.d	$a4, $a4, 20008
-	vinsgr2vr.d	$vr1, $a5, 0
-	vinsgr2vr.d	$vr2, $a4, 0
-	vld	$vr3, $a2, -16
-	vld	$vr4, $a2, 0
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.h	$vr2, $vr0, $vr2
+	vinsgr2vr.d	$vr0, $a5, 0
+	vinsgr2vr.d	$vr1, $a4, 0
+	vld	$vr2, $a2, -16
+	vld	$vr3, $a2, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vadd.w	$vr0, $vr2, $vr0
 	vadd.w	$vr1, $vr3, $vr1
-	vadd.w	$vr2, $vr4, $vr2
-	vst	$vr1, $a2, -16
-	vst	$vr2, $a2, 0
+	vst	$vr0, $a2, -16
+	vst	$vr1, $a2, 0
 	addi.d	$a3, $a3, 16
 	addi.d	$a2, $a2, 32
 	bnez	$a3, .LBB59_12
@@ -24112,19 +24584,19 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception60
 # %bb.0:
-	addi.d	$sp, $sp, -176
-	.cfi_def_cfa_offset 176
-	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -160
+	.cfi_def_cfa_offset 160
+	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 72                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -24152,22 +24624,22 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 .Ltmp1291:                              # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s2, $a0
-	st.d	$a0, $sp, 72
+	st.d	$a0, $sp, 56
 .Ltmp1293:                              # EH_LABEL
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_Znam)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 .Ltmp1294:                              # EH_LABEL
 # %bb.2:
 	ori	$a0, $s6, 3586
 	add.d	$s5, $fp, $a0
 	ori	$a0, $s1, 2048
-	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	add.d	$s1, $s2, $a0
 	lu12i.w	$a0, -16
 	lu32i.d	$a0, 0
-	st.w	$a0, $sp, 84
+	st.w	$a0, $sp, 68
 	lu12i.w	$s7, -5
 	ori	$s0, $s7, 480
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -24175,8 +24647,8 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	.p2align	4, , 16
 .LBB60_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1296:                              # EH_LABEL
-	addi.d	$a0, $sp, 84
-	addi.d	$a2, $sp, 84
+	addi.d	$a0, $sp, 68
+	addi.d	$a2, $sp, 68
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionItEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEtRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -24189,16 +24661,15 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	bnez	$s0, .LBB60_3
 # %bb.5:                                # %vector.ph
 	ori	$a0, $s7, 480
-	vrepli.b	$vr16, 0
-	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB60_6:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a2, $fp, $a0
 	ldx.w	$a2, $a2, $s3
 	vinsgr2vr.w	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr16, $vr0
-	vilvl.w	$vr0, $vr16, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 4
 	addi.d	$a1, $a1, 16
@@ -24218,46 +24689,66 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	vldx	$vr1, $a3, $a4
 	vldx	$vr2, $a3, $s3
 	vldx	$vr3, $a3, $a2
-	vilvl.h	$vr4, $vr16, $vr0
-	vilvl.w	$vr5, $vr16, $vr4
-	vilvh.w	$vr4, $vr16, $vr4
-	vilvh.h	$vr0, $vr16, $vr0
-	vilvl.w	$vr6, $vr16, $vr0
-	vilvh.w	$vr0, $vr16, $vr0
-	vilvl.h	$vr7, $vr16, $vr1
-	vilvl.w	$vr8, $vr16, $vr7
-	vilvh.w	$vr7, $vr16, $vr7
-	vilvh.h	$vr1, $vr16, $vr1
-	vilvl.w	$vr9, $vr16, $vr1
-	vilvh.w	$vr1, $vr16, $vr1
-	vilvl.h	$vr10, $vr16, $vr2
-	vilvl.w	$vr11, $vr16, $vr10
-	vilvh.w	$vr10, $vr16, $vr10
-	vilvh.h	$vr2, $vr16, $vr2
-	vilvl.w	$vr12, $vr16, $vr2
-	vilvh.w	$vr2, $vr16, $vr2
-	vilvl.h	$vr13, $vr16, $vr3
-	vilvl.w	$vr14, $vr16, $vr13
-	vilvh.w	$vr13, $vr16, $vr13
-	vilvh.h	$vr3, $vr16, $vr3
-	vilvl.w	$vr15, $vr16, $vr3
-	vilvh.w	$vr3, $vr16, $vr3
-	vst	$vr0, $a0, -80
-	vst	$vr6, $a0, -96
+	vshuf4i.h	$vr4, $vr0, 14
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vbsrl.v	$vr5, $vr0, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr6, $vr0, 12
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf4i.h	$vr7, $vr1, 14
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vbsrl.v	$vr8, $vr1, 8
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vbsrl.v	$vr9, $vr1, 12
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vshuf4i.h	$vr10, $vr2, 14
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vbsrl.v	$vr11, $vr2, 8
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vbsrl.v	$vr12, $vr2, 12
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vshuf4i.h	$vr13, $vr3, 14
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr3, 8
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vbsrl.v	$vr15, $vr3, 12
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vst	$vr0, $a0, -128
+	vst	$vr6, $a0, -80
+	vst	$vr5, $a0, -96
 	vst	$vr4, $a0, -112
-	vst	$vr5, $a0, -128
-	vst	$vr1, $a0, -16
-	vst	$vr9, $a0, -32
+	vst	$vr1, $a0, -64
+	vst	$vr9, $a0, -16
+	vst	$vr8, $a0, -32
 	vst	$vr7, $a0, -48
-	vst	$vr8, $a0, -64
-	vst	$vr2, $a0, 48
-	vst	$vr12, $a0, 32
+	vst	$vr2, $a0, 0
+	vst	$vr12, $a0, 48
+	vst	$vr11, $a0, 32
 	vst	$vr10, $a0, 16
-	vst	$vr11, $a0, 0
-	vst	$vr3, $a0, 112
-	vst	$vr15, $a0, 96
+	vst	$vr3, $a0, 64
+	vst	$vr15, $a0, 112
+	vst	$vr14, $a0, 96
 	vst	$vr13, $a0, 80
-	vst	$vr14, $a0, 64
 	addi.d	$a1, $a1, 64
 	addi.d	$a0, $a0, 256
 	bnez	$a1, .LBB60_8
@@ -24310,7 +24801,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ldx.d	$a0, $a0, $a1
 	move	$a2, $a1
-	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	ldx.d	$a1, $a1, $a2
 	bne	$a0, $a1, .LBB60_23
 # %bb.11:                               # %_ZL27truncOrZextVecInLoopWithVW8ItmEvPKT_PT0_i.exit
@@ -24319,26 +24810,24 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	addi.d	$a1, $a2, 8
 	bnez	$s7, .LBB60_10
 # %bb.12:
-	st.d	$a4, $sp, 16                    # 8-byte Folded Spill
-	vst	$vr16, $sp, 32                  # 16-byte Folded Spill
+	st.d	$a4, $sp, 32                    # 8-byte Folded Spill
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	ld.w	$a1, $a0, 28
-	st.d	$a1, $sp, 8                     # 8-byte Folded Spill
+	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	ld.d	$s7, $a0, 16
 .Ltmp1314:                              # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16StartKeepRunningEv)
 	jirl	$ra, $ra, 0
 .Ltmp1315:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr16, $sp, 32                  # 16-byte Folded Reload
-	ld.d	$t2, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$t2, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	bnez	$a0, .LBB60_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s7, .LBB60_19
 # %bb.15:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 48
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 56
 	lu12i.w	$a2, -5
 	ori	$a2, $a2, 512
 	lu12i.w	$a5, 4
@@ -24352,8 +24841,8 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a7, $sp, 72
-	ld.d	$a6, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$a7, $sp, 56
+	ld.d	$a6, $sp, 48                    # 8-byte Folded Reload
 	add.d	$a6, $a7, $a6
 	addi.d	$a7, $a7, 128
 	move	$t0, $a2
@@ -24366,46 +24855,66 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	vldx	$vr1, $t1, $a4
 	vldx	$vr2, $t1, $a5
 	vldx	$vr3, $t1, $s4
-	vilvl.h	$vr4, $vr16, $vr0
-	vilvl.w	$vr5, $vr16, $vr4
-	vilvh.w	$vr4, $vr16, $vr4
-	vilvh.h	$vr0, $vr16, $vr0
-	vilvl.w	$vr6, $vr16, $vr0
-	vilvh.w	$vr0, $vr16, $vr0
-	vilvl.h	$vr7, $vr16, $vr1
-	vilvl.w	$vr8, $vr16, $vr7
-	vilvh.w	$vr7, $vr16, $vr7
-	vilvh.h	$vr1, $vr16, $vr1
-	vilvl.w	$vr9, $vr16, $vr1
-	vilvh.w	$vr1, $vr16, $vr1
-	vilvl.h	$vr10, $vr16, $vr2
-	vilvl.w	$vr11, $vr16, $vr10
-	vilvh.w	$vr10, $vr16, $vr10
-	vilvh.h	$vr2, $vr16, $vr2
-	vilvl.w	$vr12, $vr16, $vr2
-	vilvh.w	$vr2, $vr16, $vr2
-	vilvl.h	$vr13, $vr16, $vr3
-	vilvl.w	$vr14, $vr16, $vr13
-	vilvh.w	$vr13, $vr16, $vr13
-	vilvh.h	$vr3, $vr16, $vr3
-	vilvl.w	$vr15, $vr16, $vr3
-	vilvh.w	$vr3, $vr16, $vr3
-	vst	$vr0, $a7, -80
-	vst	$vr6, $a7, -96
+	vshuf4i.h	$vr4, $vr0, 14
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vbsrl.v	$vr5, $vr0, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr6, $vr0, 12
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf4i.h	$vr7, $vr1, 14
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vbsrl.v	$vr8, $vr1, 8
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vbsrl.v	$vr9, $vr1, 12
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vshuf4i.h	$vr10, $vr2, 14
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vbsrl.v	$vr11, $vr2, 8
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vbsrl.v	$vr12, $vr2, 12
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vshuf4i.h	$vr13, $vr3, 14
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr3, 8
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vbsrl.v	$vr15, $vr3, 12
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vst	$vr0, $a7, -128
+	vst	$vr6, $a7, -80
+	vst	$vr5, $a7, -96
 	vst	$vr4, $a7, -112
-	vst	$vr5, $a7, -128
-	vst	$vr1, $a7, -16
-	vst	$vr9, $a7, -32
+	vst	$vr1, $a7, -64
+	vst	$vr9, $a7, -16
+	vst	$vr8, $a7, -32
 	vst	$vr7, $a7, -48
-	vst	$vr8, $a7, -64
-	vst	$vr2, $a7, 48
-	vst	$vr12, $a7, 32
+	vst	$vr2, $a7, 0
+	vst	$vr12, $a7, 48
+	vst	$vr11, $a7, 32
 	vst	$vr10, $a7, 16
-	vst	$vr11, $a7, 0
-	vst	$vr3, $a7, 112
-	vst	$vr15, $a7, 96
+	vst	$vr3, $a7, 64
+	vst	$vr15, $a7, 112
+	vst	$vr14, $a7, 96
 	vst	$vr13, $a7, 80
-	vst	$vr14, $a7, 64
 	addi.d	$t0, $t0, 64
 	addi.d	$a7, $a7, 256
 	bnez	$t0, .LBB60_17
@@ -24452,10 +24961,10 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp1317:                              # EH_LABEL
 # %bb.20:                               # %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit36
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 56
 	beqz	$a0, .LBB60_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -24464,18 +24973,18 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 176
+	ld.d	$s8, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 160
 	ret
 .LBB60_23:
 .Ltmp1299:                              # EH_LABEL
@@ -24527,7 +25036,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp1308:                              # EH_LABEL
 # %bb.28:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	ldx.d	$a1, $a0, $s0
 .Ltmp1309:                              # EH_LABEL
 	move	$a0, $s1
@@ -24568,10 +25077,10 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint16_t_To_uint64_t_RN9benchmark5St
 .Ltmp1298:                              # EH_LABEL
 .LBB60_36:
 	move	$s1, $a0
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 56
 	move	$s2, $a0
 	beqz	$a0, .LBB60_38
 .LBB60_37:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
@@ -24642,19 +25151,27 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception61
 # %bb.0:
-	addi.d	$sp, $sp, -176
-	.cfi_def_cfa_offset 176
-	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -224
+	.cfi_def_cfa_offset 224
+	st.d	$ra, $sp, 216                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 136                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 128                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 120                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 112                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 104                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 96                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 72                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -24666,6 +25183,14 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
+	.cfi_offset 56, -96
+	.cfi_offset 57, -104
+	.cfi_offset 58, -112
+	.cfi_offset 59, -120
+	.cfi_offset 60, -128
+	.cfi_offset 61, -136
+	.cfi_offset 62, -144
+	.cfi_offset 63, -152
 	st.d	$a0, $sp, 24                    # 8-byte Folded Spill
 	lu12i.w	$s6, 4
 	ori	$s3, $s6, 3616
@@ -24682,22 +25207,22 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 .Ltmp1320:                              # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s2, $a0
-	st.d	$a0, $sp, 72
+	st.d	$a0, $sp, 56
 .Ltmp1322:                              # EH_LABEL
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_Znam)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
 .Ltmp1323:                              # EH_LABEL
 # %bb.2:
 	ori	$a0, $s6, 3586
 	add.d	$s5, $fp, $a0
 	ori	$a0, $s1, 2048
-	st.d	$a0, $sp, 64                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	add.d	$s1, $s2, $a0
 	lu12i.w	$a0, -16
 	lu32i.d	$a0, 0
-	st.w	$a0, $sp, 84
+	st.w	$a0, $sp, 68
 	lu12i.w	$s8, -5
 	ori	$s0, $s8, 480
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -24705,8 +25230,8 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	.p2align	4, , 16
 .LBB61_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1325:                              # EH_LABEL
-	addi.d	$a0, $sp, 84
-	addi.d	$a2, $sp, 84
+	addi.d	$a0, $sp, 68
+	addi.d	$a2, $sp, 68
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionItEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEtRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -24719,16 +25244,15 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	bnez	$s0, .LBB61_3
 # %bb.5:                                # %vector.ph
 	ori	$a0, $s8, 480
-	vrepli.b	$vr3, 0
-	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB61_6:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a2, $fp, $a0
 	ldx.w	$a2, $a2, $s3
 	vinsgr2vr.w	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr0, $vr3, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 4
 	addi.d	$a1, $a1, 16
@@ -24748,94 +25272,134 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 .LBB61_8:                               # %vector.body85
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a7, $fp, $a1
-	vldx	$vr0, $a7, $s4
-	vilvh.h	$vr1, $vr3, $vr0
-	vilvh.w	$vr2, $vr3, $vr1
-	vst	$vr2, $a0, -144
-	vldx	$vr2, $a7, $s7
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a0, -160
-	vilvh.w	$vr1, $vr3, $vr0
-	vst	$vr1, $a0, -176
-	vilvh.h	$vr1, $vr3, $vr2
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a0, -192
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a0, -208
-	vldx	$vr0, $a7, $a2
-	vilvl.h	$vr2, $vr3, $vr2
-	vilvl.w	$vr1, $vr3, $vr1
+	vldx	$vr6, $a7, $s4
+	vldx	$vr8, $a7, $s7
+	vldx	$vr16, $a7, $a2
+	vldx	$vr17, $a7, $s3
+	vldx	$vr12, $a7, $a3
+	vldx	$vr15, $a7, $a4
+	vldx	$vr2, $a7, $a5
+	vldx	$vr3, $a7, $a6
+	vshuf4i.h	$vr0, $vr8, 14
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vbsrl.v	$vr1, $vr8, 8
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vbsrl.v	$vr4, $vr8, 12
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vshuf4i.h	$vr5, $vr6, 14
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr7, $vr6, 8
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vbsrl.v	$vr9, $vr6, 12
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr11, $vr8, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr13, $vr6, 0
+	vshuf4i.h	$vr6, $vr17, 14
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vbsrl.v	$vr8, $vr17, 8
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vbsrl.v	$vr10, $vr17, 12
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vshuf4i.h	$vr14, $vr16, 14
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vbsrl.v	$vr18, $vr16, 8
+	vsllwil.wu.hu	$vr18, $vr18, 0
+	vsllwil.du.wu	$vr18, $vr18, 0
+	vbsrl.v	$vr19, $vr16, 12
+	vsllwil.wu.hu	$vr19, $vr19, 0
+	vsllwil.du.wu	$vr19, $vr19, 0
+	vsllwil.wu.hu	$vr17, $vr17, 0
+	vsllwil.du.wu	$vr17, $vr17, 0
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vsllwil.du.wu	$vr20, $vr16, 0
+	vshuf4i.h	$vr16, $vr15, 14
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vsllwil.du.wu	$vr16, $vr16, 0
+	vbsrl.v	$vr21, $vr15, 8
+	vsllwil.wu.hu	$vr21, $vr21, 0
+	vsllwil.du.wu	$vr21, $vr21, 0
+	vbsrl.v	$vr22, $vr15, 12
+	vsllwil.wu.hu	$vr22, $vr22, 0
+	vsllwil.du.wu	$vr22, $vr22, 0
+	vshuf4i.h	$vr23, $vr12, 14
+	vsllwil.wu.hu	$vr23, $vr23, 0
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vbsrl.v	$vr24, $vr12, 8
+	vsllwil.wu.hu	$vr24, $vr24, 0
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vbsrl.v	$vr25, $vr12, 12
+	vsllwil.wu.hu	$vr25, $vr25, 0
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.h	$vr26, $vr3, 14
+	vsllwil.wu.hu	$vr26, $vr26, 0
+	vsllwil.du.wu	$vr26, $vr26, 0
+	vbsrl.v	$vr27, $vr3, 8
+	vsllwil.wu.hu	$vr27, $vr27, 0
+	vsllwil.du.wu	$vr27, $vr27, 0
+	vbsrl.v	$vr28, $vr3, 12
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vshuf4i.h	$vr29, $vr2, 14
+	vsllwil.wu.hu	$vr29, $vr29, 0
+	vsllwil.du.wu	$vr29, $vr29, 0
+	vbsrl.v	$vr30, $vr2, 8
+	vsllwil.wu.hu	$vr30, $vr30, 0
+	vsllwil.du.wu	$vr30, $vr30, 0
+	vbsrl.v	$vr31, $vr2, 12
+	vsllwil.wu.hu	$vr31, $vr31, 0
+	vsllwil.du.wu	$vr31, $vr31, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vst	$vr13, $a0, -192
+	vst	$vr11, $a0, -256
+	vst	$vr9, $a0, -144
+	vst	$vr7, $a0, -160
+	vst	$vr5, $a0, -176
+	vst	$vr4, $a0, -208
 	vst	$vr1, $a0, -224
-	vilvl.w	$vr1, $vr3, $vr2
-	vilvh.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a0, -240
-	vilvh.h	$vr2, $vr3, $vr0
-	vst	$vr1, $a0, -256
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a0, -16
-	vldx	$vr1, $a7, $s3
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a0, -32
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a0, -48
-	vilvh.h	$vr2, $vr3, $vr1
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a0, -64
-	vilvh.w	$vr0, $vr3, $vr2
-	vst	$vr0, $a0, -80
-	vldx	$vr0, $a7, $a3
-	vilvl.h	$vr1, $vr3, $vr1
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a0, -96
-	vilvl.w	$vr2, $vr3, $vr1
-	vilvh.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a0, -112
-	vilvh.h	$vr1, $vr3, $vr0
-	vst	$vr2, $a0, -128
-	vilvh.w	$vr2, $vr3, $vr1
-	vst	$vr2, $a0, 112
-	vldx	$vr2, $a7, $a4
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a0, 96
-	vilvh.w	$vr1, $vr3, $vr0
-	vst	$vr1, $a0, 80
-	vilvh.h	$vr1, $vr3, $vr2
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a0, 64
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a0, 48
-	vldx	$vr0, $a7, $a5
-	vilvl.h	$vr2, $vr3, $vr2
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a0, 32
-	vilvl.w	$vr1, $vr3, $vr2
-	vilvh.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a0, 16
-	vilvh.h	$vr2, $vr3, $vr0
-	vst	$vr1, $a0, 0
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a0, 240
-	vldx	$vr1, $a7, $a6
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a0, 224
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a0, 208
-	vilvh.h	$vr2, $vr3, $vr1
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a0, 192
-	vilvh.w	$vr0, $vr3, $vr2
-	vst	$vr0, $a0, 176
-	vilvl.h	$vr0, $vr3, $vr1
-	vilvl.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a0, 160
-	vilvh.w	$vr1, $vr3, $vr0
-	vst	$vr1, $a0, 144
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a0, 128
+	vst	$vr0, $a0, -240
+	vst	$vr20, $a0, -64
+	vst	$vr17, $a0, -128
+	vst	$vr19, $a0, -16
+	vst	$vr18, $a0, -32
+	vst	$vr14, $a0, -48
+	vst	$vr10, $a0, -80
+	vst	$vr8, $a0, -96
+	vst	$vr6, $a0, -112
+	vst	$vr12, $a0, 64
+	vst	$vr15, $a0, 0
+	vst	$vr25, $a0, 112
+	vst	$vr24, $a0, 96
+	vst	$vr23, $a0, 80
+	vst	$vr22, $a0, 48
+	vst	$vr21, $a0, 32
+	vst	$vr16, $a0, 16
+	vst	$vr2, $a0, 192
+	vst	$vr3, $a0, 128
+	vst	$vr31, $a0, 240
+	vst	$vr30, $a0, 224
+	vst	$vr29, $a0, 208
+	vst	$vr28, $a0, 176
+	vst	$vr27, $a0, 160
+	vst	$vr26, $a0, 144
 	addi.d	$a1, $a1, 128
 	addi.d	$a0, $a0, 512
 	bnez	$a1, .LBB61_8
@@ -24888,7 +25452,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
 	ldx.d	$a0, $a0, $a1
 	move	$a2, $a1
-	ld.d	$a1, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	ldx.d	$a1, $a1, $a2
 	bne	$a0, $a1, .LBB61_23
 # %bb.11:                               # %_ZL28truncOrZextVecInLoopWithVW16ItmEvPKT_PT0_i.exit
@@ -24897,26 +25461,24 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	addi.d	$a1, $a2, 8
 	bnez	$s8, .LBB61_10
 # %bb.12:
-	st.d	$a5, $sp, 16                    # 8-byte Folded Spill
-	vst	$vr3, $sp, 32                   # 16-byte Folded Spill
+	st.d	$a5, $sp, 32                    # 8-byte Folded Spill
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	ld.w	$a1, $a0, 28
-	st.d	$a1, $sp, 8                     # 8-byte Folded Spill
+	st.d	$a1, $sp, 16                    # 8-byte Folded Spill
 	ld.d	$s8, $a0, 16
 .Ltmp1343:                              # EH_LABEL
 	pcaddu18i	$ra, %call36(_ZN9benchmark5State16StartKeepRunningEv)
 	jirl	$ra, $ra, 0
 .Ltmp1344:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr3, $sp, 32                   # 16-byte Folded Reload
-	ld.d	$t5, $sp, 16                    # 8-byte Folded Reload
-	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
+	ld.d	$t5, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	bnez	$a0, .LBB61_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s8, .LBB61_19
 # %bb.15:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 96
-	addi.d	$a1, $sp, 72
+	addi.d	$a1, $sp, 56
 	lu12i.w	$a2, -5
 	ori	$a2, $a2, 512
 	lu12i.w	$t0, 4
@@ -24933,8 +25495,8 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$t2, $sp, 72
-	ld.d	$t1, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$t2, $sp, 56
+	ld.d	$t1, $sp, 48                    # 8-byte Folded Reload
 	add.d	$t1, $t2, $t1
 	addi.d	$t2, $t2, 256
 	move	$t3, $a2
@@ -24943,94 +25505,134 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
                                         #   Parent Loop BB61_16 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$t4, $a0, $t3
-	vldx	$vr0, $t4, $a3
-	vilvh.h	$vr1, $vr3, $vr0
-	vilvh.w	$vr2, $vr3, $vr1
-	vst	$vr2, $t2, -144
-	vldx	$vr2, $t4, $a4
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $t2, -160
-	vilvh.w	$vr1, $vr3, $vr0
-	vst	$vr1, $t2, -176
-	vilvh.h	$vr1, $vr3, $vr2
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $t2, -192
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $t2, -208
-	vldx	$vr0, $t4, $a5
-	vilvl.h	$vr2, $vr3, $vr2
-	vilvl.w	$vr1, $vr3, $vr1
+	vldx	$vr6, $t4, $a3
+	vldx	$vr8, $t4, $a4
+	vldx	$vr16, $t4, $a5
+	vldx	$vr17, $t4, $a6
+	vldx	$vr12, $t4, $a7
+	vldx	$vr15, $t4, $t0
+	vldx	$vr2, $t4, $s4
+	vldx	$vr3, $t4, $s7
+	vshuf4i.h	$vr0, $vr8, 14
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vbsrl.v	$vr1, $vr8, 8
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vbsrl.v	$vr4, $vr8, 12
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vshuf4i.h	$vr5, $vr6, 14
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr7, $vr6, 8
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vbsrl.v	$vr9, $vr6, 12
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr11, $vr8, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr13, $vr6, 0
+	vshuf4i.h	$vr6, $vr17, 14
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vbsrl.v	$vr8, $vr17, 8
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vbsrl.v	$vr10, $vr17, 12
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vshuf4i.h	$vr14, $vr16, 14
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vbsrl.v	$vr18, $vr16, 8
+	vsllwil.wu.hu	$vr18, $vr18, 0
+	vsllwil.du.wu	$vr18, $vr18, 0
+	vbsrl.v	$vr19, $vr16, 12
+	vsllwil.wu.hu	$vr19, $vr19, 0
+	vsllwil.du.wu	$vr19, $vr19, 0
+	vsllwil.wu.hu	$vr17, $vr17, 0
+	vsllwil.du.wu	$vr17, $vr17, 0
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vsllwil.du.wu	$vr20, $vr16, 0
+	vshuf4i.h	$vr16, $vr15, 14
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vsllwil.du.wu	$vr16, $vr16, 0
+	vbsrl.v	$vr21, $vr15, 8
+	vsllwil.wu.hu	$vr21, $vr21, 0
+	vsllwil.du.wu	$vr21, $vr21, 0
+	vbsrl.v	$vr22, $vr15, 12
+	vsllwil.wu.hu	$vr22, $vr22, 0
+	vsllwil.du.wu	$vr22, $vr22, 0
+	vshuf4i.h	$vr23, $vr12, 14
+	vsllwil.wu.hu	$vr23, $vr23, 0
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vbsrl.v	$vr24, $vr12, 8
+	vsllwil.wu.hu	$vr24, $vr24, 0
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vbsrl.v	$vr25, $vr12, 12
+	vsllwil.wu.hu	$vr25, $vr25, 0
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.h	$vr26, $vr3, 14
+	vsllwil.wu.hu	$vr26, $vr26, 0
+	vsllwil.du.wu	$vr26, $vr26, 0
+	vbsrl.v	$vr27, $vr3, 8
+	vsllwil.wu.hu	$vr27, $vr27, 0
+	vsllwil.du.wu	$vr27, $vr27, 0
+	vbsrl.v	$vr28, $vr3, 12
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vshuf4i.h	$vr29, $vr2, 14
+	vsllwil.wu.hu	$vr29, $vr29, 0
+	vsllwil.du.wu	$vr29, $vr29, 0
+	vbsrl.v	$vr30, $vr2, 8
+	vsllwil.wu.hu	$vr30, $vr30, 0
+	vsllwil.du.wu	$vr30, $vr30, 0
+	vbsrl.v	$vr31, $vr2, 12
+	vsllwil.wu.hu	$vr31, $vr31, 0
+	vsllwil.du.wu	$vr31, $vr31, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vst	$vr13, $t2, -192
+	vst	$vr11, $t2, -256
+	vst	$vr9, $t2, -144
+	vst	$vr7, $t2, -160
+	vst	$vr5, $t2, -176
+	vst	$vr4, $t2, -208
 	vst	$vr1, $t2, -224
-	vilvl.w	$vr1, $vr3, $vr2
-	vilvh.w	$vr2, $vr3, $vr2
-	vst	$vr2, $t2, -240
-	vilvh.h	$vr2, $vr3, $vr0
-	vst	$vr1, $t2, -256
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $t2, -16
-	vldx	$vr1, $t4, $a6
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $t2, -32
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $t2, -48
-	vilvh.h	$vr2, $vr3, $vr1
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $t2, -64
-	vilvh.w	$vr0, $vr3, $vr2
-	vst	$vr0, $t2, -80
-	vldx	$vr0, $t4, $a7
-	vilvl.h	$vr1, $vr3, $vr1
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $t2, -96
-	vilvl.w	$vr2, $vr3, $vr1
-	vilvh.w	$vr1, $vr3, $vr1
-	vst	$vr1, $t2, -112
-	vilvh.h	$vr1, $vr3, $vr0
-	vst	$vr2, $t2, -128
-	vilvh.w	$vr2, $vr3, $vr1
-	vst	$vr2, $t2, 112
-	vldx	$vr2, $t4, $t0
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $t2, 96
-	vilvh.w	$vr1, $vr3, $vr0
-	vst	$vr1, $t2, 80
-	vilvh.h	$vr1, $vr3, $vr2
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $t2, 64
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $t2, 48
-	vldx	$vr0, $t4, $s4
-	vilvl.h	$vr2, $vr3, $vr2
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $t2, 32
-	vilvl.w	$vr1, $vr3, $vr2
-	vilvh.w	$vr2, $vr3, $vr2
-	vst	$vr2, $t2, 16
-	vilvh.h	$vr2, $vr3, $vr0
-	vst	$vr1, $t2, 0
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $t2, 240
-	vldx	$vr1, $t4, $s7
-	vilvl.h	$vr0, $vr3, $vr0
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $t2, 224
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $t2, 208
-	vilvh.h	$vr2, $vr3, $vr1
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $t2, 192
-	vilvh.w	$vr0, $vr3, $vr2
-	vst	$vr0, $t2, 176
-	vilvl.h	$vr0, $vr3, $vr1
-	vilvl.w	$vr1, $vr3, $vr2
-	vst	$vr1, $t2, 160
-	vilvh.w	$vr1, $vr3, $vr0
-	vst	$vr1, $t2, 144
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $t2, 128
+	vst	$vr0, $t2, -240
+	vst	$vr20, $t2, -64
+	vst	$vr17, $t2, -128
+	vst	$vr19, $t2, -16
+	vst	$vr18, $t2, -32
+	vst	$vr14, $t2, -48
+	vst	$vr10, $t2, -80
+	vst	$vr8, $t2, -96
+	vst	$vr6, $t2, -112
+	vst	$vr12, $t2, 64
+	vst	$vr15, $t2, 0
+	vst	$vr25, $t2, 112
+	vst	$vr24, $t2, 96
+	vst	$vr23, $t2, 80
+	vst	$vr22, $t2, 48
+	vst	$vr21, $t2, 32
+	vst	$vr16, $t2, 16
+	vst	$vr2, $t2, 192
+	vst	$vr3, $t2, 128
+	vst	$vr31, $t2, 240
+	vst	$vr30, $t2, 224
+	vst	$vr29, $t2, 208
+	vst	$vr28, $t2, 176
+	vst	$vr27, $t2, 160
+	vst	$vr26, $t2, 144
 	addi.d	$t3, $t3, 128
 	addi.d	$t2, $t2, 512
 	bnez	$t3, .LBB61_17
@@ -25077,10 +25679,10 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	jirl	$ra, $ra, 0
 .Ltmp1346:                              # EH_LABEL
 # %bb.20:                               # %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit36
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 56
 	beqz	$a0, .LBB61_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -25089,18 +25691,26 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 176
+	fld.d	$fs7, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 88                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 96                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 104                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 112                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 120                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 128                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 216                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 224
 	ret
 .LBB61_23:
 .Ltmp1328:                              # EH_LABEL
@@ -25152,7 +25762,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 	jirl	$ra, $ra, 0
 .Ltmp1337:                              # EH_LABEL
 # %bb.28:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	ldx.d	$a1, $a0, $s0
 .Ltmp1338:                              # EH_LABEL
 	move	$a0, $s1
@@ -25193,10 +25803,10 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint16_t_To_uint64_t_RN9benchmark5S
 .Ltmp1327:                              # EH_LABEL
 .LBB61_36:
 	move	$s1, $a0
-	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 40                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 72
+	ld.d	$a0, $sp, 56
 	move	$s2, $a0
 	beqz	$a0, .LBB61_38
 .LBB61_37:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
@@ -25267,18 +25877,18 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception62
 # %bb.0:
-	addi.d	$sp, $sp, -128
-	.cfi_def_cfa_offset 128
-	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	.cfi_def_cfa_offset 112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -25305,7 +25915,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 .Ltmp1349:                              # EH_LABEL
 # %bb.1:
 	move	$s3, $a0
-	st.d	$a0, $sp, 32
+	st.d	$a0, $sp, 16
 .Ltmp1351:                              # EH_LABEL
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_Znam)
@@ -25315,7 +25925,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	move	$s0, $a0
 	lu12i.w	$a0, -16
 	lu32i.d	$a0, 0
-	st.w	$a0, $sp, 44
+	st.w	$a0, $sp, 28
 	lu12i.w	$s5, -5
 	ori	$s7, $s5, 480
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -25323,8 +25933,8 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	.p2align	4, , 16
 .LBB62_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1354:                              # EH_LABEL
-	addi.d	$a0, $sp, 44
-	addi.d	$a2, $sp, 44
+	addi.d	$a0, $sp, 28
+	addi.d	$a2, $sp, 28
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionItEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEtRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -25337,7 +25947,6 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	bnez	$s7, .LBB62_3
 # %bb.5:                                # %vector.ph
 	ori	$a0, $s5, 480
-	vrepli.b	$vr2, 0
 	move	$a1, $s0
 	.p2align	4, , 16
 .LBB62_6:                               # %vector.body
@@ -25345,8 +25954,8 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	add.d	$a2, $fp, $a0
 	ldx.w	$a2, $a2, $s1
 	vinsgr2vr.w	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.w	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 4
 	addi.d	$a1, $a1, 16
@@ -25363,10 +25972,10 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	ldx.w	$a2, $a2, $s4
 	vinsgr2vr.w	$vr0, $a3, 0
 	vinsgr2vr.w	$vr1, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.w	$vr0, $vr2, $vr0
-	vilvl.h	$vr1, $vr2, $vr1
-	vilvl.w	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
 	vst	$vr0, $a0, -16
 	vst	$vr1, $a0, 0
 	addi.d	$a1, $a1, 8
@@ -25387,7 +25996,6 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	addi.d	$s6, $s6, 8
 	bnez	$s7, .LBB62_10
 # %bb.12:
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	ld.w	$s6, $s2, 28
 	ld.d	$s3, $s2, 16
 .Ltmp1372:                              # EH_LABEL
@@ -25396,12 +26004,11 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	jirl	$ra, $ra, 0
 .Ltmp1373:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s6, .LBB62_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s3, .LBB62_19
 # %bb.15:
-	addi.d	$a0, $sp, 32
+	addi.d	$a0, $sp, 16
 	ori	$a1, $s5, 480
 	.p2align	4, , 16
 .LBB62_16:                              # %.lr.ph
@@ -25410,7 +26017,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a2, $sp, 32
+	ld.d	$a2, $sp, 16
 	addi.d	$a2, $a2, 16
 	move	$a3, $a1
 	.p2align	4, , 16
@@ -25422,10 +26029,10 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	ldx.w	$a4, $a4, $s4
 	vinsgr2vr.w	$vr0, $a5, 0
 	vinsgr2vr.w	$vr1, $a4, 0
-	vilvl.h	$vr0, $vr2, $vr0
-	vilvl.w	$vr0, $vr2, $vr0
-	vilvl.h	$vr1, $vr2, $vr1
-	vilvl.w	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
 	vst	$vr0, $a2, -16
 	vst	$vr1, $a2, 0
 	addi.d	$a3, $a3, 8
@@ -25445,7 +26052,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 32
+	ld.d	$a0, $sp, 16
 	beqz	$a0, .LBB62_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -25454,17 +26061,17 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 128
+	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .LBB62_23:
 .Ltmp1357:                              # EH_LABEL
@@ -25556,7 +26163,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5StateE: #
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s3, $sp, 32
+	ld.d	$s3, $sp, 16
 	beqz	$s3, .LBB62_38
 .LBB62_37:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
 	move	$a0, $s3
@@ -25631,19 +26238,27 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint16_t_To_uint64_t_RN9bench
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception63
 # %bb.0:
-	addi.d	$sp, $sp, -128
-	.cfi_def_cfa_offset 128
-	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 40                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -192
+	.cfi_def_cfa_offset 192
+	st.d	$ra, $sp, 184                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 104                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 96                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 72                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 64                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 40                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -25655,6 +26270,14 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint16_t_To_uint64_t_RN9bench
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
+	.cfi_offset 56, -96
+	.cfi_offset 57, -104
+	.cfi_offset 58, -112
+	.cfi_offset 59, -120
+	.cfi_offset 60, -128
+	.cfi_offset 61, -136
+	.cfi_offset 62, -144
+	.cfi_offset 63, -152
 	move	$s0, $a0
 	lu12i.w	$s6, 4
 	ori	$s3, $s6, 3616
@@ -25739,7 +26362,6 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint16_t_To_uint64_t_RN9bench
 	ori	$a5, $s6, 3552
 	ori	$a6, $s6, 3568
 	ori	$a7, $s6, 3584
-	vrepli.b	$vr0, 0
 	ori	$t0, $s6, 3588
 	ori	$t1, $s6, 3592
 	ori	$t2, $s6, 3596
@@ -25763,82 +26385,102 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint16_t_To_uint64_t_RN9bench
                                         #   Parent Loop BB63_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$s3, $a0, $s2
-	vldx	$vr1, $s3, $a4
-	vldx	$vr2, $s3, $a5
-	vldx	$vr3, $s3, $a6
-	vldx	$vr4, $s3, $a7
-	vilvh.h	$vr5, $vr0, $vr1
-	vilvl.w	$vr6, $vr0, $vr5
-	vilvh.w	$vr5, $vr0, $vr5
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr7, $vr0, $vr1
-	vilvh.w	$vr1, $vr0, $vr1
-	vilvh.h	$vr8, $vr0, $vr2
-	vilvl.w	$vr9, $vr0, $vr8
-	vilvh.w	$vr8, $vr0, $vr8
-	vilvl.h	$vr2, $vr0, $vr2
-	vilvl.w	$vr10, $vr0, $vr2
-	vilvh.w	$vr2, $vr0, $vr2
-	vilvh.h	$vr11, $vr0, $vr3
-	vilvl.w	$vr12, $vr0, $vr11
-	vilvh.w	$vr11, $vr0, $vr11
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.w	$vr13, $vr0, $vr3
-	vilvh.w	$vr3, $vr0, $vr3
-	vilvh.h	$vr14, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vilvl.w	$vr15, $vr0, $vr4
-	vld	$vr16, $t8, -112
-	vilvh.w	$vr4, $vr0, $vr4
-	vld	$vr17, $t8, -128
+	vldx	$vr0, $s3, $a4
+	vldx	$vr1, $s3, $a5
+	vldx	$vr2, $s3, $a6
+	vldx	$vr3, $s3, $a7
+	vsllwil.wu.hu	$vr4, $vr0, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vbsrl.v	$vr5, $vr0, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr6, $vr0, 12
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vshuf4i.h	$vr0, $vr0, 14
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr7, $vr1, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vbsrl.v	$vr8, $vr1, 8
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vbsrl.v	$vr9, $vr1, 12
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vshuf4i.h	$vr1, $vr1, 14
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr10, $vr2, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vbsrl.v	$vr11, $vr2, 8
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vbsrl.v	$vr12, $vr2, 12
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.h	$vr2, $vr2, 14
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr13, $vr3, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr3, 8
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vbsrl.v	$vr15, $vr3, 12
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vshuf4i.h	$vr3, $vr3, 14
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vld	$vr16, $t8, -128
+	vld	$vr17, $t8, -96
 	vld	$vr18, $t8, -80
-	vadd.d	$vr1, $vr16, $vr1
-	vld	$vr16, $t8, -96
-	vadd.d	$vr7, $vr17, $vr7
-	vld	$vr17, $t8, -48
-	vadd.d	$vr5, $vr18, $vr5
-	vld	$vr18, $t8, -64
-	vadd.d	$vr6, $vr16, $vr6
-	vld	$vr16, $t8, -16
-	vadd.d	$vr2, $vr17, $vr2
-	vld	$vr17, $t8, -32
-	vadd.d	$vr10, $vr18, $vr10
-	vld	$vr18, $t8, 16
-	vadd.d	$vr8, $vr16, $vr8
-	vld	$vr16, $t8, 0
-	vadd.d	$vr9, $vr17, $vr9
-	vld	$vr17, $t8, 48
-	vadd.d	$vr3, $vr18, $vr3
-	vld	$vr18, $t8, 32
-	vadd.d	$vr13, $vr16, $vr13
-	vld	$vr16, $t8, 80
-	vadd.d	$vr11, $vr17, $vr11
-	vld	$vr17, $t8, 64
-	vadd.d	$vr12, $vr18, $vr12
-	vld	$vr18, $t8, 112
+	vld	$vr19, $t8, -112
+	vld	$vr20, $t8, -64
+	vld	$vr21, $t8, -32
+	vld	$vr22, $t8, -16
+	vld	$vr23, $t8, -48
+	vld	$vr24, $t8, 0
+	vld	$vr25, $t8, 32
+	vld	$vr26, $t8, 48
+	vld	$vr27, $t8, 16
+	vld	$vr28, $t8, 64
+	vld	$vr29, $t8, 96
+	vld	$vr30, $t8, 112
+	vld	$vr31, $t8, 80
+	vadd.d	$vr0, $vr19, $vr0
+	vadd.d	$vr6, $vr18, $vr6
+	vadd.d	$vr5, $vr17, $vr5
 	vadd.d	$vr4, $vr16, $vr4
-	vld	$vr16, $t8, 96
-	vadd.d	$vr15, $vr17, $vr15
-	vilvh.w	$vr17, $vr0, $vr14
-	vadd.d	$vr17, $vr18, $vr17
-	vilvl.w	$vr14, $vr0, $vr14
-	vadd.d	$vr14, $vr16, $vr14
-	vst	$vr6, $t8, -96
-	vst	$vr5, $t8, -80
-	vst	$vr7, $t8, -128
-	vst	$vr1, $t8, -112
-	vst	$vr9, $t8, -32
-	vst	$vr8, $t8, -16
-	vst	$vr10, $t8, -64
-	vst	$vr2, $t8, -48
-	vst	$vr12, $t8, 32
-	vst	$vr11, $t8, 48
-	vst	$vr13, $t8, 0
-	vst	$vr3, $t8, 16
+	vadd.d	$vr1, $vr23, $vr1
+	vadd.d	$vr9, $vr22, $vr9
+	vadd.d	$vr8, $vr21, $vr8
+	vadd.d	$vr7, $vr20, $vr7
+	vadd.d	$vr2, $vr27, $vr2
+	vadd.d	$vr12, $vr26, $vr12
+	vadd.d	$vr11, $vr25, $vr11
+	vadd.d	$vr10, $vr24, $vr10
+	vadd.d	$vr3, $vr31, $vr3
+	vadd.d	$vr15, $vr30, $vr15
+	vadd.d	$vr14, $vr29, $vr14
+	vadd.d	$vr13, $vr28, $vr13
+	vst	$vr4, $t8, -128
+	vst	$vr5, $t8, -96
+	vst	$vr6, $t8, -80
+	vst	$vr0, $t8, -112
+	vst	$vr7, $t8, -64
+	vst	$vr8, $t8, -32
+	vst	$vr9, $t8, -16
+	vst	$vr1, $t8, -48
+	vst	$vr10, $t8, 0
+	vst	$vr11, $t8, 32
+	vst	$vr12, $t8, 48
+	vst	$vr2, $t8, 16
+	vst	$vr13, $t8, 64
 	vst	$vr14, $t8, 96
-	vst	$vr17, $t8, 112
-	vst	$vr15, $t8, 64
-	vst	$vr4, $t8, 80
+	vst	$vr15, $t8, 112
+	vst	$vr3, $t8, 80
 	addi.d	$s2, $s2, 64
 	addi.d	$t8, $t8, 256
 	bnez	$s2, .LBB63_12
@@ -25926,18 +26568,26 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint16_t_To_uint64_t_RN9bench
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 128
+	fld.d	$fs7, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 48                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 64                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 88                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 96                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 184                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 192
 	ret
 .LBB63_18:
 .Ltmp1379:                              # EH_LABEL
@@ -26026,27 +26676,27 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception64
 # %bb.0:
-	addi.d	$sp, $sp, -272
-	.cfi_def_cfa_offset 272
-	st.d	$ra, $sp, 264                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 256                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 248                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 240                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 232                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 224                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 216                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 208                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 200                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 192                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 184                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 176                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 168                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 160                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 152                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 144                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 136                  # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 128                  # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 120                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -240
+	.cfi_def_cfa_offset 240
+	st.d	$ra, $sp, 232                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 216                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 152                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 144                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 136                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 128                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 120                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 112                  # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 104                  # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 96                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 88                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -26084,10 +26734,10 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	move	$s1, $a0
 	ori	$a0, $s6, 3586
 	add.d	$s5, $fp, $a0
-	st.d	$s1, $sp, 88
+	st.d	$s1, $sp, 56
 	lu12i.w	$a0, -16
 	lu32i.d	$a0, 0
-	st.w	$a0, $sp, 96
+	st.w	$a0, $sp, 64
 	lu12i.w	$s8, -5
 	ori	$s0, $s8, 480
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
@@ -26095,8 +26745,8 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	.p2align	4, , 16
 .LBB64_2:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1394:                              # EH_LABEL
-	addi.d	$a0, $sp, 96
-	addi.d	$a2, $sp, 96
+	addi.d	$a0, $sp, 64
+	addi.d	$a2, $sp, 64
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionItEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEtRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -26110,15 +26760,15 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 # %bb.4:
 	pcalau12i	$a0, %pc_hi20(.LCPI64_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI64_0)
-	vst	$vr0, $sp, 96
+	vst	$vr0, $sp, 64
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s3, $a0, %pc_lo12(_ZL3rng)
 	move	$s0, $zero
 	.p2align	4, , 16
 .LBB64_5:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1397:                              # EH_LABEL
-	addi.d	$a0, $sp, 96
-	addi.d	$a2, $sp, 96
+	addi.d	$a0, $sp, 64
+	addi.d	$a2, $sp, 64
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -26142,7 +26792,7 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	beqz	$s1, .LBB64_14
 # %bb.10:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 96
-	addi.d	$a1, $sp, 88
+	addi.d	$a1, $sp, 56
 	ori	$a2, $s7, 2048
 	ori	$a3, $s8, 512
 	ori	$a4, $s6, 3488
@@ -26153,7 +26803,6 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	ori	$t1, $s6, 3568
 	ori	$t2, $s6, 3584
 	ori	$t3, $s6, 3600
-	vrepli.b	$vr0, 0
 	ori	$t4, $s6, 3588
 	ori	$t5, $s6, 3592
 	ori	$t6, $s6, 3596
@@ -26167,7 +26816,7 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$s0, $sp, 88
+	ld.d	$s0, $sp, 56
 	add.d	$s3, $s0, $a2
 	addi.d	$s4, $s0, 256
 	move	$s6, $a3
@@ -26176,166 +26825,202 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
                                         #   Parent Loop BB64_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	add.d	$s0, $a0, $s6
-	vldx	$vr2, $s0, $a4
-	vldx	$vr3, $s0, $a5
-	vldx	$vr4, $s0, $a6
-	vldx	$vr7, $s0, $a7
-	vldx	$vr9, $s0, $t0
-	vldx	$vr10, $s0, $t1
-	vldx	$vr29, $s0, $t2
-	vldx	$vr1, $s0, $t3
-	vst	$vr1, $sp, 64                   # 16-byte Folded Spill
-	vilvh.h	$vr5, $vr0, $vr3
-	vilvl.w	$vr8, $vr0, $vr5
-	vilvh.w	$vr12, $vr0, $vr5
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.w	$vr16, $vr0, $vr3
-	vilvh.w	$vr18, $vr0, $vr3
-	vilvh.h	$vr3, $vr0, $vr2
-	vilvl.w	$vr22, $vr0, $vr3
-	vilvh.w	$vr24, $vr0, $vr3
-	vilvl.h	$vr2, $vr0, $vr2
-	vilvl.w	$vr28, $vr0, $vr2
-	vilvh.w	$vr27, $vr0, $vr2
-	vilvh.h	$vr2, $vr0, $vr7
-	vilvl.w	$vr6, $vr0, $vr2
-	vilvh.w	$vr5, $vr0, $vr2
-	vilvl.h	$vr2, $vr0, $vr7
-	vilvl.w	$vr13, $vr0, $vr2
-	vilvh.w	$vr14, $vr0, $vr2
-	vilvh.h	$vr2, $vr0, $vr4
-	vilvl.w	$vr19, $vr0, $vr2
-	vilvh.w	$vr20, $vr0, $vr2
-	vilvl.h	$vr2, $vr0, $vr4
-	vilvl.w	$vr25, $vr0, $vr2
-	vilvh.w	$vr26, $vr0, $vr2
-	vilvh.h	$vr3, $vr0, $vr10
-	vilvl.w	$vr2, $vr0, $vr3
-	vilvh.w	$vr4, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr10
-	vilvl.w	$vr7, $vr0, $vr3
-	vilvh.w	$vr10, $vr0, $vr3
-	vilvh.h	$vr3, $vr0, $vr9
-	vilvl.w	$vr15, $vr0, $vr3
-	vilvh.w	$vr17, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr9
-	vilvl.w	$vr21, $vr0, $vr3
-	vilvh.w	$vr23, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr1
-	vilvh.h	$vr11, $vr0, $vr29
-	vilvl.w	$vr9, $vr0, $vr11
-	vld	$vr30, $s4, -240
-	vilvl.h	$vr29, $vr0, $vr29
-	vld	$vr31, $s4, -256
-	vld	$vr1, $s4, -208
-	vadd.d	$vr27, $vr30, $vr27
-	vst	$vr27, $sp, 48                  # 16-byte Folded Spill
-	vld	$vr30, $s4, -224
-	vadd.d	$vr27, $vr31, $vr28
-	vst	$vr27, $sp, 32                  # 16-byte Folded Spill
-	vld	$vr31, $s4, -176
-	vadd.d	$vr1, $vr1, $vr24
-	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
-	vld	$vr1, $s4, -192
-	vadd.d	$vr24, $vr30, $vr22
+	vldx	$vr4, $s0, $a4
+	vldx	$vr6, $s0, $a5
+	vldx	$vr7, $s0, $a6
+	vldx	$vr10, $s0, $a7
+	vldx	$vr21, $s0, $t0
+	vldx	$vr19, $s0, $t1
+	vldx	$vr1, $s0, $t2
+	vldx	$vr11, $s0, $t3
+	vsllwil.wu.hu	$vr2, $vr6, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr3, $vr4, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vbsrl.v	$vr5, $vr6, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vbsrl.v	$vr8, $vr6, 12
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vshuf4i.h	$vr6, $vr6, 14
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr0, $vr6, 0
+	vbsrl.v	$vr6, $vr4, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr14, $vr6, 0
+	vbsrl.v	$vr6, $vr4, 12
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr17, $vr6, 0
+	vshuf4i.h	$vr4, $vr4, 14
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr20, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr10, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr6, $vr7, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vbsrl.v	$vr9, $vr10, 8
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vbsrl.v	$vr12, $vr10, 12
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.h	$vr10, $vr10, 14
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr15, $vr10, 0
+	vbsrl.v	$vr10, $vr7, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr18, $vr10, 0
+	vbsrl.v	$vr10, $vr7, 12
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr22, $vr10, 0
+	vshuf4i.h	$vr7, $vr7, 14
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr25, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr19, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr10, $vr21, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vbsrl.v	$vr13, $vr19, 8
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vbsrl.v	$vr16, $vr19, 12
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vsllwil.du.wu	$vr16, $vr16, 0
+	vshuf4i.h	$vr19, $vr19, 14
+	vsllwil.wu.hu	$vr19, $vr19, 0
+	vsllwil.du.wu	$vr19, $vr19, 0
+	vbsrl.v	$vr23, $vr21, 8
+	vsllwil.wu.hu	$vr23, $vr23, 0
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vbsrl.v	$vr24, $vr21, 12
+	vsllwil.wu.hu	$vr24, $vr24, 0
+	vsllwil.du.wu	$vr26, $vr24, 0
+	vshuf4i.h	$vr21, $vr21, 14
+	vsllwil.wu.hu	$vr21, $vr21, 0
+	vsllwil.du.wu	$vr27, $vr21, 0
+	vshuf4i.h	$vr21, $vr11, 14
+	vsllwil.wu.hu	$vr21, $vr21, 0
+	vsllwil.du.wu	$vr21, $vr21, 0
+	vbsrl.v	$vr24, $vr1, 8
+	vsllwil.wu.hu	$vr24, $vr24, 0
+	vbsrl.v	$vr28, $vr1, 12
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vld	$vr29, $s4, -240
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vld	$vr30, $s4, -208
+	vld	$vr31, $s4, -224
+	vadd.d	$vr20, $vr29, $vr20
+	vst	$vr20, $sp, 32                  # 16-byte Folded Spill
+	vld	$vr29, $s4, -176
+	vadd.d	$vr17, $vr30, $vr17
+	vst	$vr17, $sp, 16                  # 16-byte Folded Spill
 	vld	$vr30, $s4, -144
-	vadd.d	$vr22, $vr31, $vr18
+	vadd.d	$vr17, $vr31, $vr14
 	vld	$vr31, $s4, -160
-	vadd.d	$vr18, $vr1, $vr16
-	vld	$vr16, $s4, -112
-	vadd.d	$vr30, $vr30, $vr12
-	vld	$vr12, $s4, -128
-	vadd.d	$vr31, $vr31, $vr8
-	vld	$vr8, $s4, -80
-	vadd.d	$vr16, $vr16, $vr26
-	vld	$vr26, $s4, -96
-	vadd.d	$vr12, $vr12, $vr25
-	vld	$vr25, $s4, -48
-	vadd.d	$vr8, $vr8, $vr20
-	vld	$vr20, $s4, -64
-	vadd.d	$vr19, $vr26, $vr19
-	vld	$vr26, $s4, -16
-	vadd.d	$vr14, $vr25, $vr14
-	vld	$vr25, $s4, -32
-	vadd.d	$vr13, $vr20, $vr13
-	vld	$vr20, $s4, 16
-	vadd.d	$vr5, $vr26, $vr5
+	vadd.d	$vr14, $vr29, $vr0
+	vld	$vr29, $s4, -256
+	vadd.d	$vr8, $vr30, $vr8
+	vld	$vr30, $s4, -192
+	vadd.d	$vr31, $vr31, $vr5
+	vld	$vr5, $s4, -112
+	vadd.d	$vr29, $vr29, $vr3
+	vld	$vr3, $s4, -80
+	vadd.d	$vr30, $vr30, $vr2
+	vld	$vr2, $s4, -96
+	vadd.d	$vr25, $vr5, $vr25
+	vld	$vr5, $s4, -48
+	vadd.d	$vr3, $vr3, $vr22
+	vld	$vr22, $s4, -16
+	vadd.d	$vr2, $vr2, $vr18
+	vld	$vr18, $s4, -32
+	vadd.d	$vr15, $vr5, $vr15
+	vld	$vr5, $s4, -128
+	vadd.d	$vr12, $vr22, $vr12
+	vld	$vr22, $s4, -64
+	vadd.d	$vr9, $vr18, $vr9
+	vld	$vr18, $s4, 16
+	vadd.d	$vr5, $vr5, $vr6
+	vld	$vr6, $s4, 48
+	vadd.d	$vr22, $vr22, $vr4
+	vld	$vr4, $s4, 32
+	vadd.d	$vr18, $vr18, $vr27
+	vld	$vr27, $s4, 80
+	vadd.d	$vr6, $vr6, $vr26
+	vld	$vr26, $s4, 112
+	vadd.d	$vr4, $vr4, $vr23
+	vld	$vr23, $s4, 96
+	vadd.d	$vr19, $vr27, $vr19
+	vshuf4i.h	$vr27, $vr1, 14
+	vadd.d	$vr16, $vr26, $vr16
 	vld	$vr26, $s4, 0
-	vadd.d	$vr25, $vr25, $vr6
-	vld	$vr1, $s4, 48
-	vadd.d	$vr20, $vr20, $vr23
-	vld	$vr23, $s4, 32
-	vadd.d	$vr21, $vr26, $vr21
-	vld	$vr26, $s4, 80
-	vadd.d	$vr6, $vr1, $vr17
-	vld	$vr17, $s4, 64
-	vadd.d	$vr15, $vr23, $vr15
-	vld	$vr23, $s4, 112
+	vadd.d	$vr13, $vr23, $vr13
+	vld	$vr23, $s4, 64
+	vsllwil.wu.hu	$vr27, $vr27, 0
 	vadd.d	$vr10, $vr26, $vr10
-	vld	$vr26, $s4, 96
-	vadd.d	$vr7, $vr17, $vr7
-	vilvl.w	$vr17, $vr0, $vr29
-	vadd.d	$vr4, $vr23, $vr4
-	vld	$vr23, $s4, 144
-	vadd.d	$vr26, $vr26, $vr2
-	vld	$vr1, $s4, 128
-	vilvh.w	$vr29, $vr0, $vr29
-	vadd.d	$vr23, $vr23, $vr29
-	vld	$vr29, $s4, 176
-	vadd.d	$vr2, $vr1, $vr17
-	vld	$vr17, $s4, 160
-	vilvh.w	$vr11, $vr0, $vr11
-	vadd.d	$vr11, $vr29, $vr11
-	vld	$vr29, $s4, 208
-	vadd.d	$vr9, $vr17, $vr9
-	vld	$vr17, $s4, 192
-	vilvh.w	$vr27, $vr0, $vr3
-	vadd.d	$vr27, $vr29, $vr27
-	vilvl.w	$vr3, $vr0, $vr3
-	vadd.d	$vr3, $vr17, $vr3
-	vld	$vr17, $s4, 240
-	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
-	vilvh.h	$vr29, $vr0, $vr1
-	vld	$vr1, $s4, 224
-	vilvh.w	$vr28, $vr0, $vr29
-	vadd.d	$vr17, $vr17, $vr28
-	vilvl.w	$vr28, $vr0, $vr29
-	vadd.d	$vr1, $vr1, $vr28
+	vld	$vr26, $s4, 144
+	vadd.d	$vr7, $vr23, $vr7
+	vld	$vr23, $s4, 176
+	vsllwil.du.wu	$vr27, $vr27, 0
+	vadd.d	$vr26, $vr26, $vr27
+	vld	$vr27, $s4, 160
+	vadd.d	$vr23, $vr23, $vr28
+	vld	$vr28, $s4, 208
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vadd.d	$vr24, $vr27, $vr24
+	vld	$vr27, $s4, 240
+	vadd.d	$vr21, $vr28, $vr21
+	vbsrl.v	$vr28, $vr11, 12
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vadd.d	$vr27, $vr27, $vr28
+	vld	$vr28, $s4, 224
+	vbsrl.v	$vr20, $vr11, 8
+	vsllwil.wu.hu	$vr20, $vr20, 0
+	vsllwil.du.wu	$vr20, $vr20, 0
+	vadd.d	$vr20, $vr28, $vr20
+	vld	$vr28, $s4, 128
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vld	$vr0, $s4, 192
+	vadd.d	$vr1, $vr28, $vr1
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vadd.d	$vr0, $vr0, $vr11
+	vst	$vr30, $s4, -192
+	vst	$vr29, $s4, -256
 	vst	$vr31, $s4, -160
-	vst	$vr30, $s4, -144
-	vst	$vr18, $s4, -192
-	vst	$vr22, $s4, -176
-	vst	$vr24, $s4, -224
-	vld	$vr18, $sp, 16                  # 16-byte Folded Reload
-	vst	$vr18, $s4, -208
-	vld	$vr18, $sp, 32                  # 16-byte Folded Reload
-	vst	$vr18, $s4, -256
-	vld	$vr18, $sp, 48                  # 16-byte Folded Reload
-	vst	$vr18, $s4, -240
-	vst	$vr25, $s4, -32
-	vst	$vr5, $s4, -16
-	vst	$vr13, $s4, -64
-	vst	$vr14, $s4, -48
-	vst	$vr19, $s4, -96
-	vst	$vr8, $s4, -80
-	vst	$vr12, $s4, -128
-	vst	$vr16, $s4, -112
-	vst	$vr26, $s4, 96
-	vst	$vr4, $s4, 112
+	vst	$vr8, $s4, -144
+	vst	$vr14, $s4, -176
+	vst	$vr17, $s4, -224
+	vld	$vr8, $sp, 16                   # 16-byte Folded Reload
+	vst	$vr8, $s4, -208
+	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
+	vst	$vr8, $s4, -240
+	vst	$vr22, $s4, -64
+	vst	$vr5, $s4, -128
+	vst	$vr9, $s4, -32
+	vst	$vr12, $s4, -16
+	vst	$vr15, $s4, -48
+	vst	$vr2, $s4, -96
+	vst	$vr3, $s4, -80
+	vst	$vr25, $s4, -112
 	vst	$vr7, $s4, 64
-	vst	$vr10, $s4, 80
-	vst	$vr15, $s4, 32
+	vst	$vr10, $s4, 0
+	vst	$vr13, $s4, 96
+	vst	$vr16, $s4, 112
+	vst	$vr19, $s4, 80
+	vst	$vr4, $s4, 32
 	vst	$vr6, $s4, 48
-	vst	$vr21, $s4, 0
-	vst	$vr20, $s4, 16
-	vst	$vr1, $s4, 224
-	vst	$vr17, $s4, 240
-	vst	$vr3, $s4, 192
-	vst	$vr27, $s4, 208
-	vst	$vr9, $s4, 160
-	vst	$vr11, $s4, 176
-	vst	$vr2, $s4, 128
-	vst	$vr23, $s4, 144
+	vst	$vr18, $s4, 16
+	vst	$vr0, $s4, 192
+	vst	$vr1, $s4, 128
+	vst	$vr20, $s4, 224
+	vst	$vr27, $s4, 240
+	vst	$vr21, $s4, 208
+	vst	$vr24, $s4, 160
+	vst	$vr23, $s4, 176
+	vst	$vr26, $s4, 144
 	addi.d	$s6, $s6, 128
 	addi.d	$s4, $s4, 512
 	bnez	$s6, .LBB64_12
@@ -26414,7 +27099,7 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	jirl	$ra, $ra, 0
 .Ltmp1403:                              # EH_LABEL
 # %bb.15:                               # %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit22
-	ld.d	$a0, $sp, 88
+	ld.d	$a0, $sp, 56
 	beqz	$a0, .LBB64_17
 # %bb.16:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i24
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -26423,26 +27108,26 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	fld.d	$fs7, $sp, 120                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 128                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 136                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 144                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 152                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 160                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 168                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 176                  # 8-byte Folded Reload
-	ld.d	$s8, $sp, 184                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 192                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 200                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 216                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 224                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 232                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 240                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 248                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 256                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 264                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 272
+	fld.d	$fs7, $sp, 88                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 96                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 104                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 112                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 120                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 128                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 136                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 144                  # 8-byte Folded Reload
+	ld.d	$s8, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 232                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 240
 	ret
 .LBB64_18:
 .Ltmp1393:                              # EH_LABEL
@@ -26455,7 +27140,7 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint16_t_To_uint64_t_RN9benc
 	jirl	$ra, $ra, 0
 .LBB64_19:
 .Ltmp1404:                              # EH_LABEL
-	ld.d	$s1, $sp, 88
+	ld.d	$s1, $sp, 56
 	move	$s0, $a0
 	bnez	$s1, .LBB64_23
 	b	.LBB64_24
@@ -26629,7 +27314,6 @@ _Z61benchForTruncOrZextVecWithAddInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5St
 	addi.d	$a0, $sp, 8
 	ori	$a1, $s6, 480
 	ori	$a2, $s5, 3620
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB65_11:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -26647,18 +27331,18 @@ _Z61benchForTruncOrZextVecWithAddInLoopFrom_uint16_t_To_uint64_t_RN9benchmark5St
 	add.d	$a5, $fp, $a4
 	ldx.w	$a6, $a5, $s1
 	ldx.w	$a5, $a5, $a2
-	vinsgr2vr.w	$vr1, $a6, 0
-	vinsgr2vr.w	$vr2, $a5, 0
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.w	$vr1, $vr0, $vr1
-	vld	$vr3, $a3, -16
-	vld	$vr4, $a3, 0
-	vilvl.h	$vr2, $vr0, $vr2
-	vilvl.w	$vr2, $vr0, $vr2
+	vinsgr2vr.w	$vr0, $a6, 0
+	vinsgr2vr.w	$vr1, $a5, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vld	$vr2, $a3, -16
+	vld	$vr3, $a3, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vadd.d	$vr0, $vr2, $vr0
 	vadd.d	$vr1, $vr3, $vr1
-	vadd.d	$vr2, $vr4, $vr2
-	vst	$vr1, $a3, -16
-	vst	$vr2, $a3, 0
+	vst	$vr0, $a3, -16
+	vst	$vr1, $a3, 0
 	addi.d	$a4, $a4, 8
 	addi.d	$a3, $a3, 32
 	bnez	$a4, .LBB65_12
@@ -26776,19 +27460,19 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception66
 # %bb.0:
-	addi.d	$sp, $sp, -160
-	.cfi_def_cfa_offset 160
-	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 72                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -128
+	.cfi_def_cfa_offset 128
+	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 40                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -26800,7 +27484,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
-	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
 	lu12i.w	$s1, 9
 	ori	$s4, $s1, 3136
 	move	$a0, $s4
@@ -26816,12 +27500,12 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 .Ltmp1420:                              # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s2, $a0
-	st.d	$a0, $sp, 56
+	st.d	$a0, $sp, 24
 .Ltmp1422:                              # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 .Ltmp1423:                              # EH_LABEL
 # %bb.2:
 	ori	$s1, $s1, 3072
@@ -26830,15 +27514,15 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	add.d	$s8, $s2, $s7
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -1
-	st.d	$a0, $sp, 64
+	st.d	$a0, $sp, 32
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s5, $a0, %pc_lo12(_ZL3rng)
 	move	$s0, $zero
 	.p2align	4, , 16
 .LBB66_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1425:                              # EH_LABEL
-	addi.d	$a0, $sp, 64
-	addi.d	$a2, $sp, 64
+	addi.d	$a0, $sp, 32
+	addi.d	$a2, $sp, 32
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIjEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEjRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -26850,14 +27534,13 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	bne	$s0, $s4, .LBB66_3
 # %bb.5:                                # %vector.ph
 	move	$a0, $zero
-	vrepli.b	$vr16, 0
-	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB66_6:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ldx.d	$a2, $fp, $a0
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.w	$vr0, $vr16, $vr0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 8
 	addi.d	$a1, $a1, 16
@@ -26877,38 +27560,46 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	vld	$vr5, $a2, 64
 	vld	$vr6, $a2, 112
 	vld	$vr7, $a2, 96
-	vilvl.w	$vr8, $vr16, $vr1
-	vilvh.w	$vr1, $vr16, $vr1
-	vilvl.w	$vr9, $vr16, $vr0
-	vilvh.w	$vr0, $vr16, $vr0
-	vilvl.w	$vr10, $vr16, $vr3
-	vilvh.w	$vr3, $vr16, $vr3
-	vilvl.w	$vr11, $vr16, $vr2
-	vilvh.w	$vr2, $vr16, $vr2
-	vilvl.w	$vr12, $vr16, $vr5
-	vilvh.w	$vr5, $vr16, $vr5
-	vilvl.w	$vr13, $vr16, $vr4
-	vilvh.w	$vr4, $vr16, $vr4
-	vilvl.w	$vr14, $vr16, $vr7
-	vilvh.w	$vr7, $vr16, $vr7
-	vilvl.w	$vr15, $vr16, $vr6
-	vilvh.w	$vr6, $vr16, $vr6
-	vst	$vr0, $a1, -112
-	vst	$vr9, $a1, -128
-	vst	$vr1, $a1, -80
-	vst	$vr8, $a1, -96
-	vst	$vr2, $a1, -16
-	vst	$vr11, $a1, -32
-	vst	$vr3, $a1, -48
-	vst	$vr10, $a1, -64
-	vst	$vr4, $a1, 48
-	vst	$vr13, $a1, 32
-	vst	$vr5, $a1, 16
-	vst	$vr12, $a1, 0
-	vst	$vr6, $a1, 112
-	vst	$vr15, $a1, 96
-	vst	$vr7, $a1, 80
-	vst	$vr14, $a1, 64
+	vshuf4i.w	$vr8, $vr1, 14
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vshuf4i.w	$vr9, $vr0, 14
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf4i.w	$vr10, $vr3, 14
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vshuf4i.w	$vr11, $vr2, 14
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vshuf4i.w	$vr12, $vr5, 14
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.w	$vr13, $vr4, 14
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vshuf4i.w	$vr14, $vr7, 14
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vshuf4i.w	$vr15, $vr6, 14
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vst	$vr0, $a1, -128
+	vst	$vr1, $a1, -96
+	vst	$vr9, $a1, -112
+	vst	$vr8, $a1, -80
+	vst	$vr2, $a1, -32
+	vst	$vr3, $a1, -64
+	vst	$vr11, $a1, -16
+	vst	$vr10, $a1, -48
+	vst	$vr4, $a1, 32
+	vst	$vr5, $a1, 0
+	vst	$vr13, $a1, 48
+	vst	$vr12, $a1, 16
+	vst	$vr6, $a1, 96
+	vst	$vr7, $a1, 64
+	vst	$vr15, $a1, 112
+	vst	$vr14, $a1, 80
 	addi.d	$a0, $a0, 128
 	addi.d	$a1, $a1, 256
 	bne	$a0, $s1, .LBB66_8
@@ -26947,7 +27638,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	st.d	$a2, $s8, 112
 	st.d	$a3, $s8, 120
 	move	$s1, $fp
-	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 16                    # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB66_10:                              # %_ZL27truncOrZextVecInLoopWithVW8IjmEvPKT_PT0_i.exit.preheader
                                         # =>This Inner Loop Header: Depth=1
@@ -26960,8 +27651,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	addi.d	$s1, $s1, 4
 	bne	$s4, $s3, .LBB66_10
 # %bb.12:
-	vst	$vr16, $sp, 16                  # 16-byte Folded Spill
-	ld.d	$s1, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 8                     # 8-byte Folded Reload
 	ld.w	$s0, $s1, 28
 	ld.d	$s2, $s1, 16
 .Ltmp1443:                              # EH_LABEL
@@ -26970,13 +27660,12 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp1444:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr16, $sp, 16                  # 16-byte Folded Reload
 	bnez	$s0, .LBB66_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s2, .LBB66_19
 # %bb.15:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 64
-	addi.d	$a1, $sp, 56
+	addi.d	$a1, $sp, 24
 	lu12i.w	$a2, 2
 	ori	$a2, $a2, 1792
 	.p2align	4, , 16
@@ -26986,7 +27675,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a4, $sp, 56
+	ld.d	$a4, $sp, 24
 	add.d	$a3, $a4, $s7
 	addi.d	$a4, $a4, 128
 	move	$a5, $a0
@@ -27003,38 +27692,46 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	vld	$vr5, $a5, 0
 	vld	$vr6, $a5, 48
 	vld	$vr7, $a5, 32
-	vilvl.w	$vr8, $vr16, $vr1
-	vilvh.w	$vr1, $vr16, $vr1
-	vilvl.w	$vr9, $vr16, $vr0
-	vilvh.w	$vr0, $vr16, $vr0
-	vilvl.w	$vr10, $vr16, $vr3
-	vilvh.w	$vr3, $vr16, $vr3
-	vilvl.w	$vr11, $vr16, $vr2
-	vilvh.w	$vr2, $vr16, $vr2
-	vilvl.w	$vr12, $vr16, $vr5
-	vilvh.w	$vr5, $vr16, $vr5
-	vilvl.w	$vr13, $vr16, $vr4
-	vilvh.w	$vr4, $vr16, $vr4
-	vilvl.w	$vr14, $vr16, $vr7
-	vilvh.w	$vr7, $vr16, $vr7
-	vilvl.w	$vr15, $vr16, $vr6
-	vilvh.w	$vr6, $vr16, $vr6
-	vst	$vr0, $a4, -80
-	vst	$vr9, $a4, -96
-	vst	$vr1, $a4, -112
-	vst	$vr8, $a4, -128
-	vst	$vr2, $a4, -16
-	vst	$vr11, $a4, -32
-	vst	$vr3, $a4, -48
-	vst	$vr10, $a4, -64
-	vst	$vr4, $a4, 48
-	vst	$vr13, $a4, 32
-	vst	$vr5, $a4, 16
-	vst	$vr12, $a4, 0
-	vst	$vr6, $a4, 112
-	vst	$vr15, $a4, 96
-	vst	$vr7, $a4, 80
-	vst	$vr14, $a4, 64
+	vshuf4i.w	$vr8, $vr1, 14
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vshuf4i.w	$vr9, $vr0, 14
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf4i.w	$vr10, $vr3, 14
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vshuf4i.w	$vr11, $vr2, 14
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vshuf4i.w	$vr12, $vr5, 14
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.w	$vr13, $vr4, 14
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vshuf4i.w	$vr14, $vr7, 14
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vshuf4i.w	$vr15, $vr6, 14
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vst	$vr0, $a4, -96
+	vst	$vr1, $a4, -128
+	vst	$vr9, $a4, -80
+	vst	$vr8, $a4, -112
+	vst	$vr2, $a4, -32
+	vst	$vr3, $a4, -64
+	vst	$vr11, $a4, -16
+	vst	$vr10, $a4, -48
+	vst	$vr4, $a4, 32
+	vst	$vr5, $a4, 0
+	vst	$vr13, $a4, 48
+	vst	$vr12, $a4, 16
+	vst	$vr6, $a4, 96
+	vst	$vr7, $a4, 64
+	vst	$vr15, $a4, 112
+	vst	$vr14, $a4, 80
 	addi.d	$a6, $a6, -32
 	addi.d	$a5, $a5, 128
 	addi.d	$a4, $a4, 256
@@ -27085,7 +27782,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	move	$a0, $s5
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 56
+	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB66_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -27094,18 +27791,18 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 160
+	ld.d	$s8, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 128
 	ret
 .LBB66_23:
 .Ltmp1428:                              # EH_LABEL
@@ -27153,7 +27850,7 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 	jirl	$ra, $ra, 0
 .Ltmp1437:                              # EH_LABEL
 # %bb.28:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	ldx.d	$a1, $a0, $s4
 .Ltmp1438:                              # EH_LABEL
 	move	$a0, $s1
@@ -27194,10 +27891,10 @@ _Z61benchForTruncOrZextVecInLoopWithVW8From_uint32_t_To_uint64_t_RN9benchmark5St
 .Ltmp1427:                              # EH_LABEL
 .LBB66_36:
 	move	$s1, $a0
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s2, $sp, 56
+	ld.d	$s2, $sp, 24
 	beqz	$s2, .LBB66_38
 .LBB66_37:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
 	move	$a0, $s2
@@ -27267,19 +27964,27 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception67
 # %bb.0:
-	addi.d	$sp, $sp, -160
-	.cfi_def_cfa_offset 160
-	st.d	$ra, $sp, 152                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 72                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -192
+	.cfi_def_cfa_offset 192
+	st.d	$ra, $sp, 184                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 176                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s8, $sp, 104                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 96                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 72                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 64                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 40                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -27291,7 +27996,15 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
 	.cfi_offset 31, -88
-	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
+	.cfi_offset 56, -96
+	.cfi_offset 57, -104
+	.cfi_offset 58, -112
+	.cfi_offset 59, -120
+	.cfi_offset 60, -128
+	.cfi_offset 61, -136
+	.cfi_offset 62, -144
+	.cfi_offset 63, -152
+	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
 	lu12i.w	$s1, 9
 	ori	$s4, $s1, 3136
 	move	$a0, $s4
@@ -27307,12 +28020,12 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 .Ltmp1449:                              # EH_LABEL
 # %bb.1:                                # %.split
 	move	$s2, $a0
-	st.d	$a0, $sp, 56
+	st.d	$a0, $sp, 24
 .Ltmp1451:                              # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
 	jirl	$ra, $ra, 0
-	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
+	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 .Ltmp1452:                              # EH_LABEL
 # %bb.2:
 	ori	$s1, $s1, 3072
@@ -27321,15 +28034,15 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	add.d	$s8, $s2, $s7
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -1
-	st.d	$a0, $sp, 64
+	st.d	$a0, $sp, 32
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s5, $a0, %pc_lo12(_ZL3rng)
 	move	$s0, $zero
 	.p2align	4, , 16
 .LBB67_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1454:                              # EH_LABEL
-	addi.d	$a0, $sp, 64
-	addi.d	$a2, $sp, 64
+	addi.d	$a0, $sp, 32
+	addi.d	$a2, $sp, 32
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIjEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEjRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -27341,14 +28054,13 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	bne	$s0, $s4, .LBB67_3
 # %bb.5:                                # %vector.ph
 	move	$a0, $zero
-	vrepli.b	$vr3, 0
-	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB67_6:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ldx.d	$a2, $fp, $a0
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.w	$vr0, $vr3, $vr0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 8
 	addi.d	$a1, $a1, 16
@@ -27359,87 +28071,103 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	.p2align	4, , 16
 .LBB67_8:                               # %vector.body85
                                         # =>This Inner Loop Header: Depth=1
-	vldx	$vr0, $fp, $a0
 	add.d	$a2, $fp, $a0
+	vldx	$vr0, $fp, $a0
 	vld	$vr1, $a2, 48
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a1, -240
 	vld	$vr2, $a2, 32
-	vilvl.w	$vr0, $vr3, $vr0
+	vld	$vr3, $a2, 16
+	vld	$vr4, $a2, 112
+	vld	$vr5, $a2, 96
+	vld	$vr6, $a2, 80
+	vld	$vr7, $a2, 64
+	vld	$vr8, $a2, 176
+	vld	$vr9, $a2, 160
+	vld	$vr10, $a2, 144
+	vld	$vr11, $a2, 128
+	vld	$vr12, $a2, 240
+	vld	$vr13, $a2, 224
+	vld	$vr14, $a2, 208
+	vld	$vr15, $a2, 192
+	vshuf4i.w	$vr16, $vr3, 14
+	vsllwil.du.wu	$vr16, $vr16, 0
+	vshuf4i.w	$vr17, $vr2, 14
+	vsllwil.du.wu	$vr17, $vr17, 0
+	vshuf4i.w	$vr18, $vr1, 14
+	vsllwil.du.wu	$vr18, $vr18, 0
+	vshuf4i.w	$vr19, $vr0, 14
+	vsllwil.du.wu	$vr19, $vr19, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf4i.w	$vr20, $vr7, 14
+	vsllwil.du.wu	$vr20, $vr20, 0
+	vshuf4i.w	$vr21, $vr6, 14
+	vsllwil.du.wu	$vr21, $vr21, 0
+	vshuf4i.w	$vr22, $vr5, 14
+	vsllwil.du.wu	$vr22, $vr22, 0
+	vshuf4i.w	$vr23, $vr4, 14
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vshuf4i.w	$vr24, $vr11, 14
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vshuf4i.w	$vr25, $vr10, 14
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vshuf4i.w	$vr26, $vr9, 14
+	vsllwil.du.wu	$vr26, $vr26, 0
+	vshuf4i.w	$vr27, $vr8, 14
+	vsllwil.du.wu	$vr27, $vr27, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vshuf4i.w	$vr28, $vr15, 14
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vshuf4i.w	$vr29, $vr14, 14
+	vsllwil.du.wu	$vr29, $vr29, 0
+	vshuf4i.w	$vr30, $vr13, 14
+	vsllwil.du.wu	$vr30, $vr30, 0
+	vshuf4i.w	$vr31, $vr12, 14
+	vsllwil.du.wu	$vr31, $vr31, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
 	vst	$vr0, $a1, -256
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a1, -144
-	vld	$vr0, $a2, 16
-	vilvl.w	$vr1, $vr3, $vr1
 	vst	$vr1, $a1, -160
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a1, -176
-	vld	$vr1, $a2, 112
-	vilvl.w	$vr2, $vr3, $vr2
 	vst	$vr2, $a1, -192
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a1, -208
-	vld	$vr2, $a2, 96
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a1, -224
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a1, -16
-	vld	$vr0, $a2, 80
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a1, -32
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a1, -48
-	vld	$vr1, $a2, 64
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a1, -64
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a1, -80
-	vld	$vr2, $a2, 176
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a1, -96
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a1, -112
-	vld	$vr0, $a2, 160
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a1, -128
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a1, 112
-	vld	$vr1, $a2, 144
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a1, 96
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a1, 80
-	vld	$vr2, $a2, 128
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a1, 64
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a1, 48
-	vld	$vr0, $a2, 240
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a1, 32
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a1, 16
-	vld	$vr1, $a2, 224
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a1, 0
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a1, 240
-	vld	$vr2, $a2, 208
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a1, 224
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a1, 208
-	vld	$vr0, $a2, 192
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a1, 192
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a1, 176
-	vilvl.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a1, 160
-	vilvh.w	$vr1, $vr3, $vr0
-	vst	$vr1, $a1, 144
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a1, 128
+	vst	$vr3, $a1, -224
+	vst	$vr19, $a1, -240
+	vst	$vr18, $a1, -144
+	vst	$vr17, $a1, -176
+	vst	$vr16, $a1, -208
+	vst	$vr4, $a1, -32
+	vst	$vr5, $a1, -64
+	vst	$vr6, $a1, -96
+	vst	$vr7, $a1, -128
+	vst	$vr23, $a1, -16
+	vst	$vr22, $a1, -48
+	vst	$vr21, $a1, -80
+	vst	$vr20, $a1, -112
+	vst	$vr8, $a1, 96
+	vst	$vr9, $a1, 64
+	vst	$vr10, $a1, 32
+	vst	$vr11, $a1, 0
+	vst	$vr27, $a1, 112
+	vst	$vr26, $a1, 80
+	vst	$vr25, $a1, 48
+	vst	$vr24, $a1, 16
+	vst	$vr12, $a1, 224
+	vst	$vr13, $a1, 192
+	vst	$vr14, $a1, 160
+	vst	$vr15, $a1, 128
+	vst	$vr31, $a1, 240
+	vst	$vr30, $a1, 208
+	vst	$vr29, $a1, 176
+	vst	$vr28, $a1, 144
 	addi.d	$a0, $a0, 256
 	addi.d	$a1, $a1, 512
 	bne	$a0, $s1, .LBB67_8
@@ -27478,7 +28206,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	st.d	$a2, $s8, 112
 	st.d	$a3, $s8, 120
 	move	$s1, $fp
-	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 16                    # 8-byte Folded Reload
 	.p2align	4, , 16
 .LBB67_10:                              # %_ZL28truncOrZextVecInLoopWithVW16IjmEvPKT_PT0_i.exit.preheader
                                         # =>This Inner Loop Header: Depth=1
@@ -27491,8 +28219,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	addi.d	$s1, $s1, 4
 	bne	$s4, $s3, .LBB67_10
 # %bb.12:
-	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
-	ld.d	$s1, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 8                     # 8-byte Folded Reload
 	ld.w	$s0, $s1, 28
 	ld.d	$s2, $s1, 16
 .Ltmp1472:                              # EH_LABEL
@@ -27501,13 +28228,12 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	jirl	$ra, $ra, 0
 .Ltmp1473:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s0, .LBB67_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s2, .LBB67_19
 # %bb.15:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 128
-	addi.d	$a1, $sp, 56
+	addi.d	$a1, $sp, 24
 	lu12i.w	$a2, 2
 	ori	$a2, $a2, 1792
 	.p2align	4, , 16
@@ -27517,7 +28243,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a4, $sp, 56
+	ld.d	$a4, $sp, 24
 	add.d	$a3, $a4, $s7
 	addi.d	$a4, $a4, 256
 	move	$a5, $a0
@@ -27528,84 +28254,100 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr0, $a5, -80
 	vld	$vr1, $a5, -96
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a4, -144
 	vld	$vr2, $a5, -112
-	vilvl.w	$vr0, $vr3, $vr0
+	vld	$vr3, $a5, -128
+	vld	$vr4, $a5, -16
+	vld	$vr5, $a5, -32
+	vld	$vr6, $a5, -48
+	vld	$vr7, $a5, -64
+	vld	$vr8, $a5, 48
+	vld	$vr9, $a5, 32
+	vld	$vr10, $a5, 16
+	vld	$vr11, $a5, 0
+	vld	$vr12, $a5, 112
+	vld	$vr13, $a5, 96
+	vld	$vr14, $a5, 80
+	vld	$vr15, $a5, 64
+	vshuf4i.w	$vr16, $vr3, 14
+	vsllwil.du.wu	$vr16, $vr16, 0
+	vshuf4i.w	$vr17, $vr2, 14
+	vsllwil.du.wu	$vr17, $vr17, 0
+	vshuf4i.w	$vr18, $vr1, 14
+	vsllwil.du.wu	$vr18, $vr18, 0
+	vshuf4i.w	$vr19, $vr0, 14
+	vsllwil.du.wu	$vr19, $vr19, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf4i.w	$vr20, $vr7, 14
+	vsllwil.du.wu	$vr20, $vr20, 0
+	vshuf4i.w	$vr21, $vr6, 14
+	vsllwil.du.wu	$vr21, $vr21, 0
+	vshuf4i.w	$vr22, $vr5, 14
+	vsllwil.du.wu	$vr22, $vr22, 0
+	vshuf4i.w	$vr23, $vr4, 14
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vshuf4i.w	$vr24, $vr11, 14
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vshuf4i.w	$vr25, $vr10, 14
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vshuf4i.w	$vr26, $vr9, 14
+	vsllwil.du.wu	$vr26, $vr26, 0
+	vshuf4i.w	$vr27, $vr8, 14
+	vsllwil.du.wu	$vr27, $vr27, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vshuf4i.w	$vr28, $vr15, 14
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vshuf4i.w	$vr29, $vr14, 14
+	vsllwil.du.wu	$vr29, $vr29, 0
+	vshuf4i.w	$vr30, $vr13, 14
+	vsllwil.du.wu	$vr30, $vr30, 0
+	vshuf4i.w	$vr31, $vr12, 14
+	vsllwil.du.wu	$vr31, $vr31, 0
+	vsllwil.du.wu	$vr15, $vr15, 0
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
 	vst	$vr0, $a4, -160
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a4, -176
-	vld	$vr0, $a5, -128
-	vilvl.w	$vr1, $vr3, $vr1
 	vst	$vr1, $a4, -192
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a4, -208
-	vld	$vr1, $a5, -16
-	vilvl.w	$vr2, $vr3, $vr2
 	vst	$vr2, $a4, -224
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a4, -240
-	vld	$vr2, $a5, -32
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a4, -256
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a4, -16
-	vld	$vr0, $a5, -48
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a4, -32
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a4, -48
-	vld	$vr1, $a5, -64
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a4, -64
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a4, -80
-	vld	$vr2, $a5, 48
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a4, -96
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a4, -112
-	vld	$vr0, $a5, 32
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a4, -128
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a4, 112
-	vld	$vr1, $a5, 16
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a4, 96
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a4, 80
-	vld	$vr2, $a5, 0
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a4, 64
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a4, 48
-	vld	$vr0, $a5, 112
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a4, 32
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a4, 16
-	vld	$vr1, $a5, 96
-	vilvl.w	$vr2, $vr3, $vr2
-	vst	$vr2, $a4, 0
-	vilvh.w	$vr2, $vr3, $vr0
-	vst	$vr2, $a4, 240
-	vld	$vr2, $a5, 80
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a4, 224
-	vilvh.w	$vr0, $vr3, $vr1
-	vst	$vr0, $a4, 208
-	vld	$vr0, $a5, 64
-	vilvl.w	$vr1, $vr3, $vr1
-	vst	$vr1, $a4, 192
-	vilvh.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a4, 176
-	vilvl.w	$vr1, $vr3, $vr2
-	vst	$vr1, $a4, 160
-	vilvh.w	$vr1, $vr3, $vr0
-	vst	$vr1, $a4, 144
-	vilvl.w	$vr0, $vr3, $vr0
-	vst	$vr0, $a4, 128
+	vst	$vr3, $a4, -256
+	vst	$vr19, $a4, -144
+	vst	$vr18, $a4, -176
+	vst	$vr17, $a4, -208
+	vst	$vr16, $a4, -240
+	vst	$vr4, $a4, -32
+	vst	$vr5, $a4, -64
+	vst	$vr6, $a4, -96
+	vst	$vr7, $a4, -128
+	vst	$vr23, $a4, -16
+	vst	$vr22, $a4, -48
+	vst	$vr21, $a4, -80
+	vst	$vr20, $a4, -112
+	vst	$vr8, $a4, 96
+	vst	$vr9, $a4, 64
+	vst	$vr10, $a4, 32
+	vst	$vr11, $a4, 0
+	vst	$vr27, $a4, 112
+	vst	$vr26, $a4, 80
+	vst	$vr25, $a4, 48
+	vst	$vr24, $a4, 16
+	vst	$vr12, $a4, 224
+	vst	$vr13, $a4, 192
+	vst	$vr14, $a4, 160
+	vst	$vr15, $a4, 128
+	vst	$vr31, $a4, 240
+	vst	$vr30, $a4, 208
+	vst	$vr29, $a4, 176
+	vst	$vr28, $a4, 144
 	addi.d	$a6, $a6, -64
 	addi.d	$a5, $a5, 256
 	addi.d	$a4, $a4, 512
@@ -27656,7 +28398,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	move	$a0, $s5
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 56
+	ld.d	$a0, $sp, 24
 	beqz	$a0, .LBB67_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -27665,18 +28407,26 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s8, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 152                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 160
+	fld.d	$fs7, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 48                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 64                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 88                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 96                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 184                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 192
 	ret
 .LBB67_23:
 .Ltmp1457:                              # EH_LABEL
@@ -27724,7 +28474,7 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 	jirl	$ra, $ra, 0
 .Ltmp1466:                              # EH_LABEL
 # %bb.28:                               # %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	ldx.d	$a1, $a0, $s4
 .Ltmp1467:                              # EH_LABEL
 	move	$a0, $s1
@@ -27765,10 +28515,10 @@ _Z62benchForTruncOrZextVecInLoopWithVW16From_uint32_t_To_uint64_t_RN9benchmark5S
 .Ltmp1456:                              # EH_LABEL
 .LBB67_36:
 	move	$s1, $a0
-	ld.d	$a0, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s2, $sp, 56
+	ld.d	$s2, $sp, 24
 	beqz	$s2, .LBB67_38
 .LBB67_37:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
 	move	$a0, $s2
@@ -27838,17 +28588,17 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception68
 # %bb.0:
-	addi.d	$sp, $sp, -128
-	.cfi_def_cfa_offset 128
-	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 56                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -96
+	.cfi_def_cfa_offset 96
+	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 32                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 24                    # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -27874,7 +28624,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 .Ltmp1478:                              # EH_LABEL
 # %bb.1:
 	move	$s2, $a0
-	st.d	$a0, $sp, 40
+	st.d	$a0, $sp, 8
 .Ltmp1480:                              # EH_LABEL
 	move	$a0, $s3
 	pcaddu18i	$ra, %call36(_Znam)
@@ -27884,15 +28634,15 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	move	$s0, $a0
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -1
-	st.d	$a0, $sp, 48
+	st.d	$a0, $sp, 16
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s5, $a0, %pc_lo12(_ZL3rng)
 	move	$s6, $zero
 	.p2align	4, , 16
 .LBB68_3:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1483:                              # EH_LABEL
-	addi.d	$a0, $sp, 48
-	addi.d	$a2, $sp, 48
+	addi.d	$a0, $sp, 16
+	addi.d	$a2, $sp, 16
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIjEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEjRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -27904,14 +28654,13 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	bne	$s6, $s4, .LBB68_3
 # %bb.5:                                # %vector.ph
 	move	$a0, $zero
-	vrepli.b	$vr2, 0
 	move	$a1, $s0
 	.p2align	4, , 16
 .LBB68_6:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ldx.d	$a2, $fp, $a0
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.w	$vr0, $vr2, $vr0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vst	$vr0, $a1, 0
 	addi.d	$a0, $a0, 8
 	addi.d	$a1, $a1, 16
@@ -27927,8 +28676,8 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	ld.d	$a2, $a2, 8
 	vinsgr2vr.d	$vr0, $a3, 0
 	vinsgr2vr.d	$vr1, $a2, 0
-	vilvl.w	$vr0, $vr2, $vr0
-	vilvl.w	$vr1, $vr2, $vr1
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
 	vst	$vr0, $a1, -16
 	vst	$vr1, $a1, 0
 	addi.d	$a0, $a0, 16
@@ -27949,7 +28698,6 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	addi.d	$s5, $s5, 4
 	bne	$s4, $s3, .LBB68_10
 # %bb.12:
-	vst	$vr2, $sp, 16                   # 16-byte Folded Spill
 	ld.w	$s3, $s1, 28
 	ld.d	$s2, $s1, 16
 .Ltmp1501:                              # EH_LABEL
@@ -27958,13 +28706,12 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	jirl	$ra, $ra, 0
 .Ltmp1502:                              # EH_LABEL
 # %bb.13:                               # %_ZN9benchmark5State3endEv.exit.preheader
-	vld	$vr2, $sp, 16                   # 16-byte Folded Reload
 	bnez	$s3, .LBB68_19
 # %bb.14:                               # %_ZN9benchmark5State3endEv.exit.preheader
 	beqz	$s2, .LBB68_19
 # %bb.15:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 8
-	addi.d	$a1, $sp, 40
+	addi.d	$a1, $sp, 8
 	lu12i.w	$a2, 2
 	ori	$a2, $a2, 1808
 	.p2align	4, , 16
@@ -27974,7 +28721,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a3, $sp, 40
+	ld.d	$a3, $sp, 8
 	addi.d	$a3, $a3, 16
 	move	$a4, $a0
 	move	$a5, $a2
@@ -27986,8 +28733,8 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	ld.d	$a7, $a4, 0
 	vinsgr2vr.d	$vr0, $a6, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.w	$vr0, $vr2, $vr0
-	vilvl.w	$vr1, $vr2, $vr1
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
 	vst	$vr0, $a3, -16
 	vst	$vr1, $a3, 0
 	addi.d	$a5, $a5, -4
@@ -28008,7 +28755,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$a0, $sp, 40
+	ld.d	$a0, $sp, 8
 	beqz	$a0, .LBB68_22
 # %bb.21:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i38
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -28017,16 +28764,16 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s6, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 128
+	ld.d	$s6, $sp, 24                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 88                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 96
 	ret
 .LBB68_23:
 .Ltmp1486:                              # EH_LABEL
@@ -28117,7 +28864,7 @@ _Z54benchForTruncOrZextVecInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5StateE: #
 	move	$a0, $s0
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s2, $sp, 40
+	ld.d	$s2, $sp, 8
 	beqz	$s2, .LBB68_38
 .LBB68_37:                              # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i31
 	move	$a0, $s2
@@ -28192,18 +28939,26 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint32_t_To_uint64_t_RN9bench
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception69
 # %bb.0:
-	addi.d	$sp, $sp, -112
-	.cfi_def_cfa_offset 112
-	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
-	st.d	$s6, $sp, 40                    # 8-byte Folded Spill
-	st.d	$s7, $sp, 32                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -176
+	.cfi_def_cfa_offset 176
+	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 88                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 72                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 64                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 40                   # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 32                   # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -28214,6 +28969,14 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint32_t_To_uint64_t_RN9bench
 	.cfi_offset 28, -64
 	.cfi_offset 29, -72
 	.cfi_offset 30, -80
+	.cfi_offset 56, -88
+	.cfi_offset 57, -96
+	.cfi_offset 58, -104
+	.cfi_offset 59, -112
+	.cfi_offset 60, -120
+	.cfi_offset 61, -128
+	.cfi_offset 62, -136
+	.cfi_offset 63, -144
 	move	$s0, $a0
 	lu12i.w	$s4, 9
 	ori	$s3, $s4, 3136
@@ -28292,7 +29055,6 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint32_t_To_uint64_t_RN9bench
 	ori	$a2, $s6, 2048
 	lu12i.w	$a3, 2
 	ori	$a3, $a3, 1792
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB69_11:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -28309,78 +29071,86 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint32_t_To_uint64_t_RN9bench
 .LBB69_12:                              # %vector.body
                                         #   Parent Loop BB69_11 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr2, $a6, -64
-	vld	$vr3, $a6, -48
-	vld	$vr4, $a6, -32
-	vld	$vr5, $a6, -16
-	vld	$vr6, $a6, 0
-	vld	$vr7, $a6, 16
-	vld	$vr8, $a6, 32
-	vld	$vr1, $a6, 48
-	vilvl.w	$vr9, $vr0, $vr3
-	vilvh.w	$vr3, $vr0, $vr3
-	vilvl.w	$vr10, $vr0, $vr2
-	vilvh.w	$vr2, $vr0, $vr2
-	vilvl.w	$vr11, $vr0, $vr5
-	vilvh.w	$vr5, $vr0, $vr5
-	vilvl.w	$vr12, $vr0, $vr4
-	vilvh.w	$vr4, $vr0, $vr4
-	vilvl.w	$vr13, $vr0, $vr7
-	vilvh.w	$vr7, $vr0, $vr7
-	vilvl.w	$vr14, $vr0, $vr6
-	vilvh.w	$vr6, $vr0, $vr6
-	vilvl.w	$vr15, $vr0, $vr8
-	vld	$vr16, $a5, -112
-	vilvh.w	$vr8, $vr0, $vr8
+	vld	$vr0, $a6, -64
+	vld	$vr1, $a6, -48
+	vld	$vr2, $a6, -32
+	vld	$vr3, $a6, -16
+	vld	$vr4, $a6, 0
+	vld	$vr5, $a6, 16
+	vld	$vr6, $a6, 32
+	vld	$vr7, $a6, 48
+	vsllwil.du.wu	$vr8, $vr1, 0
+	vsllwil.du.wu	$vr9, $vr0, 0
+	vshuf4i.w	$vr1, $vr1, 14
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vshuf4i.w	$vr0, $vr0, 14
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr10, $vr3, 0
+	vsllwil.du.wu	$vr11, $vr2, 0
+	vshuf4i.w	$vr3, $vr3, 14
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vshuf4i.w	$vr2, $vr2, 14
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr12, $vr5, 0
+	vsllwil.du.wu	$vr13, $vr4, 0
+	vshuf4i.w	$vr5, $vr5, 14
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vshuf4i.w	$vr4, $vr4, 14
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr14, $vr7, 0
+	vsllwil.du.wu	$vr15, $vr6, 0
+	vshuf4i.w	$vr7, $vr7, 14
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vshuf4i.w	$vr6, $vr6, 14
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vld	$vr16, $a5, -96
 	vld	$vr17, $a5, -128
 	vld	$vr18, $a5, -80
-	vadd.d	$vr2, $vr16, $vr2
-	vld	$vr16, $a5, -96
-	vadd.d	$vr10, $vr17, $vr10
-	vld	$vr17, $a5, -48
-	vadd.d	$vr3, $vr18, $vr3
-	vld	$vr18, $a5, -64
-	vadd.d	$vr9, $vr16, $vr9
-	vld	$vr16, $a5, -16
-	vadd.d	$vr4, $vr17, $vr4
-	vld	$vr17, $a5, -32
-	vadd.d	$vr12, $vr18, $vr12
-	vld	$vr18, $a5, 16
-	vadd.d	$vr5, $vr16, $vr5
-	vld	$vr16, $a5, 0
-	vadd.d	$vr11, $vr17, $vr11
-	vld	$vr17, $a5, 48
-	vadd.d	$vr6, $vr18, $vr6
-	vld	$vr18, $a5, 32
-	vadd.d	$vr14, $vr16, $vr14
-	vld	$vr16, $a5, 80
-	vadd.d	$vr7, $vr17, $vr7
-	vld	$vr17, $a5, 64
-	vadd.d	$vr13, $vr18, $vr13
-	vld	$vr18, $a5, 112
+	vld	$vr19, $a5, -112
+	vld	$vr20, $a5, -32
+	vld	$vr21, $a5, -64
+	vld	$vr22, $a5, -16
+	vld	$vr23, $a5, -48
+	vld	$vr24, $a5, 32
+	vld	$vr25, $a5, 0
+	vld	$vr26, $a5, 48
+	vld	$vr27, $a5, 16
+	vld	$vr28, $a5, 96
+	vld	$vr29, $a5, 64
+	vld	$vr30, $a5, 112
+	vld	$vr31, $a5, 80
+	vadd.d	$vr0, $vr19, $vr0
+	vadd.d	$vr1, $vr18, $vr1
+	vadd.d	$vr9, $vr17, $vr9
 	vadd.d	$vr8, $vr16, $vr8
-	vld	$vr16, $a5, 96
-	vadd.d	$vr15, $vr17, $vr15
-	vilvh.w	$vr17, $vr0, $vr1
-	vadd.d	$vr17, $vr18, $vr17
-	vilvl.w	$vr1, $vr0, $vr1
-	vadd.d	$vr1, $vr16, $vr1
-	vst	$vr9, $a5, -96
-	vst	$vr3, $a5, -80
-	vst	$vr10, $a5, -128
-	vst	$vr2, $a5, -112
-	vst	$vr11, $a5, -32
-	vst	$vr5, $a5, -16
-	vst	$vr12, $a5, -64
-	vst	$vr4, $a5, -48
-	vst	$vr13, $a5, 32
-	vst	$vr7, $a5, 48
-	vst	$vr14, $a5, 0
-	vst	$vr6, $a5, 16
-	vst	$vr1, $a5, 96
-	vst	$vr17, $a5, 112
+	vadd.d	$vr2, $vr23, $vr2
+	vadd.d	$vr3, $vr22, $vr3
+	vadd.d	$vr11, $vr21, $vr11
+	vadd.d	$vr10, $vr20, $vr10
+	vadd.d	$vr4, $vr27, $vr4
+	vadd.d	$vr5, $vr26, $vr5
+	vadd.d	$vr13, $vr25, $vr13
+	vadd.d	$vr12, $vr24, $vr12
+	vadd.d	$vr6, $vr31, $vr6
+	vadd.d	$vr7, $vr30, $vr7
+	vadd.d	$vr15, $vr29, $vr15
+	vadd.d	$vr14, $vr28, $vr14
+	vst	$vr8, $a5, -96
+	vst	$vr9, $a5, -128
+	vst	$vr1, $a5, -80
+	vst	$vr0, $a5, -112
+	vst	$vr10, $a5, -32
+	vst	$vr11, $a5, -64
+	vst	$vr3, $a5, -16
+	vst	$vr2, $a5, -48
+	vst	$vr12, $a5, 32
+	vst	$vr13, $a5, 0
+	vst	$vr5, $a5, 48
+	vst	$vr4, $a5, 16
+	vst	$vr14, $a5, 96
 	vst	$vr15, $a5, 64
-	vst	$vr8, $a5, 80
+	vst	$vr7, $a5, 112
+	vst	$vr6, $a5, 80
 	addi.d	$a7, $a7, -32
 	addi.d	$a6, $a6, 128
 	addi.d	$a5, $a5, 256
@@ -28469,17 +29239,25 @@ _Z68benchForTruncOrZextVecWithAddInLoopWithVW8From_uint32_t_To_uint64_t_RN9bench
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 40                    # 8-byte Folded Reload
-	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 112
+	fld.d	$fs7, $sp, 32                   # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 48                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 64                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 80                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 88                   # 8-byte Folded Reload
+	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 176
 	ret
 .LBB69_18:
 .Ltmp1508:                              # EH_LABEL
@@ -28568,26 +29346,26 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 	.cfi_personality 155, DW.ref.__gxx_personality_v0
 	.cfi_lsda 27, .Lexception70
 # %bb.0:
-	addi.d	$sp, $sp, -288
-	.cfi_def_cfa_offset 288
-	st.d	$ra, $sp, 280                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 272                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 264                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 256                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 248                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 240                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 232                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 224                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 216                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 208                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 200                  # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 192                  # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 184                  # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 176                  # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 168                  # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 160                  # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 152                  # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 144                  # 8-byte Folded Spill
+	addi.d	$sp, $sp, -256
+	.cfi_def_cfa_offset 256
+	st.d	$ra, $sp, 248                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 240                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 232                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 224                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 216                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 208                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 200                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 192                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 184                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 176                   # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 168                  # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 160                  # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 152                  # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 144                  # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 136                  # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 128                  # 8-byte Folded Spill
+	fst.d	$fs6, $sp, 120                  # 8-byte Folded Spill
+	fst.d	$fs7, $sp, 112                  # 8-byte Folded Spill
 	.cfi_offset 1, -8
 	.cfi_offset 22, -16
 	.cfi_offset 23, -24
@@ -28624,18 +29402,18 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 	move	$s1, $a0
 	ori	$a0, $s4, 3072
 	add.d	$s5, $fp, $a0
-	st.d	$s1, $sp, 120
+	st.d	$s1, $sp, 88
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, -1
-	st.d	$a0, $sp, 128
+	st.d	$a0, $sp, 96
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s4, $a0, %pc_lo12(_ZL3rng)
 	move	$s7, $zero
 	.p2align	4, , 16
 .LBB70_2:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1523:                              # EH_LABEL
-	addi.d	$a0, $sp, 128
-	addi.d	$a2, $sp, 128
+	addi.d	$a0, $sp, 96
+	addi.d	$a2, $sp, 96
 	move	$a1, $s4
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionIjEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEjRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -28648,15 +29426,15 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 # %bb.4:
 	pcalau12i	$a0, %pc_hi20(.LCPI70_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI70_0)
-	vst	$vr0, $sp, 128
+	vst	$vr0, $sp, 96
 	pcalau12i	$a0, %pc_hi20(_ZL3rng)
 	addi.d	$s3, $a0, %pc_lo12(_ZL3rng)
 	move	$s4, $zero
 	.p2align	4, , 16
 .LBB70_5:                               # =>This Inner Loop Header: Depth=1
 .Ltmp1526:                              # EH_LABEL
-	addi.d	$a0, $sp, 128
-	addi.d	$a2, $sp, 128
+	addi.d	$a0, $sp, 96
+	addi.d	$a2, $sp, 96
 	move	$a1, $s3
 	pcaddu18i	$ra, %call36(_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE)
 	jirl	$ra, $ra, 0
@@ -28680,11 +29458,10 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 	beqz	$s1, .LBB70_14
 # %bb.10:                               # %.lr.ph.preheader
 	addi.d	$a0, $fp, 128
-	addi.d	$a1, $sp, 120
+	addi.d	$a1, $sp, 88
 	ori	$a2, $s6, 2048
 	lu12i.w	$a3, 2
 	ori	$a3, $a3, 1792
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB70_11:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -28692,7 +29469,7 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 	#APP
 	#NO_APP
 	#MEMBARRIER
-	ld.d	$a5, $sp, 120
+	ld.d	$a5, $sp, 88
 	add.d	$a4, $a5, $a2
 	addi.d	$a5, $a5, 256
 	move	$a6, $a0
@@ -28705,157 +29482,170 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 	vld	$vr5, $a6, -112
 	vld	$vr6, $a6, -96
 	vld	$vr7, $a6, -80
-	vld	$vr9, $a6, -64
-	vld	$vr11, $a6, -48
-	vld	$vr13, $a6, -32
-	vld	$vr10, $a6, -16
-	vld	$vr16, $a6, 0
-	vld	$vr17, $a6, 16
-	vld	$vr20, $a6, 32
-	vld	$vr22, $a6, 48
+	vld	$vr10, $a6, -64
+	vld	$vr14, $a6, -48
+	vld	$vr18, $a6, -32
+	vld	$vr17, $a6, -16
+	vld	$vr24, $a6, 0
+	vld	$vr21, $a6, 16
+	vld	$vr25, $a6, 32
+	vld	$vr29, $a6, 48
 	vld	$vr3, $a6, 64
 	vld	$vr2, $a6, 80
 	vld	$vr1, $a6, 96
-	vst	$vr1, $sp, 96                   # 16-byte Folded Spill
-	vilvl.w	$vr14, $vr0, $vr7
-	vilvh.w	$vr18, $vr0, $vr7
-	vilvl.w	$vr21, $vr0, $vr6
-	vilvh.w	$vr24, $vr0, $vr6
-	vilvl.w	$vr27, $vr0, $vr5
-	vilvh.w	$vr28, $vr0, $vr5
-	vilvl.w	$vr25, $vr0, $vr4
-	vilvh.w	$vr30, $vr0, $vr4
-	vilvl.w	$vr8, $vr0, $vr10
-	vilvh.w	$vr10, $vr0, $vr10
-	vilvl.w	$vr12, $vr0, $vr13
-	vilvh.w	$vr15, $vr0, $vr13
-	vilvl.w	$vr19, $vr0, $vr11
-	vilvh.w	$vr23, $vr0, $vr11
-	vilvl.w	$vr26, $vr0, $vr9
-	vilvh.w	$vr29, $vr0, $vr9
-	vilvl.w	$vr4, $vr0, $vr22
-	vst	$vr4, $sp, 64                   # 16-byte Folded Spill
-	vilvh.w	$vr6, $vr0, $vr22
-	vilvl.w	$vr7, $vr0, $vr20
-	vilvh.w	$vr9, $vr0, $vr20
-	vilvl.w	$vr4, $vr0, $vr17
-	vilvh.w	$vr5, $vr0, $vr17
-	vilvl.w	$vr17, $vr0, $vr16
-	vilvh.w	$vr20, $vr0, $vr16
-	vilvh.w	$vr1, $vr0, $vr1
-	vst	$vr1, $sp, 80                   # 16-byte Folded Spill
-	vld	$vr22, $a5, -240
-	vilvh.w	$vr16, $vr0, $vr2
-	vld	$vr31, $a5, -256
-	vld	$vr1, $a5, -208
-	vadd.d	$vr11, $vr22, $vr30
-	vst	$vr11, $sp, 48                  # 16-byte Folded Spill
-	vld	$vr30, $a5, -224
-	vadd.d	$vr11, $vr31, $vr25
-	vst	$vr11, $sp, 32                  # 16-byte Folded Spill
+	vld	$vr8, $a6, 112
+	vsllwil.du.wu	$vr9, $vr7, 0
+	vsllwil.du.wu	$vr12, $vr6, 0
+	vsllwil.du.wu	$vr15, $vr5, 0
+	vsllwil.du.wu	$vr16, $vr4, 0
+	vshuf4i.w	$vr7, $vr7, 14
+	vsllwil.du.wu	$vr19, $vr7, 0
+	vshuf4i.w	$vr6, $vr6, 14
+	vsllwil.du.wu	$vr22, $vr6, 0
+	vshuf4i.w	$vr5, $vr5, 14
+	vsllwil.du.wu	$vr27, $vr5, 0
+	vshuf4i.w	$vr4, $vr4, 14
+	vsllwil.du.wu	$vr26, $vr4, 0
+	vsllwil.du.wu	$vr6, $vr17, 0
+	vsllwil.du.wu	$vr5, $vr18, 0
+	vsllwil.du.wu	$vr11, $vr14, 0
+	vsllwil.du.wu	$vr13, $vr10, 0
+	vshuf4i.w	$vr4, $vr17, 14
+	vsllwil.du.wu	$vr17, $vr4, 0
+	vshuf4i.w	$vr4, $vr18, 14
+	vsllwil.du.wu	$vr20, $vr4, 0
+	vshuf4i.w	$vr4, $vr14, 14
+	vsllwil.du.wu	$vr23, $vr4, 0
+	vshuf4i.w	$vr4, $vr10, 14
+	vsllwil.du.wu	$vr28, $vr4, 0
+	vsllwil.du.wu	$vr0, $vr29, 0
+	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
+	vsllwil.du.wu	$vr4, $vr25, 0
+	vsllwil.du.wu	$vr7, $vr21, 0
+	vsllwil.du.wu	$vr10, $vr24, 0
+	vshuf4i.w	$vr14, $vr29, 14
+	vsllwil.du.wu	$vr14, $vr14, 0
+	vshuf4i.w	$vr18, $vr25, 14
+	vsllwil.du.wu	$vr18, $vr18, 0
+	vshuf4i.w	$vr21, $vr21, 14
+	vsllwil.du.wu	$vr21, $vr21, 0
+	vshuf4i.w	$vr24, $vr24, 14
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vshuf4i.w	$vr25, $vr2, 14
+	vld	$vr29, $a5, -240
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vld	$vr30, $a5, -208
 	vld	$vr31, $a5, -176
-	vadd.d	$vr1, $vr1, $vr28
-	vst	$vr1, $sp, 16                   # 16-byte Folded Spill
-	vld	$vr1, $a5, -192
-	vadd.d	$vr27, $vr30, $vr27
-	vld	$vr30, $a5, -144
-	vadd.d	$vr24, $vr31, $vr24
-	vld	$vr31, $a5, -160
-	vadd.d	$vr22, $vr1, $vr21
-	vld	$vr21, $a5, -112
-	vadd.d	$vr18, $vr30, $vr18
-	vld	$vr30, $a5, -128
-	vadd.d	$vr31, $vr31, $vr14
-	vld	$vr14, $a5, -80
-	vadd.d	$vr25, $vr21, $vr29
-	vld	$vr29, $a5, -96
-	vadd.d	$vr26, $vr30, $vr26
-	vld	$vr30, $a5, -48
-	vadd.d	$vr21, $vr14, $vr23
-	vld	$vr23, $a5, -64
-	vadd.d	$vr19, $vr29, $vr19
-	vld	$vr29, $a5, -16
-	vadd.d	$vr15, $vr30, $vr15
-	vld	$vr30, $a5, -32
-	vadd.d	$vr13, $vr23, $vr12
-	vld	$vr23, $a5, 16
-	vadd.d	$vr11, $vr29, $vr10
-	vld	$vr29, $a5, 0
-	vadd.d	$vr8, $vr30, $vr8
-	vld	$vr30, $a5, 48
-	vadd.d	$vr20, $vr23, $vr20
-	vld	$vr23, $a5, 32
-	vadd.d	$vr17, $vr29, $vr17
-	vld	$vr29, $a5, 80
-	vadd.d	$vr14, $vr30, $vr5
-	vld	$vr30, $a5, 64
-	vadd.d	$vr12, $vr23, $vr4
-	vld	$vr23, $a5, 112
-	vadd.d	$vr9, $vr29, $vr9
-	vld	$vr29, $a5, 96
-	vadd.d	$vr7, $vr30, $vr7
-	vld	$vr30, $a5, 144
-	vadd.d	$vr6, $vr23, $vr6
-	vilvh.w	$vr23, $vr0, $vr3
-	vld	$vr1, $sp, 64                   # 16-byte Folded Reload
-	vadd.d	$vr5, $vr29, $vr1
-	vld	$vr29, $a5, 128
-	vadd.d	$vr23, $vr30, $vr23
-	vld	$vr30, $a5, 176
-	vilvl.w	$vr3, $vr0, $vr3
-	vadd.d	$vr10, $vr29, $vr3
-	vld	$vr29, $a5, 160
+	vadd.d	$vr0, $vr29, $vr26
+	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
+	vld	$vr29, $a5, -144
+	vadd.d	$vr0, $vr30, $vr27
+	vst	$vr0, $sp, 32                   # 16-byte Folded Spill
+	vld	$vr30, $a5, -256
+	vadd.d	$vr0, $vr31, $vr22
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	vld	$vr31, $a5, -224
+	vadd.d	$vr22, $vr29, $vr19
+	vld	$vr29, $a5, -192
 	vadd.d	$vr16, $vr30, $vr16
-	vld	$vr30, $a5, 208
-	vilvl.w	$vr2, $vr0, $vr2
-	vadd.d	$vr4, $vr29, $vr2
-	vld	$vr29, $a5, 192
-	vld	$vr1, $sp, 80                   # 16-byte Folded Reload
-	vadd.d	$vr30, $vr30, $vr1
-	vld	$vr1, $a6, 112
-	vld	$vr2, $sp, 96                   # 16-byte Folded Reload
-	vilvl.w	$vr2, $vr0, $vr2
-	vld	$vr3, $a5, 240
-	vadd.d	$vr2, $vr29, $vr2
-	vld	$vr29, $a5, 224
-	vilvh.w	$vr28, $vr0, $vr1
-	vadd.d	$vr3, $vr3, $vr28
-	vilvl.w	$vr1, $vr0, $vr1
-	vadd.d	$vr1, $vr29, $vr1
-	vst	$vr31, $a5, -160
-	vst	$vr18, $a5, -144
-	vst	$vr22, $a5, -192
-	vst	$vr24, $a5, -176
-	vst	$vr27, $a5, -224
-	vld	$vr18, $sp, 16                  # 16-byte Folded Reload
-	vst	$vr18, $a5, -208
-	vld	$vr18, $sp, 32                  # 16-byte Folded Reload
-	vst	$vr18, $a5, -256
-	vld	$vr18, $sp, 48                  # 16-byte Folded Reload
-	vst	$vr18, $a5, -240
-	vst	$vr8, $a5, -32
-	vst	$vr11, $a5, -16
-	vst	$vr13, $a5, -64
-	vst	$vr15, $a5, -48
-	vst	$vr19, $a5, -96
-	vst	$vr21, $a5, -80
-	vst	$vr26, $a5, -128
-	vst	$vr25, $a5, -112
-	vst	$vr5, $a5, 96
-	vst	$vr6, $a5, 112
-	vst	$vr7, $a5, 64
-	vst	$vr9, $a5, 80
-	vst	$vr12, $a5, 32
-	vst	$vr14, $a5, 48
-	vst	$vr17, $a5, 0
+	vld	$vr30, $a5, -160
+	vadd.d	$vr15, $vr31, $vr15
+	vld	$vr31, $a5, -112
+	vadd.d	$vr29, $vr29, $vr12
+	vld	$vr12, $a5, -80
+	vadd.d	$vr30, $vr30, $vr9
+	vld	$vr0, $a5, -48
+	vadd.d	$vr27, $vr31, $vr28
+	vld	$vr28, $a5, -16
+	vadd.d	$vr19, $vr12, $vr23
+	vld	$vr23, $a5, -128
+	vadd.d	$vr12, $vr0, $vr20
+	vld	$vr20, $a5, -96
+	vadd.d	$vr17, $vr28, $vr17
+	vld	$vr28, $a5, -64
+	vadd.d	$vr13, $vr23, $vr13
+	vld	$vr23, $a5, -32
+	vadd.d	$vr11, $vr20, $vr11
+	vld	$vr20, $a5, 16
+	vadd.d	$vr9, $vr28, $vr5
+	vld	$vr28, $a5, 48
+	vadd.d	$vr6, $vr23, $vr6
+	vld	$vr23, $a5, 80
+	vadd.d	$vr20, $vr20, $vr24
+	vld	$vr24, $a5, 112
+	vadd.d	$vr21, $vr28, $vr21
+	vld	$vr28, $a5, 0
+	vadd.d	$vr18, $vr23, $vr18
+	vld	$vr23, $a5, 32
+	vadd.d	$vr14, $vr24, $vr14
+	vld	$vr24, $a5, 64
+	vadd.d	$vr10, $vr28, $vr10
+	vld	$vr28, $a5, 96
+	vadd.d	$vr7, $vr23, $vr7
+	vshuf4i.w	$vr23, $vr3, 14
+	vadd.d	$vr5, $vr24, $vr4
+	vld	$vr24, $a5, 144
+	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
+	vadd.d	$vr28, $vr28, $vr0
+	vld	$vr31, $a5, 176
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vadd.d	$vr23, $vr24, $vr23
+	vld	$vr24, $a5, 208
+	vadd.d	$vr25, $vr31, $vr25
+	vshuf4i.w	$vr31, $vr1, 14
+	vsllwil.du.wu	$vr31, $vr31, 0
+	vadd.d	$vr24, $vr24, $vr31
+	vld	$vr31, $a5, 240
+	vori.b	$vr0, $vr8, 0
+	vshuf4i.w	$vr8, $vr8, 14
+	vsllwil.du.wu	$vr8, $vr8, 0
+	vld	$vr26, $a5, 128
+	vadd.d	$vr8, $vr31, $vr8
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vld	$vr31, $a5, 160
+	vadd.d	$vr4, $vr26, $vr3
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vld	$vr3, $a5, 192
+	vadd.d	$vr2, $vr31, $vr2
+	vld	$vr31, $a5, 224
+	vsllwil.du.wu	$vr26, $vr1, 0
+	vadd.d	$vr3, $vr3, $vr26
+	vsllwil.du.wu	$vr26, $vr0, 0
+	vadd.d	$vr26, $vr31, $vr26
+	vst	$vr30, $a5, -160
+	vst	$vr29, $a5, -192
+	vst	$vr15, $a5, -224
+	vst	$vr16, $a5, -256
+	vst	$vr22, $a5, -144
+	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
+	vst	$vr0, $a5, -176
+	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
+	vst	$vr0, $a5, -208
+	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
+	vst	$vr0, $a5, -240
+	vst	$vr6, $a5, -32
+	vst	$vr9, $a5, -64
+	vst	$vr11, $a5, -96
+	vst	$vr13, $a5, -128
+	vst	$vr17, $a5, -16
+	vst	$vr12, $a5, -48
+	vst	$vr19, $a5, -80
+	vst	$vr27, $a5, -112
+	vst	$vr28, $a5, 96
+	vst	$vr5, $a5, 64
+	vst	$vr7, $a5, 32
+	vst	$vr10, $a5, 0
+	vst	$vr14, $a5, 112
+	vst	$vr18, $a5, 80
+	vst	$vr21, $a5, 48
 	vst	$vr20, $a5, 16
-	vst	$vr1, $a5, 224
-	vst	$vr3, $a5, 240
-	vst	$vr2, $a5, 192
-	vst	$vr30, $a5, 208
-	vst	$vr4, $a5, 160
-	vst	$vr16, $a5, 176
-	vst	$vr10, $a5, 128
+	vst	$vr26, $a5, 224
+	vst	$vr3, $a5, 192
+	vst	$vr2, $a5, 160
+	vst	$vr4, $a5, 128
+	vst	$vr8, $a5, 240
+	vst	$vr24, $a5, 208
+	vst	$vr25, $a5, 176
 	vst	$vr23, $a5, 144
 	addi.d	$a7, $a7, -64
 	addi.d	$a6, $a6, 256
@@ -28936,7 +29726,7 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 	jirl	$ra, $ra, 0
 .Ltmp1532:                              # EH_LABEL
 # %bb.15:                               # %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit22
-	ld.d	$a0, $sp, 120
+	ld.d	$a0, $sp, 88
 	beqz	$a0, .LBB70_17
 # %bb.16:                               # %_ZNKSt14default_deleteIA_mEclImEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i24
 	pcaddu18i	$ra, %call36(_ZdaPv)
@@ -28945,25 +29735,25 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZdaPv)
 	jirl	$ra, $ra, 0
-	fld.d	$fs7, $sp, 144                  # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 152                  # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 160                  # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 168                  # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 176                  # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 184                  # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 192                  # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 200                  # 8-byte Folded Reload
-	ld.d	$s7, $sp, 208                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 216                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 224                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 232                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 240                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 248                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 256                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 264                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 272                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 280                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 288
+	fld.d	$fs7, $sp, 112                  # 8-byte Folded Reload
+	fld.d	$fs6, $sp, 120                  # 8-byte Folded Reload
+	fld.d	$fs5, $sp, 128                  # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 136                  # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 144                  # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 152                  # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 160                  # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 168                  # 8-byte Folded Reload
+	ld.d	$s7, $sp, 176                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 184                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 216                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 224                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 232                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 240                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 248                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 256
 	ret
 .LBB70_18:
 .Ltmp1522:                              # EH_LABEL
@@ -28976,7 +29766,7 @@ _Z69benchForTruncOrZextVecWithAddInLoopWithVW16From_uint32_t_To_uint64_t_RN9benc
 	jirl	$ra, $ra, 0
 .LBB70_19:
 .Ltmp1533:                              # EH_LABEL
-	ld.d	$s1, $sp, 120
+	ld.d	$s1, $sp, 88
 	move	$s0, $a0
 	bnez	$s1, .LBB70_23
 	b	.LBB70_24
@@ -29145,7 +29935,6 @@ _Z61benchForTruncOrZextVecWithAddInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5St
 	addi.d	$a1, $sp, 8
 	lu12i.w	$a2, 2
 	ori	$a2, $a2, 1808
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB71_11:                              # %.lr.ph
                                         # =>This Loop Header: Depth=1
@@ -29163,16 +29952,16 @@ _Z61benchForTruncOrZextVecWithAddInLoopFrom_uint32_t_To_uint64_t_RN9benchmark5St
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a6, $a4, -8
 	ld.d	$a7, $a4, 0
-	vinsgr2vr.d	$vr1, $a6, 0
-	vinsgr2vr.d	$vr2, $a7, 0
-	vld	$vr3, $a3, -16
-	vld	$vr4, $a3, 0
-	vilvl.w	$vr1, $vr0, $vr1
-	vilvl.w	$vr2, $vr0, $vr2
+	vinsgr2vr.d	$vr0, $a6, 0
+	vinsgr2vr.d	$vr1, $a7, 0
+	vld	$vr2, $a3, -16
+	vld	$vr3, $a3, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vadd.d	$vr0, $vr2, $vr0
 	vadd.d	$vr1, $vr3, $vr1
-	vadd.d	$vr2, $vr4, $vr2
-	vst	$vr1, $a3, -16
-	vst	$vr2, $a3, 0
+	vst	$vr0, $a3, -16
+	vst	$vr1, $a3, 0
 	addi.d	$a5, $a5, -4
 	addi.d	$a3, $a3, 32
 	addi.d	$a4, $a4, 16

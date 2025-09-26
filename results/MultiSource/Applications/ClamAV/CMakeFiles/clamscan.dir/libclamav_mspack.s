@@ -11680,13 +11680,12 @@ mszip_make_decode_table:                # @mszip_make_decode_table
 	st.d	$a4, $sp, 24                    # 8-byte Folded Spill
 	st.d	$a0, $sp, 16                    # 8-byte Folded Spill
 	bstrpick.d	$a4, $a0, 15, 0
+	pcalau12i	$t2, %pc_hi20(.LCPI16_0)
+	vld	$vr0, $t2, %pc_lo12(.LCPI16_0)
+	pcalau12i	$t2, %pc_hi20(.LCPI16_1)
+	vld	$vr1, $t2, %pc_lo12(.LCPI16_1)
 	addi.w	$t2, $zero, -1
-	pcalau12i	$t3, %pc_hi20(.LCPI16_0)
-	vld	$vr0, $t3, %pc_lo12(.LCPI16_0)
-	pcalau12i	$t3, %pc_hi20(.LCPI16_1)
-	vld	$vr1, $t3, %pc_lo12(.LCPI16_1)
 	ori	$t3, $zero, 16
-	vrepli.b	$vr2, 0
 	ori	$t7, $zero, 1
 	st.d	$t4, $sp, 8                     # 8-byte Folded Spill
 	st.d	$a1, $sp, 32                    # 8-byte Folded Spill
@@ -11720,11 +11719,11 @@ mszip_make_decode_table:                # @mszip_make_decode_table
 	slli.w	$s1, $s1, 3
 	mul.d	$a1, $s1, $t7
 	slli.d	$s3, $t7, 3
-	vreplgr2vr.w	$vr3, $s3
+	vreplgr2vr.w	$vr2, $s3
 	andi	$s3, $t4, 7
-	vreplgr2vr.w	$vr5, $t7
-	vmul.w	$vr4, $vr5, $vr0
-	vmul.w	$vr5, $vr5, $vr1
+	vreplgr2vr.w	$vr4, $t7
+	vmul.w	$vr3, $vr4, $vr0
+	vmul.w	$vr4, $vr4, $vr1
 	b	.LBB16_4
 	.p2align	4, , 16
 .LBB16_3:                               # %.loopexit140
@@ -11789,34 +11788,36 @@ mszip_make_decode_table:                # @mszip_make_decode_table
 .LBB16_12:                              # %vector.ph
                                         #   in Loop: Header=BB16_4 Depth=2
 	add.w	$s4, $s6, $a1
-	vreplgr2vr.w	$vr7, $s6
-	vadd.w	$vr6, $vr7, $vr4
-	vadd.w	$vr7, $vr7, $vr5
+	vreplgr2vr.w	$vr6, $s6
+	vadd.w	$vr5, $vr6, $vr3
+	vadd.w	$vr6, $vr6, $vr4
 	move	$s6, $s1
 	.p2align	4, , 16
 .LBB16_13:                              # %vector.body
                                         #   Parent Loop BB16_2 Depth=1
                                         #     Parent Loop BB16_4 Depth=2
                                         # =>    This Inner Loop Header: Depth=3
-	vilvh.w	$vr8, $vr2, $vr6
-	vilvl.w	$vr9, $vr2, $vr6
-	vilvh.w	$vr10, $vr2, $vr7
-	vilvl.w	$vr11, $vr2, $vr7
-	vpickve2gr.d	$s7, $vr11, 0
+	vshuf4i.w	$vr7, $vr5, 14
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr8, $vr5, 0
+	vshuf4i.w	$vr9, $vr6, 14
+	vsllwil.du.wu	$vr9, $vr9, 0
+	vsllwil.du.wu	$vr10, $vr6, 0
+	vpickve2gr.d	$s7, $vr10, 0
 	slli.d	$s7, $s7, 1
-	vpickve2gr.d	$s8, $vr11, 1
+	vpickve2gr.d	$s8, $vr10, 1
 	slli.d	$s8, $s8, 1
-	vpickve2gr.d	$ra, $vr10, 0
+	vpickve2gr.d	$ra, $vr9, 0
 	slli.d	$ra, $ra, 1
-	vpickve2gr.d	$a6, $vr10, 1
+	vpickve2gr.d	$a6, $vr9, 1
 	slli.d	$a6, $a6, 1
-	vpickve2gr.d	$a0, $vr9, 0
+	vpickve2gr.d	$a0, $vr8, 0
 	slli.d	$a0, $a0, 1
-	vpickve2gr.d	$t0, $vr9, 1
+	vpickve2gr.d	$t0, $vr8, 1
 	slli.d	$t0, $t0, 1
-	vpickve2gr.d	$t1, $vr8, 0
+	vpickve2gr.d	$t1, $vr7, 0
 	slli.d	$t1, $t1, 1
-	vpickve2gr.d	$s2, $vr8, 1
+	vpickve2gr.d	$s2, $vr7, 1
 	slli.d	$s2, $s2, 1
 	stx.h	$t6, $a3, $s7
 	stx.h	$t6, $a3, $s8
@@ -11826,9 +11827,9 @@ mszip_make_decode_table:                # @mszip_make_decode_table
 	stx.h	$t6, $a3, $t0
 	stx.h	$t6, $a3, $t1
 	stx.h	$t6, $a3, $s2
-	vadd.w	$vr7, $vr7, $vr3
+	vadd.w	$vr6, $vr6, $vr2
 	addi.w	$s6, $s6, -8
-	vadd.w	$vr6, $vr6, $vr3
+	vadd.w	$vr5, $vr5, $vr2
 	bnez	$s6, .LBB16_13
 # %bb.14:                               # %middle.block
                                         #   in Loop: Header=BB16_4 Depth=2

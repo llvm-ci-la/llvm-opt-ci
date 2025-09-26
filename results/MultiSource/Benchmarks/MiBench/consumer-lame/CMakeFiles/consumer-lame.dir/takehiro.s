@@ -529,59 +529,52 @@ choose_table_short:                     # @choose_table_short
 	vinsgr2vr.w	$vr1, $a6, 0
 	addi.d	$t5, $t5, 16
 	move	$t6, $t4
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB1_18:                               # %vector.body168
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $t5, -16
-	vld	$vr4, $t5, 0
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vpickve2gr.d	$t7, $vr3, 0
-	vpickve2gr.d	$t8, $vr3, 1
-	vpickve2gr.d	$fp, $vr5, 0
-	vpickve2gr.d	$s0, $vr5, 1
-	vpickve2gr.d	$s1, $vr4, 0
-	vpickve2gr.d	$s2, $vr4, 1
-	vpickve2gr.d	$s3, $vr6, 0
-	vpickve2gr.d	$s4, $vr6, 1
+	vld	$vr2, $t5, -16
+	vld	$vr3, $t5, 0
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vpickve2gr.d	$t7, $vr2, 0
+	vpickve2gr.d	$t8, $vr2, 1
+	vpickve2gr.d	$fp, $vr4, 0
+	vpickve2gr.d	$s0, $vr4, 1
+	vpickve2gr.d	$s1, $vr3, 0
+	vpickve2gr.d	$s2, $vr3, 1
+	vpickve2gr.d	$s3, $vr5, 0
+	vpickve2gr.d	$s4, $vr5, 1
 	ldx.b	$t7, $t1, $t7
 	ldx.b	$t8, $t1, $t8
 	ldx.b	$fp, $t1, $fp
 	ldx.b	$s0, $t1, $s0
-	vinsgr2vr.b	$vr3, $t7, 0
-	vinsgr2vr.b	$vr3, $t8, 1
-	vinsgr2vr.b	$vr3, $fp, 2
-	vinsgr2vr.b	$vr3, $s0, 3
+	vinsgr2vr.b	$vr2, $t7, 0
+	vinsgr2vr.b	$vr2, $t8, 1
+	vinsgr2vr.b	$vr2, $fp, 2
+	vinsgr2vr.b	$vr2, $s0, 3
 	ldx.b	$t7, $t1, $s1
 	ldx.b	$t8, $t1, $s2
 	ldx.b	$fp, $t1, $s3
 	ldx.b	$s0, $t1, $s4
-	vinsgr2vr.b	$vr4, $t7, 0
-	vinsgr2vr.b	$vr4, $t8, 1
-	vinsgr2vr.b	$vr4, $fp, 2
-	vinsgr2vr.b	$vr4, $s0, 3
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.b	$vr3, $t7, 0
+	vinsgr2vr.b	$vr3, $t8, 1
+	vinsgr2vr.b	$vr3, $fp, 2
+	vinsgr2vr.b	$vr3, $s0, 3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$t6, $t6, -8
 	addi.d	$t5, $t5, 32
 	bnez	$t6, .LBB1_18
 # %bb.19:                               # %middle.block177
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$t5, $vr0, 0
@@ -657,59 +650,52 @@ choose_table_short:                     # @choose_table_short
 	vinsgr2vr.w	$vr1, $a6, 0
 	addi.d	$a6, $t2, 16
 	move	$t2, $t1
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB1_24:                               # %vector.body190
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a6, -16
-	vld	$vr4, $a6, 0
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vpickve2gr.d	$t3, $vr3, 0
-	vpickve2gr.d	$t4, $vr3, 1
-	vpickve2gr.d	$t5, $vr5, 0
-	vpickve2gr.d	$t6, $vr5, 1
-	vpickve2gr.d	$t7, $vr4, 0
-	vpickve2gr.d	$t8, $vr4, 1
-	vpickve2gr.d	$fp, $vr6, 0
-	vpickve2gr.d	$s0, $vr6, 1
+	vld	$vr2, $a6, -16
+	vld	$vr3, $a6, 0
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vpickve2gr.d	$t3, $vr2, 0
+	vpickve2gr.d	$t4, $vr2, 1
+	vpickve2gr.d	$t5, $vr4, 0
+	vpickve2gr.d	$t6, $vr4, 1
+	vpickve2gr.d	$t7, $vr3, 0
+	vpickve2gr.d	$t8, $vr3, 1
+	vpickve2gr.d	$fp, $vr5, 0
+	vpickve2gr.d	$s0, $vr5, 1
 	ldx.b	$t3, $a7, $t3
 	ldx.b	$t4, $a7, $t4
 	ldx.b	$t5, $a7, $t5
 	ldx.b	$t6, $a7, $t6
-	vinsgr2vr.b	$vr3, $t3, 0
-	vinsgr2vr.b	$vr3, $t4, 1
-	vinsgr2vr.b	$vr3, $t5, 2
-	vinsgr2vr.b	$vr3, $t6, 3
+	vinsgr2vr.b	$vr2, $t3, 0
+	vinsgr2vr.b	$vr2, $t4, 1
+	vinsgr2vr.b	$vr2, $t5, 2
+	vinsgr2vr.b	$vr2, $t6, 3
 	ldx.b	$t3, $a7, $t7
 	ldx.b	$t4, $a7, $t8
 	ldx.b	$t5, $a7, $fp
 	ldx.b	$t6, $a7, $s0
-	vinsgr2vr.b	$vr4, $t3, 0
-	vinsgr2vr.b	$vr4, $t4, 1
-	vinsgr2vr.b	$vr4, $t5, 2
-	vinsgr2vr.b	$vr4, $t6, 3
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.b	$vr3, $t3, 0
+	vinsgr2vr.b	$vr3, $t4, 1
+	vinsgr2vr.b	$vr3, $t5, 2
+	vinsgr2vr.b	$vr3, $t6, 3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$t2, $t2, -8
 	addi.d	$a6, $a6, 32
 	bnez	$t2, .LBB1_24
 # %bb.25:                               # %middle.block199
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a6, $vr0, 0
@@ -1005,59 +991,52 @@ choose_table_short:                     # @choose_table_short
 	vinsgr2vr.w	$vr1, $a6, 0
 	addi.d	$a6, $t0, 16
 	move	$t0, $a7
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB1_65:                               # %vector.body148
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a6, -16
-	vld	$vr4, $a6, 0
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vpickve2gr.d	$t1, $vr3, 0
-	vpickve2gr.d	$t2, $vr3, 1
-	vpickve2gr.d	$t3, $vr5, 0
-	vpickve2gr.d	$t4, $vr5, 1
-	vpickve2gr.d	$t5, $vr4, 0
-	vpickve2gr.d	$t6, $vr4, 1
-	vpickve2gr.d	$t7, $vr6, 0
-	vpickve2gr.d	$t8, $vr6, 1
+	vld	$vr2, $a6, -16
+	vld	$vr3, $a6, 0
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vpickve2gr.d	$t1, $vr2, 0
+	vpickve2gr.d	$t2, $vr2, 1
+	vpickve2gr.d	$t3, $vr4, 0
+	vpickve2gr.d	$t4, $vr4, 1
+	vpickve2gr.d	$t5, $vr3, 0
+	vpickve2gr.d	$t6, $vr3, 1
+	vpickve2gr.d	$t7, $vr5, 0
+	vpickve2gr.d	$t8, $vr5, 1
 	ldx.b	$t1, $a5, $t1
 	ldx.b	$t2, $a5, $t2
 	ldx.b	$t3, $a5, $t3
 	ldx.b	$t4, $a5, $t4
-	vinsgr2vr.b	$vr3, $t1, 0
-	vinsgr2vr.b	$vr3, $t2, 1
-	vinsgr2vr.b	$vr3, $t3, 2
-	vinsgr2vr.b	$vr3, $t4, 3
+	vinsgr2vr.b	$vr2, $t1, 0
+	vinsgr2vr.b	$vr2, $t2, 1
+	vinsgr2vr.b	$vr2, $t3, 2
+	vinsgr2vr.b	$vr2, $t4, 3
 	ldx.b	$t1, $a5, $t5
 	ldx.b	$t2, $a5, $t6
 	ldx.b	$t3, $a5, $t7
 	ldx.b	$t4, $a5, $t8
-	vinsgr2vr.b	$vr4, $t1, 0
-	vinsgr2vr.b	$vr4, $t2, 1
-	vinsgr2vr.b	$vr4, $t3, 2
-	vinsgr2vr.b	$vr4, $t4, 3
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.b	$vr3, $t1, 0
+	vinsgr2vr.b	$vr3, $t2, 1
+	vinsgr2vr.b	$vr3, $t3, 2
+	vinsgr2vr.b	$vr3, $t4, 3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$t0, $t0, -8
 	addi.d	$a6, $a6, 32
 	bnez	$t0, .LBB1_65
 # %bb.66:                               # %middle.block156
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a6, $vr0, 0
@@ -1951,59 +1930,52 @@ choose_table:                           # @choose_table
 	vinsgr2vr.w	$vr1, $a5, 0
 	addi.d	$t4, $t4, 16
 	move	$t5, $t3
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB3_18:                               # %vector.body207
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $t4, -16
-	vld	$vr4, $t4, 0
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vpickve2gr.d	$t6, $vr3, 0
-	vpickve2gr.d	$t7, $vr3, 1
-	vpickve2gr.d	$t8, $vr5, 0
-	vpickve2gr.d	$fp, $vr5, 1
-	vpickve2gr.d	$s0, $vr4, 0
-	vpickve2gr.d	$s1, $vr4, 1
-	vpickve2gr.d	$s2, $vr6, 0
-	vpickve2gr.d	$s3, $vr6, 1
+	vld	$vr2, $t4, -16
+	vld	$vr3, $t4, 0
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vpickve2gr.d	$t6, $vr2, 0
+	vpickve2gr.d	$t7, $vr2, 1
+	vpickve2gr.d	$t8, $vr4, 0
+	vpickve2gr.d	$fp, $vr4, 1
+	vpickve2gr.d	$s0, $vr3, 0
+	vpickve2gr.d	$s1, $vr3, 1
+	vpickve2gr.d	$s2, $vr5, 0
+	vpickve2gr.d	$s3, $vr5, 1
 	ldx.b	$t6, $t0, $t6
 	ldx.b	$t7, $t0, $t7
 	ldx.b	$t8, $t0, $t8
 	ldx.b	$fp, $t0, $fp
-	vinsgr2vr.b	$vr3, $t6, 0
-	vinsgr2vr.b	$vr3, $t7, 1
-	vinsgr2vr.b	$vr3, $t8, 2
-	vinsgr2vr.b	$vr3, $fp, 3
+	vinsgr2vr.b	$vr2, $t6, 0
+	vinsgr2vr.b	$vr2, $t7, 1
+	vinsgr2vr.b	$vr2, $t8, 2
+	vinsgr2vr.b	$vr2, $fp, 3
 	ldx.b	$t6, $t0, $s0
 	ldx.b	$t7, $t0, $s1
 	ldx.b	$t8, $t0, $s2
 	ldx.b	$fp, $t0, $s3
-	vinsgr2vr.b	$vr4, $t6, 0
-	vinsgr2vr.b	$vr4, $t7, 1
-	vinsgr2vr.b	$vr4, $t8, 2
-	vinsgr2vr.b	$vr4, $fp, 3
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.b	$vr3, $t6, 0
+	vinsgr2vr.b	$vr3, $t7, 1
+	vinsgr2vr.b	$vr3, $t8, 2
+	vinsgr2vr.b	$vr3, $fp, 3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$t5, $t5, -8
 	addi.d	$t4, $t4, 32
 	bnez	$t5, .LBB3_18
 # %bb.19:                               # %middle.block216
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$t4, $vr0, 0
@@ -2057,59 +2029,52 @@ choose_table:                           # @choose_table
 	vinsgr2vr.w	$vr1, $a5, 0
 	addi.d	$a5, $t2, 16
 	move	$t2, $t1
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB3_25:                               # %vector.body227
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a5, -16
-	vld	$vr4, $a5, 0
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vpickve2gr.d	$t3, $vr3, 0
-	vpickve2gr.d	$t4, $vr3, 1
-	vpickve2gr.d	$t5, $vr5, 0
-	vpickve2gr.d	$t6, $vr5, 1
-	vpickve2gr.d	$t7, $vr4, 0
-	vpickve2gr.d	$t8, $vr4, 1
-	vpickve2gr.d	$fp, $vr6, 0
-	vpickve2gr.d	$s0, $vr6, 1
+	vld	$vr2, $a5, -16
+	vld	$vr3, $a5, 0
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vpickve2gr.d	$t3, $vr2, 0
+	vpickve2gr.d	$t4, $vr2, 1
+	vpickve2gr.d	$t5, $vr4, 0
+	vpickve2gr.d	$t6, $vr4, 1
+	vpickve2gr.d	$t7, $vr3, 0
+	vpickve2gr.d	$t8, $vr3, 1
+	vpickve2gr.d	$fp, $vr5, 0
+	vpickve2gr.d	$s0, $vr5, 1
 	ldx.b	$t3, $a6, $t3
 	ldx.b	$t4, $a6, $t4
 	ldx.b	$t5, $a6, $t5
 	ldx.b	$t6, $a6, $t6
-	vinsgr2vr.b	$vr3, $t3, 0
-	vinsgr2vr.b	$vr3, $t4, 1
-	vinsgr2vr.b	$vr3, $t5, 2
-	vinsgr2vr.b	$vr3, $t6, 3
+	vinsgr2vr.b	$vr2, $t3, 0
+	vinsgr2vr.b	$vr2, $t4, 1
+	vinsgr2vr.b	$vr2, $t5, 2
+	vinsgr2vr.b	$vr2, $t6, 3
 	ldx.b	$t3, $a6, $t7
 	ldx.b	$t4, $a6, $t8
 	ldx.b	$t5, $a6, $fp
 	ldx.b	$t6, $a6, $s0
-	vinsgr2vr.b	$vr4, $t3, 0
-	vinsgr2vr.b	$vr4, $t4, 1
-	vinsgr2vr.b	$vr4, $t5, 2
-	vinsgr2vr.b	$vr4, $t6, 3
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.b	$vr3, $t3, 0
+	vinsgr2vr.b	$vr3, $t4, 1
+	vinsgr2vr.b	$vr3, $t5, 2
+	vinsgr2vr.b	$vr3, $t6, 3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$t2, $t2, -8
 	addi.d	$a5, $a5, 32
 	bnez	$t2, .LBB3_25
 # %bb.26:                               # %middle.block236
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a5, $vr0, 0
@@ -2223,16 +2188,15 @@ choose_table:                           # @choose_table
 	vreplgr2vr.w	$vr0, $a6
 	vreplgr2vr.w	$vr1, $a7
 	addi.d	$a0, $a0, 32
-	vrepli.b	$vr2, 0
-	vrepli.w	$vr3, 14
-	vrepli.w	$vr4, 15
+	vrepli.b	$vr8, 0
+	vrepli.w	$vr2, 14
+	vrepli.w	$vr3, 15
 	move	$t4, $t3
-	vori.b	$vr9, $vr2, 0
-	vori.b	$vr10, $vr2, 0
-	vori.b	$vr7, $vr2, 0
-	vori.b	$vr8, $vr2, 0
-	vori.b	$vr6, $vr2, 0
-	vori.b	$vr5, $vr2, 0
+	vori.b	$vr9, $vr8, 0
+	vori.b	$vr6, $vr8, 0
+	vori.b	$vr7, $vr8, 0
+	vori.b	$vr5, $vr8, 0
+	vori.b	$vr4, $vr8, 0
 	.p2align	4, , 16
 .LBB3_49:                               # %vector.body141
                                         # =>This Inner Loop Header: Depth=1
@@ -2240,149 +2204,143 @@ choose_table:                           # @choose_table
 	ld.w	$t6, $a0, -24
 	ld.w	$t7, $a0, -16
 	ld.w	$t8, $a0, -8
-	vinsgr2vr.w	$vr11, $t5, 0
-	vinsgr2vr.w	$vr11, $t6, 1
-	vinsgr2vr.w	$vr11, $t7, 2
-	vinsgr2vr.w	$vr11, $t8, 3
+	vinsgr2vr.w	$vr10, $t5, 0
+	vinsgr2vr.w	$vr10, $t6, 1
+	vinsgr2vr.w	$vr10, $t7, 2
+	vinsgr2vr.w	$vr10, $t8, 3
 	ld.w	$t5, $a0, 0
 	ld.w	$t6, $a0, 8
 	ld.w	$t7, $a0, 16
 	ld.w	$t8, $a0, 24
-	vinsgr2vr.w	$vr12, $t5, 0
-	vinsgr2vr.w	$vr12, $t6, 1
-	vinsgr2vr.w	$vr12, $t7, 2
-	vinsgr2vr.w	$vr12, $t8, 3
+	vinsgr2vr.w	$vr11, $t5, 0
+	vinsgr2vr.w	$vr11, $t6, 1
+	vinsgr2vr.w	$vr11, $t7, 2
+	vinsgr2vr.w	$vr11, $t8, 3
 	ld.w	$t5, $a0, -28
 	ld.w	$t6, $a0, -20
 	ld.w	$t7, $a0, -12
 	ld.w	$t8, $a0, -4
-	vinsgr2vr.w	$vr13, $t5, 0
-	vinsgr2vr.w	$vr13, $t6, 1
-	vinsgr2vr.w	$vr13, $t7, 2
-	vinsgr2vr.w	$vr13, $t8, 3
+	vinsgr2vr.w	$vr12, $t5, 0
+	vinsgr2vr.w	$vr12, $t6, 1
+	vinsgr2vr.w	$vr12, $t7, 2
+	vinsgr2vr.w	$vr12, $t8, 3
 	ld.w	$t5, $a0, 4
 	ld.w	$t6, $a0, 12
 	ld.w	$t7, $a0, 20
 	ld.w	$t8, $a0, 28
-	vinsgr2vr.w	$vr14, $t5, 0
-	vinsgr2vr.w	$vr14, $t6, 1
-	vinsgr2vr.w	$vr14, $t7, 2
-	vinsgr2vr.w	$vr14, $t8, 3
-	vslt.w	$vr15, $vr3, $vr11
-	vslt.w	$vr16, $vr3, $vr12
+	vinsgr2vr.w	$vr13, $t5, 0
+	vinsgr2vr.w	$vr13, $t6, 1
+	vinsgr2vr.w	$vr13, $t7, 2
+	vinsgr2vr.w	$vr13, $t8, 3
+	vslt.w	$vr14, $vr2, $vr10
+	vslt.w	$vr15, $vr2, $vr11
+	vmini.w	$vr16, $vr10, 15
 	vmini.w	$vr17, $vr11, 15
-	vmini.w	$vr18, $vr12, 15
+	vslli.w	$vr16, $vr16, 4
 	vslli.w	$vr17, $vr17, 4
-	vslli.w	$vr18, $vr18, 4
-	vseqi.w	$vr11, $vr11, 0
-	vadd.w	$vr6, $vr6, $vr11
-	vseqi.w	$vr11, $vr13, 0
-	vadd.w	$vr6, $vr6, $vr11
-	vseqi.w	$vr11, $vr12, 0
-	vadd.w	$vr5, $vr5, $vr11
-	vseqi.w	$vr11, $vr14, 0
-	vadd.w	$vr5, $vr5, $vr11
-	vand.v	$vr11, $vr15, $vr0
-	vadd.w	$vr7, $vr7, $vr11
-	vand.v	$vr11, $vr16, $vr0
-	vadd.w	$vr8, $vr8, $vr11
-	vand.v	$vr11, $vr15, $vr1
-	vadd.w	$vr9, $vr9, $vr11
-	vand.v	$vr11, $vr16, $vr1
-	vadd.w	$vr10, $vr10, $vr11
-	vslt.w	$vr11, $vr3, $vr13
-	vslt.w	$vr12, $vr3, $vr14
-	vbitsel.v	$vr13, $vr13, $vr4, $vr11
-	vbitsel.v	$vr14, $vr14, $vr4, $vr12
+	vseqi.w	$vr10, $vr10, 0
+	vadd.w	$vr5, $vr5, $vr10
+	vseqi.w	$vr10, $vr12, 0
+	vadd.w	$vr5, $vr5, $vr10
+	vseqi.w	$vr10, $vr11, 0
+	vadd.w	$vr4, $vr4, $vr10
+	vseqi.w	$vr10, $vr13, 0
+	vadd.w	$vr4, $vr4, $vr10
+	vand.v	$vr10, $vr14, $vr0
+	vadd.w	$vr6, $vr6, $vr10
+	vand.v	$vr10, $vr15, $vr0
+	vadd.w	$vr7, $vr7, $vr10
+	vand.v	$vr10, $vr14, $vr1
+	vadd.w	$vr8, $vr8, $vr10
+	vand.v	$vr10, $vr15, $vr1
+	vadd.w	$vr9, $vr9, $vr10
+	vslt.w	$vr10, $vr2, $vr12
+	vslt.w	$vr11, $vr2, $vr13
+	vbitsel.v	$vr12, $vr12, $vr3, $vr10
+	vbitsel.v	$vr13, $vr13, $vr3, $vr11
+	vadd.w	$vr12, $vr16, $vr12
 	vadd.w	$vr13, $vr17, $vr13
-	vadd.w	$vr14, $vr18, $vr14
-	vaddi.wu	$vr6, $vr6, 2
 	vaddi.wu	$vr5, $vr5, 2
-	vand.v	$vr15, $vr11, $vr0
-	vadd.w	$vr7, $vr7, $vr15
-	vand.v	$vr15, $vr12, $vr0
-	vadd.w	$vr8, $vr8, $vr15
-	vand.v	$vr11, $vr11, $vr1
-	vadd.w	$vr9, $vr9, $vr11
-	vand.v	$vr11, $vr12, $vr1
-	vadd.w	$vr10, $vr10, $vr11
-	vshuf4i.w	$vr11, $vr13, 50
-	vslli.d	$vr11, $vr11, 32
-	vsrai.d	$vr11, $vr11, 32
-	vshuf4i.w	$vr12, $vr13, 16
-	vslli.d	$vr12, $vr12, 32
-	vsrai.d	$vr12, $vr12, 32
-	vshuf4i.w	$vr13, $vr14, 50
-	vslli.d	$vr13, $vr13, 32
-	vsrai.d	$vr13, $vr13, 32
-	vshuf4i.w	$vr14, $vr14, 16
-	vslli.d	$vr14, $vr14, 32
-	vsrai.d	$vr14, $vr14, 32
-	vpickve2gr.d	$t5, $vr12, 0
-	vpickve2gr.d	$t6, $vr12, 1
-	vpickve2gr.d	$t7, $vr11, 0
-	vpickve2gr.d	$t8, $vr11, 1
-	vpickve2gr.d	$fp, $vr14, 0
-	vpickve2gr.d	$s0, $vr14, 1
-	vpickve2gr.d	$s1, $vr13, 0
-	vpickve2gr.d	$s2, $vr13, 1
+	vaddi.wu	$vr4, $vr4, 2
+	vand.v	$vr14, $vr10, $vr0
+	vadd.w	$vr6, $vr6, $vr14
+	vand.v	$vr14, $vr11, $vr0
+	vadd.w	$vr7, $vr7, $vr14
+	vand.v	$vr10, $vr10, $vr1
+	vadd.w	$vr8, $vr8, $vr10
+	vand.v	$vr10, $vr11, $vr1
+	vadd.w	$vr9, $vr9, $vr10
+	vshuf4i.w	$vr10, $vr12, 14
+	vsllwil.d.w	$vr10, $vr10, 0
+	vsllwil.d.w	$vr11, $vr12, 0
+	vshuf4i.w	$vr12, $vr13, 14
+	vsllwil.d.w	$vr12, $vr12, 0
+	vsllwil.d.w	$vr13, $vr13, 0
+	vpickve2gr.d	$t5, $vr11, 0
+	vpickve2gr.d	$t6, $vr11, 1
+	vpickve2gr.d	$t7, $vr10, 0
+	vpickve2gr.d	$t8, $vr10, 1
+	vpickve2gr.d	$fp, $vr13, 0
+	vpickve2gr.d	$s0, $vr13, 1
+	vpickve2gr.d	$s1, $vr12, 0
+	vpickve2gr.d	$s2, $vr12, 1
 	ldx.b	$s3, $t0, $t5
 	ldx.b	$s4, $t0, $t6
 	ldx.b	$s5, $t0, $t7
 	ldx.b	$s6, $t0, $t8
-	vinsgr2vr.b	$vr11, $s3, 0
-	vinsgr2vr.b	$vr11, $s4, 1
-	vinsgr2vr.b	$vr11, $s5, 2
-	vinsgr2vr.b	$vr11, $s6, 3
+	vinsgr2vr.b	$vr10, $s3, 0
+	vinsgr2vr.b	$vr10, $s4, 1
+	vinsgr2vr.b	$vr10, $s5, 2
+	vinsgr2vr.b	$vr10, $s6, 3
 	ldx.b	$s3, $t0, $fp
 	ldx.b	$s4, $t0, $s0
 	ldx.b	$s5, $t0, $s1
 	ldx.b	$s6, $t0, $s2
-	vinsgr2vr.b	$vr12, $s3, 0
-	vinsgr2vr.b	$vr12, $s4, 1
-	vinsgr2vr.b	$vr12, $s5, 2
-	vinsgr2vr.b	$vr12, $s6, 3
-	vilvl.b	$vr11, $vr2, $vr11
-	vilvl.h	$vr11, $vr2, $vr11
-	vilvl.b	$vr12, $vr2, $vr12
-	vilvl.h	$vr12, $vr2, $vr12
+	vinsgr2vr.b	$vr11, $s3, 0
+	vinsgr2vr.b	$vr11, $s4, 1
+	vinsgr2vr.b	$vr11, $s5, 2
+	vinsgr2vr.b	$vr11, $s6, 3
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vadd.w	$vr6, $vr6, $vr10
 	vadd.w	$vr7, $vr7, $vr11
-	vadd.w	$vr8, $vr8, $vr12
 	ldx.b	$t5, $t1, $t5
 	ldx.b	$t6, $t1, $t6
 	ldx.b	$t7, $t1, $t7
 	ldx.b	$t8, $t1, $t8
-	vinsgr2vr.b	$vr11, $t5, 0
-	vinsgr2vr.b	$vr11, $t6, 1
-	vinsgr2vr.b	$vr11, $t7, 2
-	vinsgr2vr.b	$vr11, $t8, 3
+	vinsgr2vr.b	$vr10, $t5, 0
+	vinsgr2vr.b	$vr10, $t6, 1
+	vinsgr2vr.b	$vr10, $t7, 2
+	vinsgr2vr.b	$vr10, $t8, 3
 	ldx.b	$t5, $t1, $fp
 	ldx.b	$t6, $t1, $s0
 	ldx.b	$t7, $t1, $s1
 	ldx.b	$t8, $t1, $s2
-	vinsgr2vr.b	$vr12, $t5, 0
-	vinsgr2vr.b	$vr12, $t6, 1
-	vinsgr2vr.b	$vr12, $t7, 2
-	vinsgr2vr.b	$vr12, $t8, 3
-	vilvl.b	$vr11, $vr2, $vr11
-	vilvl.h	$vr11, $vr2, $vr11
-	vilvl.b	$vr12, $vr2, $vr12
-	vilvl.h	$vr12, $vr2, $vr12
+	vinsgr2vr.b	$vr11, $t5, 0
+	vinsgr2vr.b	$vr11, $t6, 1
+	vinsgr2vr.b	$vr11, $t7, 2
+	vinsgr2vr.b	$vr11, $t8, 3
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vadd.w	$vr8, $vr8, $vr10
 	vadd.w	$vr9, $vr9, $vr11
-	vadd.w	$vr10, $vr10, $vr12
 	addi.d	$t4, $t4, -8
 	addi.d	$a0, $a0, 64
 	bnez	$t4, .LBB3_49
 # %bb.50:                               # %middle.block174
-	vadd.w	$vr0, $vr10, $vr9
+	vadd.w	$vr0, $vr9, $vr8
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$t5, $vr0, 0
-	vadd.w	$vr0, $vr8, $vr7
+	vadd.w	$vr0, $vr7, $vr6
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$t6, $vr0, 0
-	vadd.w	$vr0, $vr5, $vr6
+	vadd.w	$vr0, $vr4, $vr5
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$t4, $vr0, 0
@@ -2490,59 +2448,52 @@ choose_table:                           # @choose_table
 	vinsgr2vr.w	$vr1, $a5, 0
 	addi.d	$a5, $t0, 16
 	move	$t0, $a7
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB3_63:                               # %vector.body188
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a5, -16
-	vld	$vr4, $a5, 0
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vpickve2gr.d	$t1, $vr3, 0
-	vpickve2gr.d	$t2, $vr3, 1
-	vpickve2gr.d	$t3, $vr5, 0
-	vpickve2gr.d	$t4, $vr5, 1
-	vpickve2gr.d	$t5, $vr4, 0
-	vpickve2gr.d	$t6, $vr4, 1
-	vpickve2gr.d	$t7, $vr6, 0
-	vpickve2gr.d	$t8, $vr6, 1
+	vld	$vr2, $a5, -16
+	vld	$vr3, $a5, 0
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vpickve2gr.d	$t1, $vr2, 0
+	vpickve2gr.d	$t2, $vr2, 1
+	vpickve2gr.d	$t3, $vr4, 0
+	vpickve2gr.d	$t4, $vr4, 1
+	vpickve2gr.d	$t5, $vr3, 0
+	vpickve2gr.d	$t6, $vr3, 1
+	vpickve2gr.d	$t7, $vr5, 0
+	vpickve2gr.d	$t8, $vr5, 1
 	ldx.b	$t1, $a3, $t1
 	ldx.b	$t2, $a3, $t2
 	ldx.b	$t3, $a3, $t3
 	ldx.b	$t4, $a3, $t4
-	vinsgr2vr.b	$vr3, $t1, 0
-	vinsgr2vr.b	$vr3, $t2, 1
-	vinsgr2vr.b	$vr3, $t3, 2
-	vinsgr2vr.b	$vr3, $t4, 3
+	vinsgr2vr.b	$vr2, $t1, 0
+	vinsgr2vr.b	$vr2, $t2, 1
+	vinsgr2vr.b	$vr2, $t3, 2
+	vinsgr2vr.b	$vr2, $t4, 3
 	ldx.b	$t1, $a3, $t5
 	ldx.b	$t2, $a3, $t6
 	ldx.b	$t3, $a3, $t7
 	ldx.b	$t4, $a3, $t8
-	vinsgr2vr.b	$vr4, $t1, 0
-	vinsgr2vr.b	$vr4, $t2, 1
-	vinsgr2vr.b	$vr4, $t3, 2
-	vinsgr2vr.b	$vr4, $t4, 3
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.b	$vr3, $t1, 0
+	vinsgr2vr.b	$vr3, $t2, 1
+	vinsgr2vr.b	$vr3, $t3, 2
+	vinsgr2vr.b	$vr3, $t4, 3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$t0, $t0, -8
 	addi.d	$a5, $a5, 32
 	bnez	$t0, .LBB3_63
 # %bb.64:                               # %middle.block196
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a5, $vr0, 0

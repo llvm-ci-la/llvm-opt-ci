@@ -3927,9 +3927,7 @@ restriction_betas:                      # @restriction_betas
                                         # =>      This Inner Loop Header: Depth=4
 	vadd.w	$vr8, $vr6, $vr7
 	vslli.w	$vr8, $vr8, 1
-	vshuf4i.w	$vr9, $vr8, 16
-	vslli.d	$vr9, $vr9, 32
-	vsrai.d	$vr9, $vr9, 32
+	vsllwil.d.w	$vr9, $vr8, 0
 	vpickve2gr.d	$a1, $vr9, 0
 	slli.d	$a1, $a1, 3
 	vpickve2gr.d	$t0, $vr9, 1
@@ -3937,9 +3935,7 @@ restriction_betas:                      # @restriction_betas
 	fldx.d	$ft1, $s1, $a1
 	fldx.d	$ft2, $s1, $t0
 	vadd.w	$vr11, $vr8, $vr3
-	vshuf4i.w	$vr11, $vr11, 16
-	vslli.d	$vr11, $vr11, 32
-	vsrai.d	$vr11, $vr11, 32
+	vsllwil.d.w	$vr11, $vr11, 0
 	vpickve2gr.d	$a1, $vr11, 0
 	slli.d	$a1, $a1, 3
 	vpickve2gr.d	$t0, $vr11, 1
@@ -3949,9 +3945,7 @@ restriction_betas:                      # @restriction_betas
 	vextrins.d	$vr9, $vr10, 16
 	vextrins.d	$vr11, $vr12, 16
 	vadd.w	$vr10, $vr8, $vr4
-	vshuf4i.w	$vr10, $vr10, 16
-	vslli.d	$vr10, $vr10, 32
-	vsrai.d	$vr10, $vr10, 32
+	vsllwil.d.w	$vr10, $vr10, 0
 	vpickve2gr.d	$a1, $vr10, 0
 	slli.d	$a1, $a1, 3
 	vpickve2gr.d	$t0, $vr10, 1
@@ -3959,9 +3953,7 @@ restriction_betas:                      # @restriction_betas
 	fldx.d	$ft2, $s1, $a1
 	fldx.d	$ft4, $s1, $t0
 	vadd.w	$vr8, $vr8, $vr5
-	vshuf4i.w	$vr8, $vr8, 16
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
+	vsllwil.d.w	$vr8, $vr8, 0
 	vpickve2gr.d	$a1, $vr8, 0
 	slli.d	$a1, $a1, 3
 	vpickve2gr.d	$t0, $vr8, 1
@@ -4219,9 +4211,7 @@ restriction_betas:                      # @restriction_betas
                                         # =>      This Inner Loop Header: Depth=4
 	vadd.w	$vr6, $vr4, $vr5
 	vslli.w	$vr6, $vr6, 1
-	vshuf4i.w	$vr7, $vr6, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
+	vsllwil.d.w	$vr7, $vr6, 0
 	vpickve2gr.d	$a0, $vr7, 0
 	slli.d	$a0, $a0, 3
 	vpickve2gr.d	$a1, $vr7, 1
@@ -4229,9 +4219,7 @@ restriction_betas:                      # @restriction_betas
 	fldx.d	$fa7, $s1, $a0
 	fldx.d	$ft0, $s1, $a1
 	vbitseti.w	$vr9, $vr6, 0
-	vshuf4i.w	$vr10, $vr9, 16
-	vslli.d	$vr10, $vr10, 32
-	vsrai.d	$vr10, $vr10, 32
+	vsllwil.d.w	$vr10, $vr9, 0
 	vpickve2gr.d	$a0, $vr10, 0
 	slli.d	$a0, $a0, 3
 	vpickve2gr.d	$a1, $vr10, 1
@@ -4241,9 +4229,7 @@ restriction_betas:                      # @restriction_betas
 	vextrins.d	$vr7, $vr8, 16
 	vextrins.d	$vr10, $vr11, 16
 	vadd.w	$vr6, $vr6, $vr3
-	vshuf4i.w	$vr6, $vr6, 16
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
+	vsllwil.d.w	$vr6, $vr6, 0
 	vpickve2gr.d	$a0, $vr6, 0
 	slli.d	$a0, $a0, 3
 	vpickve2gr.d	$a1, $vr6, 1
@@ -4251,9 +4237,7 @@ restriction_betas:                      # @restriction_betas
 	fldx.d	$fa6, $s1, $a0
 	fldx.d	$ft0, $s1, $a1
 	vadd.w	$vr9, $vr9, $vr3
-	vshuf4i.w	$vr9, $vr9, 16
-	vslli.d	$vr9, $vr9, 32
-	vsrai.d	$vr9, $vr9, 32
+	vsllwil.d.w	$vr9, $vr9, 0
 	vpickve2gr.d	$a0, $vr9, 0
 	slli.d	$a0, $a0, 3
 	vpickve2gr.d	$a1, $vr9, 1
@@ -4511,9 +4495,7 @@ restriction_betas:                      # @restriction_betas
                                         # =>      This Inner Loop Header: Depth=4
 	vadd.w	$vr6, $vr4, $vr5
 	vslli.w	$vr6, $vr6, 1
-	vshuf4i.w	$vr7, $vr6, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
+	vsllwil.d.w	$vr7, $vr6, 0
 	vpickve2gr.d	$a0, $vr7, 0
 	slli.d	$a0, $a0, 3
 	vpickve2gr.d	$a1, $vr7, 1
@@ -4521,9 +4503,7 @@ restriction_betas:                      # @restriction_betas
 	fldx.d	$fa7, $s1, $a0
 	fldx.d	$ft0, $s1, $a1
 	vbitseti.w	$vr9, $vr6, 0
-	vshuf4i.w	$vr10, $vr9, 16
-	vslli.d	$vr10, $vr10, 32
-	vsrai.d	$vr10, $vr10, 32
+	vsllwil.d.w	$vr10, $vr9, 0
 	vpickve2gr.d	$a0, $vr10, 0
 	slli.d	$a0, $a0, 3
 	vpickve2gr.d	$a1, $vr10, 1
@@ -4533,9 +4513,7 @@ restriction_betas:                      # @restriction_betas
 	vextrins.d	$vr7, $vr8, 16
 	vextrins.d	$vr10, $vr11, 16
 	vadd.w	$vr6, $vr6, $vr3
-	vshuf4i.w	$vr6, $vr6, 16
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
+	vsllwil.d.w	$vr6, $vr6, 0
 	vpickve2gr.d	$a0, $vr6, 0
 	slli.d	$a0, $a0, 3
 	vpickve2gr.d	$a1, $vr6, 1
@@ -4543,9 +4521,7 @@ restriction_betas:                      # @restriction_betas
 	fldx.d	$fa6, $s1, $a0
 	fldx.d	$ft0, $s1, $a1
 	vadd.w	$vr9, $vr9, $vr3
-	vshuf4i.w	$vr9, $vr9, 16
-	vslli.d	$vr9, $vr9, 32
-	vsrai.d	$vr9, $vr9, 32
+	vsllwil.d.w	$vr9, $vr9, 0
 	vpickve2gr.d	$a0, $vr9, 0
 	slli.d	$a0, $a0, 3
 	vpickve2gr.d	$a1, $vr9, 1
@@ -5411,21 +5387,21 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
 	add.d	$a1, $a0, $a1
 	ld.w	$a0, $a1, 44
 	ld.w	$a2, $a1, 28
-	sub.w	$s1, $zero, $a0
+	sub.w	$a3, $zero, $a0
 	st.d	$a2, $sp, 120                   # 8-byte Folded Spill
 	add.w	$a2, $a2, $a0
 	st.d	$a2, $sp, 112                   # 8-byte Folded Spill
-	bge	$s1, $a2, .LBB12_2
+	bge	$a3, $a2, .LBB12_2
 # %bb.4:                                # %.preheader78.lr.ph
                                         #   in Loop: Header=BB12_3 Depth=1
 	ld.w	$t2, $a1, 24
 	add.w	$t3, $t2, $a0
-	bge	$s1, $t3, .LBB12_2
+	bge	$a3, $t3, .LBB12_2
 # %bb.5:                                # %.preheader78.lr.ph
                                         #   in Loop: Header=BB12_3 Depth=1
 	ld.w	$t4, $a1, 20
 	add.w	$t5, $t4, $a0
-	bge	$s1, $t5, .LBB12_2
+	bge	$a3, $t5, .LBB12_2
 # %bb.6:                                # %.preheader78.us.us.preheader
                                         #   in Loop: Header=BB12_3 Depth=1
 	ld.w	$t6, $a1, 48
@@ -5438,40 +5414,39 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
 	addi.d	$a2, $a2, 1
 	mul.w	$a2, $a0, $a2
 	alsl.d	$s2, $a2, $a1, 3
-	nor	$a1, $s1, $zero
+	nor	$a1, $a3, $zero
 	add.d	$s3, $a1, $t5
 	nor	$a1, $t6, $zero
 	sub.d	$a1, $a1, $a4
-	sub.d	$s4, $t5, $s1
-	mul.w	$a3, $a0, $a1
-	move	$a7, $s4
-	bstrins.d	$a7, $zero, 1, 0
-	add.d	$s7, $a7, $s1
+	sub.d	$s4, $t5, $a3
+	mul.w	$a2, $a0, $a1
+	move	$s6, $s4
+	bstrins.d	$s6, $zero, 1, 0
+	add.d	$s7, $s6, $a3
 	vreplgr2vr.d	$vr6, $t4
-	vreplgr2vr.d	$vr7, $s1
+	vreplgr2vr.d	$vr7, $a3
 	vadd.d	$vr7, $vr7, $vr1
-	vinsgr2vr.w	$vr8, $s1, 0
-	vinsgr2vr.w	$vr8, $s1, 1
+	vinsgr2vr.w	$vr8, $a3, 0
+	vinsgr2vr.w	$vr8, $a3, 1
 	vadd.w	$vr8, $vr8, $vr2
 	add.d	$a1, $a4, $t6
 	sub.d	$a1, $zero, $a1
-	mul.d	$a2, $a0, $a1
-	st.d	$a3, $sp, 96                    # 8-byte Folded Spill
-	move	$a1, $a3
-	move	$a3, $s1
+	mul.d	$a1, $a0, $a1
+	st.d	$a2, $sp, 96                    # 8-byte Folded Spill
+	move	$a7, $a3
 	st.d	$a4, $sp, 104                   # 8-byte Folded Spill
 	b	.LBB12_8
 	.p2align	4, , 16
 .LBB12_7:                               # %._crit_edge81.split.us.us.us
                                         #   in Loop: Header=BB12_8 Depth=2
-	addi.w	$a3, $a3, 1
+	addi.w	$a7, $a7, 1
 	ld.d	$a5, $sp, 128                   # 8-byte Folded Reload
 	addi.d	$a5, $a5, 1
 	ld.d	$a4, $sp, 104                   # 8-byte Folded Reload
-	add.w	$a1, $a1, $a4
-	add.d	$a2, $a2, $a4
+	add.w	$a2, $a2, $a4
+	add.d	$a1, $a1, $a4
 	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
-	beq	$a3, $a0, .LBB12_2
+	beq	$a7, $a0, .LBB12_2
 .LBB12_8:                               # %.preheader78.us.us
                                         #   Parent Loop BB12_3 Depth=1
                                         # =>  This Loop Header: Depth=2
@@ -5489,13 +5464,13 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
 	add.d	$fp, $a4, $a0
 	srli.d	$s0, $s3, 32
 	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
-	bge	$a3, $a0, .LBB12_28
+	bge	$a7, $a0, .LBB12_28
 # %bb.9:                                # %.preheader.us.us92.us.preheader
                                         #   in Loop: Header=BB12_8 Depth=2
 	move	$a4, $zero
-	move	$s8, $a2
-	move	$s5, $a1
-	move	$t0, $s1
+	move	$s8, $a1
+	move	$s5, $a2
+	move	$t0, $a3
 	b	.LBB12_11
 	.p2align	4, , 16
 .LBB12_10:                              # %._crit_edge.us.us.us
@@ -5518,21 +5493,21 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
 	bge	$t0, $t2, .LBB12_15
 # %bb.12:                               # %.lr.ph.split.us84.us.us.preheader
                                         #   in Loop: Header=BB12_11 Depth=3
-	or	$a0, $t0, $a3
-	move	$s6, $s1
+	or	$a0, $t0, $a7
+	move	$s1, $a3
 	ori	$a5, $zero, 4
 	bgeu	$s4, $a5, .LBB12_18
 .LBB12_13:                              # %.lr.ph.split.us84.us.us.preheader176
                                         #   in Loop: Header=BB12_11 Depth=3
-	move	$ra, $s6
+	move	$ra, $s1
 	.p2align	4, , 16
 .LBB12_14:                              # %.lr.ph.split.us84.us.us
                                         #   Parent Loop BB12_3 Depth=1
                                         #     Parent Loop BB12_8 Depth=2
                                         #       Parent Loop BB12_11 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	add.w	$t1, $s8, $s6
-	or	$t7, $a0, $s6
+	add.w	$t1, $s8, $s1
+	or	$t7, $a0, $s1
 	addi.w	$t7, $t7, 0
 	addi.w	$a5, $zero, -1
 	slt	$t8, $ra, $t4
@@ -5544,18 +5519,18 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
 	slli.d	$a5, $t1, 3
 	fstx.d	$ft1, $s2, $a5
 	addi.d	$ra, $ra, 1
-	addi.d	$s6, $s6, 1
+	addi.d	$s1, $s1, 1
 	bne	$t5, $ra, .LBB12_14
 	b	.LBB12_10
 	.p2align	4, , 16
 .LBB12_15:                              # %.lr.ph.split.us.us.us.us.preheader
                                         #   in Loop: Header=BB12_11 Depth=3
-	move	$s6, $s1
+	move	$s1, $a3
 	bgeu	$s4, $a6, .LBB12_23
 .LBB12_16:                              # %.lr.ph.split.us.us.us.us.preheader177
                                         #   in Loop: Header=BB12_11 Depth=3
-	add.w	$a0, $s8, $s6
-	sub.d	$s6, $t5, $s6
+	add.w	$a0, $s8, $s1
+	sub.d	$s1, $t5, $s1
 	.p2align	4, , 16
 .LBB12_17:                              # %.lr.ph.split.us.us.us.us
                                         #   Parent Loop BB12_3 Depth=1
@@ -5564,25 +5539,25 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
                                         # =>      This Inner Loop Header: Depth=4
 	slli.d	$a5, $a0, 3
 	stx.d	$zero, $s2, $a5
-	addi.d	$s6, $s6, -1
+	addi.d	$s1, $s1, -1
 	addi.w	$a0, $a0, 1
-	bnez	$s6, .LBB12_17
+	bnez	$s1, .LBB12_17
 	b	.LBB12_10
 	.p2align	4, , 16
 .LBB12_18:                              # %vector.scevcheck
                                         #   in Loop: Header=BB12_11 Depth=3
 	add.w	$t1, $ra, $s3
-	move	$s6, $s1
+	move	$s1, $a3
 	blt	$t1, $ra, .LBB12_13
 # %bb.19:                               # %vector.scevcheck
                                         #   in Loop: Header=BB12_11 Depth=3
-	move	$s6, $s1
+	move	$s1, $a3
 	bnez	$s0, .LBB12_13
 # %bb.20:                               # %vector.ph
                                         #   in Loop: Header=BB12_11 Depth=3
 	vinsgr2vr.w	$vr9, $a0, 0
 	vinsgr2vr.w	$vr9, $a0, 1
-	move	$s6, $a7
+	move	$s1, $s6
 	move	$ra, $s5
 	vori.b	$vr10, $vr7, 0
 	vori.b	$vr11, $vr8, 0
@@ -5597,13 +5572,9 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
 	vor.v	$vr14, $vr9, $vr11
 	vor.v	$vr13, $vr9, $vr13
 	vslt.w	$vr14, $vr4, $vr14
-	vshuf4i.w	$vr14, $vr14, 16
-	vslli.d	$vr14, $vr14, 32
-	vsrai.d	$vr14, $vr14, 32
+	vsllwil.d.w	$vr14, $vr14, 0
 	vslt.w	$vr13, $vr4, $vr13
-	vshuf4i.w	$vr13, $vr13, 16
-	vslli.d	$vr13, $vr13, 32
-	vsrai.d	$vr13, $vr13, 32
+	vsllwil.d.w	$vr13, $vr13, 0
 	vslt.d	$vr15, $vr10, $vr6
 	vslt.d	$vr12, $vr12, $vr6
 	vand.v	$vr14, $vr14, $vr15
@@ -5616,53 +5587,53 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
 	vst	$vr12, $t1, 16
 	vaddi.du	$vr10, $vr10, 4
 	vaddi.wu	$vr11, $vr11, 4
-	addi.d	$s6, $s6, -4
+	addi.d	$s1, $s1, -4
 	addi.w	$ra, $ra, 4
-	bnez	$s6, .LBB12_21
+	bnez	$s1, .LBB12_21
 # %bb.22:                               # %middle.block
                                         #   in Loop: Header=BB12_11 Depth=3
-	move	$s6, $s7
-	beq	$s4, $a7, .LBB12_10
+	move	$s1, $s7
+	beq	$s4, $s6, .LBB12_10
 	b	.LBB12_13
 	.p2align	4, , 16
 .LBB12_23:                              # %vector.scevcheck148
                                         #   in Loop: Header=BB12_11 Depth=3
 	add.w	$a0, $ra, $s3
-	move	$s6, $s1
+	move	$s1, $a3
 	blt	$a0, $ra, .LBB12_16
 # %bb.24:                               # %vector.scevcheck148
                                         #   in Loop: Header=BB12_11 Depth=3
-	move	$s6, $s1
+	move	$s1, $a3
 	bnez	$s0, .LBB12_16
 # %bb.25:                               # %vector.body154.preheader
                                         #   in Loop: Header=BB12_11 Depth=3
-	move	$a0, $a7
-	move	$s6, $s5
+	move	$a0, $s6
+	move	$s1, $s5
 	.p2align	4, , 16
 .LBB12_26:                              # %vector.body154
                                         #   Parent Loop BB12_3 Depth=1
                                         #     Parent Loop BB12_8 Depth=2
                                         #       Parent Loop BB12_11 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	alsl.d	$ra, $s6, $s2, 3
-	slli.d	$t1, $s6, 3
+	alsl.d	$ra, $s1, $s2, 3
+	slli.d	$t1, $s1, 3
 	vstx	$vr5, $s2, $t1
 	vst	$vr5, $ra, 16
 	addi.d	$a0, $a0, -4
-	addi.w	$s6, $s6, 4
+	addi.w	$s1, $s1, 4
 	bnez	$a0, .LBB12_26
 # %bb.27:                               # %middle.block158
                                         #   in Loop: Header=BB12_11 Depth=3
-	move	$s6, $s7
-	beq	$s4, $a7, .LBB12_10
+	move	$s1, $s7
+	beq	$s4, $s6, .LBB12_10
 	b	.LBB12_16
 	.p2align	4, , 16
 .LBB12_28:                              # %.preheader.us.us.us.us.preheader
                                         #   in Loop: Header=BB12_8 Depth=2
 	move	$a0, $zero
-	move	$a4, $a2
-	move	$t0, $a1
-	move	$s8, $s1
+	move	$a4, $a1
+	move	$t0, $a2
+	move	$s8, $a3
 	b	.LBB12_30
 	.p2align	4, , 16
 .LBB12_29:                              # %._crit_edge.split.us.us.us.us.us
@@ -5678,23 +5649,23 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
                                         # =>    This Loop Header: Depth=3
                                         #         Child Loop BB12_36 Depth 4
                                         #         Child Loop BB12_32 Depth 4
-	move	$s6, $s1
+	move	$s5, $a3
 	bgeu	$s4, $a6, .LBB12_33
 .LBB12_31:                              # %scalar.ph164.preheader
                                         #   in Loop: Header=BB12_30 Depth=3
-	add.w	$s5, $a4, $s6
-	sub.d	$s6, $t5, $s6
+	add.w	$s1, $a4, $s5
+	sub.d	$s5, $t5, $s5
 	.p2align	4, , 16
 .LBB12_32:                              # %scalar.ph164
                                         #   Parent Loop BB12_3 Depth=1
                                         #     Parent Loop BB12_8 Depth=2
                                         #       Parent Loop BB12_30 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	slli.d	$a5, $s5, 3
+	slli.d	$a5, $s1, 3
 	stx.d	$zero, $s2, $a5
-	addi.d	$s6, $s6, -1
-	addi.w	$s5, $s5, 1
-	bnez	$s6, .LBB12_32
+	addi.d	$s5, $s5, -1
+	addi.w	$s1, $s1, 1
+	bnez	$s5, .LBB12_32
 	b	.LBB12_29
 	.p2align	4, , 16
 .LBB12_33:                              # %vector.scevcheck161
@@ -5702,33 +5673,33 @@ initialize_grid_to_scalar:              # @initialize_grid_to_scalar
 	mul.d	$a5, $t6, $a0
 	add.w	$a5, $fp, $a5
 	add.w	$t1, $a5, $s3
-	move	$s6, $s1
+	move	$s5, $a3
 	blt	$t1, $a5, .LBB12_31
 # %bb.34:                               # %vector.scevcheck161
                                         #   in Loop: Header=BB12_30 Depth=3
-	move	$s6, $s1
+	move	$s5, $a3
 	bnez	$s0, .LBB12_31
 # %bb.35:                               # %vector.body169.preheader
                                         #   in Loop: Header=BB12_30 Depth=3
-	move	$s5, $a7
-	move	$s6, $t0
+	move	$s1, $s6
+	move	$s5, $t0
 	.p2align	4, , 16
 .LBB12_36:                              # %vector.body169
                                         #   Parent Loop BB12_3 Depth=1
                                         #     Parent Loop BB12_8 Depth=2
                                         #       Parent Loop BB12_30 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	alsl.d	$a5, $s6, $s2, 3
-	slli.d	$t1, $s6, 3
+	alsl.d	$a5, $s5, $s2, 3
+	slli.d	$t1, $s5, 3
 	vstx	$vr5, $s2, $t1
 	vst	$vr5, $a5, 16
-	addi.d	$s5, $s5, -4
-	addi.w	$s6, $s6, 4
-	bnez	$s5, .LBB12_36
+	addi.d	$s1, $s1, -4
+	addi.w	$s5, $s5, 4
+	bnez	$s1, .LBB12_36
 # %bb.37:                               # %middle.block173
                                         #   in Loop: Header=BB12_30 Depth=3
-	move	$s6, $s7
-	beq	$s4, $a7, .LBB12_29
+	move	$s5, $s7
+	beq	$s4, $s6, .LBB12_29
 	b	.LBB12_31
 .LBB12_38:                              # %._crit_edge100
 	pcaddu18i	$ra, %call36(CycleTime)

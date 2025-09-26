@@ -94,24 +94,24 @@ jinit_forward_dct:                      # @jinit_forward_dct
 	.type	start_pass_fdctmgr,@function
 start_pass_fdctmgr:                     # @start_pass_fdctmgr
 # %bb.0:
-	addi.d	$sp, $sp, -192
-	st.d	$ra, $sp, 184                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 176                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 168                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s8, $sp, 104                   # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 96                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 88                   # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 80                   # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 72                   # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 64                   # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 56                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -176
+	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 80                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 72                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 64                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 56                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs5, $sp, 40                   # 8-byte Folded Spill
 	move	$fp, $a0
 	ld.w	$a0, $a0, 68
 	blez	$a0, .LBB1_21
@@ -139,12 +139,10 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	pcalau12i	$a0, %pc_hi20(.LCPI1_5)
 	fld.d	$fs5, $a0, %pc_lo12(.LCPI1_5)
 	ori	$s2, $zero, 64
-	vrepli.b	$vr6, 0
 	ori	$a0, $zero, 1024
-	vreplgr2vr.d	$vr7, $a0
+	vreplgr2vr.d	$vr6, $a0
 	ori	$s7, $zero, 128
-	vst	$vr6, $sp, 32                   # 16-byte Folded Spill
-	vst	$vr7, $sp, 16                   # 16-byte Folded Spill
+	vst	$vr6, $sp, 16                   # 16-byte Folded Spill
 	b	.LBB1_4
 	.p2align	4, , 16
 .LBB1_2:                                #   in Loop: Header=BB1_4 Depth=1
@@ -154,8 +152,7 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	st.w	$a2, $a0, 40
 	move	$a0, $fp
 	jirl	$ra, $a1, 0
-	vld	$vr7, $sp, 16                   # 16-byte Folded Reload
-	vld	$vr6, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr6, $sp, 16                   # 16-byte Folded Reload
 	vldi	$vr5, -992
 .LBB1_3:                                # %.loopexit
                                         #   in Loop: Header=BB1_4 Depth=1
@@ -182,8 +179,7 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	st.w	$a2, $a0, 40
 	move	$a0, $fp
 	jirl	$ra, $a1, 0
-	vld	$vr7, $sp, 16                   # 16-byte Folded Reload
-	vld	$vr6, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr6, $sp, 16                   # 16-byte Folded Reload
 	vldi	$vr5, -992
 	slli.d	$a0, $s6, 3
 	ldx.d	$s4, $s1, $a0
@@ -208,8 +204,7 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	ori	$a2, $zero, 256
 	move	$a0, $fp
 	jirl	$ra, $a3, 0
-	vld	$vr7, $sp, 16                   # 16-byte Folded Reload
-	vld	$vr6, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr6, $sp, 16                   # 16-byte Folded Reload
 	vldi	$vr5, -992
 	st.d	$a0, $s6, 0
 .LBB1_12:                               # %vector.body
@@ -219,67 +214,67 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	vinsgr2vr.d	$vr0, $a1, 0
 	vinsgr2vr.d	$vr1, $a2, 0
 	ld.d	$a1, $s4, 16
-	vilvl.h	$vr0, $vr6, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vslli.w	$vr0, $vr0, 3
 	vst	$vr0, $a0, 0
 	vinsgr2vr.d	$vr0, $a1, 0
 	ld.d	$a1, $s4, 24
-	vilvl.h	$vr1, $vr6, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 3
 	vst	$vr1, $a0, 16
 	vinsgr2vr.d	$vr1, $a1, 0
 	ld.d	$a1, $s4, 32
-	vilvl.h	$vr0, $vr6, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vslli.w	$vr0, $vr0, 3
 	vst	$vr0, $a0, 32
 	vinsgr2vr.d	$vr0, $a1, 0
 	ld.d	$a1, $s4, 40
-	vilvl.h	$vr1, $vr6, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 3
 	vst	$vr1, $a0, 48
 	vinsgr2vr.d	$vr1, $a1, 0
 	ld.d	$a1, $s4, 48
-	vilvl.h	$vr0, $vr6, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vslli.w	$vr0, $vr0, 3
 	vst	$vr0, $a0, 64
 	vinsgr2vr.d	$vr0, $a1, 0
 	ld.d	$a1, $s4, 56
-	vilvl.h	$vr1, $vr6, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 3
 	vst	$vr1, $a0, 80
 	vinsgr2vr.d	$vr1, $a1, 0
 	ld.d	$a1, $s4, 64
-	vilvl.h	$vr0, $vr6, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vslli.w	$vr0, $vr0, 3
 	vst	$vr0, $a0, 96
 	vinsgr2vr.d	$vr0, $a1, 0
 	ld.d	$a1, $s4, 72
-	vilvl.h	$vr1, $vr6, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 3
 	vst	$vr1, $a0, 112
 	vinsgr2vr.d	$vr1, $a1, 0
 	ld.d	$a1, $s4, 80
-	vilvl.h	$vr0, $vr6, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vslli.w	$vr0, $vr0, 3
 	vst	$vr0, $a0, 128
 	vinsgr2vr.d	$vr0, $a1, 0
 	ld.d	$a1, $s4, 88
-	vilvl.h	$vr1, $vr6, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 3
 	vst	$vr1, $a0, 144
 	vinsgr2vr.d	$vr1, $a1, 0
 	ld.d	$a1, $s4, 96
-	vilvl.h	$vr0, $vr6, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vslli.w	$vr0, $vr0, 3
 	vst	$vr0, $a0, 160
 	vinsgr2vr.d	$vr0, $a1, 0
 	ld.d	$a1, $s4, 104
-	vilvl.h	$vr1, $vr6, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 3
 	vst	$vr1, $a0, 176
 	vinsgr2vr.d	$vr1, $a1, 0
-	vilvl.h	$vr0, $vr6, $vr0
-	vilvl.h	$vr1, $vr6, $vr1
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr0, $vr0, 3
 	vslli.w	$vr1, $vr1, 3
 	ld.d	$a1, $s4, 112
@@ -288,8 +283,8 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	vst	$vr1, $a0, 208
 	vinsgr2vr.d	$vr0, $a1, 0
 	vinsgr2vr.d	$vr1, $a2, 0
-	vilvl.h	$vr0, $vr6, $vr0
-	vilvl.h	$vr1, $vr6, $vr1
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr0, $vr0, 3
 	vslli.w	$vr1, $vr1, 3
 	vst	$vr0, $a0, 224
@@ -308,8 +303,7 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	ori	$a2, $zero, 256
 	move	$a0, $fp
 	jirl	$ra, $a3, 0
-	vld	$vr7, $sp, 16                   # 16-byte Folded Reload
-	vld	$vr6, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr6, $sp, 16                   # 16-byte Folded Reload
 	vldi	$vr5, -992
 	st.d	$a0, $s6, 0
 .LBB1_15:                               # %vector.ph111
@@ -321,23 +315,23 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
                                         # =>  This Inner Loop Header: Depth=2
 	ldx.d	$a2, $s4, $a1
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr6, $vr0
-	vilvl.w	$vr1, $vr6, $vr0
-	vilvh.w	$vr0, $vr6, $vr0
+	vsllwil.wu.hu	$vr1, $vr0, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vshuf4i.h	$vr0, $vr0, 14
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	pcalau12i	$a2, %pc_hi20(start_pass_fdctmgr.aanscales)
 	addi.d	$a2, $a2, %pc_lo12(start_pass_fdctmgr.aanscales)
 	ldx.d	$a2, $a2, $a1
 	vinsgr2vr.d	$vr2, $a2, 0
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr3, $vr2, $vr2
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
-	vilvh.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vori.b	$vr4, $vr7, 0
+	vsllwil.w.h	$vr3, $vr2, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vshuf4i.h	$vr2, $vr2, 14
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vori.b	$vr4, $vr6, 0
 	vmadd.d	$vr4, $vr2, $vr0
-	vori.b	$vr0, $vr7, 0
+	vori.b	$vr0, $vr6, 0
 	vmadd.d	$vr0, $vr3, $vr1
 	vsrli.d	$vr0, $vr0, 11
 	vsrli.d	$vr1, $vr4, 11
@@ -362,8 +356,7 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	ori	$a2, $zero, 256
 	move	$a0, $fp
 	jirl	$ra, $a3, 0
-	vld	$vr7, $sp, 16                   # 16-byte Folded Reload
-	vld	$vr6, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr6, $sp, 16                   # 16-byte Folded Reload
 	vldi	$vr5, -992
 	st.d	$a0, $s6, 0
 .LBB1_19:                               #   in Loop: Header=BB1_4 Depth=1
@@ -451,24 +444,24 @@ start_pass_fdctmgr:                     # @start_pass_fdctmgr
 	bne	$a1, $s2, .LBB1_20
 	b	.LBB1_3
 .LBB1_21:                               # %._crit_edge
-	fld.d	$fs5, $sp, 56                   # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 64                   # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 72                   # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 80                   # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 88                   # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 96                   # 8-byte Folded Reload
-	ld.d	$s8, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s7, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 176                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 184                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 192
+	fld.d	$fs5, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs4, $sp, 48                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 56                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 64                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 72                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 80                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 176
 	ret
 .Lfunc_end1:
 	.size	start_pass_fdctmgr, .Lfunc_end1-start_pass_fdctmgr

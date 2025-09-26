@@ -2165,12 +2165,12 @@ RestoreModel:                           # @RestoreModel
 # %bb.11:
 	ori	$s0, $zero, 63
 	ori	$s3, $zero, 8
-	vrepli.b	$vr10, 0
-	vrepli.b	$vr11, 63
-	vrepli.w	$vr12, 1
-	vst	$vr10, $sp, 48                  # 16-byte Folded Spill
-	vst	$vr11, $sp, 32                  # 16-byte Folded Spill
-	vst	$vr12, $sp, 16                  # 16-byte Folded Spill
+	vrepli.b	$vr0, 0
+	vst	$vr0, $sp, 48                   # 16-byte Folded Spill
+	vrepli.b	$vr10, 63
+	vrepli.w	$vr11, 1
+	vst	$vr10, $sp, 32                  # 16-byte Folded Spill
+	vst	$vr11, $sp, 16                  # 16-byte Folded Spill
 	b	.LBB14_14
 	.p2align	4, , 16
 .LBB14_12:                              #   in Loop: Header=BB14_14 Depth=1
@@ -2232,20 +2232,19 @@ RestoreModel:                           # @RestoreModel
 	slli.d	$a2, $a3, 2
 	alsl.d	$a2, $a3, $a2, 1
 	add.d	$a2, $a0, $a2
-	vld	$vr10, $sp, 48                  # 16-byte Folded Reload
-	vori.b	$vr2, $vr10, 0
+	vld	$vr3, $sp, 48                   # 16-byte Folded Reload
+	vori.b	$vr2, $vr3, 0
 	vinsgr2vr.w	$vr2, $a6, 0
-	vori.b	$vr1, $vr10, 0
+	vori.b	$vr1, $vr3, 0
 	vinsgr2vr.w	$vr1, $a5, 0
-	vori.b	$vr0, $vr10, 0
+	vori.b	$vr0, $vr3, 0
 	vinsgr2vr.w	$vr0, $a4, 0
 	addi.d	$a0, $a0, 24
 	move	$a4, $a3
-	vori.b	$vr5, $vr10, 0
-	vori.b	$vr4, $vr10, 0
-	vori.b	$vr3, $vr10, 0
-	vld	$vr11, $sp, 32                  # 16-byte Folded Reload
-	vld	$vr12, $sp, 16                  # 16-byte Folded Reload
+	vori.b	$vr5, $vr3, 0
+	vori.b	$vr4, $vr3, 0
+	vld	$vr10, $sp, 32                  # 16-byte Folded Reload
+	vld	$vr11, $sp, 16                  # 16-byte Folded Reload
 	.p2align	4, , 16
 .LBB14_19:                              # %vector.body
                                         #   Parent Loop BB14_14 Depth=1
@@ -2278,20 +2277,20 @@ RestoreModel:                           # @RestoreModel
 	vinsgr2vr.b	$vr7, $a6, 1
 	vinsgr2vr.b	$vr7, $a7, 2
 	vinsgr2vr.b	$vr7, $t0, 3
-	vilvl.b	$vr8, $vr10, $vr6
-	vilvl.h	$vr8, $vr10, $vr8
-	vilvl.b	$vr9, $vr10, $vr7
-	vilvl.h	$vr9, $vr10, $vr9
+	vsllwil.hu.bu	$vr8, $vr6, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vsllwil.hu.bu	$vr9, $vr7, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
 	vsub.w	$vr2, $vr2, $vr8
 	vsub.w	$vr5, $vr5, $vr9
 	vsrli.b	$vr8, $vr6, 1
 	vsub.b	$vr6, $vr6, $vr8
-	vilvl.b	$vr8, $vr10, $vr6
-	vilvl.h	$vr8, $vr10, $vr8
+	vsllwil.hu.bu	$vr8, $vr6, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
 	vsrli.b	$vr9, $vr7, 1
 	vsub.b	$vr7, $vr7, $vr9
-	vilvl.b	$vr9, $vr10, $vr7
-	vilvl.h	$vr9, $vr10, $vr9
+	vsllwil.hu.bu	$vr9, $vr7, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
 	vstelm.b	$vr6, $a0, -17, 0
 	vstelm.b	$vr6, $a0, -11, 1
 	vstelm.b	$vr6, $a0, -5, 2
@@ -2318,15 +2317,15 @@ RestoreModel:                           # @RestoreModel
 	vinsgr2vr.b	$vr7, $a6, 1
 	vinsgr2vr.b	$vr7, $a7, 2
 	vinsgr2vr.b	$vr7, $t0, 3
-	vslt.bu	$vr6, $vr11, $vr6
+	vslt.bu	$vr6, $vr10, $vr6
 	vilvl.b	$vr6, $vr6, $vr6
 	vilvl.h	$vr6, $vr6, $vr6
-	vand.v	$vr6, $vr6, $vr12
+	vand.v	$vr6, $vr6, $vr11
 	vslli.w	$vr6, $vr6, 3
-	vslt.bu	$vr7, $vr11, $vr7
+	vslt.bu	$vr7, $vr10, $vr7
 	vilvl.b	$vr7, $vr7, $vr7
 	vilvl.h	$vr7, $vr7, $vr7
-	vand.v	$vr7, $vr7, $vr12
+	vand.v	$vr7, $vr7, $vr11
 	vslli.w	$vr7, $vr7, 3
 	vor.v	$vr0, $vr6, $vr0
 	vor.v	$vr3, $vr7, $vr3
@@ -2845,50 +2844,59 @@ AllocUnitsRare:                         # @AllocUnitsRare
 	.type	GetUsedMemory,@function
 GetUsedMemory:                          # @GetUsedMemory
 # %bb.0:
-	vld	$vr0, $a0, 512
-	vld	$vr1, $a0, 544
+	vld	$vr0, $a0, 544
+	vld	$vr1, $a0, 512
 	vld	$vr2, $a0, 528
 	vld	$vr3, $a0, 560
 	vld	$vr4, $a0, 448
 	vld	$vr5, $a0, 496
-	vld	$vr6, $a0, 464
-	vld	$vr7, $a0, 144
+	vld	$vr6, $a0, 144
+	vld	$vr7, $a0, 464
 	vld	$vr8, $a0, 480
 	vld	$vr9, $a0, 128
-	vrepli.b	$vr10, 0
-	vilvl.b	$vr11, $vr10, $vr7
-	vilvl.h	$vr12, $vr10, $vr11
-	vilvh.b	$vr7, $vr10, $vr7
-	vilvl.h	$vr13, $vr10, $vr7
-	vilvh.h	$vr11, $vr10, $vr11
-	vilvh.h	$vr7, $vr10, $vr7
-	vilvl.b	$vr14, $vr10, $vr9
-	vilvl.h	$vr15, $vr10, $vr14
-	vilvh.b	$vr9, $vr10, $vr9
-	vilvh.h	$vr16, $vr10, $vr9
-	vilvh.h	$vr14, $vr10, $vr14
-	vilvl.h	$vr9, $vr10, $vr9
+	vbsrl.v	$vr10, $vr6, 8
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.hu.bu	$vr11, $vr6, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsrli.d	$vr12, $vr6, 32
+	vsllwil.hu.bu	$vr12, $vr12, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vbsrl.v	$vr6, $vr6, 12
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr13, $vr9, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vbsrl.v	$vr14, $vr9, 12
+	vsllwil.hu.bu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsrli.d	$vr15, $vr9, 32
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vbsrl.v	$vr9, $vr9, 8
+	vsllwil.hu.bu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
 	vmul.w	$vr8, $vr8, $vr9
-	vmul.w	$vr6, $vr6, $vr14
+	vmul.w	$vr7, $vr7, $vr15
 	ld.w	$a1, $a0, 160
-	vmul.w	$vr5, $vr5, $vr16
-	vmul.w	$vr4, $vr4, $vr15
+	vmul.w	$vr5, $vr5, $vr14
+	vmul.w	$vr4, $vr4, $vr13
 	vld	$vr9, $a0, 576
-	vinsgr2vr.w	$vr14, $a1, 0
+	vinsgr2vr.w	$vr13, $a1, 0
 	ld.w	$a1, $a0, 592
 	ld.bu	$a2, $a0, 164
 	ld.w	$a3, $a0, 596
 	ld.bu	$a4, $a0, 165
-	vilvl.b	$vr14, $vr10, $vr14
-	vilvl.h	$vr10, $vr10, $vr14
+	vsllwil.hu.bu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr13, $vr13, 0
 	mul.d	$a1, $a1, $a2
 	mul.d	$a2, $a3, $a4
-	vmadd.w	$vr4, $vr9, $vr10
-	vmadd.w	$vr5, $vr3, $vr7
-	vmadd.w	$vr6, $vr2, $vr11
-	vadd.w	$vr2, $vr6, $vr5
-	vmadd.w	$vr8, $vr1, $vr13
-	vmadd.w	$vr4, $vr0, $vr12
+	vmadd.w	$vr4, $vr9, $vr13
+	vmadd.w	$vr5, $vr3, $vr6
+	vmadd.w	$vr7, $vr2, $vr12
+	vadd.w	$vr2, $vr7, $vr5
+	vmadd.w	$vr4, $vr1, $vr11
+	vmadd.w	$vr8, $vr0, $vr10
 	vadd.w	$vr0, $vr4, $vr8
 	vadd.w	$vr0, $vr0, $vr2
 	vhaddw.d.w	$vr0, $vr0, $vr0
@@ -3232,13 +3240,13 @@ CutOff:                                 # @CutOff
 	sub.d	$s3, $s3, $a5
 	slli.d	$t1, $a2, 5
 	alsl.d	$a2, $a2, $t1, 4
-	vrepli.b	$vr2, 0
+	vrepli.b	$vr1, 0
 	add.d	$a2, $a0, $a2
-	vori.b	$vr3, $vr2, 0
+	vori.b	$vr3, $vr1, 0
 	vinsgr2vr.w	$vr3, $a6, 0
-	vori.b	$vr1, $vr2, 0
-	vinsgr2vr.w	$vr1, $t0, 0
-	vori.b	$vr0, $vr2, 0
+	vori.b	$vr2, $vr1, 0
+	vinsgr2vr.w	$vr2, $t0, 0
+	vori.b	$vr0, $vr1, 0
 	vinsgr2vr.w	$vr0, $a7, 0
 	vreplgr2vr.w	$vr4, $s1
 	addi.d	$a0, $a0, 24
@@ -3246,9 +3254,8 @@ CutOff:                                 # @CutOff
 	vrepli.b	$vr7, 63
 	vrepli.w	$vr8, 1
 	move	$a6, $a5
-	vori.b	$vr10, $vr2, 0
-	vori.b	$vr9, $vr2, 0
-	vori.b	$vr6, $vr2, 0
+	vori.b	$vr9, $vr1, 0
+	vori.b	$vr6, $vr1, 0
 	.p2align	4, , 16
 .LBB17_35:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -3256,77 +3263,77 @@ CutOff:                                 # @CutOff
 	ld.b	$t0, $a0, -11
 	ld.b	$t1, $a0, -5
 	ld.b	$t2, $a0, 1
-	vinsgr2vr.b	$vr11, $a7, 0
-	vinsgr2vr.b	$vr11, $t0, 1
-	vinsgr2vr.b	$vr11, $t1, 2
-	vinsgr2vr.b	$vr11, $t2, 3
+	vinsgr2vr.b	$vr10, $a7, 0
+	vinsgr2vr.b	$vr10, $t0, 1
+	vinsgr2vr.b	$vr10, $t1, 2
+	vinsgr2vr.b	$vr10, $t2, 3
 	ld.b	$a7, $a0, 7
 	ld.b	$t0, $a0, 13
 	ld.b	$t1, $a0, 19
 	ld.b	$t2, $a0, 25
-	vinsgr2vr.b	$vr12, $a7, 0
-	vinsgr2vr.b	$vr12, $t0, 1
-	vinsgr2vr.b	$vr12, $t1, 2
-	vinsgr2vr.b	$vr12, $t2, 3
-	vilvl.b	$vr11, $vr2, $vr11
-	vilvl.h	$vr11, $vr2, $vr11
-	vilvl.b	$vr12, $vr2, $vr12
-	vilvl.h	$vr12, $vr2, $vr12
-	vsub.w	$vr3, $vr3, $vr11
-	vsub.w	$vr10, $vr10, $vr12
-	vadd.w	$vr11, $vr4, $vr11
-	vadd.w	$vr12, $vr4, $vr12
-	vsrl.w	$vr11, $vr11, $vr4
-	vsrl.w	$vr12, $vr12, $vr4
-	vstelm.b	$vr11, $a0, -17, 0
-	vstelm.b	$vr11, $a0, -11, 4
-	vstelm.b	$vr11, $a0, -5, 8
-	vstelm.b	$vr11, $a0, 1, 12
-	vstelm.b	$vr12, $a0, 7, 0
-	vstelm.b	$vr12, $a0, 13, 4
-	vstelm.b	$vr12, $a0, 19, 8
-	vstelm.b	$vr12, $a0, 25, 12
-	vand.v	$vr11, $vr11, $vr5
-	vand.v	$vr12, $vr12, $vr5
-	vadd.w	$vr1, $vr11, $vr1
-	vadd.w	$vr9, $vr12, $vr9
-	ld.b	$a7, $a0, -18
-	ld.b	$t0, $a0, -12
-	ld.b	$t1, $a0, -6
-	ld.b	$t2, $a0, 0
 	vinsgr2vr.b	$vr11, $a7, 0
 	vinsgr2vr.b	$vr11, $t0, 1
 	vinsgr2vr.b	$vr11, $t1, 2
 	vinsgr2vr.b	$vr11, $t2, 3
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.hu.bu	$vr11, $vr11, 0
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsub.w	$vr3, $vr3, $vr10
+	vsub.w	$vr1, $vr1, $vr11
+	vadd.w	$vr10, $vr4, $vr10
+	vadd.w	$vr11, $vr4, $vr11
+	vsrl.w	$vr10, $vr10, $vr4
+	vsrl.w	$vr11, $vr11, $vr4
+	vstelm.b	$vr10, $a0, -17, 0
+	vstelm.b	$vr10, $a0, -11, 4
+	vstelm.b	$vr10, $a0, -5, 8
+	vstelm.b	$vr10, $a0, 1, 12
+	vstelm.b	$vr11, $a0, 7, 0
+	vstelm.b	$vr11, $a0, 13, 4
+	vstelm.b	$vr11, $a0, 19, 8
+	vstelm.b	$vr11, $a0, 25, 12
+	vand.v	$vr10, $vr10, $vr5
+	vand.v	$vr11, $vr11, $vr5
+	vadd.w	$vr2, $vr10, $vr2
+	vadd.w	$vr9, $vr11, $vr9
+	ld.b	$a7, $a0, -18
+	ld.b	$t0, $a0, -12
+	ld.b	$t1, $a0, -6
+	ld.b	$t2, $a0, 0
+	vinsgr2vr.b	$vr10, $a7, 0
+	vinsgr2vr.b	$vr10, $t0, 1
+	vinsgr2vr.b	$vr10, $t1, 2
+	vinsgr2vr.b	$vr10, $t2, 3
 	ld.b	$a7, $a0, 6
 	ld.b	$t0, $a0, 12
 	ld.b	$t1, $a0, 18
 	ld.b	$t2, $a0, 24
-	vinsgr2vr.b	$vr12, $a7, 0
-	vinsgr2vr.b	$vr12, $t0, 1
-	vinsgr2vr.b	$vr12, $t1, 2
-	vinsgr2vr.b	$vr12, $t2, 3
+	vinsgr2vr.b	$vr11, $a7, 0
+	vinsgr2vr.b	$vr11, $t0, 1
+	vinsgr2vr.b	$vr11, $t1, 2
+	vinsgr2vr.b	$vr11, $t2, 3
+	vslt.bu	$vr10, $vr7, $vr10
+	vilvl.b	$vr10, $vr10, $vr10
+	vilvl.h	$vr10, $vr10, $vr10
+	vand.v	$vr10, $vr10, $vr8
+	vslli.w	$vr10, $vr10, 3
 	vslt.bu	$vr11, $vr7, $vr11
 	vilvl.b	$vr11, $vr11, $vr11
 	vilvl.h	$vr11, $vr11, $vr11
 	vand.v	$vr11, $vr11, $vr8
 	vslli.w	$vr11, $vr11, 3
-	vslt.bu	$vr12, $vr7, $vr12
-	vilvl.b	$vr12, $vr12, $vr12
-	vilvl.h	$vr12, $vr12, $vr12
-	vand.v	$vr12, $vr12, $vr8
-	vslli.w	$vr12, $vr12, 3
-	vor.v	$vr0, $vr11, $vr0
-	vor.v	$vr6, $vr12, $vr6
+	vor.v	$vr0, $vr10, $vr0
+	vor.v	$vr6, $vr11, $vr6
 	addi.d	$a6, $a6, -8
 	addi.d	$a0, $a0, 48
 	bnez	$a6, .LBB17_35
 # %bb.36:                               # %middle.block
-	vadd.w	$vr2, $vr10, $vr3
-	vhaddw.d.w	$vr2, $vr2, $vr2
-	vhaddw.q.d	$vr2, $vr2, $vr2
-	vpickve2gr.d	$a6, $vr2, 0
-	vadd.w	$vr1, $vr9, $vr1
+	vadd.w	$vr1, $vr1, $vr3
+	vhaddw.d.w	$vr1, $vr1, $vr1
+	vhaddw.q.d	$vr1, $vr1, $vr1
+	vpickve2gr.d	$a6, $vr1, 0
+	vadd.w	$vr1, $vr9, $vr2
 	vhaddw.d.w	$vr1, $vr1, $vr1
 	vhaddw.q.d	$vr1, $vr1, $vr1
 	vpickve2gr.d	$t0, $vr1, 0

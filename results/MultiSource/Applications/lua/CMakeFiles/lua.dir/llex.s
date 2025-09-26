@@ -2558,7 +2558,7 @@ read_numeral:                           # @read_numeral
 	bnez	$a7, .LBB13_36
 # %bb.29:                               # %pred.store.continue98
                                         #   in Loop: Header=BB13_28 Depth=1
-	vilvl.b	$vr2, $vr2, $vr2
+	vsllwil.h.b	$vr2, $vr2, 0
 	vpickve2gr.h	$a7, $vr2, 1
 	andi	$a7, $a7, 1
 	bnez	$a7, .LBB13_37
@@ -2597,7 +2597,7 @@ read_numeral:                           # @read_numeral
 .LBB13_36:                              # %pred.store.if97
                                         #   in Loop: Header=BB13_28 Depth=1
 	st.b	$a1, $a3, 3
-	vilvl.b	$vr2, $vr2, $vr2
+	vsllwil.h.b	$vr2, $vr2, 0
 	vpickve2gr.h	$a7, $vr2, 1
 	andi	$a7, $a7, 1
 	beqz	$a7, .LBB13_30
@@ -2913,7 +2913,7 @@ read_numeral:                           # @read_numeral
 	bnez	$t0, .LBB13_100
 # %bb.93:                               # %pred.store.continue177
                                         #   in Loop: Header=BB13_92 Depth=1
-	vilvl.b	$vr2, $vr2, $vr2
+	vsllwil.h.b	$vr2, $vr2, 0
 	vpickve2gr.h	$t0, $vr2, 1
 	andi	$t0, $t0, 1
 	bnez	$t0, .LBB13_101
@@ -2952,7 +2952,7 @@ read_numeral:                           # @read_numeral
 .LBB13_100:                             # %pred.store.if176
                                         #   in Loop: Header=BB13_92 Depth=1
 	st.b	$a1, $a4, 3
-	vilvl.b	$vr2, $vr2, $vr2
+	vsllwil.h.b	$vr2, $vr2, 0
 	vpickve2gr.h	$t0, $vr2, 1
 	andi	$t0, $t0, 1
 	beqz	$t0, .LBB13_94
@@ -3278,7 +3278,7 @@ read_numeral:                           # @read_numeral
 	bnez	$t0, .LBB13_167
 # %bb.160:                              # %pred.store.continue261
                                         #   in Loop: Header=BB13_159 Depth=1
-	vilvl.b	$vr2, $vr2, $vr2
+	vsllwil.h.b	$vr2, $vr2, 0
 	vpickve2gr.h	$t0, $vr2, 1
 	andi	$t0, $t0, 1
 	bnez	$t0, .LBB13_168
@@ -3317,7 +3317,7 @@ read_numeral:                           # @read_numeral
 .LBB13_167:                             # %pred.store.if260
                                         #   in Loop: Header=BB13_159 Depth=1
 	st.b	$a7, $a3, 3
-	vilvl.b	$vr2, $vr2, $vr2
+	vsllwil.h.b	$vr2, $vr2, 0
 	vpickve2gr.h	$t0, $vr2, 1
 	andi	$t0, $t0, 1
 	beqz	$t0, .LBB13_161

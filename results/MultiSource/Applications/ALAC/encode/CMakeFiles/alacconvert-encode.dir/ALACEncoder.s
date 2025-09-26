@@ -1665,12 +1665,8 @@ _ZN11ALACEncoder10EncodeMonoEP9BitBufferPvjjj: # @_ZN11ALACEncoder10EncodeMonoEP
 	ld.d	$a7, $a3, 0
 	vinsgr2vr.d	$vr0, $a6, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr0, $vr0, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vsllwil.w.h	$vr0, $vr0, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vst	$vr0, $a4, -16
 	vst	$vr1, $a4, 0
 	addi.d	$a3, $a3, 16

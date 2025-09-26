@@ -3055,7 +3055,6 @@ _ZN8NArchive3NXzL14GetCheckStringERK4CXzs: # @_ZN8NArchive3NXzL14GetCheckStringE
 	vrepli.h	$vr1, 15
 	move	$a4, $a0
 	vori.b	$vr2, $vr0, 0
-	vori.b	$vr3, $vr0, 0
 	.p2align	4, , 16
 .LBB13_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -3063,29 +3062,29 @@ _ZN8NArchive3NXzL14GetCheckStringERK4CXzs: # @_ZN8NArchive3NXzL14GetCheckStringE
 	ld.h	$a6, $a3, -120
 	ld.h	$a7, $a3, -80
 	ld.h	$t0, $a3, -40
-	vinsgr2vr.h	$vr4, $a5, 0
-	vinsgr2vr.h	$vr4, $a6, 1
-	vinsgr2vr.h	$vr4, $a7, 2
-	vinsgr2vr.h	$vr4, $t0, 3
+	vinsgr2vr.h	$vr3, $a5, 0
+	vinsgr2vr.h	$vr3, $a6, 1
+	vinsgr2vr.h	$vr3, $a7, 2
+	vinsgr2vr.h	$vr3, $t0, 3
 	ld.h	$a5, $a3, 0
 	ld.h	$a6, $a3, 40
 	ld.h	$a7, $a3, 80
 	ld.h	$t0, $a3, 120
-	vinsgr2vr.h	$vr5, $a5, 0
-	vinsgr2vr.h	$vr5, $a6, 1
-	vinsgr2vr.h	$vr5, $a7, 2
-	vinsgr2vr.h	$vr5, $t0, 3
+	vinsgr2vr.h	$vr4, $a5, 0
+	vinsgr2vr.h	$vr4, $a6, 1
+	vinsgr2vr.h	$vr4, $a7, 2
+	vinsgr2vr.h	$vr4, $t0, 3
+	vand.v	$vr3, $vr3, $vr1
 	vand.v	$vr4, $vr4, $vr1
-	vand.v	$vr5, $vr5, $vr1
-	vilvl.h	$vr4, $vr0, $vr4
-	vilvl.h	$vr5, $vr0, $vr5
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vbitset.w	$vr0, $vr0, $vr3
 	vbitset.w	$vr2, $vr2, $vr4
-	vbitset.w	$vr3, $vr3, $vr5
 	addi.d	$a4, $a4, -8
 	addi.d	$a3, $a3, 320
 	bnez	$a4, .LBB13_5
 # %bb.6:                                # %middle.block
-	vor.v	$vr0, $vr3, $vr2
+	vor.v	$vr0, $vr2, $vr0
 	vbsrl.v	$vr1, $vr0, 8
 	vor.v	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4

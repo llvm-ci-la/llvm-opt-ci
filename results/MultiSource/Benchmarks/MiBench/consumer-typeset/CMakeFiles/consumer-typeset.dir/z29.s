@@ -1562,30 +1562,29 @@ InsertSym:                              # @InsertSym
 	slli.d	$a4, $a2, 3
 	sub.d	$a0, $a0, $a4
 	alsl.d	$a2, $a2, $s0, 3
-	vld	$vr4, $sp, 16                   # 16-byte Folded Reload
-	vori.b	$vr0, $vr4, 0
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
+	vori.b	$vr0, $vr3, 0
 	vinsgr2vr.w	$vr0, $a1, 0
 	addi.d	$a1, $s0, 5
 	move	$a5, $a4
-	vori.b	$vr1, $vr4, 0
 	.p2align	4, , 16
 .LBB15_60:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a1, -4
 	ld.w	$a7, $a1, 0
-	vinsgr2vr.w	$vr2, $a6, 0
-	vinsgr2vr.w	$vr3, $a7, 0
-	vilvl.b	$vr2, $vr4, $vr2
-	vilvl.h	$vr2, $vr4, $vr2
-	vilvl.b	$vr3, $vr4, $vr3
-	vilvl.h	$vr3, $vr4, $vr3
-	vadd.w	$vr0, $vr0, $vr2
-	vadd.w	$vr1, $vr1, $vr3
+	vinsgr2vr.w	$vr1, $a6, 0
+	vinsgr2vr.w	$vr2, $a7, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vadd.w	$vr0, $vr0, $vr1
+	vadd.w	$vr3, $vr3, $vr2
 	addi.d	$a5, $a5, -8
 	addi.d	$a1, $a1, 8
 	bnez	$a5, .LBB15_60
 # %bb.61:                               # %middle.block
-	vadd.w	$vr0, $vr1, $vr0
+	vadd.w	$vr0, $vr3, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a1, $vr0, 0
@@ -2099,25 +2098,24 @@ InsertAlternativeName:                  # @InsertAlternativeName
 	vinsgr2vr.w	$vr1, $a1, 0
 	addi.d	$a1, $s0, 5
 	move	$a5, $a4
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB16_4:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a1, -4
 	ld.w	$a7, $a1, 0
-	vinsgr2vr.w	$vr3, $a6, 0
-	vinsgr2vr.w	$vr4, $a7, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.w	$vr2, $a6, 0
+	vinsgr2vr.w	$vr3, $a7, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$a5, $a5, -8
 	addi.d	$a1, $a1, 8
 	bnez	$a5, .LBB16_4
 # %bb.5:                                # %middle.block
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a1, $vr0, 0
@@ -2470,25 +2468,24 @@ SearchSym:                              # @SearchSym
 	vinsgr2vr.w	$vr1, $a2, 0
 	addi.d	$a2, $t0, 5
 	move	$a5, $a4
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB17_4:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a2, -4
 	ld.w	$a7, $a2, 0
-	vinsgr2vr.w	$vr3, $a6, 0
-	vinsgr2vr.w	$vr4, $a7, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.w	$vr2, $a6, 0
+	vinsgr2vr.w	$vr3, $a7, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$a5, $a5, -8
 	addi.d	$a2, $a2, 8
 	bnez	$a5, .LBB17_4
 # %bb.5:                                # %middle.block
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a2, $vr0, 0

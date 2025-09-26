@@ -36,7 +36,7 @@ main:                                   # @main
 	lu32i.d	$a1, 113
 	vreplgr2vr.d	$vr1, $a1
 	vseq.w	$vr1, $vr0, $vr1
-	vshuf4i.w	$vr2, $vr1, 16
+	vsllwil.d.w	$vr2, $vr1, 0
 	vpickve2gr.d	$a1, $vr1, 0
 	vpickve2gr.d	$a2, $vr2, 1
 	and	$a1, $a1, $a2
@@ -49,7 +49,7 @@ main:                                   # @main
 	lu32i.d	$a1, 1300
 	vreplgr2vr.d	$vr2, $a1
 	vseq.w	$vr2, $vr1, $vr2
-	vshuf4i.w	$vr4, $vr2, 16
+	vsllwil.d.w	$vr4, $vr2, 0
 	vpickve2gr.d	$a1, $vr2, 0
 	vpickve2gr.d	$a2, $vr4, 1
 	and	$a1, $a1, $a2
@@ -69,7 +69,7 @@ main:                                   # @main
 	lu32i.d	$a1, 7
 	vreplgr2vr.d	$vr4, $a1
 	vseq.w	$vr4, $vr2, $vr4
-	vshuf4i.w	$vr5, $vr4, 16
+	vsllwil.d.w	$vr5, $vr4, 0
 	vpickve2gr.d	$a1, $vr4, 0
 	vpickve2gr.d	$a2, $vr5, 1
 	and	$a1, $a1, $a2
@@ -82,7 +82,7 @@ main:                                   # @main
 	lu32i.d	$a1, 4
 	vreplgr2vr.d	$vr5, $a1
 	vseq.w	$vr5, $vr4, $vr5
-	vshuf4i.w	$vr7, $vr5, 16
+	vsllwil.d.w	$vr7, $vr5, 0
 	vpickve2gr.d	$a1, $vr5, 0
 	vpickve2gr.d	$a2, $vr7, 1
 	and	$a1, $a1, $a2
@@ -95,7 +95,7 @@ main:                                   # @main
 	lu32i.d	$a1, 109
 	vreplgr2vr.d	$vr7, $a1
 	vseq.w	$vr7, $vr5, $vr7
-	vshuf4i.w	$vr8, $vr7, 16
+	vsllwil.d.w	$vr8, $vr7, 0
 	vpickve2gr.d	$a1, $vr7, 0
 	vpickve2gr.d	$a2, $vr8, 1
 	and	$a1, $a1, $a2
@@ -108,7 +108,7 @@ main:                                   # @main
 	lu32i.d	$a1, 105
 	vreplgr2vr.d	$vr7, $a1
 	vseq.w	$vr7, $vr6, $vr7
-	vshuf4i.w	$vr8, $vr7, 16
+	vsllwil.d.w	$vr8, $vr7, 0
 	vpickve2gr.d	$a1, $vr7, 0
 	vpickve2gr.d	$a2, $vr8, 1
 	and	$a1, $a1, $a2
@@ -121,7 +121,7 @@ main:                                   # @main
 	lu32i.d	$a1, -100
 	vreplgr2vr.d	$vr8, $a1
 	vseq.w	$vr8, $vr7, $vr8
-	vshuf4i.w	$vr9, $vr8, 16
+	vsllwil.d.w	$vr9, $vr8, 0
 	vpickve2gr.d	$a1, $vr8, 0
 	vpickve2gr.d	$a2, $vr9, 1
 	and	$a1, $a1, $a2
@@ -135,7 +135,7 @@ main:                                   # @main
 	lu32i.d	$a1, 100
 	vreplgr2vr.d	$vr9, $a1
 	vseq.w	$vr9, $vr3, $vr9
-	vshuf4i.w	$vr10, $vr9, 16
+	vsllwil.d.w	$vr10, $vr9, 0
 	vpickve2gr.d	$a1, $vr9, 0
 	vpickve2gr.d	$a2, $vr10, 1
 	and	$a1, $a1, $a2
@@ -156,7 +156,7 @@ main:                                   # @main
 	lu32i.d	$a2, 1430
 	vreplgr2vr.d	$vr9, $a2
 	vseq.w	$vr9, $vr3, $vr9
-	vshuf4i.w	$vr10, $vr9, 16
+	vsllwil.d.w	$vr10, $vr9, 0
 	vpickve2gr.d	$a2, $vr9, 0
 	vpickve2gr.d	$a3, $vr10, 1
 	and	$a2, $a2, $a3
@@ -177,7 +177,7 @@ main:                                   # @main
 	vreplgr2vr.d	$vr9, $a2
 	vseq.w	$vr9, $vr3, $vr9
 	vpickve2gr.d	$a2, $vr9, 0
-	vshuf4i.w	$vr9, $vr9, 16
+	vsllwil.d.w	$vr9, $vr9, 0
 	vpickve2gr.d	$a3, $vr9, 1
 	and	$a2, $a2, $a3
 	andi	$a2, $a2, 1

@@ -382,9 +382,8 @@ getHorSubImageSixTap:                   # @getHorSubImageSixTap
 	bstrins.d	$a7, $t4, 1, 0
 	st.d	$a7, $sp, 8                     # 8-byte Folded Spill
 	ori	$fp, $zero, 20
-	vrepli.b	$vr0, 0
-	vrepli.w	$vr1, 20
-	vrepli.w	$vr2, -5
+	vrepli.w	$vr0, 20
+	vrepli.w	$vr1, -5
 	slli.d	$s1, $t7, 1
 	slli.d	$s2, $s0, 1
 	slli.d	$s3, $s3, 1
@@ -603,7 +602,7 @@ getHorSubImageSixTap:                   # @getHorSubImageSixTap
 	bnez	$t6, .LBB1_5
 # %bb.9:                                # %vector.ph
                                         #   in Loop: Header=BB1_3 Depth=1
-	vldrepl.w	$vr3, $a5, 0
+	vldrepl.w	$vr2, $a5, 0
 	addi.d	$t6, $s8, 6
 	ld.d	$t7, $sp, 32                    # 8-byte Folded Reload
 	.p2align	4, , 16
@@ -613,33 +612,33 @@ getHorSubImageSixTap:                   # @getHorSubImageSixTap
 	ld.d	$s0, $t6, -2
 	ld.d	$t8, $t6, 0
 	ld.d	$a7, $t6, -4
-	vinsgr2vr.d	$vr4, $s0, 0
+	vinsgr2vr.d	$vr3, $s0, 0
 	ld.d	$s0, $t6, 2
-	vinsgr2vr.d	$vr5, $t8, 0
-	vinsgr2vr.d	$vr6, $a7, 0
-	vilvl.h	$vr4, $vr0, $vr4
-	vinsgr2vr.d	$vr7, $s0, 0
+	vinsgr2vr.d	$vr4, $t8, 0
+	vinsgr2vr.d	$vr5, $a7, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vinsgr2vr.d	$vr6, $s0, 0
 	ld.d	$a7, $t6, -6
-	vilvl.h	$vr5, $vr0, $vr5
-	vadd.w	$vr4, $vr5, $vr4
-	vilvl.h	$vr5, $vr0, $vr6
-	vinsgr2vr.d	$vr6, $a7, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vadd.w	$vr3, $vr4, $vr3
+	vsllwil.wu.hu	$vr4, $vr5, 0
+	vinsgr2vr.d	$vr5, $a7, 0
 	ld.d	$a7, $t6, 4
-	vilvl.h	$vr7, $vr0, $vr7
-	vadd.w	$vr5, $vr7, $vr5
-	vilvl.h	$vr6, $vr0, $vr6
-	vinsgr2vr.d	$vr7, $a7, 0
-	vilvl.h	$vr7, $vr0, $vr7
-	vmadd.w	$vr6, $vr4, $vr1
-	vmadd.w	$vr6, $vr5, $vr2
-	vadd.w	$vr4, $vr6, $vr7
-	vaddi.wu	$vr5, $vr4, 16
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
-	vmin.w	$vr5, $vr5, $vr3
-	vpickev.h	$vr5, $vr5, $vr5
-	vstelm.d	$vr5, $ra, 0, 0
-	vst	$vr4, $t4, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vadd.w	$vr4, $vr6, $vr4
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vinsgr2vr.d	$vr6, $a7, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vmadd.w	$vr5, $vr3, $vr0
+	vmadd.w	$vr5, $vr4, $vr1
+	vadd.w	$vr3, $vr5, $vr6
+	vaddi.wu	$vr4, $vr3, 16
+	vsrai.w	$vr4, $vr4, 5
+	vmaxi.w	$vr4, $vr4, 0
+	vmin.w	$vr4, $vr4, $vr2
+	vpickev.h	$vr4, $vr4, $vr4
+	vstelm.d	$vr4, $ra, 0, 0
+	vst	$vr3, $t4, 0
 	addi.d	$t7, $t7, -4
 	addi.d	$t4, $t4, 16
 	addi.d	$t6, $t6, 8
@@ -864,9 +863,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ori	$t6, $zero, 2
 	ori	$t4, $zero, 8
 	ori	$t5, $zero, 16
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 20
-	vrepli.w	$vr3, -5
+	vrepli.w	$vr1, 20
+	vrepli.w	$vr2, -5
 	b	.LBB2_16
 	.p2align	4, , 16
 .LBB2_15:                               # %..loopexit228_crit_edge.us
@@ -977,46 +975,52 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 .LBB2_27:                               # %vector.body499
                                         #   Parent Loop BB2_16 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr4, $s4, 0
-	vld	$vr5, $s5, 0
-	vilvh.h	$vr6, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vilvh.h	$vr7, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr5, $vr7, $vr6
-	vld	$vr6, $s6, 0
-	vmul.w	$vr5, $vr5, $vr2
-	vld	$vr7, $s7, 0
-	vmul.w	$vr4, $vr4, $vr2
-	vilvl.h	$vr8, $vr1, $vr6
-	vilvh.h	$vr6, $vr1, $vr6
-	vilvl.h	$vr9, $vr1, $vr7
-	vilvh.h	$vr7, $vr1, $vr7
-	vld	$vr10, $s8, 0
-	vadd.w	$vr6, $vr7, $vr6
+	vld	$vr3, $s4, 0
+	vld	$vr4, $s5, 0
+	vbsrl.v	$vr5, $vr3, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vbsrl.v	$vr6, $vr4, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vadd.w	$vr3, $vr4, $vr3
+	vadd.w	$vr4, $vr6, $vr5
+	vld	$vr5, $s6, 0
+	vmul.w	$vr4, $vr4, $vr1
+	vmul.w	$vr3, $vr3, $vr1
+	vld	$vr6, $s7, 0
+	vsllwil.wu.hu	$vr7, $vr5, 0
+	vbsrl.v	$vr5, $vr5, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr8, $vr6, 0
+	vbsrl.v	$vr6, $vr6, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vld	$vr9, $s8, 0
+	vadd.w	$vr5, $vr6, $vr5
+	vadd.w	$vr6, $vr8, $vr7
 	vld	$vr7, $ra, 0
-	vadd.w	$vr8, $vr9, $vr8
-	vilvl.h	$vr9, $vr1, $vr10
-	vilvh.h	$vr10, $vr1, $vr10
-	vilvh.h	$vr11, $vr1, $vr7
-	vilvl.h	$vr7, $vr1, $vr7
-	vmadd.w	$vr4, $vr8, $vr3
-	vmadd.w	$vr5, $vr6, $vr3
-	vadd.w	$vr5, $vr5, $vr10
+	vsllwil.wu.hu	$vr8, $vr9, 0
+	vbsrl.v	$vr9, $vr9, 8
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vbsrl.v	$vr10, $vr7, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmadd.w	$vr3, $vr6, $vr2
+	vmadd.w	$vr4, $vr5, $vr2
 	vadd.w	$vr4, $vr4, $vr9
-	vadd.w	$vr4, $vr4, $vr7
-	vadd.w	$vr5, $vr5, $vr11
-	vaddi.wu	$vr5, $vr5, 16
+	vadd.w	$vr3, $vr3, $vr8
+	vadd.w	$vr3, $vr3, $vr7
+	vadd.w	$vr4, $vr4, $vr10
 	vaddi.wu	$vr4, $vr4, 16
+	vaddi.wu	$vr3, $vr3, 16
+	vsrai.w	$vr3, $vr3, 5
 	vsrai.w	$vr4, $vr4, 5
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
 	vmaxi.w	$vr4, $vr4, 0
+	vmaxi.w	$vr3, $vr3, 0
+	vmin.w	$vr3, $vr3, $vr0
 	vmin.w	$vr4, $vr4, $vr0
-	vmin.w	$vr5, $vr5, $vr0
-	vpickev.h	$vr4, $vr5, $vr4
-	vst	$vr4, $fp, 0
+	vpickev.h	$vr3, $vr4, $vr3
+	vst	$vr3, $fp, 0
 	addi.d	$t3, $t3, -8
 	addi.d	$fp, $fp, 16
 	addi.d	$ra, $ra, 16
@@ -1478,12 +1482,12 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
                                         #     Child Loop BB2_63 Depth 2
                                         #     Child Loop BB2_66 Depth 2
 	slli.d	$a7, $t6, 3
-	ldx.d	$fp, $a2, $a7
+	ldx.d	$a7, $a2, $a7
 	alsl.d	$t3, $t6, $t1, 3
 	addi.d	$t6, $t6, 1
-	slli.d	$a7, $t6, 3
-	ldx.d	$t7, $t1, $a7
-	ld.d	$a7, $t3, -8
+	slli.d	$t7, $t6, 3
+	ldx.d	$t7, $t1, $t7
+	ld.d	$fp, $t3, -8
 	ld.d	$s0, $t3, 16
 	ld.d	$s1, $t3, -16
 	ld.d	$s2, $t3, 24
@@ -1496,11 +1500,11 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
                                         #   in Loop: Header=BB2_60 Depth=1
 	move	$s3, $t8
 	move	$s4, $t7
-	move	$s5, $a7
+	move	$s5, $fp
 	move	$s6, $s0
 	move	$s7, $s1
 	move	$s8, $s2
-	move	$ra, $fp
+	move	$ra, $a7
 	move	$t3, $a6
 	.p2align	4, , 16
 .LBB2_63:                               # %vector.body361
@@ -1541,11 +1545,11 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
                                         #   in Loop: Header=BB2_60 Depth=1
 	alsl.d	$t8, $t3, $t8, 2
 	alsl.d	$s3, $t3, $t7, 2
-	alsl.d	$a7, $t3, $a7, 2
+	alsl.d	$fp, $t3, $fp, 2
 	alsl.d	$s0, $t3, $s0, 2
 	alsl.d	$s1, $t3, $s1, 2
 	alsl.d	$s2, $t3, $s2, 2
-	alsl.d	$fp, $t3, $fp, 1
+	alsl.d	$a7, $t3, $a7, 1
 	sub.d	$s4, $a4, $t3
 	.p2align	4, , 16
 .LBB2_66:                               # %scalar.ph354
@@ -1553,7 +1557,7 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
                                         # =>  This Inner Loop Header: Depth=2
 	ld.w	$t3, $t8, 0
 	ld.w	$s5, $s3, 0
-	ld.w	$s6, $a7, 0
+	ld.w	$s6, $fp, 0
 	ld.w	$s7, $s0, 0
 	add.w	$t3, $s5, $t3
 	slli.d	$s5, $t3, 4
@@ -1573,15 +1577,15 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	maskeqz	$t3, $t3, $s5
 	masknez	$s5, $t2, $s5
 	or	$t3, $t3, $s5
-	st.h	$t3, $fp, 0
+	st.h	$t3, $a7, 0
 	addi.d	$t8, $t8, 4
 	addi.d	$s3, $s3, 4
-	addi.d	$a7, $a7, 4
+	addi.d	$fp, $fp, 4
 	addi.d	$s0, $s0, 4
 	addi.d	$s1, $s1, 4
 	addi.d	$s2, $s2, 4
 	addi.d	$s4, $s4, -1
-	addi.d	$fp, $fp, 2
+	addi.d	$a7, $a7, 2
 	bnez	$s4, .LBB2_66
 	b	.LBB2_59
 .LBB2_67:
@@ -1623,22 +1627,22 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	ld.d	$t7, $fp, -8
 	slli.d	$a7, $t3, 3
 	ldx.d	$t8, $a4, $a7
-	ld.d	$fp, $fp, -16
-	slli.d	$a7, $t1, 3
-	ldx.d	$s0, $a4, $a7
-	lu12i.w	$a7, 3
-	ori	$t1, $a7, 3232
+	ld.d	$a7, $fp, -16
+	slli.d	$t1, $t1, 3
+	ldx.d	$fp, $a4, $t1
+	lu12i.w	$t1, 3
+	ori	$t1, $t1, 3232
 	ldx.w	$t3, $t0, $t1
 	or	$a3, $a6, $a3
 	ori	$a6, $zero, 4
 	bstrpick.d	$a3, $a3, 31, 0
 	bge	$a0, $a6, .LBB2_71
 # %bb.70:
-	move	$a7, $zero
+	move	$s0, $zero
 	b	.LBB2_74
 .LBB2_71:                               # %vector.ph375
 	bstrpick.d	$a6, $a3, 30, 2
-	slli.d	$a7, $a6, 2
+	slli.d	$s0, $a6, 2
 	vreplgr2vr.w	$vr0, $t3
 	vrepli.w	$vr1, 20
 	vrepli.w	$vr2, -5
@@ -1648,10 +1652,10 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	move	$s2, $t6
 	move	$s3, $t7
 	move	$s4, $t8
-	move	$s5, $fp
-	move	$s6, $s0
+	move	$s5, $a7
+	move	$s6, $fp
 	move	$s7, $t4
-	move	$a6, $a7
+	move	$a6, $s0
 	.p2align	4, , 16
 .LBB2_72:                               # %vector.body380
                                         # =>This Inner Loop Header: Depth=1
@@ -1684,16 +1688,16 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	bnez	$a6, .LBB2_72
 # %bb.73:                               # %middle.block389
 	ld.d	$s7, $sp, 32                    # 8-byte Folded Reload
-	beq	$a7, $a3, .LBB2_76
+	beq	$s0, $a3, .LBB2_76
 .LBB2_74:                               # %scalar.ph373.preheader
-	alsl.d	$t4, $a7, $t4, 1
-	alsl.d	$s0, $a7, $s0, 2
-	alsl.d	$fp, $a7, $fp, 2
-	alsl.d	$t8, $a7, $t8, 2
-	alsl.d	$t7, $a7, $t7, 2
-	alsl.d	$t6, $a7, $t6, 2
-	alsl.d	$t5, $a7, $t5, 2
-	sub.d	$a7, $a3, $a7
+	alsl.d	$t4, $s0, $t4, 1
+	alsl.d	$fp, $s0, $fp, 2
+	alsl.d	$a7, $s0, $a7, 2
+	alsl.d	$t8, $s0, $t8, 2
+	alsl.d	$t7, $s0, $t7, 2
+	alsl.d	$t6, $s0, $t6, 2
+	alsl.d	$t5, $s0, $t5, 2
+	sub.d	$s0, $a3, $s0
 	.p2align	4, , 16
 .LBB2_75:                               # %scalar.ph373
                                         # =>This Inner Loop Header: Depth=1
@@ -1705,8 +1709,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	slli.d	$s1, $a6, 4
 	alsl.d	$a6, $a6, $s1, 2
 	add.w	$s1, $s3, $s2
-	ld.w	$s2, $fp, 0
-	ld.w	$s3, $s0, 0
+	ld.w	$s2, $a7, 0
+	ld.w	$s3, $fp, 0
 	alsl.d	$s1, $s1, $s1, 2
 	sub.d	$a6, $a6, $s1
 	add.d	$a6, $a6, $s2
@@ -1721,14 +1725,14 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	or	$a6, $a6, $s1
 	st.h	$a6, $t4, 0
 	addi.d	$t4, $t4, 2
-	addi.d	$s0, $s0, 4
 	addi.d	$fp, $fp, 4
+	addi.d	$a7, $a7, 4
 	addi.d	$t8, $t8, 4
 	addi.d	$t7, $t7, 4
 	addi.d	$t6, $t6, 4
-	addi.d	$a7, $a7, -1
+	addi.d	$s0, $s0, -1
 	addi.d	$t5, $t5, 4
-	bnez	$a7, .LBB2_75
+	bnez	$s0, .LBB2_75
 .LBB2_76:                               # %.loopexit232
 	bge	$t2, $s8, .LBB2_116
 # %bb.77:                               # %.lr.ph.1
@@ -1786,9 +1790,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	bstrpick.d	$a6, $a4, 30, 3
 	slli.d	$t8, $a6, 3
 	vreplgr2vr.w	$vr0, $a5
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 20
-	vrepli.w	$vr3, -5
+	vrepli.w	$vr1, 20
+	vrepli.w	$vr2, -5
 	move	$a7, $t3
 	move	$fp, $t4
 	move	$s0, $t5
@@ -1798,40 +1801,44 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	.p2align	4, , 16
 .LBB2_84:                               # %vector.body442
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr4, $a7, 0
-	vld	$vr5, $fp, 0
-	vilvh.h	$vr6, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vilvh.h	$vr7, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vadd.w	$vr5, $vr5, $vr4
-	vld	$vr8, $s0, 0
-	vadd.w	$vr7, $vr7, $vr6
-	vmul.w	$vr7, $vr7, $vr2
-	vmul.w	$vr5, $vr5, $vr2
-	vilvl.h	$vr9, $vr1, $vr8
-	vld	$vr10, $s1, 0
-	vilvh.h	$vr8, $vr1, $vr8
-	vadd.w	$vr8, $vr8, $vr6
-	vadd.w	$vr9, $vr9, $vr4
-	vilvh.h	$vr11, $vr1, $vr10
-	vilvl.h	$vr10, $vr1, $vr10
-	vmadd.w	$vr5, $vr9, $vr3
-	vmadd.w	$vr7, $vr8, $vr3
-	vadd.w	$vr6, $vr7, $vr6
-	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr4, $vr4, $vr10
-	vadd.w	$vr5, $vr6, $vr11
-	vaddi.wu	$vr5, $vr5, 16
+	vld	$vr3, $a7, 0
+	vld	$vr4, $fp, 0
+	vbsrl.v	$vr5, $vr3, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vbsrl.v	$vr6, $vr4, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vadd.w	$vr4, $vr4, $vr3
+	vld	$vr7, $s0, 0
+	vadd.w	$vr6, $vr6, $vr5
+	vmul.w	$vr6, $vr6, $vr1
+	vmul.w	$vr4, $vr4, $vr1
+	vsllwil.wu.hu	$vr8, $vr7, 0
+	vbsrl.v	$vr7, $vr7, 8
+	vld	$vr9, $s1, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vadd.w	$vr7, $vr7, $vr5
+	vadd.w	$vr8, $vr8, $vr3
+	vbsrl.v	$vr10, $vr9, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vmadd.w	$vr4, $vr8, $vr2
+	vmadd.w	$vr6, $vr7, $vr2
+	vadd.w	$vr5, $vr6, $vr5
+	vadd.w	$vr3, $vr4, $vr3
+	vadd.w	$vr3, $vr3, $vr9
+	vadd.w	$vr4, $vr5, $vr10
 	vaddi.wu	$vr4, $vr4, 16
+	vaddi.wu	$vr3, $vr3, 16
+	vsrai.w	$vr3, $vr3, 5
 	vsrai.w	$vr4, $vr4, 5
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
 	vmaxi.w	$vr4, $vr4, 0
+	vmaxi.w	$vr3, $vr3, 0
+	vmin.w	$vr3, $vr3, $vr0
 	vmin.w	$vr4, $vr4, $vr0
-	vmin.w	$vr5, $vr5, $vr0
-	vpickev.h	$vr4, $vr5, $vr4
-	vst	$vr4, $s2, 0
+	vpickev.h	$vr3, $vr4, $vr3
+	vst	$vr3, $s2, 0
 	addi.d	$s3, $s3, -8
 	addi.d	$s2, $s2, 16
 	addi.d	$s1, $s1, 16
@@ -1867,9 +1874,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	bstrpick.d	$a6, $a4, 30, 3
 	slli.d	$fp, $a6, 3
 	vreplgr2vr.w	$vr0, $a5
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 20
-	vrepli.w	$vr3, -5
+	vrepli.w	$vr1, 20
+	vrepli.w	$vr2, -5
 	move	$a7, $t4
 	move	$s0, $t5
 	move	$s1, $t3
@@ -1880,43 +1886,48 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	.p2align	4, , 16
 .LBB2_92:                               # %vector.body469
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr4, $a7, 0
-	vld	$vr5, $s0, 0
-	vilvh.h	$vr6, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vilvh.h	$vr7, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr5, $vr7, $vr6
-	vld	$vr6, $s1, 0
-	vmul.w	$vr5, $vr5, $vr2
-	vld	$vr7, $s2, 0
-	vmul.w	$vr4, $vr4, $vr2
-	vilvl.h	$vr8, $vr1, $vr6
-	vilvh.h	$vr6, $vr1, $vr6
-	vilvl.h	$vr9, $vr1, $vr7
-	vld	$vr10, $s3, 0
-	vilvh.h	$vr7, $vr1, $vr7
-	vadd.w	$vr7, $vr7, $vr6
-	vadd.w	$vr9, $vr9, $vr8
-	vilvh.h	$vr11, $vr1, $vr10
-	vilvl.h	$vr10, $vr1, $vr10
-	vmadd.w	$vr4, $vr9, $vr3
-	vmadd.w	$vr5, $vr7, $vr3
-	vadd.w	$vr5, $vr5, $vr6
-	vadd.w	$vr4, $vr4, $vr8
+	vld	$vr3, $a7, 0
+	vld	$vr4, $s0, 0
+	vbsrl.v	$vr5, $vr3, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vbsrl.v	$vr6, $vr4, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vadd.w	$vr3, $vr4, $vr3
+	vadd.w	$vr4, $vr6, $vr5
+	vld	$vr5, $s1, 0
+	vmul.w	$vr4, $vr4, $vr1
+	vmul.w	$vr3, $vr3, $vr1
+	vld	$vr6, $s2, 0
+	vsllwil.wu.hu	$vr7, $vr5, 0
+	vbsrl.v	$vr5, $vr5, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr8, $vr6, 0
+	vbsrl.v	$vr6, $vr6, 8
+	vld	$vr9, $s3, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vadd.w	$vr6, $vr6, $vr5
+	vadd.w	$vr8, $vr8, $vr7
+	vbsrl.v	$vr10, $vr9, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vmadd.w	$vr3, $vr8, $vr2
+	vmadd.w	$vr4, $vr6, $vr2
+	vadd.w	$vr4, $vr4, $vr5
+	vadd.w	$vr3, $vr3, $vr7
+	vadd.w	$vr3, $vr3, $vr9
 	vadd.w	$vr4, $vr4, $vr10
-	vadd.w	$vr5, $vr5, $vr11
-	vaddi.wu	$vr5, $vr5, 16
 	vaddi.wu	$vr4, $vr4, 16
+	vaddi.wu	$vr3, $vr3, 16
+	vsrai.w	$vr3, $vr3, 5
 	vsrai.w	$vr4, $vr4, 5
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
 	vmaxi.w	$vr4, $vr4, 0
+	vmaxi.w	$vr3, $vr3, 0
+	vmin.w	$vr3, $vr3, $vr0
 	vmin.w	$vr4, $vr4, $vr0
-	vmin.w	$vr5, $vr5, $vr0
-	vpickev.h	$vr4, $vr5, $vr4
-	vst	$vr4, $s4, 0
+	vpickev.h	$vr3, $vr4, $vr3
+	vst	$vr3, $s4, 0
 	addi.d	$s5, $s5, -8
 	addi.d	$s4, $s4, 16
 	addi.d	$s3, $s3, 16
@@ -1962,9 +1973,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	bstrpick.d	$a5, $a4, 30, 3
 	slli.d	$s1, $a5, 3
 	vreplgr2vr.w	$vr0, $t3
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 20
-	vrepli.w	$vr3, -5
+	vrepli.w	$vr1, 20
+	vrepli.w	$vr2, -5
 	move	$s2, $t5
 	move	$s3, $t6
 	move	$s4, $t7
@@ -1976,46 +1986,52 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	.p2align	4, , 16
 .LBB2_102:                              # %vector.body530
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr4, $s2, 0
-	vld	$vr5, $s3, 0
-	vilvh.h	$vr6, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vilvh.h	$vr7, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr5, $vr7, $vr6
-	vld	$vr6, $s4, 0
-	vmul.w	$vr5, $vr5, $vr2
-	vld	$vr7, $s5, 0
-	vmul.w	$vr4, $vr4, $vr2
-	vilvl.h	$vr8, $vr1, $vr6
-	vilvh.h	$vr6, $vr1, $vr6
-	vilvl.h	$vr9, $vr1, $vr7
-	vilvh.h	$vr7, $vr1, $vr7
-	vld	$vr10, $s6, 0
-	vadd.w	$vr6, $vr7, $vr6
+	vld	$vr3, $s2, 0
+	vld	$vr4, $s3, 0
+	vbsrl.v	$vr5, $vr3, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vbsrl.v	$vr6, $vr4, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vadd.w	$vr3, $vr4, $vr3
+	vadd.w	$vr4, $vr6, $vr5
+	vld	$vr5, $s4, 0
+	vmul.w	$vr4, $vr4, $vr1
+	vmul.w	$vr3, $vr3, $vr1
+	vld	$vr6, $s5, 0
+	vsllwil.wu.hu	$vr7, $vr5, 0
+	vbsrl.v	$vr5, $vr5, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr8, $vr6, 0
+	vbsrl.v	$vr6, $vr6, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vld	$vr9, $s6, 0
+	vadd.w	$vr5, $vr6, $vr5
+	vadd.w	$vr6, $vr8, $vr7
 	vld	$vr7, $s7, 0
-	vadd.w	$vr8, $vr9, $vr8
-	vilvl.h	$vr9, $vr1, $vr10
-	vilvh.h	$vr10, $vr1, $vr10
-	vilvh.h	$vr11, $vr1, $vr7
-	vilvl.h	$vr7, $vr1, $vr7
-	vmadd.w	$vr4, $vr8, $vr3
-	vmadd.w	$vr5, $vr6, $vr3
-	vadd.w	$vr5, $vr5, $vr10
+	vsllwil.wu.hu	$vr8, $vr9, 0
+	vbsrl.v	$vr9, $vr9, 8
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vbsrl.v	$vr10, $vr7, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmadd.w	$vr3, $vr6, $vr2
+	vmadd.w	$vr4, $vr5, $vr2
 	vadd.w	$vr4, $vr4, $vr9
-	vadd.w	$vr4, $vr4, $vr7
-	vadd.w	$vr5, $vr5, $vr11
-	vaddi.wu	$vr5, $vr5, 16
+	vadd.w	$vr3, $vr3, $vr8
+	vadd.w	$vr3, $vr3, $vr7
+	vadd.w	$vr4, $vr4, $vr10
 	vaddi.wu	$vr4, $vr4, 16
+	vaddi.wu	$vr3, $vr3, 16
+	vsrai.w	$vr3, $vr3, 5
 	vsrai.w	$vr4, $vr4, 5
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
 	vmaxi.w	$vr4, $vr4, 0
+	vmaxi.w	$vr3, $vr3, 0
+	vmin.w	$vr3, $vr3, $vr0
 	vmin.w	$vr4, $vr4, $vr0
-	vmin.w	$vr5, $vr5, $vr0
-	vpickev.h	$vr4, $vr5, $vr4
-	vst	$vr4, $a7, 0
+	vpickev.h	$vr3, $vr4, $vr3
+	vst	$vr3, $a7, 0
 	addi.d	$a5, $a5, -8
 	addi.d	$a7, $a7, 16
 	addi.d	$s7, $s7, 16
@@ -2277,9 +2293,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	bstrpick.d	$a6, $a4, 30, 3
 	slli.d	$s1, $a6, 3
 	vreplgr2vr.w	$vr0, $t3
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 20
-	vrepli.w	$vr3, -5
+	vrepli.w	$vr1, 20
+	vrepli.w	$vr2, -5
 	move	$s2, $t5
 	move	$s3, $t6
 	move	$s4, $t7
@@ -2291,46 +2306,52 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	.p2align	4, , 16
 .LBB2_124:                              # %vector.body561
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr4, $s2, 0
-	vld	$vr5, $s3, 0
-	vilvh.h	$vr6, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vilvh.h	$vr7, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr5, $vr7, $vr6
-	vld	$vr6, $s4, 0
-	vmul.w	$vr5, $vr5, $vr2
-	vld	$vr7, $s5, 0
-	vmul.w	$vr4, $vr4, $vr2
-	vilvl.h	$vr8, $vr1, $vr6
-	vilvh.h	$vr6, $vr1, $vr6
-	vilvl.h	$vr9, $vr1, $vr7
-	vilvh.h	$vr7, $vr1, $vr7
-	vld	$vr10, $s6, 0
-	vadd.w	$vr6, $vr7, $vr6
+	vld	$vr3, $s2, 0
+	vld	$vr4, $s3, 0
+	vbsrl.v	$vr5, $vr3, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vbsrl.v	$vr6, $vr4, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vadd.w	$vr3, $vr4, $vr3
+	vadd.w	$vr4, $vr6, $vr5
+	vld	$vr5, $s4, 0
+	vmul.w	$vr4, $vr4, $vr1
+	vmul.w	$vr3, $vr3, $vr1
+	vld	$vr6, $s5, 0
+	vsllwil.wu.hu	$vr7, $vr5, 0
+	vbsrl.v	$vr5, $vr5, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr8, $vr6, 0
+	vbsrl.v	$vr6, $vr6, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vld	$vr9, $s6, 0
+	vadd.w	$vr5, $vr6, $vr5
+	vadd.w	$vr6, $vr8, $vr7
 	vld	$vr7, $s7, 0
-	vadd.w	$vr8, $vr9, $vr8
-	vilvl.h	$vr9, $vr1, $vr10
-	vilvh.h	$vr10, $vr1, $vr10
-	vilvh.h	$vr11, $vr1, $vr7
-	vilvl.h	$vr7, $vr1, $vr7
-	vmadd.w	$vr4, $vr8, $vr3
-	vmadd.w	$vr5, $vr6, $vr3
-	vadd.w	$vr5, $vr5, $vr10
+	vsllwil.wu.hu	$vr8, $vr9, 0
+	vbsrl.v	$vr9, $vr9, 8
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vbsrl.v	$vr10, $vr7, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmadd.w	$vr3, $vr6, $vr2
+	vmadd.w	$vr4, $vr5, $vr2
 	vadd.w	$vr4, $vr4, $vr9
-	vadd.w	$vr4, $vr4, $vr7
-	vadd.w	$vr5, $vr5, $vr11
-	vaddi.wu	$vr5, $vr5, 16
+	vadd.w	$vr3, $vr3, $vr8
+	vadd.w	$vr3, $vr3, $vr7
+	vadd.w	$vr4, $vr4, $vr10
 	vaddi.wu	$vr4, $vr4, 16
+	vaddi.wu	$vr3, $vr3, 16
+	vsrai.w	$vr3, $vr3, 5
 	vsrai.w	$vr4, $vr4, 5
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
 	vmaxi.w	$vr4, $vr4, 0
+	vmaxi.w	$vr3, $vr3, 0
+	vmin.w	$vr3, $vr3, $vr0
 	vmin.w	$vr4, $vr4, $vr0
-	vmin.w	$vr5, $vr5, $vr0
-	vpickev.h	$vr4, $vr5, $vr4
-	vst	$vr4, $s8, 0
+	vpickev.h	$vr3, $vr4, $vr3
+	vst	$vr3, $s8, 0
 	addi.d	$ra, $ra, -8
 	addi.d	$s8, $s8, 16
 	addi.d	$s7, $s7, 16
@@ -2370,9 +2391,8 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	bstrpick.d	$a0, $a4, 30, 3
 	slli.d	$a0, $a0, 3
 	vreplgr2vr.w	$vr0, $a1
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 20
-	vrepli.w	$vr3, -5
+	vrepli.w	$vr1, 20
+	vrepli.w	$vr2, -5
 	move	$t0, $a6
 	move	$t1, $a5
 	move	$t4, $a7
@@ -2384,46 +2404,52 @@ getVerSubImageSixTap:                   # @getVerSubImageSixTap
 	.p2align	4, , 16
 .LBB2_133:                              # %vector.body592
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr4, $t0, 0
-	vld	$vr5, $t1, 0
-	vilvh.h	$vr6, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vilvh.h	$vr7, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr5, $vr7, $vr6
-	vld	$vr6, $t4, 0
-	vmul.w	$vr5, $vr5, $vr2
-	vld	$vr7, $t5, 0
-	vmul.w	$vr4, $vr4, $vr2
-	vilvl.h	$vr8, $vr1, $vr6
-	vilvh.h	$vr6, $vr1, $vr6
-	vilvl.h	$vr9, $vr1, $vr7
-	vilvh.h	$vr7, $vr1, $vr7
-	vld	$vr10, $t6, 0
-	vadd.w	$vr6, $vr7, $vr6
+	vld	$vr3, $t0, 0
+	vld	$vr4, $t1, 0
+	vbsrl.v	$vr5, $vr3, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vbsrl.v	$vr6, $vr4, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vadd.w	$vr3, $vr4, $vr3
+	vadd.w	$vr4, $vr6, $vr5
+	vld	$vr5, $t4, 0
+	vmul.w	$vr4, $vr4, $vr1
+	vmul.w	$vr3, $vr3, $vr1
+	vld	$vr6, $t5, 0
+	vsllwil.wu.hu	$vr7, $vr5, 0
+	vbsrl.v	$vr5, $vr5, 8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr8, $vr6, 0
+	vbsrl.v	$vr6, $vr6, 8
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vld	$vr9, $t6, 0
+	vadd.w	$vr5, $vr6, $vr5
+	vadd.w	$vr6, $vr8, $vr7
 	vld	$vr7, $t7, 0
-	vadd.w	$vr8, $vr9, $vr8
-	vilvl.h	$vr9, $vr1, $vr10
-	vilvh.h	$vr10, $vr1, $vr10
-	vilvh.h	$vr11, $vr1, $vr7
-	vilvl.h	$vr7, $vr1, $vr7
-	vmadd.w	$vr4, $vr8, $vr3
-	vmadd.w	$vr5, $vr6, $vr3
-	vadd.w	$vr5, $vr5, $vr10
+	vsllwil.wu.hu	$vr8, $vr9, 0
+	vbsrl.v	$vr9, $vr9, 8
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vbsrl.v	$vr10, $vr7, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmadd.w	$vr3, $vr6, $vr2
+	vmadd.w	$vr4, $vr5, $vr2
 	vadd.w	$vr4, $vr4, $vr9
-	vadd.w	$vr4, $vr4, $vr7
-	vadd.w	$vr5, $vr5, $vr11
-	vaddi.wu	$vr5, $vr5, 16
+	vadd.w	$vr3, $vr3, $vr8
+	vadd.w	$vr3, $vr3, $vr7
+	vadd.w	$vr4, $vr4, $vr10
 	vaddi.wu	$vr4, $vr4, 16
+	vaddi.wu	$vr3, $vr3, 16
+	vsrai.w	$vr3, $vr3, 5
 	vsrai.w	$vr4, $vr4, 5
-	vsrai.w	$vr5, $vr5, 5
-	vmaxi.w	$vr5, $vr5, 0
 	vmaxi.w	$vr4, $vr4, 0
+	vmaxi.w	$vr3, $vr3, 0
+	vmin.w	$vr3, $vr3, $vr0
 	vmin.w	$vr4, $vr4, $vr0
-	vmin.w	$vr5, $vr5, $vr0
-	vpickev.h	$vr4, $vr5, $vr4
-	vst	$vr4, $t8, 0
+	vpickev.h	$vr3, $vr4, $vr3
+	vst	$vr3, $t8, 0
 	addi.d	$fp, $fp, -8
 	addi.d	$t8, $t8, 16
 	addi.d	$t7, $t7, 16
@@ -2508,7 +2534,6 @@ getHorSubImageBiLinear:                 # @getHorSubImageBiLinear
 	st.d	$t5, $sp, 8                     # 8-byte Folded Spill
 	ori	$s0, $zero, 8
 	ori	$s1, $zero, 7
-	vrepli.b	$vr0, 0
 	ori	$s2, $zero, 16
 	b	.LBB3_5
 	.p2align	4, , 16
@@ -2596,13 +2621,13 @@ getHorSubImageBiLinear:                 # @getHorSubImageBiLinear
 .LBB3_15:                               # %vector.body147
                                         #   Parent Loop BB3_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr1, $s7, 0
-	vld	$vr2, $s6, 0
-	vor.v	$vr3, $vr1, $vr2
-	vxor.v	$vr1, $vr1, $vr2
-	vsrli.h	$vr1, $vr1, 1
-	vsub.h	$vr1, $vr3, $vr1
-	vst	$vr1, $s8, 0
+	vld	$vr0, $s7, 0
+	vld	$vr1, $s6, 0
+	vor.v	$vr2, $vr0, $vr1
+	vxor.v	$vr0, $vr0, $vr1
+	vsrli.h	$vr0, $vr0, 1
+	vsub.h	$vr0, $vr2, $vr0
+	vst	$vr0, $s8, 0
 	addi.d	$ra, $ra, -8
 	addi.d	$s8, $s8, 16
 	addi.d	$s6, $s6, 16
@@ -2637,29 +2662,30 @@ getHorSubImageBiLinear:                 # @getHorSubImageBiLinear
 # %bb.19:                               # %vector.ph125
                                         #   in Loop: Header=BB3_5 Depth=1
 	ld.h	$t5, $s6, 0
-	vreplgr2vr.h	$vr1, $t5
-	vinsgr2vr.h	$vr2, $t5, 0
-	vinsgr2vr.h	$vr2, $t5, 1
-	vinsgr2vr.h	$vr2, $t5, 2
-	vinsgr2vr.h	$vr2, $t5, 3
-	vilvl.h	$vr2, $vr0, $vr2
-	vilvl.h	$vr1, $vr0, $vr1
-	vaddi.wu	$vr1, $vr1, 1
-	vaddi.wu	$vr2, $vr2, 1
+	vreplgr2vr.h	$vr0, $t5
+	vinsgr2vr.h	$vr1, $t5, 0
+	vinsgr2vr.h	$vr1, $t5, 1
+	vinsgr2vr.h	$vr1, $t5, 2
+	vinsgr2vr.h	$vr1, $t5, 3
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr2, $vr0, 0
+	vaddi.wu	$vr0, $vr1, 1
+	vaddi.wu	$vr1, $vr2, 1
 	move	$s5, $t8
 	.p2align	4, , 16
 .LBB3_20:                               # %vector.body128
                                         #   Parent Loop BB3_5 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr3, $s8, 0
-	vilvl.h	$vr4, $vr0, $vr3
-	vilvh.h	$vr3, $vr0, $vr3
-	vadd.w	$vr3, $vr3, $vr2
-	vadd.w	$vr4, $vr4, $vr1
-	vsrli.w	$vr4, $vr4, 1
+	vld	$vr2, $s8, 0
+	vbsrl.v	$vr3, $vr2, 8
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vadd.w	$vr2, $vr2, $vr1
+	vsrli.w	$vr2, $vr2, 1
+	vadd.w	$vr3, $vr3, $vr0
 	vsrli.w	$vr3, $vr3, 1
-	vpickev.h	$vr3, $vr3, $vr4
-	vst	$vr3, $s7, 0
+	vpickev.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s7, 0
 	addi.d	$s5, $s5, -8
 	addi.d	$s7, $s7, 16
 	addi.d	$s8, $s8, 16
@@ -2690,7 +2716,6 @@ getHorSubImageBiLinear:                 # @getHorSubImageBiLinear
 	slli.d	$t5, $t6, 3
 	alsl.d	$t6, $t6, $a3, 3
 	ori	$t7, $zero, 7
-	vrepli.b	$vr0, 0
 	b	.LBB3_25
 	.p2align	4, , 16
 .LBB3_24:                               # %._crit_edge.us52
@@ -2752,29 +2777,30 @@ getHorSubImageBiLinear:                 # @getHorSubImageBiLinear
 # %bb.30:                               # %vector.ph
                                         #   in Loop: Header=BB3_25 Depth=1
 	ld.h	$s3, $t8, 0
-	vreplgr2vr.h	$vr1, $s3
-	vinsgr2vr.h	$vr2, $s3, 0
-	vinsgr2vr.h	$vr2, $s3, 1
-	vinsgr2vr.h	$vr2, $s3, 2
-	vinsgr2vr.h	$vr2, $s3, 3
-	vilvl.h	$vr2, $vr0, $vr2
-	vilvl.h	$vr1, $vr0, $vr1
-	vaddi.wu	$vr1, $vr1, 1
-	vaddi.wu	$vr2, $vr2, 1
+	vreplgr2vr.h	$vr0, $s3
+	vinsgr2vr.h	$vr1, $s3, 0
+	vinsgr2vr.h	$vr1, $s3, 1
+	vinsgr2vr.h	$vr1, $s3, 2
+	vinsgr2vr.h	$vr1, $s3, 3
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr2, $vr0, 0
+	vaddi.wu	$vr0, $vr1, 1
+	vaddi.wu	$vr1, $vr2, 1
 	move	$s3, $t5
 	.p2align	4, , 16
 .LBB3_31:                               # %vector.body
                                         #   Parent Loop BB3_25 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vld	$vr3, $s2, 0
-	vilvl.h	$vr4, $vr0, $vr3
-	vilvh.h	$vr3, $vr0, $vr3
-	vadd.w	$vr3, $vr3, $vr2
-	vadd.w	$vr4, $vr4, $vr1
-	vsrli.w	$vr4, $vr4, 1
+	vld	$vr2, $s2, 0
+	vbsrl.v	$vr3, $vr2, 8
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vadd.w	$vr2, $vr2, $vr1
+	vsrli.w	$vr2, $vr2, 1
+	vadd.w	$vr3, $vr3, $vr0
 	vsrli.w	$vr3, $vr3, 1
-	vpickev.h	$vr3, $vr3, $vr4
-	vst	$vr3, $s1, 0
+	vpickev.h	$vr2, $vr3, $vr2
+	vst	$vr2, $s1, 0
 	addi.d	$s3, $s3, -8
 	addi.d	$s1, $s1, 16
 	addi.d	$s2, $s2, 16

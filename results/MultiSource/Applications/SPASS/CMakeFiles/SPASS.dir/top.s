@@ -1150,16 +1150,12 @@ main:                                   # @main
 	ld.h	$a6, $a3, 0
 	vinsgr2vr.h	$vr2, $a5, 0
 	vinsgr2vr.h	$vr3, $a6, 0
-	vilvl.b	$vr2, $vr2, $vr2
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 56
-	vsrai.d	$vr2, $vr2, 56
-	vilvl.b	$vr3, $vr3, $vr3
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 56
-	vsrai.d	$vr3, $vr3, 56
+	vsllwil.h.b	$vr2, $vr2, 0
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.h.b	$vr3, $vr3, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vadd.d	$vr0, $vr0, $vr2
 	vadd.d	$vr1, $vr1, $vr3
 	addi.d	$a4, $a4, -4
@@ -1298,16 +1294,12 @@ main:                                   # @main
 	ld.h	$a6, $a3, 0
 	vinsgr2vr.h	$vr2, $a5, 0
 	vinsgr2vr.h	$vr3, $a6, 0
-	vilvl.b	$vr2, $vr2, $vr2
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 56
-	vsrai.d	$vr2, $vr2, 56
-	vilvl.b	$vr3, $vr3, $vr3
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 56
-	vsrai.d	$vr3, $vr3, 56
+	vsllwil.h.b	$vr2, $vr2, 0
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.h.b	$vr3, $vr3, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vadd.d	$vr0, $vr0, $vr2
 	vadd.d	$vr1, $vr1, $vr3
 	addi.d	$a4, $a4, -4

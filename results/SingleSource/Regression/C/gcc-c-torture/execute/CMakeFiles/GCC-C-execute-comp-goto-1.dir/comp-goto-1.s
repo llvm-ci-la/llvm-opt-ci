@@ -42,45 +42,44 @@ simulator_kernel:                       # @simulator_kernel
 	lu12i.w	$t1, 63
 	ori	$t1, $t1, 4095
 	vreplgr2vr.w	$vr1, $t1
-	vrepli.b	$vr2, 0
 	lu12i.w	$t1, -64
-	vreplgr2vr.d	$vr3, $t1
+	vreplgr2vr.d	$vr2, $t1
 	move	$t1, $a7
 	.p2align	4, , 16
 .LBB1_5:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr4, $t0, -16
-	vld	$vr5, $t0, 0
+	vld	$vr3, $t0, -16
+	vld	$vr4, $t0, 0
+	vslli.d	$vr5, $vr3, 46
 	vslli.d	$vr6, $vr4, 46
-	vslli.d	$vr7, $vr5, 46
+	vsrai.d	$vr5, $vr5, 43
 	vsrai.d	$vr6, $vr6, 43
-	vsrai.d	$vr7, $vr7, 43
-	vpickve2gr.d	$t2, $vr6, 0
-	vpickve2gr.d	$t3, $vr6, 1
-	vpickve2gr.d	$t4, $vr7, 0
-	vpickve2gr.d	$t5, $vr7, 1
+	vpickve2gr.d	$t2, $vr5, 0
+	vpickve2gr.d	$t3, $vr5, 1
+	vpickve2gr.d	$t4, $vr6, 0
+	vpickve2gr.d	$t5, $vr6, 1
 	ldx.d	$t2, $a1, $t2
 	ldx.d	$t3, $a1, $t3
 	ldx.d	$t4, $a1, $t4
 	ldx.d	$t5, $a1, $t5
-	vinsgr2vr.d	$vr6, $t2, 0
-	vinsgr2vr.d	$vr6, $t3, 1
-	vinsgr2vr.d	$vr7, $t4, 0
-	vinsgr2vr.d	$vr7, $t5, 1
+	vinsgr2vr.d	$vr5, $t2, 0
+	vinsgr2vr.d	$vr5, $t3, 1
+	vinsgr2vr.d	$vr6, $t4, 0
+	vinsgr2vr.d	$vr6, $t5, 1
+	vshuf4i.w	$vr5, $vr5, 8
 	vshuf4i.w	$vr6, $vr6, 8
-	vshuf4i.w	$vr7, $vr7, 8
+	vsub.w	$vr5, $vr5, $vr0
 	vsub.w	$vr6, $vr6, $vr0
-	vsub.w	$vr7, $vr7, $vr0
+	vand.v	$vr5, $vr5, $vr1
 	vand.v	$vr6, $vr6, $vr1
-	vand.v	$vr7, $vr7, $vr1
-	vilvl.w	$vr6, $vr2, $vr6
-	vilvl.w	$vr7, $vr2, $vr7
-	vand.v	$vr4, $vr4, $vr3
-	vand.v	$vr5, $vr5, $vr3
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vand.v	$vr3, $vr3, $vr2
+	vand.v	$vr4, $vr4, $vr2
+	vor.v	$vr3, $vr3, $vr5
 	vor.v	$vr4, $vr4, $vr6
-	vor.v	$vr5, $vr5, $vr7
-	vst	$vr4, $t0, -16
-	vst	$vr5, $t0, 0
+	vst	$vr3, $t0, -16
+	vst	$vr4, $t0, 0
 	addi.d	$t1, $t1, -4
 	addi.d	$t0, $t0, 32
 	bnez	$t1, .LBB1_5

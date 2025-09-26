@@ -3427,12 +3427,8 @@ action_row:                             # @action_row
 	ld.d	$t7, $t4, 0
 	vinsgr2vr.d	$vr4, $t6, 0
 	vinsgr2vr.d	$vr5, $t7, 0
-	vilvl.h	$vr4, $vr4, $vr4
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr5, $vr5, $vr5
-	vslli.w	$vr5, $vr5, 16
-	vsrai.w	$vr5, $vr5, 16
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr5, $vr5, 0
 	vseq.w	$vr4, $vr1, $vr4
 	vseq.w	$vr5, $vr1, $vr5
 	vsub.w	$vr2, $vr2, $vr4
@@ -3498,9 +3494,7 @@ action_row:                             # @action_row
 .LBB21_76:                              # %vector.body218
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr1, $a3, -8
-	vilvl.h	$vr2, $vr1, $vr1
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
+	vsllwil.w.h	$vr2, $vr1, 0
 	vseq.w	$vr2, $vr0, $vr2
 	vpickve2gr.h	$a5, $vr2, 0
 	andi	$a5, $a5, 1
@@ -3545,9 +3539,8 @@ action_row:                             # @action_row
 	st.h	$zero, $a3, -2
 .LBB21_84:                              # %pred.store.continue226
                                         #   in Loop: Header=BB21_76 Depth=1
-	vilvh.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.w.h	$vr1, $vr1, 0
 	vseq.w	$vr1, $vr0, $vr1
 	vpickve2gr.h	$a5, $vr1, 0
 	andi	$a5, $a5, 1
@@ -3905,12 +3898,8 @@ save_column:                            # @save_column
 	ld.d	$t1, $a6, 0
 	vinsgr2vr.d	$vr3, $t0, 0
 	vinsgr2vr.d	$vr4, $t1, 0
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvl.h	$vr4, $vr4, $vr4
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.w.h	$vr4, $vr4, 0
 	vseq.w	$vr3, $vr0, $vr3
 	vseq.w	$vr4, $vr0, $vr4
 	vadd.w	$vr1, $vr1, $vr3

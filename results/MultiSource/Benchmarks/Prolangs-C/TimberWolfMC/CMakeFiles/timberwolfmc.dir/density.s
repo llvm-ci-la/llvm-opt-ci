@@ -662,18 +662,12 @@ density:                                # @density
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr3, $s2, -16
 	vld	$vr4, $s2, 0
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vshuf4i.w	$vr6, $vr4, 14
+	vsllwil.d.w	$vr6, $vr6, 0
+	vsllwil.d.w	$vr4, $vr4, 0
 	vpickve2gr.d	$s4, $vr3, 0
 	mul.d	$s4, $s4, $t0
 	add.d	$s4, $t5, $s4
@@ -902,18 +896,12 @@ density:                                # @density
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr3, $s0, -16
 	vld	$vr4, $s0, 0
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vshuf4i.w	$vr6, $vr4, 14
+	vsllwil.d.w	$vr6, $vr6, 0
+	vsllwil.d.w	$vr4, $vr4, 0
 	vpickve2gr.d	$s2, $vr3, 0
 	mul.d	$s2, $s2, $a6
 	add.d	$s2, $t3, $s2

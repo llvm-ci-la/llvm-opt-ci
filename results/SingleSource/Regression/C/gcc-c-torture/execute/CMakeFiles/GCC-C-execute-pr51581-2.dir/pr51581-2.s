@@ -287,40 +287,41 @@ f8:                                     # @f8
 	addi.d	$a1, $a1, %pc_lo12(b)
 	lu12i.w	$a2, 4
 	ori	$a3, $a2, 16
-	vrepli.b	$vr0, 0
 	lu12i.w	$a4, -349526
 	ori	$a4, $a4, 2731
 	lu32i.d	$a4, 0
-	vreplgr2vr.d	$vr1, $a4
-	vrepli.w	$vr2, -3
+	vreplgr2vr.d	$vr0, $a4
+	vrepli.w	$vr1, -3
 	pcalau12i	$a4, %pc_hi20(d)
 	addi.d	$a4, $a4, %pc_lo12(d)
 	.p2align	4, , 16
 .LBB7_1:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a5, $a1, $a0
-	vldx	$vr3, $a5, $a2
-	vldx	$vr4, $a5, $a3
-	vilvl.w	$vr5, $vr0, $vr3
-	vilvh.w	$vr6, $vr0, $vr3
-	vilvl.w	$vr7, $vr0, $vr4
-	vilvh.w	$vr8, $vr0, $vr4
-	vmul.d	$vr6, $vr6, $vr1
-	vmul.d	$vr5, $vr5, $vr1
-	vmul.d	$vr8, $vr8, $vr1
-	vmul.d	$vr7, $vr7, $vr1
+	vldx	$vr2, $a5, $a2
+	vldx	$vr3, $a5, $a3
+	vsllwil.du.wu	$vr4, $vr2, 0
+	vshuf4i.w	$vr5, $vr2, 14
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr6, $vr3, 0
+	vshuf4i.w	$vr7, $vr3, 14
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vmul.d	$vr5, $vr5, $vr0
+	vmul.d	$vr4, $vr4, $vr0
+	vmul.d	$vr7, $vr7, $vr0
+	vmul.d	$vr6, $vr6, $vr0
+	vsrli.d	$vr4, $vr4, 33
 	vsrli.d	$vr5, $vr5, 33
 	vsrli.d	$vr6, $vr6, 33
 	vsrli.d	$vr7, $vr7, 33
-	vsrli.d	$vr8, $vr8, 33
-	vpickev.w	$vr5, $vr6, $vr5
-	vpickev.w	$vr6, $vr8, $vr7
-	vmadd.w	$vr3, $vr5, $vr2
-	vmadd.w	$vr4, $vr6, $vr2
+	vpickev.w	$vr4, $vr5, $vr4
+	vpickev.w	$vr5, $vr7, $vr6
+	vmadd.w	$vr2, $vr4, $vr1
+	vmadd.w	$vr3, $vr5, $vr1
 	add.d	$a5, $a4, $a0
-	vstx	$vr3, $a5, $a2
+	vstx	$vr2, $a5, $a2
 	addi.d	$a0, $a0, 32
-	vstx	$vr4, $a5, $a3
+	vstx	$vr3, $a5, $a3
 	bnez	$a0, .LBB7_1
 # %bb.2:                                # %middle.block
 	ret
@@ -347,12 +348,9 @@ f9:                                     # @f9
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a4, $a1, $a0
 	vldx	$vr2, $a4, $a2
-	vshuf4i.w	$vr3, $vr2, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr4, $vr2, 50
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
+	vsllwil.d.w	$vr3, $vr2, 0
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
 	vmul.d	$vr4, $vr4, $vr0
 	vmul.d	$vr3, $vr3, $vr0
 	vsrai.d	$vr3, $vr3, 34
@@ -380,39 +378,40 @@ f10:                                    # @f10
 	addi.d	$a1, $a1, %pc_lo12(b)
 	lu12i.w	$a2, 4
 	ori	$a3, $a2, 16
-	vrepli.b	$vr0, 0
 	lu12i.w	$a4, 233016
 	ori	$a4, $a4, 3641
-	vreplgr2vr.d	$vr1, $a4
-	vrepli.w	$vr2, -18
+	vreplgr2vr.d	$vr0, $a4
+	vrepli.w	$vr1, -18
 	pcalau12i	$a4, %pc_hi20(d)
 	addi.d	$a4, $a4, %pc_lo12(d)
 	.p2align	4, , 16
 .LBB9_1:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a5, $a1, $a0
-	vldx	$vr3, $a5, $a2
-	vldx	$vr4, $a5, $a3
-	vilvl.w	$vr5, $vr0, $vr3
-	vilvh.w	$vr6, $vr0, $vr3
-	vilvl.w	$vr7, $vr0, $vr4
-	vilvh.w	$vr8, $vr0, $vr4
-	vmul.d	$vr6, $vr6, $vr1
-	vmul.d	$vr5, $vr5, $vr1
-	vmul.d	$vr8, $vr8, $vr1
-	vmul.d	$vr7, $vr7, $vr1
+	vldx	$vr2, $a5, $a2
+	vldx	$vr3, $a5, $a3
+	vsllwil.du.wu	$vr4, $vr2, 0
+	vshuf4i.w	$vr5, $vr2, 14
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr6, $vr3, 0
+	vshuf4i.w	$vr7, $vr3, 14
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vmul.d	$vr5, $vr5, $vr0
+	vmul.d	$vr4, $vr4, $vr0
+	vmul.d	$vr7, $vr7, $vr0
+	vmul.d	$vr6, $vr6, $vr0
+	vsrli.d	$vr4, $vr4, 34
 	vsrli.d	$vr5, $vr5, 34
 	vsrli.d	$vr6, $vr6, 34
 	vsrli.d	$vr7, $vr7, 34
-	vsrli.d	$vr8, $vr8, 34
-	vpickev.w	$vr5, $vr6, $vr5
-	vpickev.w	$vr6, $vr8, $vr7
-	vmadd.w	$vr3, $vr5, $vr2
-	vmadd.w	$vr4, $vr6, $vr2
+	vpickev.w	$vr4, $vr5, $vr4
+	vpickev.w	$vr5, $vr7, $vr6
+	vmadd.w	$vr2, $vr4, $vr1
+	vmadd.w	$vr3, $vr5, $vr1
 	add.d	$a5, $a4, $a0
-	vstx	$vr3, $a5, $a2
+	vstx	$vr2, $a5, $a2
 	addi.d	$a0, $a0, 32
-	vstx	$vr4, $a5, $a3
+	vstx	$vr3, $a5, $a3
 	bnez	$a0, .LBB9_1
 # %bb.2:                                # %middle.block
 	ret
@@ -439,12 +438,9 @@ f11:                                    # @f11
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a4, $a1, $a0
 	vldx	$vr2, $a4, $a2
-	vshuf4i.w	$vr3, $vr2, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr4, $vr2, 50
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
+	vsllwil.d.w	$vr3, $vr2, 0
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
 	vmul.d	$vr4, $vr4, $vr0
 	vmul.d	$vr3, $vr3, $vr0
 	vsrai.d	$vr3, $vr3, 35

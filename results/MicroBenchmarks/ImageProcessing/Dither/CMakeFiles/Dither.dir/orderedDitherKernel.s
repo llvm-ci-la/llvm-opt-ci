@@ -351,9 +351,8 @@ orderedDitherKernel:                    # @orderedDitherKernel
 	vreplgr2vr.w	$vr1, $a5
 	lu32i.d	$a5, 0
 	vrepli.w	$vr2, 3
-	vrepli.b	$vr3, 0
 	ori	$t3, $zero, 12
-	vrepli.w	$vr4, 255
+	vrepli.w	$vr3, 255
 	b	.LBB0_41
 	.p2align	4, , 16
 .LBB0_40:                               # %._crit_edge.us151
@@ -379,38 +378,39 @@ orderedDitherKernel:                    # @orderedDitherKernel
                                         #   in Loop: Header=BB0_41 Depth=1
 	move	$t5, $a3
 	move	$t6, $a2
-	vori.b	$vr5, $vr0, 0
+	vori.b	$vr4, $vr0, 0
 	.p2align	4, , 16
 .LBB0_44:                               # %vector.body269
                                         #   Parent Loop BB0_41 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vmuh.wu	$vr6, $vr5, $vr1
-	vsrli.w	$vr6, $vr6, 1
-	vori.b	$vr7, $vr5, 0
-	vmsub.w	$vr7, $vr6, $vr2
-	vld	$vr6, $t5, 0
-	vilvh.w	$vr8, $vr3, $vr7
-	vilvl.w	$vr7, $vr3, $vr7
-	vpickve2gr.d	$t7, $vr7, 0
+	vmuh.wu	$vr5, $vr4, $vr1
+	vsrli.w	$vr5, $vr5, 1
+	vori.b	$vr6, $vr4, 0
+	vmsub.w	$vr6, $vr5, $vr2
+	vld	$vr5, $t5, 0
+	vshuf4i.w	$vr7, $vr6, 14
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vpickve2gr.d	$t7, $vr6, 0
 	mul.d	$t7, $t7, $t3
-	vpickve2gr.d	$t8, $vr7, 1
+	vpickve2gr.d	$t8, $vr6, 1
 	mul.d	$t8, $t8, $t3
-	vpickve2gr.d	$fp, $vr8, 0
+	vpickve2gr.d	$fp, $vr7, 0
 	mul.d	$fp, $fp, $t3
-	vpickve2gr.d	$s0, $vr8, 1
+	vpickve2gr.d	$s0, $vr7, 1
 	mul.d	$s0, $s0, $t3
 	ldx.w	$t7, $t4, $t7
 	ldx.w	$t8, $t4, $t8
 	ldx.w	$fp, $t4, $fp
 	ldx.w	$s0, $t4, $s0
-	vinsgr2vr.w	$vr7, $t7, 0
-	vinsgr2vr.w	$vr7, $t8, 1
-	vinsgr2vr.w	$vr7, $fp, 2
-	vinsgr2vr.w	$vr7, $s0, 3
-	vslt.w	$vr6, $vr7, $vr6
-	vand.v	$vr6, $vr6, $vr4
-	vst	$vr6, $t5, 0
-	vaddi.wu	$vr5, $vr5, 4
+	vinsgr2vr.w	$vr6, $t7, 0
+	vinsgr2vr.w	$vr6, $t8, 1
+	vinsgr2vr.w	$vr6, $fp, 2
+	vinsgr2vr.w	$vr6, $s0, 3
+	vslt.w	$vr5, $vr6, $vr5
+	vand.v	$vr5, $vr5, $vr3
+	vst	$vr5, $t5, 0
+	vaddi.wu	$vr4, $vr4, 4
 	addi.d	$t6, $t6, -4
 	addi.d	$t5, $t5, 16
 	bnez	$t6, .LBB0_44

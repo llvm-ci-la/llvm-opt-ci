@@ -4287,43 +4287,31 @@ html_encode:                            # @html_encode
 	vinsgr2vr.h	$vr9, $a3, 0
 	vinsgr2vr.h	$vr10, $a4, 0
 	vseq.b	$vr11, $vr9, $vr1
-	vilvl.b	$vr11, $vr11, $vr11
-	vilvl.h	$vr11, $vr11, $vr11
-	vilvl.w	$vr11, $vr11, $vr11
-	vslli.d	$vr11, $vr11, 56
-	vsrai.d	$vr11, $vr11, 56
+	vsllwil.h.b	$vr11, $vr11, 0
+	vsllwil.w.h	$vr11, $vr11, 0
+	vsllwil.d.w	$vr11, $vr11, 0
 	vseq.b	$vr12, $vr10, $vr1
-	vilvl.b	$vr12, $vr12, $vr12
-	vilvl.h	$vr12, $vr12, $vr12
-	vilvl.w	$vr12, $vr12, $vr12
-	vslli.d	$vr12, $vr12, 56
-	vsrai.d	$vr12, $vr12, 56
+	vsllwil.h.b	$vr12, $vr12, 0
+	vsllwil.w.h	$vr12, $vr12, 0
+	vsllwil.d.w	$vr12, $vr12, 0
 	vseq.b	$vr13, $vr9, $vr2
-	vilvl.b	$vr13, $vr13, $vr13
-	vilvl.h	$vr13, $vr13, $vr13
-	vilvl.w	$vr13, $vr13, $vr13
-	vslli.d	$vr13, $vr13, 56
-	vsrai.d	$vr13, $vr13, 56
+	vsllwil.h.b	$vr13, $vr13, 0
+	vsllwil.w.h	$vr13, $vr13, 0
+	vsllwil.d.w	$vr13, $vr13, 0
 	vseq.b	$vr14, $vr10, $vr2
-	vilvl.b	$vr14, $vr14, $vr14
-	vilvl.h	$vr14, $vr14, $vr14
-	vilvl.w	$vr14, $vr14, $vr14
-	vslli.d	$vr14, $vr14, 56
-	vsrai.d	$vr14, $vr14, 56
+	vsllwil.h.b	$vr14, $vr14, 0
+	vsllwil.w.h	$vr14, $vr14, 0
+	vsllwil.d.w	$vr14, $vr14, 0
 	vbitclri.b	$vr9, $vr9, 1
 	vseq.b	$vr9, $vr9, $vr3
-	vilvl.b	$vr9, $vr9, $vr9
-	vilvl.h	$vr9, $vr9, $vr9
-	vilvl.w	$vr9, $vr9, $vr9
-	vslli.d	$vr9, $vr9, 56
-	vsrai.d	$vr9, $vr9, 56
+	vsllwil.h.b	$vr9, $vr9, 0
+	vsllwil.w.h	$vr9, $vr9, 0
+	vsllwil.d.w	$vr9, $vr9, 0
 	vbitclri.b	$vr10, $vr10, 1
 	vseq.b	$vr10, $vr10, $vr3
-	vilvl.b	$vr10, $vr10, $vr10
-	vilvl.h	$vr10, $vr10, $vr10
-	vilvl.w	$vr10, $vr10, $vr10
-	vslli.d	$vr10, $vr10, 56
-	vsrai.d	$vr10, $vr10, 56
+	vsllwil.h.b	$vr10, $vr10, 0
+	vsllwil.w.h	$vr10, $vr10, 0
+	vsllwil.d.w	$vr10, $vr10, 0
 	vbitsel.v	$vr9, $vr5, $vr4, $vr9
 	vbitsel.v	$vr9, $vr9, $vr6, $vr11
 	vbitsel.v	$vr9, $vr9, $vr7, $vr13

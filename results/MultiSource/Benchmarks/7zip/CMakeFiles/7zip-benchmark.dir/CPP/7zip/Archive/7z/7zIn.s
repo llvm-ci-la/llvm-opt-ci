@@ -1429,7 +1429,6 @@ _ZN8NArchive3N7z8CInByte210ReadStringER11CStringBaseIwE: # @_ZN8NArchive3N7z8CIn
 	alsl.d	$s1, $a3, $s1, 3
 	add.d	$a3, $s4, $s5
 	addi.d	$a3, $a3, 3
-	vrepli.b	$vr0, 0
 	move	$a4, $a2
 	move	$a5, $a1
 	.p2align	4, , 16
@@ -1439,25 +1438,25 @@ _ZN8NArchive3N7z8CInByte210ReadStringER11CStringBaseIwE: # @_ZN8NArchive3N7z8CIn
 	ld.b	$a7, $a3, -1
 	ld.b	$t0, $a3, 1
 	ld.b	$t1, $a3, 3
-	vinsgr2vr.b	$vr1, $a6, 0
-	vinsgr2vr.b	$vr1, $a7, 1
-	vinsgr2vr.b	$vr1, $t0, 2
-	vinsgr2vr.b	$vr1, $t1, 3
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.h	$vr1, $vr0, $vr1
+	vinsgr2vr.b	$vr0, $a6, 0
+	vinsgr2vr.b	$vr0, $a7, 1
+	vinsgr2vr.b	$vr0, $t0, 2
+	vinsgr2vr.b	$vr0, $t1, 3
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	ld.b	$a6, $a3, -2
 	ld.b	$a7, $a3, 0
 	ld.b	$t0, $a3, 2
 	ld.b	$t1, $a3, 4
-	vinsgr2vr.b	$vr2, $a6, 0
-	vinsgr2vr.b	$vr2, $a7, 1
-	vinsgr2vr.b	$vr2, $t0, 2
-	vinsgr2vr.b	$vr2, $t1, 3
-	vilvl.b	$vr2, $vr0, $vr2
-	vilvl.h	$vr2, $vr0, $vr2
-	vslli.w	$vr2, $vr2, 8
-	vor.v	$vr1, $vr2, $vr1
-	vst	$vr1, $a5, 0
+	vinsgr2vr.b	$vr1, $a6, 0
+	vinsgr2vr.b	$vr1, $a7, 1
+	vinsgr2vr.b	$vr1, $t0, 2
+	vinsgr2vr.b	$vr1, $t1, 3
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vslli.w	$vr1, $vr1, 8
+	vor.v	$vr0, $vr1, $vr0
+	vst	$vr0, $a5, 0
 	addi.d	$a5, $a5, 16
 	addi.d	$a4, $a4, -4
 	addi.d	$a3, $a3, 8
@@ -1615,10 +1614,8 @@ _ZN8NArchive3N7z10CInArchive20FindAndReadSignatureEP9IInStreamPKy: # @_ZN8NArchi
 	vseqi.b	$vr0, $vr0, 0
 	vinsgr2vr.w	$vr1, $a0, 0
 	vseqi.b	$vr1, $vr1, 0
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 24
-	vsrai.w	$vr1, $vr1, 24
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vpickve2gr.b	$a0, $vr0, 0
 	vinsgr2vr.w	$vr2, $a0, 0
 	vpickve2gr.b	$a0, $vr0, 1
@@ -7192,12 +7189,11 @@ _ZN8NArchive3N7z10CInArchive10ReadHeaderERNS0_18CArchiveDatabaseExEP22ICryptoGet
                                         #   in Loop: Header=BB34_62 Depth=1
 	move	$a2, $a0
 	bstrins.d	$a2, $zero, 2, 0
-	vld	$vr4, $sp, 128                  # 16-byte Folded Reload
-	vori.b	$vr0, $vr4, 0
+	vld	$vr1, $sp, 128                  # 16-byte Folded Reload
+	vori.b	$vr0, $vr1, 0
 	vinsgr2vr.w	$vr0, $s6, 0
 	addi.d	$a3, $a1, 4
 	move	$a4, $a2
-	vori.b	$vr1, $vr4, 0
 	.p2align	4, , 16
 .LBB34_137:                             # %vector.body
                                         #   Parent Loop BB34_62 Depth=1
@@ -7206,10 +7202,10 @@ _ZN8NArchive3N7z10CInArchive10ReadHeaderERNS0_18CArchiveDatabaseExEP22ICryptoGet
 	ld.w	$a6, $a3, 0
 	vinsgr2vr.w	$vr2, $a5, 0
 	vinsgr2vr.w	$vr3, $a6, 0
-	vilvl.b	$vr2, $vr4, $vr2
-	vilvl.h	$vr2, $vr4, $vr2
-	vilvl.b	$vr3, $vr4, $vr3
-	vilvl.h	$vr3, $vr4, $vr3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
 	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
 	addi.w	$a4, $a4, -8
@@ -7340,25 +7336,24 @@ _ZN8NArchive3N7z10CInArchive10ReadHeaderERNS0_18CArchiveDatabaseExEP22ICryptoGet
 	addi.d	$a2, $a1, 4
 	move	$a3, $s6
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB34_157:                             # %vector.body516
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a4, $a2, -4
 	ld.w	$a5, $a2, 0
-	vinsgr2vr.w	$vr3, $a4, 0
-	vinsgr2vr.w	$vr4, $a5, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $a4, 0
+	vinsgr2vr.w	$vr3, $a5, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
 	addi.w	$a3, $a3, -8
 	addi.d	$a2, $a2, 8
 	bnez	$a3, .LBB34_157
 # %bb.158:                              # %middle.block523
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	addi.w	$a3, $s6, 0
@@ -8300,123 +8295,123 @@ _ZN8NArchive3N7z18CArchiveDatabaseEx24FillFolderStartFileIndexEv: # @_ZN8NArchiv
 	.p2align	4, 0x0                          # -- Begin function _ZN8NArchive3N7z10CInArchive13ReadDatabase2ERNS0_18CArchiveDatabaseExEP22ICryptoGetTextPasswordRb
 .LCPI39_0:
 	.byte	8                               # 0x8
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	0                               # 0x0
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI39_1:
 	.byte	9                               # 0x9
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	1                               # 0x1
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI39_2:
 	.byte	10                              # 0xa
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	2                               # 0x2
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI39_3:
 	.byte	11                              # 0xb
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	3                               # 0x3
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI39_4:
 	.byte	12                              # 0xc
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	4                               # 0x4
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI39_5:
 	.byte	13                              # 0xd
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	5                               # 0x5
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI39_6:
 	.byte	14                              # 0xe
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	6                               # 0x6
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 	.text
 	.globl	_ZN8NArchive3N7z10CInArchive13ReadDatabase2ERNS0_18CArchiveDatabaseExEP22ICryptoGetTextPasswordRb
 	.p2align	5
@@ -8473,8 +8468,9 @@ _ZN8NArchive3N7z10CInArchive13ReadDatabase2ERNS0_18CArchiveDatabaseExEP22ICrypto
 	addi.d	$a0, $s1, 648
 	pcaddu18i	$ra, %call36(_ZN17CBaseRecordVector5ClearEv)
 	jirl	$ra, $ra, 0
-	vrepli.b	$vr8, 0
-	vst	$vr8, $s1, 680
+	vrepli.b	$vr0, 0
+	vst	$vr0, $sp, 16                   # 16-byte Folded Spill
+	vst	$vr0, $s1, 680
 	ld.d	$a0, $s2, 48
 	st.d	$a0, $s1, 488
 	ld.bu	$a0, $s2, 62
@@ -8483,35 +8479,55 @@ _ZN8NArchive3N7z10CInArchive13ReadDatabase2ERNS0_18CArchiveDatabaseExEP22ICrypto
 	st.b	$a1, $s1, 481
 	bnez	$a0, .LBB39_52
 # %bb.1:
-	ld.w	$s3, $s2, 64
 	vld	$vr0, $s2, 68
 	pcalau12i	$a0, %pc_hi20(.LCPI39_0)
 	vld	$vr1, $a0, %pc_lo12(.LCPI39_0)
-	pcalau12i	$a0, %pc_hi20(.LCPI39_1)
-	vld	$vr2, $a0, %pc_lo12(.LCPI39_1)
+	ld.w	$s3, $s2, 64
 	addi.d	$a0, $s2, 68
 	ld.w	$s4, $s2, 84
-	vshuf.b	$vr1, $vr8, $vr0, $vr1
-	vshuf.b	$vr2, $vr8, $vr0, $vr2
+	vshuf.b	$vr1, $vr0, $vr0, $vr1
+	pcalau12i	$a1, %pc_hi20(.LCPI39_1)
+	vld	$vr2, $a1, %pc_lo12(.LCPI39_1)
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vshuf.b	$vr2, $vr0, $vr0, $vr2
+	vsllwil.hu.bu	$vr2, $vr2, 0
 	pcalau12i	$a1, %pc_hi20(.LCPI39_2)
 	vld	$vr3, $a1, %pc_lo12(.LCPI39_2)
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vslli.d	$vr2, $vr2, 8
+	vshuf.b	$vr3, $vr0, $vr0, $vr3
+	vsllwil.hu.bu	$vr3, $vr3, 0
 	pcalau12i	$a1, %pc_hi20(.LCPI39_3)
 	vld	$vr4, $a1, %pc_lo12(.LCPI39_3)
-	vslli.d	$vr2, $vr2, 8
-	vshuf.b	$vr3, $vr8, $vr0, $vr3
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
 	vslli.d	$vr3, $vr3, 16
-	vshuf.b	$vr4, $vr8, $vr0, $vr4
+	vshuf.b	$vr4, $vr0, $vr0, $vr4
+	vsllwil.hu.bu	$vr4, $vr4, 0
 	pcalau12i	$a1, %pc_hi20(.LCPI39_4)
 	vld	$vr5, $a1, %pc_lo12(.LCPI39_4)
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vslli.d	$vr4, $vr4, 24
+	vshuf.b	$vr5, $vr0, $vr0, $vr5
 	pcalau12i	$a1, %pc_hi20(.LCPI39_5)
 	vld	$vr6, $a1, %pc_lo12(.LCPI39_5)
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vshuf.b	$vr6, $vr0, $vr0, $vr6
 	pcalau12i	$a1, %pc_hi20(.LCPI39_6)
 	vld	$vr7, $a1, %pc_lo12(.LCPI39_6)
-	vslli.d	$vr4, $vr4, 24
-	vshuf.b	$vr5, $vr8, $vr0, $vr5
-	vshuf.b	$vr6, $vr8, $vr0, $vr6
-	vst	$vr8, $sp, 16                   # 16-byte Folded Spill
-	vshuf.b	$vr7, $vr8, $vr0, $vr7
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vshuf.b	$vr7, $vr0, $vr0, $vr7
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
 	vbsrl.v	$vr8, $vr0, 15
 	vbsll.v	$vr0, $vr0, 1
 	vor.v	$vr0, $vr0, $vr8

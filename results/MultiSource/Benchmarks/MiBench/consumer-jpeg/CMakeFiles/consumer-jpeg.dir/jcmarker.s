@@ -2041,9 +2041,8 @@ emit_dqt:                               # @emit_dqt
 	vor.v	$vr0, $vr1, $vr0
 	vrepli.h	$vr1, 255
 	vslt.hu	$vr0, $vr1, $vr0
-	vilvl.h	$vr0, $vr0, $vr0
 	ld.w	$a0, $s1, 128
-	vslli.w	$vr0, $vr0, 16
+	vsllwil.w.h	$vr0, $vr0, 0
 	vmskltz.w	$vr0, $vr0
 	vpickve2gr.hu	$a1, $vr0, 0
 	andi	$s2, $a1, 15

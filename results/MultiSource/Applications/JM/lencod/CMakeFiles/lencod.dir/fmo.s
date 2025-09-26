@@ -977,31 +977,30 @@ FmoGetLastCodedMBOfSliceGroup:          # @FmoGetLastCodedMBOfSliceGroup
 	lu12i.w	$a4, -524288
 	vreplgr2vr.w	$vr2, $a4
 	addi.d	$a5, $a3, 4
-	vrepli.b	$vr3, 0
 	move	$a6, $a1
-	vori.b	$vr4, $vr2, 0
+	vori.b	$vr3, $vr2, 0
 	.p2align	4, , 16
 .LBB8_5:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a7, $a5, -4
 	ld.w	$t0, $a5, 0
-	vinsgr2vr.w	$vr5, $a7, 0
-	vaddi.wu	$vr6, $vr1, 4
-	vinsgr2vr.w	$vr7, $t0, 0
-	vilvl.b	$vr5, $vr3, $vr5
-	vilvl.h	$vr5, $vr3, $vr5
-	vilvl.b	$vr7, $vr3, $vr7
-	vilvl.h	$vr7, $vr3, $vr7
-	vseq.w	$vr5, $vr0, $vr5
-	vseq.w	$vr7, $vr0, $vr7
-	vbitsel.v	$vr2, $vr2, $vr1, $vr5
-	vbitsel.v	$vr4, $vr4, $vr6, $vr7
+	vinsgr2vr.w	$vr4, $a7, 0
+	vaddi.wu	$vr5, $vr1, 4
+	vinsgr2vr.w	$vr6, $t0, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vseq.w	$vr4, $vr0, $vr4
+	vseq.w	$vr6, $vr0, $vr6
+	vbitsel.v	$vr2, $vr2, $vr1, $vr4
+	vbitsel.v	$vr3, $vr3, $vr5, $vr6
 	vaddi.wu	$vr1, $vr1, 8
 	addi.d	$a6, $a6, -8
 	addi.d	$a5, $a5, 8
 	bnez	$a6, .LBB8_5
 # %bb.6:                                # %middle.block
-	vmax.w	$vr0, $vr2, $vr4
+	vmax.w	$vr0, $vr2, $vr3
 	vbsrl.v	$vr1, $vr0, 8
 	vmax.w	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4

@@ -8686,13 +8686,9 @@ _ZNSt17_Function_handlerIFtPtS0_jEZ4mainE4$_11E9_M_invokeERKSt9_Any_dataOS0_S7_O
 	vinsgr2vr.d	$vr4, $t2, 0
 	vinsgr2vr.d	$vr5, $t3, 0
 	vslt.hu	$vr2, $vr4, $vr2
-	vilvl.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
+	vsllwil.w.h	$vr2, $vr2, 0
 	vslt.hu	$vr3, $vr5, $vr3
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
+	vsllwil.w.h	$vr3, $vr3, 0
 	vor.v	$vr0, $vr0, $vr2
 	vor.v	$vr1, $vr1, $vr3
 	addi.d	$a7, $a7, -8

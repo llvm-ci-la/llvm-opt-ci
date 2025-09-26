@@ -105,11 +105,11 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	fst.d	$fs0, $sp, 1936                 # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 1928                 # 8-byte Folded Spill
 	fst.d	$fs2, $sp, 1920                 # 8-byte Folded Spill
-	addi.d	$sp, $sp, -544
+	addi.d	$sp, $sp, -528
 	st.d	$a1, $sp, 152                   # 8-byte Folded Spill
 	fmov.d	$fs0, $fa0
 	andi	$a4, $a0, 1
-	st.d	$a0, $sp, 208                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 192                   # 8-byte Folded Spill
 	slli.d	$s2, $a0, 2
 	slli.d	$fp, $a4, 3
 	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
@@ -136,7 +136,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	st.d	$a3, $sp, 144                   # 8-byte Folded Spill
 	bstrpick.d	$s7, $a3, 62, 61
 	addi.d	$a1, $fp, -1
-	addi.d	$a3, $sp, 244
+	addi.d	$a3, $sp, 228
 	move	$a0, $s4
 	st.d	$a2, $sp, 168                   # 8-byte Folded Spill
 	pcaddu18i	$ra, %call36(getLuma4x4Neighbour)
@@ -144,56 +144,56 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ld.d	$a0, $s8, 0
 	ld.w	$a0, $a0, 12
 	addi.w	$a2, $s2, -1
-	addi.d	$a3, $sp, 220
+	addi.d	$a3, $sp, 204
 	move	$a1, $fp
 	pcaddu18i	$ra, %call36(getLuma4x4Neighbour)
 	jirl	$ra, $ra, 0
 	pcalau12i	$a0, %got_pc_hi20(input)
 	ld.d	$a0, $a0, %got_pc_lo12(input)
-	st.d	$a0, $sp, 200                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 184                   # 8-byte Folded Spill
 	ld.d	$a0, $a0, 0
 	ld.w	$a0, $a0, 272
 	beqz	$a0, .LBB1_7
 # %bb.1:
-	ld.w	$a0, $sp, 220
+	ld.w	$a0, $sp, 204
 	beqz	$a0, .LBB1_4
 # %bb.2:
 	ld.d	$a0, $s8, 0
-	ld.w	$a1, $sp, 224
+	ld.w	$a1, $sp, 208
 	ldptr.d	$a0, $a0, 14240
 	slli.d	$a1, $a1, 2
 	ldx.w	$a0, $a0, $a1
-	ld.w	$a1, $sp, 244
-	st.w	$a0, $sp, 220
+	ld.w	$a1, $sp, 228
+	st.w	$a0, $sp, 204
 	beqz	$a1, .LBB1_5
 .LBB1_3:
 	ld.d	$a0, $s8, 0
-	ld.w	$a1, $sp, 248
+	ld.w	$a1, $sp, 232
 	ldptr.d	$a0, $a0, 14240
 	slli.d	$a1, $a1, 2
 	ldx.w	$a0, $a0, $a1
 	b	.LBB1_6
 .LBB1_4:
 	move	$a0, $zero
-	ld.w	$a1, $sp, 244
-	st.w	$a0, $sp, 220
+	ld.w	$a1, $sp, 228
+	st.w	$a0, $sp, 204
 	bnez	$a1, .LBB1_3
 .LBB1_5:
 	move	$a0, $zero
 .LBB1_6:
-	st.w	$a0, $sp, 244
+	st.w	$a0, $sp, 228
 .LBB1_7:
 	add.w	$a0, $s5, $s6
 	ld.d	$a1, $sp, 144                   # 8-byte Folded Reload
 	add.w	$a1, $a1, $s7
-	ld.w	$a5, $sp, 220
+	ld.w	$a5, $sp, 204
 	ori	$a4, $zero, 536
 	add.w	$s2, $s3, $s2
 	ori	$a2, $zero, 255
 	ori	$a3, $zero, 255
 	beqz	$a5, .LBB1_9
 # %bb.8:                                # %.sink.split
-	ld.d	$a3, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 192                   # 8-byte Folded Reload
 	sltui	$a3, $a3, 2
 	ori	$a5, $zero, 136
 	masknez	$a5, $a5, $a3
@@ -201,14 +201,14 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ld.d	$a7, $s8, 0
 	maskeqz	$a3, $a6, $a3
 	or	$a3, $a3, $a5
-	ld.w	$a5, $sp, 240
+	ld.w	$a5, $sp, 224
 	ldx.d	$a3, $a7, $a3
 	slli.d	$a5, $a5, 3
 	ldx.d	$a3, $a3, $a5
-	ld.w	$a5, $sp, 236
+	ld.w	$a5, $sp, 220
 	ldx.bu	$a3, $a3, $a5
 .LBB1_9:
-	ld.w	$a5, $sp, 244
+	ld.w	$a5, $sp, 228
 	mul.d	$a4, $s4, $a4
 	ld.d	$t0, $sp, 64                    # 8-byte Folded Reload
 	beqz	$a5, .LBB1_11
@@ -220,11 +220,11 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ld.d	$a7, $s8, 0
 	maskeqz	$a2, $a6, $a2
 	or	$a2, $a2, $a5
-	ld.w	$a5, $sp, 264
+	ld.w	$a5, $sp, 248
 	ldx.d	$a2, $a7, $a2
 	slli.d	$a5, $a5, 3
 	ldx.d	$a2, $a2, $a5
-	ld.w	$a5, $sp, 260
+	ld.w	$a5, $sp, 244
 	ldx.bu	$a2, $a2, $a5
 .LBB1_11:
 	alsl.w	$s5, $t0, $s0, 3
@@ -248,14 +248,14 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ori	$a2, $zero, 2
 	maskeqz	$a0, $a2, $a0
 	or	$a0, $a0, $a1
-	st.d	$a0, $sp, 192                   # 8-byte Folded Spill
+	st.d	$a0, $sp, 176                   # 8-byte Folded Spill
 	lu12i.w	$a0, 524287
 	ori	$a0, $a0, 4095
 	ld.d	$a1, $sp, 152                   # 8-byte Folded Reload
 	st.w	$a0, $a1, 0
-	addi.d	$a2, $sp, 276
-	addi.d	$a3, $sp, 272
-	addi.d	$a4, $sp, 268
+	addi.d	$a2, $sp, 260
+	addi.d	$a3, $sp, 256
+	addi.d	$a4, $sp, 252
 	ld.d	$a0, $sp, 128                   # 8-byte Folded Reload
 	ld.d	$a1, $sp, 144                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(intrapred_luma8x8)
@@ -263,12 +263,12 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	move	$s7, $zero
 	move	$s6, $zero
 	st.d	$zero, $sp, 120                 # 8-byte Folded Spill
-	ld.w	$a0, $sp, 272
+	ld.w	$a0, $sp, 256
 	st.d	$a0, $sp, 160                   # 8-byte Folded Spill
-	ld.w	$a0, $sp, 276
-	ld.w	$a1, $sp, 268
+	ld.w	$a0, $sp, 260
+	ld.w	$a1, $sp, 252
 	st.d	$a1, $sp, 104                   # 8-byte Folded Spill
-	addi.d	$a1, $sp, 1304
+	addi.d	$a1, $sp, 1288
 	alsl.d	$a2, $fp, $a1, 2
 	st.d	$a2, $sp, 24                    # 8-byte Folded Spill
 	vldi	$vr0, -1008
@@ -292,14 +292,12 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	st.d	$a2, $sp, 96                    # 8-byte Folded Spill
 	st.d	$a3, $sp, 16                    # 8-byte Folded Spill
 	move	$a2, $a3
-	ld.d	$a3, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 192                   # 8-byte Folded Reload
 	bstrins.d	$a2, $a3, 5, 5
 	add.d	$a1, $a1, $a2
 	st.d	$a1, $sp, 80                    # 8-byte Folded Spill
 	pcalau12i	$a1, %pc_hi20(.LCPI1_0)
 	fld.d	$fs2, $a1, %pc_lo12(.LCPI1_0)
-	vrepli.b	$vr0, 0
-	vst	$vr0, $sp, 176                  # 16-byte Folded Spill
 	lu12i.w	$s4, 3
 	sltu	$a0, $zero, $a0
 	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
@@ -307,7 +305,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	.p2align	4, , 16
 .LBB1_12:                               # %.loopexit233
                                         #   in Loop: Header=BB1_15 Depth=1
-	ori	$a0, $zero, 2456
+	ori	$a0, $zero, 2440
 	add.d	$a0, $sp, $a0
 	ld.w	$a0, $a0, 0
 	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
@@ -336,7 +334,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ld.d	$a0, $sp, 160                   # 8-byte Folded Reload
 	beqz	$a0, .LBB1_25
 .LBB1_18:                               #   in Loop: Header=BB1_15 Depth=1
-	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 0
 	ldptr.w	$a1, $a0, 4168
 	ld.d	$a3, $s8, 0
@@ -362,19 +360,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7376
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vld	$vr2, $sp, 176                  # 16-byte Folded Reload
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 848
 	ldptr.d	$a7, $a6, 7384
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 864
 	vstx	$vr0, $a4, $a3
@@ -391,18 +388,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7392
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 912
 	ldptr.d	$a7, $a6, 7400
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 928
 	vstx	$vr0, $a4, $a3
@@ -419,18 +416,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7408
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 976
 	ldptr.d	$a7, $a6, 7416
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 992
 	vstx	$vr0, $a4, $a3
@@ -447,18 +444,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7424
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 1040
 	ldptr.d	$a7, $a6, 7432
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 1056
 	vstx	$vr0, $a4, $a3
@@ -475,18 +472,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7440
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 1104
 	ldptr.d	$a7, $a6, 7448
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 1120
 	vstx	$vr0, $a4, $a3
@@ -503,18 +500,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7456
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 1168
 	ldptr.d	$a7, $a6, 7464
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 1184
 	vstx	$vr0, $a4, $a3
@@ -531,18 +528,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7472
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 1232
 	ldptr.d	$a7, $a6, 7480
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 1248
 	vstx	$vr0, $a4, $a3
@@ -559,27 +556,27 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a4, $a0, 7488
 	alsl.d	$a1, $s5, $a1, 1
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a1, $a1, 8
 	ori	$a2, $s4, 1296
 	ldptr.d	$a0, $a0, 7496
 	vstx	$vr0, $a3, $a2
 	vinsgr2vr.d	$vr0, $a1, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a0, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a0, $s4, 1312
 	vstx	$vr0, $a3, $a0
-	ori	$a0, $zero, 2456
+	ori	$a0, $zero, 2440
 	add.d	$a0, $sp, $a0
-	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
 	move	$a2, $s7
 	fmov.d	$fa0, $fs0
-	ld.d	$a3, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 176                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(RDCost_for_8x8IntraBlocks)
 	jirl	$ra, $ra, 0
 	fcmp.cule.d	$fcc0, $fs2, $fa0
@@ -592,7 +589,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ld.d	$a0, $s8, 0
 	ld.d	$a1, $s6, 0
 	ldptr.d	$a0, $a0, 14160
-	ld.d	$a2, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a2, $sp, 192                   # 8-byte Folded Reload
 	slli.d	$s3, $a2, 3
 	ldx.d	$a1, $a1, $s3
 	ldx.d	$a0, $a0, $s3
@@ -701,18 +698,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	vldx	$vr0, $a1, $a3
 	vldx	$vr1, $a2, $a3
 	ld.d	$a1, $a0, 16
-	ori	$a2, $zero, 2328
+	ori	$a2, $zero, 2312
 	add.d	$a2, $sp, $a2
 	vst	$vr0, $a2, 0
 	ld.d	$a2, $a0, 24
-	ori	$a4, $zero, 2344
+	ori	$a4, $zero, 2328
 	add.d	$a4, $sp, $a4
 	vst	$vr1, $a4, 0
 	vldx	$vr0, $a1, $a3
 	ld.d	$a1, $a0, 32
 	vldx	$vr1, $a2, $a3
 	ld.d	$a2, $a0, 40
-	ori	$a4, $zero, 2360
+	ori	$a4, $zero, 2344
 	add.d	$a4, $sp, $a4
 	vst	$vr0, $a4, 0
 	vldx	$vr0, $a1, $a3
@@ -721,21 +718,21 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ld.d	$a2, $a0, 56
 	ld.d	$a0, $s8, 0
 	vldx	$vr3, $a1, $a3
-	ori	$a1, $zero, 2376
+	ori	$a1, $zero, 2360
 	add.d	$a1, $sp, $a1
 	vst	$vr1, $a1, 0
 	vldx	$vr1, $a2, $a3
 	ldptr.w	$a1, $a0, 15260
-	ori	$a2, $zero, 2392
+	ori	$a2, $zero, 2376
 	add.d	$a2, $sp, $a2
 	vst	$vr0, $a2, 0
-	ori	$a2, $zero, 2408
+	ori	$a2, $zero, 2392
 	add.d	$a2, $sp, $a2
 	vst	$vr2, $a2, 0
-	ori	$a2, $zero, 2424
+	ori	$a2, $zero, 2408
 	add.d	$a2, $sp, $a2
 	vst	$vr3, $a2, 0
-	ori	$a2, $zero, 2440
+	ori	$a2, $zero, 2424
 	add.d	$a2, $sp, $a2
 	vst	$vr1, $a2, 0
 	beqz	$a1, .LBB1_12
@@ -771,10 +768,9 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a0, $a1, 7376
 	alsl.d	$a3, $s5, $a4, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vld	$vr2, $sp, 176                  # 16-byte Folded Reload
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a0, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	pcalau12i	$a0, %pc_hi20(diff64)
 	addi.d	$a0, $a0, %pc_lo12(diff64)
@@ -782,91 +778,91 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	vst	$vr0, $a0, 0
 	ldptr.d	$a4, $a1, 7384
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	ld.d	$a3, $s0, 8
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ldx.d	$a4, $a3, $a2
 	vst	$vr0, $a0, 16
 	ldptr.d	$a5, $a1, 7392
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a4, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a5, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	ld.d	$a3, $a3, 8
 	vsub.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 32
 	ldptr.d	$a4, $a1, 7400
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	ld.d	$a3, $s0, 16
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ldx.d	$a4, $a3, $a2
 	vst	$vr0, $a0, 48
 	ldptr.d	$a5, $a1, 7408
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a4, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a5, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	ld.d	$a3, $a3, 8
 	vsub.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 64
 	ldptr.d	$a4, $a1, 7416
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	ld.d	$a3, $s0, 24
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ldx.d	$a4, $a3, $a2
 	vst	$vr0, $a0, 80
 	ldptr.d	$a5, $a1, 7424
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a4, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a5, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	ld.d	$a3, $a3, 8
 	vsub.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 96
 	ldptr.d	$a4, $a1, 7432
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	ld.d	$a3, $s0, 32
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ldx.d	$a4, $a3, $a2
 	vst	$vr0, $a0, 112
 	ldptr.d	$a5, $a1, 7440
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a4, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a5, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	ld.d	$a3, $a3, 8
 	vsub.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 128
 	ldptr.d	$a4, $a1, 7448
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	ld.d	$a3, $s0, 40
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ldx.d	$a4, $a3, $a2
 	vst	$vr0, $a0, 144
 	ldptr.d	$a5, $a1, 7456
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a4, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a5, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	ld.d	$a3, $a3, 8
 	vsub.w	$vr0, $vr0, $vr1
 	ldptr.d	$a4, $a1, 7464
@@ -875,45 +871,45 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	vst	$vr0, $a0, 160
 	vinsgr2vr.d	$vr0, $a4, 0
 	ldx.d	$a3, $a5, $a2
-	vilvl.h	$vr1, $vr2, $vr1
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vsub.w	$vr0, $vr1, $vr0
 	vinsgr2vr.d	$vr1, $a3, 0
 	ldptr.d	$a3, $a1, 7472
 	vst	$vr0, $a0, 176
 	alsl.d	$a4, $s5, $a5, 1
-	vilvl.h	$vr0, $vr2, $vr1
+	vsllwil.wu.hu	$vr0, $vr1, 0
 	vinsgr2vr.d	$vr1, $a3, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	ld.d	$a3, $a4, 8
 	vsub.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 192
 	ldptr.d	$a4, $a1, 7480
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	ld.d	$a3, $s0, 56
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ldx.d	$a2, $a3, $a2
 	vst	$vr0, $a0, 208
 	ldptr.d	$a4, $a1, 7488
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	ld.d	$a2, $a3, 8
 	vsub.w	$vr0, $vr0, $vr1
 	ldptr.d	$a1, $a1, 7496
 	vst	$vr0, $a0, 224
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a1, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 240
-	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 176                   # 8-byte Folded Reload
 	xor	$a1, $s7, $a1
 	sltui	$a1, $a1, 1
 	ld.d	$a2, $sp, 136                   # 8-byte Folded Reload
@@ -951,7 +947,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	addi.w	$s2, $s6, 0
 	ld.d	$a1, $sp, 40                    # 8-byte Folded Reload
 	stx.b	$s6, $a0, $a1
-	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 176                   # 8-byte Folded Reload
 	xor	$a0, $a1, $s2
 	sltui	$a0, $a0, 1
 	slt	$a1, $s2, $a1
@@ -968,7 +964,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	st.b	$a0, $a1, 348
 	ld.d	$a2, $s8, 0
 	ld.w	$a1, $a2, 164
-	ld.d	$a3, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a3, $sp, 192                   # 8-byte Folded Reload
 	bstrins.d	$a3, $zero, 0, 0
 	alsl.w	$a4, $a1, $a3, 2
 	addi.d	$a0, $a3, 2
@@ -996,13 +992,13 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	addi.d	$a4, $a4, 8
 	blt	$a3, $a5, .LBB1_29
 .LBB1_30:                               # %._crit_edge
-	ld.d	$a0, $sp, 200                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 184                   # 8-byte Folded Reload
 	ld.d	$a0, $a0, 0
 	ldptr.w	$a0, $a0, 4168
 	beqz	$a0, .LBB1_33
 # %bb.31:                               # %.preheader228
 	ldptr.d	$a0, $a2, 14160
-	ld.d	$a1, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a1, $sp, 192                   # 8-byte Folded Reload
 	slli.d	$s0, $a1, 3
 	ldx.d	$a0, $a0, $s0
 	ld.d	$a0, $a0, 0
@@ -1232,19 +1228,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7376
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vld	$vr2, $sp, 176                  # 16-byte Folded Reload
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 848
 	ldptr.d	$a7, $a6, 7384
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 864
 	vstx	$vr0, $a4, $a3
@@ -1261,18 +1256,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7392
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 912
 	ldptr.d	$a7, $a6, 7400
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 928
 	vstx	$vr0, $a4, $a3
@@ -1289,18 +1284,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7408
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 976
 	ldptr.d	$a7, $a6, 7416
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 992
 	vstx	$vr0, $a4, $a3
@@ -1317,18 +1312,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7424
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 1040
 	ldptr.d	$a7, $a6, 7432
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 1056
 	vstx	$vr0, $a4, $a3
@@ -1345,18 +1340,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7440
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 1104
 	ldptr.d	$a7, $a6, 7448
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 1120
 	vstx	$vr0, $a4, $a3
@@ -1373,18 +1368,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7456
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 1168
 	ldptr.d	$a7, $a6, 7464
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 1184
 	vstx	$vr0, $a4, $a3
@@ -1401,18 +1396,18 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a7, $a6, 7472
 	alsl.d	$a3, $s5, $a3, 1
 	vinsgr2vr.d	$vr0, $a5, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $a3, 8
 	ori	$a5, $s4, 1232
 	ldptr.d	$a7, $a6, 7480
 	vstx	$vr0, $a4, $a5
 	vinsgr2vr.d	$vr0, $a3, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a7, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a3, $s4, 1248
 	vstx	$vr0, $a4, $a3
@@ -1429,25 +1424,25 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a4, $a0, 7488
 	alsl.d	$a1, $s5, $a1, 1
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a4, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ld.d	$a1, $a1, 8
 	ori	$a2, $s4, 1296
 	ldptr.d	$a0, $a0, 7496
 	vstx	$vr0, $a3, $a2
 	vinsgr2vr.d	$vr0, $a1, 0
-	vilvl.h	$vr0, $vr2, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vinsgr2vr.d	$vr1, $a0, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vsub.w	$vr0, $vr0, $vr1
 	ori	$a0, $s4, 1312
 	vstx	$vr0, $a3, $a0
-	ori	$a0, $zero, 2460
+	ori	$a0, $zero, 2444
 	add.d	$a1, $sp, $a0
 	ori	$a2, $zero, 1
-	ld.d	$a0, $sp, 208                   # 8-byte Folded Reload
+	ld.d	$a0, $sp, 192                   # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(dct_luma8x8)
 	jirl	$ra, $ra, 0
 	b	.LBB1_36
@@ -1468,7 +1463,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ld.d	$t7, $sp, 144                   # 8-byte Folded Reload
 	slli.d	$t1, $t7, 3
 	ldx.d	$t1, $t0, $t1
-	ori	$t0, $zero, 2328
+	ori	$t0, $zero, 2312
 	add.d	$t0, $sp, $t0
 	vld	$vr0, $t0, 0
 	ld.d	$t0, $sp, 128                   # 8-byte Folded Reload
@@ -1489,7 +1484,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$t3, $t3, 6440
 	alsl.d	$t3, $t7, $t3, 3
 	ld.d	$t3, $t3, 8
-	ori	$t4, $zero, 2344
+	ori	$t4, $zero, 2328
 	add.d	$t4, $sp, $t4
 	vld	$vr0, $t4, 0
 	vstx	$vr0, $t3, $t0
@@ -1505,7 +1500,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a6, $a6, 6440
 	alsl.d	$a6, $t7, $a6, 3
 	ld.d	$a6, $a6, 16
-	ori	$t3, $zero, 2360
+	ori	$t3, $zero, 2344
 	add.d	$t3, $sp, $t3
 	vld	$vr0, $t3, 0
 	vstx	$vr0, $a6, $t0
@@ -1521,7 +1516,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a5, $a5, 6440
 	alsl.d	$a5, $t7, $a5, 3
 	ld.d	$a5, $a5, 24
-	ori	$a6, $zero, 2376
+	ori	$a6, $zero, 2360
 	add.d	$a6, $sp, $a6
 	vld	$vr0, $a6, 0
 	vstx	$vr0, $a5, $t0
@@ -1537,7 +1532,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a4, $a4, 6440
 	alsl.d	$a4, $t7, $a4, 3
 	ld.d	$a4, $a4, 32
-	ori	$a5, $zero, 2392
+	ori	$a5, $zero, 2376
 	add.d	$a5, $sp, $a5
 	vld	$vr0, $a5, 0
 	vstx	$vr0, $a4, $t0
@@ -1553,7 +1548,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a3, $a3, 6440
 	alsl.d	$a3, $t7, $a3, 3
 	ld.d	$a3, $a3, 40
-	ori	$a4, $zero, 2408
+	ori	$a4, $zero, 2392
 	add.d	$a4, $sp, $a4
 	vld	$vr0, $a4, 0
 	vstx	$vr0, $a3, $t0
@@ -1569,7 +1564,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a2, $a2, 6440
 	alsl.d	$a2, $t7, $a2, 3
 	ld.d	$a2, $a2, 48
-	ori	$a3, $zero, 2424
+	ori	$a3, $zero, 2408
 	add.d	$a3, $sp, $a3
 	vld	$vr0, $a3, 0
 	vstx	$vr0, $a2, $t0
@@ -1585,7 +1580,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	ldptr.d	$a1, $a1, 6440
 	alsl.d	$a1, $t7, $a1, 3
 	ld.d	$a1, $a1, 56
-	ori	$a2, $zero, 2440
+	ori	$a2, $zero, 2424
 	add.d	$a2, $sp, $a2
 	vld	$vr0, $a2, 0
 	vstx	$vr0, $a1, $t0
@@ -1599,7 +1594,7 @@ Mode_Decision_for_new_8x8IntraBlocks:   # @Mode_Decision_for_new_8x8IntraBlocks
 	vstx	$vr0, $a0, $t2
 	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
 .LBB1_36:                               # %.loopexit
-	addi.d	$sp, $sp, 544
+	addi.d	$sp, $sp, 528
 	fld.d	$fs2, $sp, 1920                 # 8-byte Folded Reload
 	fld.d	$fs1, $sp, 1928                 # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 1936                 # 8-byte Folded Reload
@@ -2406,7 +2401,6 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 # %bb.47:
 	stx.h	$s7, $s4, $a2
 .LBB2_48:
-	vrepli.b	$vr0, 0
 	beqz	$s0, .LBB2_50
 # %bb.49:
 	ld.hu	$t1, $fp, 6
@@ -2434,22 +2428,24 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	stx.h	$a1, $s4, $a3
 	st.h	$a1, $s6, 272
 	ld.hu	$t6, $fp, 12
-	vld	$vr1, $fp, 12
+	vld	$vr0, $fp, 12
 	ld.hu	$t5, $fp, 14
-	vld	$vr2, $fp, 14
+	vld	$vr1, $fp, 14
 	ld.hu	$t7, $fp, 30
-	vld	$vr3, $fp, 16
+	vld	$vr2, $fp, 16
 	ld.hu	$t8, $fp, 28
 	ld.hu	$a3, $fp, 16
-	vilvl.h	$vr8, $vr0, $vr1
-	vbsrl.v	$vr7, $vr1, 8
-	vilvl.h	$vr6, $vr0, $vr7
-	vilvl.h	$vr1, $vr0, $vr2
-	vilvh.h	$vr2, $vr0, $vr2
-	vilvl.h	$vr9, $vr0, $vr3
-	vilvh.h	$vr10, $vr0, $vr3
-	vaddi.wu	$vr3, $vr6, 2
-	vaddi.wu	$vr4, $vr8, 2
+	vsllwil.wu.hu	$vr7, $vr0, 0
+	vbsrl.v	$vr6, $vr0, 8
+	vsllwil.wu.hu	$vr5, $vr6, 0
+	vsllwil.wu.hu	$vr0, $vr1, 0
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr8, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.wu.hu	$vr9, $vr2, 0
+	vaddi.wu	$vr2, $vr5, 2
+	vaddi.wu	$vr3, $vr7, 2
 	addi.d	$a4, $t5, 2
 	alsl.d	$a5, $t2, $t6, 1
 	addi.d	$a5, $a5, 2
@@ -2472,37 +2468,37 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	st.h	$a6, $s6, 276
 	ori	$a7, $s5, 3672
 	stx.h	$a6, $s4, $a7
-	vslli.w	$vr2, $vr2, 1
-	vslli.w	$vr5, $vr1, 1
-	vadd.w	$vr1, $vr4, $vr5
-	vadd.w	$vr2, $vr3, $vr2
-	vadd.w	$vr10, $vr2, $vr10
-	vadd.w	$vr1, $vr1, $vr9
-	vsrli.w	$vr2, $vr1, 2
-	vsrli.w	$vr1, $vr10, 2
-	vpickve2gr.h	$a7, $vr1, 6
-	vpickve2gr.h	$a6, $vr2, 0
+	vslli.w	$vr1, $vr1, 1
+	vslli.w	$vr4, $vr0, 1
+	vadd.w	$vr0, $vr3, $vr4
+	vadd.w	$vr1, $vr2, $vr1
+	vadd.w	$vr9, $vr1, $vr9
+	vadd.w	$vr0, $vr0, $vr8
+	vsrli.w	$vr1, $vr0, 2
+	vsrli.w	$vr0, $vr9, 2
+	vpickve2gr.h	$a7, $vr0, 6
+	vpickve2gr.h	$a6, $vr1, 0
 	st.h	$a6, $s6, 320
 	st.h	$a6, $s6, 292
 	st.h	$a6, $s6, 264
-	vpickve2gr.h	$a6, $vr2, 2
+	vpickve2gr.h	$a6, $vr1, 2
 	st.h	$a6, $s6, 308
 	st.h	$a6, $s6, 280
-	vpickve2gr.h	$a6, $vr2, 4
+	vpickve2gr.h	$a6, $vr1, 4
 	st.h	$a6, $s6, 352
 	st.h	$a6, $s6, 324
 	st.h	$a6, $s6, 296
 	st.h	$a6, $s6, 268
-	vpickve2gr.h	$a6, $vr2, 6
+	vpickve2gr.h	$a6, $vr1, 6
 	st.h	$a6, $s6, 368
 	st.h	$a6, $s6, 312
 	st.h	$a6, $s6, 284
-	vpickve2gr.h	$a6, $vr1, 4
+	vpickve2gr.h	$a6, $vr0, 4
 	st.h	$a6, $s6, 360
 	st.h	$a6, $s6, 332
-	vpickve2gr.h	$a6, $vr1, 2
+	vpickve2gr.h	$a6, $vr0, 2
 	st.h	$a7, $s6, 376
-	vpickve2gr.h	$a7, $vr1, 0
+	vpickve2gr.h	$a7, $vr0, 0
 	st.h	$a7, $s6, 356
 	st.h	$a7, $s6, 328
 	st.h	$a7, $s6, 300
@@ -2578,45 +2574,40 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	st.h	$t0, $s6, 808
 	ori	$t1, $s3, 92
 	stx.h	$t0, $s4, $t1
-	vpickve2gr.w	$t0, $vr8, 3
+	vpickve2gr.w	$t0, $vr7, 3
 	bstrpick.d	$t0, $t0, 15, 0
-	or	$t1, $a3, $t0
-	xor	$t2, $a3, $t0
-	srli.d	$t2, $t2, 1
-	sub.d	$t1, $t1, $t2
+	add.d	$t1, $a3, $t0
+	addi.d	$t1, $t1, 1
+	srli.d	$t1, $t1, 1
 	ori	$t2, $s3, 184
 	stx.h	$t1, $s4, $t2
 	st.h	$t1, $s6, 840
 	ori	$t2, $s3, 124
 	stx.h	$t1, $s4, $t2
 	st.h	$t1, $s6, 780
-	vpickve2gr.w	$t1, $vr7, 0
+	vpickve2gr.w	$t1, $vr6, 0
 	bstrpick.d	$t1, $t1, 15, 0
-	or	$t2, $t0, $t1
-	xor	$t0, $t0, $t1
+	add.d	$t0, $t0, $t1
+	addi.d	$t0, $t0, 1
 	srli.d	$t0, $t0, 1
-	sub.d	$t0, $t2, $t0
-	st.h	$t0, $s6, 872
 	ori	$t2, $s3, 156
 	stx.h	$t0, $s4, $t2
+	st.h	$t0, $s6, 872
 	st.h	$t0, $s6, 812
-	vpickve2gr.w	$t0, $vr6, 1
-	bstrpick.d	$t0, $t0, 15, 0
-	or	$t2, $t1, $t0
-	xor	$t1, $t1, $t0
-	srli.d	$t1, $t1, 1
-	sub.d	$t1, $t2, $t1
-	ori	$t2, $s3, 188
-	stx.h	$t1, $s4, $t2
-	st.h	$t1, $s6, 844
-	ori	$t1, $s3, 96
-	stx.h	$a2, $s4, $t1
-	vpickve2gr.w	$a2, $vr6, 2
-	bstrpick.d	$a2, $a2, 15, 0
-	or	$t1, $t0, $a2
-	xor	$a2, $t0, $a2
+	ori	$t0, $s3, 96
+	stx.h	$a2, $s4, $t0
+	vpickve2gr.w	$a2, $vr5, 1
+	bstrpick.d	$t0, $a2, 15, 0
+	add.d	$t0, $t1, $t0
+	addi.d	$t0, $t0, 1
+	srli.d	$t0, $t0, 1
+	ori	$t1, $s3, 188
+	stx.h	$t0, $s4, $t1
+	st.h	$t0, $s6, 844
+	vpickve2gr.w	$t0, $vr5, 2
+	add.d	$a2, $a2, $t0
+	addi.d	$a2, $a2, 1
 	srli.d	$a2, $a2, 1
-	sub.d	$a2, $t1, $a2
 	st.h	$a2, $s6, 876
 	ori	$a2, $s3, 128
 	stx.h	$a0, $s4, $a2
@@ -2647,7 +2638,7 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	ori	$a1, $s3, 104
 	ld.hu	$a4, $fp, 14
 	stx.h	$a0, $s4, $a1
-	vpickve2gr.w	$a0, $vr4, 2
+	vpickve2gr.w	$a0, $vr3, 2
 	add.d	$a0, $a0, $a2
 	alsl.d	$a0, $a4, $a0, 1
 	bstrpick.d	$a0, $a0, 18, 2
@@ -2657,7 +2648,7 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	stx.h	$a0, $s4, $a1
 	st.h	$a0, $s6, 852
 	st.h	$a0, $s6, 792
-	vpickve2gr.w	$a0, $vr4, 3
+	vpickve2gr.w	$a0, $vr3, 3
 	alsl.d	$a0, $a3, $a0, 1
 	add.d	$a0, $a0, $a4
 	bstrpick.d	$a0, $a0, 18, 2
@@ -2668,8 +2659,8 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	ori	$a1, $s3, 108
 	stx.h	$a0, $s4, $a1
 	ld.hu	$a0, $fp, 16
-	vpickve2gr.w	$a1, $vr3, 0
-	vpickve2gr.w	$a2, $vr5, 2
+	vpickve2gr.w	$a1, $vr2, 0
+	vpickve2gr.w	$a2, $vr4, 2
 	add.d	$a1, $a1, $a2
 	add.d	$a0, $a1, $a0
 	bstrpick.d	$a0, $a0, 18, 2
@@ -2680,8 +2671,8 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	stx.h	$a0, $s4, $a1
 	st.h	$a0, $s6, 796
 	ld.hu	$a0, $fp, 18
-	vpickve2gr.w	$a1, $vr3, 1
-	vpickve2gr.w	$a2, $vr5, 3
+	vpickve2gr.w	$a1, $vr2, 1
+	vpickve2gr.w	$a2, $vr4, 3
 	add.d	$a1, $a1, $a2
 	add.d	$a0, $a1, $a0
 	bstrpick.d	$a0, $a0, 18, 2
@@ -2693,64 +2684,64 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	st.h	$a6, $s6, 892
 	ori	$a0, $s5, 3716
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 0
+	vstelm.h	$vr1, $a0, 0, 0
 	ori	$a0, $s5, 3688
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 0
+	vstelm.h	$vr1, $a0, 0, 0
 	ori	$a0, $s5, 3760
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 2
+	vstelm.h	$vr1, $a0, 0, 2
 	ori	$a0, $s5, 3732
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 2
+	vstelm.h	$vr1, $a0, 0, 2
 	ori	$a0, $s5, 3704
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 2
+	vstelm.h	$vr1, $a0, 0, 2
 	ori	$a0, $s5, 3676
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 2
+	vstelm.h	$vr1, $a0, 0, 2
 	ori	$a0, $s5, 3776
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 4
+	vstelm.h	$vr1, $a0, 0, 4
 	ori	$a0, $s5, 3720
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 4
+	vstelm.h	$vr1, $a0, 0, 4
 	ori	$a0, $s5, 3692
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 4
+	vstelm.h	$vr1, $a0, 0, 4
 	ori	$a0, $s5, 3764
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 6
+	vstelm.h	$vr1, $a0, 0, 6
 	ori	$a0, $s5, 3736
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 6
+	vstelm.h	$vr1, $a0, 0, 6
 	ori	$a0, $s5, 3708
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr2, $a0, 0, 6
+	vstelm.h	$vr1, $a0, 0, 6
 	ori	$a0, $s5, 3780
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr1, $a0, 0, 0
+	vstelm.h	$vr0, $a0, 0, 0
 	ori	$a0, $s5, 3724
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr1, $a0, 0, 0
+	vstelm.h	$vr0, $a0, 0, 0
 	ori	$a0, $s5, 3768
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr1, $a0, 0, 2
+	vstelm.h	$vr0, $a0, 0, 2
 	ori	$a0, $s5, 3740
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr1, $a0, 0, 2
+	vstelm.h	$vr0, $a0, 0, 2
 	ori	$a0, $s5, 3784
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr1, $a0, 0, 4
+	vstelm.h	$vr0, $a0, 0, 4
 	ori	$a0, $s5, 3772
 	add.d	$a0, $s4, $a0
-	vpickev.h	$vr2, $vr1, $vr2
-	vstelm.h	$vr1, $a0, 0, 6
+	vpickev.h	$vr1, $vr0, $vr1
+	vstelm.h	$vr0, $a0, 0, 6
 	ori	$a0, $s5, 3744
-	vstx	$vr2, $s4, $a0
+	vstx	$vr1, $s4, $a0
 	ori	$a0, $s3, 204
 	add.d	$a0, $s4, $a0
-	vstelm.h	$vr1, $a0, 0, 0
+	vstelm.h	$vr0, $a0, 0, 0
 .LBB2_50:
 	sltui	$a0, $s2, 1
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
@@ -2839,17 +2830,17 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	ori	$a3, $s5, 3820
 	add.d	$a6, $a0, $a3
 	ld.hu	$a5, $fp, 0
-	vld	$vr1, $fp, 0
-	vld	$vr2, $fp, 2
+	vld	$vr0, $fp, 0
+	vld	$vr1, $fp, 2
 	ld.hu	$a4, $fp, 2
 	ld.hu	$a3, $fp, 4
-	vinsgr2vr.h	$vr3, $s2, 0
-	vinsgr2vr.h	$vr3, $a5, 1
-	vinsgr2vr.h	$vr3, $a4, 2
-	vinsgr2vr.h	$vr3, $a3, 3
-	vbsrl.v	$vr6, $vr1, 6
-	vilvl.h	$vr4, $vr0, $vr6
-	vilvl.h	$vr7, $vr0, $vr3
+	vinsgr2vr.h	$vr2, $s2, 0
+	vinsgr2vr.h	$vr2, $a5, 1
+	vinsgr2vr.h	$vr2, $a4, 2
+	vinsgr2vr.h	$vr2, $a3, 3
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vbsrl.v	$vr6, $vr0, 6
+	vsllwil.wu.hu	$vr3, $vr6, 0
 	addi.d	$a2, $a2, 2
 	srli.d	$a2, $a2, 2
 	st.h	$a2, $a1, 104
@@ -2861,14 +2852,16 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	st.h	$a2, $a1, 32
 	ori	$s4, $s5, 3824
 	stx.h	$a2, $a0, $s4
-	vilvh.h	$vr5, $vr0, $vr1
-	vilvl.h	$vr1, $vr0, $vr1
-	vilvl.h	$vr8, $vr0, $vr2
-	vilvh.h	$vr3, $vr0, $vr2
-	vslli.w	$vr0, $vr1, 1
-	vadd.w	$vr0, $vr7, $vr0
+	vbsrl.v	$vr4, $vr0, 8
+	vsllwil.wu.hu	$vr5, $vr4, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr7, $vr1, 0
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.wu.hu	$vr4, $vr1, 0
+	vslli.w	$vr0, $vr0, 1
+	vadd.w	$vr0, $vr2, $vr0
 	vslli.w	$vr1, $vr5, 1
-	vadd.w	$vr1, $vr4, $vr1
+	vadd.w	$vr1, $vr3, $vr1
 	addi.d	$a2, $a5, 2
 	add.d	$s1, $a2, $s1
 	alsl.d	$s1, $s2, $s1, 1
@@ -2884,8 +2877,8 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	st.h	$s1, $a1, 16
 	ori	$s2, $s5, 3808
 	stx.h	$s1, $a0, $s2
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr0, $vr0, $vr8
+	vadd.w	$vr1, $vr1, $vr4
+	vadd.w	$vr0, $vr0, $vr7
 	vaddi.wu	$vr0, $vr0, 2
 	vaddi.wu	$vr1, $vr1, 2
 	vsrli.w	$vr1, $vr1, 2
@@ -2941,65 +2934,58 @@ intrapred_luma8x8:                      # @intrapred_luma8x8
 	st.h	$a4, $a1, 112
 	vpickve2gr.w	$a4, $vr6, 0
 	bstrpick.d	$a4, $a4, 15, 0
-	or	$a5, $a3, $a4
-	xor	$a3, $a3, $a4
+	add.d	$a3, $a3, $a4
+	addi.d	$a3, $a3, 1
 	srli.d	$a3, $a3, 1
-	sub.d	$a3, $a5, $a3
 	st.h	$a3, $a1, 216
 	ori	$a5, $s5, 3992
 	stx.h	$a3, $a0, $a5
 	st.h	$a3, $a1, 148
 	ori	$a5, $s5, 3924
 	stx.h	$a3, $a0, $a5
-	vpickve2gr.w	$a3, $vr4, 1
+	vpickve2gr.w	$a3, $vr3, 1
 	bstrpick.d	$a3, $a3, 15, 0
-	or	$a5, $a4, $a3
-	xor	$a4, $a4, $a3
+	add.d	$a4, $a4, $a3
+	addi.d	$a4, $a4, 1
 	srli.d	$a4, $a4, 1
-	sub.d	$a4, $a5, $a4
 	ori	$a5, $s5, 4028
 	stx.h	$a4, $a0, $a5
 	st.h	$a4, $a1, 184
 	ori	$a5, $s5, 3960
 	stx.h	$a4, $a0, $a5
 	st.h	$a4, $a1, 116
-	vpickve2gr.w	$a4, $vr4, 2
+	vpickve2gr.w	$a4, $vr3, 2
 	bstrpick.d	$a4, $a4, 15, 0
-	or	$a5, $a3, $a4
-	xor	$a3, $a3, $a4
+	add.d	$a3, $a3, $a4
+	addi.d	$a3, $a3, 1
 	srli.d	$a3, $a3, 1
-	sub.d	$a3, $a5, $a3
 	st.h	$a3, $a1, 220
 	ori	$a5, $s5, 3996
 	stx.h	$a3, $a0, $a5
 	st.h	$a3, $a1, 152
 	ori	$a5, $s5, 3928
 	stx.h	$a3, $a0, $a5
-	vpickve2gr.w	$a3, $vr4, 3
+	vpickve2gr.w	$a3, $vr3, 3
 	bstrpick.d	$a3, $a3, 15, 0
-	or	$a5, $a4, $a3
-	xor	$a4, $a4, $a3
+	add.d	$a4, $a4, $a3
+	addi.d	$a4, $a4, 1
 	srli.d	$a4, $a4, 1
-	sub.d	$a4, $a5, $a4
 	st.h	$a4, $a1, 188
 	ori	$a5, $s5, 3964
 	stx.h	$a4, $a0, $a5
 	st.h	$a4, $a1, 120
 	vpickve2gr.w	$a4, $vr5, 3
-	bstrpick.d	$a4, $a4, 15, 0
-	or	$a5, $a3, $a4
-	xor	$a3, $a3, $a4
+	bstrpick.d	$a5, $a4, 15, 0
+	add.d	$a3, $a3, $a5
+	addi.d	$a3, $a3, 1
 	srli.d	$a3, $a3, 1
-	sub.d	$a3, $a5, $a3
 	st.h	$a3, $a1, 156
 	ori	$a5, $s5, 3932
 	stx.h	$a3, $a0, $a5
-	vpickve2gr.w	$a3, $vr3, 3
-	bstrpick.d	$a3, $a3, 15, 0
-	or	$a5, $a4, $a3
-	xor	$a3, $a4, $a3
+	vpickve2gr.w	$a3, $vr4, 3
+	add.d	$a3, $a4, $a3
+	addi.d	$a3, $a3, 1
 	srli.d	$a3, $a3, 1
-	sub.d	$a3, $a5, $a3
 	st.h	$a3, $a1, 124
 	vstelm.h	$vr2, $a1, 228, 0
 	ori	$a3, $s5, 4004
@@ -3495,47 +3481,48 @@ RDCost_for_8x8IntraBlocks:              # @RDCost_for_8x8IntraBlocks
 	alsl.d	$a3, $s6, $s7, 3
 	alsl.d	$a4, $s5, $s4, 3
 	slli.d	$a5, $s8, 1
-	vrepli.b	$vr0, 0
 	ori	$a6, $zero, 64
 	.p2align	4, , 16
 .LBB3_1:                                # =>This Inner Loop Header: Depth=1
 	ldx.d	$a7, $a3, $a2
 	ldx.d	$t0, $a4, $a2
-	vldx	$vr1, $a7, $a5
-	vldx	$vr2, $t0, $a5
-	vilvl.h	$vr3, $vr0, $vr1
-	vilvl.h	$vr4, $vr0, $vr2
-	vsub.w	$vr3, $vr3, $vr4
-	vpickve2gr.w	$a7, $vr3, 0
+	vldx	$vr0, $a7, $a5
+	vldx	$vr1, $t0, $a5
+	vsllwil.wu.hu	$vr2, $vr0, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr3, $vr1, 0
+	vsub.w	$vr2, $vr2, $vr3
+	vpickve2gr.w	$a7, $vr2, 0
 	slli.d	$a7, $a7, 2
 	ldx.w	$a7, $a0, $a7
-	vilvh.h	$vr1, $vr0, $vr1
-	vilvh.h	$vr2, $vr0, $vr2
-	vsub.w	$vr1, $vr1, $vr2
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsub.w	$vr0, $vr0, $vr1
 	add.d	$a7, $s3, $a7
-	vpickve2gr.w	$t0, $vr3, 1
+	vpickve2gr.w	$t0, $vr2, 1
 	slli.d	$t0, $t0, 2
 	ldx.w	$t0, $a0, $t0
-	vpickve2gr.w	$t1, $vr3, 2
+	vpickve2gr.w	$t1, $vr2, 2
 	slli.d	$t1, $t1, 2
 	ldx.w	$t1, $a0, $t1
-	vpickve2gr.w	$t2, $vr3, 3
+	vpickve2gr.w	$t2, $vr2, 3
 	slli.d	$t2, $t2, 2
 	ldx.w	$t2, $a0, $t2
-	vpickve2gr.w	$t3, $vr1, 0
+	vpickve2gr.w	$t3, $vr0, 0
 	slli.d	$t3, $t3, 2
 	ldx.w	$t3, $a0, $t3
 	add.d	$a7, $a7, $t0
 	add.d	$a7, $a7, $t1
 	add.d	$a7, $a7, $t2
 	add.d	$a7, $a7, $t3
-	vpickve2gr.w	$t0, $vr1, 1
+	vpickve2gr.w	$t0, $vr0, 1
 	slli.d	$t0, $t0, 2
 	ldx.w	$t0, $a0, $t0
-	vpickve2gr.w	$t1, $vr1, 2
+	vpickve2gr.w	$t1, $vr0, 2
 	slli.d	$t1, $t1, 2
 	ldx.w	$t1, $a0, $t1
-	vpickve2gr.w	$t2, $vr1, 3
+	vpickve2gr.w	$t2, $vr0, 3
 	slli.d	$t2, $t2, 2
 	ldx.w	$t2, $a0, $t2
 	add.d	$a7, $a7, $t0
@@ -5065,35 +5052,35 @@ LowPassForIntra8x8Pred:                 # @LowPassForIntra8x8Pred
 	add.d	$t5, $t3, $t5
 	vinsgr2vr.w	$vr1, $t2, 0
 	srli.d	$t2, $t5, 2
-	vrepli.b	$vr2, 0
-	vilvh.h	$vr3, $vr2, $vr0
-	vilvl.h	$vr0, $vr2, $vr0
-	vinsgr2vr.w	$vr2, $t4, 0
+	vbsrl.v	$vr2, $vr0, 8
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vinsgr2vr.w	$vr3, $t4, 0
 	pcalau12i	$t4, %pc_hi20(.LCPI5_0)
 	vld	$vr4, $t4, %pc_lo12(.LCPI5_0)
 	vbsrl.v	$vr5, $vr0, 12
-	vbsll.v	$vr6, $vr3, 4
+	vbsll.v	$vr6, $vr2, 4
 	vor.v	$vr5, $vr6, $vr5
-	vshuf.w	$vr4, $vr0, $vr2
-	vslli.w	$vr2, $vr4, 1
+	vshuf.w	$vr4, $vr0, $vr3
+	vslli.w	$vr3, $vr4, 1
 	vslli.w	$vr4, $vr5, 1
 	vinsgr2vr.w	$vr1, $t3, 1
 	vpackev.d	$vr1, $vr0, $vr1
 	vbsrl.v	$vr5, $vr0, 8
-	vbsll.v	$vr6, $vr3, 8
+	vbsll.v	$vr6, $vr2, 8
 	vor.v	$vr5, $vr6, $vr5
 	vadd.w	$vr4, $vr5, $vr4
-	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr1, $vr1, $vr3
 	pcalau12i	$t3, %pc_hi20(.LCPI5_1)
-	vld	$vr2, $t3, %pc_lo12(.LCPI5_1)
+	vld	$vr3, $t3, %pc_lo12(.LCPI5_1)
 	vadd.w	$vr0, $vr1, $vr0
-	vadd.w	$vr1, $vr4, $vr3
+	vadd.w	$vr1, $vr4, $vr2
 	vaddi.wu	$vr1, $vr1, 2
-	vadd.w	$vr0, $vr0, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	vsrli.w	$vr0, $vr0, 2
 	vsrli.w	$vr1, $vr1, 2
 	vpickev.h	$vr0, $vr1, $vr0
-	vpickve2gr.w	$t3, $vr3, 2
+	vpickve2gr.w	$t3, $vr2, 2
 	alsl.d	$t3, $t1, $t3, 1
 	add.d	$t3, $t3, $t0
 	addi.d	$t3, $t3, 2

@@ -2538,36 +2538,53 @@ _ZN9NCompress6NBZip211CThreadInfo11EncodeBlockEPKhj: # @_ZN9NCompress6NBZip211CT
 .LBB29_14:                              # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr0, $a5, 0
-	vilvh.b	$vr1, $vr8, $vr0
-	vilvh.h	$vr2, $vr8, $vr1
-	vilvh.w	$vr3, $vr8, $vr2
-	vilvl.w	$vr2, $vr8, $vr2
-	vilvl.h	$vr1, $vr8, $vr1
-	vilvh.w	$vr4, $vr8, $vr1
-	vilvl.w	$vr1, $vr8, $vr1
-	vilvl.b	$vr0, $vr8, $vr0
-	vilvh.h	$vr5, $vr8, $vr0
-	vilvh.w	$vr6, $vr8, $vr5
-	vilvl.w	$vr5, $vr8, $vr5
-	vilvl.h	$vr0, $vr8, $vr0
-	vilvh.w	$vr7, $vr8, $vr0
-	vilvl.w	$vr0, $vr8, $vr0
+	vbsrl.v	$vr1, $vr0, 14
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vbsrl.v	$vr2, $vr0, 12
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vbsrl.v	$vr3, $vr0, 10
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr0, 8
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsrli.d	$vr5, $vr0, 48
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsrli.d	$vr6, $vr0, 32
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vshuf4i.b	$vr7, $vr0, 14
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vpickve2gr.d	$a7, $vr0, 0
 	vpickve2gr.d	$t0, $vr0, 1
 	vpickve2gr.d	$t1, $vr7, 0
 	vpickve2gr.d	$t2, $vr7, 1
-	vpickve2gr.d	$t3, $vr5, 0
-	vpickve2gr.d	$t4, $vr5, 1
-	vpickve2gr.d	$t5, $vr6, 0
-	vpickve2gr.d	$t6, $vr6, 1
-	vpickve2gr.d	$t7, $vr1, 0
-	vpickve2gr.d	$t8, $vr1, 1
-	vpickve2gr.d	$s3, $vr4, 0
-	vpickve2gr.d	$s5, $vr4, 1
+	vpickve2gr.d	$t3, $vr6, 0
+	vpickve2gr.d	$t4, $vr6, 1
+	vpickve2gr.d	$t5, $vr5, 0
+	vpickve2gr.d	$t6, $vr5, 1
+	vpickve2gr.d	$t7, $vr4, 0
+	vpickve2gr.d	$t8, $vr4, 1
+	vpickve2gr.d	$s3, $vr3, 0
+	vpickve2gr.d	$s5, $vr3, 1
 	vpickve2gr.d	$s6, $vr2, 0
 	vpickve2gr.d	$s7, $vr2, 1
-	vpickve2gr.d	$s8, $vr3, 0
-	vpickve2gr.d	$ra, $vr3, 1
+	vpickve2gr.d	$s8, $vr1, 0
+	vpickve2gr.d	$ra, $vr1, 1
 	stx.b	$a4, $a7, $a3
 	stx.b	$a4, $t0, $a3
 	stx.b	$a4, $t1, $a3
@@ -2604,10 +2621,13 @@ _ZN9NCompress6NBZip211CThreadInfo11EncodeBlockEPKhj: # @_ZN9NCompress6NBZip211CT
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a3, 0
 	vinsgr2vr.w	$vr0, $a6, 0
-	vilvl.b	$vr0, $vr8, $vr0
-	vilvl.h	$vr0, $vr8, $vr0
-	vilvh.w	$vr1, $vr8, $vr0
-	vilvl.w	$vr0, $vr8, $vr0
+	vshuf4i.b	$vr1, $vr0, 14
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
 	vpickve2gr.d	$a6, $vr0, 0
 	vpickve2gr.d	$a7, $vr0, 1
 	vpickve2gr.d	$t0, $vr1, 0
@@ -3712,10 +3732,12 @@ _ZN9NCompress6NBZip211CThreadInfo11EncodeBlockEPKhj: # @_ZN9NCompress6NBZip211CT
                                         # =>        This Inner Loop Header: Depth=5
 	vld	$vr2, $t3, -16
 	vld	$vr3, $t3, 0
-	vilvh.w	$vr4, $vr6, $vr2
-	vilvl.w	$vr2, $vr6, $vr2
-	vilvh.w	$vr5, $vr6, $vr3
-	vilvl.w	$vr3, $vr6, $vr3
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
 	vpickve2gr.d	$t5, $vr2, 0
 	vpickve2gr.d	$t6, $vr2, 1
 	vpickve2gr.d	$t7, $vr4, 0
@@ -3740,10 +3762,10 @@ _ZN9NCompress6NBZip211CThreadInfo11EncodeBlockEPKhj: # @_ZN9NCompress6NBZip211CT
 	vinsgr2vr.b	$vr3, $t6, 1
 	vinsgr2vr.b	$vr3, $t7, 2
 	vinsgr2vr.b	$vr3, $t8, 3
-	vilvl.b	$vr2, $vr6, $vr2
-	vilvl.h	$vr2, $vr6, $vr2
-	vilvl.b	$vr3, $vr6, $vr3
-	vilvl.h	$vr3, $vr6, $vr3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
 	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
 	addi.d	$t4, $t4, -8

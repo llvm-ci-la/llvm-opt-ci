@@ -22,18 +22,14 @@ main:                                   # @main
 	pcaddu18i	$ra, %call36(f)
 	jirl	$ra, $ra, 0
 	ld.d	$a0, $sp, 8
+	ld.d	$a1, $sp, 16
 	vinsgr2vr.d	$vr0, $a0, 0
 	vseqi.b	$vr0, $vr0, 0
-	ld.d	$a0, $sp, 16
-	vilvl.b	$vr0, $vr0, $vr0
-	vslli.h	$vr0, $vr0, 8
-	vsrai.h	$vr0, $vr0, 8
-	vinsgr2vr.d	$vr1, $a0, 0
+	vsllwil.h.b	$vr0, $vr0, 0
+	vinsgr2vr.d	$vr1, $a1, 0
 	vseqi.b	$vr1, $vr1, 0
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 24
-	vsrai.w	$vr1, $vr1, 24
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vpickve2gr.h	$a0, $vr0, 0
 	vinsgr2vr.w	$vr2, $a0, 0
 	vpickve2gr.h	$a0, $vr0, 1

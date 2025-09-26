@@ -41,70 +41,70 @@ jpeg_add_quant_table:                   # @jpeg_add_quant_table
 .LBB0_4:
 	vreplgr2vr.d	$vr0, $s1
 	move	$a1, $zero
-	vrepli.b	$vr1, 0
-	vrepli.d	$vr2, 50
+	vrepli.d	$vr1, 50
 	lu12i.w	$a2, 461373
 	ori	$a2, $a2, 1803
 	lu32i.d	$a2, 461373
 	lu52i.d	$a2, $a2, -1475
-	vreplgr2vr.d	$vr3, $a2
+	vreplgr2vr.d	$vr2, $a2
 	lu12i.w	$a2, 7
 	ori	$a2, $a2, 4095
-	vreplgr2vr.d	$vr4, $a2
+	vreplgr2vr.d	$vr3, $a2
 	beqz	$s0, .LBB0_7
 # %bb.5:                                # %vector.body.preheader
 	lu12i.w	$a2, 6
 	ori	$a2, $a2, 973
-	vreplgr2vr.d	$vr5, $a2
-	vrepli.h	$vr6, 255
+	vreplgr2vr.d	$vr4, $a2
+	vrepli.h	$vr5, 255
 	ori	$a2, $zero, 128
 	.p2align	4, , 16
 .LBB0_6:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr7, $fp, 0
-	vilvl.w	$vr8, $vr1, $vr7
-	vilvh.w	$vr7, $vr1, $vr7
+	vld	$vr6, $fp, 0
+	vsllwil.du.wu	$vr7, $vr6, 0
+	vshuf4i.w	$vr6, $vr6, 14
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vmul.d	$vr8, $vr0, $vr6
 	vmul.d	$vr9, $vr0, $vr7
-	vmul.d	$vr10, $vr0, $vr8
-	vori.b	$vr11, $vr2, 0
-	vmadd.d	$vr11, $vr0, $vr8
-	vori.b	$vr8, $vr2, 0
-	vmadd.d	$vr8, $vr0, $vr7
-	vmuh.d	$vr7, $vr8, $vr3
-	vadd.d	$vr7, $vr7, $vr8
-	vsrli.d	$vr8, $vr7, 63
+	vori.b	$vr10, $vr1, 0
+	vmadd.d	$vr10, $vr0, $vr7
+	vori.b	$vr7, $vr1, 0
+	vmadd.d	$vr7, $vr0, $vr6
+	vmuh.d	$vr6, $vr7, $vr2
+	vadd.d	$vr6, $vr6, $vr7
+	vsrli.d	$vr7, $vr6, 63
+	vsrai.d	$vr6, $vr6, 6
+	vadd.d	$vr6, $vr6, $vr7
+	vmuh.d	$vr7, $vr10, $vr2
+	vadd.d	$vr7, $vr7, $vr10
+	vsrli.d	$vr10, $vr7, 63
 	vsrai.d	$vr7, $vr7, 6
-	vadd.d	$vr7, $vr7, $vr8
-	vmuh.d	$vr8, $vr11, $vr3
-	vadd.d	$vr8, $vr8, $vr11
-	vsrli.d	$vr11, $vr8, 63
-	vsrai.d	$vr8, $vr8, 6
-	vadd.d	$vr8, $vr8, $vr11
-	vmaxi.d	$vr8, $vr8, 1
+	vadd.d	$vr7, $vr7, $vr10
 	vmaxi.d	$vr7, $vr7, 1
-	vmin.d	$vr7, $vr7, $vr4
-	vmin.d	$vr8, $vr8, $vr4
-	vslt.d	$vr10, $vr5, $vr10
-	vpickve2gr.d	$a3, $vr10, 0
-	vinsgr2vr.h	$vr11, $a3, 0
-	vpickve2gr.d	$a3, $vr10, 1
-	vinsgr2vr.h	$vr11, $a3, 1
-	vslt.d	$vr9, $vr5, $vr9
+	vmaxi.d	$vr6, $vr6, 1
+	vmin.d	$vr6, $vr6, $vr3
+	vmin.d	$vr7, $vr7, $vr3
+	vslt.d	$vr9, $vr4, $vr9
 	vpickve2gr.d	$a3, $vr9, 0
-	vinsgr2vr.h	$vr11, $a3, 2
+	vinsgr2vr.h	$vr10, $a3, 0
 	vpickve2gr.d	$a3, $vr9, 1
-	vinsgr2vr.h	$vr11, $a3, 3
+	vinsgr2vr.h	$vr10, $a3, 1
+	vslt.d	$vr8, $vr4, $vr8
 	vpickve2gr.d	$a3, $vr8, 0
-	vinsgr2vr.h	$vr9, $a3, 0
+	vinsgr2vr.h	$vr10, $a3, 2
 	vpickve2gr.d	$a3, $vr8, 1
-	vinsgr2vr.h	$vr9, $a3, 1
+	vinsgr2vr.h	$vr10, $a3, 3
 	vpickve2gr.d	$a3, $vr7, 0
-	vinsgr2vr.h	$vr9, $a3, 2
+	vinsgr2vr.h	$vr8, $a3, 0
 	vpickve2gr.d	$a3, $vr7, 1
-	vinsgr2vr.h	$vr9, $a3, 3
-	vbitsel.v	$vr7, $vr9, $vr6, $vr11
+	vinsgr2vr.h	$vr8, $a3, 1
+	vpickve2gr.d	$a3, $vr6, 0
+	vinsgr2vr.h	$vr8, $a3, 2
+	vpickve2gr.d	$a3, $vr6, 1
+	vinsgr2vr.h	$vr8, $a3, 3
+	vbitsel.v	$vr6, $vr8, $vr5, $vr10
 	add.d	$a3, $a0, $a1
-	vstelm.d	$vr7, $a3, 0, 0
+	vstelm.d	$vr6, $a3, 0, 0
 	addi.d	$a1, $a1, 8
 	addi.d	$fp, $fp, 16
 	bne	$a1, $a2, .LBB0_6
@@ -114,37 +114,38 @@ jpeg_add_quant_table:                   # @jpeg_add_quant_table
 	.p2align	4, , 16
 .LBB0_8:                                # %vector.body41
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr5, $fp, 0
-	vilvh.w	$vr6, $vr1, $vr5
-	vilvl.w	$vr5, $vr1, $vr5
-	vori.b	$vr7, $vr2, 0
-	vmadd.d	$vr7, $vr0, $vr5
-	vori.b	$vr5, $vr2, 0
-	vmadd.d	$vr5, $vr0, $vr6
-	vmuh.d	$vr6, $vr5, $vr3
-	vadd.d	$vr5, $vr6, $vr5
+	vld	$vr4, $fp, 0
+	vshuf4i.w	$vr5, $vr4, 14
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vori.b	$vr6, $vr1, 0
+	vmadd.d	$vr6, $vr0, $vr4
+	vori.b	$vr4, $vr1, 0
+	vmadd.d	$vr4, $vr0, $vr5
+	vmuh.d	$vr5, $vr4, $vr2
+	vadd.d	$vr4, $vr5, $vr4
+	vsrli.d	$vr5, $vr4, 63
+	vsrai.d	$vr4, $vr4, 6
+	vadd.d	$vr4, $vr4, $vr5
+	vmuh.d	$vr5, $vr6, $vr2
+	vadd.d	$vr5, $vr5, $vr6
 	vsrli.d	$vr6, $vr5, 63
 	vsrai.d	$vr5, $vr5, 6
 	vadd.d	$vr5, $vr5, $vr6
-	vmuh.d	$vr6, $vr7, $vr3
-	vadd.d	$vr6, $vr6, $vr7
-	vsrli.d	$vr7, $vr6, 63
-	vsrai.d	$vr6, $vr6, 6
-	vadd.d	$vr6, $vr6, $vr7
-	vmaxi.d	$vr6, $vr6, 1
 	vmaxi.d	$vr5, $vr5, 1
-	vmin.d	$vr5, $vr5, $vr4
-	vmin.d	$vr6, $vr6, $vr4
-	vpickve2gr.d	$a3, $vr6, 0
-	vinsgr2vr.h	$vr7, $a3, 0
-	vpickve2gr.d	$a3, $vr6, 1
-	vinsgr2vr.h	$vr7, $a3, 1
+	vmaxi.d	$vr4, $vr4, 1
+	vmin.d	$vr4, $vr4, $vr3
+	vmin.d	$vr5, $vr5, $vr3
 	vpickve2gr.d	$a3, $vr5, 0
-	vinsgr2vr.h	$vr7, $a3, 2
+	vinsgr2vr.h	$vr6, $a3, 0
 	vpickve2gr.d	$a3, $vr5, 1
-	vinsgr2vr.h	$vr7, $a3, 3
+	vinsgr2vr.h	$vr6, $a3, 1
+	vpickve2gr.d	$a3, $vr4, 0
+	vinsgr2vr.h	$vr6, $a3, 2
+	vpickve2gr.d	$a3, $vr4, 1
+	vinsgr2vr.h	$vr6, $a3, 3
 	add.d	$a3, $a0, $a1
-	vstelm.d	$vr7, $a3, 0, 0
+	vstelm.d	$vr6, $a3, 0, 0
 	addi.d	$a1, $a1, 8
 	addi.d	$fp, $fp, 16
 	bne	$a1, $a2, .LBB0_8
@@ -166,14 +167,14 @@ jpeg_add_quant_table:                   # @jpeg_add_quant_table
 	.type	jpeg_set_linear_quality,@function
 jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 # %bb.0:
-	addi.d	$sp, $sp, -128
-	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
 	move	$s0, $a0
 	ld.w	$a0, $a0, 28
 	ori	$a3, $zero, 100
@@ -199,12 +200,11 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 	st.d	$a0, $s0, 88
 .LBB1_4:
 	vreplgr2vr.d	$vr0, $s1
-	vrepli.b	$vr9, 0
-	vrepli.d	$vr10, 50
+	vrepli.d	$vr9, 50
 	lu12i.w	$s3, 461373
 	lu12i.w	$s2, 7
 	lu12i.w	$s4, 6
-	vrepli.h	$vr11, 255
+	vrepli.h	$vr10, 255
 	pcalau12i	$a1, %pc_hi20(jpeg_set_linear_quality.std_luminance_quant_tbl)
 	addi.d	$a1, $a1, %pc_lo12(jpeg_set_linear_quality.std_luminance_quant_tbl)
 	move	$a2, $zero
@@ -223,13 +223,14 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 .LBB1_6:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $a1, 0
-	vilvl.w	$vr5, $vr9, $vr4
-	vilvh.w	$vr4, $vr9, $vr4
+	vsllwil.du.wu	$vr5, $vr4, 0
+	vshuf4i.w	$vr4, $vr4, 14
+	vsllwil.du.wu	$vr4, $vr4, 0
 	vmul.d	$vr6, $vr0, $vr4
 	vmul.d	$vr7, $vr0, $vr5
-	vori.b	$vr8, $vr10, 0
+	vori.b	$vr8, $vr9, 0
 	vmadd.d	$vr8, $vr0, $vr5
-	vori.b	$vr5, $vr10, 0
+	vori.b	$vr5, $vr9, 0
 	vmadd.d	$vr5, $vr0, $vr4
 	vmuh.d	$vr4, $vr5, $vr1
 	vadd.d	$vr4, $vr4, $vr5
@@ -263,7 +264,7 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 	vinsgr2vr.h	$vr6, $a4, 2
 	vpickve2gr.d	$a4, $vr4, 1
 	vinsgr2vr.h	$vr6, $a4, 3
-	vbitsel.v	$vr4, $vr6, $vr11, $vr8
+	vbitsel.v	$vr4, $vr6, $vr10, $vr8
 	add.d	$a4, $a0, $a2
 	vstelm.d	$vr4, $a4, 0, 0
 	addi.d	$a2, $a2, 8
@@ -276,11 +277,12 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 .LBB1_8:                                # %vector.body36
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr3, $a1, 0
-	vilvh.w	$vr4, $vr9, $vr3
-	vilvl.w	$vr3, $vr9, $vr3
-	vori.b	$vr5, $vr10, 0
+	vshuf4i.w	$vr4, $vr3, 14
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vori.b	$vr5, $vr9, 0
 	vmadd.d	$vr5, $vr0, $vr3
-	vori.b	$vr3, $vr10, 0
+	vori.b	$vr3, $vr9, 0
 	vmadd.d	$vr3, $vr0, $vr4
 	vmuh.d	$vr4, $vr3, $vr1
 	vadd.d	$vr3, $vr4, $vr3
@@ -322,26 +324,22 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 	ori	$a2, $zero, 18
 	st.w	$a2, $a0, 40
 	move	$a0, $s0
-	vst	$vr9, $sp, 48                   # 16-byte Folded Spill
-	vst	$vr10, $sp, 32                  # 16-byte Folded Spill
-	vst	$vr11, $sp, 16                  # 16-byte Folded Spill
+	vst	$vr9, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr10, $sp, 16                  # 16-byte Folded Spill
 	jirl	$ra, $a1, 0
-	vld	$vr11, $sp, 16                  # 16-byte Folded Reload
-	vld	$vr10, $sp, 32                  # 16-byte Folded Reload
-	vld	$vr9, $sp, 48                   # 16-byte Folded Reload
+	vld	$vr10, $sp, 16                  # 16-byte Folded Reload
+	vld	$vr9, $sp, 32                   # 16-byte Folded Reload
 .LBB1_11:
 	ld.d	$a0, $s0, 96
 	bnez	$a0, .LBB1_13
 # %bb.12:
 	move	$a0, $s0
-	vst	$vr9, $sp, 48                   # 16-byte Folded Spill
-	vst	$vr10, $sp, 32                  # 16-byte Folded Spill
-	vst	$vr11, $sp, 16                  # 16-byte Folded Spill
+	vst	$vr9, $sp, 32                   # 16-byte Folded Spill
+	vst	$vr10, $sp, 16                  # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(jpeg_alloc_quant_table)
 	jirl	$ra, $ra, 0
-	vld	$vr11, $sp, 16                  # 16-byte Folded Reload
-	vld	$vr10, $sp, 32                  # 16-byte Folded Reload
-	vld	$vr9, $sp, 48                   # 16-byte Folded Reload
+	vld	$vr10, $sp, 16                  # 16-byte Folded Reload
+	vld	$vr9, $sp, 32                   # 16-byte Folded Reload
 	st.d	$a0, $s0, 96
 .LBB1_13:
 	vreplgr2vr.d	$vr0, $s1
@@ -363,13 +361,14 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 .LBB1_15:                               # %vector.body45
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr4, $a1, 0
-	vilvl.w	$vr5, $vr9, $vr4
-	vilvh.w	$vr4, $vr9, $vr4
+	vsllwil.du.wu	$vr5, $vr4, 0
+	vshuf4i.w	$vr4, $vr4, 14
+	vsllwil.du.wu	$vr4, $vr4, 0
 	vmul.d	$vr6, $vr0, $vr4
 	vmul.d	$vr7, $vr0, $vr5
-	vori.b	$vr8, $vr10, 0
+	vori.b	$vr8, $vr9, 0
 	vmadd.d	$vr8, $vr0, $vr5
-	vori.b	$vr5, $vr10, 0
+	vori.b	$vr5, $vr9, 0
 	vmadd.d	$vr5, $vr0, $vr4
 	vmuh.d	$vr4, $vr5, $vr1
 	vadd.d	$vr4, $vr4, $vr5
@@ -403,7 +402,7 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 	vinsgr2vr.h	$vr6, $a4, 2
 	vpickve2gr.d	$a4, $vr4, 1
 	vinsgr2vr.h	$vr6, $a4, 3
-	vbitsel.v	$vr4, $vr6, $vr11, $vr8
+	vbitsel.v	$vr4, $vr6, $vr10, $vr8
 	add.d	$a4, $a0, $a2
 	vstelm.d	$vr4, $a4, 0, 0
 	addi.d	$a2, $a2, 8
@@ -416,11 +415,12 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 .LBB1_17:                               # %vector.body54
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr3, $a1, 0
-	vilvh.w	$vr4, $vr9, $vr3
-	vilvl.w	$vr3, $vr9, $vr3
-	vori.b	$vr5, $vr10, 0
+	vshuf4i.w	$vr4, $vr3, 14
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vori.b	$vr5, $vr9, 0
 	vmadd.d	$vr5, $vr0, $vr3
-	vori.b	$vr3, $vr10, 0
+	vori.b	$vr3, $vr9, 0
 	vmadd.d	$vr3, $vr0, $vr4
 	vmuh.d	$vr4, $vr3, $vr1
 	vadd.d	$vr3, $vr4, $vr3
@@ -451,14 +451,14 @@ jpeg_set_linear_quality:                # @jpeg_set_linear_quality
 	bne	$a2, $a3, .LBB1_17
 .LBB1_18:                               # %jpeg_add_quant_table.exit20
 	st.w	$zero, $a0, 128
-	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 128
+	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .Lfunc_end1:
 	.size	jpeg_set_linear_quality, .Lfunc_end1-jpeg_set_linear_quality

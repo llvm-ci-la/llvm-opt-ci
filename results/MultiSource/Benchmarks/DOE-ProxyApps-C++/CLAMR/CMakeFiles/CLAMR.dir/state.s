@@ -1122,18 +1122,12 @@ _ZN5State18add_boundary_cellsEv:        # @_ZN5State18add_boundary_cellsEv
 	vld	$vr2, $t0, -16
 	vld	$vr3, $t0, 0
 	vld	$vr5, $a7, 0
-	vshuf4i.w	$vr6, $vr4, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vshuf4i.w	$vr7, $vr5, 50
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
-	vshuf4i.w	$vr5, $vr5, 16
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
+	vshuf4i.w	$vr6, $vr4, 14
+	vsllwil.d.w	$vr6, $vr6, 0
+	vsllwil.d.w	$vr4, $vr4, 0
+	vshuf4i.w	$vr7, $vr5, 14
+	vsllwil.d.w	$vr7, $vr7, 0
+	vsllwil.d.w	$vr5, $vr5, 0
 	vpickve2gr.d	$t2, $vr4, 0
 	slli.d	$t5, $t2, 2
 	vpickve2gr.d	$t2, $vr4, 1

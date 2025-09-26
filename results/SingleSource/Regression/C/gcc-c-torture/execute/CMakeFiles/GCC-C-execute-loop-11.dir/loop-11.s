@@ -39,46 +39,46 @@ main:                                   # @main
 	vadd.w	$vr0, $vr0, $vr2
 	bne	$a1, $a2, .LBB0_1
 # %bb.2:                                # %scalar.ph
-	move	$a1, $zero
-	ori	$a2, $zero, 6
-	st.w	$a2, $a0, 24
-	ori	$a2, $zero, 4
-	lu32i.d	$a2, 5
-	st.d	$a2, $a0, 16
-	ori	$a2, $zero, 2
-	lu32i.d	$a2, 3
-	st.d	$a2, $a0, 8
-	ori	$a2, $zero, 0
-	lu32i.d	$a2, 1
-	st.d	$a2, $a0, 0
-	pcalau12i	$a2, %pc_hi20(.LCPI0_1)
-	vld	$vr0, $a2, %pc_lo12(.LCPI0_1)
-	pcalau12i	$a2, %pc_hi20(.LCPI0_2)
-	vld	$vr1, $a2, %pc_lo12(.LCPI0_2)
-	vrepli.b	$vr2, 0
-	vrepli.b	$vr3, -1
-	ori	$a2, $zero, 768
+	move	$a2, $zero
+	ori	$a1, $zero, 6
+	st.w	$a1, $a0, 24
+	ori	$a1, $zero, 4
+	lu32i.d	$a1, 5
+	st.d	$a1, $a0, 16
+	ori	$a1, $zero, 2
+	lu32i.d	$a1, 3
+	st.d	$a1, $a0, 8
+	pcalau12i	$a1, %pc_hi20(.LCPI0_1)
+	vld	$vr0, $a1, %pc_lo12(.LCPI0_1)
+	pcalau12i	$a1, %pc_hi20(.LCPI0_2)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_2)
+	ori	$a1, $zero, 0
+	lu32i.d	$a1, 1
+	st.d	$a1, $a0, 0
+	vrepli.b	$vr2, -1
+	ori	$a1, $zero, 768
 	.p2align	4, , 16
 .LBB0_3:                                # %vector.body8
                                         # =>This Inner Loop Header: Depth=1
-	vldx	$vr4, $a0, $a1
-	vilvh.w	$vr5, $vr2, $vr4
-	vilvl.w	$vr4, $vr2, $vr4
-	vseq.d	$vr4, $vr1, $vr4
-	vxor.v	$vr4, $vr4, $vr3
-	vseq.d	$vr5, $vr0, $vr5
-	vxor.v	$vr5, $vr5, $vr3
-	vpickev.w	$vr4, $vr5, $vr4
-	vmskltz.w	$vr4, $vr4
-	vpickve2gr.hu	$a4, $vr4, 0
+	vldx	$vr3, $a0, $a2
+	vshuf4i.w	$vr4, $vr3, 14
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vseq.d	$vr3, $vr1, $vr3
+	vxor.v	$vr3, $vr3, $vr2
+	vseq.d	$vr4, $vr0, $vr4
+	vxor.v	$vr4, $vr4, $vr2
+	vpickev.w	$vr3, $vr4, $vr3
+	vmskltz.w	$vr3, $vr3
+	vpickve2gr.hu	$a4, $vr3, 0
 	bnez	$a4, .LBB0_5
 # %bb.4:                                # %vector.body8
                                         #   in Loop: Header=BB0_3 Depth=1
-	move	$a3, $a1
+	move	$a3, $a2
 	vaddi.du	$vr1, $vr1, 4
 	vaddi.du	$vr0, $vr0, 4
-	addi.d	$a1, $a1, 16
-	bne	$a3, $a2, .LBB0_3
+	addi.d	$a2, $a2, 16
+	bne	$a3, $a1, .LBB0_3
 .LBB0_5:                                # %middle.split
 	andi	$a1, $a4, 15
 	bnez	$a1, .LBB0_10

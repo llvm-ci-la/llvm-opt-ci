@@ -2340,27 +2340,26 @@ _ZL24loopWithReductionAutoVecIhEmPT_S1_S1_i: # @_ZL24loopWithReductionAutoVecIhE
 	addi.d	$a1, $a0, 2
 	move	$a4, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB10_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.h	$a5, $a1, -2
 	ld.h	$a6, $a1, 0
-	vinsgr2vr.h	$vr3, $a5, 0
-	vinsgr2vr.h	$vr4, $a6, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.w	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vilvl.w	$vr4, $vr0, $vr4
+	vinsgr2vr.h	$vr2, $a5, 0
+	vinsgr2vr.h	$vr3, $a6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vadd.d	$vr0, $vr0, $vr2
 	vadd.d	$vr1, $vr1, $vr3
-	vadd.d	$vr2, $vr2, $vr4
 	addi.d	$a4, $a4, -4
 	addi.d	$a1, $a1, 4
 	bnez	$a4, .LBB10_5
 # %bb.6:                                # %middle.block
-	vadd.d	$vr0, $vr2, $vr1
+	vadd.d	$vr0, $vr1, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a1, $vr0, 0
 	beq	$a2, $a3, .LBB10_9
@@ -2628,25 +2627,24 @@ _ZL24loopWithReductionAutoVecItEmPT_S1_S1_i: # @_ZL24loopWithReductionAutoVecItE
 	addi.d	$a1, $a0, 4
 	move	$a4, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB14_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a5, $a1, -4
 	ld.w	$a6, $a1, 0
-	vinsgr2vr.w	$vr3, $a5, 0
-	vinsgr2vr.w	$vr4, $a6, 0
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.w	$vr3, $vr0, $vr3
-	vilvl.h	$vr4, $vr0, $vr4
-	vilvl.w	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $a5, 0
+	vinsgr2vr.w	$vr3, $a6, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vadd.d	$vr0, $vr0, $vr2
 	vadd.d	$vr1, $vr1, $vr3
-	vadd.d	$vr2, $vr2, $vr4
 	addi.d	$a4, $a4, -4
 	addi.d	$a1, $a1, 8
 	bnez	$a4, .LBB14_5
 # %bb.6:                                # %middle.block
-	vadd.d	$vr0, $vr2, $vr1
+	vadd.d	$vr0, $vr1, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a1, $vr0, 0
 	beq	$a2, $a3, .LBB14_9
@@ -2894,23 +2892,22 @@ _ZL24loopWithReductionAutoVecIjEmPT_S1_S1_i: # @_ZL24loopWithReductionAutoVecIjE
 	addi.d	$a1, $a0, 8
 	move	$a4, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB18_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.d	$a5, $a1, -8
 	ld.d	$a6, $a1, 0
-	vinsgr2vr.d	$vr3, $a5, 0
-	vinsgr2vr.d	$vr4, $a6, 0
-	vilvl.w	$vr3, $vr0, $vr3
-	vilvl.w	$vr4, $vr0, $vr4
+	vinsgr2vr.d	$vr2, $a5, 0
+	vinsgr2vr.d	$vr3, $a6, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vadd.d	$vr0, $vr0, $vr2
 	vadd.d	$vr1, $vr1, $vr3
-	vadd.d	$vr2, $vr2, $vr4
 	addi.d	$a4, $a4, -4
 	addi.d	$a1, $a1, 16
 	bnez	$a4, .LBB18_5
 # %bb.6:                                # %middle.block
-	vadd.d	$vr0, $vr2, $vr1
+	vadd.d	$vr0, $vr1, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a1, $vr0, 0
 	beq	$a2, $a3, .LBB18_9
