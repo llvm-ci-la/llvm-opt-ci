@@ -99,12 +99,9 @@ jpeg_fdct_ifast:                        # @jpeg_fdct_ifast
 	vsub.w	$vr3, $vr8, $vr6
 	vst	$vr3, $a0, 128
 	vadd.w	$vr0, $vr0, $vr5
-	vshuf4i.w	$vr3, $vr0, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr0, $vr0, 50
-	vslli.d	$vr0, $vr0, 32
-	vsrai.d	$vr6, $vr0, 32
+	vsllwil.d.w	$vr3, $vr0, 0
+	vshuf4i.w	$vr0, $vr0, 14
+	vsllwil.d.w	$vr6, $vr0, 0
 	vrepli.d	$vr0, 181
 	vmul.d	$vr6, $vr6, $vr0
 	vmul.d	$vr3, $vr3, $vr0
@@ -119,24 +116,18 @@ jpeg_fdct_ifast:                        # @jpeg_fdct_ifast
 	vadd.w	$vr5, $vr1, $vr2
 	vadd.w	$vr6, $vr2, $vr4
 	vsub.w	$vr1, $vr3, $vr6
-	vshuf4i.w	$vr2, $vr1, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr1, $vr1, 50
-	vslli.d	$vr1, $vr1, 32
-	vsrai.d	$vr7, $vr1, 32
+	vsllwil.d.w	$vr2, $vr1, 0
+	vshuf4i.w	$vr1, $vr1, 14
+	vsllwil.d.w	$vr7, $vr1, 0
 	vrepli.d	$vr1, 98
 	vmul.d	$vr7, $vr7, $vr1
 	vmul.d	$vr2, $vr2, $vr1
 	vsrli.d	$vr2, $vr2, 8
 	vsrli.d	$vr7, $vr7, 8
 	vpickev.w	$vr7, $vr7, $vr2
-	vshuf4i.w	$vr2, $vr3, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr8, $vr2, 32
-	vshuf4i.w	$vr2, $vr3, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr3, $vr2, 32
+	vsllwil.d.w	$vr8, $vr3, 0
+	vshuf4i.w	$vr2, $vr3, 14
+	vsllwil.d.w	$vr3, $vr2, 0
 	vrepli.d	$vr2, 139
 	vmul.d	$vr3, $vr3, $vr2
 	vmul.d	$vr8, $vr8, $vr2
@@ -144,12 +135,9 @@ jpeg_fdct_ifast:                        # @jpeg_fdct_ifast
 	vsrli.d	$vr3, $vr3, 8
 	vpickev.w	$vr3, $vr3, $vr8
 	vadd.w	$vr8, $vr7, $vr3
-	vshuf4i.w	$vr3, $vr6, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr9, $vr3, 32
-	vshuf4i.w	$vr3, $vr6, 50
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr6, $vr3, 32
+	vsllwil.d.w	$vr9, $vr6, 0
+	vshuf4i.w	$vr3, $vr6, 14
+	vsllwil.d.w	$vr6, $vr3, 0
 	vrepli.d	$vr3, 334
 	vmul.d	$vr6, $vr6, $vr3
 	vmul.d	$vr9, $vr9, $vr3
@@ -157,12 +145,9 @@ jpeg_fdct_ifast:                        # @jpeg_fdct_ifast
 	vsrli.d	$vr6, $vr6, 8
 	vpickev.w	$vr6, $vr6, $vr9
 	vadd.w	$vr6, $vr7, $vr6
-	vshuf4i.w	$vr7, $vr5, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
-	vshuf4i.w	$vr5, $vr5, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
+	vsllwil.d.w	$vr7, $vr5, 0
+	vshuf4i.w	$vr5, $vr5, 14
+	vsllwil.d.w	$vr5, $vr5, 0
 	vmul.d	$vr5, $vr5, $vr0
 	vmul.d	$vr7, $vr7, $vr0
 	vsrli.d	$vr7, $vr7, 8
@@ -203,12 +188,9 @@ jpeg_fdct_ifast:                        # @jpeg_fdct_ifast
 	vsub.w	$vr8, $vr12, $vr10
 	vst	$vr8, $a0, 144
 	vadd.w	$vr5, $vr5, $vr9
-	vshuf4i.w	$vr8, $vr5, 16
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
-	vshuf4i.w	$vr5, $vr5, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
+	vsllwil.d.w	$vr8, $vr5, 0
+	vshuf4i.w	$vr5, $vr5, 14
+	vsllwil.d.w	$vr5, $vr5, 0
 	vmul.d	$vr5, $vr5, $vr0
 	vmul.d	$vr8, $vr8, $vr0
 	vsrli.d	$vr8, $vr8, 8
@@ -222,47 +204,35 @@ jpeg_fdct_ifast:                        # @jpeg_fdct_ifast
 	vadd.w	$vr6, $vr6, $vr7
 	vadd.w	$vr7, $vr7, $vr4
 	vsub.w	$vr8, $vr5, $vr7
-	vshuf4i.w	$vr9, $vr8, 16
-	vslli.d	$vr9, $vr9, 32
-	vsrai.d	$vr9, $vr9, 32
-	vshuf4i.w	$vr8, $vr8, 50
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
+	vsllwil.d.w	$vr9, $vr8, 0
+	vshuf4i.w	$vr8, $vr8, 14
+	vsllwil.d.w	$vr8, $vr8, 0
 	vmul.d	$vr8, $vr8, $vr1
 	vmul.d	$vr1, $vr9, $vr1
 	vsrli.d	$vr1, $vr1, 8
 	vsrli.d	$vr8, $vr8, 8
 	vpickev.w	$vr1, $vr8, $vr1
-	vshuf4i.w	$vr8, $vr5, 16
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
-	vshuf4i.w	$vr5, $vr5, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
+	vsllwil.d.w	$vr8, $vr5, 0
+	vshuf4i.w	$vr5, $vr5, 14
+	vsllwil.d.w	$vr5, $vr5, 0
 	vmul.d	$vr5, $vr5, $vr2
 	vmul.d	$vr2, $vr8, $vr2
 	vsrli.d	$vr2, $vr2, 8
 	vsrli.d	$vr5, $vr5, 8
 	vpickev.w	$vr2, $vr5, $vr2
 	vadd.w	$vr2, $vr1, $vr2
-	vshuf4i.w	$vr5, $vr7, 16
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr7, $vr7, 50
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
+	vsllwil.d.w	$vr5, $vr7, 0
+	vshuf4i.w	$vr7, $vr7, 14
+	vsllwil.d.w	$vr7, $vr7, 0
 	vmul.d	$vr7, $vr7, $vr3
 	vmul.d	$vr3, $vr5, $vr3
 	vsrli.d	$vr3, $vr3, 8
 	vsrli.d	$vr5, $vr7, 8
 	vpickev.w	$vr3, $vr5, $vr3
 	vadd.w	$vr1, $vr1, $vr3
-	vshuf4i.w	$vr3, $vr6, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr5, $vr6, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
+	vsllwil.d.w	$vr3, $vr6, 0
+	vshuf4i.w	$vr5, $vr6, 14
+	vsllwil.d.w	$vr5, $vr5, 0
 	vmul.d	$vr5, $vr5, $vr0
 	vmul.d	$vr0, $vr3, $vr0
 	vsrli.d	$vr0, $vr0, 8

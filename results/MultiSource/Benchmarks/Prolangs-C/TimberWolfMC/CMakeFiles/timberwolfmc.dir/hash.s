@@ -122,14 +122,10 @@ addhash:                                # @addhash
 	ld.w	$a5, $a2, 0
 	vinsgr2vr.w	$vr2, $a4, 0
 	vinsgr2vr.w	$vr3, $a5, 0
-	vilvl.b	$vr2, $vr2, $vr2
-	vilvl.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 24
-	vsrai.w	$vr2, $vr2, 24
-	vilvl.b	$vr3, $vr3, $vr3
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 24
-	vsrai.w	$vr3, $vr3, 24
+	vsllwil.h.b	$vr2, $vr2, 0
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.h.b	$vr3, $vr3, 0
+	vsllwil.w.h	$vr3, $vr3, 0
 	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
 	addi.d	$a3, $a3, -8
@@ -267,14 +263,10 @@ hashfind:                               # @hashfind
 	ld.w	$a5, $a2, 0
 	vinsgr2vr.w	$vr2, $a4, 0
 	vinsgr2vr.w	$vr3, $a5, 0
-	vilvl.b	$vr2, $vr2, $vr2
-	vilvl.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 24
-	vsrai.w	$vr2, $vr2, 24
-	vilvl.b	$vr3, $vr3, $vr3
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 24
-	vsrai.w	$vr3, $vr3, 24
+	vsllwil.h.b	$vr2, $vr2, 0
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.h.b	$vr3, $vr3, 0
+	vsllwil.w.h	$vr3, $vr3, 0
 	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
 	addi.d	$a3, $a3, -8

@@ -1673,12 +1673,8 @@ get_state:                              # @get_state
 	ld.d	$a7, $a4, 0
 	vinsgr2vr.d	$vr2, $a6, 0
 	vinsgr2vr.d	$vr3, $a7, 0
-	vilvl.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
 	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
 	addi.d	$a5, $a5, -8

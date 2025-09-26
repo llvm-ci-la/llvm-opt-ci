@@ -8546,7 +8546,6 @@ buf2img:                                # @buf2img
 	sub.d	$a7, $zero, $a5
 	ori	$t0, $zero, 8
 	ori	$t1, $zero, 16
-	vrepli.b	$vr0, 0
 	move	$t2, $s0
 	b	.LBB14_42
 	.p2align	4, , 16
@@ -8602,9 +8601,9 @@ buf2img:                                # @buf2img
                                         #   Parent Loop BB14_42 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$t7, $t6, 0
-	vinsgr2vr.d	$vr1, $t7, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vst	$vr1, $t5, 0
+	vinsgr2vr.d	$vr0, $t7, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vst	$vr0, $t5, 0
 	addi.d	$t4, $t4, 8
 	addi.d	$t5, $t5, 16
 	addi.d	$t6, $t6, 8
@@ -8625,12 +8624,12 @@ buf2img:                                # @buf2img
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$t7, $t5, -8
 	ld.d	$t8, $t5, 0
-	vinsgr2vr.d	$vr1, $t7, 0
-	vinsgr2vr.d	$vr2, $t8, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.b	$vr2, $vr0, $vr2
-	vst	$vr1, $t4, -16
-	vst	$vr2, $t4, 0
+	vinsgr2vr.d	$vr0, $t7, 0
+	vinsgr2vr.d	$vr1, $t8, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vst	$vr0, $t4, -16
+	vst	$vr1, $t4, 0
 	addi.d	$t6, $t6, -16
 	addi.d	$t4, $t4, 32
 	addi.d	$t5, $t5, 16

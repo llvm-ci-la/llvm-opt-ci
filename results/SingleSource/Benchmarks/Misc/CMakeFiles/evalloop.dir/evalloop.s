@@ -953,7 +953,6 @@ main:                                   # @main
 	ori	$a1, $a1, 529
 	lu32i.d	$a1, 135300
 	lu52i.d	$a1, $a1, 132
-	vrepli.b	$vr1, 0
 	addi.d	$a2, $sp, 16
 	lu12i.w	$a4, 1
 	ori	$a3, $a4, 4064
@@ -961,7 +960,7 @@ main:                                   # @main
 	.p2align	4, , 16
 .LBB2_1:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vaddi.hu	$vr2, $vr0, 4
+	vaddi.hu	$vr1, $vr0, 4
 	vpickve2gr.h	$a5, $vr0, 1
 	bstrpick.d	$a6, $a5, 15, 0
 	mulh.du	$a6, $a6, $a1
@@ -974,57 +973,57 @@ main:                                   # @main
 	slli.d	$t0, $a7, 5
 	sub.d	$a7, $a7, $t0
 	add.d	$a6, $a6, $a7
-	vinsgr2vr.h	$vr3, $a6, 0
-	vinsgr2vr.h	$vr3, $a5, 1
+	vinsgr2vr.h	$vr2, $a6, 0
+	vinsgr2vr.h	$vr2, $a5, 1
 	vpickve2gr.h	$a5, $vr0, 2
 	bstrpick.d	$a6, $a5, 15, 0
 	mulh.du	$a6, $a6, $a1
 	slli.d	$a7, $a6, 5
 	sub.d	$a6, $a6, $a7
 	add.d	$a5, $a5, $a6
-	vinsgr2vr.h	$vr3, $a5, 2
+	vinsgr2vr.h	$vr2, $a5, 2
 	vpickve2gr.h	$a5, $vr0, 3
 	bstrpick.d	$a6, $a5, 15, 0
 	mulh.du	$a6, $a6, $a1
 	slli.d	$a7, $a6, 5
 	sub.d	$a6, $a6, $a7
 	add.d	$a5, $a5, $a6
-	vinsgr2vr.h	$vr3, $a5, 3
-	vpickve2gr.h	$a5, $vr2, 1
+	vinsgr2vr.h	$vr2, $a5, 3
+	vpickve2gr.h	$a5, $vr1, 1
 	bstrpick.d	$a6, $a5, 15, 0
 	mulh.du	$a6, $a6, $a1
 	slli.d	$a7, $a6, 5
 	sub.d	$a6, $a6, $a7
 	add.d	$a5, $a5, $a6
-	vpickve2gr.h	$a6, $vr2, 0
+	vpickve2gr.h	$a6, $vr1, 0
 	bstrpick.d	$a6, $a6, 15, 0
 	mulh.du	$a7, $a6, $a1
 	slli.d	$t0, $a7, 5
 	sub.d	$a7, $a7, $t0
 	add.d	$a6, $a6, $a7
-	vinsgr2vr.h	$vr4, $a6, 0
-	vinsgr2vr.h	$vr4, $a5, 1
-	vpickve2gr.h	$a5, $vr2, 2
+	vinsgr2vr.h	$vr3, $a6, 0
+	vinsgr2vr.h	$vr3, $a5, 1
+	vpickve2gr.h	$a5, $vr1, 2
 	bstrpick.d	$a6, $a5, 15, 0
 	mulh.du	$a6, $a6, $a1
 	slli.d	$a7, $a6, 5
 	sub.d	$a6, $a6, $a7
 	add.d	$a5, $a5, $a6
-	vinsgr2vr.h	$vr4, $a5, 2
-	vpickve2gr.h	$a5, $vr2, 3
+	vinsgr2vr.h	$vr3, $a5, 2
+	vpickve2gr.h	$a5, $vr1, 3
 	bstrpick.d	$a6, $a5, 15, 0
 	mulh.du	$a6, $a6, $a1
 	slli.d	$a7, $a6, 5
 	sub.d	$a6, $a6, $a7
 	add.d	$a5, $a5, $a6
-	vinsgr2vr.h	$vr4, $a5, 3
+	vinsgr2vr.h	$vr3, $a5, 3
+	vaddi.hu	$vr1, $vr2, 1
 	vaddi.hu	$vr2, $vr3, 1
-	vaddi.hu	$vr3, $vr4, 1
-	vilvl.h	$vr2, $vr1, $vr2
-	vilvl.h	$vr3, $vr1, $vr3
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	add.d	$a5, $a2, $a0
-	vstx	$vr2, $a5, $a3
-	vstx	$vr3, $a5, $a4
+	vstx	$vr1, $a5, $a3
+	vstx	$vr2, $a5, $a4
 	addi.d	$a0, $a0, 32
 	vaddi.hu	$vr0, $vr0, 8
 	bnez	$a0, .LBB2_1

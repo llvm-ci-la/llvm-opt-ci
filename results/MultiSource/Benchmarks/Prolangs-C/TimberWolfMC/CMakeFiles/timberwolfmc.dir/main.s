@@ -1578,24 +1578,16 @@ prepSpots:                              # @prepSpots
 	ld.w	$t4, $t1, 0
 	vinsgr2vr.w	$vr9, $t3, 0
 	vinsgr2vr.w	$vr10, $t4, 0
-	vilvl.b	$vr11, $vr9, $vr9
-	vilvl.h	$vr11, $vr11, $vr11
-	vslli.w	$vr11, $vr11, 24
-	vsrai.w	$vr11, $vr11, 24
-	vilvl.b	$vr12, $vr10, $vr10
-	vilvl.h	$vr12, $vr12, $vr12
-	vslli.w	$vr12, $vr12, 24
-	vsrai.w	$vr12, $vr12, 24
+	vsllwil.h.b	$vr11, $vr9, 0
+	vsllwil.w.h	$vr11, $vr11, 0
+	vsllwil.h.b	$vr12, $vr10, 0
+	vsllwil.w.h	$vr12, $vr12, 0
 	vslt.b	$vr9, $vr4, $vr9
-	vilvl.b	$vr9, $vr9, $vr9
-	vilvl.h	$vr9, $vr9, $vr9
-	vslli.w	$vr9, $vr9, 24
-	vsrai.w	$vr9, $vr9, 24
+	vsllwil.h.b	$vr9, $vr9, 0
+	vsllwil.w.h	$vr9, $vr9, 0
 	vslt.b	$vr10, $vr4, $vr10
-	vilvl.b	$vr10, $vr10, $vr10
-	vilvl.h	$vr10, $vr10, $vr10
-	vslli.w	$vr10, $vr10, 24
-	vsrai.w	$vr10, $vr10, 24
+	vsllwil.h.b	$vr10, $vr10, 0
+	vsllwil.w.h	$vr10, $vr10, 0
 	vadd.w	$vr13, $vr11, $vr5
 	vadd.w	$vr14, $vr12, $vr5
 	vsub.w	$vr11, $vr6, $vr11

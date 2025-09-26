@@ -1652,48 +1652,44 @@ refine_level:                           # @refine_level
 	ld.w	$t0, $a4, -24
 	ld.w	$t1, $a4, -16
 	ld.w	$t2, $a4, -8
-	ld.w	$t3, $a4, 0
-	ld.w	$t4, $a4, 8
-	ld.w	$t5, $a4, 16
-	ld.w	$t6, $a4, 24
-	vinsgr2vr.w	$vr2, $t1, 0
-	vinsgr2vr.w	$vr2, $t2, 2
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
+	vinsgr2vr.w	$vr2, $a7, 0
+	vinsgr2vr.w	$vr2, $t0, 1
+	ld.w	$a7, $a4, 0
+	ld.w	$t0, $a4, 8
+	ld.w	$t3, $a4, 16
+	ld.w	$t4, $a4, 24
 	vinsgr2vr.w	$vr3, $a7, 0
-	vinsgr2vr.w	$vr3, $t0, 2
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vinsgr2vr.w	$vr4, $t5, 0
-	vinsgr2vr.w	$vr4, $t6, 2
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
+	vinsgr2vr.w	$vr3, $t0, 1
+	vinsgr2vr.w	$vr4, $t1, 0
+	vinsgr2vr.w	$vr4, $t2, 1
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
 	vinsgr2vr.w	$vr5, $t3, 0
-	vinsgr2vr.w	$vr5, $t4, 2
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vpickve2gr.d	$a7, $vr3, 0
+	vinsgr2vr.w	$vr5, $t4, 1
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vpickve2gr.d	$a7, $vr2, 0
 	mul.d	$a7, $a7, $a5
 	add.d	$a7, $a1, $a7
-	vpickve2gr.d	$t0, $vr3, 1
+	vpickve2gr.d	$t0, $vr2, 1
 	mul.d	$t0, $t0, $a5
 	add.d	$t0, $a1, $t0
-	vpickve2gr.d	$t1, $vr2, 0
+	vpickve2gr.d	$t1, $vr4, 0
 	mul.d	$t1, $t1, $a5
 	add.d	$t1, $a1, $t1
-	vpickve2gr.d	$t2, $vr2, 1
+	vpickve2gr.d	$t2, $vr4, 1
 	mul.d	$t2, $t2, $a5
 	add.d	$t2, $a1, $t2
-	vpickve2gr.d	$t3, $vr5, 0
+	vpickve2gr.d	$t3, $vr3, 0
 	mul.d	$t3, $t3, $a5
 	add.d	$t3, $a1, $t3
-	vpickve2gr.d	$t4, $vr5, 1
+	vpickve2gr.d	$t4, $vr3, 1
 	mul.d	$t4, $t4, $a5
 	add.d	$t4, $a1, $t4
-	vpickve2gr.d	$t5, $vr4, 0
+	vpickve2gr.d	$t5, $vr5, 0
 	mul.d	$t5, $t5, $a5
 	add.d	$t5, $a1, $t5
-	vpickve2gr.d	$t6, $vr4, 1
+	vpickve2gr.d	$t6, $vr5, 1
 	mul.d	$t6, $t6, $a5
 	add.d	$t6, $a1, $t6
 	ld.w	$a7, $a7, 8

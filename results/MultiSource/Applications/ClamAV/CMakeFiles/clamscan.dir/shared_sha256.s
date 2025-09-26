@@ -101,55 +101,72 @@ sha256_update:                          # @sha256_update
 	.p2align	4, 0x0                          # -- Begin function sha256_block
 .LCPI2_0:
 	.byte	1                               # 0x1
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
 	.byte	4                               # 0x4
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	9                               # 0x9
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
 	.byte	12                              # 0xc
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI2_1:
 	.byte	0                               # 0x0
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
 	.byte	5                               # 0x5
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	8                               # 0x8
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
 	.byte	13                              # 0xd
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI2_2:
 	.byte	2                               # 0x2
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
 	.byte	6                               # 0x6
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	10                              # 0xa
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
 	.byte	14                              # 0xe
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+.LCPI2_3:
+	.byte	3                               # 0x3
+	.byte	7                               # 0x7
+	.byte	11                              # 0xb
+	.byte	15                              # 0xf
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 	.text
 	.p2align	5
 	.type	sha256_block,@function
@@ -167,65 +184,98 @@ sha256_block:                           # @sha256_block
 .LBB2_2:
 	addi.d	$sp, $sp, -96
 	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
-	vld	$vr2, $a1, 0
+	vld	$vr6, $a1, 0
 	pcalau12i	$a2, %pc_hi20(.LCPI2_0)
-	vld	$vr1, $a2, %pc_lo12(.LCPI2_0)
+	vld	$vr0, $a2, %pc_lo12(.LCPI2_0)
 	pcalau12i	$a2, %pc_hi20(.LCPI2_1)
-	vld	$vr3, $a2, %pc_lo12(.LCPI2_1)
-	vrepli.b	$vr0, 0
-	vshuf.b	$vr4, $vr0, $vr2, $vr1
-	vshuf.b	$vr5, $vr0, $vr2, $vr3
+	vld	$vr1, $a2, %pc_lo12(.LCPI2_1)
+	vshuf.b	$vr2, $vr0, $vr6, $vr0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr3, $vr2, 0
+	vshuf.b	$vr2, $vr0, $vr6, $vr1
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr5, $vr2, 0
 	ori	$a2, $zero, 8
 	lu32i.d	$a2, 16
-	vreplgr2vr.d	$vr6, $a2
-	vsll.w	$vr4, $vr4, $vr6
+	vreplgr2vr.d	$vr2, $a2
+	vsll.w	$vr7, $vr3, $vr2
 	pcalau12i	$a2, %pc_hi20(.LCPI2_2)
-	vld	$vr7, $a2, %pc_lo12(.LCPI2_2)
+	vld	$vr3, $a2, %pc_lo12(.LCPI2_2)
 	ori	$a2, $zero, 16
 	lu32i.d	$a2, 8
-	vreplgr2vr.d	$vr8, $a2
-	vsll.w	$vr5, $vr5, $vr8
-	vor.v	$vr4, $vr5, $vr4
-	vshuf.b	$vr5, $vr0, $vr2, $vr7
-	vor.v	$vr4, $vr4, $vr5
-	vslli.w	$vr4, $vr4, 8
-	vld	$vr5, $a1, 16
-	vsrli.w	$vr2, $vr2, 24
-	vor.v	$vr2, $vr4, $vr2
-	vst	$vr2, $sp, 16
-	vshuf.b	$vr2, $vr0, $vr5, $vr1
-	vshuf.b	$vr4, $vr0, $vr5, $vr3
-	vsll.w	$vr2, $vr2, $vr6
-	vsll.w	$vr4, $vr4, $vr8
-	vor.v	$vr2, $vr4, $vr2
-	vshuf.b	$vr4, $vr0, $vr5, $vr7
-	vor.v	$vr2, $vr2, $vr4
-	vslli.w	$vr2, $vr2, 8
-	vld	$vr4, $a1, 32
-	vsrli.w	$vr5, $vr5, 24
-	vor.v	$vr2, $vr2, $vr5
-	vst	$vr2, $sp, 32
-	vshuf.b	$vr2, $vr0, $vr4, $vr1
-	vshuf.b	$vr5, $vr0, $vr4, $vr3
-	vsll.w	$vr2, $vr2, $vr6
-	vsll.w	$vr5, $vr5, $vr8
-	vor.v	$vr2, $vr5, $vr2
-	vshuf.b	$vr5, $vr0, $vr4, $vr7
-	vor.v	$vr2, $vr2, $vr5
-	vslli.w	$vr2, $vr2, 8
-	vld	$vr5, $a1, 48
-	vsrli.w	$vr4, $vr4, 24
-	vor.v	$vr2, $vr2, $vr4
-	vst	$vr2, $sp, 48
-	vshuf.b	$vr1, $vr0, $vr5, $vr1
-	vshuf.b	$vr2, $vr0, $vr5, $vr3
-	vsll.w	$vr1, $vr1, $vr6
-	vsll.w	$vr2, $vr2, $vr8
-	vor.v	$vr1, $vr2, $vr1
-	vshuf.b	$vr0, $vr0, $vr5, $vr7
+	vreplgr2vr.d	$vr4, $a2
+	vsll.w	$vr5, $vr5, $vr4
+	vor.v	$vr7, $vr5, $vr7
+	vshuf.b	$vr5, $vr0, $vr6, $vr3
+	vsllwil.hu.bu	$vr8, $vr5, 0
+	pcalau12i	$a2, %pc_hi20(.LCPI2_3)
+	vld	$vr5, $a2, %pc_lo12(.LCPI2_3)
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vor.v	$vr7, $vr7, $vr8
+	vslli.w	$vr7, $vr7, 8
+	vshuf.b	$vr6, $vr0, $vr6, $vr5
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vld	$vr8, $a1, 16
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vor.v	$vr6, $vr7, $vr6
+	vst	$vr6, $sp, 16
+	vshuf.b	$vr6, $vr0, $vr8, $vr0
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vshuf.b	$vr7, $vr0, $vr8, $vr1
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsll.w	$vr6, $vr6, $vr2
+	vsll.w	$vr7, $vr7, $vr4
+	vor.v	$vr6, $vr7, $vr6
+	vshuf.b	$vr7, $vr0, $vr8, $vr3
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vor.v	$vr6, $vr6, $vr7
+	vslli.w	$vr6, $vr6, 8
+	vshuf.b	$vr7, $vr0, $vr8, $vr5
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vld	$vr8, $a1, 32
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vor.v	$vr6, $vr6, $vr7
+	vst	$vr6, $sp, 32
+	vshuf.b	$vr6, $vr0, $vr8, $vr0
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vshuf.b	$vr7, $vr0, $vr8, $vr1
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsll.w	$vr6, $vr6, $vr2
+	vsll.w	$vr7, $vr7, $vr4
+	vor.v	$vr6, $vr7, $vr6
+	vshuf.b	$vr7, $vr0, $vr8, $vr3
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vor.v	$vr6, $vr6, $vr7
+	vslli.w	$vr6, $vr6, 8
+	vshuf.b	$vr7, $vr0, $vr8, $vr5
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vld	$vr8, $a1, 48
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vor.v	$vr6, $vr6, $vr7
+	vst	$vr6, $sp, 48
+	vshuf.b	$vr0, $vr0, $vr8, $vr0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vshuf.b	$vr1, $vr0, $vr8, $vr1
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsll.w	$vr0, $vr0, $vr2
+	vsll.w	$vr1, $vr1, $vr4
 	vor.v	$vr0, $vr1, $vr0
+	vshuf.b	$vr1, $vr0, $vr8, $vr3
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vor.v	$vr0, $vr0, $vr1
 	vslli.w	$vr0, $vr0, 8
-	vsrli.w	$vr1, $vr5, 24
+	vshuf.b	$vr1, $vr0, $vr8, $vr5
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vor.v	$vr0, $vr0, $vr1
 	vst	$vr0, $sp, 64
 	addi.d	$a1, $sp, 16

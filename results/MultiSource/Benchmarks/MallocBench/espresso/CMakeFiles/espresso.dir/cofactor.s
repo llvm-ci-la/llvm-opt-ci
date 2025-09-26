@@ -1022,18 +1022,12 @@ binate_split_select:                    # @binate_split_select
 	vaddi.wu	$vr5, $vr1, 4
 	vsrai.w	$vr6, $vr1, 5
 	vsrai.w	$vr7, $vr5, 5
-	vshuf4i.w	$vr8, $vr6, 50
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
-	vshuf4i.w	$vr6, $vr6, 16
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr9, $vr7, 50
-	vslli.d	$vr9, $vr9, 32
-	vsrai.d	$vr9, $vr9, 32
-	vshuf4i.w	$vr7, $vr7, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
+	vshuf4i.w	$vr8, $vr6, 14
+	vsllwil.d.w	$vr8, $vr8, 0
+	vsllwil.d.w	$vr6, $vr6, 0
+	vshuf4i.w	$vr9, $vr7, 14
+	vsllwil.d.w	$vr9, $vr9, 0
+	vsllwil.d.w	$vr7, $vr7, 0
 	vpickve2gr.d	$a6, $vr6, 0
 	alsl.d	$a6, $a6, $s3, 2
 	vpickve2gr.d	$a7, $vr6, 1

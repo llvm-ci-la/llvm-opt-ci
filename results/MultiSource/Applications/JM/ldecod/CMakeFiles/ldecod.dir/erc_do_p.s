@@ -4535,7 +4535,6 @@ edgeDistortion:                         # @edgeDistortion
 	ori	$a7, $zero, 1
 	ori	$s4, $zero, 16
 	ori	$s5, $zero, 3
-	vrepli.b	$vr0, 0
 	b	.LBB24_2
 	.p2align	4, , 16
 .LBB24_1:                               #   in Loop: Header=BB24_2 Depth=1
@@ -4555,25 +4554,27 @@ edgeDistortion:                         # @edgeDistortion
 	b	.LBB24_8
 .LBB24_3:                               # %.preheader140
                                         #   in Loop: Header=BB24_8 Depth=2
-	vld	$vr1, $a2, 496
+	vld	$vr0, $a2, 496
 	ld.d	$a5, $sp, 40                    # 8-byte Folded Reload
-	vld	$vr2, $a5, 16
-	vld	$vr3, $a2, 480
+	vld	$vr1, $a5, 16
+	vld	$vr2, $a2, 480
 .LBB24_4:                               # %.loopexit
                                         #   in Loop: Header=BB24_8 Depth=2
-	vld	$vr4, $a5, 0
-	vabsd.hu	$vr1, $vr1, $vr2
-	vilvl.h	$vr2, $vr0, $vr1
-	vabsd.hu	$vr3, $vr3, $vr4
-	vilvl.h	$vr4, $vr0, $vr3
-	vilvh.h	$vr1, $vr0, $vr1
-	vilvh.h	$vr3, $vr0, $vr3
+	vld	$vr3, $a5, 0
+	vabsd.hu	$vr0, $vr0, $vr1
+	vbsrl.v	$vr1, $vr0, 8
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vabsd.hu	$vr2, $vr2, $vr3
+	vbsrl.v	$vr3, $vr2, 8
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vadd.w	$vr0, $vr2, $vr0
 	vadd.w	$vr1, $vr3, $vr1
-	vadd.w	$vr2, $vr4, $vr2
-	vadd.w	$vr1, $vr2, $vr1
-	vhaddw.d.w	$vr1, $vr1, $vr1
-	vhaddw.q.d	$vr1, $vr1, $vr1
-	vpickve2gr.d	$a5, $vr1, 0
+	vadd.w	$vr0, $vr0, $vr1
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a5, $vr0, 0
 .LBB24_5:                               # %.loopexit
                                         #   in Loop: Header=BB24_8 Depth=2
 	add.w	$a4, $a5, $a4
@@ -4600,10 +4601,10 @@ edgeDistortion:                         # @edgeDistortion
 	jr	$a5
 .LBB24_11:                              # %.preheader
                                         #   in Loop: Header=BB24_8 Depth=2
-	vld	$vr1, $a2, 16
+	vld	$vr0, $a2, 16
 	ld.d	$a5, $sp, 32                    # 8-byte Folded Reload
-	vld	$vr2, $a5, 16
-	vld	$vr3, $a2, 0
+	vld	$vr1, $a5, 16
+	vld	$vr2, $a2, 0
 	b	.LBB24_4
 .LBB24_12:                              # %.preheader142
                                         #   in Loop: Header=BB24_8 Depth=2

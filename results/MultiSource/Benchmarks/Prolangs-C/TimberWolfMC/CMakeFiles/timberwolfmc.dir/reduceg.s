@@ -210,18 +210,12 @@ reduceg:                                # @reduceg
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr2, $a4, -16
 	vld	$vr3, $a4, 0
-	vshuf4i.w	$vr4, $vr2, 50
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vpickve2gr.d	$a6, $vr2, 0
 	mul.d	$a6, $a6, $s4
 	add.d	$a6, $a0, $a6
@@ -444,18 +438,12 @@ reduceg:                                # @reduceg
                                         # =>    This Inner Loop Header: Depth=3
 	vld	$vr2, $a4, -16
 	vld	$vr3, $a4, 0
-	vshuf4i.w	$vr4, $vr2, 50
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr5, $vr3, 50
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr4, $vr2, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vshuf4i.w	$vr5, $vr3, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vpickve2gr.d	$a6, $vr2, 0
 	mul.d	$a6, $a6, $s4
 	add.d	$a6, $a0, $a6

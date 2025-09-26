@@ -277,50 +277,49 @@ Flush_Buffer:                           # @Flush_Buffer
 	slli.d	$t0, $a0, 2
 	alsl.d	$a6, $a0, $a2, 2
 	slli.d	$a0, $a0, 5
-	vrepli.b	$vr1, 0
+	vrepli.b	$vr0, 0
 	add.w	$a0, $a3, $a0
-	vori.b	$vr0, $vr1, 0
-	vinsgr2vr.w	$vr0, $a5, 0
+	vori.b	$vr1, $vr0, 0
+	vinsgr2vr.w	$vr1, $a5, 0
 	vinsgr2vr.w	$vr2, $a3, 0
 	vinsgr2vr.w	$vr2, $a3, 1
 	ori	$a3, $zero, 0
 	lu32i.d	$a3, 8
 	vreplgr2vr.d	$vr3, $a3
-	vadd.w	$vr3, $vr2, $vr3
-	vrepli.w	$vr4, 24
-	vrepli.w	$vr5, 8
-	vrepli.w	$vr6, 32
+	vadd.w	$vr2, $vr2, $vr3
+	vrepli.w	$vr3, 24
+	vrepli.w	$vr4, 8
+	vrepli.w	$vr5, 32
 	move	$a3, $t0
-	vori.b	$vr2, $vr1, 0
 	.p2align	4, , 16
 .LBB1_30:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	move	$a5, $a2
 	ld.h	$a2, $a2, 0
 	ld.h	$t1, $a5, 2
-	vinsgr2vr.h	$vr7, $a2, 0
-	vinsgr2vr.h	$vr8, $t1, 0
-	vilvl.b	$vr7, $vr1, $vr7
-	vilvl.h	$vr7, $vr1, $vr7
-	vilvl.b	$vr8, $vr1, $vr8
-	vilvl.h	$vr8, $vr1, $vr8
-	vsub.w	$vr9, $vr4, $vr3
-	vsub.w	$vr10, $vr5, $vr3
+	vinsgr2vr.h	$vr6, $a2, 0
+	vinsgr2vr.h	$vr7, $t1, 0
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsub.w	$vr8, $vr3, $vr2
+	vsub.w	$vr9, $vr4, $vr2
+	vsll.w	$vr6, $vr6, $vr8
 	vsll.w	$vr7, $vr7, $vr9
-	vsll.w	$vr8, $vr8, $vr10
+	vor.v	$vr1, $vr6, $vr1
 	vor.v	$vr0, $vr7, $vr0
-	vor.v	$vr2, $vr8, $vr2
 	addi.d	$a2, $a5, 4
 	addi.d	$a3, $a3, -4
-	vadd.w	$vr3, $vr3, $vr6
+	vadd.w	$vr2, $vr2, $vr5
 	bnez	$a3, .LBB1_30
 # %bb.31:                               # %middle.block
-	vreplgr2vr.d	$vr1, $a5
-	vaddi.du	$vr1, $vr1, 1
-	vpickve2gr.d	$a2, $vr1, 1
+	vreplgr2vr.d	$vr2, $a5
+	vaddi.du	$vr2, $vr2, 1
+	vpickve2gr.d	$a2, $vr2, 1
 	addi.d	$a2, $a2, 3
 	stptr.d	$a2, $a1, 2056
-	vor.v	$vr0, $vr2, $vr0
+	vor.v	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 4
 	vor.v	$vr0, $vr1, $vr0
 	vpickve2gr.w	$a5, $vr0, 0

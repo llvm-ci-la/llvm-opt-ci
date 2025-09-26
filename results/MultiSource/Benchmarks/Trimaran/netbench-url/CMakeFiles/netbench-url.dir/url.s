@@ -32,27 +32,26 @@ internet_checksum:                      # @internet_checksum
 	vrepli.b	$vr1, -1
 	move	$a3, $a5
 	vori.b	$vr2, $vr0, 0
-	vori.b	$vr3, $vr0, 0
 	.p2align	4, , 16
 .LBB0_5:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a0, -4
 	ld.w	$a7, $a0, 0
-	vinsgr2vr.w	$vr4, $a6, 0
-	vinsgr2vr.w	$vr5, $a7, 0
-	vilvl.h	$vr4, $vr0, $vr4
-	vilvl.w	$vr4, $vr0, $vr4
-	vilvl.h	$vr5, $vr0, $vr5
-	vilvl.w	$vr5, $vr0, $vr5
+	vinsgr2vr.w	$vr3, $a6, 0
+	vinsgr2vr.w	$vr4, $a7, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vxor.v	$vr3, $vr3, $vr1
 	vxor.v	$vr4, $vr4, $vr1
-	vxor.v	$vr5, $vr5, $vr1
+	vadd.d	$vr0, $vr0, $vr3
 	vadd.d	$vr2, $vr2, $vr4
-	vadd.d	$vr3, $vr3, $vr5
 	addi.d	$a3, $a3, -4
 	addi.d	$a0, $a0, 8
 	bnez	$a3, .LBB0_5
 # %bb.6:                                # %middle.block
-	vadd.d	$vr0, $vr3, $vr2
+	vadd.d	$vr0, $vr2, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a3, $vr0, 0
 	beq	$a5, $a4, .LBB0_9

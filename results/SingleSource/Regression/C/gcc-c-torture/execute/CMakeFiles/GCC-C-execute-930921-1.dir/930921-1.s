@@ -65,14 +65,13 @@ f:                                      # @f
 	.type	main,@function
 main:                                   # @main
 # %bb.0:                                # %vector.ph
-	addi.d	$sp, $sp, -80
-	st.d	$ra, $sp, 72                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 64                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 56                   # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 48                   # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 40                   # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 32                   # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 24                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -64
+	st.d	$ra, $sp, 56                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 40                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 32                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 24                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 16                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI1_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI1_0)
 	pcalau12i	$a0, %pc_hi20(.LCPI1_1)
@@ -100,112 +99,121 @@ main:                                   # @main
 	lu32i.d	$a1, 0
 	vreplgr2vr.d	$vr10, $a1
 	vrepli.h	$vr11, 3
-	vrepli.b	$vr12, 0
-	vrepli.b	$vr13, -1
+	vrepli.b	$vr12, -1
 	.p2align	4, , 16
 .LBB1_1:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vmul.d	$vr16, $vr9, $vr10
-	vmul.d	$vr17, $vr8, $vr10
-	vmul.d	$vr18, $vr7, $vr10
-	vmul.d	$vr19, $vr6, $vr10
-	vmul.d	$vr20, $vr5, $vr10
-	vmul.d	$vr21, $vr4, $vr10
-	vmul.d	$vr15, $vr3, $vr10
-	vmul.d	$vr14, $vr2, $vr10
+	vmul.d	$vr18, $vr8, $vr10
+	vmul.d	$vr19, $vr7, $vr10
+	vmul.d	$vr20, $vr6, $vr10
+	vmul.d	$vr17, $vr5, $vr10
+	vmul.d	$vr15, $vr4, $vr10
+	vmul.d	$vr14, $vr3, $vr10
+	vmul.d	$vr13, $vr2, $vr10
+	vsrli.d	$vr13, $vr13, 33
 	vsrli.d	$vr14, $vr14, 33
 	vsrli.d	$vr15, $vr15, 33
-	vsrli.d	$vr21, $vr21, 33
+	vsrli.d	$vr17, $vr17, 33
 	vsrli.d	$vr20, $vr20, 33
 	vsrli.d	$vr19, $vr19, 33
 	vsrli.d	$vr18, $vr18, 33
-	vsrli.d	$vr17, $vr17, 33
-	vsrli.d	$vr16, $vr16, 33
+	vsrli.d	$vr21, $vr16, 33
 	vdiv.hu	$vr22, $vr1, $vr11
 	vdiv.hu	$vr23, $vr0, $vr11
-	vilvh.h	$vr24, $vr12, $vr23
-	vilvh.w	$vr25, $vr12, $vr24
-	vilvl.w	$vr24, $vr12, $vr24
-	vilvl.h	$vr23, $vr12, $vr23
-	vilvh.w	$vr26, $vr12, $vr23
-	vilvl.w	$vr23, $vr12, $vr23
-	vilvh.h	$vr27, $vr12, $vr22
-	vilvh.w	$vr28, $vr12, $vr27
-	vilvl.w	$vr27, $vr12, $vr27
-	vilvl.h	$vr22, $vr12, $vr22
-	vilvh.w	$vr29, $vr12, $vr22
-	vilvl.w	$vr22, $vr12, $vr22
-	vseq.d	$vr16, $vr16, $vr22
-	vxor.v	$vr16, $vr16, $vr13
-	vseq.d	$vr17, $vr17, $vr29
-	vxor.v	$vr17, $vr17, $vr13
-	vpickev.w	$vr17, $vr17, $vr16
-	vseq.d	$vr18, $vr18, $vr27
-	vxor.v	$vr18, $vr18, $vr13
-	vseq.d	$vr19, $vr19, $vr28
-	vxor.v	$vr19, $vr19, $vr13
-	vpickev.w	$vr18, $vr19, $vr18
-	vpickev.h	$vr17, $vr18, $vr17
-	vpickve2gr.b	$a1, $vr17, 2
+	vbsrl.v	$vr16, $vr23, 12
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vsllwil.du.wu	$vr16, $vr16, 0
+	vbsrl.v	$vr24, $vr23, 8
+	vsllwil.wu.hu	$vr24, $vr24, 0
+	vsllwil.du.wu	$vr24, $vr24, 0
+	vshuf4i.h	$vr25, $vr23, 14
+	vsllwil.wu.hu	$vr25, $vr25, 0
+	vsllwil.du.wu	$vr25, $vr25, 0
+	vsllwil.wu.hu	$vr23, $vr23, 0
+	vsllwil.du.wu	$vr23, $vr23, 0
+	vbsrl.v	$vr26, $vr22, 12
+	vsllwil.wu.hu	$vr26, $vr26, 0
+	vsllwil.du.wu	$vr26, $vr26, 0
+	vbsrl.v	$vr27, $vr22, 8
+	vsllwil.wu.hu	$vr27, $vr27, 0
+	vsllwil.du.wu	$vr27, $vr27, 0
+	vshuf4i.h	$vr28, $vr22, 14
+	vsllwil.wu.hu	$vr28, $vr28, 0
+	vsllwil.du.wu	$vr28, $vr28, 0
+	vsllwil.wu.hu	$vr22, $vr22, 0
+	vsllwil.du.wu	$vr22, $vr22, 0
+	vseq.d	$vr21, $vr21, $vr22
+	vxor.v	$vr21, $vr21, $vr12
+	vseq.d	$vr18, $vr18, $vr28
+	vxor.v	$vr18, $vr18, $vr12
+	vpickev.w	$vr18, $vr18, $vr21
+	vseq.d	$vr19, $vr19, $vr27
+	vxor.v	$vr19, $vr19, $vr12
+	vseq.d	$vr20, $vr20, $vr26
+	vxor.v	$vr20, $vr20, $vr12
+	vpickev.w	$vr19, $vr20, $vr19
+	vpickev.h	$vr18, $vr19, $vr18
+	vpickve2gr.b	$a1, $vr18, 2
 	andi	$a1, $a1, 1
-	vpickve2gr.b	$a2, $vr16, 0
+	vpickve2gr.b	$a2, $vr21, 0
 	bstrins.d	$a2, $a1, 63, 1
-	vpickve2gr.b	$a1, $vr17, 4
+	vpickve2gr.b	$a1, $vr18, 4
 	bstrins.d	$a2, $a1, 2, 2
-	vpickve2gr.b	$a1, $vr17, 6
+	vpickve2gr.b	$a1, $vr18, 6
 	bstrins.d	$a2, $a1, 3, 3
-	vpickve2gr.b	$a1, $vr17, 8
+	vpickve2gr.b	$a1, $vr18, 8
 	bstrins.d	$a2, $a1, 4, 4
-	vpickve2gr.b	$a1, $vr17, 10
+	vpickve2gr.b	$a1, $vr18, 10
 	bstrins.d	$a2, $a1, 5, 5
-	vpickve2gr.b	$a1, $vr17, 12
+	vpickve2gr.b	$a1, $vr18, 12
 	andi	$a1, $a1, 1
 	slli.d	$a1, $a1, 6
 	or	$a1, $a2, $a1
-	vpickve2gr.b	$a2, $vr17, 14
+	vpickve2gr.b	$a2, $vr18, 14
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 7
 	or	$a1, $a1, $a2
-	vseq.d	$vr16, $vr20, $vr23
-	vxor.v	$vr16, $vr16, $vr13
-	vpickve2gr.b	$a2, $vr16, 0
+	vseq.d	$vr17, $vr17, $vr23
+	vxor.v	$vr17, $vr17, $vr12
+	vpickve2gr.b	$a2, $vr17, 0
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 8
 	or	$a1, $a1, $a2
-	vseq.d	$vr17, $vr21, $vr26
-	vxor.v	$vr17, $vr17, $vr13
-	vpickev.w	$vr16, $vr17, $vr16
-	vseq.d	$vr15, $vr15, $vr24
-	vxor.v	$vr15, $vr15, $vr13
-	vseq.d	$vr14, $vr14, $vr25
-	vxor.v	$vr14, $vr14, $vr13
-	vpickev.w	$vr14, $vr14, $vr15
-	vpickev.h	$vr14, $vr14, $vr16
-	vpickve2gr.b	$a2, $vr14, 2
+	vseq.d	$vr15, $vr15, $vr25
+	vxor.v	$vr15, $vr15, $vr12
+	vpickev.w	$vr15, $vr15, $vr17
+	vseq.d	$vr14, $vr14, $vr24
+	vxor.v	$vr14, $vr14, $vr12
+	vseq.d	$vr13, $vr13, $vr16
+	vxor.v	$vr13, $vr13, $vr12
+	vpickev.w	$vr13, $vr13, $vr14
+	vpickev.h	$vr13, $vr13, $vr15
+	vpickve2gr.b	$a2, $vr13, 2
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 9
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 4
+	vpickve2gr.b	$a2, $vr13, 4
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 10
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 6
+	vpickve2gr.b	$a2, $vr13, 6
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 11
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 8
+	vpickve2gr.b	$a2, $vr13, 8
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 12
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 10
+	vpickve2gr.b	$a2, $vr13, 10
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 13
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 12
+	vpickve2gr.b	$a2, $vr13, 12
 	andi	$a2, $a2, 1
 	slli.d	$a2, $a2, 14
 	or	$a1, $a1, $a2
-	vpickve2gr.b	$a2, $vr14, 14
+	vpickve2gr.b	$a2, $vr13, 14
 	slli.d	$a2, $a2, 15
 	or	$a1, $a1, $a2
 	bstrpick.d	$a1, $a1, 15, 0

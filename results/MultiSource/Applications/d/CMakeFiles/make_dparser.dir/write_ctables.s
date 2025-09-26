@@ -4230,13 +4230,9 @@ write_header_as_C:                      # @write_header_as_C
 	vinsgr2vr.w	$vr3, $a7, 0
 	vinsgr2vr.w	$vr3, $t0, 1
 	vseqi.w	$vr2, $vr2, 3
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
+	vsllwil.d.w	$vr2, $vr2, 0
 	vseqi.w	$vr3, $vr3, 3
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vsllwil.d.w	$vr3, $vr3, 0
 	vor.v	$vr0, $vr0, $vr2
 	vor.v	$vr1, $vr1, $vr3
 	addi.d	$a4, $a4, -4

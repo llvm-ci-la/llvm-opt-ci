@@ -127,13 +127,13 @@ bar:                                    # @bar
 	.type	main,@function
 main:                                   # @main
 # %bb.0:                                # %vector.ph
-	addi.d	$sp, $sp, -368
-	st.d	$ra, $sp, 360                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 352                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 344                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 336                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 328                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 320                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -352
+	st.d	$ra, $sp, 344                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 336                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 328                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 320                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 312                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 304                   # 8-byte Folded Spill
 	pcalau12i	$a0, %pc_hi20(.LCPI2_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_0)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_1)
@@ -143,13 +143,13 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_3)
 	vld	$vr3, $a0, %pc_lo12(.LCPI2_3)
 	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
-	vst	$vr0, $sp, 192
+	vst	$vr0, $sp, 176
 	vst	$vr1, $sp, 112                  # 16-byte Folded Spill
-	vst	$vr1, $sp, 208
+	vst	$vr1, $sp, 192
 	vst	$vr2, $sp, 96                   # 16-byte Folded Spill
-	vst	$vr2, $sp, 224
+	vst	$vr2, $sp, 208
 	vst	$vr3, $sp, 80                   # 16-byte Folded Spill
-	vst	$vr3, $sp, 240
+	vst	$vr3, $sp, 224
 	pcalau12i	$a0, %pc_hi20(.LCPI2_4)
 	vld	$vr0, $a0, %pc_lo12(.LCPI2_4)
 	pcalau12i	$a0, %pc_hi20(.LCPI2_5)
@@ -159,15 +159,15 @@ main:                                   # @main
 	pcalau12i	$a0, %pc_hi20(.LCPI2_7)
 	vld	$vr3, $a0, %pc_lo12(.LCPI2_7)
 	vst	$vr0, $sp, 64                   # 16-byte Folded Spill
-	vst	$vr0, $sp, 256
+	vst	$vr0, $sp, 240
 	vst	$vr1, $sp, 48                   # 16-byte Folded Spill
-	vst	$vr1, $sp, 272
+	vst	$vr1, $sp, 256
 	vst	$vr2, $sp, 32                   # 16-byte Folded Spill
-	vst	$vr2, $sp, 288
+	vst	$vr2, $sp, 272
 	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
-	vst	$vr3, $sp, 304
-	addi.d	$a0, $sp, 192
-	addi.d	$s3, $sp, 192
+	vst	$vr3, $sp, 288
+	addi.d	$a0, $sp, 176
+	addi.d	$s3, $sp, 176
 	pcaddu18i	$ra, %call36(foo)
 	jirl	$ra, $ra, 0
 	move	$a2, $zero
@@ -182,8 +182,7 @@ main:                                   # @main
 	vrepli.d	$vr4, -255
 	lu12i.w	$a0, 4
 	vreplgr2vr.d	$vr5, $a0
-	vrepli.b	$vr14, 0
-	vrepli.b	$vr15, -1
+	vrepli.b	$vr14, -1
 	ori	$a0, $zero, 112
 	.p2align	4, , 16
 .LBB2_1:                                # %vector.body41
@@ -198,16 +197,21 @@ main:                                   # @main
 	vmadd.d	$vr9, $vr2, $vr4
 	vori.b	$vr10, $vr5, 0
 	vmadd.d	$vr10, $vr3, $vr4
-	vilvh.h	$vr11, $vr14, $vr6
-	vilvh.w	$vr12, $vr14, $vr11
-	vilvl.w	$vr11, $vr14, $vr11
-	vilvl.h	$vr6, $vr14, $vr6
-	vilvh.w	$vr13, $vr14, $vr6
-	vilvl.w	$vr6, $vr14, $vr6
+	vbsrl.v	$vr11, $vr6, 12
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vbsrl.v	$vr12, $vr6, 8
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.h	$vr13, $vr6, 14
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
 	vseq.d	$vr6, $vr10, $vr6
-	vxor.v	$vr6, $vr6, $vr15
+	vxor.v	$vr6, $vr6, $vr14
 	vseq.d	$vr9, $vr9, $vr13
-	vxor.v	$vr9, $vr9, $vr15
+	vxor.v	$vr9, $vr9, $vr14
 	vpickev.w	$vr9, $vr9, $vr6
 	vpickve2gr.h	$a2, $vr9, 2
 	andi	$a2, $a2, 1
@@ -217,10 +221,10 @@ main:                                   # @main
 	bstrins.d	$a3, $a2, 2, 2
 	vpickve2gr.h	$a2, $vr9, 6
 	bstrins.d	$a3, $a2, 3, 3
-	vseq.d	$vr6, $vr8, $vr11
-	vxor.v	$vr6, $vr6, $vr15
-	vseq.d	$vr7, $vr7, $vr12
-	vxor.v	$vr7, $vr7, $vr15
+	vseq.d	$vr6, $vr8, $vr12
+	vxor.v	$vr6, $vr6, $vr14
+	vseq.d	$vr7, $vr7, $vr11
+	vxor.v	$vr7, $vr7, $vr14
 	vpickev.w	$vr6, $vr7, $vr6
 	vpickve2gr.h	$a2, $vr6, 0
 	bstrins.d	$a3, $a2, 4, 4
@@ -244,28 +248,27 @@ main:                                   # @main
 	addi.d	$a2, $a1, 16
 	bne	$a1, $a0, .LBB2_1
 .LBB2_3:                                # %middle.split
-	vst	$vr15, $sp, 144                 # 16-byte Folded Spill
-	vst	$vr14, $sp, 160                 # 16-byte Folded Spill
+	vst	$vr14, $sp, 144                 # 16-byte Folded Spill
 	bnez	$a3, .LBB2_9
 # %bb.4:                                # %vector.body49
 	vld	$vr0, $sp, 128                  # 16-byte Folded Reload
-	vst	$vr0, $sp, 192
+	vst	$vr0, $sp, 176
 	vld	$vr0, $sp, 112                  # 16-byte Folded Reload
-	vst	$vr0, $sp, 208
+	vst	$vr0, $sp, 192
 	vld	$vr0, $sp, 96                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 224
+	vst	$vr0, $sp, 208
 	vld	$vr0, $sp, 80                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 240
+	vst	$vr0, $sp, 224
 	vld	$vr0, $sp, 64                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 256
+	vst	$vr0, $sp, 240
 	vld	$vr0, $sp, 48                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 272
+	vst	$vr0, $sp, 256
 	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 288
+	vst	$vr0, $sp, 272
 	vld	$vr0, $sp, 16                   # 16-byte Folded Reload
-	vst	$vr0, $sp, 304
-	addi.d	$a0, $sp, 192
-	addi.d	$s3, $sp, 192
+	vst	$vr0, $sp, 288
+	addi.d	$a0, $sp, 176
+	addi.d	$s3, $sp, 176
 	pcaddu18i	$ra, %call36(bar)
 	jirl	$ra, $ra, 0
 	move	$a2, $zero
@@ -276,8 +279,7 @@ main:                                   # @main
 	vrepli.d	$vr4, 255
 	vrepli.d	$vr5, 64
 	ori	$a0, $zero, 112
-	vld	$vr14, $sp, 160                 # 16-byte Folded Reload
-	vld	$vr15, $sp, 144                 # 16-byte Folded Reload
+	vld	$vr14, $sp, 144                 # 16-byte Folded Reload
 	.p2align	4, , 16
 .LBB2_5:                                # %vector.body58
                                         # =>This Inner Loop Header: Depth=1
@@ -291,16 +293,21 @@ main:                                   # @main
 	vmadd.d	$vr9, $vr2, $vr4
 	vori.b	$vr10, $vr5, 0
 	vmadd.d	$vr10, $vr3, $vr4
-	vilvh.h	$vr11, $vr14, $vr6
-	vilvh.w	$vr12, $vr14, $vr11
-	vilvl.w	$vr11, $vr14, $vr11
-	vilvl.h	$vr6, $vr14, $vr6
-	vilvh.w	$vr13, $vr14, $vr6
-	vilvl.w	$vr6, $vr14, $vr6
+	vbsrl.v	$vr11, $vr6, 12
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vsllwil.du.wu	$vr11, $vr11, 0
+	vbsrl.v	$vr12, $vr6, 8
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vsllwil.du.wu	$vr12, $vr12, 0
+	vshuf4i.h	$vr13, $vr6, 14
+	vsllwil.wu.hu	$vr13, $vr13, 0
+	vsllwil.du.wu	$vr13, $vr13, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
 	vseq.d	$vr6, $vr10, $vr6
-	vxor.v	$vr6, $vr6, $vr15
+	vxor.v	$vr6, $vr6, $vr14
 	vseq.d	$vr9, $vr9, $vr13
-	vxor.v	$vr9, $vr9, $vr15
+	vxor.v	$vr9, $vr9, $vr14
 	vpickev.w	$vr9, $vr9, $vr6
 	vpickve2gr.h	$a2, $vr9, 2
 	andi	$a2, $a2, 1
@@ -310,10 +317,10 @@ main:                                   # @main
 	bstrins.d	$a3, $a2, 2, 2
 	vpickve2gr.h	$a2, $vr9, 6
 	bstrins.d	$a3, $a2, 3, 3
-	vseq.d	$vr6, $vr8, $vr11
-	vxor.v	$vr6, $vr6, $vr15
-	vseq.d	$vr7, $vr7, $vr12
-	vxor.v	$vr7, $vr7, $vr15
+	vseq.d	$vr6, $vr8, $vr12
+	vxor.v	$vr6, $vr6, $vr14
+	vseq.d	$vr7, $vr7, $vr11
+	vxor.v	$vr7, $vr7, $vr14
 	vpickev.w	$vr6, $vr7, $vr6
 	vpickve2gr.h	$a2, $vr6, 0
 	bstrins.d	$a3, $a2, 4, 4
@@ -340,13 +347,13 @@ main:                                   # @main
 	bnez	$a3, .LBB2_9
 # %bb.8:                                # %middle.block65
 	move	$a0, $zero
-	ld.d	$s3, $sp, 320                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 328                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 336                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 344                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 352                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 360                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 368
+	ld.d	$s3, $sp, 304                   # 8-byte Folded Reload
+	ld.d	$s2, $sp, 312                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 320                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 328                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 336                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 344                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 352
 	ret
 .LBB2_9:                                # %vector.early.exit
 	pcaddu18i	$ra, %call36(abort)

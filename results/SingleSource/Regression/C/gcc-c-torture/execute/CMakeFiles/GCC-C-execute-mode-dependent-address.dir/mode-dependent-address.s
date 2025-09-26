@@ -52,13 +52,11 @@ f883b:                                  # @f883b
 .LBB0_1:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a1, 0
+	ld.d	$a7, $a2, 0
 	vinsgr2vr.w	$vr3, $a6, 0
 	vmini.h	$vr3, $vr3, 1
-	ld.d	$a6, $a2, 0
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vinsgr2vr.d	$vr4, $a6, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vinsgr2vr.d	$vr4, $a7, 0
 	vld	$vr5, $a3, 0
 	vsra.w	$vr3, $vr3, $vr4
 	vadd.w	$vr3, $vr3, $vr2
@@ -183,13 +181,11 @@ main:                                   # @main
 .LBB1_3:                                # %vector.body27
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a2, 0
+	ld.d	$a7, $a1, 0
 	vinsgr2vr.w	$vr3, $a6, 0
 	vmini.h	$vr3, $vr3, 1
-	ld.d	$a6, $a1, 0
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vinsgr2vr.d	$vr4, $a6, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vinsgr2vr.d	$vr4, $a7, 0
 	vld	$vr5, $a0, 0
 	vsra.w	$vr3, $vr3, $vr4
 	vadd.w	$vr3, $vr3, $vr2
@@ -215,13 +211,11 @@ main:                                   # @main
 .LBB1_5:                                # %vector.body35
                                         # =>This Inner Loop Header: Depth=1
 	ldx.w	$a4, $a3, $a5
-	vinsgr2vr.w	$vr1, $a4, 0
-	vilvl.b	$vr1, $vr1, $vr1
-	vld	$vr2, $a0, 0
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 24
-	vsrai.w	$vr1, $vr1, 24
-	vseq.w	$vr1, $vr2, $vr1
+	vld	$vr1, $a0, 0
+	vinsgr2vr.w	$vr2, $a4, 0
+	vsllwil.h.b	$vr2, $vr2, 0
+	vsllwil.w.h	$vr2, $vr2, 0
+	vseq.w	$vr1, $vr1, $vr2
 	vxor.v	$vr1, $vr1, $vr0
 	vmskltz.w	$vr1, $vr1
 	vpickve2gr.hu	$a4, $vr1, 0

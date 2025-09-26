@@ -6890,8 +6890,8 @@ Parse:                                  # @Parse
 	st.b	$a7, $a1, -1
 .LBB37_90:                              # %pred.store.continue506
                                         #   in Loop: Header=BB37_88 Depth=2
-	vilvl.b	$vr0, $vr0, $vr0
-	vilvl.h	$vr0, $vr0, $vr0
+	vsllwil.h.b	$vr0, $vr0, 0
+	vsllwil.w.h	$vr0, $vr0, 0
 	vpickve2gr.w	$a2, $vr0, 1
 	andi	$a2, $a2, 1
 	beqz	$a2, .LBB37_93

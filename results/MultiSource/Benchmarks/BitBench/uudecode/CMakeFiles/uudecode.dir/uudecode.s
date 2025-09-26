@@ -232,30 +232,18 @@ decode:                                 # @decode
 	vandi.b	$vr6, $vr6, 3
 	vor.v	$vr5, $vr6, $vr5
 	vxori.b	$vr5, $vr5, 130
-	vshuf4i.w	$vr6, $vr1, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr7, $vr1, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
-	vshuf4i.w	$vr8, $vr2, 50
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
-	vshuf4i.w	$vr9, $vr2, 16
-	vslli.d	$vr9, $vr9, 32
-	vsrai.d	$vr9, $vr9, 32
-	vshuf4i.w	$vr10, $vr3, 50
-	vslli.d	$vr10, $vr10, 32
-	vsrai.d	$vr10, $vr10, 32
-	vshuf4i.w	$vr11, $vr3, 16
-	vslli.d	$vr11, $vr11, 32
-	vsrai.d	$vr11, $vr11, 32
-	vshuf4i.w	$vr12, $vr4, 50
-	vslli.d	$vr12, $vr12, 32
-	vsrai.d	$vr12, $vr12, 32
-	vshuf4i.w	$vr13, $vr4, 16
-	vslli.d	$vr13, $vr13, 32
-	vsrai.d	$vr13, $vr13, 32
+	vshuf4i.w	$vr6, $vr1, 14
+	vsllwil.d.w	$vr6, $vr6, 0
+	vsllwil.d.w	$vr7, $vr1, 0
+	vshuf4i.w	$vr8, $vr2, 14
+	vsllwil.d.w	$vr8, $vr8, 0
+	vsllwil.d.w	$vr9, $vr2, 0
+	vshuf4i.w	$vr10, $vr3, 14
+	vsllwil.d.w	$vr10, $vr10, 0
+	vsllwil.d.w	$vr11, $vr3, 0
+	vshuf4i.w	$vr12, $vr4, 14
+	vsllwil.d.w	$vr12, $vr12, 0
+	vsllwil.d.w	$vr13, $vr4, 0
 	vpickve2gr.d	$a5, $vr13, 0
 	add.d	$s0, $a2, $a5
 	vpickve2gr.d	$a5, $vr13, 1

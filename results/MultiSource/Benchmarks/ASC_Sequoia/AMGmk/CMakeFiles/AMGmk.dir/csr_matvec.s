@@ -919,7 +919,7 @@ hypre_CSRMatrixMatvec_FF:               # @hypre_CSRMatrixMatvec_FF
 	st.d	$zero, $t6, -16
 .LBB2_27:                               # %pred.store.continue
                                         #   in Loop: Header=BB2_25 Depth=1
-	vshuf4i.w	$vr2, $vr2, 16
+	vsllwil.d.w	$vr2, $vr2, 0
 	vpickve2gr.d	$s0, $vr2, 1
 	andi	$s0, $s0, 1
 	beqz	$s0, .LBB2_29
@@ -936,7 +936,7 @@ hypre_CSRMatrixMatvec_FF:               # @hypre_CSRMatrixMatvec_FF
 # %bb.30:                               # %pred.store.if155
                                         #   in Loop: Header=BB2_25 Depth=1
 	st.d	$zero, $t6, 0
-	vshuf4i.w	$vr2, $vr2, 16
+	vsllwil.d.w	$vr2, $vr2, 0
 	vpickve2gr.d	$fp, $vr2, 1
 	andi	$fp, $fp, 1
 	beqz	$fp, .LBB2_24
@@ -944,7 +944,7 @@ hypre_CSRMatrixMatvec_FF:               # @hypre_CSRMatrixMatvec_FF
 	.p2align	4, , 16
 .LBB2_31:                               # %pred.store.continue156
                                         #   in Loop: Header=BB2_25 Depth=1
-	vshuf4i.w	$vr2, $vr2, 16
+	vsllwil.d.w	$vr2, $vr2, 0
 	vpickve2gr.d	$fp, $vr2, 1
 	andi	$fp, $fp, 1
 	beqz	$fp, .LBB2_24

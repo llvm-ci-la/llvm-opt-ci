@@ -1873,31 +1873,31 @@ susan_smoothing:                        # @susan_smoothing
                                         #         Child Loop BB10_35 Depth 4
                                         #         Child Loop BB10_38 Depth 4
 	ld.d	$a1, $sp, 112
-	mul.w	$a5, $t7, $s6
+	mul.w	$t2, $t7, $s6
 	add.d	$t8, $a1, $t6
-	ldx.bu	$s5, $t8, $a5
+	ldx.bu	$s5, $t8, $t2
 	move	$a7, $zero
 	blt	$s0, $s4, .LBB10_26
 # %bb.30:                               # %.preheader.preheader
                                         #   in Loop: Header=BB10_29 Depth=2
-	move	$t2, $zero
-	add.d	$a5, $t8, $a5
-	st.d	$a5, $sp, 80                    # 8-byte Folded Spill
-	ld.d	$a5, $sp, 88                    # 8-byte Folded Reload
-	add.d	$s7, $a5, $s5
-	ld.d	$a5, $sp, 64                    # 8-byte Folded Reload
-	mul.w	$a5, $t7, $a5
-	add.d	$a1, $a1, $a5
+	move	$a5, $zero
+	add.d	$t0, $t8, $t2
+	st.d	$t0, $sp, 80                    # 8-byte Folded Spill
+	ld.d	$t0, $sp, 88                    # 8-byte Folded Reload
+	add.d	$s7, $t0, $s5
+	ld.d	$t0, $sp, 64                    # 8-byte Folded Reload
+	mul.w	$t2, $t7, $t0
+	add.d	$a1, $a1, $t2
 	add.d	$a1, $a1, $t6
-	ld.d	$a5, $sp, 40                    # 8-byte Folded Reload
-	add.d	$a5, $a1, $a5
+	ld.d	$t0, $sp, 40                    # 8-byte Folded Reload
+	add.d	$t2, $a1, $t0
 	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	move	$t5, $s4
 	b	.LBB10_32
 	.p2align	4, , 16
 .LBB10_31:                              # %._crit_edge283
                                         #   in Loop: Header=BB10_32 Depth=3
-	add.d	$a5, $t5, $a0
+	add.d	$t2, $t5, $a0
 	addi.w	$t5, $s8, 1
 	move	$a1, $ra
 	beq	$s8, $s1, .LBB10_39
@@ -1911,19 +1911,19 @@ susan_smoothing:                        # @susan_smoothing
 	bgeu	$a3, $t1, .LBB10_34
 # %bb.33:                               #   in Loop: Header=BB10_32 Depth=3
 	move	$ra, $a1
-	move	$t5, $a5
+	move	$t5, $t2
 	move	$a1, $s4
 	b	.LBB10_37
 	.p2align	4, , 16
 .LBB10_34:                              # %vector.ph
                                         #   in Loop: Header=BB10_32 Depth=3
 	add.d	$ra, $a1, $s2
-	add.d	$t5, $a5, $s2
+	add.d	$t5, $t2, $s2
 	vori.b	$vr2, $vr0, 0
 	vinsgr2vr.w	$vr2, $a7, 0
 	vori.b	$vr1, $vr0, 0
-	vinsgr2vr.w	$vr1, $t2, 0
-	addi.d	$a7, $a5, 4
+	vinsgr2vr.w	$vr1, $a5, 0
+	addi.d	$a7, $t2, 4
 	addi.d	$t2, $a1, 4
 	move	$a5, $s2
 	vori.b	$vr4, $vr0, 0
@@ -1936,62 +1936,68 @@ susan_smoothing:                        # @susan_smoothing
                                         # =>      This Inner Loop Header: Depth=4
 	ld.w	$a1, $a7, -4
 	ld.w	$fp, $a7, 0
-	ld.w	$t4, $t2, -4
-	ld.w	$s3, $t2, 0
-	vinsgr2vr.w	$vr5, $a1, 0
-	vinsgr2vr.w	$vr6, $fp, 0
-	vinsgr2vr.w	$vr7, $t4, 0
-	vinsgr2vr.w	$vr8, $s3, 0
-	vilvl.b	$vr7, $vr0, $vr7
-	vilvl.h	$vr7, $vr0, $vr7
-	vilvl.b	$vr8, $vr0, $vr8
-	vilvl.h	$vr8, $vr0, $vr8
-	vilvl.b	$vr5, $vr0, $vr5
-	vilvl.h	$vr5, $vr0, $vr5
-	vilvl.w	$vr9, $vr0, $vr5
-	vilvh.w	$vr10, $vr0, $vr5
-	vilvl.b	$vr6, $vr0, $vr6
-	vilvl.h	$vr6, $vr0, $vr6
-	vilvl.w	$vr11, $vr0, $vr6
-	vilvh.w	$vr12, $vr0, $vr6
-	vneg.d	$vr10, $vr10
-	vneg.d	$vr9, $vr9
-	vneg.d	$vr12, $vr12
+	vinsgr2vr.w	$vr6, $a1, 0
+	vinsgr2vr.w	$vr7, $fp, 0
+	vsllwil.hu.bu	$vr5, $vr6, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	ld.w	$a1, $t2, -4
+	ld.w	$fp, $t2, 0
+	vsllwil.hu.bu	$vr8, $vr7, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vinsgr2vr.w	$vr9, $a1, 0
+	vinsgr2vr.w	$vr10, $fp, 0
+	vsllwil.hu.bu	$vr9, $vr9, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vsllwil.hu.bu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.du.wu	$vr11, $vr5, 0
+	vshuf4i.b	$vr6, $vr6, 14
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr12, $vr8, 0
+	vshuf4i.b	$vr7, $vr7, 14
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
+	vneg.d	$vr6, $vr6
 	vneg.d	$vr11, $vr11
-	vpickve2gr.d	$a1, $vr9, 0
-	vpickve2gr.d	$t4, $vr9, 1
-	vpickve2gr.d	$fp, $vr10, 0
-	vpickve2gr.d	$s3, $vr10, 1
-	vpickve2gr.d	$t0, $vr11, 0
-	vpickve2gr.d	$t3, $vr11, 1
-	vpickve2gr.d	$s6, $vr12, 0
-	vpickve2gr.d	$s0, $vr12, 1
+	vneg.d	$vr7, $vr7
+	vneg.d	$vr12, $vr12
+	vpickve2gr.d	$a1, $vr11, 0
+	vpickve2gr.d	$fp, $vr11, 1
+	vpickve2gr.d	$t4, $vr6, 0
+	vpickve2gr.d	$s3, $vr6, 1
+	vpickve2gr.d	$t0, $vr12, 0
+	vpickve2gr.d	$t3, $vr12, 1
+	vpickve2gr.d	$s6, $vr7, 0
+	vpickve2gr.d	$s0, $vr7, 1
 	ldx.b	$a1, $s7, $a1
-	ldx.b	$t4, $s7, $t4
 	ldx.b	$fp, $s7, $fp
+	ldx.b	$t4, $s7, $t4
 	ldx.b	$s3, $s7, $s3
-	vinsgr2vr.b	$vr9, $a1, 0
-	vinsgr2vr.b	$vr9, $t4, 1
-	vinsgr2vr.b	$vr9, $fp, 2
-	vinsgr2vr.b	$vr9, $s3, 3
+	vinsgr2vr.b	$vr6, $a1, 0
+	vinsgr2vr.b	$vr6, $fp, 1
+	vinsgr2vr.b	$vr6, $t4, 2
+	vinsgr2vr.b	$vr6, $s3, 3
 	ldx.b	$a1, $s7, $t0
 	ldx.b	$t0, $s7, $t3
 	ldx.b	$t3, $s7, $s6
 	ldx.b	$t4, $s7, $s0
-	vinsgr2vr.b	$vr10, $a1, 0
-	vinsgr2vr.b	$vr10, $t0, 1
-	vinsgr2vr.b	$vr10, $t3, 2
-	vinsgr2vr.b	$vr10, $t4, 3
-	vilvl.b	$vr9, $vr0, $vr9
-	vilvl.h	$vr9, $vr0, $vr9
-	vilvl.b	$vr10, $vr0, $vr10
-	vilvl.h	$vr10, $vr0, $vr10
-	vmul.w	$vr11, $vr9, $vr7
-	vmul.w	$vr12, $vr10, $vr8
-	vmadd.w	$vr1, $vr9, $vr7
-	vmadd.w	$vr3, $vr10, $vr8
+	vinsgr2vr.b	$vr7, $a1, 0
+	vinsgr2vr.b	$vr7, $t0, 1
+	vinsgr2vr.b	$vr7, $t3, 2
+	vinsgr2vr.b	$vr7, $t4, 3
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmul.w	$vr11, $vr6, $vr9
+	vmul.w	$vr12, $vr7, $vr10
+	vmadd.w	$vr1, $vr6, $vr9
+	vmadd.w	$vr3, $vr7, $vr10
 	vmadd.w	$vr2, $vr11, $vr5
-	vmadd.w	$vr4, $vr12, $vr6
+	vmadd.w	$vr4, $vr12, $vr8
 	addi.d	$a5, $a5, -8
 	addi.d	$a7, $a7, 8
 	addi.d	$t2, $t2, 8
@@ -2005,12 +2011,12 @@ susan_smoothing:                        # @susan_smoothing
 	vadd.w	$vr1, $vr3, $vr1
 	vhaddw.d.w	$vr1, $vr1, $vr1
 	vhaddw.q.d	$vr1, $vr1, $vr1
-	vpickve2gr.d	$t2, $vr1, 0
+	vpickve2gr.d	$a5, $vr1, 0
 	move	$a1, $a6
 	beq	$a4, $s2, .LBB10_31
 .LBB10_37:                              # %scalar.ph.preheader
                                         #   in Loop: Header=BB10_32 Depth=3
-	sub.d	$a5, $a2, $a1
+	sub.d	$t2, $a2, $a1
 	move	$a1, $ra
 	move	$fp, $t5
 	.p2align	4, , 16
@@ -2026,20 +2032,20 @@ susan_smoothing:                        # @susan_smoothing
 	addi.d	$t5, $fp, 1
 	addi.d	$ra, $a1, 1
 	mul.d	$a1, $t4, $t3
-	add.d	$t2, $a1, $t2
+	add.d	$a5, $a1, $a5
 	mul.d	$a1, $a1, $t0
-	addi.w	$a5, $a5, -1
+	addi.w	$t2, $t2, -1
 	add.d	$a7, $a1, $a7
 	move	$a1, $ra
 	move	$fp, $t5
-	bnez	$a5, .LBB10_38
+	bnez	$t2, .LBB10_38
 	b	.LBB10_31
 	.p2align	4, , 16
 .LBB10_39:                              # %._crit_edge294.split
                                         #   in Loop: Header=BB10_29 Depth=2
 	lu12i.w	$a1, -3
 	ori	$a1, $a1, 2288
-	add.w	$a1, $t2, $a1
+	add.w	$a1, $a5, $a1
 	ld.d	$s0, $sp, 56                    # 8-byte Folded Reload
 	ld.d	$s3, $sp, 32                    # 8-byte Folded Reload
 	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
@@ -2646,8 +2652,8 @@ edge_draw:                              # @edge_draw
 	stx.b	$zero, $a0, $a7
 .LBB11_52:                              # %pred.store.continue86
                                         #   in Loop: Header=BB11_50 Depth=1
-	vilvl.b	$vr4, $vr4, $vr4
-	vilvl.h	$vr4, $vr4, $vr4
+	vsllwil.h.b	$vr4, $vr4, 0
+	vsllwil.w.h	$vr4, $vr4, 0
 	vpickve2gr.w	$a7, $vr4, 1
 	andi	$a7, $a7, 1
 	beqz	$a7, .LBB11_54
@@ -7726,8 +7732,8 @@ main:                                   # @main
 	stx.b	$zero, $s2, $a4
 .LBB18_131:                             # %pred.store.continue313
                                         #   in Loop: Header=BB18_129 Depth=1
-	vilvl.b	$vr4, $vr4, $vr4
-	vilvl.h	$vr4, $vr4, $vr4
+	vsllwil.h.b	$vr4, $vr4, 0
+	vsllwil.w.h	$vr4, $vr4, 0
 	vpickve2gr.w	$a4, $vr4, 1
 	andi	$a4, $a4, 1
 	beqz	$a4, .LBB18_133

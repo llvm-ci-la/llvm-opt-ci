@@ -744,50 +744,51 @@ _ZN3QCS11setQCnForceEPKdS1_S1_P7double2ii: # @_ZN3QCS11setQCnForceEPKdS1_S1_P7do
 	.cfi_offset 31, -88
 	move	$s5, $a0
 	ld.d	$a0, $a0, 0
-	move	$s0, $a6
-	move	$s4, $a5
+	move	$s4, $a6
+	move	$fp, $a5
 	st.d	$a4, $sp, 32                    # 8-byte Folded Spill
 	st.d	$a3, $sp, 24                    # 8-byte Folded Spill
 	st.d	$a2, $sp, 16                    # 8-byte Folded Spill
-	move	$s1, $a1
-	ld.d	$fp, $a0, 0
+	move	$s0, $a1
+	ld.d	$s1, $a0, 0
 	ld.d	$s6, $a0, 248
 	ld.d	$s2, $a0, 312
 	ld.d	$s3, $a0, 360
-	ld.d	$s7, $fp, 376
+	ld.d	$s7, $s1, 376
 	sub.d	$s8, $a6, $a5
 	addi.w	$a0, $s8, 0
 	slli.d	$a0, $a0, 3
 	pcaddu18i	$ra, %call36(malloc)
 	jirl	$ra, $ra, 0
-	bge	$s4, $s0, .LBB4_9
+	bge	$fp, $s4, .LBB4_9
 # %bb.1:                                # %.lr.ph
+	move	$t5, $s4
 	fld.d	$fa0, $s5, 8
 	vldi	$vr1, -912
 	fadd.d	$fa1, $fa0, $fa1
 	fld.d	$fa2, $s5, 24
-	ld.d	$a1, $fp, 104
+	ld.d	$a1, $s1, 104
 	vldi	$vr3, -944
 	fld.d	$fa0, $s5, 16
 	fmul.d	$fa2, $fa2, $fa3
 	ori	$a3, $zero, 2
 	fmul.d	$fa1, $fa1, $fa2
-	move	$a2, $s4
-	ld.d	$t5, $sp, 24                    # 8-byte Folded Reload
+	move	$a2, $fp
+	ld.d	$s4, $sp, 24                    # 8-byte Folded Reload
 	ld.d	$t6, $sp, 16                    # 8-byte Folded Reload
 	bltu	$s8, $a3, .LBB4_5
 # %bb.2:                                # %vector.ph
 	move	$a3, $s8
 	bstrins.d	$a3, $zero, 0, 0
-	add.d	$a2, $a3, $s4
+	add.d	$a2, $a3, $fp
 	vreplvei.d	$vr2, $vr1, 0
 	vreplvei.d	$vr3, $vr0, 0
-	alsl.d	$a4, $s4, $a1, 2
+	alsl.d	$a4, $fp, $a1, 2
 	vrepli.b	$vr4, 0
 	move	$a5, $a3
 	move	$a6, $a0
-	move	$a7, $s1
-	move	$t0, $t5
+	move	$a7, $s0
+	move	$t0, $s4
 	move	$t1, $t6
 	.p2align	4, , 16
 .LBB4_3:                                # %vector.body
@@ -795,9 +796,7 @@ _ZN3QCS11setQCnForceEPKdS1_S1_P7double2ii: # @_ZN3QCS11setQCnForceEPKdS1_S1_P7do
 	ld.d	$t2, $a4, 0
 	vinsgr2vr.d	$vr5, $t2, 0
 	vld	$vr6, $t1, 0
-	vshuf4i.w	$vr5, $vr5, 16
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
+	vsllwil.d.w	$vr5, $vr5, 0
 	vpickve2gr.d	$t2, $vr5, 0
 	slli.d	$t2, $t2, 3
 	vpickve2gr.d	$t3, $vr5, 1
@@ -833,13 +832,13 @@ _ZN3QCS11setQCnForceEPKdS1_S1_P7double2ii: # @_ZN3QCS11setQCnForceEPKdS1_S1_P7do
 .LBB4_5:                                # %scalar.ph.preheader
 	alsl.d	$a1, $a2, $a1, 2
 	slli.d	$a3, $a2, 3
-	slli.d	$a4, $s4, 3
+	slli.d	$a4, $fp, 3
 	sub.d	$a6, $a3, $a4
 	add.d	$a3, $t6, $a6
-	add.d	$a4, $t5, $a6
-	add.d	$a5, $s1, $a6
+	add.d	$a4, $s4, $a6
+	add.d	$a5, $s0, $a6
 	add.d	$a6, $a0, $a6
-	sub.d	$a2, $s0, $a2
+	sub.d	$a2, $t5, $a2
 	movgr2fr.d	$fa2, $zero
 	.p2align	4, , 16
 .LBB4_6:                                # %scalar.ph
@@ -870,15 +869,15 @@ _ZN3QCS11setQCnForceEPKdS1_S1_P7double2ii: # @_ZN3QCS11setQCnForceEPKdS1_S1_P7do
 	addi.d	$a6, $a6, 8
 	bnez	$a2, .LBB4_6
 .LBB4_7:                                # %.lr.ph97
-	ld.d	$a5, $fp, 120
-	ld.d	$a1, $fp, 96
-	ld.d	$a2, $fp, 88
-	ld.d	$a3, $fp, 112
+	ld.d	$a5, $s1, 120
+	ld.d	$a1, $s1, 96
+	ld.d	$a2, $s1, 88
+	ld.d	$a3, $s1, 112
 	ld.d	$a4, $sp, 32                    # 8-byte Folded Reload
 	addi.d	$a4, $a4, 16
-	alsl.d	$a5, $s4, $a5, 2
-	alsl.d	$a6, $s4, $a1, 2
-	alsl.d	$a7, $s4, $a3, 2
+	alsl.d	$a5, $fp, $a5, 2
+	alsl.d	$a6, $fp, $a1, 2
+	alsl.d	$a7, $fp, $a3, 2
 	move	$t0, $a0
 	.p2align	4, , 16
 .LBB4_8:                                # =>This Inner Loop Header: Depth=1

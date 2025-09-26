@@ -3068,123 +3068,123 @@ _ZN8NArchive4NZip10CInArchive10ReadCdItemERNS0_7CItemExE: # @_ZN8NArchive4NZip10
 	.p2align	4, 0x0                          # -- Begin function _ZN8NArchive4NZip10CInArchive8TryEcd64EyRNS0_7CCdInfoE
 .LCPI23_0:
 	.byte	0                               # 0x0
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	8                               # 0x8
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI23_1:
 	.byte	1                               # 0x1
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	9                               # 0x9
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI23_2:
 	.byte	2                               # 0x2
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	10                              # 0xa
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI23_3:
 	.byte	3                               # 0x3
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	11                              # 0xb
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI23_4:
 	.byte	4                               # 0x4
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	12                              # 0xc
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI23_5:
 	.byte	5                               # 0x5
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	13                              # 0xd
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI23_6:
 	.byte	6                               # 0x6
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	14                              # 0xe
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 	.text
 	.globl	_ZN8NArchive4NZip10CInArchive8TryEcd64EyRNS0_7CCdInfoE
 	.p2align	5
@@ -3247,17 +3247,37 @@ _ZN8NArchive4NZip10CInArchive8TryEcd64EyRNS0_7CCdInfoE: # @_ZN8NArchive4NZip10CI
 	vld	$vr6, $a1, %pc_lo12(.LCPI23_5)
 	pcalau12i	$a1, %pc_hi20(.LCPI23_6)
 	vld	$vr7, $a1, %pc_lo12(.LCPI23_6)
-	vrepli.b	$vr8, 0
-	vshuf.b	$vr1, $vr8, $vr0, $vr1
-	vshuf.b	$vr2, $vr8, $vr0, $vr2
+	vshuf.b	$vr1, $vr0, $vr0, $vr1
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
+	vshuf.b	$vr2, $vr0, $vr0, $vr2
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
 	vslli.d	$vr2, $vr2, 8
-	vshuf.b	$vr3, $vr8, $vr0, $vr3
+	vshuf.b	$vr3, $vr0, $vr0, $vr3
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
 	vslli.d	$vr3, $vr3, 16
-	vshuf.b	$vr4, $vr8, $vr0, $vr4
+	vshuf.b	$vr4, $vr0, $vr0, $vr4
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
 	vslli.d	$vr4, $vr4, 24
-	vshuf.b	$vr5, $vr8, $vr0, $vr5
-	vshuf.b	$vr6, $vr8, $vr0, $vr6
-	vshuf.b	$vr7, $vr8, $vr0, $vr7
+	vshuf.b	$vr5, $vr0, $vr0, $vr5
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vshuf.b	$vr6, $vr0, $vr0, $vr6
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
+	vshuf.b	$vr7, $vr0, $vr0, $vr7
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.du.wu	$vr7, $vr7, 0
 	vsrli.d	$vr0, $vr0, 56
 	vslli.d	$vr0, $vr0, 56
 	vslli.d	$vr7, $vr7, 48
@@ -5135,123 +5155,123 @@ _ZN8NArchive4NZip6CEcd645ParseEPKh:     # @_ZN8NArchive4NZip6CEcd645ParseEPKh
 	.p2align	4, 0x0                          # -- Begin function _ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_13CProgressVirtE
 .LCPI31_0:
 	.byte	8                               # 0x8
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	0                               # 0x0
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI31_1:
 	.byte	9                               # 0x9
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	1                               # 0x1
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI31_2:
 	.byte	10                              # 0xa
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	2                               # 0x2
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI31_3:
 	.byte	11                              # 0xb
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	3                               # 0x3
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI31_4:
 	.byte	12                              # 0xc
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	4                               # 0x4
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI31_5:
 	.byte	13                              # 0xd
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	5                               # 0x5
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 .LCPI31_6:
 	.byte	14                              # 0xe
-	.byte	17                              # 0x11
-	.byte	18                              # 0x12
-	.byte	19                              # 0x13
-	.byte	20                              # 0x14
-	.byte	21                              # 0x15
-	.byte	22                              # 0x16
-	.byte	23                              # 0x17
 	.byte	6                               # 0x6
-	.byte	25                              # 0x19
-	.byte	26                              # 0x1a
-	.byte	27                              # 0x1b
-	.byte	28                              # 0x1c
-	.byte	29                              # 0x1d
-	.byte	30                              # 0x1e
-	.byte	31                              # 0x1f
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
+	.byte	255                             # 0xff
 	.text
 	.globl	_ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_13CProgressVirtE
 	.p2align	5
@@ -5364,16 +5384,16 @@ _ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_1
 	ld.d	$a2, $fp, 88
 	addi.d	$a3, $a0, -4
 .LBB31_10:
-	ld.w	$s4, $fp, 8
+	ld.w	$s5, $fp, 8
 	pcalau12i	$a0, %got_pc_hi20(_ZN8NArchive4NZip10NSignature21kZip64EndOfCentralDirE)
 	ld.d	$a0, $a0, %got_pc_lo12(_ZN8NArchive4NZip10NSignature21kZip64EndOfCentralDirE)
 	ld.w	$s6, $a0, 0
-	beq	$s4, $s6, .LBB31_16
+	beq	$s5, $s6, .LBB31_16
 # %bb.11:
 	move	$s2, $zero
-	move	$s5, $zero
+	move	$s4, $zero
 	vrepli.b	$vr0, 0
-	move	$a1, $s4
+	move	$a1, $s5
 	pcalau12i	$a0, %got_pc_hi20(_ZN8NArchive4NZip10NSignature28kZip64EndOfCentralDirLocatorE)
 	ld.d	$a0, $a0, %got_pc_lo12(_ZN8NArchive4NZip10NSignature28kZip64EndOfCentralDirLocatorE)
 	ld.w	$a0, $a0, 0
@@ -5428,21 +5448,21 @@ _ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_1
 	jirl	$ra, $ra, 0
 	bnez	$a0, .LBB31_45
 # %bb.17:                               # %_ZN8NArchive4NZip10CInArchive20ReadBytesAndTestSizeEPvj.exit.i96
-	st.d	$s6, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s6, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s5, $sp, 128                   # 8-byte Folded Spill
 	st.d	$s3, $sp, 160                   # 8-byte Folded Spill
 	ld.w	$a0, $sp, 244
 	bne	$a0, $s1, .LBB31_47
 # %bb.18:                               # %_ZN8NArchive4NZip10CInArchive13SafeReadBytesEPvj.exit
 	ld.bu	$a0, $sp, 180
-	st.d	$a0, $sp, 120                   # 8-byte Folded Spill
-	ld.bu	$s3, $sp, 181
-	ld.bu	$a0, $sp, 182
 	st.d	$a0, $sp, 112                   # 8-byte Folded Spill
-	ld.bu	$s8, $sp, 183
+	ld.bu	$s1, $sp, 181
+	ld.bu	$s3, $sp, 182
+	ld.bu	$s2, $sp, 183
 	ld.bu	$s6, $sp, 184
 	ld.bu	$s7, $sp, 185
 	ld.bu	$s5, $sp, 186
-	ld.bu	$s1, $sp, 187
+	ld.bu	$s4, $sp, 187
 	vld	$vr0, $sp, 188
 	vst	$vr0, $sp, 96                   # 16-byte Folded Spill
 	ld.bu	$a0, $sp, 208
@@ -5468,7 +5488,7 @@ _ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_1
 	addi.d	$s0, $s0, -44
 	beqz	$s0, .LBB31_23
 # %bb.19:                               # %.lr.ph.i.preheader
-	ori	$s2, $zero, 1
+	ori	$s8, $zero, 1
 	.p2align	4, , 16
 .LBB31_20:                              # %.lr.ph.i
                                         # =>This Inner Loop Header: Depth=1
@@ -5482,7 +5502,7 @@ _ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_1
 # %bb.21:                               # %_ZN8NArchive4NZip10CInArchive20ReadBytesAndTestSizeEPvj.exit.i.i.i
                                         #   in Loop: Header=BB31_20 Depth=1
 	ld.w	$a0, $sp, 244
-	bne	$a0, $s2, .LBB31_47
+	bne	$a0, $s8, .LBB31_47
 # %bb.22:                               # %_ZN8NArchive4NZip10CInArchive8ReadByteEv.exit.i
                                         #   in Loop: Header=BB31_20 Depth=1
 	addi.d	$s0, $s0, -1
@@ -5501,64 +5521,84 @@ _ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_1
 	bne	$a0, $s0, .LBB31_31
 # %bb.25:
 	ld.w	$a1, $sp, 240
-	ld.d	$a0, $sp, 120                   # 8-byte Folded Reload
-	or	$a0, $s3, $a0
-	ld.d	$a2, $sp, 112                   # 8-byte Folded Reload
-	or	$a0, $a0, $a2
-	or	$a0, $a0, $s8
+	ld.d	$a0, $sp, 112                   # 8-byte Folded Reload
+	or	$a0, $s1, $a0
+	or	$a0, $a0, $s3
+	or	$a0, $a0, $s2
 	or	$a2, $s7, $s6
 	or	$a2, $a2, $s5
-	or	$a2, $a2, $s1
+	or	$a2, $a2, $s4
 	or	$a0, $a0, $a2
 	st.w	$a1, $fp, 8
 	bnez	$a0, .LBB31_48
 # %bb.26:
 	pcalau12i	$a0, %pc_hi20(.LCPI31_0)
 	vld	$vr0, $a0, %pc_lo12(.LCPI31_0)
+	vld	$vr8, $sp, 96                   # 16-byte Folded Reload
+	vshuf.b	$vr0, $vr0, $vr8, $vr0
 	pcalau12i	$a0, %pc_hi20(.LCPI31_1)
 	vld	$vr1, $a0, %pc_lo12(.LCPI31_1)
-	vrepli.b	$vr2, 0
-	vld	$vr8, $sp, 96                   # 16-byte Folded Reload
-	vshuf.b	$vr0, $vr2, $vr8, $vr0
-	vshuf.b	$vr1, $vr2, $vr8, $vr1
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.du.wu	$vr0, $vr0, 0
+	vshuf.b	$vr1, $vr0, $vr8, $vr1
+	vsllwil.hu.bu	$vr1, $vr1, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI31_2)
-	vld	$vr3, $a0, %pc_lo12(.LCPI31_2)
-	pcalau12i	$a0, %pc_hi20(.LCPI31_3)
-	vld	$vr4, $a0, %pc_lo12(.LCPI31_3)
+	vld	$vr2, $a0, %pc_lo12(.LCPI31_2)
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.du.wu	$vr1, $vr1, 0
 	vslli.d	$vr1, $vr1, 8
-	vshuf.b	$vr3, $vr2, $vr8, $vr3
-	vslli.d	$vr3, $vr3, 16
-	vshuf.b	$vr4, $vr2, $vr8, $vr4
+	vshuf.b	$vr2, $vr0, $vr8, $vr2
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	pcalau12i	$a0, %pc_hi20(.LCPI31_3)
+	vld	$vr3, $a0, %pc_lo12(.LCPI31_3)
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.du.wu	$vr2, $vr2, 0
+	vslli.d	$vr2, $vr2, 16
+	vshuf.b	$vr3, $vr0, $vr8, $vr3
+	vsllwil.hu.bu	$vr3, $vr3, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI31_4)
-	vld	$vr5, $a0, %pc_lo12(.LCPI31_4)
+	vld	$vr4, $a0, %pc_lo12(.LCPI31_4)
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vslli.d	$vr3, $vr3, 24
+	vshuf.b	$vr4, $vr0, $vr8, $vr4
 	pcalau12i	$a0, %pc_hi20(.LCPI31_5)
-	vld	$vr6, $a0, %pc_lo12(.LCPI31_5)
+	vld	$vr5, $a0, %pc_lo12(.LCPI31_5)
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vshuf.b	$vr5, $vr0, $vr8, $vr5
 	pcalau12i	$a0, %pc_hi20(.LCPI31_6)
-	vld	$vr7, $a0, %pc_lo12(.LCPI31_6)
-	vslli.d	$vr4, $vr4, 24
-	vshuf.b	$vr5, $vr2, $vr8, $vr5
-	vshuf.b	$vr6, $vr2, $vr8, $vr6
-	vshuf.b	$vr2, $vr2, $vr8, $vr7
+	vld	$vr6, $a0, %pc_lo12(.LCPI31_6)
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vshuf.b	$vr6, $vr0, $vr8, $vr6
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.du.wu	$vr6, $vr6, 0
 	vbsrl.v	$vr7, $vr8, 15
 	vbsll.v	$vr8, $vr8, 1
 	vor.v	$vr7, $vr8, $vr7
 	vslli.d	$vr7, $vr7, 56
-	vslli.d	$vr2, $vr2, 48
-	vslli.d	$vr6, $vr6, 40
-	vslli.d	$vr5, $vr5, 32
+	vslli.d	$vr6, $vr6, 48
+	vslli.d	$vr5, $vr5, 40
+	vslli.d	$vr4, $vr4, 32
 	vor.v	$vr0, $vr1, $vr0
+	vor.v	$vr0, $vr0, $vr2
 	vor.v	$vr0, $vr0, $vr3
 	vor.v	$vr0, $vr0, $vr4
 	vor.v	$vr0, $vr0, $vr5
-	vor.v	$vr0, $vr0, $vr6
 	ld.w	$a0, $sp, 220
-	vor.v	$vr0, $vr0, $vr2
+	vor.v	$vr0, $vr0, $vr6
 	vor.v	$vr0, $vr0, $vr7
 	vpickve2gr.d	$a2, $vr0, 1
 	ld.d	$s3, $sp, 160                   # 8-byte Folded Reload
 	ld.d	$s2, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 168                   # 8-byte Folded Reload
-	ld.d	$s6, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s4, $sp, 168                   # 8-byte Folded Reload
+	ld.d	$s5, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$s6, $sp, 120                   # 8-byte Folded Reload
 	bne	$a2, $a0, .LBB31_31
 # %bb.27:
 	vpickve2gr.d	$a2, $vr0, 0
@@ -5576,7 +5616,7 @@ _ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_1
 	ld.d	$a4, $sp, 232
 	or	$a2, $a3, $a2
 	or	$a0, $a2, $a0
-	or	$a0, $a0, $s5
+	or	$a0, $a0, $s4
 	bne	$a0, $a4, .LBB31_31
 # %bb.29:
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
@@ -5623,13 +5663,13 @@ _ZN8NArchive4NZip10CInArchive11ReadHeadersER13CObjectVectorINS0_7CItemExEEPNS0_1
 	jirl	$ra, $ra, 0
 	bnez	$a0, .LBB31_45
 # %bb.35:                               # %_ZN8NArchive4NZip10CInArchive20ReadBytesAndTestSizeEPvj.exit.i104
-	st.d	$s5, $sp, 168                   # 8-byte Folded Spill
+	st.d	$s4, $sp, 168                   # 8-byte Folded Spill
 	st.d	$s2, $sp, 152                   # 8-byte Folded Spill
 	st.d	$s3, $sp, 160                   # 8-byte Folded Spill
 	ld.w	$a0, $sp, 244
 	bne	$a0, $s0, .LBB31_47
 # %bb.36:                               # %_ZN8NArchive4NZip10CInArchive13SafeReadBytesEPvj.exit105
-	xor	$a0, $s4, $s6
+	xor	$a0, $s5, $s6
 	sltu	$s0, $zero, $a0
 	ld.hu	$s5, $sp, 176
 	ld.hu	$s4, $sp, 178

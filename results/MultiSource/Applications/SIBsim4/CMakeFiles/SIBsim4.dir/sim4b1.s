@@ -7289,11 +7289,9 @@ merge:                                  # @merge
 	.type	is_polyAT_exon_p,@function
 is_polyAT_exon_p:                       # @is_polyAT_exon_p
 # %bb.0:
-	addi.d	$sp, $sp, -32
-	fst.d	$fs0, $sp, 24                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 16                   # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 8                    # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 0                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -16
+	fst.d	$fs0, $sp, 8                    # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 0                    # 8-byte Folded Spill
 	addi.w	$a4, $a1, 0
 	addi.w	$a3, $a0, -1
 	bgeu	$a3, $a4, .LBB8_3
@@ -7305,7 +7303,7 @@ is_polyAT_exon_p:                       # @is_polyAT_exon_p
 # %bb.2:
 	move	$t2, $zero
 	move	$a3, $zero
-	move	$t0, $zero
+	move	$a6, $zero
 	move	$a4, $zero
 	move	$t1, $zero
 	move	$a5, $t3
@@ -7313,7 +7311,7 @@ is_polyAT_exon_p:                       # @is_polyAT_exon_p
 .LBB8_3:
 	move	$t1, $zero
 	move	$a4, $zero
-	move	$t0, $zero
+	move	$a6, $zero
 	move	$a3, $zero
 	move	$t2, $zero
 .LBB8_4:                                # %._crit_edge
@@ -7324,70 +7322,71 @@ is_polyAT_exon_p:                       # @is_polyAT_exon_p
 	alsl.w	$a0, $t1, $a0, 1
 	ori	$a5, $zero, 29
 	div.wu	$a2, $a0, $a1
-	bltu	$a5, $a1, .LBB8_9
+	bltu	$a5, $a1, .LBB8_10
 # %bb.5:
 	ori	$a5, $zero, 6
 	ori	$a0, $zero, 1
-	bltu	$a5, $a2, .LBB8_14
+	bltu	$a5, $a2, .LBB8_9
 # %bb.6:
-	add.d	$a2, $t0, $t1
+	add.d	$a2, $a6, $t1
 	slli.d	$a5, $a2, 3
 	alsl.w	$a2, $a2, $a5, 1
 	div.wu	$a2, $a2, $a1
 	ori	$a5, $zero, 7
-	bltu	$a5, $a2, .LBB8_14
+	bltu	$a5, $a2, .LBB8_9
 # %bb.7:
 	slli.d	$a2, $a3, 3
 	alsl.w	$a2, $a3, $a2, 1
 	div.wu	$a2, $a2, $a1
 	ori	$a5, $zero, 6
-	bltu	$a5, $a2, .LBB8_14
+	bltu	$a5, $a2, .LBB8_9
 # %bb.8:
 	add.d	$a2, $a3, $a4
 	slli.d	$a3, $a2, 3
 	alsl.w	$a2, $a2, $a3, 1
 	div.wu	$a1, $a2, $a1
 	ori	$a2, $zero, 7
-	bgeu	$a2, $a1, .LBB8_13
-	b	.LBB8_14
+	bgeu	$a2, $a1, .LBB8_14
 .LBB8_9:
+	fld.d	$fs1, $sp, 0                    # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 8                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 16
+	ret
+.LBB8_10:
 	ori	$a5, $zero, 7
 	ori	$a0, $zero, 1
-	bltu	$a5, $a2, .LBB8_14
-# %bb.10:
-	add.d	$a2, $t0, $t1
+	bltu	$a5, $a2, .LBB8_9
+# %bb.11:
+	add.d	$a2, $a6, $t1
 	ori	$a5, $zero, 100
 	mul.w	$a2, $a2, $a5
 	div.wu	$a2, $a2, $a1
 	ori	$a5, $zero, 94
-	bltu	$a5, $a2, .LBB8_14
-# %bb.11:
+	bltu	$a5, $a2, .LBB8_9
+# %bb.12:
 	slli.d	$a2, $a3, 3
 	alsl.w	$a2, $a3, $a2, 1
 	div.wu	$a2, $a2, $a1
 	ori	$a5, $zero, 7
-	bltu	$a5, $a2, .LBB8_14
-# %bb.12:
+	bltu	$a5, $a2, .LBB8_9
+# %bb.13:
 	add.d	$a2, $a3, $a4
 	ori	$a3, $zero, 100
 	mul.w	$a2, $a2, $a3
 	div.wu	$a1, $a2, $a1
 	ori	$a2, $zero, 94
-	bltu	$a2, $a1, .LBB8_14
-.LBB8_13:
-	move	$a0, $zero
+	bltu	$a2, $a1, .LBB8_9
 .LBB8_14:
-	fld.d	$fs3, $sp, 0                    # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 8                    # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 16                   # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 24                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 32
+	move	$a0, $zero
+	fld.d	$fs1, $sp, 0                    # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 8                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 16
 	ret
 .LBB8_15:                               # %vector.ph
 	bstrpick.d	$a3, $a4, 31, 0
-	addi.d	$a6, $a3, 1
-	bstrpick.d	$a3, $a6, 32, 3
-	slli.d	$a7, $a3, 3
+	addi.d	$a7, $a3, 1
+	bstrpick.d	$a3, $a7, 32, 3
+	slli.d	$t0, $a3, 3
 	alsl.d	$a5, $a3, $t3, 3
 	add.d	$a3, $t3, $a2
 	addi.d	$a3, $a3, 4
@@ -7397,7 +7396,7 @@ is_polyAT_exon_p:                       # @is_polyAT_exon_p
 	vrepli.b	$vr8, 71
 	vrepli.b	$vr10, 84
 	vrepli.w	$vr12, 1
-	move	$a4, $a7
+	move	$a4, $t0
 	vori.b	$vr14, $vr1, 0
 	vori.b	$vr11, $vr1, 0
 	vori.b	$vr13, $vr1, 0
@@ -7410,77 +7409,73 @@ is_polyAT_exon_p:                       # @is_polyAT_exon_p
 	.p2align	4, , 16
 .LBB8_16:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	ld.w	$t0, $a3, -4
+	ld.w	$a6, $a3, -4
 	ld.w	$t1, $a3, 0
-	vinsgr2vr.w	$vr15, $t0, 0
+	vinsgr2vr.w	$vr15, $a6, 0
 	vinsgr2vr.w	$vr16, $t1, 0
 	vseq.b	$vr17, $vr15, $vr4
 	vseq.b	$vr18, $vr16, $vr4
-	vseq.b	$vr19, $vr15, $vr10
+	vseq.b	$vr19, $vr15, $vr6
+	vor.v	$vr17, $vr17, $vr19
+	vseq.b	$vr20, $vr16, $vr6
+	vor.v	$vr18, $vr18, $vr20
+	vseq.b	$vr21, $vr15, $vr8
+	vor.v	$vr17, $vr17, $vr21
+	vsllwil.h.b	$vr22, $vr17, 0
+	vsllwil.w.h	$vr22, $vr22, 0
+	vseq.b	$vr23, $vr16, $vr8
+	vor.v	$vr18, $vr18, $vr23
+	vsllwil.h.b	$vr24, $vr18, 0
+	vsllwil.w.h	$vr24, $vr24, 0
+	vseq.b	$vr15, $vr15, $vr10
+	vor.v	$vr17, $vr17, $vr15
+	vsllwil.h.b	$vr17, $vr17, 0
+	vsllwil.w.h	$vr17, $vr17, 0
+	vseq.b	$vr16, $vr16, $vr10
+	vor.v	$vr18, $vr18, $vr16
+	vsllwil.h.b	$vr18, $vr18, 0
+	vsllwil.w.h	$vr18, $vr18, 0
+	vxor.v	$vr25, $vr19, $vr21
+	vor.v	$vr25, $vr15, $vr25
+	vsllwil.h.b	$vr25, $vr25, 0
+	vsllwil.w.h	$vr25, $vr25, 0
+	vandn.v	$vr22, $vr25, $vr22
+	vand.v	$vr22, $vr22, $vr12
+	vadd.w	$vr0, $vr0, $vr22
+	vxor.v	$vr22, $vr20, $vr23
+	vor.v	$vr22, $vr16, $vr22
+	vsllwil.h.b	$vr22, $vr22, 0
+	vsllwil.w.h	$vr22, $vr22, 0
+	vandn.v	$vr22, $vr22, $vr24
+	vand.v	$vr22, $vr22, $vr12
+	vadd.w	$vr2, $vr2, $vr22
 	vilvl.b	$vr19, $vr19, $vr19
 	vilvl.h	$vr19, $vr19, $vr19
-	vslli.w	$vr20, $vr19, 24
-	vsrai.w	$vr20, $vr20, 24
-	vseq.b	$vr21, $vr16, $vr10
-	vilvl.b	$vr21, $vr21, $vr21
-	vilvl.h	$vr21, $vr21, $vr21
-	vslli.w	$vr22, $vr21, 24
-	vsrai.w	$vr22, $vr22, 24
-	vseq.b	$vr23, $vr15, $vr6
-	vor.v	$vr17, $vr17, $vr23
-	vseq.b	$vr24, $vr16, $vr6
-	vor.v	$vr18, $vr18, $vr24
-	vseq.b	$vr15, $vr15, $vr8
-	vor.v	$vr17, $vr17, $vr15
-	vilvl.b	$vr17, $vr17, $vr17
-	vilvl.h	$vr17, $vr17, $vr17
-	vslli.w	$vr17, $vr17, 24
-	vsrai.w	$vr17, $vr17, 24
-	vseq.b	$vr16, $vr16, $vr8
-	vor.v	$vr18, $vr18, $vr16
-	vilvl.b	$vr18, $vr18, $vr18
-	vilvl.h	$vr18, $vr18, $vr18
-	vslli.w	$vr18, $vr18, 24
-	vsrai.w	$vr18, $vr18, 24
-	vor.v	$vr25, $vr17, $vr20
-	vor.v	$vr26, $vr18, $vr22
-	vilvl.b	$vr23, $vr23, $vr23
-	vilvl.h	$vr23, $vr23, $vr23
+	vand.v	$vr19, $vr19, $vr12
+	vadd.w	$vr3, $vr3, $vr19
+	vilvl.b	$vr19, $vr20, $vr20
+	vilvl.h	$vr19, $vr19, $vr19
+	vand.v	$vr19, $vr19, $vr12
+	vadd.w	$vr5, $vr5, $vr19
+	vilvl.b	$vr19, $vr21, $vr21
+	vilvl.h	$vr19, $vr19, $vr19
+	vand.v	$vr19, $vr19, $vr12
+	vadd.w	$vr7, $vr7, $vr19
+	vilvl.b	$vr19, $vr23, $vr23
+	vilvl.h	$vr19, $vr19, $vr19
+	vand.v	$vr19, $vr19, $vr12
+	vadd.w	$vr9, $vr9, $vr19
 	vilvl.b	$vr15, $vr15, $vr15
 	vilvl.h	$vr15, $vr15, $vr15
-	vxor.v	$vr27, $vr23, $vr15
-	vslli.w	$vr27, $vr27, 24
-	vsrai.w	$vr27, $vr27, 24
-	vor.v	$vr20, $vr20, $vr27
-	vandn.v	$vr17, $vr20, $vr17
-	vand.v	$vr17, $vr17, $vr12
-	vadd.w	$vr0, $vr0, $vr17
-	vilvl.b	$vr17, $vr24, $vr24
-	vilvl.h	$vr17, $vr17, $vr17
-	vilvl.b	$vr16, $vr16, $vr16
-	vilvl.h	$vr16, $vr16, $vr16
-	vxor.v	$vr20, $vr17, $vr16
-	vslli.w	$vr20, $vr20, 24
-	vsrai.w	$vr20, $vr20, 24
-	vor.v	$vr20, $vr22, $vr20
-	vandn.v	$vr18, $vr20, $vr18
-	vand.v	$vr18, $vr18, $vr12
-	vadd.w	$vr2, $vr2, $vr18
-	vand.v	$vr18, $vr23, $vr12
-	vadd.w	$vr3, $vr3, $vr18
-	vand.v	$vr17, $vr17, $vr12
-	vadd.w	$vr5, $vr5, $vr17
 	vand.v	$vr15, $vr15, $vr12
-	vadd.w	$vr7, $vr7, $vr15
-	vand.v	$vr15, $vr16, $vr12
-	vadd.w	$vr9, $vr9, $vr15
-	vand.v	$vr15, $vr19, $vr12
 	vadd.w	$vr11, $vr11, $vr15
-	vand.v	$vr15, $vr21, $vr12
+	vilvl.b	$vr15, $vr16, $vr16
+	vilvl.h	$vr15, $vr15, $vr15
+	vand.v	$vr15, $vr15, $vr12
 	vadd.w	$vr13, $vr13, $vr15
-	vadd.w	$vr1, $vr1, $vr25
+	vadd.w	$vr1, $vr1, $vr17
 	vaddi.wu	$vr1, $vr1, 1
-	vadd.w	$vr14, $vr14, $vr26
+	vadd.w	$vr14, $vr14, $vr18
 	vaddi.wu	$vr14, $vr14, 1
 	addi.d	$a4, $a4, -8
 	addi.d	$a3, $a3, 8
@@ -7497,7 +7492,7 @@ is_polyAT_exon_p:                       # @is_polyAT_exon_p
 	vadd.w	$vr1, $vr9, $vr7
 	vhaddw.d.w	$vr1, $vr1, $vr1
 	vhaddw.q.d	$vr1, $vr1, $vr1
-	vpickve2gr.d	$t0, $vr1, 0
+	vpickve2gr.d	$a6, $vr1, 0
 	vadd.w	$vr1, $vr5, $vr3
 	vhaddw.d.w	$vr1, $vr1, $vr1
 	vhaddw.q.d	$vr1, $vr1, $vr1
@@ -7506,17 +7501,17 @@ is_polyAT_exon_p:                       # @is_polyAT_exon_p
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$t1, $vr0, 0
-	beq	$a6, $a7, .LBB8_4
+	beq	$a7, $t0, .LBB8_4
 .LBB8_18:                               # %.lr.ph.preheader71
 	add.d	$a2, $a2, $a5
 	sub.d	$a5, $a1, $a5
-	ori	$a6, $zero, 19
-	pcalau12i	$a7, %pc_hi20(.LJTI8_0)
-	addi.d	$a7, $a7, %pc_lo12(.LJTI8_0)
+	ori	$a7, $zero, 19
+	pcalau12i	$t0, %pc_hi20(.LJTI8_0)
+	addi.d	$t0, $t0, %pc_lo12(.LJTI8_0)
 	b	.LBB8_21
 	.p2align	4, , 16
 .LBB8_19:                               #   in Loop: Header=BB8_21 Depth=1
-	addi.d	$t0, $t0, 1
+	addi.d	$a6, $a6, 1
 .LBB8_20:                               #   in Loop: Header=BB8_21 Depth=1
 	addi.w	$a5, $a5, -1
 	addi.d	$a2, $a2, 1
@@ -7525,12 +7520,12 @@ is_polyAT_exon_p:                       # @is_polyAT_exon_p
                                         # =>This Inner Loop Header: Depth=1
 	ld.bu	$t3, $a2, 0
 	addi.d	$t3, $t3, -65
-	bltu	$a6, $t3, .LBB8_26
+	bltu	$a7, $t3, .LBB8_26
 # %bb.22:                               # %.lr.ph
                                         #   in Loop: Header=BB8_21 Depth=1
 	slli.d	$t3, $t3, 2
-	ldx.w	$t3, $a7, $t3
-	add.d	$t3, $a7, $t3
+	ldx.w	$t3, $t0, $t3
+	add.d	$t3, $t0, $t3
 	jr	$t3
 .LBB8_23:                               #   in Loop: Header=BB8_21 Depth=1
 	addi.d	$t1, $t1, 1

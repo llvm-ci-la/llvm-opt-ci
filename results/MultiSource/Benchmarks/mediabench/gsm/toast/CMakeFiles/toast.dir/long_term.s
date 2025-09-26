@@ -5,26 +5,23 @@
 	.type	Gsm_Long_Term_Predictor,@function
 Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 # %bb.0:                                # %iter.check
-	addi.d	$sp, $sp, -176
-	st.d	$ra, $sp, 168                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 160                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 152                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 144                   # 8-byte Folded Spill
-	st.d	$s2, $sp, 136                   # 8-byte Folded Spill
-	st.d	$s3, $sp, 128                   # 8-byte Folded Spill
-	st.d	$s4, $sp, 120                   # 8-byte Folded Spill
-	st.d	$s5, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s6, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s7, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s8, $sp, 88                    # 8-byte Folded Spill
-	fst.d	$fs0, $sp, 80                   # 8-byte Folded Spill
-	fst.d	$fs1, $sp, 72                   # 8-byte Folded Spill
-	fst.d	$fs2, $sp, 64                   # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 56                   # 8-byte Folded Spill
-	fst.d	$fs4, $sp, 48                   # 8-byte Folded Spill
-	fst.d	$fs5, $sp, 40                   # 8-byte Folded Spill
-	fst.d	$fs6, $sp, 32                   # 8-byte Folded Spill
-	fst.d	$fs7, $sp, 24                   # 8-byte Folded Spill
+	addi.d	$sp, $sp, -144
+	st.d	$ra, $sp, 136                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 128                   # 8-byte Folded Spill
+	st.d	$s0, $sp, 120                   # 8-byte Folded Spill
+	st.d	$s1, $sp, 112                   # 8-byte Folded Spill
+	st.d	$s2, $sp, 104                   # 8-byte Folded Spill
+	st.d	$s3, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s6, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s7, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s8, $sp, 56                    # 8-byte Folded Spill
+	fst.d	$fs0, $sp, 48                   # 8-byte Folded Spill
+	fst.d	$fs1, $sp, 40                   # 8-byte Folded Spill
+	fst.d	$fs2, $sp, 32                   # 8-byte Folded Spill
+	fst.d	$fs3, $sp, 24                   # 8-byte Folded Spill
+	fst.d	$fs4, $sp, 16                   # 8-byte Folded Spill
 	move	$fp, $a1
 	vld	$vr0, $a1, 16
 	vslti.h	$vr1, $vr0, 0
@@ -82,7 +79,7 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vmax.h	$vr0, $vr1, $vr0
 	vpickve2gr.h	$a0, $vr0, 0
 	bstrpick.d	$a0, $a0, 15, 0
-	st.d	$a6, $sp, 16                    # 8-byte Folded Spill
+	st.d	$a6, $sp, 8                     # 8-byte Folded Spill
 	move	$s3, $a5
 	move	$s1, $a4
 	move	$s0, $a3
@@ -106,219 +103,159 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 .LBB0_3:                                # %.thread.i
 	move	$a1, $zero
 	vld	$vr0, $fp, 48
-	vld	$vr1, $fp, 0
+	vld	$vr1, $fp, 32
 	vld	$vr2, $fp, 16
-	vld	$vr3, $fp, 32
-	vilvh.h	$vr4, $vr0, $vr0
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr0, $vr0, 16
-	vilvh.h	$vr5, $vr3, $vr3
-	vslli.w	$vr5, $vr5, 16
-	vsrai.w	$vr5, $vr5, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr6, $vr2, $vr2
-	vslli.w	$vr6, $vr6, 16
-	vsrai.w	$vr6, $vr6, 16
-	vilvl.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvh.h	$vr7, $vr1, $vr1
-	vslli.w	$vr7, $vr7, 16
-	vsrai.w	$vr7, $vr7, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vld	$vr3, $fp, 0
+	vsllwil.w.h	$vr4, $vr0, 0
+	vsllwil.w.h	$vr5, $vr1, 0
+	vsllwil.w.h	$vr6, $vr2, 0
+	vsllwil.w.h	$vr7, $vr3, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.w.h	$vr0, $vr0, 0
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.w.h	$vr1, $vr1, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vbsrl.v	$vr3, $vr3, 8
+	vsllwil.w.h	$vr3, $vr3, 0
 	vreplgr2vr.w	$vr16, $a0
-	vsra.w	$vr15, $vr1, $vr16
-	vsra.w	$vr13, $vr7, $vr16
-	vsra.w	$vr11, $vr2, $vr16
+	vsra.w	$vr15, $vr3, $vr16
+	vsra.w	$vr14, $vr2, $vr16
+	vsra.w	$vr13, $vr1, $vr16
+	vsra.w	$vr12, $vr0, $vr16
+	vsra.w	$vr11, $vr7, $vr16
 	vsra.w	$vr9, $vr6, $vr16
-	vsra.w	$vr7, $vr3, $vr16
-	vsra.w	$vr5, $vr5, $vr16
-	vsra.w	$vr3, $vr0, $vr16
-	vsra.w	$vr1, $vr4, $vr16
-	vshuf4i.w	$vr0, $vr1, 50
-	vslli.d	$vr0, $vr0, 32
-	vsrai.d	$vr0, $vr0, 32
-	vshuf4i.w	$vr1, $vr1, 16
-	vslli.d	$vr1, $vr1, 32
-	vsrai.d	$vr1, $vr1, 32
-	vshuf4i.w	$vr2, $vr3, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
-	vshuf4i.w	$vr4, $vr5, 50
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vshuf4i.w	$vr5, $vr5, 16
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr6, $vr7, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr7, $vr7, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
-	vshuf4i.w	$vr8, $vr9, 50
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
-	vshuf4i.w	$vr9, $vr9, 16
-	vslli.d	$vr9, $vr9, 32
-	vsrai.d	$vr9, $vr9, 32
-	vshuf4i.w	$vr10, $vr11, 50
-	vslli.d	$vr10, $vr10, 32
-	vsrai.d	$vr10, $vr10, 32
-	vshuf4i.w	$vr11, $vr11, 16
-	vslli.d	$vr11, $vr11, 32
-	vsrai.d	$vr11, $vr11, 32
-	vshuf4i.w	$vr12, $vr13, 50
-	vslli.d	$vr12, $vr12, 32
-	vsrai.d	$vr12, $vr12, 32
-	vshuf4i.w	$vr13, $vr13, 16
-	vslli.d	$vr13, $vr13, 32
-	vsrai.d	$vr13, $vr13, 32
-	vshuf4i.w	$vr14, $vr15, 50
-	vslli.d	$vr14, $vr14, 32
-	vsrai.d	$vr14, $vr14, 32
+	vsra.w	$vr7, $vr5, $vr16
+	vsra.w	$vr5, $vr4, $vr16
+	vsllwil.d.w	$vr0, $vr5, 0
+	vsllwil.d.w	$vr1, $vr7, 0
+	vsllwil.d.w	$vr2, $vr9, 0
+	vsllwil.d.w	$vr3, $vr11, 0
+	vsllwil.d.w	$vr4, $vr12, 0
+	vshuf4i.w	$vr5, $vr5, 14
+	vsllwil.d.w	$vr5, $vr5, 0
+	vsllwil.d.w	$vr6, $vr13, 0
+	vshuf4i.w	$vr7, $vr7, 14
+	vsllwil.d.w	$vr7, $vr7, 0
+	vsllwil.d.w	$vr8, $vr14, 0
+	vshuf4i.w	$vr9, $vr9, 14
+	vsllwil.d.w	$vr9, $vr9, 0
+	vsllwil.d.w	$vr10, $vr15, 0
+	vshuf4i.w	$vr11, $vr11, 14
+	vsllwil.d.w	$vr11, $vr11, 0
+	vshuf4i.w	$vr12, $vr12, 14
+	vsllwil.d.w	$vr12, $vr12, 0
+	vshuf4i.w	$vr13, $vr13, 14
+	vsllwil.d.w	$vr13, $vr13, 0
+	vshuf4i.w	$vr14, $vr14, 14
 	vld	$vr17, $fp, 64
-	vshuf4i.w	$vr15, $vr15, 16
-	vslli.d	$vr15, $vr15, 32
-	vsrai.d	$vr15, $vr15, 32
-	vilvh.h	$vr18, $vr17, $vr17
-	vslli.w	$vr18, $vr18, 16
-	vsrai.w	$vr18, $vr18, 16
-	vilvl.h	$vr17, $vr17, $vr17
-	vslli.w	$vr17, $vr17, 16
-	vsrai.w	$vr17, $vr17, 16
+	vsllwil.d.w	$vr14, $vr14, 0
+	vshuf4i.w	$vr15, $vr15, 14
+	vsllwil.d.w	$vr15, $vr15, 0
+	vsllwil.w.h	$vr18, $vr17, 0
+	vbsrl.v	$vr17, $vr17, 8
+	vsllwil.w.h	$vr17, $vr17, 0
 	vsra.w	$vr19, $vr17, $vr16
-	vsra.w	$vr17, $vr18, $vr16
-	vshuf4i.w	$vr16, $vr17, 50
-	vslli.d	$vr16, $vr16, 32
-	vsrai.d	$vr16, $vr16, 32
-	vshuf4i.w	$vr17, $vr17, 16
-	vslli.d	$vr17, $vr17, 32
-	vsrai.d	$vr17, $vr17, 32
-	vshuf4i.w	$vr18, $vr19, 50
-	vslli.d	$vr18, $vr18, 32
-	vsrai.d	$vr18, $vr18, 32
-	vshuf4i.w	$vr19, $vr19, 16
-	vslli.d	$vr19, $vr19, 32
-	vsrai.d	$vr19, $vr19, 32
+	vsra.w	$vr18, $vr18, $vr16
+	vsllwil.d.w	$vr16, $vr18, 0
+	vsllwil.d.w	$vr17, $vr19, 0
+	vshuf4i.w	$vr18, $vr18, 14
+	vsllwil.d.w	$vr18, $vr18, 0
+	vshuf4i.w	$vr19, $vr19, 14
+	vsllwil.d.w	$vr19, $vr19, 0
 	addi.d	$a3, $s2, -16
 	ori	$a4, $zero, 40
 	ori	$a5, $zero, 121
 	ori	$a2, $zero, 40
 	.p2align	4, , 16
 .LBB0_4:                                # =>This Inner Loop Header: Depth=1
-	vld	$vr22, $a3, -16
-	vld	$vr24, $a3, -32
-	vld	$vr23, $a3, -48
-	vld	$vr25, $a3, -64
-	vilvh.h	$vr20, $vr22, $vr22
-	vilvh.h	$vr21, $vr24, $vr24
-	vilvl.h	$vr22, $vr22, $vr22
-	vilvl.h	$vr24, $vr24, $vr24
-	vilvh.h	$vr28, $vr25, $vr25
-	vilvh.w	$vr26, $vr28, $vr28
-	vslli.d	$vr26, $vr26, 48
-	vsrai.d	$vr29, $vr26, 48
-	vilvl.h	$vr27, $vr25, $vr25
-	vilvh.w	$vr25, $vr27, $vr27
-	vslli.d	$vr25, $vr25, 48
-	vld	$vr30, $a3, 0
-	vsrai.d	$vr25, $vr25, 48
-	vmul.d	$vr26, $vr14, $vr25
-	vmul.d	$vr25, $vr12, $vr29
-	vilvl.h	$vr29, $vr30, $vr30
-	vilvh.h	$vr30, $vr30, $vr30
-	vilvh.w	$vr31, $vr30, $vr30
-	vslli.d	$vr31, $vr31, 48
-	vsrai.d	$vr31, $vr31, 48
-	vmadd.d	$vr25, $vr16, $vr31
-	vilvh.w	$vr31, $vr29, $vr29
-	vslli.d	$vr31, $vr31, 48
-	vsrai.d	$vr31, $vr31, 48
-	vmadd.d	$vr26, $vr18, $vr31
-	vilvl.w	$vr31, $vr22, $vr22
-	vslli.d	$vr31, $vr31, 48
-	vsrai.d	$vr31, $vr31, 48
-	vilvl.w	$vr28, $vr28, $vr28
-	vslli.d	$vr28, $vr28, 48
-	vsrai.d	$vr28, $vr28, 48
-	vmul.d	$vr28, $vr13, $vr28
-	vilvl.w	$vr30, $vr30, $vr30
-	vslli.d	$vr30, $vr30, 48
-	vsrai.d	$vr30, $vr30, 48
-	vmadd.d	$vr28, $vr17, $vr30
-	vilvl.w	$vr30, $vr24, $vr24
-	vslli.d	$vr30, $vr30, 48
-	vsrai.d	$vr30, $vr30, 48
-	vilvl.w	$vr27, $vr27, $vr27
-	vslli.d	$vr27, $vr27, 48
-	vsrai.d	$vr27, $vr27, 48
-	vmul.d	$vr27, $vr15, $vr27
-	vilvl.w	$vr29, $vr29, $vr29
-	vslli.d	$vr29, $vr29, 48
-	vsrai.d	$vr29, $vr29, 48
-	vmadd.d	$vr27, $vr19, $vr29
-	vilvl.h	$vr29, $vr23, $vr23
-	vmadd.d	$vr27, $vr7, $vr30
-	vilvl.w	$vr30, $vr29, $vr29
-	vslli.d	$vr30, $vr30, 48
-	vsrai.d	$vr30, $vr30, 48
-	vmul.d	$vr30, $vr11, $vr30
-	vmadd.d	$vr30, $vr3, $vr31
-	vilvl.w	$vr31, $vr20, $vr20
-	vslli.d	$vr31, $vr31, 48
-	vsrai.d	$vr31, $vr31, 48
-	vadd.d	$vr27, $vr27, $vr30
-	vilvl.w	$vr30, $vr21, $vr21
-	vslli.d	$vr30, $vr30, 48
-	vsrai.d	$vr30, $vr30, 48
-	vilvh.h	$vr23, $vr23, $vr23
-	vmadd.d	$vr28, $vr5, $vr30
-	vilvl.w	$vr30, $vr23, $vr23
-	vslli.d	$vr30, $vr30, 48
-	vsrai.d	$vr30, $vr30, 48
-	vmul.d	$vr30, $vr9, $vr30
-	vmadd.d	$vr30, $vr1, $vr31
-	vadd.d	$vr28, $vr28, $vr30
-	vadd.d	$vr27, $vr27, $vr28
-	vilvh.w	$vr24, $vr24, $vr24
-	vslli.d	$vr24, $vr24, 48
-	vsrai.d	$vr24, $vr24, 48
-	vmadd.d	$vr26, $vr6, $vr24
-	vilvh.w	$vr22, $vr22, $vr22
-	vslli.d	$vr22, $vr22, 48
-	vsrai.d	$vr22, $vr22, 48
-	vilvh.w	$vr24, $vr29, $vr29
-	vslli.d	$vr24, $vr24, 48
-	vsrai.d	$vr24, $vr24, 48
-	vmul.d	$vr24, $vr10, $vr24
-	vmadd.d	$vr24, $vr2, $vr22
-	vadd.d	$vr22, $vr26, $vr24
-	vilvh.w	$vr21, $vr21, $vr21
-	vslli.d	$vr21, $vr21, 48
-	vsrai.d	$vr21, $vr21, 48
-	vmadd.d	$vr25, $vr4, $vr21
-	vilvh.w	$vr20, $vr20, $vr20
-	vslli.d	$vr20, $vr20, 48
-	vsrai.d	$vr20, $vr20, 48
-	vilvh.w	$vr21, $vr23, $vr23
-	vslli.d	$vr21, $vr21, 48
-	vsrai.d	$vr21, $vr21, 48
-	vmul.d	$vr21, $vr8, $vr21
-	vmadd.d	$vr21, $vr0, $vr20
-	vadd.d	$vr20, $vr25, $vr21
-	vadd.d	$vr20, $vr22, $vr20
-	vadd.d	$vr20, $vr27, $vr20
+	vld	$vr24, $a3, -64
+	vld	$vr20, $a3, -48
+	vld	$vr22, $a3, -32
+	vld	$vr21, $a3, -16
+	vbsrl.v	$vr23, $vr24, 12
+	vsllwil.w.h	$vr23, $vr23, 0
+	vsllwil.d.w	$vr23, $vr23, 0
+	vshuf4i.h	$vr25, $vr24, 14
+	vsllwil.w.h	$vr25, $vr25, 0
+	vsllwil.d.w	$vr25, $vr25, 0
+	vbsrl.v	$vr26, $vr24, 8
+	vsllwil.w.h	$vr26, $vr26, 0
+	vsllwil.d.w	$vr26, $vr26, 0
+	vld	$vr27, $a3, 0
+	vmul.d	$vr26, $vr10, $vr26
+	vmul.d	$vr25, $vr11, $vr25
+	vmul.d	$vr23, $vr15, $vr23
+	vbsrl.v	$vr28, $vr27, 12
+	vsllwil.w.h	$vr28, $vr28, 0
+	vsllwil.d.w	$vr28, $vr28, 0
+	vmadd.d	$vr23, $vr19, $vr28
+	vshuf4i.h	$vr28, $vr27, 14
+	vsllwil.w.h	$vr28, $vr28, 0
+	vsllwil.d.w	$vr28, $vr28, 0
+	vmadd.d	$vr25, $vr18, $vr28
+	vbsrl.v	$vr28, $vr27, 8
+	vsllwil.w.h	$vr28, $vr28, 0
+	vsllwil.d.w	$vr28, $vr28, 0
+	vmadd.d	$vr26, $vr17, $vr28
+	vsllwil.w.h	$vr28, $vr21, 0
+	vsllwil.d.w	$vr28, $vr28, 0
+	vsllwil.w.h	$vr24, $vr24, 0
+	vsllwil.d.w	$vr24, $vr24, 0
+	vmul.d	$vr24, $vr3, $vr24
+	vsllwil.w.h	$vr27, $vr27, 0
+	vsllwil.d.w	$vr27, $vr27, 0
+	vmadd.d	$vr24, $vr16, $vr27
+	vsllwil.w.h	$vr27, $vr22, 0
+	vsllwil.d.w	$vr27, $vr27, 0
+	vmadd.d	$vr24, $vr1, $vr27
+	vsllwil.w.h	$vr27, $vr20, 0
+	vsllwil.d.w	$vr27, $vr27, 0
+	vmul.d	$vr27, $vr2, $vr27
+	vmadd.d	$vr27, $vr0, $vr28
+	vbsrl.v	$vr28, $vr21, 8
+	vsllwil.w.h	$vr28, $vr28, 0
+	vsllwil.d.w	$vr28, $vr28, 0
+	vadd.d	$vr24, $vr24, $vr27
+	vbsrl.v	$vr27, $vr22, 8
+	vsllwil.w.h	$vr27, $vr27, 0
+	vsllwil.d.w	$vr27, $vr27, 0
+	vmadd.d	$vr26, $vr6, $vr27
+	vbsrl.v	$vr27, $vr20, 8
+	vsllwil.w.h	$vr27, $vr27, 0
+	vsllwil.d.w	$vr27, $vr27, 0
+	vmul.d	$vr27, $vr8, $vr27
+	vmadd.d	$vr27, $vr4, $vr28
+	vadd.d	$vr26, $vr26, $vr27
+	vshuf4i.h	$vr27, $vr21, 14
+	vsllwil.w.h	$vr27, $vr27, 0
+	vsllwil.d.w	$vr27, $vr27, 0
+	vadd.d	$vr24, $vr24, $vr26
+	vshuf4i.h	$vr26, $vr22, 14
+	vsllwil.w.h	$vr26, $vr26, 0
+	vsllwil.d.w	$vr26, $vr26, 0
+	vmadd.d	$vr25, $vr7, $vr26
+	vshuf4i.h	$vr26, $vr20, 14
+	vsllwil.w.h	$vr26, $vr26, 0
+	vsllwil.d.w	$vr26, $vr26, 0
+	vmul.d	$vr26, $vr9, $vr26
+	vmadd.d	$vr26, $vr5, $vr27
+	vadd.d	$vr25, $vr25, $vr26
+	vbsrl.v	$vr22, $vr22, 12
+	vsllwil.w.h	$vr22, $vr22, 0
+	vsllwil.d.w	$vr22, $vr22, 0
+	vmadd.d	$vr23, $vr13, $vr22
+	vbsrl.v	$vr21, $vr21, 12
+	vsllwil.w.h	$vr21, $vr21, 0
+	vsllwil.d.w	$vr21, $vr21, 0
+	vbsrl.v	$vr20, $vr20, 12
+	vsllwil.w.h	$vr20, $vr20, 0
+	vsllwil.d.w	$vr20, $vr20, 0
+	vmul.d	$vr20, $vr14, $vr20
+	vmadd.d	$vr20, $vr12, $vr21
+	vadd.d	$vr20, $vr23, $vr20
+	vadd.d	$vr20, $vr25, $vr20
+	vadd.d	$vr20, $vr24, $vr20
 	vhaddw.q.d	$vr20, $vr20, $vr20
 	vpickve2gr.d	$a6, $vr20, 0
 	slt	$a7, $a1, $a6
@@ -349,32 +286,24 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr1, $a1, 0
 	vsrai.h	$vr0, $vr0, 3
 	vsrai.h	$vr1, $vr1, 3
-	vilvl.h	$vr0, $vr0, $vr0
-	vilvl.w	$vr0, $vr0, $vr0
-	vslli.d	$vr0, $vr0, 48
-	vsrai.d	$vr2, $vr0, 48
-	vilvl.h	$vr0, $vr1, $vr1
-	vilvl.w	$vr0, $vr0, $vr0
+	vsllwil.w.h	$vr0, $vr0, 0
+	vsllwil.d.w	$vr2, $vr0, 0
 	ori	$a1, $zero, 4
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a1, $s2, 1
 	slli.d	$a1, $a1, 1
 	ldx.w	$a1, $s2, $a1
 	ld.w	$a2, $a2, 4
-	vslli.d	$vr0, $vr0, 48
-	vsrai.d	$vr3, $vr0, 48
+	vsllwil.w.h	$vr0, $vr1, 0
+	vsllwil.d.w	$vr3, $vr0, 0
 	vinsgr2vr.w	$vr0, $a1, 0
 	vinsgr2vr.w	$vr1, $a2, 0
 	vsrai.h	$vr0, $vr0, 3
 	vsrai.h	$vr1, $vr1, 3
-	vilvl.h	$vr0, $vr0, $vr0
-	vilvl.w	$vr0, $vr0, $vr0
-	vslli.d	$vr0, $vr0, 48
-	vsrai.d	$vr0, $vr0, 48
-	vilvl.h	$vr1, $vr1, $vr1
-	vilvl.w	$vr1, $vr1, $vr1
-	vslli.d	$vr1, $vr1, 48
-	vsrai.d	$vr1, $vr1, 48
+	vsllwil.w.h	$vr0, $vr0, 0
+	vsllwil.d.w	$vr0, $vr0, 0
+	vsllwil.w.h	$vr1, $vr1, 0
+	vsllwil.d.w	$vr1, $vr1, 0
 	vmul.d	$vr0, $vr0, $vr0
 	vmul.d	$vr1, $vr1, $vr1
 	ori	$a1, $zero, 8
@@ -389,14 +318,10 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr3, $a2, 0
 	vsrai.h	$vr2, $vr2, 3
 	vsrai.h	$vr3, $vr3, 3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	ori	$a1, $zero, 12
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a1, $s2, 1
@@ -409,14 +334,10 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr3, $a2, 0
 	vsrai.h	$vr2, $vr2, 3
 	vsrai.h	$vr3, $vr3, 3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	sub.d	$a1, $s7, $a0
 	alsl.d	$a2, $a1, $s2, 1
 	slli.d	$a1, $a1, 1
@@ -428,14 +349,10 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr3, $a2, 0
 	vsrai.h	$vr2, $vr2, 3
 	vsrai.h	$vr3, $vr3, 3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	ori	$a1, $zero, 20
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a1, $s2, 1
@@ -448,14 +365,10 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr3, $a2, 0
 	vsrai.h	$vr2, $vr2, 3
 	vsrai.h	$vr3, $vr3, 3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	ori	$a1, $zero, 24
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a1, $s2, 1
@@ -468,14 +381,10 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr3, $a2, 0
 	vsrai.h	$vr2, $vr2, 3
 	vsrai.h	$vr3, $vr3, 3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	ori	$a1, $zero, 28
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a1, $s2, 1
@@ -488,14 +397,10 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr3, $a2, 0
 	vsrai.h	$vr2, $vr2, 3
 	vsrai.h	$vr3, $vr3, 3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	ori	$a1, $zero, 32
 	sub.d	$a1, $a1, $a0
 	alsl.d	$a2, $a1, $s2, 1
@@ -508,14 +413,10 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr3, $a2, 0
 	vsrai.h	$vr2, $vr2, 3
 	vsrai.h	$vr3, $vr3, 3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	ori	$a1, $zero, 36
 	sub.d	$a0, $a1, $a0
 	alsl.d	$a1, $a0, $s2, 1
@@ -528,14 +429,10 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	vinsgr2vr.w	$vr3, $a1, 0
 	vsrai.h	$vr2, $vr2, 3
 	vsrai.h	$vr3, $vr3, 3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr3, $vr3, $vr3
-	vilvl.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vmadd.d	$vr0, $vr2, $vr2
 	vmadd.d	$vr1, $vr3, $vr3
 	vadd.d	$vr0, $vr1, $vr0
@@ -574,7 +471,7 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	bge	$a0, $s8, .LBB0_37
 .LBB0_10:                               # %.preheader64.i
 	ori	$a0, $zero, 3
-	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
 	st.h	$a0, $a1, 0
 	ld.h	$a0, $s3, 0
 	sub.d	$a2, $s0, $s1
@@ -600,18 +497,15 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	slli.d	$a1, $a0, 1
 	sub.d	$a1, $s2, $a1
 	vld	$vr0, $a1, 0
-	vilvl.h	$vr1, $vr0, $vr0
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr2, $vr1, 16
-	vilvh.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr3, $vr0, 16
+	vsllwil.w.h	$vr2, $vr0, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.w.h	$vr3, $vr0, 0
 	lu12i.w	$a1, 4
 	vreplgr2vr.w	$vr0, $a1
 	vreplgr2vr.w	$vr1, $s6
 	b	.LBB0_23
 .LBB0_16:                               # %.preheader.i
-	ld.d	$a0, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a0, $sp, 8                     # 8-byte Folded Reload
 	st.h	$zero, $a0, 0
 	ld.h	$a0, $s3, 0
 	sub.d	$a1, $s0, $s1
@@ -637,12 +531,9 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	slli.d	$a1, $a0, 1
 	sub.d	$a1, $s2, $a1
 	vld	$vr0, $a1, 0
-	vilvl.h	$vr1, $vr0, $vr0
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr2, $vr1, 16
-	vilvh.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr3, $vr0, 16
+	vsllwil.w.h	$vr2, $vr0, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.w.h	$vr3, $vr0, 0
 	lu12i.w	$a1, 4
 	vreplgr2vr.w	$vr0, $a1
 	ori	$a1, $zero, 3277
@@ -664,12 +555,9 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
 	vldx	$vr2, $s2, $a1
-	vilvl.h	$vr3, $vr2, $vr2
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
+	vsllwil.w.h	$vr3, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.w.h	$vr2, $vr2, 0
 	vori.b	$vr4, $vr0, 0
 	vmadd.w	$vr4, $vr2, $vr1
 	vori.b	$vr2, $vr0, 0
@@ -685,12 +573,9 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
 	vldx	$vr2, $s2, $a1
-	vilvl.h	$vr3, $vr2, $vr2
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
+	vsllwil.w.h	$vr3, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.w.h	$vr2, $vr2, 0
 	vori.b	$vr4, $vr0, 0
 	vmadd.w	$vr4, $vr2, $vr1
 	vori.b	$vr2, $vr0, 0
@@ -706,12 +591,9 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
 	vldx	$vr2, $s2, $a1
-	vilvl.h	$vr3, $vr2, $vr2
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
+	vsllwil.w.h	$vr3, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.w.h	$vr2, $vr2, 0
 	vori.b	$vr4, $vr0, 0
 	vmadd.w	$vr4, $vr2, $vr1
 	vori.b	$vr2, $vr0, 0
@@ -727,12 +609,9 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	sub.d	$a0, $a1, $a0
 	slli.d	$a0, $a0, 1
 	vldx	$vr2, $s2, $a0
-	vilvl.h	$vr3, $vr2, $vr2
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
+	vsllwil.w.h	$vr3, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.w.h	$vr2, $vr2, 0
 	vori.b	$vr4, $vr0, 0
 	vmadd.w	$vr4, $vr2, $vr1
 	vmadd.w	$vr0, $vr3, $vr1
@@ -806,30 +685,27 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	addi.d	$a1, $a1, 2
 	bne	$a1, $a4, .LBB0_27
 .LBB0_28:                               # %Long_term_analysis_filtering.exit
-	fld.d	$fs7, $sp, 24                   # 8-byte Folded Reload
-	fld.d	$fs6, $sp, 32                   # 8-byte Folded Reload
-	fld.d	$fs5, $sp, 40                   # 8-byte Folded Reload
-	fld.d	$fs4, $sp, 48                   # 8-byte Folded Reload
-	fld.d	$fs3, $sp, 56                   # 8-byte Folded Reload
-	fld.d	$fs2, $sp, 64                   # 8-byte Folded Reload
-	fld.d	$fs1, $sp, 72                   # 8-byte Folded Reload
-	fld.d	$fs0, $sp, 80                   # 8-byte Folded Reload
-	ld.d	$s8, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s7, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s6, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$s5, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$s4, $sp, 120                   # 8-byte Folded Reload
-	ld.d	$s3, $sp, 128                   # 8-byte Folded Reload
-	ld.d	$s2, $sp, 136                   # 8-byte Folded Reload
-	ld.d	$s1, $sp, 144                   # 8-byte Folded Reload
-	ld.d	$s0, $sp, 152                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 160                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 168                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 176
+	fld.d	$fs4, $sp, 16                   # 8-byte Folded Reload
+	fld.d	$fs3, $sp, 24                   # 8-byte Folded Reload
+	fld.d	$fs2, $sp, 32                   # 8-byte Folded Reload
+	fld.d	$fs1, $sp, 40                   # 8-byte Folded Reload
+	fld.d	$fs0, $sp, 48                   # 8-byte Folded Reload
+	ld.d	$s8, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s7, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s6, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s5, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 104                   # 8-byte Folded Reload
+	ld.d	$s1, $sp, 112                   # 8-byte Folded Reload
+	ld.d	$s0, $sp, 120                   # 8-byte Folded Reload
+	ld.d	$fp, $sp, 128                   # 8-byte Folded Reload
+	ld.d	$ra, $sp, 136                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 144
 	ret
 .LBB0_29:                               # %.preheader60.i
 	ori	$a0, $zero, 1
-	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
 	st.h	$a0, $a1, 0
 	ld.h	$a0, $s3, 0
 	sub.d	$a2, $s0, $s1
@@ -855,12 +731,9 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	slli.d	$a1, $a0, 1
 	sub.d	$a1, $s2, $a1
 	vld	$vr0, $a1, 0
-	vilvl.h	$vr1, $vr0, $vr0
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr2, $vr1, 16
-	vilvh.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr3, $vr0, 16
+	vsllwil.w.h	$vr2, $vr0, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.w.h	$vr3, $vr0, 0
 	lu12i.w	$a1, 4
 	vreplgr2vr.w	$vr0, $a1
 	lu12i.w	$a1, 2
@@ -900,7 +773,7 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	b	.LBB0_28
 .LBB0_37:                               # %.preheader62.i
 	ori	$a0, $zero, 2
-	ld.d	$a1, $sp, 16                    # 8-byte Folded Reload
+	ld.d	$a1, $sp, 8                     # 8-byte Folded Reload
 	st.h	$a0, $a1, 0
 	ld.h	$a0, $s3, 0
 	sub.d	$a2, $s0, $s1
@@ -926,12 +799,9 @@ Gsm_Long_Term_Predictor:                # @Gsm_Long_Term_Predictor
 	slli.d	$a1, $a0, 1
 	sub.d	$a1, $s2, $a1
 	vld	$vr0, $a1, 0
-	vilvl.h	$vr1, $vr0, $vr0
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr2, $vr1, 16
-	vilvh.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr3, $vr0, 16
+	vsllwil.w.h	$vr2, $vr0, 0
+	vbsrl.v	$vr0, $vr0, 8
+	vsllwil.w.h	$vr3, $vr0, 0
 	lu12i.w	$a1, 4
 	vreplgr2vr.w	$vr0, $a1
 	lu12i.w	$a1, 5
@@ -1004,20 +874,17 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	sub.d	$a1, $a4, $a1
 	vld	$vr1, $a1, 0
 	vreplgr2vr.d	$vr0, $a2
-	vilvh.h	$vr2, $vr1, $vr1
-	vilvl.w	$vr3, $vr2, $vr2
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
-	vilvh.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
-	vilvl.h	$vr1, $vr1, $vr1
-	vilvl.w	$vr4, $vr1, $vr1
-	vslli.d	$vr4, $vr4, 48
-	vsrai.d	$vr4, $vr4, 48
-	vilvh.w	$vr1, $vr1, $vr1
-	vslli.d	$vr1, $vr1, 48
-	vsrai.d	$vr5, $vr1, 48
+	vbsrl.v	$vr2, $vr1, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
+	vbsrl.v	$vr3, $vr1, 12
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vsllwil.w.h	$vr4, $vr1, 0
+	vsllwil.d.w	$vr4, $vr4, 0
+	vshuf4i.h	$vr1, $vr1, 14
+	vsllwil.w.h	$vr1, $vr1, 0
+	vsllwil.d.w	$vr5, $vr1, 0
 	ori	$a1, $zero, 0
 	lu32i.d	$a1, 32768
 	vreplgr2vr.d	$vr1, $a1
@@ -1027,10 +894,10 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	vori.b	$vr5, $vr1, 0
 	vmadd.d	$vr5, $vr0, $vr4
 	vori.b	$vr4, $vr1, 0
-	vmadd.d	$vr4, $vr0, $vr2
-	vori.b	$vr2, $vr1, 0
-	vmadd.d	$vr2, $vr0, $vr3
-	vsrli.d	$vr2, $vr2, 48
+	vmadd.d	$vr4, $vr0, $vr3
+	vori.b	$vr3, $vr1, 0
+	vmadd.d	$vr3, $vr0, $vr2
+	vsrli.d	$vr2, $vr3, 48
 	vsrli.d	$vr3, $vr4, 48
 	vsrli.d	$vr4, $vr5, 48
 	vsrli.d	$vr5, $vr7, 48
@@ -1043,30 +910,27 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
 	vldx	$vr2, $a4, $a1
-	vilvh.h	$vr3, $vr2, $vr2
-	vilvl.w	$vr4, $vr3, $vr3
-	vslli.d	$vr4, $vr4, 48
-	vsrai.d	$vr4, $vr4, 48
-	vilvh.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr5, $vr2, $vr2
-	vslli.d	$vr5, $vr5, 48
-	vsrai.d	$vr5, $vr5, 48
-	vilvh.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
+	vbsrl.v	$vr3, $vr2, 8
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr2, 12
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.w.h	$vr5, $vr2, 0
+	vsllwil.d.w	$vr5, $vr5, 0
+	vshuf4i.h	$vr2, $vr2, 14
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
 	vld	$vr6, $a3, 16
 	vori.b	$vr7, $vr1, 0
 	vmadd.d	$vr7, $vr0, $vr2
 	vori.b	$vr2, $vr1, 0
 	vmadd.d	$vr2, $vr0, $vr5
 	vori.b	$vr5, $vr1, 0
-	vmadd.d	$vr5, $vr0, $vr3
-	vori.b	$vr3, $vr1, 0
-	vmadd.d	$vr3, $vr0, $vr4
-	vsrli.d	$vr3, $vr3, 48
+	vmadd.d	$vr5, $vr0, $vr4
+	vori.b	$vr4, $vr1, 0
+	vmadd.d	$vr4, $vr0, $vr3
+	vsrli.d	$vr3, $vr4, 48
 	vsrli.d	$vr4, $vr5, 48
 	vsrli.d	$vr2, $vr2, 48
 	vsrli.d	$vr5, $vr7, 48
@@ -1079,30 +943,27 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
 	vldx	$vr2, $a4, $a1
-	vilvh.h	$vr3, $vr2, $vr2
-	vilvl.w	$vr4, $vr3, $vr3
-	vslli.d	$vr4, $vr4, 48
-	vsrai.d	$vr4, $vr4, 48
-	vilvh.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr5, $vr2, $vr2
-	vslli.d	$vr5, $vr5, 48
-	vsrai.d	$vr5, $vr5, 48
-	vilvh.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
+	vbsrl.v	$vr3, $vr2, 8
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr2, 12
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.w.h	$vr5, $vr2, 0
+	vsllwil.d.w	$vr5, $vr5, 0
+	vshuf4i.h	$vr2, $vr2, 14
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
 	vld	$vr6, $a3, 32
 	vori.b	$vr7, $vr1, 0
 	vmadd.d	$vr7, $vr0, $vr2
 	vori.b	$vr2, $vr1, 0
 	vmadd.d	$vr2, $vr0, $vr5
 	vori.b	$vr5, $vr1, 0
-	vmadd.d	$vr5, $vr0, $vr3
-	vori.b	$vr3, $vr1, 0
-	vmadd.d	$vr3, $vr0, $vr4
-	vsrli.d	$vr3, $vr3, 48
+	vmadd.d	$vr5, $vr0, $vr4
+	vori.b	$vr4, $vr1, 0
+	vmadd.d	$vr4, $vr0, $vr3
+	vsrli.d	$vr3, $vr4, 48
 	vsrli.d	$vr4, $vr5, 48
 	vsrli.d	$vr2, $vr2, 48
 	vsrli.d	$vr5, $vr7, 48
@@ -1115,30 +976,27 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	sub.d	$a1, $a1, $a0
 	slli.d	$a1, $a1, 1
 	vldx	$vr2, $a4, $a1
-	vilvh.h	$vr3, $vr2, $vr2
-	vilvl.w	$vr4, $vr3, $vr3
-	vslli.d	$vr4, $vr4, 48
-	vsrai.d	$vr4, $vr4, 48
-	vilvh.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr5, $vr2, $vr2
-	vslli.d	$vr5, $vr5, 48
-	vsrai.d	$vr5, $vr5, 48
-	vilvh.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
+	vbsrl.v	$vr3, $vr2, 8
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr2, 12
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.w.h	$vr5, $vr2, 0
+	vsllwil.d.w	$vr5, $vr5, 0
+	vshuf4i.h	$vr2, $vr2, 14
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
 	vld	$vr6, $a3, 48
 	vori.b	$vr7, $vr1, 0
 	vmadd.d	$vr7, $vr0, $vr2
 	vori.b	$vr2, $vr1, 0
 	vmadd.d	$vr2, $vr0, $vr5
 	vori.b	$vr5, $vr1, 0
-	vmadd.d	$vr5, $vr0, $vr3
-	vori.b	$vr3, $vr1, 0
-	vmadd.d	$vr3, $vr0, $vr4
-	vsrli.d	$vr3, $vr3, 48
+	vmadd.d	$vr5, $vr0, $vr4
+	vori.b	$vr4, $vr1, 0
+	vmadd.d	$vr4, $vr0, $vr3
+	vsrli.d	$vr3, $vr4, 48
 	vsrli.d	$vr4, $vr5, 48
 	vsrli.d	$vr2, $vr2, 48
 	vsrli.d	$vr5, $vr7, 48
@@ -1151,28 +1009,25 @@ Gsm_Long_Term_Synthesis_Filtering:      # @Gsm_Long_Term_Synthesis_Filtering
 	sub.d	$a0, $a1, $a0
 	slli.d	$a0, $a0, 1
 	vldx	$vr2, $a4, $a0
-	vilvh.h	$vr3, $vr2, $vr2
-	vilvl.w	$vr4, $vr3, $vr3
-	vslli.d	$vr4, $vr4, 48
-	vsrai.d	$vr4, $vr4, 48
-	vilvh.w	$vr3, $vr3, $vr3
-	vslli.d	$vr3, $vr3, 48
-	vsrai.d	$vr3, $vr3, 48
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr5, $vr2, $vr2
-	vslli.d	$vr5, $vr5, 48
-	vsrai.d	$vr5, $vr5, 48
-	vilvh.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
+	vbsrl.v	$vr3, $vr2, 8
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.d.w	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr2, 12
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.w.h	$vr5, $vr2, 0
+	vsllwil.d.w	$vr5, $vr5, 0
+	vshuf4i.h	$vr2, $vr2, 14
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
 	vld	$vr6, $a3, 64
 	vori.b	$vr7, $vr1, 0
 	vmadd.d	$vr7, $vr0, $vr2
 	vori.b	$vr2, $vr1, 0
 	vmadd.d	$vr2, $vr0, $vr5
 	vori.b	$vr5, $vr1, 0
-	vmadd.d	$vr5, $vr0, $vr3
-	vmadd.d	$vr1, $vr0, $vr4
+	vmadd.d	$vr5, $vr0, $vr4
+	vmadd.d	$vr1, $vr0, $vr3
 	vsrli.d	$vr0, $vr1, 48
 	vsrli.d	$vr1, $vr5, 48
 	vsrli.d	$vr2, $vr2, 48

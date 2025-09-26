@@ -208,12 +208,9 @@ hsfc2sort:                              # @hsfc2sort
 	.p2align	4, , 16
 .LBB0_23:                               # %vector.body112
                                         # =>This Inner Loop Header: Depth=1
-	vshuf4i.w	$vr2, $vr0, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr0, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr2, $vr0, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr0, 0
 	vpickve2gr.d	$a4, $vr3, 0
 	slli.d	$a4, $a4, 2
 	vpickve2gr.d	$a5, $vr3, 1
@@ -265,12 +262,9 @@ hsfc2sort:                              # @hsfc2sort
 	.p2align	4, , 16
 .LBB0_28:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vshuf4i.w	$vr2, $vr1, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr1, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr2, $vr1, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr1, 0
 	vpickve2gr.d	$a4, $vr3, 0
 	slli.d	$a4, $a4, 2
 	vpickve2gr.d	$a5, $vr3, 1
@@ -283,12 +277,9 @@ hsfc2sort:                              # @hsfc2sort
 	ldx.w	$a5, $s2, $a5
 	ldx.w	$a6, $s2, $a6
 	ldx.w	$a7, $s2, $a7
-	vshuf4i.w	$vr2, $vr0, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr0, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr2, $vr0, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr0, 0
 	vpickve2gr.d	$t0, $vr3, 0
 	slli.d	$t0, $t0, 2
 	vpickve2gr.d	$t1, $vr3, 1
@@ -502,12 +493,9 @@ hsfc3sort:                              # @hsfc3sort
 	.p2align	4, , 16
 .LBB2_14:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vshuf4i.w	$vr2, $vr1, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr1, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr2, $vr1, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr1, 0
 	vpickve2gr.d	$a4, $vr3, 0
 	slli.d	$a4, $a4, 2
 	vpickve2gr.d	$a5, $vr3, 1
@@ -520,12 +508,9 @@ hsfc3sort:                              # @hsfc3sort
 	ldx.w	$a5, $s2, $a5
 	ldx.w	$a6, $s2, $a6
 	ldx.w	$a7, $s2, $a7
-	vshuf4i.w	$vr2, $vr0, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr0, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr2, $vr0, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr0, 0
 	vpickve2gr.d	$t0, $vr3, 0
 	slli.d	$t0, $t0, 2
 	vpickve2gr.d	$t1, $vr3, 1
@@ -643,12 +628,9 @@ hsfc3sort:                              # @hsfc3sort
 	.p2align	4, , 16
 .LBB2_29:                               # %vector.body150
                                         # =>This Inner Loop Header: Depth=1
-	vshuf4i.w	$vr2, $vr0, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr0, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr2, $vr0, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr0, 0
 	vpickve2gr.d	$a4, $vr3, 0
 	slli.d	$a4, $a4, 2
 	vpickve2gr.d	$a5, $vr3, 1

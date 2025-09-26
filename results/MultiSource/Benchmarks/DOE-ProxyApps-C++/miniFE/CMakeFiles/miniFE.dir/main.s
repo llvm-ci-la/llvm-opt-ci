@@ -9750,13 +9750,9 @@ _ZN6miniFE16impose_dirichletINS_9CSRMatrixIdiiEENS_6VectorIdiiEEEEvNT_10ScalarTy
 	vinsgr2vr.d	$vr1, $t0, 0
 	vinsgr2vr.d	$vr2, $t1, 0
 	vseq.w	$vr1, $vr1, $vr0
-	vshuf4i.w	$vr1, $vr1, 16
-	vslli.d	$vr1, $vr1, 32
-	vsrai.d	$vr1, $vr1, 32
+	vsllwil.d.w	$vr1, $vr1, 0
 	vseq.w	$vr2, $vr2, $vr0
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
+	vsllwil.d.w	$vr2, $vr2, 0
 	vand.v	$vr1, $vr1, $vr4
 	vand.v	$vr2, $vr2, $vr4
 	vst	$vr1, $a5, -16

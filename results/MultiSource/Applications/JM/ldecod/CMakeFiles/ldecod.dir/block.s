@@ -2472,20 +2472,11 @@ intrapred_luma_16x16:                   # @intrapred_luma_16x16
 	.dword	0                               # 0x0
 	.dword	1                               # 0x1
 .LCPI2_2:
-	.half	3                               # 0x3
-	.half	9                               # 0x9
-	.half	2                               # 0x2
-	.half	11                              # 0xb
-	.half	1                               # 0x1
-	.half	13                              # 0xd
-	.half	0                               # 0x0
-	.half	15                              # 0xf
-.LCPI2_3:
 	.word	4                               # 0x4
 	.word	5                               # 0x5
 	.word	6                               # 0x6
 	.word	7                               # 0x7
-.LCPI2_4:
+.LCPI2_3:
 	.word	0                               # 0x0
 	.word	1                               # 0x1
 	.word	2                               # 0x2
@@ -3609,38 +3600,35 @@ intrapred_chroma:                       # @intrapred_chroma
 	vld	$vr2, $t3, %pc_lo12(.LCPI2_0)
 	pcalau12i	$t3, %pc_hi20(.LCPI2_1)
 	vld	$vr3, $t3, %pc_lo12(.LCPI2_1)
-	pcalau12i	$t3, %pc_hi20(.LCPI2_2)
-	vld	$vr4, $t3, %pc_lo12(.LCPI2_2)
 	vinsgr2vr.w	$vr1, $a4, 0
 	alsl.d	$a4, $a5, $a3, 1
 	addi.d	$a4, $a4, 8
 	move	$t3, $t1
-	vori.b	$vr5, $vr0, 0
 	.p2align	4, , 16
 .LBB2_129:                              # %vector.body887
                                         # =>This Inner Loop Header: Depth=1
 	ld.d	$t4, $a4, -8
 	ld.d	$t5, $a4, 0
-	vinsgr2vr.d	$vr6, $t4, 0
-	vinsgr2vr.d	$vr7, $t5, 0
+	vinsgr2vr.d	$vr4, $t4, 0
+	vinsgr2vr.d	$vr5, $t5, 0
 	alsl.d	$t4, $t2, $a3, 1
 	ld.d	$t5, $t4, -6
+	vsllwil.wu.hu	$vr4, $vr4, 0
 	ld.d	$t4, $t4, -14
-	vilvl.h	$vr6, $vr0, $vr6
-	vilvl.h	$vr7, $vr0, $vr7
-	vinsgr2vr.d	$vr8, $t5, 0
-	vinsgr2vr.d	$vr9, $t4, 0
-	vori.b	$vr10, $vr4, 0
-	vshuf.h	$vr10, $vr0, $vr8
-	vori.b	$vr8, $vr4, 0
-	vshuf.h	$vr8, $vr0, $vr9
-	vsub.w	$vr6, $vr6, $vr10
-	vsub.w	$vr7, $vr7, $vr8
-	vpickev.w	$vr8, $vr2, $vr3
-	vaddi.wu	$vr9, $vr8, 1
-	vaddi.wu	$vr8, $vr8, 5
-	vmadd.w	$vr1, $vr6, $vr9
-	vmadd.w	$vr5, $vr7, $vr8
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vinsgr2vr.d	$vr6, $t5, 0
+	vshuf4i.h	$vr6, $vr6, 27
+	vinsgr2vr.d	$vr7, $t4, 0
+	vshuf4i.h	$vr7, $vr7, 27
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsub.w	$vr4, $vr4, $vr6
+	vsub.w	$vr5, $vr5, $vr7
+	vpickev.w	$vr6, $vr2, $vr3
+	vaddi.wu	$vr7, $vr6, 1
+	vaddi.wu	$vr6, $vr6, 5
+	vmadd.w	$vr1, $vr4, $vr7
+	vmadd.w	$vr0, $vr5, $vr6
 	vaddi.du	$vr3, $vr3, 8
 	vaddi.du	$vr2, $vr2, 8
 	addi.d	$t3, $t3, -8
@@ -3648,7 +3636,7 @@ intrapred_chroma:                       # @intrapred_chroma
 	addi.w	$t2, $t2, -8
 	bnez	$t3, .LBB2_129
 # %bb.130:                              # %middle.block895
-	vadd.w	$vr0, $vr5, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a4, $vr0, 0
@@ -3814,10 +3802,10 @@ intrapred_chroma:                       # @intrapred_chroma
                                         #   in Loop: Header=BB2_140 Depth=1
 	sub.d	$t3, $a2, $a3
 	addi.d	$t3, $t3, 1
+	pcalau12i	$t4, %pc_hi20(.LCPI2_2)
+	vld	$vr3, $t4, %pc_lo12(.LCPI2_2)
 	pcalau12i	$t4, %pc_hi20(.LCPI2_3)
-	vld	$vr3, $t4, %pc_lo12(.LCPI2_3)
-	pcalau12i	$t4, %pc_hi20(.LCPI2_4)
-	vld	$vr4, $t4, %pc_lo12(.LCPI2_4)
+	vld	$vr4, $t4, %pc_lo12(.LCPI2_3)
 	mul.d	$t3, $t3, $a6
 	add.d	$t3, $a1, $t3
 	vreplgr2vr.w	$vr5, $t3
@@ -4250,45 +4238,44 @@ itrans:                                 # @itrans
 	slli.d	$a3, $a3, 8
 	add.d	$a3, $a0, $a3
 	slli.d	$a4, $a4, 6
+	add.d	$a3, $a3, $a4
 	slli.d	$a2, $a2, 5
 	add.d	$a2, $a0, $a2
 	alsl.d	$a1, $a1, $a2, 1
 	ld.d	$a2, $a1, 104
-	add.d	$a3, $a3, $a4
 	ori	$a4, $zero, 2408
 	vldx	$vr0, $a3, $a4
 	vinsgr2vr.d	$vr1, $a2, 0
-	vrepli.b	$vr2, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vadd.w	$vr0, $vr0, $vr1
 	vmaxi.w	$vr0, $vr0, 0
 	vreplgr2vr.w	$vr1, $a5
 	vmin.w	$vr0, $vr0, $vr1
 	ld.d	$a2, $a1, 136
 	ori	$a4, $zero, 2424
-	vldx	$vr3, $a3, $a4
+	vldx	$vr2, $a3, $a4
 	vst	$vr0, $a0, 1384
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
-	vadd.w	$vr0, $vr3, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vadd.w	$vr0, $vr2, $vr0
 	vmaxi.w	$vr0, $vr0, 0
 	vmin.w	$vr0, $vr0, $vr1
 	ld.d	$a2, $a1, 168
 	ori	$a4, $zero, 2440
-	vldx	$vr3, $a3, $a4
+	vldx	$vr2, $a3, $a4
 	vst	$vr0, $a0, 1448
 	vinsgr2vr.d	$vr0, $a2, 0
-	vilvl.h	$vr0, $vr2, $vr0
-	vadd.w	$vr0, $vr3, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vadd.w	$vr0, $vr2, $vr0
 	vmaxi.w	$vr0, $vr0, 0
 	vmin.w	$vr0, $vr0, $vr1
 	ld.d	$a1, $a1, 200
 	ori	$a2, $zero, 2456
-	vldx	$vr3, $a3, $a2
+	vldx	$vr2, $a3, $a2
 	vst	$vr0, $a0, 1512
 	vinsgr2vr.d	$vr0, $a1, 0
-	vilvl.h	$vr0, $vr2, $vr0
-	vadd.w	$vr0, $vr3, $vr0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vadd.w	$vr0, $vr2, $vr0
 	vmaxi.w	$vr0, $vr0, 0
 	vmin.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 1576

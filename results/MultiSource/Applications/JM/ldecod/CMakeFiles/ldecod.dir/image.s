@@ -1363,7 +1363,6 @@ buf2img:                                # @buf2img
 	bstrpick.d	$a2, $s1, 30, 4
 	slli.d	$a2, $a2, 4
 	ori	$a3, $zero, 16
-	vrepli.b	$vr0, 0
 	b	.LBB4_17
 	.p2align	4, , 16
 .LBB4_16:                               # %._crit_edge.us125
@@ -1419,12 +1418,12 @@ buf2img:                                # @buf2img
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$t1, $a7, -8
 	ld.d	$t2, $a7, 0
-	vinsgr2vr.d	$vr1, $t1, 0
-	vinsgr2vr.d	$vr2, $t2, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.b	$vr2, $vr0, $vr2
-	vst	$vr1, $a6, -16
-	vst	$vr2, $a6, 0
+	vinsgr2vr.d	$vr0, $t1, 0
+	vinsgr2vr.d	$vr1, $t2, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vst	$vr0, $a6, -16
+	vst	$vr1, $a6, 0
 	addi.d	$t0, $t0, -16
 	addi.d	$a6, $a6, 32
 	addi.d	$a7, $a7, 16
@@ -1601,7 +1600,6 @@ buf2img:                                # @buf2img
 	sub.d	$a7, $zero, $a5
 	ori	$t0, $zero, 8
 	ori	$t1, $zero, 16
-	vrepli.b	$vr0, 0
 	move	$t2, $s2
 	b	.LBB4_53
 	.p2align	4, , 16
@@ -1657,9 +1655,9 @@ buf2img:                                # @buf2img
                                         #   Parent Loop BB4_53 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$t7, $t6, 0
-	vinsgr2vr.d	$vr1, $t7, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vst	$vr1, $t5, 0
+	vinsgr2vr.d	$vr0, $t7, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vst	$vr0, $t5, 0
 	addi.d	$t4, $t4, 8
 	addi.d	$t5, $t5, 16
 	addi.d	$t6, $t6, 8
@@ -1680,12 +1678,12 @@ buf2img:                                # @buf2img
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$t7, $t5, -8
 	ld.d	$t8, $t5, 0
-	vinsgr2vr.d	$vr1, $t7, 0
-	vinsgr2vr.d	$vr2, $t8, 0
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.b	$vr2, $vr0, $vr2
-	vst	$vr1, $t4, -16
-	vst	$vr2, $t4, 0
+	vinsgr2vr.d	$vr0, $t7, 0
+	vinsgr2vr.d	$vr1, $t8, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vst	$vr0, $t4, -16
+	vst	$vr1, $t4, 0
 	addi.d	$t6, $t6, -16
 	addi.d	$t4, $t4, 32
 	addi.d	$t5, $t5, 16
@@ -3794,8 +3792,7 @@ get_block:                              # @get_block
 	vinsgr2vr.h	$vr1, $t2, 1
 	vinsgr2vr.h	$vr1, $a5, 2
 	vinsgr2vr.h	$vr1, $t1, 3
-	vrepli.b	$vr2, 0
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vadd.w	$vr0, $vr0, $vr1
 	ld.d	$a5, $sp, 40                    # 8-byte Folded Reload
 	ld.d	$a5, $a5, 0
@@ -3811,7 +3808,7 @@ get_block:                              # @get_block
 	vinsgr2vr.h	$vr1, $t1, 1
 	vinsgr2vr.h	$vr1, $t2, 2
 	vinsgr2vr.h	$vr1, $a5, 3
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vadd.w	$vr0, $vr0, $vr1
 	vaddi.wu	$vr0, $vr0, 1
 	vsrai.w	$vr0, $vr0, 1
@@ -3825,7 +3822,7 @@ get_block:                              # @get_block
 	vinsgr2vr.h	$vr1, $t0, 1
 	vinsgr2vr.h	$vr1, $t1, 2
 	vinsgr2vr.h	$vr1, $a3, 3
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vadd.w	$vr0, $vr0, $vr1
 	ld.d	$a3, $sp, 48                    # 8-byte Folded Reload
 	ld.d	$a3, $a3, 0
@@ -3841,7 +3838,7 @@ get_block:                              # @get_block
 	vinsgr2vr.h	$vr1, $a4, 1
 	vinsgr2vr.h	$vr1, $a5, 2
 	vinsgr2vr.h	$vr1, $a6, 3
-	vilvl.h	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vadd.w	$vr0, $vr0, $vr1
 	vaddi.wu	$vr0, $vr0, 1
 	vsrai.w	$vr0, $vr0, 1
@@ -4081,14 +4078,13 @@ get_block:                              # @get_block
 	ldx.h	$t2, $a4, $t1
 	ldx.h	$t6, $a4, $t3
 	ld.d	$a4, $sp, 56                    # 8-byte Folded Reload
-	vld	$vr1, $a4, 0
-	vinsgr2vr.h	$vr2, $a5, 0
-	vinsgr2vr.h	$vr2, $a6, 1
-	vinsgr2vr.h	$vr2, $t2, 2
-	vinsgr2vr.h	$vr2, $t6, 3
-	vrepli.b	$vr0, 0
-	vilvl.h	$vr2, $vr0, $vr2
-	vadd.w	$vr1, $vr1, $vr2
+	vld	$vr0, $a4, 0
+	vinsgr2vr.h	$vr1, $a5, 0
+	vinsgr2vr.h	$vr1, $a6, 1
+	vinsgr2vr.h	$vr1, $t2, 2
+	vinsgr2vr.h	$vr1, $t6, 3
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vadd.w	$vr0, $vr0, $vr1
 	slt	$a5, $t5, $a3
 	maskeqz	$a6, $a3, $a5
 	masknez	$a5, $t5, $a5
@@ -4100,20 +4096,20 @@ get_block:                              # @get_block
 	or	$a5, $a5, $a6
 	slli.d	$a5, $a5, 3
 	ldx.d	$a5, $a0, $a5
-	vaddi.wu	$vr1, $vr1, 1
-	vsrai.w	$vr1, $vr1, 1
-	vst	$vr1, $a4, 0
+	vaddi.wu	$vr0, $vr0, 1
+	vsrai.w	$vr0, $vr0, 1
+	vst	$vr0, $a4, 0
 	ldx.h	$a6, $a5, $a7
 	ldx.h	$t2, $a5, $t0
 	ldx.h	$t5, $a5, $t1
 	ldx.h	$a5, $a5, $t3
-	vld	$vr1, $a4, 16
-	vinsgr2vr.h	$vr2, $a6, 0
-	vinsgr2vr.h	$vr2, $t2, 1
-	vinsgr2vr.h	$vr2, $t5, 2
-	vinsgr2vr.h	$vr2, $a5, 3
-	vilvl.h	$vr2, $vr0, $vr2
-	vadd.w	$vr1, $vr1, $vr2
+	vld	$vr0, $a4, 16
+	vinsgr2vr.h	$vr1, $a6, 0
+	vinsgr2vr.h	$vr1, $t2, 1
+	vinsgr2vr.h	$vr1, $t5, 2
+	vinsgr2vr.h	$vr1, $a5, 3
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vadd.w	$vr0, $vr0, $vr1
 	slt	$a5, $t4, $a3
 	maskeqz	$a6, $a3, $a5
 	masknez	$a5, $t4, $a5
@@ -4125,20 +4121,20 @@ get_block:                              # @get_block
 	or	$a5, $a5, $a6
 	slli.d	$a5, $a5, 3
 	ldx.d	$a5, $a0, $a5
-	vaddi.wu	$vr1, $vr1, 1
-	vsrai.w	$vr1, $vr1, 1
-	vst	$vr1, $a4, 16
+	vaddi.wu	$vr0, $vr0, 1
+	vsrai.w	$vr0, $vr0, 1
+	vst	$vr0, $a4, 16
 	ldx.h	$a6, $a5, $a7
 	ldx.h	$t2, $a5, $t0
 	ldx.h	$t4, $a5, $t1
 	ldx.h	$a5, $a5, $t3
-	vld	$vr1, $a4, 32
-	vinsgr2vr.h	$vr2, $a6, 0
-	vinsgr2vr.h	$vr2, $t2, 1
-	vinsgr2vr.h	$vr2, $t4, 2
-	vinsgr2vr.h	$vr2, $a5, 3
-	vilvl.h	$vr2, $vr0, $vr2
-	vadd.w	$vr1, $vr1, $vr2
+	vld	$vr0, $a4, 32
+	vinsgr2vr.h	$vr1, $a6, 0
+	vinsgr2vr.h	$vr1, $t2, 1
+	vinsgr2vr.h	$vr1, $t4, 2
+	vinsgr2vr.h	$vr1, $a5, 3
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vadd.w	$vr0, $vr0, $vr1
 	slt	$a5, $a2, $a3
 	maskeqz	$a3, $a3, $a5
 	masknez	$a2, $a2, $a5
@@ -4150,20 +4146,20 @@ get_block:                              # @get_block
 	or	$a1, $a2, $a1
 	slli.d	$a1, $a1, 3
 	ldx.d	$a0, $a0, $a1
-	vaddi.wu	$vr1, $vr1, 1
-	vsrai.w	$vr1, $vr1, 1
-	vst	$vr1, $a4, 32
+	vaddi.wu	$vr0, $vr0, 1
+	vsrai.w	$vr0, $vr0, 1
+	vst	$vr0, $a4, 32
 	ldx.h	$a1, $a0, $a7
 	ldx.h	$a2, $a0, $t0
 	ldx.h	$a3, $a0, $t1
 	ldx.h	$a5, $a0, $t3
-	vld	$vr1, $a4, 48
-	vinsgr2vr.h	$vr2, $a1, 0
-	vinsgr2vr.h	$vr2, $a2, 1
-	vinsgr2vr.h	$vr2, $a3, 2
-	vinsgr2vr.h	$vr2, $a5, 3
-	vilvl.h	$vr0, $vr0, $vr2
-	vadd.w	$vr0, $vr1, $vr0
+	vld	$vr0, $a4, 48
+	vinsgr2vr.h	$vr1, $a1, 0
+	vinsgr2vr.h	$vr1, $a2, 1
+	vinsgr2vr.h	$vr1, $a3, 2
+	vinsgr2vr.h	$vr1, $a5, 3
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vadd.w	$vr0, $vr0, $vr1
 	vaddi.wu	$vr0, $vr0, 1
 	vsrai.w	$vr0, $vr0, 1
 	vst	$vr0, $a4, 48

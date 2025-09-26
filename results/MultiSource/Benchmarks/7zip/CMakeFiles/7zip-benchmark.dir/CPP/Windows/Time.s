@@ -225,25 +225,24 @@ _ZN8NWindows5NTime19GetSecondsSince1601EjjjjjjRy: # @_ZN8NWindows5NTime19GetSeco
 	vinsgr2vr.w	$vr1, $a2, 0
 	addi.d	$a2, $sp, 4
 	move	$t1, $t0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB4_9:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$t2, $a2, -4
 	ld.w	$t3, $a2, 0
-	vinsgr2vr.w	$vr3, $t2, 0
-	vinsgr2vr.w	$vr4, $t3, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
+	vinsgr2vr.w	$vr2, $t2, 0
+	vinsgr2vr.w	$vr3, $t3, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr1, $vr1, $vr2
+	vadd.w	$vr0, $vr0, $vr3
 	addi.d	$t1, $t1, -8
 	addi.d	$a2, $a2, 8
 	bnez	$t1, .LBB4_9
 # %bb.10:                               # %middle.block
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a2, $vr0, 0

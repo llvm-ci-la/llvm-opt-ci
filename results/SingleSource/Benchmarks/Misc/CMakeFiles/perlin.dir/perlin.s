@@ -162,34 +162,24 @@ main:                                   # @main
 	vinsgr2vr.d	$vr26, $a7, 0
 	vand.v	$vr27, $vr26, $vr8
 	vslti.wu	$vr28, $vr27, 4
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
+	vsllwil.d.w	$vr28, $vr28, 0
 	vand.v	$vr29, $vr26, $vr16
 	vseqi.w	$vr29, $vr29, 12
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
+	vsllwil.d.w	$vr29, $vr29, 0
 	vbitsel.v	$vr29, $vr9, $vr21, $vr29
 	vreplvei.d	$vr25, $vr25, 0
 	vbitsel.v	$vr28, $vr29, $vr25, $vr28
 	vslti.wu	$vr27, $vr27, 8
-	vshuf4i.w	$vr27, $vr27, 16
-	vslli.d	$vr27, $vr27, 32
-	vsrai.d	$vr27, $vr27, 32
+	vsllwil.d.w	$vr27, $vr27, 0
 	vbitsel.v	$vr27, $vr25, $vr21, $vr27
 	vand.v	$vr29, $vr26, $vr17
 	vseqi.w	$vr29, $vr29, 0
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
+	vsllwil.d.w	$vr29, $vr29, 0
 	vbitrevi.d	$vr30, $vr27, 63
 	vbitsel.v	$vr27, $vr30, $vr27, $vr29
 	vand.v	$vr26, $vr26, $vr18
 	vseqi.w	$vr26, $vr26, 0
-	vshuf4i.w	$vr26, $vr26, 16
-	vslli.d	$vr26, $vr26, 32
-	vsrai.d	$vr26, $vr26, 32
+	vsllwil.d.w	$vr26, $vr26, 0
 	ld.d	$a5, $a6, 396
 	vbitrevi.d	$vr29, $vr28, 63
 	vbitsel.v	$vr26, $vr29, $vr28, $vr26
@@ -197,33 +187,23 @@ main:                                   # @main
 	vinsgr2vr.d	$vr27, $a5, 0
 	vand.v	$vr28, $vr27, $vr8
 	vslti.wu	$vr29, $vr28, 4
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
+	vsllwil.d.w	$vr29, $vr29, 0
 	vand.v	$vr30, $vr27, $vr16
 	vseqi.w	$vr30, $vr30, 12
-	vshuf4i.w	$vr30, $vr30, 16
-	vslli.d	$vr30, $vr30, 32
-	vsrai.d	$vr30, $vr30, 32
+	vsllwil.d.w	$vr30, $vr30, 0
 	vbitsel.v	$vr30, $vr9, $vr20, $vr30
 	vbitsel.v	$vr29, $vr30, $vr25, $vr29
 	vslti.wu	$vr28, $vr28, 8
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
+	vsllwil.d.w	$vr28, $vr28, 0
 	vbitsel.v	$vr25, $vr25, $vr20, $vr28
 	vand.v	$vr28, $vr27, $vr17
 	vseqi.w	$vr28, $vr28, 0
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
+	vsllwil.d.w	$vr28, $vr28, 0
 	vbitrevi.d	$vr30, $vr25, 63
 	vbitsel.v	$vr25, $vr30, $vr25, $vr28
 	vand.v	$vr27, $vr27, $vr18
 	vseqi.w	$vr27, $vr27, 0
-	vshuf4i.w	$vr27, $vr27, 16
-	vslli.d	$vr27, $vr27, 32
-	vsrai.d	$vr27, $vr27, 32
+	vsllwil.d.w	$vr27, $vr27, 0
 	vbitrevi.d	$vr28, $vr29, 63
 	vbitsel.v	$vr27, $vr28, $vr29, $vr27
 	ld.d	$a4, $a4, 396
@@ -233,34 +213,24 @@ main:                                   # @main
 	vinsgr2vr.d	$vr26, $a4, 0
 	vand.v	$vr27, $vr26, $vr8
 	vslti.wu	$vr28, $vr27, 4
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
+	vsllwil.d.w	$vr28, $vr28, 0
 	vand.v	$vr29, $vr26, $vr16
 	vseqi.w	$vr29, $vr29, 12
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
+	vsllwil.d.w	$vr29, $vr29, 0
 	vbitsel.v	$vr29, $vr9, $vr21, $vr29
 	vreplvei.d	$vr24, $vr24, 0
 	vbitsel.v	$vr28, $vr29, $vr24, $vr28
 	vslti.wu	$vr27, $vr27, 8
-	vshuf4i.w	$vr27, $vr27, 16
-	vslli.d	$vr27, $vr27, 32
-	vsrai.d	$vr27, $vr27, 32
+	vsllwil.d.w	$vr27, $vr27, 0
 	vbitsel.v	$vr27, $vr24, $vr21, $vr27
 	vand.v	$vr29, $vr26, $vr17
 	vseqi.w	$vr29, $vr29, 0
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
+	vsllwil.d.w	$vr29, $vr29, 0
 	vbitrevi.d	$vr30, $vr27, 63
 	vbitsel.v	$vr27, $vr30, $vr27, $vr29
 	vand.v	$vr26, $vr26, $vr18
 	vseqi.w	$vr26, $vr26, 0
-	vshuf4i.w	$vr26, $vr26, 16
-	vslli.d	$vr26, $vr26, 32
-	vsrai.d	$vr26, $vr26, 32
+	vsllwil.d.w	$vr26, $vr26, 0
 	ld.d	$a3, $a3, 396
 	vbitrevi.d	$vr29, $vr28, 63
 	vbitsel.v	$vr26, $vr29, $vr28, $vr26
@@ -268,33 +238,23 @@ main:                                   # @main
 	vinsgr2vr.d	$vr27, $a3, 0
 	vand.v	$vr28, $vr27, $vr8
 	vslti.wu	$vr29, $vr28, 4
-	vshuf4i.w	$vr29, $vr29, 16
-	vslli.d	$vr29, $vr29, 32
-	vsrai.d	$vr29, $vr29, 32
+	vsllwil.d.w	$vr29, $vr29, 0
 	vand.v	$vr30, $vr27, $vr16
 	vseqi.w	$vr30, $vr30, 12
-	vshuf4i.w	$vr30, $vr30, 16
-	vslli.d	$vr30, $vr30, 32
-	vsrai.d	$vr30, $vr30, 32
+	vsllwil.d.w	$vr30, $vr30, 0
 	vbitsel.v	$vr30, $vr9, $vr20, $vr30
 	vbitsel.v	$vr29, $vr30, $vr24, $vr29
 	vslti.wu	$vr28, $vr28, 8
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
+	vsllwil.d.w	$vr28, $vr28, 0
 	vbitsel.v	$vr24, $vr24, $vr20, $vr28
 	vand.v	$vr28, $vr27, $vr17
 	vseqi.w	$vr28, $vr28, 0
-	vshuf4i.w	$vr28, $vr28, 16
-	vslli.d	$vr28, $vr28, 32
-	vsrai.d	$vr28, $vr28, 32
+	vsllwil.d.w	$vr28, $vr28, 0
 	vbitrevi.d	$vr30, $vr24, 63
 	vbitsel.v	$vr24, $vr30, $vr24, $vr28
 	vand.v	$vr27, $vr27, $vr18
 	vseqi.w	$vr27, $vr27, 0
-	vshuf4i.w	$vr27, $vr27, 16
-	vslli.d	$vr27, $vr27, 32
-	vsrai.d	$vr27, $vr27, 32
+	vsllwil.d.w	$vr27, $vr27, 0
 	vbitrevi.d	$vr28, $vr29, 63
 	vbitsel.v	$vr27, $vr28, $vr29, $vr27
 	vfadd.d	$vr24, $vr24, $vr27

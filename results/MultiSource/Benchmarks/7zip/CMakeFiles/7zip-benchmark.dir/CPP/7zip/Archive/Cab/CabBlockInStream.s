@@ -289,7 +289,6 @@ _ZN8NArchive4NCab10CCheckSum26UpdateEPKvj: # @_ZN8NArchive4NCab10CCheckSum26Upda
 	vori.b	$vr1, $vr0, 0
 	vinsgr2vr.w	$vr1, $t0, 0
 	move	$t0, $a6
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB4_10:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
@@ -297,70 +296,70 @@ _ZN8NArchive4NCab10CCheckSum26UpdateEPKvj: # @_ZN8NArchive4NCab10CCheckSum26Upda
 	ld.b	$t2, $a7, -11
 	ld.b	$t3, $a7, -7
 	ld.b	$t4, $a7, -3
-	vinsgr2vr.b	$vr3, $t1, 0
-	vinsgr2vr.b	$vr3, $t2, 1
-	vinsgr2vr.b	$vr3, $t3, 2
-	vinsgr2vr.b	$vr3, $t4, 3
+	vinsgr2vr.b	$vr2, $t1, 0
+	vinsgr2vr.b	$vr2, $t2, 1
+	vinsgr2vr.b	$vr2, $t3, 2
+	vinsgr2vr.b	$vr2, $t4, 3
 	ld.b	$t1, $a7, 1
 	ld.b	$t2, $a7, 5
 	ld.b	$t3, $a7, 9
 	ld.b	$t4, $a7, 13
-	vinsgr2vr.b	$vr4, $t1, 0
-	vinsgr2vr.b	$vr4, $t2, 1
-	vinsgr2vr.b	$vr4, $t3, 2
-	vinsgr2vr.b	$vr4, $t4, 3
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.b	$vr3, $t1, 0
+	vinsgr2vr.b	$vr3, $t2, 1
+	vinsgr2vr.b	$vr3, $t3, 2
+	vinsgr2vr.b	$vr3, $t4, 3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
 	ld.b	$t1, $a7, -14
 	ld.b	$t2, $a7, -10
 	ld.b	$t3, $a7, -6
 	ld.b	$t4, $a7, -2
-	vinsgr2vr.b	$vr5, $t1, 0
-	vinsgr2vr.b	$vr5, $t2, 1
-	vinsgr2vr.b	$vr5, $t3, 2
-	vinsgr2vr.b	$vr5, $t4, 3
+	vinsgr2vr.b	$vr4, $t1, 0
+	vinsgr2vr.b	$vr4, $t2, 1
+	vinsgr2vr.b	$vr4, $t3, 2
+	vinsgr2vr.b	$vr4, $t4, 3
 	ld.b	$t1, $a7, 2
 	ld.b	$t2, $a7, 6
 	ld.b	$t3, $a7, 10
 	ld.b	$t4, $a7, 14
-	vinsgr2vr.b	$vr6, $t1, 0
-	vinsgr2vr.b	$vr6, $t2, 1
-	vinsgr2vr.b	$vr6, $t3, 2
-	vinsgr2vr.b	$vr6, $t4, 3
-	vilvl.b	$vr5, $vr0, $vr5
-	vilvl.h	$vr5, $vr0, $vr5
-	vilvl.b	$vr6, $vr0, $vr6
-	vilvl.h	$vr6, $vr0, $vr6
-	vslli.w	$vr5, $vr5, 8
-	vslli.w	$vr6, $vr6, 8
-	vor.v	$vr3, $vr5, $vr3
-	vor.v	$vr4, $vr6, $vr4
-	ld.b	$t1, $a7, -13
-	ld.b	$t2, $a7, -9
-	ld.b	$t3, $a7, -5
-	ld.b	$t4, $a7, -1
 	vinsgr2vr.b	$vr5, $t1, 0
 	vinsgr2vr.b	$vr5, $t2, 1
 	vinsgr2vr.b	$vr5, $t3, 2
 	vinsgr2vr.b	$vr5, $t4, 3
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vslli.w	$vr4, $vr4, 8
+	vslli.w	$vr5, $vr5, 8
+	vor.v	$vr2, $vr4, $vr2
+	vor.v	$vr3, $vr5, $vr3
+	ld.b	$t1, $a7, -13
+	ld.b	$t2, $a7, -9
+	ld.b	$t3, $a7, -5
+	ld.b	$t4, $a7, -1
+	vinsgr2vr.b	$vr4, $t1, 0
+	vinsgr2vr.b	$vr4, $t2, 1
+	vinsgr2vr.b	$vr4, $t3, 2
+	vinsgr2vr.b	$vr4, $t4, 3
 	ld.b	$t1, $a7, 3
 	ld.b	$t2, $a7, 7
 	ld.b	$t3, $a7, 11
 	ld.b	$t4, $a7, 15
-	vinsgr2vr.b	$vr6, $t1, 0
-	vinsgr2vr.b	$vr6, $t2, 1
-	vinsgr2vr.b	$vr6, $t3, 2
-	vinsgr2vr.b	$vr6, $t4, 3
-	vilvl.b	$vr5, $vr0, $vr5
-	vilvl.h	$vr5, $vr0, $vr5
-	vilvl.b	$vr6, $vr0, $vr6
-	vilvl.h	$vr6, $vr0, $vr6
+	vinsgr2vr.b	$vr5, $t1, 0
+	vinsgr2vr.b	$vr5, $t2, 1
+	vinsgr2vr.b	$vr5, $t3, 2
+	vinsgr2vr.b	$vr5, $t4, 3
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vslli.w	$vr4, $vr4, 16
 	vslli.w	$vr5, $vr5, 16
-	vslli.w	$vr6, $vr6, 16
+	vor.v	$vr2, $vr2, $vr4
 	vor.v	$vr3, $vr3, $vr5
-	vor.v	$vr4, $vr4, $vr6
 	ld.b	$t1, $a7, -12
 	ld.b	$t2, $a7, -8
 	ld.b	$t3, $a7, -4
@@ -369,25 +368,25 @@ _ZN8NArchive4NCab10CCheckSum26UpdateEPKvj: # @_ZN8NArchive4NCab10CCheckSum26Upda
 	ld.b	$t6, $a7, 8
 	ld.b	$t7, $a7, 12
 	ld.b	$t8, $a7, 16
-	vinsgr2vr.b	$vr5, $t1, 0
-	vinsgr2vr.b	$vr5, $t2, 4
-	vinsgr2vr.b	$vr5, $t3, 8
-	vinsgr2vr.b	$vr5, $t4, 12
-	vinsgr2vr.b	$vr6, $t5, 0
-	vinsgr2vr.b	$vr6, $t6, 4
-	vinsgr2vr.b	$vr6, $t7, 8
-	vinsgr2vr.b	$vr6, $t8, 12
+	vinsgr2vr.b	$vr4, $t1, 0
+	vinsgr2vr.b	$vr4, $t2, 4
+	vinsgr2vr.b	$vr4, $t3, 8
+	vinsgr2vr.b	$vr4, $t4, 12
+	vinsgr2vr.b	$vr5, $t5, 0
+	vinsgr2vr.b	$vr5, $t6, 4
+	vinsgr2vr.b	$vr5, $t7, 8
+	vinsgr2vr.b	$vr5, $t8, 12
+	vslli.w	$vr4, $vr4, 24
 	vslli.w	$vr5, $vr5, 24
-	vslli.w	$vr6, $vr6, 24
+	vor.v	$vr2, $vr2, $vr4
 	vor.v	$vr3, $vr3, $vr5
-	vor.v	$vr4, $vr4, $vr6
-	vxor.v	$vr1, $vr3, $vr1
-	vxor.v	$vr2, $vr4, $vr2
+	vxor.v	$vr1, $vr2, $vr1
+	vxor.v	$vr0, $vr3, $vr0
 	addi.d	$t0, $t0, -8
 	addi.d	$a7, $a7, 32
 	bnez	$t0, .LBB4_10
 # %bb.11:                               # %middle.block
-	vxor.v	$vr0, $vr2, $vr1
+	vxor.v	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8
 	vxor.v	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4
@@ -632,34 +631,33 @@ _ZN8NArchive4NCab17CCabBlockInStream7PreReadERjS2_: # @_ZN8NArchive4NCab17CCabBl
 	vrepli.b	$vr4, -1
 	vrepli.w	$vr5, -40
 	move	$a4, $a2
-	vori.b	$vr6, $vr0, 0
 	.p2align	4, , 16
 .LBB5_19:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a5, $a3, -4
 	ld.w	$a6, $a3, 0
-	vinsgr2vr.w	$vr7, $a5, 0
-	vinsgr2vr.w	$vr8, $a6, 0
-	vilvl.b	$vr7, $vr0, $vr7
-	vilvl.h	$vr7, $vr0, $vr7
-	vilvl.b	$vr8, $vr0, $vr8
-	vilvl.h	$vr8, $vr0, $vr8
-	vxor.v	$vr9, $vr3, $vr4
-	vadd.w	$vr9, $vr2, $vr9
-	vsub.w	$vr10, $vr2, $vr3
+	vinsgr2vr.w	$vr6, $a5, 0
+	vinsgr2vr.w	$vr7, $a6, 0
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vxor.v	$vr8, $vr3, $vr4
+	vadd.w	$vr8, $vr2, $vr8
+	vsub.w	$vr9, $vr2, $vr3
+	vslli.w	$vr8, $vr8, 3
 	vslli.w	$vr9, $vr9, 3
-	vslli.w	$vr10, $vr10, 3
-	vadd.w	$vr10, $vr10, $vr5
+	vadd.w	$vr9, $vr9, $vr5
+	vsll.w	$vr6, $vr6, $vr8
 	vsll.w	$vr7, $vr7, $vr9
-	vsll.w	$vr8, $vr8, $vr10
-	vxor.v	$vr1, $vr7, $vr1
-	vxor.v	$vr6, $vr8, $vr6
+	vxor.v	$vr1, $vr6, $vr1
+	vxor.v	$vr0, $vr7, $vr0
 	vaddi.wu	$vr3, $vr3, 8
 	addi.d	$a4, $a4, -8
 	addi.d	$a3, $a3, 8
 	bnez	$a4, .LBB5_19
 # %bb.20:                               # %middle.block
-	vxor.v	$vr0, $vr6, $vr1
+	vxor.v	$vr0, $vr0, $vr1
 	vbsrl.v	$vr1, $vr0, 8
 	vxor.v	$vr0, $vr1, $vr0
 	vbsrl.v	$vr1, $vr0, 4

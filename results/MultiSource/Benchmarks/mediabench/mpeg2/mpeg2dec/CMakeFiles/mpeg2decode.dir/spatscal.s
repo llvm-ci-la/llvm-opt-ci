@@ -584,7 +584,6 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	slli.d	$t2, $fp, 1
 	ori	$t3, $zero, 16
 	ori	$t4, $zero, 8
-	vrepli.b	$vr0, 0
 	move	$t5, $a4
 	b	.LBB3_5
 	.p2align	4, , 16
@@ -653,8 +652,8 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	bnez	$s3, .LBB3_7
 # %bb.11:                               # %vector.ph
                                         #   in Loop: Header=BB3_5 Depth=1
-	vreplgr2vr.h	$vr1, $t8
-	vreplgr2vr.h	$vr2, $t7
+	vreplgr2vr.h	$vr0, $t8
+	vreplgr2vr.h	$vr1, $t7
 	move	$s3, $t5
 	move	$s5, $t1
 	.p2align	4, , 16
@@ -663,13 +662,13 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$ra, $s2, 0
 	ldx.d	$s8, $s2, $t6
-	vinsgr2vr.d	$vr3, $ra, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vinsgr2vr.d	$vr4, $s8, 0
-	vilvl.b	$vr4, $vr0, $vr4
-	vmul.h	$vr4, $vr2, $vr4
-	vmadd.h	$vr4, $vr1, $vr3
-	vst	$vr4, $s3, 0
+	vinsgr2vr.d	$vr2, $ra, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vinsgr2vr.d	$vr3, $s8, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vmul.h	$vr3, $vr1, $vr3
+	vmadd.h	$vr3, $vr0, $vr2
+	vst	$vr3, $s3, 0
 	addi.d	$s5, $s5, -8
 	addi.d	$s3, $s3, 16
 	addi.d	$s2, $s2, 8
@@ -721,7 +720,6 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	slli.d	$t3, $fp, 1
 	ori	$t4, $zero, 16
 	ori	$t5, $zero, 8
-	vrepli.b	$vr0, 0
 	move	$t6, $a4
 	b	.LBB3_20
 	.p2align	4, , 16
@@ -790,8 +788,8 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	bnez	$s3, .LBB3_22
 # %bb.26:                               # %vector.ph228
                                         #   in Loop: Header=BB3_20 Depth=1
-	vreplgr2vr.h	$vr1, $s0
-	vreplgr2vr.h	$vr2, $t8
+	vreplgr2vr.h	$vr0, $s0
+	vreplgr2vr.h	$vr1, $t8
 	move	$s3, $t6
 	move	$s5, $t2
 	.p2align	4, , 16
@@ -800,13 +798,13 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$s8, $s2, 0
 	ldx.d	$ra, $s2, $t7
-	vinsgr2vr.d	$vr3, $s8, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vinsgr2vr.d	$vr4, $ra, 0
-	vilvl.b	$vr4, $vr0, $vr4
-	vmul.h	$vr4, $vr2, $vr4
-	vmadd.h	$vr4, $vr1, $vr3
-	vst	$vr4, $s3, 0
+	vinsgr2vr.d	$vr2, $s8, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vinsgr2vr.d	$vr3, $ra, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vmul.h	$vr3, $vr1, $vr3
+	vmadd.h	$vr3, $vr0, $vr2
+	vst	$vr3, $s3, 0
 	addi.d	$s5, $s5, -8
 	addi.d	$s3, $s3, 16
 	addi.d	$s2, $s2, 8
@@ -860,7 +858,6 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	slli.d	$t2, $fp, 2
 	ori	$s3, $zero, 16
 	ori	$t4, $zero, 8
-	vrepli.b	$vr0, 0
 	move	$t5, $a4
 	b	.LBB3_33
 	.p2align	4, , 16
@@ -929,8 +926,8 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	bnez	$s5, .LBB3_35
 # %bb.39:                               # %vector.ph288
                                         #   in Loop: Header=BB3_33 Depth=1
-	vreplgr2vr.h	$vr1, $t8
-	vreplgr2vr.h	$vr2, $t7
+	vreplgr2vr.h	$vr0, $t8
+	vreplgr2vr.h	$vr1, $t7
 	move	$s5, $t5
 	move	$ra, $t1
 	.p2align	4, , 16
@@ -939,13 +936,13 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$s8, $s2, 0
 	ldx.d	$t3, $s2, $t6
-	vinsgr2vr.d	$vr3, $s8, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vinsgr2vr.d	$vr4, $t3, 0
-	vilvl.b	$vr4, $vr0, $vr4
-	vmul.h	$vr4, $vr2, $vr4
-	vmadd.h	$vr4, $vr1, $vr3
-	vst	$vr4, $s5, 0
+	vinsgr2vr.d	$vr2, $s8, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vinsgr2vr.d	$vr3, $t3, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vmul.h	$vr3, $vr1, $vr3
+	vmadd.h	$vr3, $vr0, $vr2
+	vst	$vr3, $s5, 0
 	addi.d	$ra, $ra, -8
 	addi.d	$s5, $s5, 16
 	addi.d	$s2, $s2, 8
@@ -983,7 +980,6 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	slli.d	$t2, $fp, 1
 	ori	$t3, $zero, 16
 	ori	$t4, $zero, 8
-	vrepli.b	$vr0, 0
 	move	$t5, $a4
 	b	.LBB3_46
 	.p2align	4, , 16
@@ -1052,8 +1048,8 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	bnez	$s3, .LBB3_48
 # %bb.52:                               # %vector.ph258
                                         #   in Loop: Header=BB3_46 Depth=1
-	vreplgr2vr.h	$vr1, $t8
-	vreplgr2vr.h	$vr2, $t7
+	vreplgr2vr.h	$vr0, $t8
+	vreplgr2vr.h	$vr1, $t7
 	move	$s3, $t5
 	move	$s5, $t1
 	.p2align	4, , 16
@@ -1062,13 +1058,13 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$s8, $s2, 0
 	ldx.d	$ra, $s2, $t6
-	vinsgr2vr.d	$vr3, $s8, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vinsgr2vr.d	$vr4, $ra, 0
-	vilvl.b	$vr4, $vr0, $vr4
-	vmul.h	$vr4, $vr2, $vr4
-	vmadd.h	$vr4, $vr1, $vr3
-	vst	$vr4, $s3, 0
+	vinsgr2vr.d	$vr2, $s8, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vinsgr2vr.d	$vr3, $ra, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vmul.h	$vr3, $vr1, $vr3
+	vmadd.h	$vr3, $vr0, $vr2
+	vst	$vr3, $s3, 0
 	addi.d	$s5, $s5, -8
 	addi.d	$s3, $s3, 16
 	addi.d	$s2, $s2, 8
@@ -1102,7 +1098,6 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	ori	$t3, $zero, 1
 	ori	$t4, $zero, 16
 	ori	$t5, $zero, 8
-	vrepli.b	$vr0, 0
 	move	$t6, $a2
 	b	.LBB3_59
 	.p2align	4, , 16
@@ -1173,8 +1168,8 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
 	bnez	$s3, .LBB3_61
 # %bb.65:                               # %vector.ph319
                                         #   in Loop: Header=BB3_59 Depth=1
-	vreplgr2vr.h	$vr1, $s0
-	vreplgr2vr.h	$vr2, $t8
+	vreplgr2vr.h	$vr0, $s0
+	vreplgr2vr.h	$vr1, $t8
 	move	$s5, $t6
 	move	$ra, $t1
 	.p2align	4, , 16
@@ -1183,13 +1178,13 @@ Make_Spatial_Prediction_Frame:          # @Make_Spatial_Prediction_Frame
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$s3, $s2, 0
 	ldx.d	$s8, $s2, $t7
-	vinsgr2vr.d	$vr3, $s3, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vinsgr2vr.d	$vr4, $s8, 0
-	vilvl.b	$vr4, $vr0, $vr4
-	vmul.h	$vr4, $vr2, $vr4
-	vmadd.h	$vr4, $vr1, $vr3
-	vst	$vr4, $s5, 0
+	vinsgr2vr.d	$vr2, $s3, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vinsgr2vr.d	$vr3, $s8, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vmul.h	$vr3, $vr1, $vr3
+	vmadd.h	$vr3, $vr0, $vr2
+	vst	$vr3, $s5, 0
 	addi.d	$ra, $ra, -8
 	addi.d	$s5, $s5, 16
 	addi.d	$s2, $s2, 8

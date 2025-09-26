@@ -438,32 +438,31 @@ NextWord:                               # @NextWord
 	.type	BuildWord,@function
 BuildWord:                              # @BuildWord
 # %bb.0:
-	addi.d	$sp, $sp, -128
-	st.d	$ra, $sp, 120                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 112                   # 8-byte Folded Spill
-	st.d	$s0, $sp, 104                   # 8-byte Folded Spill
-	st.d	$s1, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 64                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -112
+	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
+	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
 	move	$fp, $a0
-	st.h	$zero, $sp, 56
+	st.h	$zero, $sp, 40
 	ld.bu	$s5, $a0, 0
-	st.d	$zero, $sp, 48
-	vrepli.b	$vr6, 0
-	vst	$vr6, $sp, 32
+	st.d	$zero, $sp, 32
+	vrepli.b	$vr0, 0
+	vst	$vr0, $sp, 16
 	pcalau12i	$a0, %pc_hi20(alPhrase)
 	addi.d	$s1, $a0, %pc_lo12(alPhrase)
 	beqz	$s5, .LBB6_7
 # %bb.1:                                # %.lr.ph
-	vst	$vr6, $sp, 16                   # 16-byte Folded Spill
 	pcaddu18i	$ra, %call36(__ctype_b_loc)
 	jirl	$ra, $ra, 0
 	ld.d	$s0, $a0, 0
 	move	$s2, $zero
 	addi.d	$s3, $fp, 1
-	addi.d	$s4, $sp, 32
+	addi.d	$s4, $sp, 16
 	b	.LBB6_3
 	.p2align	4, , 16
 .LBB6_2:                                # %.backedge
@@ -495,68 +494,65 @@ BuildWord:                              # @BuildWord
 	addi.d	$s2, $s2, 1
 	b	.LBB6_2
 .LBB6_6:                                # %.preheader.loopexit
-	ld.d	$a0, $sp, 32
-	ld.w	$a1, $sp, 36
-	ld.d	$a2, $sp, 40
-	ld.w	$a3, $sp, 44
+	ld.d	$a0, $sp, 16
+	ld.w	$a1, $sp, 20
+	ld.d	$a2, $sp, 24
+	ld.w	$a3, $sp, 28
 	vinsgr2vr.d	$vr0, $a0, 0
 	vinsgr2vr.w	$vr1, $a1, 0
-	vinsgr2vr.d	$vr4, $a2, 0
-	vinsgr2vr.w	$vr5, $a3, 0
-	ld.bu	$a1, $sp, 48
-	vrepli.b	$vr6, 0
-	vilvl.b	$vr0, $vr6, $vr0
-	vilvl.h	$vr3, $vr6, $vr0
-	vilvl.b	$vr0, $vr6, $vr1
-	vilvl.h	$vr2, $vr6, $vr0
-	vilvl.b	$vr0, $vr6, $vr4
-	vilvl.h	$vr0, $vr6, $vr0
-	vilvl.b	$vr1, $vr6, $vr5
-	vilvl.h	$vr1, $vr6, $vr1
-	vld	$vr6, $sp, 16                   # 16-byte Folded Reload
+	vinsgr2vr.d	$vr2, $a2, 0
+	vinsgr2vr.w	$vr4, $a3, 0
+	ld.bu	$a1, $sp, 32
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr3, $vr1, 0
+	vsllwil.hu.bu	$vr1, $vr2, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.hu.bu	$vr2, $vr4, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	b	.LBB6_8
 .LBB6_7:
 	move	$a1, $zero
 	move	$s2, $zero
-	vori.b	$vr3, $vr6, 0
-	vori.b	$vr2, $vr6, 0
-	vori.b	$vr0, $vr6, 0
-	vori.b	$vr1, $vr6, 0
+	vori.b	$vr3, $vr0, 0
+	vori.b	$vr1, $vr0, 0
+	vori.b	$vr2, $vr0, 0
 .LBB6_8:                                # %.preheader
 	pcalau12i	$a0, %pc_hi20(auGlobalFrequency)
 	addi.d	$a0, $a0, %pc_lo12(auGlobalFrequency)
 	vld	$vr4, $a0, 0
 	vld	$vr5, $a0, 16
-	vadd.w	$vr3, $vr4, $vr3
-	vst	$vr3, $a0, 0
-	vld	$vr3, $a0, 32
-	vadd.w	$vr2, $vr5, $vr2
+	vadd.w	$vr0, $vr4, $vr0
+	vst	$vr0, $a0, 0
+	vld	$vr0, $a0, 32
+	vadd.w	$vr3, $vr5, $vr3
 	vld	$vr4, $a0, 48
-	vst	$vr2, $a0, 16
-	vadd.w	$vr0, $vr3, $vr0
+	vst	$vr3, $a0, 16
+	vadd.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 32
-	vadd.w	$vr0, $vr4, $vr1
+	vadd.w	$vr0, $vr4, $vr2
 	vst	$vr0, $a0, 48
-	ld.bu	$a2, $sp, 49
-	ld.bu	$a3, $sp, 50
-	ld.bu	$a4, $sp, 51
+	ld.bu	$a2, $sp, 33
+	ld.bu	$a3, $sp, 34
+	ld.bu	$a4, $sp, 35
 	vld	$vr0, $a0, 64
 	vinsgr2vr.w	$vr1, $a1, 0
 	vinsgr2vr.w	$vr1, $a2, 1
 	vinsgr2vr.w	$vr1, $a3, 2
-	ld.w	$a1, $sp, 52
+	ld.w	$a1, $sp, 36
 	vinsgr2vr.w	$vr1, $a4, 3
 	vadd.w	$vr0, $vr0, $vr1
 	vst	$vr0, $a0, 64
 	vinsgr2vr.w	$vr0, $a1, 0
-	ld.bu	$a1, $sp, 56
+	ld.bu	$a1, $sp, 40
 	ld.w	$a2, $a0, 96
-	vilvl.b	$vr0, $vr6, $vr0
-	vilvl.h	$vr0, $vr6, $vr0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
 	vld	$vr1, $a0, 80
 	add.d	$a1, $a2, $a1
 	st.w	$a1, $a0, 96
-	ld.bu	$a3, $sp, 57
+	ld.bu	$a3, $sp, 41
 	ld.w	$a4, $a0, 100
 	pcalau12i	$a1, %pc_hi20(cpwCand)
 	ld.wu	$a2, $a1, %pc_lo12(cpwCand)
@@ -588,7 +584,7 @@ BuildWord:                              # @BuildWord
 	vrepli.b	$vr0, 0
 	vst	$vr0, $a0, 0
 	ld.wu	$a1, $s1, 12
-	ld.bu	$a2, $sp, 32
+	ld.bu	$a2, $sp, 16
 	ld.w	$a3, $s1, 4
 	slli.d	$a1, $a1, 3
 	ldx.d	$a4, $a0, $a1
@@ -596,7 +592,7 @@ BuildWord:                              # @BuildWord
 	or	$a2, $a4, $a2
 	ld.wu	$a3, $s1, 28
 	stx.d	$a2, $a0, $a1
-	ld.bu	$a1, $sp, 33
+	ld.bu	$a1, $sp, 17
 	ld.w	$a2, $s1, 20
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -604,7 +600,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 44
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 34
+	ld.bu	$a1, $sp, 18
 	ld.w	$a3, $s1, 36
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -612,7 +608,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 60
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 35
+	ld.bu	$a1, $sp, 19
 	ld.w	$a2, $s1, 52
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -620,7 +616,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 76
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 36
+	ld.bu	$a1, $sp, 20
 	ld.w	$a3, $s1, 68
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -628,7 +624,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 92
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 37
+	ld.bu	$a1, $sp, 21
 	ld.w	$a2, $s1, 84
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -636,7 +632,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 108
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 38
+	ld.bu	$a1, $sp, 22
 	ld.w	$a3, $s1, 100
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -644,7 +640,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 124
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 39
+	ld.bu	$a1, $sp, 23
 	ld.w	$a2, $s1, 116
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -652,7 +648,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 140
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 40
+	ld.bu	$a1, $sp, 24
 	ld.w	$a3, $s1, 132
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -660,7 +656,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 156
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 41
+	ld.bu	$a1, $sp, 25
 	ld.w	$a2, $s1, 148
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -668,7 +664,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 172
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 42
+	ld.bu	$a1, $sp, 26
 	ld.w	$a3, $s1, 164
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -676,7 +672,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 188
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 43
+	ld.bu	$a1, $sp, 27
 	ld.w	$a2, $s1, 180
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -684,7 +680,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 204
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 44
+	ld.bu	$a1, $sp, 28
 	ld.w	$a3, $s1, 196
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -692,7 +688,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 220
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 45
+	ld.bu	$a1, $sp, 29
 	ld.w	$a2, $s1, 212
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -700,7 +696,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 236
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 46
+	ld.bu	$a1, $sp, 30
 	ld.w	$a3, $s1, 228
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -708,7 +704,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 252
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 47
+	ld.bu	$a1, $sp, 31
 	ld.w	$a2, $s1, 244
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -716,7 +712,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 268
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 48
+	ld.bu	$a1, $sp, 32
 	ld.w	$a3, $s1, 260
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -724,7 +720,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 284
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 49
+	ld.bu	$a1, $sp, 33
 	ld.w	$a2, $s1, 276
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -732,7 +728,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 300
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 50
+	ld.bu	$a1, $sp, 34
 	ld.w	$a3, $s1, 292
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -740,7 +736,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 316
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 51
+	ld.bu	$a1, $sp, 35
 	ld.w	$a2, $s1, 308
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -748,7 +744,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 332
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 52
+	ld.bu	$a1, $sp, 36
 	ld.w	$a3, $s1, 324
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -756,7 +752,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 348
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 53
+	ld.bu	$a1, $sp, 37
 	ld.w	$a2, $s1, 340
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -764,7 +760,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 364
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 54
+	ld.bu	$a1, $sp, 38
 	ld.w	$a3, $s1, 356
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -772,7 +768,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 380
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 55
+	ld.bu	$a1, $sp, 39
 	ld.w	$a2, $s1, 372
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -780,7 +776,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a2, $s1, 396
 	stx.d	$a1, $a0, $a3
-	ld.bu	$a1, $sp, 56
+	ld.bu	$a1, $sp, 40
 	ld.w	$a3, $s1, 388
 	slli.d	$a2, $a2, 3
 	ldx.d	$a4, $a0, $a2
@@ -788,7 +784,7 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	ld.wu	$a3, $s1, 412
 	stx.d	$a1, $a0, $a2
-	ld.bu	$a1, $sp, 57
+	ld.bu	$a1, $sp, 41
 	ld.w	$a2, $s1, 404
 	slli.d	$a3, $a3, 3
 	ldx.d	$a4, $a0, $a3
@@ -798,15 +794,15 @@ BuildWord:                              # @BuildWord
 	or	$a1, $a4, $a1
 	stx.d	$a1, $a0, $a3
 .LBB6_13:                               # %.loopexit
-	ld.d	$s5, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 104                   # 8-byte Folded Reload
-	ld.d	$fp, $sp, 112                   # 8-byte Folded Reload
-	ld.d	$ra, $sp, 120                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 128
+	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
+	addi.d	$sp, $sp, 112
 	ret
 .LBB6_14:
 	pcalau12i	$a0, %pc_hi20(.L.str.10)

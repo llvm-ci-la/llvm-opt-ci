@@ -424,24 +424,23 @@ _ZN8NArchive4NTar11COutArchive15WriteHeaderRealERKNS0_5CItemE: # @_ZN8NArchive4N
 	addi.d	$a1, $sp, 16
 	ori	$a2, $zero, 512
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 .LBB2_59:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a3, $a1, $a0
 	ldx.w	$a4, $a0, $a1
 	ld.w	$a3, $a3, 4
-	vinsgr2vr.w	$vr3, $a4, 0
-	vinsgr2vr.w	$vr4, $a3, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vadd.w	$vr1, $vr1, $vr3
+	vinsgr2vr.w	$vr2, $a4, 0
+	vinsgr2vr.w	$vr3, $a3, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr0, $vr0, $vr2
 	addi.d	$a0, $a0, 8
-	vadd.w	$vr2, $vr2, $vr4
+	vadd.w	$vr1, $vr1, $vr3
 	bne	$a0, $a2, .LBB2_59
 # %bb.60:                               # %middle.block
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a0, $vr0, 0

@@ -1227,12 +1227,8 @@ Fgetlag:                                # @Fgetlag
                                         # =>This Inner Loop Header: Depth=1
 	vsub.w	$vr2, $vr0, $vr1
 	vsubi.wu	$vr3, $vr2, 2
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vpickve2gr.d	$a7, $vr2, 0
 	slli.d	$a7, $a7, 4
 	vpickve2gr.d	$t0, $vr2, 1
@@ -4253,12 +4249,8 @@ Falign:                                 # @Falign
                                         # =>This Inner Loop Header: Depth=1
 	vsub.w	$vr2, $vr0, $vr1
 	vsubi.wu	$vr3, $vr2, 2
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vpickve2gr.d	$a7, $vr2, 0
 	slli.d	$a7, $a7, 4
 	vpickve2gr.d	$t0, $vr2, 1
@@ -6489,12 +6481,8 @@ Falign_noudp:                           # @Falign_noudp
                                         # =>This Inner Loop Header: Depth=1
 	vsub.w	$vr2, $vr0, $vr1
 	vsubi.wu	$vr3, $vr2, 2
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vpickve2gr.d	$a7, $vr2, 0
 	slli.d	$a7, $a7, 4
 	vpickve2gr.d	$t0, $vr2, 1
@@ -8813,12 +8801,8 @@ Falign_udpari_long:                     # @Falign_udpari_long
                                         # =>This Inner Loop Header: Depth=1
 	vsub.w	$vr2, $vr0, $vr1
 	vsubi.wu	$vr3, $vr2, 2
-	vshuf4i.w	$vr2, $vr2, 16
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vpickve2gr.d	$a7, $vr2, 0
 	slli.d	$a7, $a7, 4
 	vpickve2gr.d	$t0, $vr2, 1

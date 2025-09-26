@@ -96,37 +96,39 @@ calculate_bm_table:                     # @calculate_bm_table
 	move	$a1, $zero
 	b	.LBB0_7
 .LBB0_4:                                # %vector.ph24
+	pcalau12i	$a1, %pc_hi20(.LCPI0_0)
+	vld	$vr1, $a1, %pc_lo12(.LCPI0_0)
 	bstrpick.d	$a1, $fp, 30, 2
-	pcalau12i	$a2, %pc_hi20(.LCPI0_0)
-	vld	$vr1, $a2, %pc_lo12(.LCPI0_0)
 	slli.d	$a1, $a1, 2
 	vrepli.b	$vr2, -1
-	vrepli.b	$vr3, 0
 	move	$a2, $s0
 	move	$a3, $a1
 	.p2align	4, , 16
 .LBB0_5:                                # %vector.body27
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a4, $a2, 0
-	vxor.v	$vr4, $vr1, $vr2
-	vadd.w	$vr4, $vr0, $vr4
-	vinsgr2vr.w	$vr5, $a4, 0
-	vilvl.b	$vr5, $vr3, $vr5
-	vilvl.h	$vr5, $vr3, $vr5
-	vilvh.w	$vr6, $vr3, $vr5
-	vilvl.w	$vr5, $vr3, $vr5
-	vpickve2gr.d	$a4, $vr5, 0
+	vxor.v	$vr3, $vr1, $vr2
+	vadd.w	$vr3, $vr0, $vr3
+	vinsgr2vr.w	$vr4, $a4, 0
+	vshuf4i.b	$vr5, $vr4, 14
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vpickve2gr.d	$a4, $vr4, 0
 	alsl.d	$a4, $a4, $a0, 2
-	vpickve2gr.d	$a5, $vr5, 1
+	vpickve2gr.d	$a5, $vr4, 1
 	alsl.d	$a5, $a5, $a0, 2
-	vpickve2gr.d	$a6, $vr6, 0
+	vpickve2gr.d	$a6, $vr5, 0
 	alsl.d	$a6, $a6, $a0, 2
-	vpickve2gr.d	$a7, $vr6, 1
+	vpickve2gr.d	$a7, $vr5, 1
 	alsl.d	$a7, $a7, $a0, 2
-	vstelm.w	$vr4, $a4, 0, 0
-	vstelm.w	$vr4, $a5, 0, 1
-	vstelm.w	$vr4, $a6, 0, 2
-	vstelm.w	$vr4, $a7, 0, 3
+	vstelm.w	$vr3, $a4, 0, 0
+	vstelm.w	$vr3, $a5, 0, 1
+	vstelm.w	$vr3, $a6, 0, 2
+	vstelm.w	$vr3, $a7, 0, 3
 	vaddi.wu	$vr1, $vr1, 4
 	addi.d	$a3, $a3, -4
 	addi.d	$a2, $a2, 4
@@ -590,37 +592,39 @@ NewPatternNode:                         # @NewPatternNode
 	move	$a1, $zero
 	b	.LBB3_9
 .LBB3_6:                                # %vector.ph21
+	pcalau12i	$a1, %pc_hi20(.LCPI3_0)
+	vld	$vr1, $a1, %pc_lo12(.LCPI3_0)
 	bstrpick.d	$a1, $s0, 30, 2
-	pcalau12i	$a2, %pc_hi20(.LCPI3_0)
-	vld	$vr1, $a2, %pc_lo12(.LCPI3_0)
 	slli.d	$a1, $a1, 2
 	vrepli.b	$vr2, -1
-	vrepli.b	$vr3, 0
 	move	$a2, $s1
 	move	$a3, $a1
 	.p2align	4, , 16
 .LBB3_7:                                # %vector.body24
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a4, $a2, 0
-	vxor.v	$vr4, $vr1, $vr2
-	vadd.w	$vr4, $vr0, $vr4
-	vinsgr2vr.w	$vr5, $a4, 0
-	vilvl.b	$vr5, $vr3, $vr5
-	vilvl.h	$vr5, $vr3, $vr5
-	vilvh.w	$vr6, $vr3, $vr5
-	vilvl.w	$vr5, $vr3, $vr5
-	vpickve2gr.d	$a4, $vr5, 0
+	vxor.v	$vr3, $vr1, $vr2
+	vadd.w	$vr3, $vr0, $vr3
+	vinsgr2vr.w	$vr4, $a4, 0
+	vshuf4i.b	$vr5, $vr4, 14
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vpickve2gr.d	$a4, $vr4, 0
 	alsl.d	$a4, $a4, $a0, 2
-	vpickve2gr.d	$a5, $vr5, 1
+	vpickve2gr.d	$a5, $vr4, 1
 	alsl.d	$a5, $a5, $a0, 2
-	vpickve2gr.d	$a6, $vr6, 0
+	vpickve2gr.d	$a6, $vr5, 0
 	alsl.d	$a6, $a6, $a0, 2
-	vpickve2gr.d	$a7, $vr6, 1
+	vpickve2gr.d	$a7, $vr5, 1
 	alsl.d	$a7, $a7, $a0, 2
-	vstelm.w	$vr4, $a4, 0, 0
-	vstelm.w	$vr4, $a5, 0, 1
-	vstelm.w	$vr4, $a6, 0, 2
-	vstelm.w	$vr4, $a7, 0, 3
+	vstelm.w	$vr3, $a4, 0, 0
+	vstelm.w	$vr3, $a5, 0, 1
+	vstelm.w	$vr3, $a6, 0, 2
+	vstelm.w	$vr3, $a7, 0, 3
 	vaddi.wu	$vr1, $vr1, 4
 	addi.d	$a3, $a3, -4
 	addi.d	$a2, $a2, 4
@@ -806,37 +810,39 @@ NewStrTreeNode:                         # @NewStrTreeNode
 	move	$a1, $zero
 	b	.LBB4_9
 .LBB4_6:                                # %vector.ph17
+	pcalau12i	$a1, %pc_hi20(.LCPI4_0)
+	vld	$vr1, $a1, %pc_lo12(.LCPI4_0)
 	bstrpick.d	$a1, $s0, 30, 2
-	pcalau12i	$a2, %pc_hi20(.LCPI4_0)
-	vld	$vr1, $a2, %pc_lo12(.LCPI4_0)
 	slli.d	$a1, $a1, 2
 	vrepli.b	$vr2, -1
-	vrepli.b	$vr3, 0
 	move	$a2, $s1
 	move	$a3, $a1
 	.p2align	4, , 16
 .LBB4_7:                                # %vector.body20
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a4, $a2, 0
-	vxor.v	$vr4, $vr1, $vr2
-	vadd.w	$vr4, $vr0, $vr4
-	vinsgr2vr.w	$vr5, $a4, 0
-	vilvl.b	$vr5, $vr3, $vr5
-	vilvl.h	$vr5, $vr3, $vr5
-	vilvh.w	$vr6, $vr3, $vr5
-	vilvl.w	$vr5, $vr3, $vr5
-	vpickve2gr.d	$a4, $vr5, 0
+	vxor.v	$vr3, $vr1, $vr2
+	vadd.w	$vr3, $vr0, $vr3
+	vinsgr2vr.w	$vr4, $a4, 0
+	vshuf4i.b	$vr5, $vr4, 14
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vpickve2gr.d	$a4, $vr4, 0
 	alsl.d	$a4, $a4, $a0, 2
-	vpickve2gr.d	$a5, $vr5, 1
+	vpickve2gr.d	$a5, $vr4, 1
 	alsl.d	$a5, $a5, $a0, 2
-	vpickve2gr.d	$a6, $vr6, 0
+	vpickve2gr.d	$a6, $vr5, 0
 	alsl.d	$a6, $a6, $a0, 2
-	vpickve2gr.d	$a7, $vr6, 1
+	vpickve2gr.d	$a7, $vr5, 1
 	alsl.d	$a7, $a7, $a0, 2
-	vstelm.w	$vr4, $a4, 0, 0
-	vstelm.w	$vr4, $a5, 0, 1
-	vstelm.w	$vr4, $a6, 0, 2
-	vstelm.w	$vr4, $a7, 0, 3
+	vstelm.w	$vr3, $a4, 0, 0
+	vstelm.w	$vr3, $a5, 0, 1
+	vstelm.w	$vr3, $a6, 0, 2
+	vstelm.w	$vr3, $a7, 0, 3
 	vaddi.wu	$vr1, $vr1, 4
 	addi.d	$a3, $a3, -4
 	addi.d	$a2, $a2, 4
@@ -1014,37 +1020,39 @@ find_lcs:                               # @find_lcs
 	move	$a1, $zero
 	b	.LBB5_10
 .LBB5_7:                                # %vector.ph146
+	pcalau12i	$a1, %pc_hi20(.LCPI5_0)
+	vld	$vr1, $a1, %pc_lo12(.LCPI5_0)
 	bstrpick.d	$a1, $s3, 30, 2
-	pcalau12i	$a2, %pc_hi20(.LCPI5_0)
-	vld	$vr1, $a2, %pc_lo12(.LCPI5_0)
 	slli.d	$a1, $a1, 2
 	vrepli.b	$vr2, -1
-	vrepli.b	$vr3, 0
 	move	$a2, $s4
 	move	$a3, $a1
 	.p2align	4, , 16
 .LBB5_8:                                # %vector.body149
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a4, $a2, 0
-	vxor.v	$vr4, $vr1, $vr2
-	vadd.w	$vr4, $vr0, $vr4
-	vinsgr2vr.w	$vr5, $a4, 0
-	vilvl.b	$vr5, $vr3, $vr5
-	vilvl.h	$vr5, $vr3, $vr5
-	vilvh.w	$vr6, $vr3, $vr5
-	vilvl.w	$vr5, $vr3, $vr5
-	vpickve2gr.d	$a4, $vr5, 0
+	vxor.v	$vr3, $vr1, $vr2
+	vadd.w	$vr3, $vr0, $vr3
+	vinsgr2vr.w	$vr4, $a4, 0
+	vshuf4i.b	$vr5, $vr4, 14
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vpickve2gr.d	$a4, $vr4, 0
 	alsl.d	$a4, $a4, $a0, 2
-	vpickve2gr.d	$a5, $vr5, 1
+	vpickve2gr.d	$a5, $vr4, 1
 	alsl.d	$a5, $a5, $a0, 2
-	vpickve2gr.d	$a6, $vr6, 0
+	vpickve2gr.d	$a6, $vr5, 0
 	alsl.d	$a6, $a6, $a0, 2
-	vpickve2gr.d	$a7, $vr6, 1
+	vpickve2gr.d	$a7, $vr5, 1
 	alsl.d	$a7, $a7, $a0, 2
-	vstelm.w	$vr4, $a4, 0, 0
-	vstelm.w	$vr4, $a5, 0, 1
-	vstelm.w	$vr4, $a6, 0, 2
-	vstelm.w	$vr4, $a7, 0, 3
+	vstelm.w	$vr3, $a4, 0, 0
+	vstelm.w	$vr3, $a5, 0, 1
+	vstelm.w	$vr3, $a6, 0, 2
+	vstelm.w	$vr3, $a7, 0, 3
 	vaddi.wu	$vr1, $vr1, 4
 	addi.d	$a3, $a3, -4
 	addi.d	$a2, $a2, 4

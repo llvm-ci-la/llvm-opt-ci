@@ -1705,25 +1705,24 @@ _ZN8NArchive3N7z11COutArchive16WriteHashDigestsERK13CRecordVectorIbERKS2_IjE: # 
 	addi.d	$a3, $a0, 4
 	move	$a4, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB14_4:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a5, $a3, -4
 	ld.w	$a6, $a3, 0
-	vinsgr2vr.w	$vr3, $a5, 0
-	vinsgr2vr.w	$vr4, $a6, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $a5, 0
+	vinsgr2vr.w	$vr3, $a6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
 	addi.d	$a4, $a4, -8
 	addi.d	$a3, $a3, 8
 	bnez	$a4, .LBB14_4
 # %bb.5:                                # %middle.block
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a3, $vr0, 0
@@ -3481,25 +3480,24 @@ _ZN8NArchive3N7z11COutArchive20WriteUInt64DefVectorERKNS0_16CUInt64DefVectorEh: 
 	addi.d	$a4, $a0, 4
 	move	$a5, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB20_4:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a6, $a4, -4
 	ld.w	$a7, $a4, 0
-	vinsgr2vr.w	$vr3, $a6, 0
-	vinsgr2vr.w	$vr4, $a7, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $a6, 0
+	vinsgr2vr.w	$vr3, $a7, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
 	addi.d	$a5, $a5, -8
 	addi.d	$a4, $a4, 8
 	bnez	$a5, .LBB20_4
 # %bb.5:                                # %middle.block
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a4, $vr0, 0
@@ -4750,7 +4748,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	pcaddu18i	$ra, %call36(_ZN17CBaseRecordVectorD2Ev)
 	jirl	$ra, $ra, 0
 	ld.w	$a0, $s0, 172
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	blez	$a0, .LBB23_160
 # %bb.115:                              # %.lr.ph318
 	ld.d	$a1, $s0, 176
@@ -4795,12 +4792,8 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	vslli.w	$vr5, $vr5, 1
 	vaddi.wu	$vr4, $vr4, 2
 	vaddi.wu	$vr5, $vr5, 2
-	vshuf4i.w	$vr4, $vr4, 16
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vshuf4i.w	$vr5, $vr5, 16
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr5, $vr5, 0
 	vadd.d	$vr0, $vr0, $vr4
 	vadd.d	$vr2, $vr2, $vr5
 	addi.d	$a4, $a4, -4
@@ -4891,7 +4884,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	ld.d	$a0, $fp, 16
 	addi.d	$a0, $a0, 1
 	st.d	$a0, $fp, 16
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 172
 	bgtz	$a0, .LBB23_139
 	b	.LBB23_160
@@ -4921,14 +4913,12 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	srli.d	$a0, $a0, 8
 	xor	$a0, $a1, $a0
 	st.w	$a0, $fp, 24
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 172
 	bgtz	$a0, .LBB23_139
 	b	.LBB23_160
 .LBB23_137:
 	ld.d	$a1, $fp, 96
 	ld.d	$a0, $fp, 104
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	beq	$a1, $a0, .LBB23_242
 # %bb.138:                              # %_ZN8NArchive3N7z15CWriteBufferLoc9WriteByteEh.exit.i210
 	ld.d	$a1, $fp, 88
@@ -5006,7 +4996,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $s2
 	pcaddu18i	$ra, %call36(_ZN10COutBuffer14FlushWithCheckEv)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 .LBB23_151:                             # %_ZN10COutBuffer9WriteByteEh.exit.i216
                                         #   in Loop: Header=BB23_146 Depth=2
 	ld.wu	$a0, $fp, 24
@@ -5050,7 +5039,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $s2
 	pcaddu18i	$ra, %call36(_ZN10COutBuffer14FlushWithCheckEv)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 .LBB23_157:                             # %_ZN10COutBuffer9WriteByteEh.exit.i221
                                         #   in Loop: Header=BB23_146 Depth=2
 	ld.wu	$a0, $fp, 24
@@ -5096,25 +5084,24 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	addi.d	$a3, $a1, 4
 	move	$a4, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB23_165:                             # %vector.body425
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a5, $a3, -4
 	ld.w	$a6, $a3, 0
-	vinsgr2vr.w	$vr3, $a5, 0
-	vinsgr2vr.w	$vr4, $a6, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $a5, 0
+	vinsgr2vr.w	$vr3, $a6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
 	addi.d	$a4, $a4, -8
 	addi.d	$a3, $a3, 8
 	bnez	$a4, .LBB23_165
 # %bb.166:                              # %middle.block432
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a3, $vr0, 0
@@ -5140,7 +5127,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN8NArchive3N7z11COutArchive22WriteAlignedBoolHeaderERK13CRecordVectorIbEihj)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 236
 	blez	$a0, .LBB23_175
 # %bb.171:                              # %.lr.ph24.i
@@ -5162,7 +5148,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN8NArchive3N7z11COutArchive11WriteUInt64Ey)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 236
 	b	.LBB23_172
 .LBB23_175:                             # %_ZN8NArchive3N7z11COutArchive20WriteUInt64DefVectorERKNS0_16CUInt64DefVectorEh.exit
@@ -5186,25 +5171,24 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	addi.d	$a3, $a1, 4
 	move	$a4, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB23_180:                             # %vector.body442
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a5, $a3, -4
 	ld.w	$a6, $a3, 0
-	vinsgr2vr.w	$vr3, $a5, 0
-	vinsgr2vr.w	$vr4, $a6, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $a5, 0
+	vinsgr2vr.w	$vr3, $a6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
 	addi.d	$a4, $a4, -8
 	addi.d	$a3, $a3, 8
 	bnez	$a4, .LBB23_180
 # %bb.181:                              # %middle.block449
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a3, $vr0, 0
@@ -5230,7 +5214,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN8NArchive3N7z11COutArchive22WriteAlignedBoolHeaderERK13CRecordVectorIbEihj)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 300
 	blez	$a0, .LBB23_190
 # %bb.186:                              # %.lr.ph24.i234
@@ -5252,7 +5235,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN8NArchive3N7z11COutArchive11WriteUInt64Ey)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 300
 	b	.LBB23_187
 .LBB23_190:                             # %_ZN8NArchive3N7z11COutArchive20WriteUInt64DefVectorERKNS0_16CUInt64DefVectorEh.exit238
@@ -5276,25 +5258,24 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	addi.d	$a3, $a1, 4
 	move	$a4, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB23_195:                             # %vector.body459
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a5, $a3, -4
 	ld.w	$a6, $a3, 0
-	vinsgr2vr.w	$vr3, $a5, 0
-	vinsgr2vr.w	$vr4, $a6, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $a5, 0
+	vinsgr2vr.w	$vr3, $a6, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
-	vadd.w	$vr2, $vr2, $vr4
 	addi.d	$a4, $a4, -8
 	addi.d	$a3, $a3, 8
 	bnez	$a4, .LBB23_195
 # %bb.196:                              # %middle.block466
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a3, $vr0, 0
@@ -5320,7 +5301,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN8NArchive3N7z11COutArchive22WriteAlignedBoolHeaderERK13CRecordVectorIbEihj)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 364
 	blez	$a0, .LBB23_205
 # %bb.201:                              # %.lr.ph24.i247
@@ -5342,7 +5322,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN8NArchive3N7z11COutArchive11WriteUInt64Ey)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 364
 	b	.LBB23_202
 .LBB23_205:                             # %_ZN8NArchive3N7z11COutArchive20WriteUInt64DefVectorERKNS0_16CUInt64DefVectorEh.exit251
@@ -5361,8 +5340,8 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	slli.d	$a2, $a2, 3
 	addi.d	$a3, $a1, 4
 	move	$a4, $a2
-	vori.b	$vr0, $vr8, 0
-	vori.b	$vr1, $vr8, 0
+	vld	$vr1, $sp, 32                   # 16-byte Folded Reload
+	vori.b	$vr0, $vr1, 0
 	.p2align	4, , 16
 .LBB23_209:                             # %vector.body476
                                         # =>This Inner Loop Header: Depth=1
@@ -5370,10 +5349,10 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	ld.w	$a6, $a3, 0
 	vinsgr2vr.w	$vr2, $a5, 0
 	vinsgr2vr.w	$vr3, $a6, 0
-	vilvl.b	$vr2, $vr8, $vr2
-	vilvl.h	$vr2, $vr8, $vr2
-	vilvl.b	$vr3, $vr8, $vr3
-	vilvl.h	$vr3, $vr8, $vr3
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
 	vadd.w	$vr0, $vr0, $vr2
 	vadd.w	$vr1, $vr1, $vr3
 	addi.d	$a4, $a4, -8
@@ -5406,7 +5385,6 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN8NArchive3N7z11COutArchive22WriteAlignedBoolHeaderERK13CRecordVectorIbEihj)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 428
 	blez	$a0, .LBB23_219
 # %bb.215:                              # %.lr.ph24.i260
@@ -5428,11 +5406,11 @@ _ZN8NArchive3N7z11COutArchive11WriteHeaderERKNS0_16CArchiveDatabaseERKNS0_14CHea
 	move	$a0, $fp
 	pcaddu18i	$ra, %call36(_ZN8NArchive3N7z11COutArchive11WriteUInt64Ey)
 	jirl	$ra, $ra, 0
-	vld	$vr8, $sp, 32                   # 16-byte Folded Reload
 	ld.w	$a0, $s0, 428
 	b	.LBB23_216
 .LBB23_219:                             # %_ZN8NArchive3N7z11COutArchive20WriteUInt64DefVectorERKNS0_16CUInt64DefVectorEh.exit264
-	vst	$vr8, $sp, 128
+	vld	$vr0, $sp, 32                   # 16-byte Folded Reload
+	vst	$vr0, $sp, 128
 	ld.w	$a1, $s0, 172
 	ori	$a0, $zero, 1
 	st.d	$a0, $sp, 144

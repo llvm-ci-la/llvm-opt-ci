@@ -129,7 +129,6 @@ _ZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK
 	pcalau12i	$a0, %pc_hi20(_ZL22sPenetrationDirections)
 	addi.d	$s5, $a0, %pc_lo12(_ZL22sPenetrationDirections)
 	move	$a0, $zero
-	vrepli.b	$vr18, 0
 	addi.d	$a1, $sp, 1432
 	addi.d	$a2, $sp, 440
 	ori	$a3, $zero, 672
@@ -137,58 +136,58 @@ _ZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK
 .LBB0_4:                                # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	add.d	$a4, $s5, $a0
-	fldx.s	$ft11, $s5, $a0
-	fld.s	$ft12, $a4, 16
-	fld.s	$ft13, $a4, 4
-	fld.s	$ft14, $a4, 20
-	fld.s	$ft15, $a4, 8
-	fld.s	$fs0, $a4, 24
-	vextrins.w	$vr19, $vr20, 16
-	vextrins.w	$vr21, $vr22, 16
-	vextrins.w	$vr23, $vr24, 16
-	vbitrevi.w	$vr20, $vr19, 31
-	vbitrevi.w	$vr22, $vr21, 31
-	vbitrevi.w	$vr24, $vr23, 31
-	vfmul.s	$vr25, $vr1, $vr22
-	vfmadd.s	$vr25, $vr0, $vr20, $vr25
-	vfmadd.s	$vr25, $vr2, $vr24, $vr25
-	vfmul.s	$vr26, $vr4, $vr22
-	vfmadd.s	$vr26, $vr3, $vr20, $vr26
-	vfmadd.s	$vr26, $vr5, $vr24, $vr26
-	vfmul.s	$vr22, $vr7, $vr22
-	vfmadd.s	$vr20, $vr6, $vr20, $vr22
-	vfmadd.s	$vr20, $vr8, $vr24, $vr20
-	vshuf4i.w	$vr22, $vr26, 16
-	vslli.d	$vr22, $vr22, 32
-	vilvl.w	$vr24, $vr18, $vr25
-	vor.v	$vr22, $vr22, $vr24
-	vpickve2gr.d	$a4, $vr20, 0
-	srli.d	$a5, $a4, 32
-	bstrpick.d	$a4, $a4, 31, 0
-	add.d	$a6, $a1, $a0
-	vstelm.d	$vr22, $a6, 0, 0
-	vstelm.d	$vr22, $a6, 16, 1
-	st.d	$a4, $a6, 8
-	st.d	$a5, $a6, 24
-	vfmul.s	$vr20, $vr21, $vr10
-	vfmadd.s	$vr20, $vr9, $vr19, $vr20
-	vfmadd.s	$vr20, $vr11, $vr23, $vr20
-	vfmul.s	$vr22, $vr21, $vr13
-	vfmadd.s	$vr22, $vr12, $vr19, $vr22
-	vfmadd.s	$vr22, $vr14, $vr23, $vr22
-	vfmul.s	$vr21, $vr21, $vr16
-	vfmadd.s	$vr19, $vr15, $vr19, $vr21
-	vfmadd.s	$vr19, $vr17, $vr23, $vr19
-	vshuf4i.w	$vr21, $vr22, 16
+	fldx.s	$ft10, $s5, $a0
+	fld.s	$ft11, $a4, 16
+	fld.s	$ft12, $a4, 4
+	fld.s	$ft13, $a4, 20
+	fld.s	$ft14, $a4, 8
+	fld.s	$ft15, $a4, 24
+	vextrins.w	$vr18, $vr19, 16
+	vextrins.w	$vr20, $vr21, 16
+	vextrins.w	$vr22, $vr23, 16
+	vbitrevi.w	$vr19, $vr18, 31
+	vbitrevi.w	$vr21, $vr20, 31
+	vbitrevi.w	$vr23, $vr22, 31
+	vfmul.s	$vr24, $vr1, $vr21
+	vfmadd.s	$vr24, $vr0, $vr19, $vr24
+	vfmadd.s	$vr24, $vr2, $vr23, $vr24
+	vfmul.s	$vr25, $vr4, $vr21
+	vfmadd.s	$vr25, $vr3, $vr19, $vr25
+	vfmadd.s	$vr25, $vr5, $vr23, $vr25
+	vfmul.s	$vr21, $vr7, $vr21
+	vfmadd.s	$vr19, $vr6, $vr19, $vr21
+	vfmadd.s	$vr19, $vr8, $vr23, $vr19
+	vshuf4i.w	$vr21, $vr25, 16
 	vslli.d	$vr21, $vr21, 32
-	vilvl.w	$vr20, $vr18, $vr20
-	vor.v	$vr20, $vr21, $vr20
+	vsllwil.du.wu	$vr23, $vr24, 0
+	vor.v	$vr21, $vr21, $vr23
 	vpickve2gr.d	$a4, $vr19, 0
 	srli.d	$a5, $a4, 32
 	bstrpick.d	$a4, $a4, 31, 0
+	add.d	$a6, $a1, $a0
+	vstelm.d	$vr21, $a6, 0, 0
+	vstelm.d	$vr21, $a6, 16, 1
+	st.d	$a4, $a6, 8
+	st.d	$a5, $a6, 24
+	vfmul.s	$vr19, $vr20, $vr10
+	vfmadd.s	$vr19, $vr9, $vr18, $vr19
+	vfmadd.s	$vr19, $vr11, $vr22, $vr19
+	vfmul.s	$vr21, $vr20, $vr13
+	vfmadd.s	$vr21, $vr12, $vr18, $vr21
+	vfmadd.s	$vr21, $vr14, $vr22, $vr21
+	vfmul.s	$vr20, $vr20, $vr16
+	vfmadd.s	$vr18, $vr15, $vr18, $vr20
+	vfmadd.s	$vr18, $vr17, $vr22, $vr18
+	vshuf4i.w	$vr20, $vr21, 16
+	vslli.d	$vr20, $vr20, 32
+	vsllwil.du.wu	$vr19, $vr19, 0
+	vor.v	$vr19, $vr20, $vr19
+	vpickve2gr.d	$a4, $vr18, 0
+	srli.d	$a5, $a4, 32
+	bstrpick.d	$a4, $a4, 31, 0
 	add.d	$a6, $a2, $a0
-	vstelm.d	$vr20, $a6, 0, 0
-	vstelm.d	$vr20, $a6, 16, 1
+	vstelm.d	$vr19, $a6, 0, 0
+	vstelm.d	$vr19, $a6, 16, 1
 	st.d	$a4, $a6, 8
 	addi.d	$a0, $a0, 32
 	st.d	$a5, $a6, 24

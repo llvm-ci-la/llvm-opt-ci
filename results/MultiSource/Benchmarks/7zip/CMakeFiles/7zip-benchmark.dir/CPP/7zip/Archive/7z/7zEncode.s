@@ -2723,18 +2723,12 @@ _ZN8NArchive3N7z8CEncoder13EncoderConstrEv: # @_ZN8NArchive3N7z8CEncoder13Encode
                                         #   Parent Loop BB3_25 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vaddi.wu	$vr3, $vr1, 4
-	vshuf4i.w	$vr4, $vr1, 50
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vshuf4i.w	$vr5, $vr1, 16
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr6, $vr3, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr4, $vr1, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr5, $vr1, 0
+	vshuf4i.w	$vr6, $vr3, 14
+	vsllwil.d.w	$vr6, $vr6, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vpickve2gr.d	$a5, $vr5, 0
 	slli.d	$a5, $a5, 3
 	vpickve2gr.d	$a6, $vr5, 1
@@ -2817,18 +2811,12 @@ _ZN8NArchive3N7z8CEncoder13EncoderConstrEv: # @_ZN8NArchive3N7z8CEncoder13Encode
                                         #   Parent Loop BB3_25 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vaddi.wu	$vr3, $vr1, 4
-	vshuf4i.w	$vr4, $vr1, 50
-	vslli.d	$vr4, $vr4, 32
-	vsrai.d	$vr4, $vr4, 32
-	vshuf4i.w	$vr5, $vr1, 16
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
-	vshuf4i.w	$vr6, $vr3, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr3, $vr3, 16
-	vslli.d	$vr3, $vr3, 32
-	vsrai.d	$vr3, $vr3, 32
+	vshuf4i.w	$vr4, $vr1, 14
+	vsllwil.d.w	$vr4, $vr4, 0
+	vsllwil.d.w	$vr5, $vr1, 0
+	vshuf4i.w	$vr6, $vr3, 14
+	vsllwil.d.w	$vr6, $vr6, 0
+	vsllwil.d.w	$vr3, $vr3, 0
 	vpickve2gr.d	$a6, $vr5, 0
 	alsl.d	$a6, $a6, $a3, 3
 	vpickve2gr.d	$a7, $vr5, 1
@@ -3030,18 +3018,12 @@ _ZN8NArchive3N7z8CEncoder13EncoderConstrEv: # @_ZN8NArchive3N7z8CEncoder13Encode
                                         #   Parent Loop BB3_59 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
 	vaddi.wu	$vr5, $vr3, 4
-	vshuf4i.w	$vr6, $vr3, 50
-	vslli.d	$vr6, $vr6, 32
-	vsrai.d	$vr6, $vr6, 32
-	vshuf4i.w	$vr7, $vr3, 16
-	vslli.d	$vr7, $vr7, 32
-	vsrai.d	$vr7, $vr7, 32
-	vshuf4i.w	$vr8, $vr5, 50
-	vslli.d	$vr8, $vr8, 32
-	vsrai.d	$vr8, $vr8, 32
-	vshuf4i.w	$vr5, $vr5, 16
-	vslli.d	$vr5, $vr5, 32
-	vsrai.d	$vr5, $vr5, 32
+	vshuf4i.w	$vr6, $vr3, 14
+	vsllwil.d.w	$vr6, $vr6, 0
+	vsllwil.d.w	$vr7, $vr3, 0
+	vshuf4i.w	$vr8, $vr5, 14
+	vsllwil.d.w	$vr8, $vr8, 0
+	vsllwil.d.w	$vr5, $vr5, 0
 	vpickve2gr.d	$t2, $vr7, 0
 	alsl.d	$t2, $t2, $a2, 3
 	vpickve2gr.d	$t3, $vr7, 1

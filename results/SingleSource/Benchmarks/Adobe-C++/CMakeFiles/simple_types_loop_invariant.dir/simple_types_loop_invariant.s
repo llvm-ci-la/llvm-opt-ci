@@ -4737,18 +4737,12 @@ _Z14test_variable1Ia22custom_divide_variableIaEEvPT_iS2_PKc: # @_Z14test_variabl
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr2, $a0, -16
 	vld	$vr3, $a0, 0
-	vilvh.b	$vr4, $vr2, $vr2
-	vslli.h	$vr4, $vr4, 8
-	vsrai.h	$vr4, $vr4, 8
-	vilvl.b	$vr2, $vr2, $vr2
-	vslli.h	$vr2, $vr2, 8
-	vsrai.h	$vr2, $vr2, 8
-	vilvh.b	$vr5, $vr3, $vr3
-	vslli.h	$vr5, $vr5, 8
-	vsrai.h	$vr5, $vr5, 8
-	vilvl.b	$vr3, $vr3, $vr3
-	vslli.h	$vr3, $vr3, 8
-	vsrai.h	$vr3, $vr3, 8
+	vbsrl.v	$vr4, $vr2, 8
+	vsllwil.h.b	$vr4, $vr4, 0
+	vsllwil.h.b	$vr2, $vr2, 0
+	vbsrl.v	$vr5, $vr3, 8
+	vsllwil.h.b	$vr5, $vr5, 0
+	vsllwil.h.b	$vr3, $vr3, 0
 	vdiv.h	$vr2, $vr2, $vr6
 	vdiv.h	$vr4, $vr4, $vr6
 	vdiv.h	$vr3, $vr3, $vr6
@@ -4788,9 +4782,7 @@ _Z14test_variable1Ia22custom_divide_variableIaEEvPT_iS2_PKc: # @_Z14test_variabl
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a3, $a2, 0
 	vinsgr2vr.d	$vr1, $a3, 0
-	vilvl.b	$vr1, $vr1, $vr1
-	vslli.h	$vr1, $vr1, 8
-	vsrai.h	$vr1, $vr1, 8
+	vsllwil.h.b	$vr1, $vr1, 0
 	vdiv.h	$vr1, $vr1, $vr6
 	vpickev.b	$vr1, $vr1, $vr1
 	vadd.b	$vr0, $vr0, $vr1
@@ -5053,18 +5045,12 @@ _Z14test_variable4Ia31custom_divide_multiple_variableIaEEvPT_iS2_S2_S2_S2_PKc: #
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr2, $a0, -16
 	vld	$vr3, $a0, 0
-	vilvl.b	$vr4, $vr2, $vr2
-	vslli.h	$vr4, $vr4, 8
-	vsrai.h	$vr4, $vr4, 8
-	vilvh.b	$vr2, $vr2, $vr2
-	vslli.h	$vr2, $vr2, 8
-	vsrai.h	$vr2, $vr2, 8
-	vilvl.b	$vr5, $vr3, $vr3
-	vslli.h	$vr5, $vr5, 8
-	vsrai.h	$vr5, $vr5, 8
-	vilvh.b	$vr3, $vr3, $vr3
-	vslli.h	$vr3, $vr3, 8
-	vsrai.h	$vr3, $vr3, 8
+	vsllwil.h.b	$vr4, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.h.b	$vr2, $vr2, 0
+	vsllwil.h.b	$vr5, $vr3, 0
+	vbsrl.v	$vr3, $vr3, 8
+	vsllwil.h.b	$vr3, $vr3, 0
 	vdiv.h	$vr2, $vr2, $vr6
 	vdiv.h	$vr4, $vr4, $vr6
 	vdiv.h	$vr3, $vr3, $vr6
@@ -5116,9 +5102,7 @@ _Z14test_variable4Ia31custom_divide_multiple_variableIaEEvPT_iS2_S2_S2_S2_PKc: #
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a3, $a2, 0
 	vinsgr2vr.d	$vr1, $a3, 0
-	vilvl.b	$vr1, $vr1, $vr1
-	vslli.h	$vr1, $vr1, 8
-	vsrai.h	$vr1, $vr1, 8
+	vsllwil.h.b	$vr1, $vr1, 0
 	vdiv.h	$vr1, $vr1, $vr6
 	vdiv.h	$vr1, $vr1, $vr7
 	vdiv.h	$vr1, $vr1, $vr8
@@ -15814,18 +15798,12 @@ _Z14test_variable1Is22custom_divide_variableIsEEvPT_iS2_PKc: # @_Z14test_variabl
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr2, $a0, -16
 	vld	$vr3, $a0, 0
-	vilvh.h	$vr4, $vr2, $vr2
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvh.h	$vr5, $vr3, $vr3
-	vslli.w	$vr5, $vr5, 16
-	vsrai.w	$vr5, $vr5, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
+	vbsrl.v	$vr4, $vr2, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr2, $vr2, 0
+	vbsrl.v	$vr5, $vr3, 8
+	vsllwil.w.h	$vr5, $vr5, 0
+	vsllwil.w.h	$vr3, $vr3, 0
 	vdiv.w	$vr2, $vr2, $vr6
 	vdiv.w	$vr4, $vr4, $vr6
 	vdiv.w	$vr3, $vr3, $vr6
@@ -15864,9 +15842,7 @@ _Z14test_variable1Is22custom_divide_variableIsEEvPT_iS2_PKc: # @_Z14test_variabl
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a3, $a2, 0
 	vinsgr2vr.d	$vr1, $a3, 0
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vsllwil.w.h	$vr1, $vr1, 0
 	vdiv.w	$vr1, $vr1, $vr6
 	vpickev.h	$vr1, $vr1, $vr1
 	vadd.h	$vr0, $vr0, $vr1
@@ -16072,7 +16048,7 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 	andi	$a0, $s4, 12
 	st.d	$a0, $sp, 8                     # 8-byte Folded Spill
 	bstrpick.d	$a0, $s4, 30, 4
-	slli.d	$fp, $a0, 4
+	slli.d	$s8, $a0, 4
 	vreplgr2vr.w	$vr6, $s3
 	vreplgr2vr.w	$vr7, $s2
 	vreplgr2vr.w	$vr8, $s1
@@ -16084,14 +16060,14 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	sub.d	$a0, $zero, $a0
 	st.d	$a0, $sp, 40                    # 8-byte Folded Spill
-	ori	$a6, $zero, 4
+	ori	$a5, $zero, 4
 	pcalau12i	$s7, %pc_hi20(init_value)
 	lu12i.w	$a0, 1
 	ori	$s6, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.179)
 	addi.d	$a0, $a0, %pc_lo12(.L.str.179)
 	st.d	$a0, $sp, 56                    # 8-byte Folded Spill
-	move	$s8, $zero
+	move	$fp, $zero
 	vrepli.b	$vr0, 0
 	vst	$vr0, $sp, 128                  # 16-byte Folded Spill
 	vst	$vr6, $sp, 112                  # 16-byte Folded Spill
@@ -16102,14 +16078,14 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 	.p2align	4, , 16
 .LBB51_3:                               # %_Z26check_shifted_variable_sumIs31custom_divide_multiple_variableIsEEvT_S2_S2_S2_S2_.exit.us
                                         #   in Loop: Header=BB51_4 Depth=1
-	addi.w	$s8, $s8, 1
-	bge	$s8, $a1, .LBB51_23
+	addi.w	$fp, $fp, 1
+	bge	$fp, $a1, .LBB51_23
 .LBB51_4:                               # %iter.check
                                         # =>This Loop Header: Depth=1
                                         #     Child Loop BB51_9 Depth 2
                                         #     Child Loop BB51_13 Depth 2
                                         #     Child Loop BB51_16 Depth 2
-	bgeu	$s4, $a6, .LBB51_6
+	bgeu	$s4, $a5, .LBB51_6
 # %bb.5:                                #   in Loop: Header=BB51_4 Depth=1
 	move	$a3, $zero
 	move	$a0, $zero
@@ -16127,7 +16103,7 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 .LBB51_8:                               # %vector.body.preheader
                                         #   in Loop: Header=BB51_4 Depth=1
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
-	move	$a2, $fp
+	move	$a2, $s8
 	vld	$vr1, $sp, 128                  # 16-byte Folded Reload
 	vori.b	$vr0, $vr1, 0
 	.p2align	4, , 16
@@ -16136,18 +16112,12 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
                                         # =>  This Inner Loop Header: Depth=2
 	vld	$vr2, $a0, -16
 	vld	$vr3, $a0, 0
-	vilvl.h	$vr4, $vr2, $vr2
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvh.h	$vr2, $vr2, $vr2
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr5, $vr3, $vr3
-	vslli.w	$vr5, $vr5, 16
-	vsrai.w	$vr5, $vr5, 16
-	vilvh.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
+	vsllwil.w.h	$vr4, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr5, $vr3, 0
+	vbsrl.v	$vr3, $vr3, 8
+	vsllwil.w.h	$vr3, $vr3, 0
 	vdiv.w	$vr2, $vr2, $vr6
 	vdiv.w	$vr4, $vr4, $vr6
 	vdiv.w	$vr3, $vr3, $vr6
@@ -16178,11 +16148,11 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a0, $vr0, 0
-	beq	$fp, $s4, .LBB51_17
+	beq	$s8, $s4, .LBB51_17
 # %bb.11:                               # %vec.epilog.iter.check
                                         #   in Loop: Header=BB51_4 Depth=1
-	move	$a2, $fp
-	move	$a3, $fp
+	move	$a2, $s8
+	move	$a3, $s8
 	ld.d	$a4, $sp, 8                     # 8-byte Folded Reload
 	beqz	$a4, .LBB51_15
 .LBB51_12:                              # %vec.epilog.ph
@@ -16198,9 +16168,7 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
                                         # =>  This Inner Loop Header: Depth=2
 	ld.d	$a3, $a2, 0
 	vinsgr2vr.d	$vr1, $a3, 0
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vsllwil.w.h	$vr1, $vr1, 0
 	vdiv.w	$vr1, $vr1, $vr6
 	vdiv.w	$vr1, $vr1, $vr7
 	vdiv.w	$vr1, $vr1, $vr8
@@ -16255,7 +16223,7 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 	ld.d	$a0, $sp, 56                    # 8-byte Folded Reload
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	ori	$a6, $zero, 4
+	ori	$a5, $zero, 4
 	vld	$vr9, $sp, 64                   # 16-byte Folded Reload
 	vld	$vr8, $sp, 80                   # 16-byte Folded Reload
 	vld	$vr7, $sp, 96                   # 16-byte Folded Reload
@@ -16264,19 +16232,19 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 	ld.w	$a1, $a0, %pc_lo12(iterations)
 	b	.LBB51_3
 .LBB51_19:                              # %.preheader.preheader
-	pcalau12i	$s5, %pc_hi20(init_value)
-	fld.d	$fa0, $s5, %pc_lo12(init_value)
+	pcalau12i	$fp, %pc_hi20(init_value)
+	fld.d	$fa0, $fp, %pc_lo12(init_value)
 	lu12i.w	$a0, 1
-	ori	$s6, $a0, 3904
+	ori	$s5, $a0, 3904
 	pcalau12i	$a0, %pc_hi20(.L.str.179)
 	addi.d	$s4, $a0, %pc_lo12(.L.str.179)
-	move	$s7, $zero
+	move	$s6, $zero
 	b	.LBB51_21
 	.p2align	4, , 16
 .LBB51_20:                              # %_Z26check_shifted_variable_sumIs31custom_divide_multiple_variableIsEEvT_S2_S2_S2_S2_.exit
                                         #   in Loop: Header=BB51_21 Depth=1
-	addi.w	$s7, $s7, 1
-	bge	$s7, $a1, .LBB51_23
+	addi.w	$s6, $s6, 1
+	bge	$s6, $a1, .LBB51_23
 .LBB51_21:                              # %.preheader
                                         # =>This Inner Loop Header: Depth=1
 	ftintrz.l.d	$fa1, $fa0
@@ -16285,7 +16253,7 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 	div.w	$a0, $a0, $s2
 	div.w	$a0, $a0, $s1
 	div.w	$a0, $a0, $s0
-	mul.d	$a0, $a0, $s6
+	mul.d	$a0, $a0, $s5
 	bstrpick.d	$a0, $a0, 15, 6
 	slli.d	$a0, $a0, 6
 	beqz	$a0, .LBB51_20
@@ -16295,7 +16263,7 @@ _Z14test_variable4Is31custom_divide_multiple_variableIsEEvPT_iS2_S2_S2_S2_PKc: #
 	move	$a0, $s4
 	pcaddu18i	$ra, %call36(printf)
 	jirl	$ra, $ra, 0
-	fld.d	$fa0, $s5, %pc_lo12(init_value)
+	fld.d	$fa0, $fp, %pc_lo12(init_value)
 	ld.d	$a0, $sp, 152                   # 8-byte Folded Reload
 	ld.w	$a1, $a0, %pc_lo12(iterations)
 	b	.LBB51_20

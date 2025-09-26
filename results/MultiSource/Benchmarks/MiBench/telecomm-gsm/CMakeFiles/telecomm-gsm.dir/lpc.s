@@ -3,10 +3,10 @@
 	.p2align	4, 0x0                          # -- Begin function Gsm_LPC_Analysis
 .LCPI0_0:
 	.half	1                               # 0x1
-	.half	65535                           # 0xffff
-	.half	65535                           # 0xffff
-	.half	65535                           # 0xffff
 	.half	8                               # 0x8
+	.half	65535                           # 0xffff
+	.half	65535                           # 0xffff
+	.half	65535                           # 0xffff
 	.half	65535                           # 0xffff
 	.half	65535                           # 0xffff
 	.half	65535                           # 0xffff
@@ -260,18 +260,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 .LBB0_4:                                # %vector.body108
 	vld	$vr0, $s0, 0
 	vld	$vr1, $s0, 16
-	vilvh.h	$vr2, $vr0, $vr0
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr0, $vr0, 16
-	vilvh.h	$vr3, $vr1, $vr1
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr0, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr0, $vr0, 0
+	vbsrl.v	$vr3, $vr1, 8
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr4, $vr0, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -292,18 +286,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 0
 	vst	$vr1, $s0, 16
 	vld	$vr1, $s0, 48
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -322,18 +310,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 32
 	vst	$vr1, $s0, 48
 	vld	$vr1, $s0, 80
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -352,18 +334,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 64
 	vst	$vr1, $s0, 80
 	vld	$vr1, $s0, 112
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -382,18 +358,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 96
 	vst	$vr1, $s0, 112
 	vld	$vr1, $s0, 144
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -412,18 +382,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 128
 	vst	$vr1, $s0, 144
 	vld	$vr1, $s0, 176
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -442,18 +406,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 160
 	vst	$vr1, $s0, 176
 	vld	$vr1, $s0, 208
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -472,18 +430,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 192
 	vst	$vr1, $s0, 208
 	vld	$vr1, $s0, 240
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -502,18 +454,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 224
 	vst	$vr1, $s0, 240
 	vld	$vr1, $s0, 272
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -532,18 +478,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 256
 	vst	$vr1, $s0, 272
 	vld	$vr1, $s0, 304
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 11
 	vslli.w	$vr2, $vr2, 11
 	vslli.w	$vr1, $vr1, 11
@@ -559,18 +499,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 .LBB0_7:                                # %vector.body124
 	vld	$vr0, $s0, 0
 	vld	$vr1, $s0, 16
-	vilvh.h	$vr2, $vr0, $vr0
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr0, $vr0, 16
-	vilvh.h	$vr3, $vr1, $vr1
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr0, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr0, $vr0, 0
+	vbsrl.v	$vr3, $vr1, 8
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr4, $vr0, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -591,18 +525,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 0
 	vst	$vr1, $s0, 16
 	vld	$vr1, $s0, 48
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -621,18 +549,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 32
 	vst	$vr1, $s0, 48
 	vld	$vr1, $s0, 80
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -651,18 +573,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 64
 	vst	$vr1, $s0, 80
 	vld	$vr1, $s0, 112
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -681,18 +597,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 96
 	vst	$vr1, $s0, 112
 	vld	$vr1, $s0, 144
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -711,18 +621,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 128
 	vst	$vr1, $s0, 144
 	vld	$vr1, $s0, 176
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -741,18 +645,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 160
 	vst	$vr1, $s0, 176
 	vld	$vr1, $s0, 208
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -771,18 +669,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 192
 	vst	$vr1, $s0, 208
 	vld	$vr1, $s0, 240
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -801,18 +693,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 224
 	vst	$vr1, $s0, 240
 	vld	$vr1, $s0, 272
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -831,18 +717,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 256
 	vst	$vr1, $s0, 272
 	vld	$vr1, $s0, 304
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 13
 	vslli.w	$vr2, $vr2, 13
 	vslli.w	$vr1, $vr1, 13
@@ -851,18 +731,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 .LBB0_8:                                # %vector.body132
 	vld	$vr0, $s0, 0
 	vld	$vr1, $s0, 16
-	vilvh.h	$vr2, $vr0, $vr0
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr0, $vr0, 16
-	vilvh.h	$vr3, $vr1, $vr1
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr0, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr0, $vr0, 0
+	vbsrl.v	$vr3, $vr1, 8
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr4, $vr0, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -883,18 +757,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 0
 	vst	$vr1, $s0, 16
 	vld	$vr1, $s0, 48
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -913,18 +781,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 32
 	vst	$vr1, $s0, 48
 	vld	$vr1, $s0, 80
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -943,18 +805,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 64
 	vst	$vr1, $s0, 80
 	vld	$vr1, $s0, 112
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -973,18 +829,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 96
 	vst	$vr1, $s0, 112
 	vld	$vr1, $s0, 144
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -1003,18 +853,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 128
 	vst	$vr1, $s0, 144
 	vld	$vr1, $s0, 176
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -1033,18 +877,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 160
 	vst	$vr1, $s0, 176
 	vld	$vr1, $s0, 208
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -1063,18 +901,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 192
 	vst	$vr1, $s0, 208
 	vld	$vr1, $s0, 240
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -1093,18 +925,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 224
 	vst	$vr1, $s0, 240
 	vld	$vr1, $s0, 272
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -1123,18 +949,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 256
 	vst	$vr1, $s0, 272
 	vld	$vr1, $s0, 304
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 14
 	vslli.w	$vr2, $vr2, 14
 	vslli.w	$vr1, $vr1, 14
@@ -1143,18 +963,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 .LBB0_9:                                # %vector.body116
 	vld	$vr0, $s0, 0
 	vld	$vr1, $s0, 16
-	vilvh.h	$vr2, $vr0, $vr0
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr0, $vr0, $vr0
-	vslli.w	$vr0, $vr0, 16
-	vsrai.w	$vr0, $vr0, 16
-	vilvh.h	$vr3, $vr1, $vr1
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr0, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr0, $vr0, 0
+	vbsrl.v	$vr3, $vr1, 8
+	vsllwil.w.h	$vr3, $vr3, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr4, $vr0, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1175,18 +989,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 0
 	vst	$vr1, $s0, 16
 	vld	$vr1, $s0, 48
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1205,18 +1013,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 32
 	vst	$vr1, $s0, 48
 	vld	$vr1, $s0, 80
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1235,18 +1037,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 64
 	vst	$vr1, $s0, 80
 	vld	$vr1, $s0, 112
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1265,18 +1061,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 96
 	vst	$vr1, $s0, 112
 	vld	$vr1, $s0, 144
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1295,18 +1085,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 128
 	vst	$vr1, $s0, 144
 	vld	$vr1, $s0, 176
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1325,18 +1109,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 160
 	vst	$vr1, $s0, 176
 	vld	$vr1, $s0, 208
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1355,18 +1133,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 192
 	vst	$vr1, $s0, 208
 	vld	$vr1, $s0, 240
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1385,18 +1157,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 224
 	vst	$vr1, $s0, 240
 	vld	$vr1, $s0, 272
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1415,18 +1181,12 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vst	$vr2, $s0, 256
 	vst	$vr1, $s0, 272
 	vld	$vr1, $s0, 304
-	vilvh.h	$vr2, $vr3, $vr3
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vilvl.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vilvh.h	$vr4, $vr1, $vr1
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vbsrl.v	$vr2, $vr3, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.w.h	$vr3, $vr3, 0
+	vbsrl.v	$vr4, $vr1, 8
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vslli.w	$vr3, $vr3, 12
 	vslli.w	$vr2, $vr2, 12
 	vslli.w	$vr1, $vr1, 12
@@ -1547,91 +1307,71 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	add.d	$a4, $s0, $a0
 	ld.w	$a5, $a4, 16
 	ld.w	$a6, $a4, 20
-	vinsgr2vr.w	$vr22, $a5, 0
-	vori.b	$vr23, $vr18, 0
-	vshuf.h	$vr23, $vr22, $vr19
+	vinsgr2vr.w	$vr20, $a5, 0
+	vori.b	$vr22, $vr18, 0
+	vshuf.h	$vr22, $vr20, $vr19
 	vinsgr2vr.w	$vr19, $a6, 0
-	vilvl.h	$vr20, $vr22, $vr22
-	vilvl.w	$vr20, $vr20, $vr20
-	vslli.d	$vr20, $vr20, 48
-	vsrai.d	$vr20, $vr20, 48
-	vilvl.h	$vr21, $vr19, $vr19
-	vilvl.w	$vr21, $vr21, $vr21
-	vslli.d	$vr21, $vr21, 48
-	vsrai.d	$vr21, $vr21, 48
-	vmadd.d	$vr17, $vr20, $vr20
-	vmadd.d	$vr16, $vr21, $vr21
-	vslli.d	$vr23, $vr23, 48
-	vsrai.d	$vr23, $vr23, 48
-	vori.b	$vr24, $vr18, 0
-	vshuf.h	$vr24, $vr19, $vr22
-	vslli.d	$vr22, $vr24, 48
+	vori.b	$vr23, $vr18, 0
+	vshuf.h	$vr23, $vr19, $vr20
+	vsllwil.w.h	$vr20, $vr20, 0
+	vsllwil.d.w	$vr21, $vr20, 0
+	vsllwil.w.h	$vr20, $vr19, 0
+	vsllwil.d.w	$vr20, $vr20, 0
+	vmadd.d	$vr17, $vr21, $vr21
+	vmadd.d	$vr16, $vr20, $vr20
+	vsllwil.w.h	$vr22, $vr22, 0
 	ld.w	$a5, $a4, 12
-	vsrai.d	$vr22, $vr22, 48
-	vmadd.d	$vr0, $vr20, $vr23
-	vmadd.d	$vr7, $vr21, $vr22
-	vinsgr2vr.w	$vr22, $a5, 0
+	vsllwil.d.w	$vr22, $vr22, 0
+	vsllwil.w.h	$vr23, $vr23, 0
+	vsllwil.d.w	$vr23, $vr23, 0
+	vinsgr2vr.w	$vr24, $a5, 0
 	ld.w	$a5, $a4, 10
-	vilvl.h	$vr22, $vr22, $vr22
-	vilvl.w	$vr22, $vr22, $vr22
-	vslli.d	$vr22, $vr22, 48
+	vmadd.d	$vr0, $vr21, $vr22
+	vmadd.d	$vr7, $vr20, $vr23
+	vsllwil.w.h	$vr22, $vr24, 0
 	vinsgr2vr.w	$vr23, $a5, 0
 	ld.w	$a5, $a4, 14
-	vsrai.d	$vr22, $vr22, 48
-	vmadd.d	$vr1, $vr22, $vr20
-	vmadd.d	$vr8, $vr20, $vr21
+	vsllwil.d.w	$vr22, $vr22, 0
+	vmadd.d	$vr1, $vr22, $vr21
+	vmadd.d	$vr8, $vr21, $vr20
 	vinsgr2vr.w	$vr24, $a5, 0
-	vilvl.h	$vr23, $vr23, $vr23
-	vilvl.w	$vr23, $vr23, $vr23
-	vslli.d	$vr23, $vr23, 48
-	vsrai.d	$vr23, $vr23, 48
-	vilvl.h	$vr24, $vr24, $vr24
-	vilvl.w	$vr24, $vr24, $vr24
-	vslli.d	$vr24, $vr24, 48
+	vsllwil.w.h	$vr23, $vr23, 0
+	vsllwil.d.w	$vr23, $vr23, 0
+	vsllwil.w.h	$vr24, $vr24, 0
 	ld.w	$a5, $a4, 8
-	vsrai.d	$vr24, $vr24, 48
-	vmadd.d	$vr2, $vr23, $vr20
-	vmadd.d	$vr9, $vr24, $vr21
+	vsllwil.d.w	$vr24, $vr24, 0
+	vmadd.d	$vr2, $vr23, $vr21
+	vmadd.d	$vr9, $vr24, $vr20
 	vinsgr2vr.w	$vr24, $a5, 0
-	vilvl.h	$vr24, $vr24, $vr24
-	vilvl.w	$vr24, $vr24, $vr24
-	vslli.d	$vr24, $vr24, 48
+	vsllwil.w.h	$vr24, $vr24, 0
 	ld.w	$a5, $a4, 6
-	vsrai.d	$vr24, $vr24, 48
-	vmadd.d	$vr3, $vr24, $vr20
-	vmadd.d	$vr10, $vr22, $vr21
+	vsllwil.d.w	$vr24, $vr24, 0
+	vmadd.d	$vr3, $vr24, $vr21
+	vmadd.d	$vr10, $vr22, $vr20
 	vinsgr2vr.w	$vr22, $a5, 0
-	vilvl.h	$vr22, $vr22, $vr22
-	vilvl.w	$vr22, $vr22, $vr22
-	vslli.d	$vr22, $vr22, 48
+	vsllwil.w.h	$vr22, $vr22, 0
 	ld.w	$a5, $a4, 4
-	vsrai.d	$vr22, $vr22, 48
-	vmadd.d	$vr4, $vr22, $vr20
-	vmadd.d	$vr11, $vr23, $vr21
+	vsllwil.d.w	$vr22, $vr22, 0
+	vmadd.d	$vr4, $vr22, $vr21
+	vmadd.d	$vr11, $vr23, $vr20
 	vinsgr2vr.w	$vr23, $a5, 0
-	vilvl.h	$vr23, $vr23, $vr23
-	vilvl.w	$vr23, $vr23, $vr23
-	vslli.d	$vr23, $vr23, 48
+	vsllwil.w.h	$vr23, $vr23, 0
 	ld.w	$a4, $a4, 2
-	vsrai.d	$vr23, $vr23, 48
-	vmadd.d	$vr5, $vr23, $vr20
-	vmadd.d	$vr12, $vr24, $vr21
+	vsllwil.d.w	$vr23, $vr23, 0
+	vmadd.d	$vr5, $vr23, $vr21
+	vmadd.d	$vr12, $vr24, $vr20
 	vinsgr2vr.w	$vr24, $a4, 0
-	vilvl.h	$vr24, $vr24, $vr24
-	vilvl.w	$vr24, $vr24, $vr24
-	vslli.d	$vr24, $vr24, 48
+	vsllwil.w.h	$vr24, $vr24, 0
 	ldx.w	$a4, $s0, $a0
-	vsrai.d	$vr24, $vr24, 48
-	vmadd.d	$vr6, $vr24, $vr20
-	vmadd.d	$vr13, $vr22, $vr21
+	vsllwil.d.w	$vr24, $vr24, 0
+	vmadd.d	$vr6, $vr24, $vr21
+	vmadd.d	$vr13, $vr22, $vr20
 	vinsgr2vr.w	$vr22, $a4, 0
-	vilvl.h	$vr22, $vr22, $vr22
-	vilvl.w	$vr22, $vr22, $vr22
-	vslli.d	$vr22, $vr22, 48
-	vsrai.d	$vr22, $vr22, 48
-	vmadd.d	$vr14, $vr22, $vr20
+	vsllwil.w.h	$vr22, $vr22, 0
+	vsllwil.d.w	$vr22, $vr22, 0
+	vmadd.d	$vr14, $vr22, $vr21
 	addi.d	$a0, $a0, 8
-	vmadd.d	$vr15, $vr23, $vr21
+	vmadd.d	$vr15, $vr23, $vr20
 	bne	$a0, $a3, .LBB0_12
 # %bb.13:                               # %middle.block177
 	vadd.d	$vr16, $vr16, $vr17
@@ -2281,50 +2021,44 @@ Gsm_LPC_Analysis:                       # @Gsm_LPC_Analysis
 	vslli.h	$vr4, $vr4, 15
 	vsrai.h	$vr4, $vr4, 15
 	vbitsel.v	$vr0, $vr0, $vr1, $vr4
-	vilvl.h	$vr1, $vr3, $vr3
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
+	vsllwil.w.h	$vr1, $vr3, 0
 	lu12i.w	$a0, 10
 	vreplgr2vr.w	$vr3, $a0
 	vmul.w	$vr1, $vr1, $vr3
-	vilvl.h	$vr2, $vr2, $vr2
-	vilvl.w	$vr2, $vr2, $vr2
-	vslli.d	$vr2, $vr2, 48
-	vsrai.d	$vr2, $vr2, 48
+	vsllwil.w.h	$vr2, $vr2, 0
+	vsllwil.d.w	$vr2, $vr2, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI0_1)
 	vld	$vr3, $a0, %pc_lo12(.LCPI0_1)
 	ori	$a0, $zero, 0
 	lu32i.d	$a0, 40960
 	vreplgr2vr.d	$vr4, $a0
 	vmadd.d	$vr3, $vr2, $vr4
-	vsrli.d	$vr2, $vr3, 32
-	vilvl.h	$vr0, $vr0, $vr0
-	vilvh.w	$vr3, $vr0, $vr0
-	vslli.d	$vr3, $vr3, 48
+	vshuf4i.h	$vr2, $vr0, 14
+	vsllwil.w.h	$vr2, $vr2, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI0_3)
 	vld	$vr4, $a0, %pc_lo12(.LCPI0_3)
 	pcalau12i	$a0, %pc_hi20(.LCPI0_4)
 	vld	$vr5, $a0, %pc_lo12(.LCPI0_4)
-	vsrai.d	$vr3, $vr3, 48
+	vsllwil.d.w	$vr2, $vr2, 0
 	pcalau12i	$a0, %pc_hi20(.LCPI0_2)
 	vld	$vr6, $a0, %pc_lo12(.LCPI0_2)
-	vmadd.d	$vr5, $vr3, $vr4
+	vmadd.d	$vr5, $vr2, $vr4
 	pcalau12i	$a0, %pc_hi20(.LCPI0_5)
-	vld	$vr3, $a0, %pc_lo12(.LCPI0_5)
-	vilvl.w	$vr0, $vr0, $vr0
-	vslli.d	$vr0, $vr0, 48
-	vsrai.d	$vr0, $vr0, 48
-	vmadd.d	$vr3, $vr0, $vr6
+	vld	$vr2, $a0, %pc_lo12(.LCPI0_5)
+	vsrli.d	$vr3, $vr3, 32
+	vsllwil.w.h	$vr0, $vr0, 0
+	vsllwil.d.w	$vr0, $vr0, 0
+	vmadd.d	$vr2, $vr0, $vr6
 	pcalau12i	$a0, %pc_hi20(.LCPI0_6)
 	vld	$vr0, $a0, %pc_lo12(.LCPI0_6)
-	vsrli.d	$vr3, $vr3, 32
+	vsrli.d	$vr2, $vr2, 32
 	vsrli.d	$vr4, $vr5, 32
-	vpickev.w	$vr3, $vr4, $vr3
-	vshuf.w	$vr0, $vr2, $vr1
+	vpickev.w	$vr2, $vr4, $vr2
+	vshuf.w	$vr0, $vr3, $vr1
 	lu12i.w	$a0, 4096
 	vreplgr2vr.w	$vr1, $a0
 	vadd.w	$vr0, $vr0, $vr1
-	vadd.w	$vr1, $vr3, $vr1
+	vadd.w	$vr1, $vr2, $vr1
 	vsrai.w	$vr1, $vr1, 25
 	vsrai.w	$vr0, $vr0, 25
 	vshuf4i.w	$vr2, $vr0, 14

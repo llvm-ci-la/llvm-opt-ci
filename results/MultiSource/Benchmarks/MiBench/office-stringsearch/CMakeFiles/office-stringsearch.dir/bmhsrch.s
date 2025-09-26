@@ -100,37 +100,39 @@ bmh_init:                               # @bmh_init
 	move	$a4, $zero
 	b	.LBB0_6
 .LBB0_3:                                # %vector.ph30
+	pcalau12i	$a4, %pc_hi20(.LCPI0_0)
+	vld	$vr1, $a4, %pc_lo12(.LCPI0_0)
 	bstrpick.d	$a4, $a0, 30, 2
-	pcalau12i	$a5, %pc_hi20(.LCPI0_0)
-	vld	$vr1, $a5, %pc_lo12(.LCPI0_0)
 	slli.d	$a4, $a4, 2
 	vrepli.b	$vr2, -1
-	vrepli.b	$vr3, 0
 	move	$a5, $fp
 	move	$a6, $a4
 	.p2align	4, , 16
 .LBB0_4:                                # %vector.body33
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a7, $a5, 0
-	vxor.v	$vr4, $vr1, $vr2
-	vadd.w	$vr4, $vr0, $vr4
-	vinsgr2vr.w	$vr5, $a7, 0
-	vilvl.b	$vr5, $vr3, $vr5
-	vilvl.h	$vr5, $vr3, $vr5
-	vilvh.w	$vr6, $vr3, $vr5
-	vilvl.w	$vr5, $vr3, $vr5
-	vpickve2gr.d	$a7, $vr5, 0
+	vxor.v	$vr3, $vr1, $vr2
+	vadd.w	$vr3, $vr0, $vr3
+	vinsgr2vr.w	$vr4, $a7, 0
+	vshuf4i.b	$vr5, $vr4, 14
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vsllwil.du.wu	$vr5, $vr5, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
+	vpickve2gr.d	$a7, $vr4, 0
 	alsl.d	$a7, $a7, $a2, 2
-	vpickve2gr.d	$t0, $vr5, 1
+	vpickve2gr.d	$t0, $vr4, 1
 	alsl.d	$t0, $t0, $a2, 2
-	vpickve2gr.d	$t1, $vr6, 0
+	vpickve2gr.d	$t1, $vr5, 0
 	alsl.d	$t1, $t1, $a2, 2
-	vpickve2gr.d	$t2, $vr6, 1
+	vpickve2gr.d	$t2, $vr5, 1
 	alsl.d	$t2, $t2, $a2, 2
-	vstelm.w	$vr4, $a7, 0, 0
-	vstelm.w	$vr4, $t0, 0, 1
-	vstelm.w	$vr4, $t1, 0, 2
-	vstelm.w	$vr4, $t2, 0, 3
+	vstelm.w	$vr3, $a7, 0, 0
+	vstelm.w	$vr3, $t0, 0, 1
+	vstelm.w	$vr3, $t1, 0, 2
+	vstelm.w	$vr3, $t2, 0, 3
 	vaddi.wu	$vr1, $vr1, 4
 	addi.d	$a6, $a6, -4
 	addi.d	$a5, $a5, 4
@@ -199,14 +201,12 @@ bmh_init:                               # @bmh_init
 	ld.w	$t3, $t1, 0
 	vinsgr2vr.w	$vr1, $t3, 0
 	vseq.b	$vr1, $vr1, $vr0
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 24
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vmskltz.w	$vr2, $vr1
 	vpickve2gr.hu	$t3, $vr2, 0
 	beqz	$t3, .LBB0_12
 # %bb.14:                               #   in Loop: Header=BB0_13 Depth=1
-	vsrai.w	$vr1, $vr1, 24
 	vpickve2gr.w	$t3, $vr1, 3
 	andi	$t3, $t3, 1
 	vpickve2gr.w	$t4, $vr1, 2

@@ -190,14 +190,12 @@ bmhi_init:                              # @bmhi_init
 	ld.w	$t1, $a7, 0
 	vinsgr2vr.w	$vr1, $t1, 0
 	vseq.b	$vr1, $vr1, $vr0
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 24
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vmskltz.w	$vr2, $vr1
 	vpickve2gr.hu	$t1, $vr2, 0
 	beqz	$t1, .LBB0_11
 # %bb.13:                               #   in Loop: Header=BB0_12 Depth=1
-	vsrai.w	$vr1, $vr1, 24
 	vpickve2gr.w	$t1, $vr1, 3
 	andi	$t1, $t1, 1
 	vpickve2gr.w	$t2, $vr1, 2

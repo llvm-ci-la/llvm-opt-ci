@@ -1023,19 +1023,8 @@ _ZN9NCompress8NQuantum8CDecoder8CodeSpecEj: # @_ZN9NCompress8NQuantum8CDecoder8C
 	.size	_ZN9NCompress8NQuantum8CDecoder8CodeSpecEj, .Lfunc_end1-_ZN9NCompress8NQuantum8CDecoder8CodeSpecEj
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0                          # -- Begin function _ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE
-.LCPI2_0:
-	.half	3                               # 0x3
-	.half	9                               # 0x9
-	.half	4                               # 0x4
-	.half	11                              # 0xb
-	.half	5                               # 0x5
-	.half	13                              # 0xd
-	.half	6                               # 0x6
-	.half	15                              # 0xf
 	.section	.text._ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE,"axG",@progbits,_ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE,comdat
-	.weak	_ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE
+	.weak	_ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE # -- Begin function _ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE
 	.p2align	5
 	.type	_ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE,@function
 _ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE: # @_ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE
@@ -1168,40 +1157,38 @@ _ZN9NCompress8NQuantum11NRangeCoder13CModelDecoder6DecodeEPNS1_8CDecoderE: # @_Z
 .LBB2_17:                               # %vector.ph93
 	addi.d	$a5, $fp, 10
 	bstrpick.d	$a4, $a2, 31, 3
-	pcalau12i	$a6, %pc_hi20(.LCPI2_0)
-	vld	$vr0, $a6, %pc_lo12(.LCPI2_0)
 	slli.d	$a4, $a4, 3
-	vinsgr2vr.h	$vr1, $a3, 7
-	vrepli.b	$vr2, 0
+	vinsgr2vr.h	$vr0, $a3, 7
 	move	$a3, $a4
 	.p2align	4, , 16
 .LBB2_18:                               # %vector.body96
                                         # =>This Inner Loop Header: Depth=1
-	vori.b	$vr3, $vr1, 0
-	vld	$vr1, $a5, 0
-	vbsrl.v	$vr3, $vr3, 14
-	vbsll.v	$vr4, $vr1, 2
-	vor.v	$vr3, $vr4, $vr3
-	vori.b	$vr4, $vr0, 0
-	vshuf.h	$vr4, $vr2, $vr1
-	vilvl.h	$vr3, $vr2, $vr3
-	vilvh.h	$vr5, $vr2, $vr1
-	vilvl.h	$vr6, $vr2, $vr1
-	vsub.w	$vr3, $vr3, $vr6
-	vaddi.wu	$vr3, $vr3, 1
-	vsub.w	$vr4, $vr4, $vr5
-	vaddi.wu	$vr4, $vr4, 1
-	vsrli.w	$vr4, $vr4, 1
-	vsrli.w	$vr3, $vr3, 1
-	vpickev.h	$vr3, $vr4, $vr3
-	vst	$vr3, $a5, -2
+	vori.b	$vr1, $vr0, 0
+	vld	$vr0, $a5, 0
+	vbsrl.v	$vr1, $vr1, 14
+	vbsll.v	$vr2, $vr0, 2
+	vor.v	$vr1, $vr2, $vr1
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vbsrl.v	$vr2, $vr0, 6
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vbsrl.v	$vr3, $vr0, 8
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr4, $vr0, 0
+	vsub.w	$vr1, $vr1, $vr4
+	vaddi.wu	$vr1, $vr1, 1
+	vsub.w	$vr2, $vr2, $vr3
+	vaddi.wu	$vr2, $vr2, 1
+	vsrli.w	$vr2, $vr2, 1
+	vsrli.w	$vr1, $vr1, 1
+	vpickev.h	$vr1, $vr2, $vr1
+	vst	$vr1, $a5, -2
 	addi.d	$a3, $a3, -8
 	addi.d	$a5, $a5, 16
 	bnez	$a3, .LBB2_18
 # %bb.19:                               # %middle.block100
 	beq	$a4, $a2, .LBB2_23
 # %bb.20:
-	vpickve2gr.h	$a3, $vr1, 7
+	vpickve2gr.h	$a3, $vr0, 7
 .LBB2_21:                               # %.lr.ph.preheader123
 	alsl.d	$a5, $a4, $fp, 1
 	addi.d	$a5, $a5, 10

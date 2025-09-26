@@ -117,8 +117,7 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	st.d	$a0, $sp, 144                   # 8-byte Folded Spill
 	add.d	$a0, $a6, $a7
 	st.d	$a0, $sp, 216                   # 8-byte Folded Spill
-	vrepli.b	$vr0, 0
-	vrepli.w	$vr1, 32
+	vrepli.w	$vr0, 32
 	st.d	$s8, $sp, 208                   # 8-byte Folded Spill
 	st.d	$a4, $sp, 64                    # 8-byte Folded Spill
 	b	.LBB0_8
@@ -153,8 +152,8 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	ldx.d	$a0, $a0, $a1
 	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
 	slli.d	$a5, $t6, 3
-	vreplgr2vr.w	$vr2, $s5
-	vreplgr2vr.w	$vr3, $a5
+	vreplgr2vr.w	$vr1, $s5
+	vreplgr2vr.w	$vr2, $a5
 	st.d	$t6, $sp, 96                    # 8-byte Folded Spill
 	b	.LBB0_10
 	.p2align	4, , 16
@@ -191,10 +190,10 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	mul.d	$a2, $a1, $a0
 	st.d	$a3, $sp, 104                   # 8-byte Folded Spill
 	mul.d	$s4, $a3, $a0
-	vreplgr2vr.w	$vr4, $a2
-	vreplgr2vr.w	$vr5, $s4
-	vreplgr2vr.w	$vr6, $t8
-	vreplgr2vr.w	$vr7, $fp
+	vreplgr2vr.w	$vr3, $a2
+	vreplgr2vr.w	$vr4, $s4
+	vreplgr2vr.w	$vr5, $t8
+	vreplgr2vr.w	$vr6, $fp
 	ld.d	$a1, $sp, 120                   # 8-byte Folded Reload
 	b	.LBB0_12
 	.p2align	4, , 16
@@ -372,30 +371,30 @@ getSubImagesChroma:                     # @getSubImagesChroma
 # %bb.33:                               # %vector.ph229
                                         #   in Loop: Header=BB0_12 Depth=3
 	ld.h	$t5, $s6, 0
-	vreplgr2vr.h	$vr8, $t5
-	vilvl.h	$vr8, $vr0, $vr8
-	vinsgr2vr.h	$vr9, $t5, 0
-	vinsgr2vr.h	$vr9, $t5, 1
-	vinsgr2vr.h	$vr9, $t5, 2
-	vinsgr2vr.h	$vr9, $t5, 3
+	vreplgr2vr.h	$vr7, $t5
+	vinsgr2vr.h	$vr8, $t5, 0
+	vinsgr2vr.h	$vr8, $t5, 1
+	vinsgr2vr.h	$vr8, $t5, 2
+	vinsgr2vr.h	$vr8, $t5, 3
+	vsllwil.wu.hu	$vr8, $vr8, 0
 	ld.h	$t5, $a4, 0
-	vilvl.h	$vr9, $vr0, $vr9
-	vmul.w	$vr9, $vr2, $vr9
-	vmul.w	$vr8, $vr2, $vr8
-	vreplgr2vr.h	$vr10, $t5
-	vinsgr2vr.h	$vr11, $t5, 0
-	vinsgr2vr.h	$vr11, $t5, 1
-	vinsgr2vr.h	$vr11, $t5, 2
-	vinsgr2vr.h	$vr11, $t5, 3
-	vilvl.h	$vr11, $vr0, $vr11
-	vilvl.h	$vr10, $vr0, $vr10
-	vmadd.w	$vr8, $vr3, $vr10
-	vmadd.w	$vr9, $vr3, $vr11
-	vadd.w	$vr9, $vr9, $vr1
-	vadd.w	$vr8, $vr8, $vr1
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmul.w	$vr7, $vr1, $vr7
+	vmul.w	$vr8, $vr1, $vr8
+	vreplgr2vr.h	$vr9, $t5
+	vinsgr2vr.h	$vr10, $t5, 0
+	vinsgr2vr.h	$vr10, $t5, 1
+	vinsgr2vr.h	$vr10, $t5, 2
+	vinsgr2vr.h	$vr10, $t5, 3
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vmadd.w	$vr8, $vr2, $vr10
+	vmadd.w	$vr7, $vr2, $vr9
+	vadd.w	$vr8, $vr8, $vr0
+	vadd.w	$vr7, $vr7, $vr0
 	vsrli.w	$vr8, $vr8, 6
-	vsrli.w	$vr9, $vr9, 6
-	vpickev.h	$vr8, $vr9, $vr8
+	vsrli.w	$vr7, $vr7, 6
+	vpickev.h	$vr7, $vr8, $vr7
 	move	$t5, $a3
 	ld.d	$t6, $sp, 176                   # 8-byte Folded Reload
 	.p2align	4, , 16
@@ -404,7 +403,7 @@ getSubImagesChroma:                     # @getSubImagesChroma
                                         #     Parent Loop BB0_10 Depth=2
                                         #       Parent Loop BB0_12 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vst	$vr8, $t5, 0
+	vst	$vr7, $t5, 0
 	addi.d	$t6, $t6, -8
 	addi.d	$t5, $t5, 16
 	bnez	$t6, .LBB0_34
@@ -448,34 +447,38 @@ getSubImagesChroma:                     # @getSubImagesChroma
                                         #     Parent Loop BB0_10 Depth=2
                                         #       Parent Loop BB0_12 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vld	$vr8, $s1, -2
-	vld	$vr9, $s1, 0
-	vilvl.h	$vr10, $vr0, $vr8
-	vilvh.h	$vr8, $vr0, $vr8
-	vilvh.h	$vr11, $vr0, $vr9
-	vilvl.h	$vr9, $vr0, $vr9
-	vld	$vr12, $s2, -2
-	vmul.w	$vr9, $vr5, $vr9
-	vld	$vr13, $s2, 0
-	vmul.w	$vr11, $vr5, $vr11
-	vilvl.h	$vr14, $vr0, $vr12
-	vilvh.h	$vr12, $vr0, $vr12
-	vilvh.h	$vr15, $vr0, $vr13
-	vilvl.h	$vr13, $vr0, $vr13
-	vmul.w	$vr13, $vr7, $vr13
-	vmul.w	$vr15, $vr7, $vr15
-	vmadd.w	$vr15, $vr6, $vr12
-	vmadd.w	$vr13, $vr6, $vr14
-	vmadd.w	$vr11, $vr4, $vr8
-	vmadd.w	$vr9, $vr4, $vr10
-	vadd.w	$vr8, $vr9, $vr13
-	vadd.w	$vr9, $vr11, $vr15
-	vadd.w	$vr9, $vr9, $vr1
-	vadd.w	$vr8, $vr8, $vr1
+	vld	$vr7, $s1, -2
+	vld	$vr8, $s1, 0
+	vsllwil.wu.hu	$vr9, $vr7, 0
+	vbsrl.v	$vr7, $vr7, 8
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vbsrl.v	$vr10, $vr8, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vld	$vr11, $s2, -2
+	vmul.w	$vr8, $vr4, $vr8
+	vmul.w	$vr10, $vr4, $vr10
+	vld	$vr12, $s2, 0
+	vsllwil.wu.hu	$vr13, $vr11, 0
+	vbsrl.v	$vr11, $vr11, 8
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vbsrl.v	$vr14, $vr12, 8
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vmul.w	$vr12, $vr6, $vr12
+	vmul.w	$vr14, $vr6, $vr14
+	vmadd.w	$vr14, $vr5, $vr11
+	vmadd.w	$vr12, $vr5, $vr13
+	vmadd.w	$vr10, $vr3, $vr7
+	vmadd.w	$vr8, $vr3, $vr9
+	vadd.w	$vr7, $vr8, $vr12
+	vadd.w	$vr8, $vr10, $vr14
+	vadd.w	$vr8, $vr8, $vr0
+	vadd.w	$vr7, $vr7, $vr0
+	vsrli.w	$vr7, $vr7, 6
 	vsrli.w	$vr8, $vr8, 6
-	vsrli.w	$vr9, $vr9, 6
-	vpickev.h	$vr8, $vr9, $vr8
-	vst	$vr8, $s0, 0
+	vpickev.h	$vr7, $vr8, $vr7
+	vst	$vr7, $s0, 0
 	addi.d	$s0, $s0, 16
 	addi.d	$s1, $s1, 16
 	addi.d	$s3, $s3, -8
@@ -513,37 +516,37 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	ld.h	$a0, $t6, 0
 	ld.d	$a4, $sp, 152                   # 8-byte Folded Reload
 	add.d	$s1, $a4, $s1
-	vreplgr2vr.h	$vr8, $a0
-	vilvl.h	$vr8, $vr0, $vr8
-	vinsgr2vr.h	$vr9, $a0, 0
-	vinsgr2vr.h	$vr9, $a0, 1
-	vinsgr2vr.h	$vr9, $a0, 2
-	vinsgr2vr.h	$vr9, $a0, 3
+	vreplgr2vr.h	$vr7, $a0
+	vinsgr2vr.h	$vr8, $a0, 0
+	vinsgr2vr.h	$vr8, $a0, 1
+	vinsgr2vr.h	$vr8, $a0, 2
+	vinsgr2vr.h	$vr8, $a0, 3
+	vsllwil.wu.hu	$vr8, $vr8, 0
 	ld.h	$a0, $s0, 0
-	vilvl.h	$vr9, $vr0, $vr9
-	vmul.w	$vr9, $vr2, $vr9
-	vmul.w	$vr8, $vr2, $vr8
-	vreplgr2vr.h	$vr10, $a0
-	vinsgr2vr.h	$vr11, $a0, 0
-	vinsgr2vr.h	$vr11, $a0, 1
-	vinsgr2vr.h	$vr11, $a0, 2
-	vinsgr2vr.h	$vr11, $a0, 3
-	vilvl.h	$vr11, $vr0, $vr11
-	vilvl.h	$vr10, $vr0, $vr10
-	vmadd.w	$vr8, $vr3, $vr10
-	vmadd.w	$vr9, $vr3, $vr11
-	vadd.w	$vr9, $vr9, $vr1
-	vadd.w	$vr8, $vr8, $vr1
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmul.w	$vr7, $vr1, $vr7
+	vmul.w	$vr8, $vr1, $vr8
+	vreplgr2vr.h	$vr9, $a0
+	vinsgr2vr.h	$vr10, $a0, 0
+	vinsgr2vr.h	$vr10, $a0, 1
+	vinsgr2vr.h	$vr10, $a0, 2
+	vinsgr2vr.h	$vr10, $a0, 3
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vmadd.w	$vr8, $vr2, $vr10
+	vmadd.w	$vr7, $vr2, $vr9
+	vadd.w	$vr8, $vr8, $vr0
+	vadd.w	$vr7, $vr7, $vr0
 	vsrli.w	$vr8, $vr8, 6
-	vsrli.w	$vr9, $vr9, 6
-	vpickev.h	$vr8, $vr9, $vr8
+	vsrli.w	$vr7, $vr7, 6
+	vpickev.h	$vr7, $vr8, $vr7
 	.p2align	4, , 16
 .LBB0_44:                               # %vector.body
                                         #   Parent Loop BB0_8 Depth=1
                                         #     Parent Loop BB0_10 Depth=2
                                         #       Parent Loop BB0_12 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vst	$vr8, $s2, 0
+	vst	$vr7, $s2, 0
 	addi.d	$a4, $a4, -8
 	addi.d	$s2, $s2, 16
 	bnez	$a4, .LBB0_44
@@ -561,7 +564,7 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	ld.d	$a0, $a0, 8
 	st.d	$a0, $sp, 48                    # 8-byte Folded Spill
 	ld.d	$a0, $sp, 32                    # 8-byte Folded Reload
-	ld.d	$s4, $a0, 8
+	ld.d	$a4, $a0, 8
 	ld.d	$a0, $sp, 24                    # 8-byte Folded Reload
 	slli.d	$a0, $a0, 3
 	st.d	$a0, $sp, 176                   # 8-byte Folded Spill
@@ -605,9 +608,9 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	ld.d	$a1, $sp, 48                    # 8-byte Folded Reload
 	ldx.d	$a0, $a1, $a0
 	st.d	$a0, $sp, 80                    # 8-byte Folded Spill
-	slli.d	$a4, $a2, 3
-	vreplgr2vr.w	$vr2, $a5
-	vreplgr2vr.w	$vr3, $a4
+	slli.d	$s3, $a2, 3
+	vreplgr2vr.w	$vr1, $a5
+	vreplgr2vr.w	$vr2, $s3
 	st.d	$a2, $sp, 96                    # 8-byte Folded Spill
 	b	.LBB0_50
 	.p2align	4, , 16
@@ -641,13 +644,13 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	mul.d	$fp, $a0, $a2
 	mul.d	$s7, $t2, $a2
 	ld.d	$a1, $sp, 88                    # 8-byte Folded Reload
-	mul.d	$s3, $a0, $a1
+	mul.d	$s4, $a0, $a1
 	st.d	$t2, $sp, 104                   # 8-byte Folded Spill
 	mul.d	$s2, $t2, $a1
-	vreplgr2vr.w	$vr4, $s3
-	vreplgr2vr.w	$vr5, $s2
-	vreplgr2vr.w	$vr6, $fp
-	vreplgr2vr.w	$vr7, $s7
+	vreplgr2vr.w	$vr3, $s4
+	vreplgr2vr.w	$vr4, $s2
+	vreplgr2vr.w	$vr5, $fp
+	vreplgr2vr.w	$vr6, $s7
 	ld.d	$a1, $sp, 120                   # 8-byte Folded Reload
 	b	.LBB0_52
 	.p2align	4, , 16
@@ -681,9 +684,9 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	slli.d	$a3, $t7, 3
 	ldx.d	$a3, $t8, $a3
 	slli.d	$a0, $a0, 3
-	ldx.d	$s6, $s4, $a0
+	ldx.d	$s6, $a4, $a0
 	slli.d	$a0, $a2, 3
-	ldx.d	$s8, $s4, $a0
+	ldx.d	$s8, $a4, $a0
 	bltz	$t3, .LBB0_58
 # %bb.53:                               # %.lr.ph.us.us.us.1.preheader
                                         #   in Loop: Header=BB0_52 Depth=3
@@ -704,7 +707,7 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	ld.hu	$a0, $s6, 0
 	ld.hu	$t2, $s8, 0
 	mul.d	$a0, $a5, $a0
-	mul.d	$t2, $a4, $t2
+	mul.d	$t2, $s3, $t2
 	add.d	$a0, $a0, $t2
 	addi.d	$a0, $a0, 32
 	srli.d	$a0, $a0, 6
@@ -747,7 +750,7 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	ld.hu	$t2, $ra, 0
 	ld.hu	$t5, $s5, -2
 	ld.hu	$s1, $s5, 0
-	mul.d	$a0, $s3, $a0
+	mul.d	$a0, $s4, $a0
 	mul.d	$t2, $s2, $t2
 	mul.d	$t5, $fp, $t5
 	mul.d	$s1, $s7, $s1
@@ -798,7 +801,7 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	ld.hu	$a0, $t6, 0
 	ld.hu	$t2, $s0, 0
 	mul.d	$a0, $a5, $a0
-	mul.d	$t2, $a4, $t2
+	mul.d	$t2, $s3, $t2
 	add.d	$a0, $a0, $t2
 	addi.d	$a0, $a0, 32
 	srli.d	$a0, $a0, 6
@@ -828,30 +831,30 @@ getSubImagesChroma:                     # @getSubImagesChroma
 # %bb.73:                               # %vector.ph332
                                         #   in Loop: Header=BB0_52 Depth=3
 	ld.h	$a0, $s6, 0
-	vreplgr2vr.h	$vr8, $a0
-	vilvl.h	$vr8, $vr0, $vr8
-	vinsgr2vr.h	$vr9, $a0, 0
-	vinsgr2vr.h	$vr9, $a0, 1
-	vinsgr2vr.h	$vr9, $a0, 2
-	vinsgr2vr.h	$vr9, $a0, 3
+	vreplgr2vr.h	$vr7, $a0
+	vinsgr2vr.h	$vr8, $a0, 0
+	vinsgr2vr.h	$vr8, $a0, 1
+	vinsgr2vr.h	$vr8, $a0, 2
+	vinsgr2vr.h	$vr8, $a0, 3
+	vsllwil.wu.hu	$vr8, $vr8, 0
 	ld.h	$a0, $s8, 0
-	vilvl.h	$vr9, $vr0, $vr9
-	vmul.w	$vr9, $vr2, $vr9
-	vmul.w	$vr8, $vr2, $vr8
-	vreplgr2vr.h	$vr10, $a0
-	vinsgr2vr.h	$vr11, $a0, 0
-	vinsgr2vr.h	$vr11, $a0, 1
-	vinsgr2vr.h	$vr11, $a0, 2
-	vinsgr2vr.h	$vr11, $a0, 3
-	vilvl.h	$vr11, $vr0, $vr11
-	vilvl.h	$vr10, $vr0, $vr10
-	vmadd.w	$vr8, $vr3, $vr10
-	vmadd.w	$vr9, $vr3, $vr11
-	vadd.w	$vr9, $vr9, $vr1
-	vadd.w	$vr8, $vr8, $vr1
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmul.w	$vr7, $vr1, $vr7
+	vmul.w	$vr8, $vr1, $vr8
+	vreplgr2vr.h	$vr9, $a0
+	vinsgr2vr.h	$vr10, $a0, 0
+	vinsgr2vr.h	$vr10, $a0, 1
+	vinsgr2vr.h	$vr10, $a0, 2
+	vinsgr2vr.h	$vr10, $a0, 3
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vmadd.w	$vr8, $vr2, $vr10
+	vmadd.w	$vr7, $vr2, $vr9
+	vadd.w	$vr8, $vr8, $vr0
+	vadd.w	$vr7, $vr7, $vr0
 	vsrli.w	$vr8, $vr8, 6
-	vsrli.w	$vr9, $vr9, 6
-	vpickev.h	$vr8, $vr9, $vr8
+	vsrli.w	$vr7, $vr7, 6
+	vpickev.h	$vr7, $vr8, $vr7
 	move	$a2, $a3
 	ld.d	$t5, $sp, 176                   # 8-byte Folded Reload
 	.p2align	4, , 16
@@ -860,7 +863,7 @@ getSubImagesChroma:                     # @getSubImagesChroma
                                         #     Parent Loop BB0_50 Depth=2
                                         #       Parent Loop BB0_52 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vst	$vr8, $a2, 0
+	vst	$vr7, $a2, 0
 	addi.d	$t5, $t5, -8
 	addi.d	$a2, $a2, 16
 	bnez	$t5, .LBB0_74
@@ -905,34 +908,38 @@ getSubImagesChroma:                     # @getSubImagesChroma
                                         #     Parent Loop BB0_50 Depth=2
                                         #       Parent Loop BB0_52 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vld	$vr8, $s1, -2
-	vld	$vr9, $s1, 0
-	vilvl.h	$vr10, $vr0, $vr8
-	vilvh.h	$vr8, $vr0, $vr8
-	vilvh.h	$vr11, $vr0, $vr9
-	vilvl.h	$vr9, $vr0, $vr9
-	vld	$vr12, $s5, -2
-	vmul.w	$vr9, $vr5, $vr9
-	vld	$vr13, $s5, 0
-	vmul.w	$vr11, $vr5, $vr11
-	vilvl.h	$vr14, $vr0, $vr12
-	vilvh.h	$vr12, $vr0, $vr12
-	vilvh.h	$vr15, $vr0, $vr13
-	vilvl.h	$vr13, $vr0, $vr13
-	vmul.w	$vr13, $vr7, $vr13
-	vmul.w	$vr15, $vr7, $vr15
-	vmadd.w	$vr15, $vr6, $vr12
-	vmadd.w	$vr13, $vr6, $vr14
-	vmadd.w	$vr11, $vr4, $vr8
-	vmadd.w	$vr9, $vr4, $vr10
-	vadd.w	$vr8, $vr9, $vr13
-	vadd.w	$vr9, $vr11, $vr15
-	vadd.w	$vr9, $vr9, $vr1
-	vadd.w	$vr8, $vr8, $vr1
+	vld	$vr7, $s1, -2
+	vld	$vr8, $s1, 0
+	vsllwil.wu.hu	$vr9, $vr7, 0
+	vbsrl.v	$vr7, $vr7, 8
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vbsrl.v	$vr10, $vr8, 8
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr8, $vr8, 0
+	vld	$vr11, $s5, -2
+	vmul.w	$vr8, $vr4, $vr8
+	vmul.w	$vr10, $vr4, $vr10
+	vld	$vr12, $s5, 0
+	vsllwil.wu.hu	$vr13, $vr11, 0
+	vbsrl.v	$vr11, $vr11, 8
+	vsllwil.wu.hu	$vr11, $vr11, 0
+	vbsrl.v	$vr14, $vr12, 8
+	vsllwil.wu.hu	$vr14, $vr14, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
+	vmul.w	$vr12, $vr6, $vr12
+	vmul.w	$vr14, $vr6, $vr14
+	vmadd.w	$vr14, $vr5, $vr11
+	vmadd.w	$vr12, $vr5, $vr13
+	vmadd.w	$vr10, $vr3, $vr7
+	vmadd.w	$vr8, $vr3, $vr9
+	vadd.w	$vr7, $vr8, $vr12
+	vadd.w	$vr8, $vr10, $vr14
+	vadd.w	$vr8, $vr8, $vr0
+	vadd.w	$vr7, $vr7, $vr0
+	vsrli.w	$vr7, $vr7, 6
 	vsrli.w	$vr8, $vr8, 6
-	vsrli.w	$vr9, $vr9, 6
-	vpickev.h	$vr8, $vr9, $vr8
-	vst	$vr8, $s0, 0
+	vpickev.h	$vr7, $vr8, $vr7
+	vst	$vr7, $s0, 0
 	addi.d	$s0, $s0, 16
 	addi.d	$s1, $s1, 16
 	addi.d	$a2, $a2, -8
@@ -970,37 +977,37 @@ getSubImagesChroma:                     # @getSubImagesChroma
 	ld.h	$a0, $t6, 0
 	ld.d	$a2, $sp, 152                   # 8-byte Folded Reload
 	add.d	$s1, $a2, $s1
-	vreplgr2vr.h	$vr8, $a0
-	vilvl.h	$vr8, $vr0, $vr8
-	vinsgr2vr.h	$vr9, $a0, 0
-	vinsgr2vr.h	$vr9, $a0, 1
-	vinsgr2vr.h	$vr9, $a0, 2
-	vinsgr2vr.h	$vr9, $a0, 3
+	vreplgr2vr.h	$vr7, $a0
+	vinsgr2vr.h	$vr8, $a0, 0
+	vinsgr2vr.h	$vr8, $a0, 1
+	vinsgr2vr.h	$vr8, $a0, 2
+	vinsgr2vr.h	$vr8, $a0, 3
+	vsllwil.wu.hu	$vr8, $vr8, 0
 	ld.h	$a0, $s0, 0
-	vilvl.h	$vr9, $vr0, $vr9
-	vmul.w	$vr9, $vr2, $vr9
-	vmul.w	$vr8, $vr2, $vr8
-	vreplgr2vr.h	$vr10, $a0
-	vinsgr2vr.h	$vr11, $a0, 0
-	vinsgr2vr.h	$vr11, $a0, 1
-	vinsgr2vr.h	$vr11, $a0, 2
-	vinsgr2vr.h	$vr11, $a0, 3
-	vilvl.h	$vr11, $vr0, $vr11
-	vilvl.h	$vr10, $vr0, $vr10
-	vmadd.w	$vr8, $vr3, $vr10
-	vmadd.w	$vr9, $vr3, $vr11
-	vadd.w	$vr9, $vr9, $vr1
-	vadd.w	$vr8, $vr8, $vr1
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vmul.w	$vr7, $vr1, $vr7
+	vmul.w	$vr8, $vr1, $vr8
+	vreplgr2vr.h	$vr9, $a0
+	vinsgr2vr.h	$vr10, $a0, 0
+	vinsgr2vr.h	$vr10, $a0, 1
+	vinsgr2vr.h	$vr10, $a0, 2
+	vinsgr2vr.h	$vr10, $a0, 3
+	vsllwil.wu.hu	$vr10, $vr10, 0
+	vsllwil.wu.hu	$vr9, $vr9, 0
+	vmadd.w	$vr8, $vr2, $vr10
+	vmadd.w	$vr7, $vr2, $vr9
+	vadd.w	$vr8, $vr8, $vr0
+	vadd.w	$vr7, $vr7, $vr0
 	vsrli.w	$vr8, $vr8, 6
-	vsrli.w	$vr9, $vr9, 6
-	vpickev.h	$vr8, $vr9, $vr8
+	vsrli.w	$vr7, $vr7, 6
+	vpickev.h	$vr7, $vr8, $vr7
 	.p2align	4, , 16
 .LBB0_84:                               # %vector.body269
                                         #   Parent Loop BB0_48 Depth=1
                                         #     Parent Loop BB0_50 Depth=2
                                         #       Parent Loop BB0_52 Depth=3
                                         # =>      This Inner Loop Header: Depth=4
-	vst	$vr8, $s5, 0
+	vst	$vr7, $s5, 0
 	addi.d	$a2, $a2, -8
 	addi.d	$s5, $s5, 16
 	bnez	$a2, .LBB0_84

@@ -2474,8 +2474,8 @@ cleanupURL:                             # @cleanupURL
 	st.b	$a4, $a7, -1
 .LBB10_137:                             # %pred.store.continue65
                                         #   in Loop: Header=BB10_135 Depth=1
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vpickve2gr.w	$t0, $vr1, 1
 	andi	$t0, $t0, 1
 	bnez	$t0, .LBB10_140
@@ -2753,8 +2753,8 @@ cleanupURL:                             # @cleanupURL
 	st.b	$a6, $a7, -1
 .LBB10_187:                             # %pred.store.continue151
                                         #   in Loop: Header=BB10_185 Depth=1
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vpickve2gr.w	$t0, $vr1, 1
 	andi	$t0, $t0, 1
 	bnez	$t0, .LBB10_190
@@ -3032,8 +3032,8 @@ cleanupURL:                             # @cleanupURL
 	st.b	$a6, $a7, -1
 .LBB10_237:                             # %pred.store.continue240
                                         #   in Loop: Header=BB10_235 Depth=1
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vpickve2gr.w	$t0, $vr1, 1
 	andi	$t0, $t0, 1
 	bnez	$t0, .LBB10_240
@@ -3311,8 +3311,8 @@ cleanupURL:                             # @cleanupURL
 	st.b	$a6, $a7, -1
 .LBB10_287:                             # %pred.store.continue329
                                         #   in Loop: Header=BB10_285 Depth=1
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vpickve2gr.w	$t0, $vr1, 1
 	andi	$t0, $t0, 1
 	bnez	$t0, .LBB10_290
@@ -3589,8 +3589,8 @@ cleanupURL:                             # @cleanupURL
 	st.b	$a4, $a5, -1
 .LBB10_337:                             # %pred.store.continue418
                                         #   in Loop: Header=BB10_335 Depth=1
-	vilvl.b	$vr1, $vr1, $vr1
-	vilvl.h	$vr1, $vr1, $vr1
+	vsllwil.h.b	$vr1, $vr1, 0
+	vsllwil.w.h	$vr1, $vr1, 0
 	vpickve2gr.w	$a6, $vr1, 1
 	andi	$a6, $a6, 1
 	bnez	$a6, .LBB10_340

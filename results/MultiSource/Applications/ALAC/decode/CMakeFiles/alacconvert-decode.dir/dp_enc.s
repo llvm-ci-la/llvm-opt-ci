@@ -750,14 +750,10 @@ pc_block:                               # @pc_block
 	ld.d	$s5, $s2, 0
 	vinsgr2vr.d	$vr4, $s4, 0
 	vinsgr2vr.d	$vr5, $s5, 0
-	vilvl.h	$vr4, $vr4, $vr4
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvl.h	$vr5, $vr5, $vr5
 	vld	$vr6, $s1, 0
 	vld	$vr7, $s1, -16
-	vslli.w	$vr5, $vr5, 16
-	vsrai.w	$vr5, $vr5, 16
+	vsllwil.w.h	$vr4, $vr4, 0
+	vsllwil.w.h	$vr5, $vr5, 0
 	vshuf4i.w	$vr6, $vr6, 27
 	vshuf4i.w	$vr7, $vr7, 27
 	vsub.w	$vr6, $vr6, $vr1

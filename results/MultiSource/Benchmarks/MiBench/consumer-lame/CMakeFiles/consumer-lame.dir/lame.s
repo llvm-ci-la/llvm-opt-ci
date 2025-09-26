@@ -2265,7 +2265,7 @@ lame_encode_buffer:                     # @lame_encode_buffer
 	ld.d	$s5, $sp, 56                    # 8-byte Folded Reload
 .LBB5_17:                               # %.loopexit
                                         #   in Loop: Header=BB5_18 Depth=1
-	sub.w	$s1, $s1, $s8
+	sub.w	$s1, $s1, $s0
 	blez	$s1, .LBB5_46
 .LBB5_18:                               # =>This Loop Header: Depth=1
                                         #     Child Loop BB5_22 Depth 2
@@ -2280,7 +2280,7 @@ lame_encode_buffer:                     # @lame_encode_buffer
                                         #   in Loop: Header=BB5_18 Depth=1
 	move	$s4, $zero
 	move	$s3, $zero
-	addi.d	$s0, $sp, 72
+	addi.d	$s8, $sp, 72
 	ld.d	$s7, $sp, 24                    # 8-byte Folded Reload
 	b	.LBB5_22
 	.p2align	4, , 16
@@ -2288,22 +2288,22 @@ lame_encode_buffer:                     # @lame_encode_buffer
 	slt	$a0, $a2, $s1
 	masknez	$a3, $s1, $a0
 	maskeqz	$a0, $a2, $a0
-	or	$s8, $a0, $a3
-	slli.d	$a2, $s8, 1
+	or	$s0, $a0, $a3
+	slli.d	$a2, $s0, 1
 	move	$a0, $a1
 	move	$a1, $s5
 	pcaddu18i	$ra, %call36(memcpy)
 	jirl	$ra, $ra, 0
-	st.w	$s8, $sp, 68
-	move	$a0, $s8
+	st.w	$s0, $sp, 68
+	move	$a0, $s0
 .LBB5_21:                               #   in Loop: Header=BB5_22 Depth=2
-	alsl.d	$a1, $s8, $s5, 1
-	st.d	$a1, $s0, 0
+	alsl.d	$a1, $s0, $s5, 1
+	st.d	$a1, $s8, 0
 	ld.w	$a1, $s2, 204
 	addi.d	$s3, $s3, 1
 	addi.w	$s4, $s4, 1
 	add.d	$s7, $s7, $fp
-	addi.d	$s0, $s0, 8
+	addi.d	$s8, $s8, 8
 	bge	$s3, $a1, .LBB5_25
 .LBB5_22:                               # %.lr.ph81
                                         #   Parent Loop BB5_18 Depth=1
@@ -2311,7 +2311,7 @@ lame_encode_buffer:                     # @lame_encode_buffer
 	fld.s	$fa0, $s2, 216
 	ld.w	$a0, $s6, %pc_lo12(mf_size)
 	ld.w	$a2, $s2, 188
-	ld.d	$s5, $s0, 0
+	ld.d	$s5, $s8, 0
 	vldi	$vr1, -1168
 	fcmp.ceq.s	$fcc0, $fa0, $fa1
 	alsl.d	$a1, $a0, $s7, 1
@@ -2324,11 +2324,11 @@ lame_encode_buffer:                     # @lame_encode_buffer
 	move	$a6, $s4
 	pcaddu18i	$ra, %call36(fill_buffer_resample)
 	jirl	$ra, $ra, 0
-	ld.w	$s8, $sp, 68
+	ld.w	$s0, $sp, 68
 	b	.LBB5_21
 	.p2align	4, , 16
 .LBB5_24:                               #   in Loop: Header=BB5_18 Depth=1
-	move	$s8, $zero
+	move	$s0, $zero
 	move	$a0, $zero
 .LBB5_25:                               # %._crit_edge
                                         #   in Loop: Header=BB5_18 Depth=1
@@ -2505,21 +2505,15 @@ lame_encode_buffer:                     # @lame_encode_buffer
 .LBB5_48:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	vld	$vr1, $a1, 0
-	vilvl.h	$vr2, $vr1, $vr1
-	vslli.w	$vr2, $vr2, 16
-	vsrai.w	$vr2, $vr2, 16
-	vld	$vr3, $a2, 0
-	vilvh.h	$vr1, $vr1, $vr1
-	vslli.w	$vr1, $vr1, 16
-	vsrai.w	$vr1, $vr1, 16
-	vilvl.h	$vr4, $vr3, $vr3
-	vslli.w	$vr4, $vr4, 16
-	vsrai.w	$vr4, $vr4, 16
-	vilvh.h	$vr3, $vr3, $vr3
-	vslli.w	$vr3, $vr3, 16
-	vsrai.w	$vr3, $vr3, 16
-	vadd.w	$vr1, $vr3, $vr1
-	vadd.w	$vr2, $vr4, $vr2
+	vld	$vr2, $a2, 0
+	vsllwil.w.h	$vr3, $vr1, 0
+	vbsrl.v	$vr1, $vr1, 8
+	vsllwil.w.h	$vr1, $vr1, 0
+	vsllwil.w.h	$vr4, $vr2, 0
+	vbsrl.v	$vr2, $vr2, 8
+	vsllwil.w.h	$vr2, $vr2, 0
+	vadd.w	$vr1, $vr2, $vr1
+	vadd.w	$vr2, $vr4, $vr3
 	vsrli.w	$vr3, $vr2, 31
 	vadd.w	$vr2, $vr2, $vr3
 	vsrli.w	$vr2, $vr2, 1

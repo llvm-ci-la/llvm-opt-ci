@@ -1190,8 +1190,7 @@ ercPixConcealIMB:                       # @ercPixConcealIMB
 	addi.w	$t1, $a6, 0
 	addi.w	$t2, $t3, 0
 	ori	$t3, $zero, 16
-	vrepli.b	$vr1, 0
-	vrepli.h	$vr2, 255
+	vrepli.h	$vr1, 255
 	pcalau12i	$t4, %got_pc_hi20(img)
 	ld.d	$t4, $t4, %got_pc_lo12(img)
 	move	$t5, $zero
@@ -1227,28 +1226,30 @@ ercPixConcealIMB:                       # @ercPixConcealIMB
 # %bb.69:                               # %vector.ph
                                         #   in Loop: Header=BB2_65 Depth=1
 	move	$t7, $zero
-	vreplgr2vr.w	$vr3, $t6
-	vreplgr2vr.w	$vr4, $t5
+	vreplgr2vr.w	$vr2, $t6
+	vreplgr2vr.w	$vr3, $t5
 	move	$t6, $a2
 	.p2align	4, , 16
 .LBB2_70:                               # %vector.body
                                         #   Parent Loop BB2_65 Depth=1
                                         # =>  This Inner Loop Header: Depth=2
-	vldx	$vr5, $a3, $t7
-	vldx	$vr6, $t0, $t7
-	vilvl.h	$vr7, $vr1, $vr5
-	vilvh.h	$vr5, $vr1, $vr5
-	vilvh.h	$vr8, $vr1, $vr6
-	vilvl.h	$vr6, $vr1, $vr6
-	vmul.w	$vr6, $vr4, $vr6
-	vmul.w	$vr8, $vr4, $vr8
-	vmadd.w	$vr8, $vr3, $vr5
-	vmadd.w	$vr6, $vr3, $vr7
-	vdiv.w	$vr5, $vr6, $vr0
-	vdiv.w	$vr6, $vr8, $vr0
-	vpickev.h	$vr5, $vr6, $vr5
-	vand.v	$vr5, $vr5, $vr2
-	vstx	$vr5, $a1, $t7
+	vldx	$vr4, $a3, $t7
+	vldx	$vr5, $t0, $t7
+	vsllwil.wu.hu	$vr6, $vr4, 0
+	vbsrl.v	$vr4, $vr4, 8
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vbsrl.v	$vr7, $vr5, 8
+	vsllwil.wu.hu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vmul.w	$vr5, $vr3, $vr5
+	vmul.w	$vr7, $vr3, $vr7
+	vmadd.w	$vr7, $vr2, $vr4
+	vmadd.w	$vr5, $vr2, $vr6
+	vdiv.w	$vr4, $vr5, $vr0
+	vdiv.w	$vr5, $vr7, $vr0
+	vpickev.h	$vr4, $vr5, $vr4
+	vand.v	$vr4, $vr4, $vr1
+	vstx	$vr4, $a1, $t7
 	addi.d	$t6, $t6, -8
 	addi.d	$t7, $t7, 16
 	bnez	$t6, .LBB2_70

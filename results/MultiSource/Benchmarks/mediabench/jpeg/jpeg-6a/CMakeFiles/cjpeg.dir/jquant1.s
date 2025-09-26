@@ -443,15 +443,15 @@ jinit_1pass_quantizer:                  # @jinit_1pass_quantizer
 	.type	start_pass_1_quant,@function
 start_pass_1_quant:                     # @start_pass_1_quant
 # %bb.0:
-	addi.d	$sp, $sp, -112
-	st.d	$ra, $sp, 104                   # 8-byte Folded Spill
-	st.d	$fp, $sp, 96                    # 8-byte Folded Spill
-	st.d	$s0, $sp, 88                    # 8-byte Folded Spill
-	st.d	$s1, $sp, 80                    # 8-byte Folded Spill
-	st.d	$s2, $sp, 72                    # 8-byte Folded Spill
-	st.d	$s3, $sp, 64                    # 8-byte Folded Spill
-	st.d	$s4, $sp, 56                    # 8-byte Folded Spill
-	st.d	$s5, $sp, 48                    # 8-byte Folded Spill
+	addi.d	$sp, $sp, -96
+	st.d	$ra, $sp, 88                    # 8-byte Folded Spill
+	st.d	$fp, $sp, 80                    # 8-byte Folded Spill
+	st.d	$s0, $sp, 72                    # 8-byte Folded Spill
+	st.d	$s1, $sp, 64                    # 8-byte Folded Spill
+	st.d	$s2, $sp, 56                    # 8-byte Folded Spill
+	st.d	$s3, $sp, 48                    # 8-byte Folded Spill
+	st.d	$s4, $sp, 40                    # 8-byte Folded Spill
+	st.d	$s5, $sp, 32                    # 8-byte Folded Spill
 	move	$fp, $a0
 	ld.d	$s0, $a0, 608
 	ld.d	$a1, $s0, 32
@@ -510,15 +510,15 @@ start_pass_1_quant:                     # @start_pass_1_quant
 	ori	$a2, $zero, 47
 	st.w	$a2, $a0, 40
 	move	$a0, $fp
-	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 112
+	ld.d	$s5, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 88                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 96
 	jr	$a1
 .LBB1_10:
 	pcalau12i	$a0, %pc_hi20(color_quantize)
@@ -543,10 +543,8 @@ start_pass_1_quant:                     # @start_pass_1_quant
 	pcalau12i	$a0, %pc_hi20(base_dither_matrix+8)
 	addi.d	$s3, $a0, %pc_lo12(base_dither_matrix+8)
 	move	$s4, $zero
-	vrepli.b	$vr3, 0
-	vrepli.w	$vr4, 255
-	vst	$vr3, $sp, 32                   # 16-byte Folded Spill
-	vst	$vr4, $sp, 16                   # 16-byte Folded Spill
+	vrepli.w	$vr3, 255
+	vst	$vr3, $sp, 16                   # 16-byte Folded Spill
 	b	.LBB1_17
 	.p2align	4, , 16
 .LBB1_15:                               #   in Loop: Header=BB1_17 Depth=1
@@ -587,8 +585,7 @@ start_pass_1_quant:                     # @start_pass_1_quant
 	ori	$a2, $zero, 1024
 	move	$a0, $fp
 	jirl	$ra, $a3, 0
-	vld	$vr4, $sp, 16                   # 16-byte Folded Reload
-	vld	$vr3, $sp, 32                   # 16-byte Folded Reload
+	vld	$vr3, $sp, 16                   # 16-byte Folded Reload
 	move	$a1, $zero
 	slli.d	$a2, $s5, 9
 	addi.d	$a2, $a2, -512
@@ -600,17 +597,14 @@ start_pass_1_quant:                     # @start_pass_1_quant
                                         # =>  This Inner Loop Header: Depth=2
 	ld.w	$a3, $a2, -8
 	vinsgr2vr.w	$vr1, $a3, 0
-	vilvl.b	$vr1, $vr3, $vr1
-	vilvl.h	$vr1, $vr3, $vr1
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 1
-	vsub.w	$vr1, $vr4, $vr1
-	vmul.w	$vr1, $vr1, $vr4
-	vshuf4i.w	$vr2, $vr1, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr1, $vr1, 16
-	vslli.d	$vr1, $vr1, 32
-	vsrai.d	$vr1, $vr1, 32
+	vsub.w	$vr1, $vr3, $vr1
+	vmul.w	$vr1, $vr1, $vr3
+	vshuf4i.w	$vr2, $vr1, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr1, $vr1, 0
 	vdiv.d	$vr1, $vr1, $vr0
 	vdiv.d	$vr2, $vr2, $vr0
 	vpickev.w	$vr1, $vr2, $vr1
@@ -618,51 +612,42 @@ start_pass_1_quant:                     # @start_pass_1_quant
 	ld.w	$a3, $a2, -4
 	add.d	$a4, $a0, $a1
 	vinsgr2vr.w	$vr1, $a3, 0
-	vilvl.b	$vr1, $vr3, $vr1
-	vilvl.h	$vr1, $vr3, $vr1
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 1
-	vsub.w	$vr1, $vr4, $vr1
-	vmul.w	$vr1, $vr1, $vr4
-	vshuf4i.w	$vr2, $vr1, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr1, $vr1, 16
-	vslli.d	$vr1, $vr1, 32
-	vsrai.d	$vr1, $vr1, 32
+	vsub.w	$vr1, $vr3, $vr1
+	vmul.w	$vr1, $vr1, $vr3
+	vshuf4i.w	$vr2, $vr1, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr1, $vr1, 0
 	vdiv.d	$vr1, $vr1, $vr0
 	vdiv.d	$vr2, $vr2, $vr0
 	vpickev.w	$vr1, $vr2, $vr1
 	vst	$vr1, $a4, 16
 	ld.w	$a3, $a2, 0
 	vinsgr2vr.w	$vr1, $a3, 0
-	vilvl.b	$vr1, $vr3, $vr1
-	vilvl.h	$vr1, $vr3, $vr1
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 1
-	vsub.w	$vr1, $vr4, $vr1
-	vmul.w	$vr1, $vr1, $vr4
-	vshuf4i.w	$vr2, $vr1, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr1, $vr1, 16
-	vslli.d	$vr1, $vr1, 32
-	vsrai.d	$vr1, $vr1, 32
+	vsub.w	$vr1, $vr3, $vr1
+	vmul.w	$vr1, $vr1, $vr3
+	vshuf4i.w	$vr2, $vr1, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr1, $vr1, 0
 	vdiv.d	$vr1, $vr1, $vr0
 	vdiv.d	$vr2, $vr2, $vr0
 	vpickev.w	$vr1, $vr2, $vr1
 	vst	$vr1, $a4, 32
 	ld.w	$a3, $a2, 4
 	vinsgr2vr.w	$vr1, $a3, 0
-	vilvl.b	$vr1, $vr3, $vr1
-	vilvl.h	$vr1, $vr3, $vr1
+	vsllwil.hu.bu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
 	vslli.w	$vr1, $vr1, 1
-	vsub.w	$vr1, $vr4, $vr1
-	vmul.w	$vr1, $vr1, $vr4
-	vshuf4i.w	$vr2, $vr1, 50
-	vslli.d	$vr2, $vr2, 32
-	vsrai.d	$vr2, $vr2, 32
-	vshuf4i.w	$vr1, $vr1, 16
-	vslli.d	$vr1, $vr1, 32
-	vsrai.d	$vr1, $vr1, 32
+	vsub.w	$vr1, $vr3, $vr1
+	vmul.w	$vr1, $vr1, $vr3
+	vshuf4i.w	$vr2, $vr1, 14
+	vsllwil.d.w	$vr2, $vr2, 0
+	vsllwil.d.w	$vr1, $vr1, 0
 	vdiv.d	$vr1, $vr1, $vr0
 	vdiv.d	$vr2, $vr2, $vr0
 	vpickev.w	$vr1, $vr2, $vr1
@@ -717,15 +702,15 @@ start_pass_1_quant:                     # @start_pass_1_quant
 	addi.d	$s1, $s1, 8
 	blt	$s2, $a0, .LBB1_28
 .LBB1_29:                               # %create_odither_tables.exit
-	ld.d	$s5, $sp, 48                    # 8-byte Folded Reload
-	ld.d	$s4, $sp, 56                    # 8-byte Folded Reload
-	ld.d	$s3, $sp, 64                    # 8-byte Folded Reload
-	ld.d	$s2, $sp, 72                    # 8-byte Folded Reload
-	ld.d	$s1, $sp, 80                    # 8-byte Folded Reload
-	ld.d	$s0, $sp, 88                    # 8-byte Folded Reload
-	ld.d	$fp, $sp, 96                    # 8-byte Folded Reload
-	ld.d	$ra, $sp, 104                   # 8-byte Folded Reload
-	addi.d	$sp, $sp, 112
+	ld.d	$s5, $sp, 32                    # 8-byte Folded Reload
+	ld.d	$s4, $sp, 40                    # 8-byte Folded Reload
+	ld.d	$s3, $sp, 48                    # 8-byte Folded Reload
+	ld.d	$s2, $sp, 56                    # 8-byte Folded Reload
+	ld.d	$s1, $sp, 64                    # 8-byte Folded Reload
+	ld.d	$s0, $sp, 72                    # 8-byte Folded Reload
+	ld.d	$fp, $sp, 80                    # 8-byte Folded Reload
+	ld.d	$ra, $sp, 88                    # 8-byte Folded Reload
+	addi.d	$sp, $sp, 96
 	ret
 .Lfunc_end1:
 	.size	start_pass_1_quant, .Lfunc_end1-start_pass_1_quant
@@ -1011,12 +996,12 @@ color_quantize:                         # @color_quantize
 	ld.h	$t5, $t5, 2
 	vinsgr2vr.h	$vr3, $t6, 0
 	vinsgr2vr.h	$vr4, $t5, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.w	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vilvl.w	$vr4, $vr0, $vr4
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.du.wu	$vr3, $vr3, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsllwil.du.wu	$vr4, $vr4, 0
 	ld.d	$t5, $t4, -16
 	vpickve2gr.d	$t6, $vr3, 0
 	ld.d	$t7, $t4, -8
@@ -1033,10 +1018,10 @@ color_quantize:                         # @color_quantize
 	vinsgr2vr.b	$vr3, $t6, 1
 	vinsgr2vr.b	$vr4, $t7, 0
 	vinsgr2vr.b	$vr4, $t8, 1
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
 	vadd.w	$vr1, $vr1, $vr3
 	vadd.w	$vr2, $vr2, $vr4
 	addi.d	$t3, $t3, 4

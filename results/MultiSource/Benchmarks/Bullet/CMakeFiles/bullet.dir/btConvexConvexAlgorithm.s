@@ -2540,8 +2540,7 @@ _ZN15btTransformUtil32calculateDiffAxisAngleQuaternionERK12btQuaternionS2_R9btVe
 	vshuf4i.w	$vr4, $vr4, 13
 	vshuf4i.w	$vr4, $vr4, 16
 	vslli.d	$vr4, $vr4, 32
-	vrepli.b	$vr6, 0
-	vilvl.w	$vr5, $vr6, $vr5
+	vsllwil.du.wu	$vr5, $vr5, 0
 	vor.v	$vr4, $vr4, $vr5
 .LBB16_3:                               # %_ZNK12btQuaternion7nearestERKS_.exit
 	vreplvei.w	$vr5, $vr4, 0

@@ -2142,28 +2142,27 @@ _ZN9NCompress8NDeflate8NEncoder16Huffman_GetPriceEPKjPKhj: # @_ZN9NCompress8NDef
 	addi.d	$a5, $a1, 4
 	move	$a6, $a2
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB17_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$a7, $a5, -4
 	ld.w	$t0, $a5, 0
-	vinsgr2vr.w	$vr3, $a7, 0
-	vinsgr2vr.w	$vr4, $t0, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vld	$vr5, $a4, -16
-	vld	$vr6, $a4, 0
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $a7, 0
+	vinsgr2vr.w	$vr3, $t0, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vld	$vr4, $a4, -16
+	vld	$vr5, $a4, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vmadd.w	$vr0, $vr4, $vr2
 	vmadd.w	$vr1, $vr5, $vr3
-	vmadd.w	$vr2, $vr6, $vr4
 	addi.d	$a6, $a6, -8
 	addi.d	$a4, $a4, 32
 	addi.d	$a5, $a5, 8
 	bnez	$a6, .LBB17_5
 # %bb.6:                                # %middle.block
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a4, $vr0, 0
@@ -2214,28 +2213,27 @@ _ZN9NCompress8NDeflate8NEncoder21Huffman_GetPrice_SpecEPKjPKhjS5_j: # @_ZN9NComp
 	addi.d	$t0, $a1, 4
 	move	$t1, $a7
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB18_5:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$t2, $t0, -4
 	ld.w	$t3, $t0, 0
-	vinsgr2vr.w	$vr3, $t2, 0
-	vinsgr2vr.w	$vr4, $t3, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vld	$vr5, $a5, -16
-	vld	$vr6, $a5, 0
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $t2, 0
+	vinsgr2vr.w	$vr3, $t3, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vld	$vr4, $a5, -16
+	vld	$vr5, $a5, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vmadd.w	$vr0, $vr4, $vr2
 	vmadd.w	$vr1, $vr5, $vr3
-	vmadd.w	$vr2, $vr6, $vr4
 	addi.d	$t1, $t1, -8
 	addi.d	$a5, $a5, 32
 	addi.d	$t0, $t0, 8
 	bnez	$t1, .LBB18_5
 # %bb.6:                                # %middle.block
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a5, $vr0, 0
@@ -2279,28 +2277,27 @@ _ZN9NCompress8NDeflate8NEncoder21Huffman_GetPrice_SpecEPKjPKhjS5_j: # @_ZN9NComp
 	addi.d	$a7, $a3, 4
 	move	$t0, $a4
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB18_14:                              # %vector.body31
                                         # =>This Inner Loop Header: Depth=1
 	ld.w	$t1, $a7, -4
 	ld.w	$t2, $a7, 0
-	vinsgr2vr.w	$vr3, $t1, 0
-	vinsgr2vr.w	$vr4, $t2, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vld	$vr5, $a6, -16
-	vld	$vr6, $a6, 0
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vinsgr2vr.w	$vr2, $t1, 0
+	vinsgr2vr.w	$vr3, $t2, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vld	$vr4, $a6, -16
+	vld	$vr5, $a6, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vmadd.w	$vr0, $vr4, $vr2
 	vmadd.w	$vr1, $vr5, $vr3
-	vmadd.w	$vr2, $vr6, $vr4
 	addi.d	$t0, $t0, -8
 	addi.d	$a6, $a6, 32
 	addi.d	$a7, $a7, 8
 	bnez	$t0, .LBB18_14
 # %bb.15:                               # %middle.block40
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a6, $vr0, 0
@@ -2346,15 +2343,15 @@ _ZN9NCompress8NDeflate8NEncoder21Huffman_GetPrice_SpecEPKjPKhjS5_j: # @_ZN9NComp
 	.word	4294967295                      # 0xffffffff
 	.word	4                               # 0x4
 .LCPI19_3:
-	.word	6                               # 0x6
-	.word	7                               # 0x7
-	.word	7                               # 0x7
-	.word	9                               # 0x9
-.LCPI19_4:
 	.word	3                               # 0x3
 	.word	5                               # 0x5
 	.word	5                               # 0x5
 	.word	6                               # 0x6
+.LCPI19_4:
+	.word	6                               # 0x6
+	.word	7                               # 0x7
+	.word	7                               # 0x7
+	.word	9                               # 0x9
 .LCPI19_5:
 	.word	11                              # 0xb
 	.word	12                              # 0xc
@@ -2381,7 +2378,6 @@ _ZNK9NCompress8NDeflate8NEncoder6CCoder15GetLzBlockPriceEv: # @_ZNK9NCompress8ND
 	fst.d	$fs0, $sp, 32                   # 8-byte Folded Spill
 	fst.d	$fs1, $sp, 24                   # 8-byte Folded Spill
 	fst.d	$fs2, $sp, 16                   # 8-byte Folded Spill
-	fst.d	$fs3, $sp, 8                    # 8-byte Folded Spill
 	move	$a1, $zero
 	addi.d	$a2, $a0, 2047
 	addi.d	$s0, $a2, 179
@@ -2391,28 +2387,27 @@ _ZNK9NCompress8NDeflate8NEncoder6CCoder15GetLzBlockPriceEv: # @_ZNK9NCompress8ND
 	vrepli.b	$vr0, 0
 	ori	$a5, $zero, 1152
 	vori.b	$vr1, $vr0, 0
-	vori.b	$vr2, $vr0, 0
 	.p2align	4, , 16
 .LBB19_1:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.d	$a6, $a4, -4
 	ld.w	$a7, $a4, 0
-	vinsgr2vr.d	$vr3, $a6, 0
-	vinsgr2vr.w	$vr4, $a7, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
+	vinsgr2vr.d	$vr2, $a6, 0
+	vinsgr2vr.w	$vr3, $a7, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	add.d	$a6, $a3, $a1
-	vldx	$vr5, $a3, $a1
-	vld	$vr6, $a6, 16
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
+	vldx	$vr4, $a3, $a1
+	vld	$vr5, $a6, 16
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vmadd.w	$vr0, $vr4, $vr2
 	vmadd.w	$vr1, $vr5, $vr3
-	vmadd.w	$vr2, $vr6, $vr4
 	addi.d	$a1, $a1, 32
 	addi.d	$a4, $a4, 8
 	bne	$a1, $a5, .LBB19_1
 # %bb.2:                                # %_ZN9NCompress8NDeflate8NEncoder16Huffman_GetPriceEPKjPKhj.exit.i
-	vadd.w	$vr0, $vr2, $vr1
+	vadd.w	$vr0, $vr1, $vr0
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a1, $vr0, 0
@@ -2431,14 +2426,14 @@ _ZNK9NCompress8NDeflate8NEncoder6CCoder15GetLzBlockPriceEv: # @_ZNK9NCompress8ND
 	ldx.bu	$t7, $a0, $a3
 	ori	$a3, $zero, 3488
 	ldx.w	$s5, $a0, $a3
-	ld.bu	$t8, $s0, 19
-	ld.bu	$fp, $s0, 20
-	ld.bu	$s8, $s0, 21
+	ld.bu	$s8, $s0, 19
+	ld.bu	$t8, $s0, 20
+	ld.bu	$fp, $s0, 21
 	ori	$a3, $zero, 2248
-	ldx.bu	$s1, $a0, $a3
-	ld.bu	$s2, $s0, 27
-	ld.bu	$s3, $s0, 28
-	ld.bu	$s4, $s0, 29
+	ldx.bu	$s4, $a0, $a3
+	ld.bu	$s1, $s0, 27
+	ld.bu	$s2, $s0, 28
+	ld.bu	$s3, $s0, 29
 	ori	$a3, $zero, 3532
 	ldx.w	$a3, $a0, $a3
 	ori	$a4, $zero, 3424
@@ -2457,132 +2452,143 @@ _ZNK9NCompress8NDeflate8NEncoder6CCoder15GetLzBlockPriceEv: # @_ZNK9NCompress8ND
 	vldx	$vr0, $a0, $ra
 	pcalau12i	$ra, %pc_hi20(.LCPI19_0)
 	vld	$vr1, $ra, %pc_lo12(.LCPI19_0)
-	vld	$vr6, $s0, 1
+	vld	$vr7, $s0, 1
 	vldx	$vr2, $a0, $t3
 	ori	$t3, $zero, 3420
 	ori	$ra, $zero, 3452
 	vldx	$vr3, $a0, $ra
 	ori	$ra, $zero, 3468
-	vldx	$vr12, $a0, $ra
+	vldx	$vr11, $a0, $ra
 	vldx	$vr4, $a0, $t3
 	vpickve2gr.w	$t3, $vr3, 0
 	add.w	$t3, $t4, $t3
-	vpickve2gr.w	$t4, $vr12, 3
+	vpickve2gr.w	$t4, $vr11, 3
 	add.w	$t4, $t4, $t6
-	vrepli.b	$vr7, 0
-	vilvh.b	$vr9, $vr7, $vr6
-	vilvl.h	$vr5, $vr7, $vr9
-	vilvl.b	$vr8, $vr7, $vr6
-	vilvh.h	$vr6, $vr7, $vr8
-	vilvl.h	$vr8, $vr7, $vr8
-	vilvh.h	$vr13, $vr7, $vr9
+	vbsrl.v	$vr5, $vr7, 12
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr12, $vr5, 0
+	vsrli.d	$vr5, $vr7, 32
+	vsllwil.hu.bu	$vr5, $vr5, 0
+	vsllwil.wu.hu	$vr5, $vr5, 0
+	vbsrl.v	$vr6, $vr7, 8
+	vsllwil.hu.bu	$vr6, $vr6, 0
+	vsllwil.wu.hu	$vr6, $vr6, 0
+	vsllwil.hu.bu	$vr7, $vr7, 0
+	vsllwil.wu.hu	$vr7, $vr7, 0
 	mul.d	$t5, $t6, $t5
 	mul.d	$t6, $s5, $t7
 	vpickve2gr.w	$t7, $vr0, 0
-	mul.d	$t7, $t7, $t8
-	vpickve2gr.w	$t8, $vr0, 1
-	mul.d	$t8, $t8, $fp
-	vpickve2gr.w	$fp, $vr0, 2
-	mul.d	$fp, $fp, $s8
+	mul.d	$t7, $t7, $s8
+	vpickve2gr.w	$s8, $vr0, 1
+	mul.d	$t8, $s8, $t8
+	vpickve2gr.w	$s8, $vr0, 2
+	mul.d	$fp, $s8, $fp
 	ld.w	$s8, $s0, 23
 	vpickve2gr.w	$s0, $vr0, 3
-	mul.d	$s0, $s0, $s1
-	ldptr.d	$s1, $a0, 3524
-	vinsgr2vr.w	$vr14, $s8, 0
+	mul.d	$s0, $s0, $s4
+	ldptr.d	$s4, $a0, 3524
+	vinsgr2vr.w	$vr13, $s8, 0
 	ori	$s8, $zero, 3508
-	vldx	$vr9, $a0, $s8
-	vinsgr2vr.d	$vr15, $s1, 0
-	ori	$s1, $zero, 3528
-	ldx.w	$s1, $a0, $s1
+	vldx	$vr8, $a0, $s8
+	vinsgr2vr.d	$vr14, $s4, 0
+	ori	$s4, $zero, 3528
+	ldx.w	$s4, $a0, $s4
 	ldptr.d	$ra, $a0, 3440
 	pcalau12i	$s8, %pc_hi20(.LCPI19_1)
-	vld	$vr10, $s8, %pc_lo12(.LCPI19_1)
+	vld	$vr9, $s8, %pc_lo12(.LCPI19_1)
 	pcalau12i	$s8, %pc_hi20(.LCPI19_2)
-	vld	$vr11, $s8, %pc_lo12(.LCPI19_2)
+	vld	$vr10, $s8, %pc_lo12(.LCPI19_2)
 	ori	$s8, $zero, 3524
 	ldx.w	$s8, $a0, $s8
-	vinsgr2vr.d	$vr16, $ra, 0
-	vshuf.w	$vr10, $vr16, $vr3
-	vshuf.w	$vr11, $vr16, $vr15
-	vinsgr2vr.w	$vr11, $a3, 2
-	vld	$vr16, $a2, 0
+	vinsgr2vr.d	$vr15, $ra, 0
+	vshuf.w	$vr9, $vr15, $vr3
+	vshuf.w	$vr10, $vr15, $vr14
+	vld	$vr15, $a2, 0
+	vinsgr2vr.w	$vr10, $a3, 2
 	ori	$ra, $zero, 3332
-	vldx	$vr15, $a0, $ra
+	vldx	$vr14, $a0, $ra
+	vbsrl.v	$vr16, $vr15, 12
 	ldptr.d	$ra, $a0, 2224
-	vilvh.b	$vr17, $vr7, $vr16
-	vilvh.h	$vr18, $vr7, $vr17
-	vmul.w	$vr15, $vr15, $vr18
-	vinsgr2vr.d	$vr18, $ra, 0
+	vsllwil.hu.bu	$vr16, $vr16, 0
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vmul.w	$vr14, $vr14, $vr16
+	vinsgr2vr.d	$vr16, $ra, 0
 	ori	$ra, $zero, 3404
-	vldx	$vr19, $a0, $ra
-	vinsgr2vr.b	$vr20, $s7, 0
-	vextrins.b	$vr20, $vr18, 16
-	vextrins.b	$vr20, $vr18, 33
-	vinsgr2vr.b	$vr20, $s6, 3
-	vilvl.b	$vr18, $vr7, $vr20
-	vilvl.h	$vr18, $vr7, $vr18
-	vmadd.w	$vr15, $vr19, $vr18
-	vmadd.w	$vr15, $vr12, $vr13
-	vinsgr2vr.w	$vr12, $s5, 3
-	vilvl.b	$vr13, $vr7, $vr14
-	vilvl.h	$vr13, $vr7, $vr13
+	vldx	$vr17, $a0, $ra
+	vinsgr2vr.b	$vr18, $s7, 0
+	vextrins.b	$vr18, $vr16, 16
+	vextrins.b	$vr18, $vr16, 33
+	vinsgr2vr.b	$vr18, $s6, 3
+	vsllwil.hu.bu	$vr16, $vr18, 0
+	vsllwil.wu.hu	$vr16, $vr16, 0
+	vmadd.w	$vr14, $vr17, $vr16
+	vmadd.w	$vr14, $vr11, $vr12
+	vinsgr2vr.w	$vr11, $s5, 3
+	vsllwil.hu.bu	$vr12, $vr13, 0
+	vsllwil.wu.hu	$vr12, $vr12, 0
 	pcalau12i	$s5, %pc_hi20(.LCPI19_3)
-	vld	$vr14, $s5, %pc_lo12(.LCPI19_3)
+	vld	$vr13, $s5, %pc_lo12(.LCPI19_3)
 	pcalau12i	$s5, %pc_hi20(.LCPI19_4)
-	vld	$vr18, $s5, %pc_lo12(.LCPI19_4)
-	vrepli.w	$vr19, 3
-	vinsgr2vr.w	$vr19, $s2, 0
-	vinsgr2vr.w	$vr19, $s3, 1
-	vinsgr2vr.w	$vr19, $s4, 2
-	pcalau12i	$s2, %pc_hi20(.LCPI19_5)
-	vld	$vr20, $s2, %pc_lo12(.LCPI19_5)
-	alsl.d	$s2, $s8, $s8, 1
-	alsl.d	$s2, $s2, $s8, 2
-	ori	$s3, $zero, 3316
-	vldx	$vr21, $a0, $s3
-	ori	$s3, $zero, 3300
-	vldx	$vr22, $a0, $s3
-	ori	$s3, $zero, 3284
-	vldx	$vr23, $a0, $s3
-	vilvl.h	$vr17, $vr7, $vr17
-	vilvl.b	$vr16, $vr7, $vr16
-	vilvh.h	$vr24, $vr7, $vr16
-	vilvl.h	$vr16, $vr7, $vr16
-	vmul.w	$vr16, $vr23, $vr16
-	vmul.w	$vr22, $vr22, $vr24
-	vmul.w	$vr17, $vr21, $vr17
-	ld.d	$s3, $a2, 18
+	vld	$vr16, $s5, %pc_lo12(.LCPI19_4)
+	vrepli.w	$vr17, 3
+	vinsgr2vr.w	$vr17, $s1, 0
+	vinsgr2vr.w	$vr17, $s2, 1
+	vinsgr2vr.w	$vr17, $s3, 2
+	pcalau12i	$s1, %pc_hi20(.LCPI19_5)
+	vld	$vr18, $s1, %pc_lo12(.LCPI19_5)
+	alsl.d	$s1, $s8, $s8, 1
+	alsl.d	$s1, $s1, $s8, 2
+	ori	$s2, $zero, 3300
+	vldx	$vr19, $a0, $s2
+	ori	$s2, $zero, 3316
+	vldx	$vr20, $a0, $s2
+	ori	$s2, $zero, 3284
+	vldx	$vr21, $a0, $s2
+	vsrli.d	$vr22, $vr15, 32
+	vsllwil.hu.bu	$vr22, $vr22, 0
+	vsllwil.wu.hu	$vr22, $vr22, 0
+	vbsrl.v	$vr23, $vr15, 8
+	vsllwil.hu.bu	$vr23, $vr23, 0
+	vsllwil.wu.hu	$vr23, $vr23, 0
+	vsllwil.hu.bu	$vr15, $vr15, 0
+	vsllwil.wu.hu	$vr15, $vr15, 0
+	vmul.w	$vr15, $vr21, $vr15
+	vmul.w	$vr20, $vr20, $vr23
+	vmul.w	$vr19, $vr19, $vr22
+	ld.d	$s2, $a2, 18
 	ld.w	$a2, $a2, 26
 	mul.d	$a7, $t0, $a7
 	mul.d	$t0, $t2, $t1
-	vinsgr2vr.d	$vr21, $s3, 0
-	vinsgr2vr.w	$vr23, $a2, 0
+	vinsgr2vr.d	$vr21, $s2, 0
+	vinsgr2vr.w	$vr22, $a2, 0
 	ori	$a2, $zero, 3356
+	vldx	$vr23, $a0, $a2
+	ori	$a2, $zero, 3388
 	vldx	$vr24, $a0, $a2
 	ori	$a2, $zero, 3372
 	vldx	$vr25, $a0, $a2
-	ori	$a2, $zero, 3388
-	vldx	$vr26, $a0, $a2
-	vilvl.b	$vr21, $vr7, $vr21
-	vilvl.h	$vr27, $vr7, $vr21
-	vilvh.h	$vr21, $vr7, $vr21
-	vilvl.b	$vr23, $vr7, $vr23
-	vilvl.h	$vr7, $vr7, $vr23
-	vmadd.w	$vr17, $vr26, $vr7
-	vmadd.w	$vr22, $vr25, $vr21
-	vmadd.w	$vr16, $vr24, $vr27
-	vmadd.w	$vr16, $vr4, $vr8
-	vmadd.w	$vr22, $vr2, $vr6
-	vmadd.w	$vr17, $vr3, $vr5
-	vmadd.w	$vr17, $vr10, $vr18
-	vmadd.w	$vr22, $vr11, $vr19
-	vmadd.w	$vr15, $vr12, $vr14
-	vmadd.w	$vr16, $vr9, $vr13
-	vmadd.w	$vr16, $vr0, $vr1
-	vmadd.w	$vr16, $vr9, $vr20
-	vadd.w	$vr0, $vr22, $vr15
-	vadd.w	$vr1, $vr16, $vr17
-	vadd.w	$vr0, $vr1, $vr0
+	vsllwil.hu.bu	$vr26, $vr21, 0
+	vsllwil.wu.hu	$vr26, $vr26, 0
+	vsllwil.hu.bu	$vr22, $vr22, 0
+	vsllwil.wu.hu	$vr22, $vr22, 0
+	vsrli.d	$vr21, $vr21, 32
+	vsllwil.hu.bu	$vr21, $vr21, 0
+	vsllwil.wu.hu	$vr21, $vr21, 0
+	vmadd.w	$vr19, $vr25, $vr21
+	vmadd.w	$vr20, $vr24, $vr22
+	vmadd.w	$vr15, $vr23, $vr26
+	vmadd.w	$vr15, $vr4, $vr7
+	vmadd.w	$vr20, $vr3, $vr6
+	vmadd.w	$vr19, $vr2, $vr5
+	vmadd.w	$vr19, $vr10, $vr17
+	vmadd.w	$vr14, $vr11, $vr16
+	vmadd.w	$vr20, $vr9, $vr13
+	vmadd.w	$vr15, $vr8, $vr12
+	vmadd.w	$vr15, $vr0, $vr1
+	vmadd.w	$vr15, $vr8, $vr18
+	vadd.w	$vr0, $vr15, $vr20
+	vadd.w	$vr1, $vr19, $vr14
+	vadd.w	$vr0, $vr0, $vr1
 	vhaddw.d.w	$vr0, $vr0, $vr0
 	vhaddw.q.d	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a0, $vr0, 0
@@ -2590,8 +2596,8 @@ _ZNK9NCompress8NDeflate8NEncoder6CCoder15GetLzBlockPriceEv: # @_ZNK9NCompress8ND
 	add.d	$a2, $t0, $t5
 	add.d	$a7, $t6, $t7
 	add.d	$t0, $t8, $fp
-	add.d	$t1, $s0, $s2
-	add.d	$a3, $s1, $a3
+	add.d	$t1, $s0, $s1
+	add.d	$a3, $s4, $a3
 	ori	$t2, $zero, 14
 	mul.d	$a3, $a3, $t2
 	alsl.d	$a6, $t3, $a6, 2
@@ -2605,7 +2611,6 @@ _ZNK9NCompress8NDeflate8NEncoder6CCoder15GetLzBlockPriceEv: # @_ZNK9NCompress8ND
 	add.d	$a2, $a3, $a4
 	add.d	$a0, $a0, $a2
 	add.w	$a0, $a0, $a1
-	fld.d	$fs3, $sp, 8                    # 8-byte Folded Reload
 	fld.d	$fs2, $sp, 16                   # 8-byte Folded Reload
 	fld.d	$fs1, $sp, 24                   # 8-byte Folded Reload
 	fld.d	$fs0, $sp, 32                   # 8-byte Folded Reload
@@ -3200,19 +3205,7 @@ _ZN9NCompress8NDeflate8NEncoder6CCoder9SetPricesERKNS0_7CLevelsE: # @_ZN9NCompre
 .Lfunc_end21:
 	.size	_ZN9NCompress8NDeflate8NEncoder6CCoder9SetPricesERKNS0_7CLevelsE, .Lfunc_end21-_ZN9NCompress8NDeflate8NEncoder6CCoder9SetPricesERKNS0_7CLevelsE
                                         # -- End function
-	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0                          # -- Begin function _ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj
-.LCPI22_0:
-	.half	3                               # 0x3
-	.half	9                               # 0x9
-	.half	2                               # 0x2
-	.half	11                              # 0xb
-	.half	1                               # 0x1
-	.half	13                              # 0xd
-	.half	0                               # 0x0
-	.half	15                              # 0xf
-	.text
-	.globl	_ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj
+	.globl	_ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj # -- Begin function _ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj
 	.p2align	5
 	.type	_ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj,@function
 _ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj: # @_ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj
@@ -3255,43 +3248,40 @@ _ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj: # @_ZN9NCompress8ND
 	bstrpick.d	$a2, $a3, 31, 3
 	slli.d	$a2, $a2, 3
 	addi.d	$a4, $a1, 4
-	pcalau12i	$a5, %pc_hi20(.LCPI22_0)
-	vld	$vr0, $a5, %pc_lo12(.LCPI22_0)
 	addi.d	$a5, $a0, 16
-	vrepli.b	$vr1, 0
-	vrepli.w	$vr2, 16
+	vrepli.w	$vr0, 16
 	move	$a6, $a2
 	.p2align	4, , 16
 .LBB22_9:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a5, -16
-	vld	$vr4, $a5, 0
-	vpickev.h	$vr3, $vr3, $vr3
-	vpickev.h	$vr4, $vr4, $vr4
-	vpickve2gr.d	$a7, $vr3, 0
+	vld	$vr1, $a5, -16
+	vld	$vr2, $a5, 0
+	vpickev.h	$vr1, $vr1, $vr1
+	vpickev.h	$vr2, $vr2, $vr2
+	vpickve2gr.d	$a7, $vr1, 0
 	bitrev.d	$a7, $a7
-	vinsgr2vr.d	$vr3, $a7, 0
-	vpickve2gr.d	$a7, $vr4, 0
+	vinsgr2vr.d	$vr1, $a7, 0
+	vpickve2gr.d	$a7, $vr2, 0
 	ld.w	$t0, $a4, -4
 	bitrev.d	$a7, $a7
-	vinsgr2vr.d	$vr4, $a7, 0
+	vinsgr2vr.d	$vr2, $a7, 0
+	vshuf4i.h	$vr1, $vr1, 27
+	vinsgr2vr.w	$vr3, $t0, 0
 	ld.w	$a7, $a4, 0
-	vinsgr2vr.w	$vr5, $t0, 0
-	vori.b	$vr6, $vr0, 0
-	vshuf.h	$vr6, $vr1, $vr3
-	vori.b	$vr3, $vr0, 0
-	vshuf.h	$vr3, $vr1, $vr4
+	vshuf4i.h	$vr2, $vr2, 27
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	vinsgr2vr.w	$vr4, $a7, 0
-	vilvl.b	$vr5, $vr1, $vr5
-	vilvl.h	$vr5, $vr1, $vr5
-	vilvl.b	$vr4, $vr1, $vr4
-	vilvl.h	$vr4, $vr1, $vr4
-	vsub.w	$vr5, $vr2, $vr5
-	vsub.w	$vr4, $vr2, $vr4
-	vsrl.w	$vr5, $vr6, $vr5
-	vsrl.w	$vr3, $vr3, $vr4
-	vst	$vr5, $a5, -16
-	vst	$vr3, $a5, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsub.w	$vr3, $vr0, $vr3
+	vsub.w	$vr4, $vr0, $vr4
+	vsrl.w	$vr1, $vr1, $vr3
+	vsrl.w	$vr2, $vr2, $vr4
+	vst	$vr1, $a5, -16
+	vst	$vr2, $a5, 0
 	addi.d	$a6, $a6, -8
 	addi.d	$a4, $a4, 8
 	addi.d	$a5, $a5, 32
@@ -3302,19 +3292,7 @@ _ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj: # @_ZN9NCompress8ND
 .Lfunc_end22:
 	.size	_ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj, .Lfunc_end22-_ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj
                                         # -- End function
-	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0                          # -- Begin function _ZN9NCompress8NDeflate8NEncoder6CCoder10WriteBlockEv
-.LCPI23_0:
-	.half	3                               # 0x3
-	.half	9                               # 0x9
-	.half	2                               # 0x2
-	.half	11                              # 0xb
-	.half	1                               # 0x1
-	.half	13                              # 0xd
-	.half	0                               # 0x0
-	.half	15                              # 0xf
-	.text
-	.globl	_ZN9NCompress8NDeflate8NEncoder6CCoder10WriteBlockEv
+	.globl	_ZN9NCompress8NDeflate8NEncoder6CCoder10WriteBlockEv # -- Begin function _ZN9NCompress8NDeflate8NEncoder6CCoder10WriteBlockEv
 	.p2align	5
 	.type	_ZN9NCompress8NDeflate8NEncoder6CCoder10WriteBlockEv,@function
 _ZN9NCompress8NDeflate8NEncoder6CCoder10WriteBlockEv: # @_ZN9NCompress8NDeflate8NEncoder6CCoder10WriteBlockEv
@@ -3353,171 +3331,169 @@ _ZN9NCompress8NDeflate8NEncoder6CCoder10WriteBlockEv: # @_ZN9NCompress8NDeflate8
 	st.d	$a2, $sp, 40                    # 8-byte Folded Spill
 	addi.d	$a2, $a0, 1505
 	addi.d	$a3, $fp, 1940
-	pcalau12i	$a4, %pc_hi20(.LCPI23_0)
-	vld	$vr0, $a4, %pc_lo12(.LCPI23_0)
-	vrepli.b	$vr2, 0
-	vrepli.w	$vr1, 16
+	vrepli.w	$vr0, 16
 	ori	$a4, $zero, 288
 	.p2align	4, , 16
 .LBB23_1:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr3, $a2, -16
-	vld	$vr4, $a2, 0
-	vpickev.h	$vr3, $vr3, $vr3
-	vpickev.h	$vr4, $vr4, $vr4
-	vpickve2gr.d	$a5, $vr3, 0
+	vld	$vr1, $a2, -16
+	vld	$vr2, $a2, 0
+	vpickev.h	$vr1, $vr1, $vr1
+	vpickev.h	$vr2, $vr2, $vr2
+	vpickve2gr.d	$a5, $vr1, 0
 	bitrev.d	$a5, $a5
-	vinsgr2vr.d	$vr3, $a5, 0
-	vpickve2gr.d	$a5, $vr4, 0
+	vinsgr2vr.d	$vr1, $a5, 0
+	vpickve2gr.d	$a5, $vr2, 0
 	add.d	$a6, $a3, $a1
 	ld.d	$a6, $a6, -4
 	bitrev.d	$a5, $a5
-	vinsgr2vr.d	$vr4, $a5, 0
+	vinsgr2vr.d	$vr2, $a5, 0
+	vshuf4i.h	$vr1, $vr1, 27
+	vinsgr2vr.d	$vr3, $a6, 0
 	ldx.w	$a5, $a3, $a1
-	vinsgr2vr.d	$vr5, $a6, 0
-	vori.b	$vr6, $vr0, 0
-	vshuf.h	$vr6, $vr2, $vr3
-	vori.b	$vr3, $vr0, 0
-	vshuf.h	$vr3, $vr2, $vr4
+	vshuf4i.h	$vr2, $vr2, 27
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	vinsgr2vr.w	$vr4, $a5, 0
-	vilvl.b	$vr5, $vr2, $vr5
-	vilvl.h	$vr5, $vr2, $vr5
-	vilvl.b	$vr4, $vr2, $vr4
-	vilvl.h	$vr4, $vr2, $vr4
-	vsub.w	$vr5, $vr1, $vr5
-	vsub.w	$vr4, $vr1, $vr4
-	vsrl.w	$vr5, $vr6, $vr5
-	vsrl.w	$vr3, $vr3, $vr4
-	vst	$vr5, $a2, -16
-	vst	$vr3, $a2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsub.w	$vr3, $vr0, $vr3
+	vsub.w	$vr4, $vr0, $vr4
+	vsrl.w	$vr1, $vr1, $vr3
+	vsrl.w	$vr2, $vr2, $vr4
+	vst	$vr1, $a2, -16
+	vst	$vr2, $a2, 0
 	addi.d	$a1, $a1, 8
 	addi.d	$a2, $a2, 32
 	bne	$a1, $a4, .LBB23_1
 # %bb.2:                                # %_ZN9NCompress8NDeflate8NEncoder19Huffman_ReverseBitsEPjPKhj.exit
 	lu12i.w	$a5, 1
 	ori	$a1, $a5, 592
-	vldx	$vr3, $fp, $a1
-	vpickev.h	$vr3, $vr3, $vr3
-	vpickve2gr.d	$a2, $vr3, 0
-	ldptr.d	$a3, $fp, 2224
-	bitrev.d	$a2, $a2
-	vinsgr2vr.d	$vr3, $a2, 0
-	vori.b	$vr4, $vr0, 0
-	vshuf.h	$vr4, $vr2, $vr3
-	vinsgr2vr.d	$vr3, $a3, 0
-	vilvl.b	$vr3, $vr2, $vr3
+	vldx	$vr1, $fp, $a1
+	vpickev.h	$vr1, $vr1, $vr1
 	ori	$a2, $a5, 608
-	vldx	$vr5, $fp, $a2
-	vilvl.h	$vr3, $vr2, $vr3
-	vsub.w	$vr3, $vr1, $vr3
-	vsrl.w	$vr3, $vr4, $vr3
-	vpickev.h	$vr4, $vr5, $vr5
-	vpickve2gr.d	$a3, $vr4, 0
+	vldx	$vr2, $fp, $a2
+	vpickve2gr.d	$a3, $vr1, 0
+	bitrev.d	$a3, $a3
+	vinsgr2vr.d	$vr1, $a3, 0
+	vpickev.h	$vr2, $vr2, $vr2
+	vpickve2gr.d	$a3, $vr2, 0
+	bitrev.d	$a3, $a3
 	ori	$a4, $zero, 2228
 	ldx.w	$a4, $fp, $a4
-	bitrev.d	$a3, $a3
-	vinsgr2vr.d	$vr4, $a3, 0
-	vori.b	$vr5, $vr0, 0
-	vshuf.h	$vr5, $vr2, $vr4
-	vinsgr2vr.w	$vr4, $a4, 0
-	vilvl.b	$vr4, $vr2, $vr4
-	vilvl.h	$vr4, $vr2, $vr4
-	ori	$a3, $a5, 624
-	vldx	$vr6, $fp, $a3
-	vsub.w	$vr4, $vr1, $vr4
-	vsrl.w	$vr4, $vr5, $vr4
-	vstx	$vr4, $fp, $a2
-	vpickev.h	$vr4, $vr6, $vr6
-	vpickve2gr.d	$a2, $vr4, 0
-	ldptr.d	$a4, $fp, 2232
-	bitrev.d	$a2, $a2
-	vinsgr2vr.d	$vr4, $a2, 0
-	vori.b	$vr5, $vr0, 0
-	vshuf.h	$vr5, $vr2, $vr4
-	vinsgr2vr.d	$vr4, $a4, 0
-	vilvl.b	$vr4, $vr2, $vr4
-	vilvl.h	$vr4, $vr2, $vr4
-	ori	$a2, $a5, 640
-	vldx	$vr6, $fp, $a2
-	vsub.w	$vr4, $vr1, $vr4
-	vsrl.w	$vr4, $vr5, $vr4
-	vstx	$vr4, $fp, $a3
-	vpickev.h	$vr4, $vr6, $vr6
-	vpickve2gr.d	$a3, $vr4, 0
-	ori	$a4, $zero, 2236
-	ldx.w	$a4, $fp, $a4
-	bitrev.d	$a3, $a3
-	vinsgr2vr.d	$vr4, $a3, 0
-	vori.b	$vr5, $vr0, 0
-	vshuf.h	$vr5, $vr2, $vr4
-	vinsgr2vr.w	$vr4, $a4, 0
-	vilvl.b	$vr4, $vr2, $vr4
-	vilvl.h	$vr4, $vr2, $vr4
-	ori	$a3, $a5, 656
-	vldx	$vr6, $fp, $a3
-	vsub.w	$vr4, $vr1, $vr4
-	vsrl.w	$vr4, $vr5, $vr4
-	vstx	$vr4, $fp, $a2
-	vpickev.h	$vr4, $vr6, $vr6
-	vpickve2gr.d	$a2, $vr4, 0
-	ldptr.d	$a4, $fp, 2240
-	bitrev.d	$a2, $a2
-	vinsgr2vr.d	$vr4, $a2, 0
-	vori.b	$vr5, $vr0, 0
-	vshuf.h	$vr5, $vr2, $vr4
-	vinsgr2vr.d	$vr4, $a4, 0
-	vilvl.b	$vr4, $vr2, $vr4
-	vilvl.h	$vr4, $vr2, $vr4
-	ori	$a2, $a5, 672
-	vldx	$vr6, $fp, $a2
-	vsub.w	$vr4, $vr1, $vr4
-	vsrl.w	$vr4, $vr5, $vr4
-	vstx	$vr4, $fp, $a3
-	vpickev.h	$vr4, $vr6, $vr6
-	vpickve2gr.d	$a3, $vr4, 0
-	ori	$a4, $zero, 2244
-	ldx.w	$a4, $fp, $a4
-	bitrev.d	$a3, $a3
-	vinsgr2vr.d	$vr4, $a3, 0
-	vori.b	$vr5, $vr0, 0
-	vshuf.h	$vr5, $vr2, $vr4
-	vinsgr2vr.w	$vr4, $a4, 0
-	vilvl.b	$vr4, $vr2, $vr4
-	vilvl.h	$vr4, $vr2, $vr4
-	ori	$a3, $a5, 688
-	vldx	$vr6, $fp, $a3
-	vsub.w	$vr4, $vr1, $vr4
-	vsrl.w	$vr4, $vr5, $vr4
-	vstx	$vr4, $fp, $a2
-	vpickev.h	$vr4, $vr6, $vr6
-	vpickve2gr.d	$a2, $vr4, 0
-	ldptr.d	$a4, $fp, 2248
-	bitrev.d	$a2, $a2
-	vinsgr2vr.d	$vr4, $a2, 0
-	vori.b	$vr5, $vr0, 0
-	vshuf.h	$vr5, $vr2, $vr4
-	vinsgr2vr.d	$vr4, $a4, 0
-	vilvl.b	$vr4, $vr2, $vr4
-	vilvl.h	$vr4, $vr2, $vr4
-	ori	$a2, $a5, 704
-	vldx	$vr6, $fp, $a2
-	vsub.w	$vr4, $vr1, $vr4
-	vsrl.w	$vr4, $vr5, $vr4
-	vstx	$vr4, $fp, $a3
-	vpickev.h	$vr4, $vr6, $vr6
-	vpickve2gr.d	$a3, $vr4, 0
-	bitrev.d	$a3, $a3
-	ori	$a4, $zero, 2252
-	ldx.w	$a4, $fp, $a4
-	vinsgr2vr.d	$vr4, $a3, 0
-	vstx	$vr3, $fp, $a1
-	vshuf.h	$vr0, $vr2, $vr4
+	vinsgr2vr.d	$vr2, $a3, 0
+	vshuf4i.h	$vr2, $vr2, 27
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	vinsgr2vr.w	$vr3, $a4, 0
-	vilvl.b	$vr3, $vr2, $vr3
-	vilvl.h	$vr2, $vr2, $vr3
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	ori	$a3, $a5, 624
+	vldx	$vr4, $fp, $a3
+	vsub.w	$vr3, $vr0, $vr3
+	vsrl.w	$vr2, $vr2, $vr3
+	vstx	$vr2, $fp, $a2
+	vpickev.h	$vr2, $vr4, $vr4
+	vpickve2gr.d	$a2, $vr2, 0
+	bitrev.d	$a2, $a2
+	ldptr.d	$a4, $fp, 2232
+	vinsgr2vr.d	$vr2, $a2, 0
+	vshuf4i.h	$vr2, $vr2, 27
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vinsgr2vr.d	$vr3, $a4, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	ori	$a2, $a5, 640
+	vldx	$vr4, $fp, $a2
+	vsub.w	$vr3, $vr0, $vr3
+	vsrl.w	$vr2, $vr2, $vr3
+	vstx	$vr2, $fp, $a3
+	vpickev.h	$vr2, $vr4, $vr4
+	vpickve2gr.d	$a3, $vr2, 0
+	bitrev.d	$a3, $a3
+	vinsgr2vr.d	$vr2, $a3, 0
+	ori	$a3, $zero, 2236
+	ldx.w	$a3, $fp, $a3
+	ldptr.d	$a4, $fp, 2224
+	vshuf4i.h	$vr2, $vr2, 27
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vinsgr2vr.w	$vr3, $a3, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsub.w	$vr3, $vr0, $vr3
+	ori	$a3, $a5, 656
+	vldx	$vr4, $fp, $a3
+	vsrl.w	$vr2, $vr2, $vr3
+	vinsgr2vr.d	$vr3, $a4, 0
+	vstx	$vr2, $fp, $a2
+	vpickev.h	$vr2, $vr4, $vr4
+	vpickve2gr.d	$a2, $vr2, 0
+	bitrev.d	$a2, $a2
+	ldptr.d	$a4, $fp, 2240
+	vinsgr2vr.d	$vr2, $a2, 0
+	vshuf4i.h	$vr2, $vr2, 27
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vinsgr2vr.d	$vr4, $a4, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsub.w	$vr4, $vr0, $vr4
+	vsrl.w	$vr2, $vr2, $vr4
+	ori	$a2, $a5, 672
+	vldx	$vr4, $fp, $a2
+	vshuf4i.h	$vr1, $vr1, 27
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vstx	$vr2, $fp, $a3
+	vpickev.h	$vr2, $vr4, $vr4
+	vpickve2gr.d	$a3, $vr2, 0
+	bitrev.d	$a3, $a3
+	vinsgr2vr.d	$vr2, $a3, 0
+	ori	$a3, $zero, 2244
+	ldx.w	$a3, $fp, $a3
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vshuf4i.h	$vr2, $vr2, 27
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vinsgr2vr.w	$vr4, $a3, 0
+	vsllwil.hu.bu	$vr4, $vr4, 0
+	vsllwil.wu.hu	$vr4, $vr4, 0
+	vsub.w	$vr4, $vr0, $vr4
+	vsrl.w	$vr2, $vr2, $vr4
+	ori	$a3, $a5, 688
+	vldx	$vr4, $fp, $a3
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsub.w	$vr3, $vr0, $vr3
+	vstx	$vr2, $fp, $a2
+	vpickev.h	$vr2, $vr4, $vr4
+	vpickve2gr.d	$a2, $vr2, 0
+	bitrev.d	$a2, $a2
+	vinsgr2vr.d	$vr2, $a2, 0
+	ldptr.d	$a2, $fp, 2248
+	vsrl.w	$vr1, $vr1, $vr3
+	vshuf4i.h	$vr2, $vr2, 27
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vinsgr2vr.d	$vr3, $a2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	ori	$a2, $a5, 704
+	vldx	$vr4, $fp, $a2
+	vsub.w	$vr3, $vr0, $vr3
+	vsrl.w	$vr2, $vr2, $vr3
+	vstx	$vr2, $fp, $a3
+	vpickev.h	$vr2, $vr4, $vr4
+	vpickve2gr.d	$a3, $vr2, 0
+	bitrev.d	$a3, $a3
+	vinsgr2vr.d	$vr2, $a3, 0
+	ori	$a3, $zero, 2252
+	ldx.w	$a3, $fp, $a3
+	vstx	$vr1, $fp, $a1
+	vshuf4i.h	$vr1, $vr2, 27
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vinsgr2vr.w	$vr2, $a3, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	ld.w	$a3, $fp, 1372
-	vsub.w	$vr1, $vr1, $vr2
-	vsrl.w	$vr0, $vr0, $vr1
+	vsub.w	$vr0, $vr0, $vr2
+	vsrl.w	$vr0, $vr1, $vr0
 	vstx	$vr0, $fp, $a2
 	addi.d	$s0, $fp, 1168
 	st.d	$s0, $sp, 48                    # 8-byte Folded Spill
@@ -5349,19 +5325,7 @@ _ZN9NCompress8NDeflate8NEncoder6CCoder13GetBlockPriceEii: # @_ZN9NCompress8NDefl
 	.size	_ZN9NCompress8NDeflate8NEncoder6CCoder13GetBlockPriceEii, .Lfunc_end27-_ZN9NCompress8NDeflate8NEncoder6CCoder13GetBlockPriceEii
 	.cfi_endproc
                                         # -- End function
-	.section	.rodata.cst16,"aM",@progbits,16
-	.p2align	4, 0x0                          # -- Begin function _ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib
-.LCPI28_0:
-	.half	3                               # 0x3
-	.half	9                               # 0x9
-	.half	2                               # 0x2
-	.half	11                              # 0xb
-	.half	1                               # 0x1
-	.half	13                              # 0xd
-	.half	0                               # 0x0
-	.half	15                              # 0xf
-	.text
-	.globl	_ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib
+	.globl	_ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib # -- Begin function _ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib
 	.p2align	5
 	.type	_ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib,@function
 _ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib: # @_ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib
@@ -5484,28 +5448,27 @@ _ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib: # @_ZN9NCompress8NDeflate8N
 	move	$a1, $zero
 	addi.d	$a0, $s5, 209
 	addi.d	$a2, $fp, 1940
-	vrepli.b	$vr0, 0
-	vrepli.w	$vr1, 9
-	vrepli.w	$vr2, 1
+	vrepli.w	$vr0, 9
+	vrepli.w	$vr1, 1
 	ori	$a3, $zero, 1152
 	.p2align	4, , 16
 .LBB28_6:                               # %vector.body
                                         # =>This Inner Loop Header: Depth=1
 	ld.d	$a4, $a2, -4
 	ld.w	$a5, $a2, 0
-	vinsgr2vr.d	$vr3, $a4, 0
-	vinsgr2vr.w	$vr4, $a5, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vilvl.b	$vr4, $vr0, $vr4
-	vilvl.h	$vr4, $vr0, $vr4
-	vsub.w	$vr3, $vr1, $vr3
-	vsub.w	$vr4, $vr1, $vr4
-	vsll.w	$vr3, $vr2, $vr3
-	vsll.w	$vr4, $vr2, $vr4
+	vinsgr2vr.d	$vr2, $a4, 0
+	vinsgr2vr.w	$vr3, $a5, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsub.w	$vr2, $vr0, $vr2
+	vsub.w	$vr3, $vr0, $vr3
+	vsll.w	$vr2, $vr1, $vr2
+	vsll.w	$vr3, $vr1, $vr3
 	add.d	$a4, $a0, $a1
-	vstx	$vr3, $a0, $a1
-	vst	$vr4, $a4, 16
+	vstx	$vr2, $a0, $a1
+	vst	$vr3, $a4, 16
 	addi.d	$a1, $a1, 32
 	addi.d	$a2, $a2, 8
 	bne	$a1, $a3, .LBB28_6
@@ -5513,70 +5476,70 @@ _ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib: # @_ZN9NCompress8NDeflate8N
 	ldptr.d	$a1, $fp, 2224
 	ori	$a2, $zero, 3408
 	add.d	$s2, $fp, $a2
-	vinsgr2vr.d	$vr3, $a1, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
+	vinsgr2vr.d	$vr2, $a1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	ori	$a1, $zero, 2228
 	ldx.w	$a1, $fp, $a1
-	vsub.w	$vr3, $vr1, $vr3
-	vsll.w	$vr3, $vr2, $vr3
-	vstx	$vr3, $fp, $a2
-	vinsgr2vr.w	$vr3, $a1, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vsub.w	$vr3, $vr1, $vr3
+	vsub.w	$vr2, $vr0, $vr2
+	vsll.w	$vr2, $vr1, $vr2
+	vstx	$vr2, $fp, $a2
+	vinsgr2vr.w	$vr2, $a1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr2, $vr0, $vr2
 	ldptr.d	$a1, $fp, 2232
-	vsll.w	$vr3, $vr2, $vr3
+	vsll.w	$vr2, $vr1, $vr2
 	ori	$a2, $zero, 3424
-	vstx	$vr3, $fp, $a2
-	vinsgr2vr.d	$vr3, $a1, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vsub.w	$vr3, $vr1, $vr3
+	vstx	$vr2, $fp, $a2
+	vinsgr2vr.d	$vr2, $a1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr2, $vr0, $vr2
 	ori	$a1, $zero, 2236
 	ldx.w	$a1, $fp, $a1
-	vsll.w	$vr3, $vr2, $vr3
+	vsll.w	$vr2, $vr1, $vr2
 	ori	$a2, $zero, 3440
-	vstx	$vr3, $fp, $a2
-	vinsgr2vr.w	$vr3, $a1, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vsub.w	$vr3, $vr1, $vr3
+	vstx	$vr2, $fp, $a2
+	vinsgr2vr.w	$vr2, $a1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr2, $vr0, $vr2
 	ldptr.d	$a1, $fp, 2240
-	vsll.w	$vr3, $vr2, $vr3
+	vsll.w	$vr2, $vr1, $vr2
 	ori	$a2, $zero, 3456
-	vstx	$vr3, $fp, $a2
-	vinsgr2vr.d	$vr3, $a1, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vsub.w	$vr3, $vr1, $vr3
+	vstx	$vr2, $fp, $a2
+	vinsgr2vr.d	$vr2, $a1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr2, $vr0, $vr2
 	ori	$a1, $zero, 2244
 	ldx.w	$a1, $fp, $a1
-	vsll.w	$vr3, $vr2, $vr3
+	vsll.w	$vr2, $vr1, $vr2
 	ori	$a2, $zero, 3472
-	vstx	$vr3, $fp, $a2
-	vinsgr2vr.w	$vr3, $a1, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vsub.w	$vr3, $vr1, $vr3
+	vstx	$vr2, $fp, $a2
+	vinsgr2vr.w	$vr2, $a1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr2, $vr0, $vr2
 	ldptr.d	$a1, $fp, 2248
-	vsll.w	$vr3, $vr2, $vr3
+	vsll.w	$vr2, $vr1, $vr2
 	ori	$a2, $zero, 3488
-	vstx	$vr3, $fp, $a2
-	vinsgr2vr.d	$vr3, $a1, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr3, $vr0, $vr3
-	vsub.w	$vr3, $vr1, $vr3
+	vstx	$vr2, $fp, $a2
+	vinsgr2vr.d	$vr2, $a1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr2, $vr0, $vr2
 	ori	$a1, $zero, 2252
 	ldx.w	$a1, $fp, $a1
-	vsll.w	$vr3, $vr2, $vr3
+	vsll.w	$vr2, $vr1, $vr2
 	ori	$a2, $zero, 3504
-	vstx	$vr3, $fp, $a2
-	vinsgr2vr.w	$vr3, $a1, 0
-	vilvl.b	$vr3, $vr0, $vr3
-	vilvl.h	$vr0, $vr0, $vr3
-	vsub.w	$vr0, $vr1, $vr0
-	vsll.w	$vr0, $vr2, $vr0
+	vstx	$vr2, $fp, $a2
+	vinsgr2vr.w	$vr2, $a1, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr0, $vr0, $vr2
+	vsll.w	$vr0, $vr1, $vr0
 	ori	$a1, $zero, 3520
 	vstx	$vr0, $fp, $a1
 	addi.d	$a1, $s5, 1489
@@ -5654,66 +5617,64 @@ _ZN9NCompress8NDeflate8NEncoder6CCoder9CodeBlockEib: # @_ZN9NCompress8NDeflate8N
 	ori	$a0, $s4, 796
 	vpickev.h	$vr0, $vr0, $vr0
 	vpickve2gr.d	$a2, $vr0, 0
-	pcalau12i	$a3, %pc_hi20(.LCPI28_0)
-	vld	$vr0, $a3, %pc_lo12(.LCPI28_0)
 	bitrev.d	$a2, $a2
 	ldx.w	$a3, $fp, $a0
-	vinsgr2vr.d	$vr2, $a2, 0
-	vrepli.b	$vr1, 0
-	vori.b	$vr3, $vr0, 0
-	vshuf.h	$vr3, $vr1, $vr2
-	vinsgr2vr.w	$vr2, $a3, 0
-	vilvl.b	$vr2, $vr1, $vr2
-	vilvl.h	$vr4, $vr1, $vr2
-	vrepli.w	$vr2, 16
+	vinsgr2vr.d	$vr0, $a2, 0
+	vshuf4i.h	$vr0, $vr0, 27
+	vsllwil.wu.hu	$vr1, $vr0, 0
+	vinsgr2vr.w	$vr0, $a3, 0
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr2, $vr0, 0
+	vrepli.w	$vr0, 16
 	ori	$a2, $s4, 736
-	vldx	$vr5, $fp, $a2
-	vsub.w	$vr4, $vr2, $vr4
-	vsrl.w	$vr3, $vr3, $vr4
-	vstx	$vr3, $fp, $a1
-	vpickev.h	$vr3, $vr5, $vr5
-	vpickve2gr.d	$a3, $vr3, 0
-	ldptr.d	$a4, $fp, 4896
+	vldx	$vr3, $fp, $a2
+	vsub.w	$vr2, $vr0, $vr2
+	vsrl.w	$vr1, $vr1, $vr2
+	vstx	$vr1, $fp, $a1
+	vpickev.h	$vr1, $vr3, $vr3
+	vpickve2gr.d	$a3, $vr1, 0
 	bitrev.d	$a3, $a3
-	vinsgr2vr.d	$vr3, $a3, 0
-	vori.b	$vr4, $vr0, 0
-	vshuf.h	$vr4, $vr1, $vr3
-	vinsgr2vr.d	$vr3, $a4, 0
-	vilvl.b	$vr3, $vr1, $vr3
-	vilvl.h	$vr3, $vr1, $vr3
+	ldptr.d	$a4, $fp, 4896
+	vinsgr2vr.d	$vr1, $a3, 0
+	vshuf4i.h	$vr1, $vr1, 27
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vinsgr2vr.d	$vr2, $a4, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
 	ori	$a3, $s4, 752
-	vldx	$vr5, $fp, $a3
-	vsub.w	$vr3, $vr2, $vr3
-	vsrl.w	$vr3, $vr4, $vr3
-	vstx	$vr3, $fp, $a2
-	vpickev.h	$vr3, $vr5, $vr5
-	vpickve2gr.d	$a2, $vr3, 0
+	vldx	$vr3, $fp, $a3
+	vsub.w	$vr2, $vr0, $vr2
+	vsrl.w	$vr1, $vr1, $vr2
+	vstx	$vr1, $fp, $a2
+	vpickev.h	$vr1, $vr3, $vr3
+	vpickve2gr.d	$a2, $vr1, 0
+	bitrev.d	$a2, $a2
 	ori	$a4, $s4, 804
 	ldx.w	$a4, $fp, $a4
-	bitrev.d	$a2, $a2
-	vinsgr2vr.d	$vr3, $a2, 0
-	vori.b	$vr4, $vr0, 0
-	vshuf.h	$vr4, $vr1, $vr3
-	vinsgr2vr.w	$vr3, $a4, 0
-	vilvl.b	$vr3, $vr1, $vr3
-	vilvl.h	$vr3, $vr1, $vr3
-	vsub.w	$vr3, $vr2, $vr3
+	vinsgr2vr.d	$vr1, $a2, 0
+	vshuf4i.h	$vr1, $vr1, 27
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vinsgr2vr.w	$vr2, $a4, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr2, $vr0, $vr2
 	ori	$a2, $s4, 768
-	vldx	$vr5, $fp, $a2
-	vsrl.w	$vr3, $vr4, $vr3
+	vldx	$vr3, $fp, $a2
+	vsrl.w	$vr1, $vr1, $vr2
 	add.d	$s0, $fp, $a1
-	vstx	$vr3, $fp, $a3
-	vpickev.h	$vr3, $vr5, $vr5
-	vpickve2gr.d	$a1, $vr3, 0
-	ldptr.d	$a3, $fp, 4904
+	vstx	$vr1, $fp, $a3
+	vpickev.h	$vr1, $vr3, $vr3
+	vpickve2gr.d	$a1, $vr1, 0
 	bitrev.d	$a1, $a1
-	vinsgr2vr.d	$vr3, $a1, 0
-	vshuf.h	$vr0, $vr1, $vr3
-	vinsgr2vr.d	$vr3, $a3, 0
-	vilvl.b	$vr3, $vr1, $vr3
-	vilvl.h	$vr1, $vr1, $vr3
-	vsub.w	$vr1, $vr2, $vr1
-	vsrl.w	$vr0, $vr0, $vr1
+	ldptr.d	$a3, $fp, 4904
+	vinsgr2vr.d	$vr1, $a1, 0
+	vshuf4i.h	$vr1, $vr1, 27
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vinsgr2vr.d	$vr2, $a3, 0
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vsub.w	$vr0, $vr0, $vr2
+	vsrl.w	$vr0, $vr1, $vr0
 	ori	$a1, $s4, 784
 	ldx.h	$a1, $fp, $a1
 	vstx	$vr0, $fp, $a2

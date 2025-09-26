@@ -7,25 +7,29 @@ bar:                                    # @bar
 # %bb.0:
 	move	$a4, $zero
 	ori	$a5, $zero, 16
-	vrepli.b	$vr0, 0
 	.p2align	4, , 16
 .LBB0_1:                                # %.preheader.i
                                         # =>This Inner Loop Header: Depth=1
-	vld	$vr1, $a0, 0
-	vld	$vr2, $a1, 0
-	vabsd.bu	$vr1, $vr1, $vr2
-	vilvh.b	$vr2, $vr0, $vr1
-	vilvl.h	$vr3, $vr0, $vr2
-	vilvl.b	$vr1, $vr0, $vr1
-	vilvl.h	$vr4, $vr0, $vr1
-	vilvh.h	$vr2, $vr0, $vr2
-	vilvh.h	$vr1, $vr0, $vr1
+	vld	$vr0, $a0, 0
+	vld	$vr1, $a1, 0
+	vabsd.bu	$vr0, $vr0, $vr1
+	vsllwil.hu.bu	$vr1, $vr0, 0
+	vsllwil.wu.hu	$vr1, $vr1, 0
+	vbsrl.v	$vr2, $vr0, 8
+	vsllwil.hu.bu	$vr2, $vr2, 0
+	vsllwil.wu.hu	$vr2, $vr2, 0
+	vbsrl.v	$vr3, $vr0, 12
+	vsllwil.hu.bu	$vr3, $vr3, 0
+	vsllwil.wu.hu	$vr3, $vr3, 0
+	vsrli.d	$vr0, $vr0, 32
+	vsllwil.hu.bu	$vr0, $vr0, 0
+	vsllwil.wu.hu	$vr0, $vr0, 0
+	vadd.w	$vr0, $vr0, $vr3
 	vadd.w	$vr1, $vr1, $vr2
-	vadd.w	$vr2, $vr4, $vr3
-	vadd.w	$vr1, $vr2, $vr1
-	vhaddw.d.w	$vr1, $vr1, $vr1
-	vhaddw.q.d	$vr1, $vr1, $vr1
-	vpickve2gr.d	$a6, $vr1, 0
+	vadd.w	$vr0, $vr1, $vr0
+	vhaddw.d.w	$vr0, $vr0, $vr0
+	vhaddw.q.d	$vr0, $vr0, $vr0
+	vpickve2gr.d	$a6, $vr0, 0
 	add.d	$a4, $a6, $a4
 	addi.d	$a0, $a0, 16
 	addi.w	$a5, $a5, -1

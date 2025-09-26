@@ -126,15 +126,11 @@ cli_parse_add:                          # @cli_parse_add
 	vseq.b	$vr4, $vr4, $vr2
 	vseq.b	$vr5, $vr5, $vr2
 	vor.v	$vr4, $vr6, $vr4
-	vilvl.b	$vr4, $vr4, $vr4
-	vilvl.h	$vr4, $vr4, $vr4
-	vslli.w	$vr4, $vr4, 24
-	vsrai.w	$vr4, $vr4, 24
+	vsllwil.h.b	$vr4, $vr4, 0
+	vsllwil.w.h	$vr4, $vr4, 0
 	vor.v	$vr5, $vr7, $vr5
-	vilvl.b	$vr5, $vr5, $vr5
-	vilvl.h	$vr5, $vr5, $vr5
-	vslli.w	$vr5, $vr5, 24
-	vsrai.w	$vr5, $vr5, 24
+	vsllwil.h.b	$vr5, $vr5, 0
+	vsllwil.w.h	$vr5, $vr5, 0
 	vsub.w	$vr0, $vr0, $vr4
 	vsub.w	$vr3, $vr3, $vr5
 	addi.d	$a3, $a3, -8
